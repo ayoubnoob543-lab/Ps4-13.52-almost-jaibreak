@@ -45,7 +45,7 @@ public class SuidScanner {
             "/system/sys", "/system/vsh", "/system_ex", "/system_ex/app",
             "/mini-syscore", "/mini-syscore/bin", "/sandboxDir",
             "/app0", "/data", "/mnt/usb0", "/mnt/usb1"};
-        Status.println("=== SUID Scanner PS4 13.04 ===");
+        Status.println("=== SUID Scanner PS4 13.52 ===");
         for (int i = 0; i < dirs.length; i++) {
             scanDir(dirs[i], 0);
         }
@@ -123,7 +123,7 @@ public class SuidScanner {
             api.strcpy(p, usbs[i]);
             long fd = api.call(openAddr, p, O_WRONLY | O_CREAT | O_TRUNC, 0x1A4);
             if (fd >= 0) {
-                String data = "PS4 13.04 SUID Scan\nFound: " + suidCount + "\n\n" + results.toString();
+                String data = "PS4 13.52 SUID Scan\nFound: " + suidCount + "\n\n" + results.toString();
                 long buf = api.malloc(data.length() + 1);
                 if (buf != 0) {
                     api.strcpy(buf, data);
