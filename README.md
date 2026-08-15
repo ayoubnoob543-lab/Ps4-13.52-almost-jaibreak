@@ -50,10 +50,12 @@ Full offsets in `1304.c` — based on 13.02 (identical kernel) verified by Phara
 ```
 PRISON0    = 0x111FA18
 ROOTVNODE  = 0x2136E90
-SYSENT     = 0x110A760
+SYSENT     = 0x1102B70
 unknown1   = 0x4D6D0
 unknown2   = 0xE6C60
 ```
+
+The 13.52 offsets are cross-checked against public 13.52 tables, but remain unverified on real hardware. The repository does not contain a public 13.52 kernel-entry/loader chain: `scanner_1304.iso` is a 13.04 BD-J artifact and must not be presented as a 13.52 entry.
 
 ## CVE Analysis
 
