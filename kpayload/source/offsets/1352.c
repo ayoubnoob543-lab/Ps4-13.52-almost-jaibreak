@@ -4,6 +4,9 @@
 
 // clang-format off
 
+// UNVERIFIED for real PS4 13.52 hardware: this table is not independently validated.
+// Publicly reported partial values exist for PRISON0 and ROOTVNODE; all fields here,
+// including SYSENT, remain unverified for this build unless independently confirmed.
 const struct kpayload_offsets offsets_1352 PAYLOAD_RDATA = {
   // data
   .XFAST_SYSCALL_addr              = 0x000001C0,
@@ -19,7 +22,8 @@ const struct kpayload_offsets offsets_1352 PAYLOAD_RDATA = {
   .SBL_KEYMGR_BUF_VA_addr          = 0x0266C000,
   .SBL_KEYMGR_BUF_GVA_addr         = 0x0266C808,
   .FPU_CTX_addr                    = 0x026542C0,
-  .SYSENT_addr                     = 0x01102B70,
+  .SYSENT_addr                     = 0x0110A760, // UNVERIFIED; supplied by local ZIP
+
 
   // common
   .memcmp_addr                     = 0x00394AD0,
