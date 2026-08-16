@@ -1,3 +1,4 @@
+PS4SDK  ?= $(abspath $(CURDIR)/../third_party/ps4-payload-sdk)
 LIBPS4  := $(PS4SDK)/libPS4
 
 CC	:= gcc
@@ -38,7 +39,10 @@ LIBS	:= -lPS4
 all: $(TARGET)
 
 # Main build target
-$(TARGET): $(ODIR) $(OBJS)
+$(LIBPS4)/libPS4.a:
+	@$(MAKE) -C $(LIBPS4)
+
+$(TARGET): $(LIBPS4)/libPS4.a $(ODIR) $(OBJS)
 	@echo "Linking $(TARGET)..."
 	@$(CC) $(LIBPS4)/crt0.s $(ODIR)/*.o -o temp.t $(CFLAGS) $(LFLAGS) $(LIBS)
 	@$(OBJCOPY) -O binary temp.t $(TARGET)
