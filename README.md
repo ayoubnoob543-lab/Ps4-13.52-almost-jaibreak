@@ -55,6 +55,12 @@ python3 tools/analyze_xref_versions.py ./libkernel_sys_13.52.bin --out-dir ./ana
 
 El analizador de XREFs escanea el desensamblado completo y busca referencias RIP-relative cuyos destinos son explícitos en los comentarios de `objdump`. Las referencias indirectas, tablas sin relocaciones y símbolos externos se clasifican como `UNKNOWN`; no se convierten en nombres por coincidencia de prólogo.
 
+## Estado reproducible de build
+
+El submódulo `third_party/ps4-payload-sdk` está fijado e inicializado en `46efae910f3705e0171edea5b94e572d01bc00e8` (`Add 13.52 support`). Con GCC 13.3, GNU Make, `xxd`, `objcopy` y las herramientas presentes en Ubuntu, `make -C kpayload` y `make -C installer` terminaron correctamente en el entorno host. Esto demuestra compilabilidad host de las fuentes y no demuestra ABI, ejecución o compatibilidad funcional en una PS4.
+
+Los artefactos de build son regenerables y están excluidos por `.gitignore`. No se ejecutaron payloads, HEN, ISO ni código destinado a modificar una consola. El workflow de CI fija las acciones principales y el SDK al commit exacto del submódulo, pero aún requiere una ejecución real en GitHub para validar el runner.
+
 ## Resultados estáticos principales
 
 | Offset | Atribución de la fuente | Resultado estático actual |

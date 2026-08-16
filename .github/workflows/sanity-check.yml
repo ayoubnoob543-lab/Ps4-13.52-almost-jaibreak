@@ -23,17 +23,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Build with PS4 Payload SDK
-        uses: Scene-Collective/ps4-payload-sdk@main
+        uses: Scene-Collective/ps4-payload-sdk@46efae910f3705e0171edea5b94e572d01bc00e8
         with:
           app_path: .
           build_command: bash build.sh
       - name: Upload payload artifact
         if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ env.hen-bin }}
           path: ${{ env.hen-bin }}

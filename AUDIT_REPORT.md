@@ -198,3 +198,43 @@ Los scripts son herramientas de análisis de datos binarios; no ejecutan instruc
 [1]: https://github.com/Suchi96/PS4_13_52_libkerneldump "Repositorio original auditado"
 [2]: https://github.com/Suchi96/mast1c0re-13_52-test "Repositorio público relacionado de mast1c0re 13.52"
 [3]: https://cturt.github.io/mast1c0re.html "Contexto histórico de mast1c0re y el emulador PS2"
+
+
+## 22. Verificación del submódulo y del entorno de build
+
+El submódulo `third_party/ps4-payload-sdk` fue inicializado correctamente en `46efae910f3705e0171edea5b94e572d01bc00e8`, cuyo mensaje es `Add 13.52 support`. La disponibilidad local del commit y la estructura `libPS4/` fueron comprobadas. El submódulo no se trata como prueba de jailbreak ni como validación de hardware.
+
+La toolchain host disponible después de preparar el entorno incluye GCC 13.3, GNU Make, `objcopy`, `xxd`, Python 3 y `objdump`. La auditoría estática existente `tools/run_static_audit.sh` terminó con código 0. `analysis/verify_offsets.json` registra coincidencia del SHA-256 esperado y coincidencia byte a byte de la concatenación. El análisis no ejecuta instrucciones del dump.
+
+## 23. Resultado del build seguro
+
+Se ejecutaron únicamente compilaciones host, sin ejecutar payloads, HEN, ISO ni código sobre hardware. `make -C kpayload` y `make -C installer` terminaron correctamente. Los artefactos generados fueron:
+
+| Artefacto | Tamaño | SHA-256 | Interpretación |
+|---|---:|---|---|
+| `kpayload/kpayload.bin` | 31968 bytes | `4812302d309449aa051bd86c19d83eab491fc6920c9bcbe28f75e282db93b6fa` | compilación host completada; compatibilidad PS4 no demostrada |
+| `installer/installer.bin` | 499680 bytes | `32570b6e54c9531dc8a7d75ef4da6557d440bf69c4b765a85a77d428db3a4b73` | compilación host completada |
+| `hen.bin` | 499680 bytes | `32570b6e54c9531dc8a7d75ef4da6557d440bf69c4b765a85a77d428db3a4b73` | copia del installer; no prueba ejecución |
+| `third_party/ps4-payload-sdk/libPS4/libPS4.a` | 219522 bytes | `ada0a46a471d8519ecaf9ab4078d2f4d5017f1b24b3d074426f523311d047268` | SDK estático compilado en host |
+
+Los outputs de build están excluidos por `.gitignore` y no se incorporan automáticamente al historial. La compilación sólo demuestra que las fuentes y dependencias presentes producen artefactos en Ubuntu x86-64 con la toolchain instalada. No demuestra ABI correcta para PS4, ejecución en Orbis, eficacia de offsets ni existencia de un jailbreak.
+
+## 24. Reproducibilidad de CI
+
+El workflow se ajustó para evitar dependencias flotantes: `actions/checkout` y `actions/upload-artifact` usan `v4`, y la acción del SDK se fija al mismo commit `46efae9...` del submódulo. Esto mejora la reproducibilidad de selección de dependencias, pero el workflow todavía debe ejecutarse en GitHub para comprobar el comportamiento real del runner y de la acción. Esa ejecución no se simuló localmente.
+
+## 25. Tabla de completitud
+
+| Área | Progreso | Estado respaldado |
+|---|---:|---|
+| Integridad y XREFs de libkernel | 95% | auditoría reproducible; falta eboot/manifest |
+| SDK | 90% | submódulo inicializado y `libPS4.a` compilado |
+| `kpayload` | 80% | build host correcto; target PS4 no validado |
+| `installer` | 80% | build host correcto; ejecución/ABI no validada |
+| Offsets 13.52 | 55% | presentes y públicamente cruzados en parte; sin hardware |
+| WebKit/entry path | 25% | artefactos de 13.04/13.50, no cadena 13.52 |
+| Scanner BD-J | 35% | histórico 13.04 |
+| CI | 70% | dependencias principales fijadas; ejecución pendiente |
+| Proyecto global | 65% | corpus y build host reproducibles; target/versión exacta pendientes |
+
+Los porcentajes miden completitud reproducible del componente, no seguridad, probabilidad de explotación ni confirmación de jailbreak.
