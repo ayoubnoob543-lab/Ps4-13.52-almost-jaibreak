@@ -31,6 +31,52 @@ jobs:
         with:
           app_path: .
           build_command: bash build.sh
+      - name: Verify libkernel dump reproducibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f libkernel_sys_13.52.bin
+          test -f lk_dump1.bin
+          test -f lk_dump2.bin
+          test -f lk_dump3.bin
+          cat lk_dump1.bin lk_dump2.bin lk_dump3.bin > /tmp/libkernel_sys_13.52.reconstructed.bin
+          cmp --silent /tmp/libkernel_sys_13.52.reconstructed.bin libkernel_sys_13.52.bin
+          sha256sum libkernel_sys_13.52.bin lk_dump1.bin lk_dump2.bin lk_dump3.bin | tee analysis/ci_dump_hashes.txt
+          sha256sum /tmp/libkernel_sys_13.52.reconstructed.bin | tee analysis/ci_reconstructed_hash.txt
+          cmp --silent /tmp/libkernel_sys_13.52.reconstructed.bin libkernel_sys_13.52.bin
+          echo "reconstruction_match=true" | tee analysis/ci_reconstruction_status.txt
+          rm -f /tmp/libkernel_sys_13.52.reconstructed.bin
+      - name: Run static libkernel audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash tools/run_static_audit.sh 2>&1 | tee analysis/ci_static_audit.log
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          result = json.loads(Path("analysis/verify_offsets.json").read_text())
+          assert result["combined"]["sha256_match"] is True
+          assert result["concatenation"]["matches_combined"] is True
+          assert result["static_only"] is True
+          assert Path("analysis/xref_version_analysis_13.52.json").stat().st_size > 0
+          assert Path("analysis/xref_version_analysis_13.52.txt").stat().st_size > 0
+          print("static_audit_assertions=true")
+          PY
+      - name: Upload static audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-audit-${{ github.run_id }}
+          if-no-files-found: error
+          path: |
+            analysis/verify_offsets.json
+            analysis/xref_version_analysis_13.52.txt
+            analysis/xref_version_analysis_13.52.json
+            analysis/hash_inventory.txt
+            analysis/concatenation_sha256.txt
+            analysis/ci_dump_hashes.txt
+            analysis/ci_reconstructed_hash.txt
+            analysis/ci_reconstruction_status.txt
+            analysis/ci_static_audit.log
       - name: Upload payload artifact
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
