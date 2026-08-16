@@ -1,0 +1,18 @@
+// PS4 Kernel Offsets - Firmware 13.52 (PARTIAL)
+// Sources: Scene-Collective/ps4-hen; SLOPOS-offsets (ArabPixel attribution)
+// Status: Incomplete — public cross-checks exist, but hardware validation is pending
+
+// Known offsets:
+// PRISON0    = 0x111FA18  (same as 13.00-13.04)
+// ROOTVNODE  = 0x2136E90  (same as 13.00-13.04)
+// SYSENT     = 0x1102B70  (cross-checked by Scene-Collective and SLOPOS for 13.52)
+// unknown1   = 0x4D6D0
+// unknown2   = 0xE6C60
+
+// PPPwn format:
+// "13.52": (0x111fa18, 0x2136e90, 0x1102b70, 0x4D6D0, 0xE6C60)
+
+// Note: the earlier local ZIP value 0x110A760 is not explicitly labeled 13.52
+// by the independent sources; it is used by remote_lua_loader for 11.50-12.02.
+// Keep runtime validation pending until tested on real 13.52 hardware.
+// PRISON0 and ROOTVNODE remain stable across all 13.x firmwares

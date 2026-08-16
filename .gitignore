@@ -7,11 +7,41 @@ __pycache__/
 
 # Local editor and OS files
 .DS_Store
-.vscode/
 .idea/
+/.vscode/*
+!/.vscode/tasks.json
+!/.vscode/c_cpp_properties.json
+
+# Generated build artifacts from the firmware-lab tree
+/installer/build/
+/installer/temp.t
+/installer/source/*.inc.c
+/installer/*.bin
+/installer/*.map
+/kpayload/build/
+/kpayload/temp.t
+/kpayload/temp.u
+/kpayload/*.bin
+/kpayload/*.map
+**/*.bak
+/tmp/
+/*.bin
 
 # Do not add credentials or private capture metadata
 *.pem
 *.key
 .env
 .env.*
+
+# Local research/comparison files
+/local_clean.c
+/local_names.txt
+/local_pairs.txt
+/local_values.txt
+/orig_names.txt
+/orig_pairs.txt
+/orig_values.txt
+/original_clean.c
+/original_names.txt
+/original_pairs.txt
+/original_values.txt
