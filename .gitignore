@@ -1,5 +1,6 @@
 # Temporary local disassembly cache
 analysis/.work/
+/analysis/ci_environment.txt
 
 # Python cache
 __pycache__/

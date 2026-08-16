@@ -199,3 +199,27 @@ La línea histórica reconoce a ps3120, Gezine, Scene-Collective, Pharaoh2k, bol
 ## Licencia y seguridad
 
 Esta investigación es para fines educativos y de seguridad autorizada. No se debe ejecutar ningún payload, modificar hardware ni probar una cadena de explotación sin autorización explícita. El proyecto no es un jailbreak y no afirma que exista uno confirmado.
+
+
+## Reproducibility & Quickstart
+
+Clone a clean working copy and initialize the exact SDK submodule before running any build or audit:
+
+```bash
+git clone https://github.com/ayoubnoob543-lab/firmware-lab.git
+cd firmware-lab
+git submodule update --init --recursive
+git -C third_party/ps4-payload-sdk rev-parse HEAD
+bash tools/check_env.sh
+bash tools/run_static_audit.sh
+make -C kpayload
+make -C installer
+```
+
+The expected SDK commit is `46efae910f3705e0171edea5b94e572d01bc00e8`. The host checks require Bash, Git, Python 3, Node.js, GNU Make, GCC, GNU `objdump`/binutils, `xxd`, `curl`, `unzip` and `sha256sum`. `tools/check_env.sh --ci` records detected versions in `analysis/ci_environment.txt` and fails if required commands, the pinned submodule or checked-in dump artifacts are unavailable.
+
+`tools/run_static_audit.sh` verifies the combined libkernel dump, exact chunk concatenation, recorded SHA-256 and static XREF/version reports. It reads bytes and disassembles raw data; it does not execute payloads, HEN, ISO, recovered code or hardware-dependent operations. `make -C kpayload` and `make -C installer` are host compilation checks only and do not prove Orbis ABI compatibility or console functionality.
+
+The repository records hashes and provenance for artifacts that are checked in or used by the documented build. External firmware, proprietary dumps, eboot/kernel images, downloaded plugin archives and console payloads may not be redistributable. When an artifact is absent, use `ARTIFACTS.md` and the relevant report to obtain it from a legitimate source if permitted; never replace it with a guessed value or another firmware. HEN table inclusion is evidence about the payload and selector, not validation against retail kernel bytes.
+
+For the exact evidence boundary and missing kernel/WebKit/GOT artifacts, see [`ARTIFACTS.md`](ARTIFACTS.md), [`docs/REPRO_LIMITATIONS.md`](docs/REPRO_LIMITATIONS.md), [`docs/webkit-libkernel-repro.md`](docs/webkit-libkernel-repro.md) and [`analysis/offset_evidence_map.md`](analysis/offset_evidence_map.md).

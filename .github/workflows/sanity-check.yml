@@ -26,6 +26,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          submodules: recursive
+      - name: Check reproducible host environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash tools/check_env.sh --ci
       - name: Build with PS4 Payload SDK
         uses: Scene-Collective/ps4-payload-sdk@46efae910f3705e0171edea5b94e572d01bc00e8
         with:
@@ -85,6 +91,7 @@ jobs:
             analysis/ci_reconstructed_hash.txt
             analysis/ci_reconstruction_status.txt
             analysis/ci_static_audit.log
+            analysis/ci_environment.txt
       - name: Upload payload artifact
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
