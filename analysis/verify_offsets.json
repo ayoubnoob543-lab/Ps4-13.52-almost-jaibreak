@@ -1,0 +1,128 @@
+{
+  "combined": {
+    "file": "libkernel_sys_13.52.bin",
+    "size": 479232,
+    "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "expected_sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "sha256_match": true
+  },
+  "concatenation": {
+    "size": 479232,
+    "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "matches_combined": true
+  },
+  "chunks": [
+    {
+      "file": "lk_dump1.bin",
+      "base": "0x0",
+      "size": 159744,
+      "sha256": "d4a9a642f85446785469750532d9353c9010ebec4373b8e9c4c06d594536da57"
+    },
+    {
+      "file": "lk_dump2.bin",
+      "base": "0x27000",
+      "size": 159744,
+      "sha256": "e044d0e5303596df94f86190d34bee6dda8e87f9a51578d067e8d1650ca15e8d"
+    },
+    {
+      "file": "lk_dump3.bin",
+      "base": "0x4e000",
+      "size": 159744,
+      "sha256": "e31dd16ddc488851c98bc1782cfe919ece1cab2c141bd0ef7c8a9ef82fb9fdf2"
+    }
+  ],
+  "offsets": {
+    "usleep_anchor": {
+      "offset": "0x13b20",
+      "bytes": "554889e541565348",
+      "prologue_like": true
+    },
+    "open": {
+      "offset": "0x148d0",
+      "bytes": "554889e531c0e8b5",
+      "prologue_like": true
+    },
+    "close": {
+      "offset": "0x14900",
+      "bytes": "554889e5e80780ff",
+      "prologue_like": true
+    },
+    "read": {
+      "offset": "0x14870",
+      "bytes": "554889e5e86787ff",
+      "prologue_like": true
+    },
+    "write": {
+      "offset": "0x148a0",
+      "bytes": "554889e5e8a78cff",
+      "prologue_like": true
+    },
+    "notify": {
+      "offset": "0x19320",
+      "bytes": "554889e541574156",
+      "prologue_like": true
+    },
+    "socket": {
+      "offset": "0x45f0",
+      "bytes": "554889e541574156",
+      "prologue_like": true
+    },
+    "connect": {
+      "offset": "0xc990",
+      "bytes": "554889e541574156",
+      "prologue_like": true
+    },
+    "connect_alt": {
+      "offset": "0xc970",
+      "bytes": "554889e54889fabf",
+      "prologue_like": true
+    },
+    "stat": {
+      "offset": "0x15310",
+      "bytes": "554889e5e8379afe",
+      "prologue_like": true
+    },
+    "pread": {
+      "offset": "0x15460",
+      "bytes": "554889e5e887c0ff",
+      "prologue_like": true
+    },
+    "pwrite": {
+      "offset": "0x15490",
+      "bytes": "554889e5e867c0ff",
+      "prologue_like": true
+    },
+    "lseek": {
+      "offset": "0x154f0",
+      "bytes": "554889e5e8d7bfff",
+      "prologue_like": true
+    },
+    "unlink": {
+      "offset": "0x14930",
+      "bytes": "554889e5e897a1fe",
+      "prologue_like": true
+    },
+    "jitshm_create_stub": {
+      "offset": "0x510",
+      "bytes": "48c7c01502000049",
+      "prologue_like": false
+    },
+    "jitshm_alias_stub": {
+      "offset": "0x530",
+      "bytes": "48c7c01602000049",
+      "prologue_like": false
+    },
+    "dispatch_candidate": {
+      "offset": "0x114e0",
+      "bytes": "e9eb03ffff909090",
+      "prologue_like": false
+    },
+    "error_helper": {
+      "offset": "0x1bb0",
+      "bytes": "554889e5488b0515",
+      "prologue_like": true
+    }
+  },
+  "static_only": true,
+  "note": "A prologue match is only a structural sanity check; it does not prove a symbol identity or firmware version."
+}

@@ -1,0 +1,77 @@
+
+./libkernel_sys_13.52.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000001640 <.data+0x1640>:
+    1640:	8d 0d fa d2 ff ff    	lea    ecx,[rip+0xffffffffffffd2fa]        # 0xffffffffffffe940
+    1646:	ff e1                	jmp    rcx
+    1648:	90                   	nop
+    1649:	90                   	nop
+    164a:	90                   	nop
+    164b:	90                   	nop
+    164c:	90                   	nop
+    164d:	90                   	nop
+    164e:	90                   	nop
+    164f:	90                   	nop
+    1650:	48 c7 c0 41 00 00 00 	mov    rax,0x41
+    1657:	49 89 ca             	mov    r10,rcx
+    165a:	0f 05                	syscall
+    165c:	72 01                	jb     0x165f
+    165e:	c3                   	ret
+    165f:	48 8d 0d da d2 ff ff 	lea    rcx,[rip+0xffffffffffffd2da]        # 0xffffffffffffe940
+    1666:	ff e1                	jmp    rcx
+    1668:	90                   	nop
+    1669:	90                   	nop
+    166a:	90                   	nop
+    166b:	90                   	nop
+    166c:	90                   	nop
+    166d:	90                   	nop
+    166e:	90                   	nop
+    166f:	90                   	nop
+    1670:	48 c7 c0 f0 00 00 00 	mov    rax,0xf0
+    1677:	49 89 ca             	mov    r10,rcx
+    167a:	0f 05                	syscall
+    167c:	72 01                	jb     0x167f
+    167e:	c3                   	ret
+    167f:	48 8d 0d ba d2 ff ff 	lea    rcx,[rip+0xffffffffffffd2ba]        # 0xffffffffffffe940
+    1686:	ff e1                	jmp    rcx
+    1688:	90                   	nop
+    1689:	90                   	nop
+    168a:	90                   	nop
+    168b:	90                   	nop
+    168c:	90                   	nop
+    168d:	90                   	nop
+    168e:	90                   	nop
+    168f:	90                   	nop
+    1690:	48 c7 c0 05 00 00 00 	mov    rax,0x5
+    1697:	49 89 ca             	mov    r10,rcx
+    169a:	0f 05                	syscall
+    169c:	72 01                	jb     0x169f
+    169e:	c3                   	ret
+    169f:	48 8d 0d 9a d2 ff ff 	lea    rcx,[rip+0xffffffffffffd29a]        # 0xffffffffffffe940
+    16a6:	ff e1                	jmp    rcx
+    16a8:	90                   	nop
+    16a9:	90                   	nop
+    16aa:	90                   	nop
+    16ab:	90                   	nop
+    16ac:	90                   	nop
+    16ad:	90                   	nop
+    16ae:	90                   	nop
+    16af:	90                   	nop
+    16b0:	48 c7 c0 f3 01 00 00 	mov    rax,0x1f3
+    16b7:	49 89 ca             	mov    r10,rcx
+    16ba:	0f 05                	syscall
+    16bc:	72 01                	jb     0x16bf
+    16be:	c3                   	ret
+    16bf:	48 8d 0d 7a d2 ff ff 	lea    rcx,[rip+0xffffffffffffd27a]        # 0xffffffffffffe940
+    16c6:	ff e1                	jmp    rcx
+    16c8:	90                   	nop
+    16c9:	90                   	nop
+    16ca:	90                   	nop
+    16cb:	90                   	nop
+    16cc:	90                   	nop
+    16cd:	90                   	nop
+    16ce:	90                   	nop
+    16cf:	90                   	nop

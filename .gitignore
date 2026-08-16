@@ -1,0 +1,17 @@
+# Temporary local disassembly cache
+analysis/.work/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local editor and OS files
+.DS_Store
+.vscode/
+.idea/
+
+# Do not add credentials or private capture metadata
+*.pem
+*.key
+.env
+.env.*

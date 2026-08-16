@@ -1,0 +1,76 @@
+
+./libkernel_sys_13.52.bin:     file format binary
+
+
+Disassembly of section .data:
+
+000000000000cc20 <.data+0xcc20>:
+    cc20:	e8 5b 6d ff ff       	call   0x3980
+    cc25:	44 89 f0             	mov    eax,r14d
+    cc28:	5b                   	pop    rbx
+    cc29:	41 5c                	pop    r12
+    cc2b:	41 5e                	pop    r14
+    cc2d:	41 5f                	pop    r15
+    cc2f:	5d                   	pop    rbp
+    cc30:	c3                   	ret
+    cc31:	90                   	nop
+    cc32:	90                   	nop
+    cc33:	90                   	nop
+    cc34:	90                   	nop
+    cc35:	90                   	nop
+    cc36:	90                   	nop
+    cc37:	90                   	nop
+    cc38:	90                   	nop
+    cc39:	90                   	nop
+    cc3a:	90                   	nop
+    cc3b:	90                   	nop
+    cc3c:	90                   	nop
+    cc3d:	90                   	nop
+    cc3e:	90                   	nop
+    cc3f:	90                   	nop
+    cc40:	55                   	push   rbp
+    cc41:	48 89 e5             	mov    rbp,rsp
+    cc44:	41 57                	push   r15
+    cc46:	41 56                	push   r14
+    cc48:	53                   	push   rbx
+    cc49:	50                   	push   rax
+    cc4a:	49 89 ff             	mov    r15,rdi
+    cc4d:	64 48 8b 1c 25 10 00 	mov    rbx,QWORD PTR fs:0x10
+    cc54:	00 00
+    cc56:	48 89 df             	mov    rdi,rbx
+    cc59:	49 89 f6             	mov    r14,rsi
+    cc5c:	e8 6f 6c ff ff       	call   0x38d0
+    cc61:	4c 89 ff             	mov    rdi,r15
+    cc64:	4c 89 f6             	mov    rsi,r14
+    cc67:	e8 04 4a ff ff       	call   0x1670
+    cc6c:	48 89 df             	mov    rdi,rbx
+    cc6f:	be 01 00 00 00       	mov    esi,0x1
+    cc74:	41 89 c6             	mov    r14d,eax
+    cc77:	e8 04 6d ff ff       	call   0x3980
+    cc7c:	44 89 f0             	mov    eax,r14d
+    cc7f:	48 83 c4 08          	add    rsp,0x8
+    cc83:	5b                   	pop    rbx
+    cc84:	41 5e                	pop    r14
+    cc86:	41 5f                	pop    r15
+    cc88:	5d                   	pop    rbp
+    cc89:	c3                   	ret
+    cc8a:	90                   	nop
+    cc8b:	90                   	nop
+    cc8c:	90                   	nop
+    cc8d:	90                   	nop
+    cc8e:	90                   	nop
+    cc8f:	90                   	nop
+    cc90:	55                   	push   rbp
+    cc91:	48 89 e5             	mov    rbp,rsp
+    cc94:	41 57                	push   r15
+    cc96:	41 56                	push   r14
+    cc98:	41 55                	push   r13
+    cc9a:	41 54                	push   r12
+    cc9c:	53                   	push   rbx
+    cc9d:	48 81 ec d8 00 00 00 	sub    rsp,0xd8
+    cca4:	41 89 f7             	mov    r15d,esi
+    cca7:	49 89 fe             	mov    r14,rdi
+    ccaa:	84 c0                	test   al,al
+    ccac:	74 37                	je     0xcce5
+    ccae:	c5 f8      	vmovaps XMMWORD PTR [rbp-0xd0],xmm0
+    ccb5:

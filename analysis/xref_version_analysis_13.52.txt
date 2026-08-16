@@ -1,0 +1,847 @@
+XREF VERSION ANALYSIS — libkernel_sys_13.52.bin
+Scope: static analysis only. The raw blob was read and disassembled as x86-64; no recovered code, payload, exploit or hardware was executed. Offsets are file-relative offsets from blob start, not virtual addresses.
+1. RESUMEN
+File size: 479232 bytes (0x75000); SHA-256: ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c. The requested strings were searched byte-for-byte and all RIP-relative disassembly targets were scanned. The exact byte start of kern.sdk_version is recorded separately because the requested 0x374a9 is one byte before the visible string start in this corpus.
+2. TABLA COMPLETA DE XREF
+STRING kern.sdk_version | requested=0x374a9 | actual=0x374a9 | exact_requested_match=True
+  xref_file_offset=0x197a7 bytes=[48 8d 3d fb dc 01 00] rip_relative=True instruction=lea    rdi,[rip+0x1dcfb]        # 0x374a9 function={'offset': '0x19790', 'line': '19790:\t55                   \tpush   rbp'}
+  xref_file_offset=0x19903 bytes=[48 8d 3d 9f db 01 00] rip_relative=True instruction=lea    rdi,[rip+0x1db9f]        # 0x374a9 function={'offset': '0x198e0', 'line': '198e0:\t55                   \tpush   rbp'}
+  xref_file_offset=0x19a6b bytes=[48 8d 3d 37 da 01 00] rip_relative=True instruction=lea    rdi,[rip+0x1da37]        # 0x374a9 function={'offset': '0x19a40', 'line': '19a40:\t55                   \tpush   rbp'}
+STRING %2x.%03x.%03x | requested=0x374ba | actual=0x374ba | exact_requested_match=True
+  xref_file_offset=0x197f4 bytes=[48 8d 15 bf dc 01 00] rip_relative=True instruction=lea    rdx,[rip+0x1dcbf]        # 0x374ba function={'offset': '0x19790', 'line': '19790:\t55                   \tpush   rbp'}
+STRING machdep.upd_version | requested=0x378c0 | actual=0x378c0 | exact_requested_match=True
+  xref_file_offset=0x1be37 bytes=[48 8d 3d 82 ba 01 00] rip_relative=True instruction=lea    rdi,[rip+0x1ba82]        # 0x378c0 function={'offset': '0x1be10', 'line': '1be10:\t55                   \tpush   rbp'}
+STRING machdep.lower_limit_upd_version | requested=0x378d4 | actual=0x378d4 | exact_requested_match=True
+  xref_file_offset=0x1be97 bytes=[48 8d 3d 36 ba 01 00] rip_relative=True instruction=lea    rdi,[rip+0x1ba36]        # 0x378d4 function={'offset': '0x1be70', 'line': '1be70:\t55                   \tpush   rbp'}
+STRING machdep.lower_limit_sysex_version | requested=0x378f4 | actual=0x378f4 | exact_requested_match=True
+  xref_file_offset=0x1bef9 bytes=[48 8d 3d f4 b9 01 00] rip_relative=True instruction=lea    rdi,[rip+0x1b9f4]        # 0x378f4 function={'offset': '0x1bed0', 'line': '1bed0:\t55                   \tpush   rbp'}
+STRING machdep.system_ex_version | requested=0x37916 | actual=0x37916 | exact_requested_match=True
+  xref_file_offset=0x1bf78 bytes=[48 8d 3d 97 b9 01 00] rip_relative=True instruction=lea    rdi,[rip+0x1b997]        # 0x37916 function={'offset': '0x1bf40', 'line': '1bf40:\t55                   \tpush   rbp'}
+
+3. FUNCIONES RELEVANTES
+FUNCTION 0x19720 status=static_window
+  first=19720:	55                   	push   rbp
+  last=1989e:	48 85 c0             	test   rax,rax
+  calls: 0x19756->UNKNOWN call   0xc30; 0x19788->UNKNOWN call   0xdde0; 0x197cc->UNKNOWN call   0x10240; 0x1981a->UNKNOWN call   0xffffffffffffe508; 0x19828->UNKNOWN call   0x1bb0; 0x19850->UNKNOWN call   0xdde0; 0x19891->UNKNOWN call   0xbb0
+  jumps: 0x1977b->UNKNOWN jne    0x19788; 0x197d4->UNKNOWN je     0x19828; 0x197d9->UNKNOWN je     0x1983a; 0x19826->UNKNOWN jmp    0x1983a; 0x19841->UNKNOWN jne    0x19850; 0x19884->UNKNOWN je     0x198c0; 0x19898->UNKNOWN jne    0x198c0
+  rip_relative: 0x1972d->0x5f860; 0x19734->0x5fa20; 0x19762->0x374a8; 0x1979d->0x5f860; 0x197a7->0x374a9; 0x197f4->0x374ba; 0x1986d->0x5f860
+  constants: 00, 0x0, 0x4, 0x8, 0x14, 0x18, 0x1c, 0x20, 0x24, 0x28, 0x30, 0xff, 0xbb0, 0xc0c, 0xc30, 0xfff, 0x1bb0, 0xdde0, 0x10240, 0x19788, 0x19828, 0x1983a, 0x19850, 0x198c0, 0x1dcbf, 0x1dcfb, 0x1dd3f, 0x374a8, 0x374a9, 0x374ba, 0x45fec, 0x460bc, 0x4612c, 0x462e5, 0x5f860, 0x5fa20, 0x7ffe0000, 0x80020016, 0xffffffff, 0xffffffffffffe508
+  compact instructions:
+    19720:	55                   	push   rbp
+    19721:	48 89 e5             	mov    rbp,rsp
+    19724:	41 57                	push   r15
+    19726:	41 56                	push   r14
+    19728:	53                   	push   rbx
+    19729:	48 83 ec 18          	sub    rsp,0x18
+    1972d:	4c 8d 35 2c 61 04 00 	lea    r14,[rip+0x4612c]        # 0x5f860
+    19734:	48 8d 1d e5 62 04 00 	lea    rbx,[rip+0x462e5]        # 0x5fa20
+    1973b:	48 8d 55 d8          	lea    rdx,[rbp-0x28]
+    1973f:	45 31 ff             	xor    r15d,r15d
+    19742:	31 ff                	xor    edi,edi
+    19744:	48 89 de             	mov    rsi,rbx
+    19747:	49 8b 06             	mov    rax,QWORD PTR [r14]
+    1974a:	48 89 45 e0          	mov    QWORD PTR [rbp-0x20],rax
+    1974e:	48 c7 45 d8 ff 00 00 	mov    QWORD PTR [rbp-0x28],0xff
+    19755:	00
+    19756:	e8 d5 74 fe ff       	call   0xc30
+    1975b:	48 83 7d d8 00       	cmp    QWORD PTR [rbp-0x28],0x0
+    19760:	89 c1                	mov    ecx,eax
+    19762:	48 8d 05 3f dd 01 00 	lea    rax,[rip+0x1dd3f]        # 0x374a8
+    19769:	48 0f 45 c3          	cmovne rax,rbx
+    1976d:	83 f9 ff             	cmp    ecx,0xffffffff
+    19770:	49 8b 0e             	mov    rcx,QWORD PTR [r14]
+    19773:	49 0f 44 c7          	cmove  rax,r15
+    19777:	48 3b 4d e0          	cmp    rcx,QWORD PTR [rbp-0x20]
+    1977b:	75 0b                	jne    0x19788
+    1977d:	48 83 c4 18          	add    rsp,0x18
+    19781:	5b                   	pop    rbx
+    19782:	41 5e                	pop    r14
+    19784:	41 5f                	pop    r15
+    19786:	5d                   	pop    rbp
+    19787:	c3                   	ret
+    19788:	e8 53 46 ff ff       	call   0xdde0
+    1978d:	0f 0b                	ud2
+    1978f:	90                   	nop
+FUNCTION 0x19790 status=static_window
+  first=19790:	55                   	push   rbp
+  last=1990e:	48 c7 45 d8 04 00 00 	mov    QWORD PTR [rbp-0x28],0x4
+  calls: 0x197cc->UNKNOWN call   0x10240; 0x1981a->UNKNOWN call   0xffffffffffffe508; 0x19828->UNKNOWN call   0x1bb0; 0x19850->UNKNOWN call   0xdde0; 0x19891->UNKNOWN call   0xbb0; 0x198d7->UNKNOWN call   0xdde0
+  jumps: 0x197d4->UNKNOWN je     0x19828; 0x197d9->UNKNOWN je     0x1983a; 0x19826->UNKNOWN jmp    0x1983a; 0x19841->UNKNOWN jne    0x19850; 0x19884->UNKNOWN je     0x198c0; 0x19898->UNKNOWN jne    0x198c0; 0x198a1->UNKNOWN je     0x198c0; 0x198a7->UNKNOWN jb     0x198c0; 0x198b0->UNKNOWN jne    0x198c0; 0x198b6->UNKNOWN je     0x198c0; 0x198c7->UNKNOWN jne    0x198d7; 0x198fe->UNKNOWN je     0x19933
+  rip_relative: 0x1979d->0x5f860; 0x197a7->0x374a9; 0x197f4->0x374ba; 0x1986d->0x5f860; 0x198ed->0x5f860; 0x19903->0x374a9
+  constants: 00, 0x0, 0x4, 0x8, 0xc, 0x10, 0x14, 0x18, 0x1c, 0x20, 0x24, 0x28, 0x30, 0xbb0, 0xc0c, 0xfff, 0x1bb0, 0xdde0, 0x10240, 0x19828, 0x1983a, 0x19850, 0x198c0, 0x198d7, 0x19933, 0x1db9f, 0x1dcbf, 0x1dcfb, 0x374a9, 0x374ba, 0x45f6c, 0x45fec, 0x460bc, 0x5f860, 0x4942524f, 0x7ffe0000, 0x80020016, 0xffffffff, 0xffffffffffffe508
+  compact instructions:
+    19790:	55                   	push   rbp
+    19791:	48 89 e5             	mov    rbp,rsp
+    19794:	41 57                	push   r15
+    19796:	41 56                	push   r14
+    19798:	53                   	push   rbx
+    19799:	48 83 ec 18          	sub    rsp,0x18
+    1979d:	4c 8d 3d bc 60 04 00 	lea    r15,[rip+0x460bc]        # 0x5f860
+    197a4:	49 89 fe             	mov    r14,rdi
+    197a7:	48 8d 3d fb dc 01 00 	lea    rdi,[rip+0x1dcfb]        # 0x374a9
+    197ae:	48 8d 75 dc          	lea    rsi,[rbp-0x24]
+    197b2:	48 8d 55 d0          	lea    rdx,[rbp-0x30]
+    197b6:	31 db                	xor    ebx,ebx
+    197b8:	31 c9                	xor    ecx,ecx
+    197ba:	45 31 c0             	xor    r8d,r8d
+    197bd:	49 8b 07             	mov    rax,QWORD PTR [r15]
+    197c0:	48 89 45 e0          	mov    QWORD PTR [rbp-0x20],rax
+    197c4:	48 c7 45 d0 04 00 00 	mov    QWORD PTR [rbp-0x30],0x4
+    197cb:	00
+    197cc:	e8 6f 6a ff ff       	call   0x10240
+    197d1:	83 f8 ff             	cmp    eax,0xffffffff
+    197d4:	74 52                	je     0x19828
+    197d6:	4d 85 f6             	test   r14,r14
+    197d9:	74 5f                	je     0x1983a
+    197db:	c5 f8 57 c0          	vxorps xmm0,xmm0,xmm0
+    197df:	c4 c1 78 11 46 14    	vmovups XMMWORD PTR [r14+0x14],xmm0
+    197e5:	c4 c1 78 11 46 08    	vmovups XMMWORD PTR [r14+0x8],xmm0
+    197eb:	b8 0c 0c 00 00       	mov    eax,0xc0c
+    197f0:	49 8d 7e 08          	lea    rdi,[r14+0x8]
+    197f4:	48 8d 15 bf dc 01 00 	lea    rdx,[rip+0x1dcbf]        # 0x374ba
+    197fb:	be 1c 00 00 00       	mov    esi,0x1c
+    19800:	31 db                	xor    ebx,ebx
+    19802:	44 8b 4d dc          	mov    r9d,DWORD PTR [rbp-0x24]
+    19806:	44 89 c9             	mov    ecx,r9d
+    19809:	c4 42 78 f7 c1       	bextr  r8d,r9d,eax
+    1980e:	41 81 e1 ff 0f 00 00 	and    r9d,0xfff
+FUNCTION 0x19860 status=static_window
+  first=19860:	55                   	push   rbp
+  last=199df:	75 0b                	jne    0x199ec
+  calls: 0x19891->UNKNOWN call   0xbb0; 0x198d7->UNKNOWN call   0xdde0; 0x19921->UNKNOWN call   0x10240; 0x1993b->UNKNOWN call   0x1bb0; 0x19966->UNKNOWN call   0xdde0; 0x199c1->UNKNOWN call   0x10130; 0x199ca->UNKNOWN call   0x1bb0; 0x199d1->UNKNOWN call   0x13d90
+  jumps: 0x19884->UNKNOWN je     0x198c0; 0x19898->UNKNOWN jne    0x198c0; 0x198a1->UNKNOWN je     0x198c0; 0x198a7->UNKNOWN jb     0x198c0; 0x198b0->UNKNOWN jne    0x198c0; 0x198b6->UNKNOWN je     0x198c0; 0x198c7->UNKNOWN jne    0x198d7; 0x198fe->UNKNOWN je     0x19933; 0x19929->UNKNOWN je     0x1993b; 0x19931->UNKNOWN jmp    0x1994f; 0x19939->UNKNOWN jmp    0x1994f; 0x19956->UNKNOWN jne    0x19966; 0x199c8->UNKNOWN je     0x199d8; 0x199df->UNKNOWN jne    0x199ec
+  rip_relative: 0x1986d->0x5f860; 0x198ed->0x5f860; 0x19903->0x374a9; 0x1997b->0x5f860
+  constants: 00, 0x0, 0x4, 0x8, 0xc, 0x10, 0x14, 0x18, 0x20, 0x24, 0x28, 0x30, 0x38, 0xbb0, 0xfff, 0x1bb0, 0xdde0, 0x10130, 0x10240, 0x13d90, 0x198c0, 0x198d7, 0x19933, 0x1993b, 0x1994f, 0x19966, 0x199d8, 0x199ec, 0x1db9f, 0x374a9, 0x45ede, 0x45f6c, 0x45fec, 0x5f860, 0x4942524f, 0x7ffe0000, 0x80020016, 0xffffffff, 0xe00000001
+  compact instructions:
+    19860:	55                   	push   rbp
+    19861:	48 89 e5             	mov    rbp,rsp
+    19864:	41 57                	push   r15
+    19866:	41 56                	push   r14
+    19868:	53                   	push   rbx
+    19869:	48 83 ec 18          	sub    rsp,0x18
+    1986d:	4c 8d 3d ec 5f 04 00 	lea    r15,[rip+0x45fec]        # 0x5f860
+    19874:	41 be 16 00 02 80    	mov    r14d,0x80020016
+    1987a:	48 85 ff             	test   rdi,rdi
+    1987d:	49 8b 07             	mov    rax,QWORD PTR [r15]
+    19880:	48 89 45 e0          	mov    QWORD PTR [rbp-0x20],rax
+    19884:	74 3a                	je     0x198c0
+    19886:	48 89 fb             	mov    rbx,rdi
+    19889:	48 8d 7d d8          	lea    rdi,[rbp-0x28]
+    1988d:	48 8d 75 d0          	lea    rsi,[rbp-0x30]
+    19891:	e8 1a 73 fe ff       	call   0xbb0
+    19896:	85 c0                	test   eax,eax
+    19898:	75 26                	jne    0x198c0
+    1989a:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+    1989e:	48 85 c0             	test   rax,rax
+    198a1:	74 1d                	je     0x198c0
+    198a3:	48 83 38 14          	cmp    QWORD PTR [rax],0x14
+    198a7:	72 17                	jb     0x198c0
+    198a9:	81 78 08 4f 52 42 49 	cmp    DWORD PTR [rax+0x8],0x4942524f
+    198b0:	75 0e                	jne    0x198c0
+    198b2:	83 78 0c 00          	cmp    DWORD PTR [rax+0xc],0x0
+    198b6:	74 08                	je     0x198c0
+    198b8:	8b 40 10             	mov    eax,DWORD PTR [rax+0x10]
+    198bb:	45 31 f6             	xor    r14d,r14d
+    198be:	89 03                	mov    DWORD PTR [rbx],eax
+    198c0:	49 8b 07             	mov    rax,QWORD PTR [r15]
+    198c3:	48 3b 45 e0          	cmp    rax,QWORD PTR [rbp-0x20]
+    198c7:	75 0e                	jne    0x198d7
+    198c9:	44 89 f0             	mov    eax,r14d
+    198cc:	48 83 c4 18          	add    rsp,0x18
+FUNCTION 0x198e0 status=static_window
+  first=198e0:	55                   	push   rbp
+  last=19a5e:	48 c7 45 d0 04 00 00 	mov    QWORD PTR [rbp-0x30],0x4
+  calls: 0x19921->UNKNOWN call   0x10240; 0x1993b->UNKNOWN call   0x1bb0; 0x19966->UNKNOWN call   0xdde0; 0x199c1->UNKNOWN call   0x10130; 0x199ca->UNKNOWN call   0x1bb0; 0x199d1->UNKNOWN call   0x13d90; 0x199ec->UNKNOWN call   0xdde0; 0x19a0e->UNKNOWN call   0x1190; 0x19a29->UNKNOWN call   0x1bb0
+  jumps: 0x198fe->UNKNOWN je     0x19933; 0x19929->UNKNOWN je     0x1993b; 0x19931->UNKNOWN jmp    0x1994f; 0x19939->UNKNOWN jmp    0x1994f; 0x19956->UNKNOWN jne    0x19966; 0x199c8->UNKNOWN je     0x199d8; 0x199df->UNKNOWN jne    0x199ec; 0x19a09->UNKNOWN je     0x19a1d; 0x19a15->UNKNOWN js     0x19a29; 0x19a1b->UNKNOWN jmp    0x19a22; 0x19a36->UNKNOWN jmp    0x13d90
+  rip_relative: 0x198ed->0x5f860; 0x19903->0x374a9; 0x1997b->0x5f860; 0x19a4d->0x5f860
+  constants: 00, 0x4, 0x8, 0x18, 0x20, 0x24, 0x28, 0x30, 0x38, 0xfff, 0x1190, 0x1bb0, 0xdde0, 0x10130, 0x10240, 0x13d90, 0x19933, 0x1993b, 0x1994f, 0x19966, 0x199d8, 0x199ec, 0x19a1d, 0x19a22, 0x19a29, 0x1db9f, 0x374a9, 0x45e0c, 0x45ede, 0x45f6c, 0x5f860, 0x7ffe0000, 0x80020016, 0xffffffff, 0xe00000001
+  compact instructions:
+    198e0:	55                   	push   rbp
+    198e1:	48 89 e5             	mov    rbp,rsp
+    198e4:	41 57                	push   r15
+    198e6:	41 56                	push   r14
+    198e8:	53                   	push   rbx
+    198e9:	48 83 ec 18          	sub    rsp,0x18
+    198ed:	4c 8d 3d 6c 5f 04 00 	lea    r15,[rip+0x45f6c]        # 0x5f860
+    198f4:	48 85 ff             	test   rdi,rdi
+    198f7:	49 8b 07             	mov    rax,QWORD PTR [r15]
+    198fa:	48 89 45 e0          	mov    QWORD PTR [rbp-0x20],rax
+    198fe:	74 33                	je     0x19933
+    19900:	48 89 fb             	mov    rbx,rdi
+    19903:	48 8d 3d 9f db 01 00 	lea    rdi,[rip+0x1db9f]        # 0x374a9
+    1990a:	48 8d 55 d8          	lea    rdx,[rbp-0x28]
+    1990e:	48 c7 45 d8 04 00 00 	mov    QWORD PTR [rbp-0x28],0x4
+    19915:	00
+    19916:	45 31 f6             	xor    r14d,r14d
+    19919:	31 c9                	xor    ecx,ecx
+    1991b:	45 31 c0             	xor    r8d,r8d
+    1991e:	48 89 de             	mov    rsi,rbx
+    19921:	e8 1a 69 ff ff       	call   0x10240
+    19926:	83 f8 ff             	cmp    eax,0xffffffff
+    19929:	74 10                	je     0x1993b
+    1992b:	81 0b ff 0f 00 00    	or     DWORD PTR [rbx],0xfff
+    19931:	eb 1c                	jmp    0x1994f
+    19933:	41 be 16 00 02 80    	mov    r14d,0x80020016
+    19939:	eb 14                	jmp    0x1994f
+    1993b:	e8 70 82 fe ff       	call   0x1bb0
+    19940:	8b 00                	mov    eax,DWORD PTR [rax]
+    19942:	44 8d b0 00 00 02 80 	lea    r14d,[rax-0x7ffe0000]
+    19949:	85 c0                	test   eax,eax
+    1994b:	44 0f 44 f0          	cmove  r14d,eax
+    1994f:	49 8b 07             	mov    rax,QWORD PTR [r15]
+    19952:	48 3b 45 e0          	cmp    rax,QWORD PTR [rbp-0x20]
+    19956:	75 0e                	jne    0x19966
+FUNCTION 0x19970 status=static_window
+  first=19970:	55                   	push   rbp
+  last=19aef:	90                   	nop
+  calls: 0x199c1->UNKNOWN call   0x10130; 0x199ca->UNKNOWN call   0x1bb0; 0x199d1->UNKNOWN call   0x13d90; 0x199ec->UNKNOWN call   0xdde0; 0x19a0e->UNKNOWN call   0x1190; 0x19a29->UNKNOWN call   0x1bb0; 0x19a81->UNKNOWN call   0x10240; 0x19aab->UNKNOWN call   0x1bb0; 0x19ad3->UNKNOWN call   0xdde0
+  jumps: 0x199c8->UNKNOWN je     0x199d8; 0x199df->UNKNOWN jne    0x199ec; 0x19a09->UNKNOWN je     0x19a1d; 0x19a15->UNKNOWN js     0x19a29; 0x19a1b->UNKNOWN jmp    0x19a22; 0x19a36->UNKNOWN jmp    0x13d90; 0x19a66->UNKNOWN je     0x19aa4; 0x19a89->UNKNOWN je     0x19aab; 0x19aa2->UNKNOWN jmp    0x19abd; 0x19aa9->UNKNOWN jmp    0x19abd; 0x19ac4->UNKNOWN jne    0x19ad3
+  rip_relative: 0x1997b->0x5f860; 0x19a4d->0x5f860; 0x19a6b->0x374a9
+  constants: 00, 0x1, 0x4, 0x7, 0x8, 0x18, 0x20, 0x24, 0x28, 0x30, 0x38, 0x40c, 0x1190, 0x1bb0, 0xdde0, 0x10130, 0x10240, 0x13d90, 0x199d8, 0x199ec, 0x19a1d, 0x19a22, 0x19a29, 0x19aa4, 0x19aab, 0x19abd, 0x19ad3, 0x1da37, 0x374a9, 0x45e0c, 0x45ede, 0x5f860, 0x7ffe0000, 0x80020016, 0xffffffff, 0xe00000001
+  compact instructions:
+    19970:	55                   	push   rbp
+    19971:	48 89 e5             	mov    rbp,rsp
+    19974:	41 56                	push   r14
+    19976:	53                   	push   rbx
+    19977:	48 83 ec 30          	sub    rsp,0x30
+    1997b:	4c 8d 35 de 5e 04 00 	lea    r14,[rip+0x45ede]        # 0x5f860
+    19982:	48 89 f2             	mov    rdx,rsi
+    19985:	48 8d 4d c8          	lea    rcx,[rbp-0x38]
+    19989:	be 04 00 00 00       	mov    esi,0x4
+    1998e:	31 db                	xor    ebx,ebx
+    19990:	45 31 c0             	xor    r8d,r8d
+    19993:	45 31 c9             	xor    r9d,r9d
+    19996:	49 8b 06             	mov    rax,QWORD PTR [r14]
+    19999:	48 89 45 e8          	mov    QWORD PTR [rbp-0x18],rax
+    1999d:	48 b8 01 00 00 00 0e 	movabs rax,0xe00000001
+    199a4:	00 00 00
+    199a7:	48 c7 45 c8 08 00 00 	mov    QWORD PTR [rbp-0x38],0x8
+    199ae:	00
+    199af:	48 89 45 d0          	mov    QWORD PTR [rbp-0x30],rax
+    199b3:	c7 45 d8 24 00 00 00 	mov    DWORD PTR [rbp-0x28],0x24
+    199ba:	89 7d dc             	mov    DWORD PTR [rbp-0x24],edi
+    199bd:	48 8d 7d d0          	lea    rdi,[rbp-0x30]
+    199c1:	e8 6a 67 ff ff       	call   0x10130
+    199c6:	85 c0                	test   eax,eax
+    199c8:	74 0e                	je     0x199d8
+    199ca:	e8 e1 81 fe ff       	call   0x1bb0
+    199cf:	8b 38                	mov    edi,DWORD PTR [rax]
+    199d1:	e8 ba a3 ff ff       	call   0x13d90
+    199d6:	89 c3                	mov    ebx,eax
+    199d8:	49 8b 06             	mov    rax,QWORD PTR [r14]
+    199db:	48 3b 45 e8          	cmp    rax,QWORD PTR [rbp-0x18]
+    199df:	75 0b                	jne    0x199ec
+    199e1:	89 d8                	mov    eax,ebx
+    199e3:	48 83 c4 30          	add    rsp,0x30
+    199e7:	5b                   	pop    rbx
+FUNCTION 0x19a00 status=static_window
+  first=19a00:	55                   	push   rbp
+  last=19b7d:	4c 09 f8             	or     rax,r15
+  calls: 0x19a0e->UNKNOWN call   0x1190; 0x19a29->UNKNOWN call   0x1bb0; 0x19a81->UNKNOWN call   0x10240; 0x19aab->UNKNOWN call   0x1bb0; 0x19ad3->UNKNOWN call   0xdde0; 0x19b56->UNKNOWN call   0xfffffffffffffc10; 0x19b70->UNKNOWN call   0x7f0
+  jumps: 0x19a09->UNKNOWN je     0x19a1d; 0x19a15->UNKNOWN js     0x19a29; 0x19a1b->UNKNOWN jmp    0x19a22; 0x19a36->UNKNOWN jmp    0x13d90; 0x19a66->UNKNOWN je     0x19aa4; 0x19a89->UNKNOWN je     0x19aab; 0x19aa2->UNKNOWN jmp    0x19abd; 0x19aa9->UNKNOWN jmp    0x19abd; 0x19ac4->UNKNOWN jne    0x19ad3; 0x19b4e->UNKNOWN je     0x19b87; 0x19b5d->UNKNOWN js     0x19b96; 0x19b77->UNKNOWN js     0x19b8e
+  rip_relative: 0x19a4d->0x5f860; 0x19a6b->0x374a9
+  constants: 00, 0x1, 0x4, 0x7, 0x8, 0xc, 0x10, 0x18, 0x20, 0x24, 0x30, 0x107, 0x40c, 0x7f0, 0x1190, 0x1bb0, 0xdde0, 0x10240, 0x13d90, 0x19a1d, 0x19a22, 0x19a29, 0x19aa4, 0x19aab, 0x19abd, 0x19ad3, 0x19b87, 0x19b8e, 0x19b96, 0x1da37, 0x374a9, 0x45e0c, 0x5f860, 0x7ffe0000, 0x80020016, 0xffffffff, 0xfffffffffffffc10
+  compact instructions:
+    19a00:	55                   	push   rbp
+    19a01:	48 89 e5             	mov    rbp,rsp
+    19a04:	53                   	push   rbx
+    19a05:	50                   	push   rax
+    19a06:	48 85 f6             	test   rsi,rsi
+    19a09:	74 12                	je     0x19a1d
+    19a0b:	48 89 f3             	mov    rbx,rsi
+    19a0e:	e8 7d 77 fe ff       	call   0x1190
+    19a13:	85 c0                	test   eax,eax
+    19a15:	78 12                	js     0x19a29
+    19a17:	89 03                	mov    DWORD PTR [rbx],eax
+    19a19:	31 c0                	xor    eax,eax
+    19a1b:	eb 05                	jmp    0x19a22
+    19a1d:	b8 16 00 02 80       	mov    eax,0x80020016
+    19a22:	48 83 c4 08          	add    rsp,0x8
+    19a26:	5b                   	pop    rbx
+    19a27:	5d                   	pop    rbp
+    19a28:	c3                   	ret
+    19a29:	e8 82 81 fe ff       	call   0x1bb0
+    19a2e:	8b 38                	mov    edi,DWORD PTR [rax]
+    19a30:	48 83 c4 08          	add    rsp,0x8
+    19a34:	5b                   	pop    rbx
+    19a35:	5d                   	pop    rbp
+    19a36:	e9 55 a3 ff ff       	jmp    0x13d90
+    19a3b:	90                   	nop
+    19a3c:	90                   	nop
+    19a3d:	90                   	nop
+    19a3e:	90                   	nop
+    19a3f:	90                   	nop
+    19a40:	55                   	push   rbp
+    19a41:	48 89 e5             	mov    rbp,rsp
+    19a44:	41 57                	push   r15
+    19a46:	41 56                	push   r14
+    19a48:	53                   	push   rbx
+    19a49:	48 83 ec 18          	sub    rsp,0x18
+FUNCTION 0x19a40 status=static_window
+  first=19a40:	55                   	push   rbp
+  last=19bbf:	90                   	nop
+  calls: 0x19a81->UNKNOWN call   0x10240; 0x19aab->UNKNOWN call   0x1bb0; 0x19ad3->UNKNOWN call   0xdde0; 0x19b56->UNKNOWN call   0xfffffffffffffc10; 0x19b70->UNKNOWN call   0x7f0; 0x19b91->UNKNOWN call   0xc890; 0x19b96->UNKNOWN call   0x1bb0
+  jumps: 0x19a66->UNKNOWN je     0x19aa4; 0x19a89->UNKNOWN je     0x19aab; 0x19aa2->UNKNOWN jmp    0x19abd; 0x19aa9->UNKNOWN jmp    0x19abd; 0x19ac4->UNKNOWN jne    0x19ad3; 0x19b4e->UNKNOWN je     0x19b87; 0x19b5d->UNKNOWN js     0x19b96; 0x19b77->UNKNOWN js     0x19b8e; 0x19b85->UNKNOWN jmp    0x19ba8; 0x19b8c->UNKNOWN jmp    0x19ba8
+  rip_relative: 0x19a4d->0x5f860; 0x19a6b->0x374a9
+  constants: 00, 0x1, 0x4, 0x7, 0x8, 0xc, 0x10, 0x18, 0x20, 0x24, 0x30, 0x107, 0x40c, 0x7f0, 0x1bb0, 0xc890, 0xdde0, 0x10240, 0x19aa4, 0x19aab, 0x19abd, 0x19ad3, 0x19b87, 0x19b8e, 0x19b96, 0x19ba8, 0x1da37, 0x374a9, 0x45e0c, 0x5f860, 0x7ffe0000, 0x80020016, 0xffffffff, 0xfffffffffffffc10
+  compact instructions:
+    19a40:	55                   	push   rbp
+    19a41:	48 89 e5             	mov    rbp,rsp
+    19a44:	41 57                	push   r15
+    19a46:	41 56                	push   r14
+    19a48:	53                   	push   rbx
+    19a49:	48 83 ec 18          	sub    rsp,0x18
+    19a4d:	4c 8d 3d 0c 5e 04 00 	lea    r15,[rip+0x45e0c]        # 0x5f860
+    19a54:	48 85 ff             	test   rdi,rdi
+    19a57:	49 8b 07             	mov    rax,QWORD PTR [r15]
+    19a5a:	48 89 45 e0          	mov    QWORD PTR [rbp-0x20],rax
+    19a5e:	48 c7 45 d0 04 00 00 	mov    QWORD PTR [rbp-0x30],0x4
+    19a65:	00
+    19a66:	74 3c                	je     0x19aa4
+    19a68:	49 89 fe             	mov    r14,rdi
+    19a6b:	48 8d 3d 37 da 01 00 	lea    rdi,[rip+0x1da37]        # 0x374a9
+    19a72:	48 8d 75 dc          	lea    rsi,[rbp-0x24]
+    19a76:	48 8d 55 d0          	lea    rdx,[rbp-0x30]
+    19a7a:	31 db                	xor    ebx,ebx
+    19a7c:	31 c9                	xor    ecx,ecx
+    19a7e:	45 31 c0             	xor    r8d,r8d
+    19a81:	e8 ba 67 ff ff       	call   0x10240
+    19a86:	83 f8 ff             	cmp    eax,0xffffffff
+    19a89:	74 20                	je     0x19aab
+    19a8b:	b8 0c 04 00 00       	mov    eax,0x40c
+    19a90:	c4 e2 78 f7 45 dc    	bextr  eax,DWORD PTR [rbp-0x24],eax
+    19a96:	8d 48 ff             	lea    ecx,[rax-0x1]
+    19a99:	83 f9 07             	cmp    ecx,0x7
+    19a9c:	0f 43 c3             	cmovae eax,ebx
+    19a9f:	41 89 06             	mov    DWORD PTR [r14],eax
+    19aa2:	eb 19                	jmp    0x19abd
+    19aa4:	bb 16 00 02 80       	mov    ebx,0x80020016
+    19aa9:	eb 12                	jmp    0x19abd
+    19aab:	e8 00 81 fe ff       	call   0x1bb0
+    19ab0:	8b 00                	mov    eax,DWORD PTR [rax]
+    19ab2:	8d 98 00 00 02 80    	lea    ebx,[rax-0x7ffe0000]
+FUNCTION 0x1be10 status=static_window
+  first=1be10:	55                   	push   rbp
+  last=1bf8c:	e8 af 42 ff ff       	call   0x10240
+  calls: 0x1be47->UNKNOWN call   0x10240; 0x1be63->UNKNOWN call   0xdde0; 0x1bea7->UNKNOWN call   0x10240; 0x1bec3->UNKNOWN call   0xdde0; 0x1bf0d->UNKNOWN call   0x10240; 0x1bf30->UNKNOWN call   0xdde0; 0x1bf8c->UNKNOWN call   0x10240
+  jumps: 0x1be32->UNKNOWN je     0x1be4e; 0x1be4c->UNKNOWN jmp    0x1be53; 0x1be5a->UNKNOWN jne    0x1be63; 0x1be92->UNKNOWN je     0x1beae; 0x1beac->UNKNOWN jmp    0x1beb3; 0x1beba->UNKNOWN jne    0x1bec3; 0x1bef4->UNKNOWN je     0x1bf19; 0x1bf17->UNKNOWN jmp    0x1bf1e; 0x1bf25->UNKNOWN jne    0x1bf30; 0x1bf6b->UNKNOWN je     0x1bfb4; 0x1bf73->UNKNOWN je     0x1bfb4
+  rip_relative: 0x1be19->0x5f860; 0x1be37->0x378c0; 0x1be79->0x5f860; 0x1be97->0x378d4; 0x1bedb->0x5f860; 0x1bef9->0x378f4; 0x1bf4d->0x5f860; 0x1bf78->0x37916
+  constants: 00, 0x4, 0x10, 0x16, 0x18, 0x1c, 0x20, 0x24, 0x28, 0x30, 0xdde0, 0x10240, 0x1b997, 0x1b9f4, 0x1ba36, 0x1ba82, 0x1be4e, 0x1be53, 0x1be63, 0x1beae, 0x1beb3, 0x1bec3, 0x1bf19, 0x1bf1e, 0x1bf30, 0x1bfb4, 0x378c0, 0x378d4, 0x378f4, 0x37916, 0x4390c, 0x4397e, 0x439e0, 0x43a40, 0x5f860, 0x80020016
+  compact instructions:
+    1be10:	55                   	push   rbp
+    1be11:	48 89 e5             	mov    rbp,rsp
+    1be14:	53                   	push   rbx
+    1be15:	48 83 ec 18          	sub    rsp,0x18
+    1be19:	48 8d 1d 40 3a 04 00 	lea    rbx,[rip+0x43a40]        # 0x5f860
+    1be20:	48 85 ff             	test   rdi,rdi
+    1be23:	48 8b 03             	mov    rax,QWORD PTR [rbx]
+    1be26:	48 89 45 f0          	mov    QWORD PTR [rbp-0x10],rax
+    1be2a:	48 c7 45 e8 04 00 00 	mov    QWORD PTR [rbp-0x18],0x4
+    1be31:	00
+    1be32:	74 1a                	je     0x1be4e
+    1be34:	48 89 fe             	mov    rsi,rdi
+    1be37:	48 8d 3d 82 ba 01 00 	lea    rdi,[rip+0x1ba82]        # 0x378c0
+    1be3e:	48 8d 55 e8          	lea    rdx,[rbp-0x18]
+    1be42:	31 c9                	xor    ecx,ecx
+    1be44:	45 31 c0             	xor    r8d,r8d
+    1be47:	e8 f4 43 ff ff       	call   0x10240
+    1be4c:	eb 05                	jmp    0x1be53
+    1be4e:	b8 16 00 02 80       	mov    eax,0x80020016
+    1be53:	48 8b 0b             	mov    rcx,QWORD PTR [rbx]
+    1be56:	48 3b 4d f0          	cmp    rcx,QWORD PTR [rbp-0x10]
+    1be5a:	75 07                	jne    0x1be63
+    1be5c:	48 83 c4 18          	add    rsp,0x18
+    1be60:	5b                   	pop    rbx
+    1be61:	5d                   	pop    rbp
+    1be62:	c3                   	ret
+    1be63:	e8 78 1f ff ff       	call   0xdde0
+    1be68:	0f 0b                	ud2
+    1be6a:	90                   	nop
+    1be6b:	90                   	nop
+    1be6c:	90                   	nop
+    1be6d:	90                   	nop
+    1be6e:	90                   	nop
+    1be6f:	90                   	nop
+    1be70:	55                   	push   rbp
+FUNCTION 0x1be70 status=static_window
+  first=1be70:	55                   	push   rbp
+  last=1bfef:	31 c9                	xor    ecx,ecx
+  calls: 0x1bea7->UNKNOWN call   0x10240; 0x1bec3->UNKNOWN call   0xdde0; 0x1bf0d->UNKNOWN call   0x10240; 0x1bf30->UNKNOWN call   0xdde0; 0x1bf8c->UNKNOWN call   0x10240; 0x1bfc8->UNKNOWN call   0xdde0
+  jumps: 0x1be92->UNKNOWN je     0x1beae; 0x1beac->UNKNOWN jmp    0x1beb3; 0x1beba->UNKNOWN jne    0x1bec3; 0x1bef4->UNKNOWN je     0x1bf19; 0x1bf17->UNKNOWN jmp    0x1bf1e; 0x1bf25->UNKNOWN jne    0x1bf30; 0x1bf6b->UNKNOWN je     0x1bfb4; 0x1bf73->UNKNOWN je     0x1bfb4; 0x1bf94->UNKNOWN je     0x1bfaf; 0x1bfa4->UNKNOWN je     0x1bfb4; 0x1bfad->UNKNOWN jmp    0x1bfb4; 0x1bfbb->UNKNOWN jne    0x1bfc8
+  rip_relative: 0x1be79->0x5f860; 0x1be97->0x378d4; 0x1bedb->0x5f860; 0x1bef9->0x378f4; 0x1bf4d->0x5f860; 0x1bf78->0x37916; 0x1bfd9->0x5f860; 0x1bfe0->0x37930
+  constants: 00, 0x2, 0x4, 0x10, 0x14, 0x16, 0x18, 0x1c, 0x20, 0x24, 0x28, 0x2d, 0x30, 0xff, 0xdde0, 0x10240, 0x1b949, 0x1b997, 0x1b9f4, 0x1ba36, 0x1beae, 0x1beb3, 0x1bec3, 0x1bf19, 0x1bf1e, 0x1bf30, 0x1bfaf, 0x1bfb4, 0x1bfc8, 0x378d4, 0x378f4, 0x37916, 0x37930, 0x43880, 0x4390c, 0x4397e, 0x439e0, 0x5f860, 0x80020016, 0xffffffff
+  compact instructions:
+    1be70:	55                   	push   rbp
+    1be71:	48 89 e5             	mov    rbp,rsp
+    1be74:	53                   	push   rbx
+    1be75:	48 83 ec 18          	sub    rsp,0x18
+    1be79:	48 8d 1d e0 39 04 00 	lea    rbx,[rip+0x439e0]        # 0x5f860
+    1be80:	48 85 ff             	test   rdi,rdi
+    1be83:	48 8b 03             	mov    rax,QWORD PTR [rbx]
+    1be86:	48 89 45 f0          	mov    QWORD PTR [rbp-0x10],rax
+    1be8a:	48 c7 45 e8 04 00 00 	mov    QWORD PTR [rbp-0x18],0x4
+    1be91:	00
+    1be92:	74 1a                	je     0x1beae
+    1be94:	48 89 fe             	mov    rsi,rdi
+    1be97:	48 8d 3d 36 ba 01 00 	lea    rdi,[rip+0x1ba36]        # 0x378d4
+    1be9e:	48 8d 55 e8          	lea    rdx,[rbp-0x18]
+    1bea2:	31 c9                	xor    ecx,ecx
+    1bea4:	45 31 c0             	xor    r8d,r8d
+    1bea7:	e8 94 43 ff ff       	call   0x10240
+    1beac:	eb 05                	jmp    0x1beb3
+    1beae:	b8 16 00 02 80       	mov    eax,0x80020016
+    1beb3:	48 8b 0b             	mov    rcx,QWORD PTR [rbx]
+    1beb6:	48 3b 4d f0          	cmp    rcx,QWORD PTR [rbp-0x10]
+    1beba:	75 07                	jne    0x1bec3
+    1bebc:	48 83 c4 18          	add    rsp,0x18
+    1bec0:	5b                   	pop    rbx
+    1bec1:	5d                   	pop    rbp
+    1bec2:	c3                   	ret
+    1bec3:	e8 18 1f ff ff       	call   0xdde0
+    1bec8:	0f 0b                	ud2
+    1beca:	90                   	nop
+    1becb:	90                   	nop
+    1becc:	90                   	nop
+    1becd:	90                   	nop
+    1bece:	90                   	nop
+    1becf:	90                   	nop
+    1bed0:	55                   	push   rbp
+FUNCTION 0x1bed0 status=static_window
+  first=1bed0:	55                   	push   rbp
+  last=1c04c:	48 8d 55 e0          	lea    rdx,[rbp-0x20]
+  calls: 0x1bf0d->UNKNOWN call   0x10240; 0x1bf30->UNKNOWN call   0xdde0; 0x1bf8c->UNKNOWN call   0x10240; 0x1bfc8->UNKNOWN call   0xdde0; 0x1c003->UNKNOWN call   0x10240; 0x1c028->UNKNOWN call   0xdde0
+  jumps: 0x1bef4->UNKNOWN je     0x1bf19; 0x1bf17->UNKNOWN jmp    0x1bf1e; 0x1bf25->UNKNOWN jne    0x1bf30; 0x1bf6b->UNKNOWN je     0x1bfb4; 0x1bf73->UNKNOWN je     0x1bfb4; 0x1bf94->UNKNOWN je     0x1bfaf; 0x1bfa4->UNKNOWN je     0x1bfb4; 0x1bfad->UNKNOWN jmp    0x1bfb4; 0x1bfbb->UNKNOWN jne    0x1bfc8; 0x1c01f->UNKNOWN jne    0x1c028
+  rip_relative: 0x1bedb->0x5f860; 0x1bef9->0x378f4; 0x1bf4d->0x5f860; 0x1bf78->0x37916; 0x1bfd9->0x5f860; 0x1bfe0->0x37930; 0x1c03b->0x5f860; 0x1c045->0x3794a
+  constants: 00, 0x0, 0x2, 0x4, 0x10, 0x14, 0x16, 0x18, 0x1c, 0x20, 0x24, 0x28, 0x2d, 0x30, 0xff, 0xdde0, 0x10240, 0x1b8fe, 0x1b949, 0x1b997, 0x1b9f4, 0x1bf19, 0x1bf1e, 0x1bf30, 0x1bfaf, 0x1bfb4, 0x1bfc8, 0x1c028, 0x378f4, 0x37916, 0x37930, 0x3794a, 0x4381e, 0x43880, 0x4390c, 0x4397e, 0x5f860, 0x80020016, 0xffffffff
+  compact instructions:
+    1bed0:	55                   	push   rbp
+    1bed1:	48 89 e5             	mov    rbp,rsp
+    1bed4:	41 56                	push   r14
+    1bed6:	53                   	push   rbx
+    1bed7:	48 83 ec 20          	sub    rsp,0x20
+    1bedb:	4c 8d 35 7e 39 04 00 	lea    r14,[rip+0x4397e]        # 0x5f860
+    1bee2:	48 85 ff             	test   rdi,rdi
+    1bee5:	49 8b 06             	mov    rax,QWORD PTR [r14]
+    1bee8:	48 89 45 e8          	mov    QWORD PTR [rbp-0x18],rax
+    1beec:	48 c7 45 d8 04 00 00 	mov    QWORD PTR [rbp-0x28],0x4
+    1bef3:	00
+    1bef4:	74 23                	je     0x1bf19
+    1bef6:	48 89 fb             	mov    rbx,rdi
+    1bef9:	48 8d 3d f4 b9 01 00 	lea    rdi,[rip+0x1b9f4]        # 0x378f4
+    1bf00:	48 8d 75 e4          	lea    rsi,[rbp-0x1c]
+    1bf04:	48 8d 55 d8          	lea    rdx,[rbp-0x28]
+    1bf08:	31 c9                	xor    ecx,ecx
+    1bf0a:	45 31 c0             	xor    r8d,r8d
+    1bf0d:	e8 2e 43 ff ff       	call   0x10240
+    1bf12:	8a 4d e4             	mov    cl,BYTE PTR [rbp-0x1c]
+    1bf15:	88 0b                	mov    BYTE PTR [rbx],cl
+    1bf17:	eb 05                	jmp    0x1bf1e
+    1bf19:	b8 16 00 02 80       	mov    eax,0x80020016
+    1bf1e:	49 8b 0e             	mov    rcx,QWORD PTR [r14]
+    1bf21:	48 3b 4d e8          	cmp    rcx,QWORD PTR [rbp-0x18]
+    1bf25:	75 09                	jne    0x1bf30
+    1bf27:	48 83 c4 20          	add    rsp,0x20
+    1bf2b:	5b                   	pop    rbx
+    1bf2c:	41 5e                	pop    r14
+    1bf2e:	5d                   	pop    rbp
+    1bf2f:	c3                   	ret
+    1bf30:	e8 ab 1e ff ff       	call   0xdde0
+    1bf35:	0f 0b                	ud2
+    1bf37:	90                   	nop
+    1bf38:	90                   	nop
+FUNCTION 0x1bf40 status=static_window
+  first=1bf40:	55                   	push   rbp
+  last=1c0bf:	85 c9                	test   ecx,ecx
+  calls: 0x1bf8c->UNKNOWN call   0x10240; 0x1bfc8->UNKNOWN call   0xdde0; 0x1c003->UNKNOWN call   0x10240; 0x1c028->UNKNOWN call   0xdde0; 0x1c066->UNKNOWN call   0x10240; 0x1c06f->UNKNOWN call   0x1bb0; 0x1c076->UNKNOWN call   0x13d90; 0x1c091->UNKNOWN call   0xdde0
+  jumps: 0x1bf6b->UNKNOWN je     0x1bfb4; 0x1bf73->UNKNOWN je     0x1bfb4; 0x1bf94->UNKNOWN je     0x1bfaf; 0x1bfa4->UNKNOWN je     0x1bfb4; 0x1bfad->UNKNOWN jmp    0x1bfb4; 0x1bfbb->UNKNOWN jne    0x1bfc8; 0x1c01f->UNKNOWN jne    0x1c028; 0x1c06d->UNKNOWN je     0x1c07d; 0x1c084->UNKNOWN jne    0x1c091
+  rip_relative: 0x1bf4d->0x5f860; 0x1bf78->0x37916; 0x1bfd9->0x5f860; 0x1bfe0->0x37930; 0x1c03b->0x5f860; 0x1c045->0x3794a; 0x1c0ab->0x5f860; 0x1c0b9->0x5fb20
+  constants: 00, 0x0, 0x2, 0x4, 0x10, 0x14, 0x16, 0x18, 0x20, 0x24, 0x2d, 0x30, 0xff, 0x1bb0, 0xdde0, 0x10240, 0x13d90, 0x1b8fe, 0x1b949, 0x1b997, 0x1bfaf, 0x1bfb4, 0x1bfc8, 0x1c028, 0x1c07d, 0x1c091, 0x37916, 0x37930, 0x3794a, 0x437ae, 0x4381e, 0x43880, 0x4390c, 0x43a61, 0x5f860, 0x5fb20, 0xffffffff
+  compact instructions:
+    1bf40:	55                   	push   rbp
+    1bf41:	48 89 e5             	mov    rbp,rsp
+    1bf44:	41 57                	push   r15
+    1bf46:	41 56                	push   r14
+    1bf48:	53                   	push   rbx
+    1bf49:	48 83 ec 18          	sub    rsp,0x18
+    1bf4d:	4c 8d 3d 0c 39 04 00 	lea    r15,[rip+0x4390c]        # 0x5f860
+    1bf54:	48 85 ff             	test   rdi,rdi
+    1bf57:	49 8b 07             	mov    rax,QWORD PTR [r15]
+    1bf5a:	48 89 45 e0          	mov    QWORD PTR [rbp-0x20],rax
+    1bf5e:	b8 16 00 00 00       	mov    eax,0x16
+    1bf63:	48 c7 45 d0 04 00 00 	mov    QWORD PTR [rbp-0x30],0x4
+    1bf6a:	00
+    1bf6b:	74 47                	je     0x1bfb4
+    1bf6d:	49 89 f6             	mov    r14,rsi
+    1bf70:	48 85 f6             	test   rsi,rsi
+    1bf73:	74 3f                	je     0x1bfb4
+    1bf75:	48 89 fb             	mov    rbx,rdi
+    1bf78:	48 8d 3d 97 b9 01 00 	lea    rdi,[rip+0x1b997]        # 0x37916
+    1bf7f:	48 8d 75 dc          	lea    rsi,[rbp-0x24]
+    1bf83:	48 8d 55 d0          	lea    rdx,[rbp-0x30]
+    1bf87:	31 c9                	xor    ecx,ecx
+    1bf89:	45 31 c0             	xor    r8d,r8d
+    1bf8c:	e8 af 42 ff ff       	call   0x10240
+    1bf91:	83 f8 ff             	cmp    eax,0xffffffff
+    1bf94:	74 19                	je     0x1bfaf
+    1bf96:	8b 4d dc             	mov    ecx,DWORD PTR [rbp-0x24]
+    1bf99:	b8 2d 00 00 00       	mov    eax,0x2d
+    1bf9e:	81 f9 ff 00 00 00    	cmp    ecx,0xff
+    1bfa4:	74 0e                	je     0x1bfb4
+    1bfa6:	88 2b                	mov    BYTE PTR [rbx],ch
+    1bfa8:	31 c0                	xor    eax,eax
+    1bfaa:	41 88 0e             	mov    BYTE PTR [r14],cl
+    1bfad:	eb 05                	jmp    0x1bfb4
+    1bfaf:	b8 02 00 00 00       	mov    eax,0x2
+FUNCTION 0x1bfd0 status=static_window
+  first=1bfd0:	55                   	push   rbp
+  last=1c14e:	31 c9                	xor    ecx,ecx
+  calls: 0x1c003->UNKNOWN call   0x10240; 0x1c028->UNKNOWN call   0xdde0; 0x1c066->UNKNOWN call   0x10240; 0x1c06f->UNKNOWN call   0x1bb0; 0x1c076->UNKNOWN call   0x13d90; 0x1c091->UNKNOWN call   0xdde0; 0x1c105->UNKNOWN call   0x10240; 0x1c125->UNKNOWN call   0xdde0
+  jumps: 0x1c01f->UNKNOWN jne    0x1c028; 0x1c06d->UNKNOWN je     0x1c07d; 0x1c084->UNKNOWN jne    0x1c091; 0x1c0c1->UNKNOWN jne    0x1c0d5; 0x1c0e0->UNKNOWN jne    0x1c113; 0x1c11a->UNKNOWN jne    0x1c125; 0x1c139->UNKNOWN jne    0x1c14b
+  rip_relative: 0x1bfd9->0x5f860; 0x1bfe0->0x37930; 0x1c03b->0x5f860; 0x1c045->0x3794a; 0x1c0ab->0x5f860; 0x1c0b9->0x5fb20; 0x1c0cf->0x5fb20; 0x1c0e2->0x379c7; 0x1c131->0x5fb20; 0x1c145->0x5fb20
+  constants: 00, 0x0, 0x1, 0x4, 0x10, 0x14, 0x18, 0x1c, 0x20, 0x28, 0x1bb0, 0xdde0, 0x10240, 0x13d90, 0x1b8de, 0x1b8fe, 0x1b949, 0x1c028, 0x1c07d, 0x1c091, 0x1c0d5, 0x1c113, 0x1c125, 0x1c14b, 0x37930, 0x3794a, 0x379c7, 0x437ae, 0x4381e, 0x43880, 0x439d5, 0x439e9, 0x43a4b, 0x43a61, 0x5f860, 0x5fb20, 0x740f00, 0xffffff80, 0xfffffff0
+  compact instructions:
+    1bfd0:	55                   	push   rbp
+    1bfd1:	48 89 e5             	mov    rbp,rsp
+    1bfd4:	53                   	push   rbx
+    1bfd5:	48 83 ec 18          	sub    rsp,0x18
+    1bfd9:	48 8d 1d 80 38 04 00 	lea    rbx,[rip+0x43880]        # 0x5f860
+    1bfe0:	48 8d 3d 49 b9 01 00 	lea    rdi,[rip+0x1b949]        # 0x37930
+    1bfe7:	48 8d 75 ec          	lea    rsi,[rbp-0x14]
+    1bfeb:	48 8d 55 e0          	lea    rdx,[rbp-0x20]
+    1bfef:	31 c9                	xor    ecx,ecx
+    1bff1:	45 31 c0             	xor    r8d,r8d
+    1bff4:	48 8b 03             	mov    rax,QWORD PTR [rbx]
+    1bff7:	48 89 45 f0          	mov    QWORD PTR [rbp-0x10],rax
+    1bffb:	48 c7 45 e0 04 00 00 	mov    QWORD PTR [rbp-0x20],0x4
+    1c002:	00
+    1c003:	e8 38 42 ff ff       	call   0x10240
+    1c008:	89 c1                	mov    ecx,eax
+    1c00a:	31 c0                	xor    eax,eax
+    1c00c:	83 7d ec 00          	cmp    DWORD PTR [rbp-0x14],0x0
+    1c010:	0f 95 c0             	setne  al
+    1c013:	85 c9                	test   ecx,ecx
+    1c015:	0f 45 c1             	cmovne eax,ecx
+    1c018:	48 8b 0b             	mov    rcx,QWORD PTR [rbx]
+    1c01b:	48 3b 4d f0          	cmp    rcx,QWORD PTR [rbp-0x10]
+    1c01f:	75 07                	jne    0x1c028
+    1c021:	48 83 c4 18          	add    rsp,0x18
+    1c025:	5b                   	pop    rbx
+    1c026:	5d                   	pop    rbp
+    1c027:	c3                   	ret
+    1c028:	e8 b3 1d ff ff       	call   0xdde0
+    1c02d:	0f 0b                	ud2
+    1c02f:	90                   	nop
+    1c030:	55                   	push   rbp
+    1c031:	48 89 e5             	mov    rbp,rsp
+    1c034:	41 56                	push   r14
+    1c036:	53                   	push   rbx
+FUNCTION 0x1c030 status=static_window
+  first=1c030:	55                   	push   rbp
+  last=1c1ab:	e8 e0 7b ff ff       	call   0x13d90
+  calls: 0x1c066->UNKNOWN call   0x10240; 0x1c06f->UNKNOWN call   0x1bb0; 0x1c076->UNKNOWN call   0x13d90; 0x1c091->UNKNOWN call   0xdde0; 0x1c105->UNKNOWN call   0x10240; 0x1c125->UNKNOWN call   0xdde0; 0x1c19b->UNKNOWN call   0x10240; 0x1c1a4->UNKNOWN call   0x1bb0; 0x1c1ab->UNKNOWN call   0x13d90
+  jumps: 0x1c06d->UNKNOWN je     0x1c07d; 0x1c084->UNKNOWN jne    0x1c091; 0x1c0c1->UNKNOWN jne    0x1c0d5; 0x1c0e0->UNKNOWN jne    0x1c113; 0x1c11a->UNKNOWN jne    0x1c125; 0x1c139->UNKNOWN jne    0x1c14b; 0x1c184->UNKNOWN je     0x1c1b4; 0x1c1a2->UNKNOWN je     0x1c1b9
+  rip_relative: 0x1c03b->0x5f860; 0x1c045->0x3794a; 0x1c0ab->0x5f860; 0x1c0b9->0x5fb20; 0x1c0cf->0x5fb20; 0x1c0e2->0x379c7; 0x1c131->0x5fb20; 0x1c145->0x5fb20; 0x1c16b->0x5f860; 0x1c189->0x37960
+  constants: 00, 0x0, 0x1, 0x4, 0x10, 0x18, 0x1c, 0x20, 0x28, 0x1bb0, 0xdde0, 0x10240, 0x13d90, 0x1b7d0, 0x1b8de, 0x1b8fe, 0x1c07d, 0x1c091, 0x1c0d5, 0x1c113, 0x1c125, 0x1c14b, 0x1c1b4, 0x1c1b9, 0x3794a, 0x37960, 0x379c7, 0x436ee, 0x437ae, 0x4381e, 0x439d5, 0x439e9, 0x43a4b, 0x43a61, 0x5f860, 0x5fb20, 0x740f00, 0xffffff80, 0xfffffff0
+  compact instructions:
+    1c030:	55                   	push   rbp
+    1c031:	48 89 e5             	mov    rbp,rsp
+    1c034:	41 56                	push   r14
+    1c036:	53                   	push   rbx
+    1c037:	48 83 ec 10          	sub    rsp,0x10
+    1c03b:	4c 8d 35 1e 38 04 00 	lea    r14,[rip+0x4381e]        # 0x5f860
+    1c042:	48 89 fe             	mov    rsi,rdi
+    1c045:	48 8d 3d fe b8 01 00 	lea    rdi,[rip+0x1b8fe]        # 0x3794a
+    1c04c:	48 8d 55 e0          	lea    rdx,[rbp-0x20]
+    1c050:	31 db                	xor    ebx,ebx
+    1c052:	31 c9                	xor    ecx,ecx
+    1c054:	45 31 c0             	xor    r8d,r8d
+    1c057:	49 8b 06             	mov    rax,QWORD PTR [r14]
+    1c05a:	48 89 45 e8          	mov    QWORD PTR [rbp-0x18],rax
+    1c05e:	48 c7 45 e0 04 00 00 	mov    QWORD PTR [rbp-0x20],0x4
+    1c065:	00
+    1c066:	e8 d5 41 ff ff       	call   0x10240
+    1c06b:	85 c0                	test   eax,eax
+    1c06d:	74 0e                	je     0x1c07d
+    1c06f:	e8 3c 5b fe ff       	call   0x1bb0
+    1c074:	8b 38                	mov    edi,DWORD PTR [rax]
+    1c076:	e8 15 7d ff ff       	call   0x13d90
+    1c07b:	89 c3                	mov    ebx,eax
+    1c07d:	49 8b 06             	mov    rax,QWORD PTR [r14]
+    1c080:	48 3b 45 e8          	cmp    rax,QWORD PTR [rbp-0x18]
+    1c084:	75 0b                	jne    0x1c091
+    1c086:	89 d8                	mov    eax,ebx
+    1c088:	48 83 c4 10          	add    rsp,0x10
+    1c08c:	5b                   	pop    rbx
+    1c08d:	41 5e                	pop    r14
+    1c08f:	5d                   	pop    rbp
+    1c090:	c3                   	ret
+    1c091:	e8 4a 1d ff ff       	call   0xdde0
+    1c096:	0f 0b                	ud2
+    1c098:	90                   	nop
+FUNCTION 0x10240 status=static_window
+  first=10240:	55                   	push   rbp
+  last=103be:	eb 14                	jmp    0x103d4
+  calls: 0x10288->UNKNOWN call   0x102e0; 0x102aa->UNKNOWN call   0x10130; 0x102cb->UNKNOWN call   0xdde0; 0x10319->UNKNOWN call   0xffffffffffffe568; 0x10333->UNKNOWN call   0x10130; 0x10353->UNKNOWN call   0xdde0
+  jumps: 0x1028f->UNKNOWN js     0x102af; 0x102b7->UNKNOWN jne    0x102cb; 0x10344->UNKNOWN jne    0x10353; 0x1036a->UNKNOWN jmp    0xffffffffffffee90; 0x1038b->UNKNOWN je     0x103a8; 0x103ae->UNKNOWN je     0x103c0; 0x103b3->UNKNOWN je     0x103cb; 0x103b7->UNKNOWN jne    0x103dd; 0x103be->UNKNOWN jmp    0x103d4
+  rip_relative: 0x10254->0x5f860; 0x102ef->0x5f860; 0x10379->0x5f860
+  constants: 00, 0x0, 0x1, 0x2, 0xc, 0x10, 0x1a, 0x28, 0x30, 0x34, 0x38, 0x40, 0x88, 0xa0, 0xa8, 0xdde0, 0x10130, 0x102af, 0x102cb, 0x102e0, 0x10353, 0x103a8, 0x103c0, 0x103cb, 0x103d4, 0x103dd, 0x4f4e0, 0x4f56a, 0x4f605, 0x5f860, 0x402c7413, 0x802c7414, 0xffffffef, 0x300000000, 0xffffffffffffe568, 0xffffffffffffee90
+  compact instructions:
+    10240:	55                   	push   rbp
+    10241:	48 89 e5             	mov    rbp,rsp
+    10244:	41 57                	push   r15
+    10246:	41 56                	push   r14
+    10248:	41 55                	push   r13
+    1024a:	41 54                	push   r12
+    1024c:	53                   	push   rbx
+    1024d:	48 81 ec 88 00 00 00 	sub    rsp,0x88
+    10254:	4c 8d 2d 05 f6 04 00 	lea    r13,[rip+0x4f605]        # 0x5f860
+    1025b:	49 89 d4             	mov    r12,rdx
+    1025e:	48 89 f3             	mov    rbx,rsi
+    10261:	48 8d b5 60 ff ff ff 	lea    rsi,[rbp-0xa0]
+    10268:	48 8d 95 58 ff ff ff 	lea    rdx,[rbp-0xa8]
+    1026f:	4d 89 c6             	mov    r14,r8
+    10272:	49 89 cf             	mov    r15,rcx
+    10275:	49 8b 45 00          	mov    rax,QWORD PTR [r13+0x0]
+    10279:	48 89 45 d0          	mov    QWORD PTR [rbp-0x30],rax
+    1027d:	48 c7 85 58 ff ff ff 	mov    QWORD PTR [rbp-0xa8],0x1a
+    10284:	1a 00 00 00
+    10288:	e8 53 00 00 00       	call   0x102e0
+    1028d:	85 c0                	test   eax,eax
+    1028f:	78 1e                	js     0x102af
+    10291:	8b b5 58 ff ff ff    	mov    esi,DWORD PTR [rbp-0xa8]
+    10297:	48 8d bd 60 ff ff ff 	lea    rdi,[rbp-0xa0]
+    1029e:	48 89 da             	mov    rdx,rbx
+    102a1:	4c 89 e1             	mov    rcx,r12
+    102a4:	4d 89 f8             	mov    r8,r15
+    102a7:	4d 89 f1             	mov    r9,r14
+    102aa:	e8 81 fe ff ff       	call   0x10130
+    102af:	49 8b 4d 00          	mov    rcx,QWORD PTR [r13+0x0]
+    102b3:	48 3b 4d d0          	cmp    rcx,QWORD PTR [rbp-0x30]
+    102b7:	75 12                	jne    0x102cb
+    102b9:	48 81 c4 88 00 00 00 	add    rsp,0x88
+    102c0:	5b                   	pop    rbx
+    102c1:	41 5c                	pop    r12
+FUNCTION 0x10130 status=static_window
+  first=10130:	55                   	push   rbp
+  last=102af:	49 8b 4d 00          	mov    rcx,QWORD PTR [r13+0x0]
+  calls: 0x10146->UNKNOWN call   0x1bb0; 0x101b3->UNKNOWN call   0x1bb0; 0x101f2->UNKNOWN call   0x1bb0; 0x10288->UNKNOWN call   0x102e0; 0x102aa->UNKNOWN call   0x10130
+  jumps: 0x10137->UNKNOWN je     0x10156; 0x1013f->UNKNOWN jne    0x1015d; 0x10144->UNKNOWN je     0x10163; 0x10151->UNKNOWN jmp    0x101fd; 0x1015b->UNKNOWN je     0x10141; 0x1015e->UNKNOWN jmp    0xfffffffffffff650; 0x10166->UNKNOWN jne    0x101f2; 0x10172->UNKNOWN jne    0x101a8; 0x10177->UNKNOWN je     0x1017f; 0x1017d->UNKNOWN jbe    0x101b3; 0x1018b->UNKNOWN je     0x10202; 0x101ab->UNKNOWN je     0x101c0; 0x101b1->UNKNOWN ja     0x101c9; 0x101be->UNKNOWN jmp    0x101fd; 0x101c7->UNKNOWN jmp    0x101ee; 0x101d6->UNKNOWN ja     0x101f2; 0x101e6->UNKNOWN jmp    rcx; 0x1020a->UNKNOWN jmp    0x101ee; 0x10212->UNKNOWN jmp    0x101ee; 0x1021a->UNKNOWN jmp    0x101ee; 0x10222->UNKNOWN jmp    0x101ee; 0x1022a->UNKNOWN jmp    0x101ee; 0x10232->UNKNOWN jmp    0x101ee; 0x1023a->UNKNOWN jmp    0x101ee; 0x1028f->UNKNOWN js     0x102af
+  rip_relative: 0x1018d->0x36fee; 0x10195->0x36fe0; 0x101d8->0x36f94; 0x10254->0x5f860
+  constants: 4, 00, 0x0, 0x1, 0x2, 0x3, 0x4, 0x8, 0xc, 0xe, 0x12, 0x14, 0x16, 0x1a, 0x1d, 0x1e, 0x20, 0x30, 0x63, 0x88, 0xa0, 0xa8, 0xff, 0x3e8, 0x800, 0x1bb0, 0x10130, 0x10141, 0x10156, 0x1015d, 0x10163, 0x1017f, 0x101a8, 0x101b3, 0x101c0, 0x101c9, 0x101ee, 0x101f2, 0x101fd, 0x10202, 0x102af, 0x102e0, 0x26db5, 0x26e43, 0x26e59, 0x30a2c, 0x36f94, 0x36fe0, 0x36fee, 0x4f605, 0x5f860, 0xfffffffe, 0xffffffff, 0xfffffffffffff650
+  compact instructions:
+    10130:	55                   	push   rbp
+    10131:	48 89 e5             	mov    rbp,rsp
+    10134:	48 85 c9             	test   rcx,rcx
+    10137:	74 1d                	je     0x10156
+    10139:	48 8b 01             	mov    rax,QWORD PTR [rcx]
+    1013c:	83 3f 08             	cmp    DWORD PTR [rdi],0x8
+    1013f:	75 1c                	jne    0x1015d
+    10141:	4d 85 c0             	test   r8,r8
+    10144:	74 1d                	je     0x10163
+    10146:	e8 65 1a ff ff       	call   0x1bb0
+    1014b:	c7 00 01 00 00 00    	mov    DWORD PTR [rax],0x1
+    10151:	e9 a7 00 00 00       	jmp    0x101fd
+    10156:	31 c0                	xor    eax,eax
+    10158:	83 3f 08             	cmp    DWORD PTR [rdi],0x8
+    1015b:	74 e4                	je     0x10141
+    1015d:	5d                   	pop    rbp
+    1015e:	e9 ed f4 fe ff       	jmp    0xfffffffffffff650
+    10163:	83 fe 02             	cmp    esi,0x2
+    10166:	0f 85 86 00 00 00    	jne    0x101f2
+    1016c:	8b 77 04             	mov    esi,DWORD PTR [rdi+0x4]
+    1016f:	83 fe 01             	cmp    esi,0x1
+    10172:	75 34                	jne    0x101a8
+    10174:	48 85 d2             	test   rdx,rdx
+    10177:	74 06                	je     0x1017f
+    10179:	48 83 f8 1d          	cmp    rax,0x1d
+    1017d:	76 34                	jbe    0x101b3
+    1017f:	31 c0                	xor    eax,eax
+    10181:	48 85 d2             	test   rdx,rdx
+    10184:	48 c7 01 1e 00 00 00 	mov    QWORD PTR [rcx],0x1e
+    1018b:	74 75                	je     0x10202
+    1018d:	c5 f8 10 05 59 6e 02 	vmovups xmm0,XMMWORD PTR [rip+0x26e59]        # 0x36fee
+    10194:	00
+    10195:	c5 f8 10 0d 43 6e 02 	vmovups xmm1,XMMWORD PTR [rip+0x26e43]        # 0x36fe0
+    1019c:	00
+    1019d:	c5 f8 11 42 0e       	vmovups XMMWORD PTR [rdx+0xe],xmm0
+FUNCTION 0x13d90 status=static_window
+  first=13d90:	8d 87 00 00 02 80    	lea    eax,[rdi-0x7ffe0000]
+  last=13f0f:	90                   	nop
+  calls: 0x13dbc->UNKNOWN call   0xffffffffffffe568; 0x13de8->UNKNOWN call   0xffffffffffffe5b8; 0x13df7->UNKNOWN call   0xffffffffffffe5b8; 0x13e1e->UNKNOWN call   0x1f0; 0x13e27->UNKNOWN call   0x1bb0; 0x13e64->UNKNOWN call   0xf50; 0x13e6d->UNKNOWN call   0x1bb0; 0x13eb5->UNKNOWN call   0x1110; 0x13ebe->UNKNOWN call   0x1bb0; 0x13efe->UNKNOWN call   0xdde0
+  jumps: 0x13daf->UNKNOWN je     0x13e02; 0x13db7->UNKNOWN je     0x13e02; 0x13ddd->UNKNOWN ja     0x13def; 0x13ded->UNKNOWN jmp    0x13e00; 0x13e25->UNKNOWN je     0x13e3b; 0x13e6b->UNKNOWN je     0x13e81; 0x13eac->UNKNOWN je     0x13ed2; 0x13ebc->UNKNOWN je     0x13ed9; 0x13ed0->UNKNOWN jmp    0x13eec; 0x13ed7->UNKNOWN jmp    0x13eec; 0x13ef3->UNKNOWN jne    0x13efe
+  rip_relative: 0x13e9b->0x5f860
+  constants: 65, 0x0, 0x1, 0x7, 0x8, 0xc, 0x18, 0x1f, 0x20, 0x2b, 0x30, 0x40, 0x50, 0x1f0, 0xf50, 0x1110, 0x1bb0, 0xdde0, 0x13def, 0x13e00, 0x13e02, 0x13e3b, 0x13e81, 0x13ed2, 0x13ed9, 0x13eec, 0x13efe, 0x4b9be, 0x5f860, 0x2f706d74, 0x7ffe0000, 0x8002000e, 0x80020016, 0x5f6d65747379732f, 0xffffffffffffe568, 0xffffffffffffe5b8, 0xffffffffffffffff
+  compact instructions:
+    13d90:	8d 87 00 00 02 80    	lea    eax,[rdi-0x7ffe0000]
+    13d96:	85 ff                	test   edi,edi
+    13d98:	0f 44 c7             	cmove  eax,edi
+    13d9b:	c3                   	ret
+    13d9c:	90                   	nop
+    13d9d:	90                   	nop
+    13d9e:	90                   	nop
+    13d9f:	90                   	nop
+    13da0:	55                   	push   rbp
+    13da1:	48 89 e5             	mov    rbp,rsp
+    13da4:	41 56                	push   r14
+    13da6:	53                   	push   rbx
+    13da7:	48 85 ff             	test   rdi,rdi
+    13daa:	b8 16 00 02 80       	mov    eax,0x80020016
+    13daf:	74 51                	je     0x13e02
+    13db1:	48 89 f3             	mov    rbx,rsi
+    13db4:	48 85 f6             	test   rsi,rsi
+    13db7:	74 49                	je     0x13e02
+    13db9:	49 89 fe             	mov    r14,rdi
+    13dbc:	e8 a7 a7 fe ff       	call   0xffffffffffffe568
+    13dc1:	48 b9 2f 73 79 73 74 	movabs rcx,0x5f6d65747379732f
+    13dc8:	65 6d 5f
+    13dcb:	48 8d 7b 0c          	lea    rdi,[rbx+0xc]
+    13dcf:	48 83 f8 1f          	cmp    rax,0x1f
+    13dd3:	c7 43 08 74 6d 70 2f 	mov    DWORD PTR [rbx+0x8],0x2f706d74
+    13dda:	48 89 0b             	mov    QWORD PTR [rbx],rcx
+    13ddd:	77 10                	ja     0x13def
+    13ddf:	48 ff c0             	inc    rax
+    13de2:	4c 89 f6             	mov    rsi,r14
+    13de5:	48 89 c2             	mov    rdx,rax
+    13de8:	e8 cb a7 fe ff       	call   0xffffffffffffe5b8
+    13ded:	eb 11                	jmp    0x13e00
+    13def:	ba 1f 00 00 00       	mov    edx,0x1f
+    13df4:	4c 89 f6             	mov    rsi,r14
+    13df7:	e8 bc a7 fe ff       	call   0xffffffffffffe5b8
+FUNCTION 0x1bb0 status=static_window
+  first=1bb0:	55                   	push   rbp
+  last=1d2b:	e9 10 ff ff ff       	jmp    0x1c40
+  calls: 0x1c92->UNKNOWN call   0x1ae0
+  jumps: 0x1bbe->UNKNOWN je     0x1bc5; 0x1bc3->UNKNOWN jmp    0x1bc7; 0x1bd2->UNKNOWN je     0x1c10; 0x1bdb->UNKNOWN jae    0x1be9; 0x1be7->UNKNOWN jbe    0x1c10; 0x1c54->UNKNOWN je     0x1c77; 0x1c72->UNKNOWN jmp    0x1ae0; 0x1ca4->UNKNOWN je     0x1cb5; 0x1ca8->UNKNOWN jne    0x1c80; 0x1cb3->UNKNOWN jne    0x1c80; 0x1cea->UNKNOWN je     0x1d16; 0x1cf0->UNKNOWN je     0x1d30; 0x1d11->UNKNOWN jmp    0x1ae0; 0x1d2b->UNKNOWN jmp    0x1c40
+  rip_relative: 0x1bb4->0x567d0; 0x1bc7->0x8cc00; 0x1bdd->0x567d8; 0x1bf5->0x8cbd0; 0x1c10->0x8cbd0; 0x1c20->0x567e8; 0x1c30->0x56808; 0x1cda->0x8c300
+  constants: 1, 00, 0x0, 0x1, 0x4, 0x5, 0x8, 0xc, 0x10, 0x11, 0x188, 0x1ae0, 0x1bc5, 0x1bc7, 0x1be9, 0x1c10, 0x1c40, 0x1c77, 0x1c80, 0x1cb5, 0x1d16, 0x1d30, 0x54bc0, 0x54bd0, 0x54bf4, 0x54c15, 0x567d0, 0x567d8, 0x567e8, 0x56808, 0x8a61f, 0x8afb9, 0x8afd4, 0x8b032, 0x8c300, 0x8cbd0, 0x8cc00, 0x7fffffff, 0xffffffff
+  compact instructions:
+    1bb0:	55                   	push   rbp
+    1bb1:	48 89 e5             	mov    rbp,rsp
+    1bb4:	48 8b 05 15 4c 05 00 	mov    rax,QWORD PTR [rip+0x54c15]        # 0x567d0
+    1bbb:	48 85 c0             	test   rax,rax
+    1bbe:	74 05                	je     0x1bc5
+    1bc0:	48 89 e9             	mov    rcx,rbp
+    1bc3:	eb 02                	jmp    0x1bc7
+    1bc5:	31 c9                	xor    ecx,ecx
+    1bc7:	48 8d 15 32 b0 08 00 	lea    rdx,[rip+0x8b032]        # 0x8cc00
+    1bce:	48 83 3a 00          	cmp    QWORD PTR [rdx],0x0
+    1bd2:	74 3c                	je     0x1c10
+    1bd4:	48 8d 70 ff          	lea    rsi,[rax-0x1]
+    1bd8:	48 39 ce             	cmp    rsi,rcx
+    1bdb:	73 0c                	jae    0x1be9
+    1bdd:	48 03 05 f4 4b 05 00 	add    rax,QWORD PTR [rip+0x54bf4]        # 0x567d8
+    1be4:	48 39 c1             	cmp    rcx,rax
+    1be7:	76 27                	jbe    0x1c10
+    1be9:	64 48 8b 0c 25 10 00 	mov    rcx,QWORD PTR fs:0x10
+    1bf0:	00 00
+    1bf2:	48 39 0a             	cmp    QWORD PTR [rdx],rcx
+    1bf5:	48 8d 15 d4 af 08 00 	lea    rdx,[rip+0x8afd4]        # 0x8cbd0
+    1bfc:	48 8d 81 88 01 00 00 	lea    rax,[rcx+0x188]
+    1c03:	48 0f 44 c2          	cmove  rax,rdx
+    1c07:	48 85 c9             	test   rcx,rcx
+    1c0a:	48 0f 44 c2          	cmove  rax,rdx
+    1c0e:	5d                   	pop    rbp
+    1c0f:	c3                   	ret
+    1c10:	48 8d 05 b9 af 08 00 	lea    rax,[rip+0x8afb9]        # 0x8cbd0
+    1c17:	5d                   	pop    rbp
+    1c18:	c3                   	ret
+    1c19:	90                   	nop
+    1c1a:	90                   	nop
+    1c1b:	90                   	nop
+    1c1c:	90                   	nop
+    1c1d:	90                   	nop
+FUNCTION 0xdde0 status=static_window
+  first=dde0:	55                   	push   rbp
+  last=df5a:	c7 03 01 00 00 00    	mov    DWORD PTR [rbx],0x1
+  calls: 0xde44->UNKNOWN call   0xfffffffffffff5b0; 0xde59->UNKNOWN call   0xdde0; 0xdea2->UNKNOWN call   0xdfd0; 0xdee9->UNKNOWN call   0x10130; 0xdf1e->UNKNOWN call   0xdde0; 0xdf58->UNKNOWN call   rsi
+  jumps: 0xde50->UNKNOWN jne    0xde59; 0xde69->UNKNOWN jmp    0x1690; 0xde8f->UNKNOWN jne    0xdf0e; 0xdea9->UNKNOWN jne    0xdeb5; 0xdeb3->UNKNOWN jne    0xdf0e; 0xdef0->UNKNOWN jne    0xdf08; 0xdef7->UNKNOWN jle    0xdf08; 0xdefe->UNKNOWN jne    0xdf08; 0xdf06->UNKNOWN jmp    0xdf0e; 0xdf15->UNKNOWN jne    0xdf1e; 0xdf43->UNKNOWN je     0xdf53; 0xdf4e->UNKNOWN jmp    0x84e0; 0xdf56->UNKNOWN je     0xdf60
+  rip_relative: 0xde29->0x5f860; 0xde79->0x5f860; 0xde87->0x5f8a0; 0xde91->0x5f8a0; 0xdeab->0x5f8a0; 0xdf00->0x5f8a0; 0xdf08->0x5f8a0; 0xdf36->0x53198
+  constants: 00, 0x0, 0x1, 0x2, 0x4, 0x8, 0x10, 0x12, 0x18, 0x20, 0x24, 0x28, 0x44, 0x81, 0x601, 0x1690, 0x84e0, 0xdde0, 0xde59, 0xdeb5, 0xdf08, 0xdf0e, 0xdf1e, 0xdf53, 0xdf60, 0xdfd0, 0x10130, 0x4525b, 0x51992, 0x5199a, 0x519e0, 0x519ef, 0x51a08, 0x51a13, 0x51a30, 0x53198, 0x5f860, 0x5f8a0, 0xa0020307, 0xcccccccc, 0x1800000001, 0xfffffffffffff5b0
+  compact instructions:
+    dde0:	55                   	push   rbp
+    dde1:	48 89 e5             	mov    rbp,rsp
+    dde4:	cd 44                	int    0x44
+    dde6:	ba cc cc cc cc       	mov    edx,0xcccccccc
+    ddeb:	b9 07 03 02 a0       	mov    ecx,0xa0020307
+    ddf0:	0f 0b                	ud2
+    ddf2:	0f 0b                	ud2
+    ddf4:	90                   	nop
+    ddf5:	90                   	nop
+    ddf6:	90                   	nop
+    ddf7:	90                   	nop
+    ddf8:	90                   	nop
+    ddf9:	90                   	nop
+    ddfa:	90                   	nop
+    ddfb:	90                   	nop
+    ddfc:	90                   	nop
+    ddfd:	90                   	nop
+    ddfe:	90                   	nop
+    ddff:	90                   	nop
+    de00:	55                   	push   rbp
+    de01:	48 89 e5             	mov    rbp,rsp
+    de04:	cd 44                	int    0x44
+    de06:	ba cc cc cc cc       	mov    edx,0xcccccccc
+    de0b:	b9 07 03 02 a0       	mov    ecx,0xa0020307
+    de10:	0f 0b                	ud2
+    de12:	0f 0b                	ud2
+    de14:	90                   	nop
+    de15:	90                   	nop
+    de16:	90                   	nop
+    de17:	90                   	nop
+    de18:	90                   	nop
+    de19:	90                   	nop
+    de1a:	90                   	nop
+    de1b:	90                   	nop
+    de1c:	90                   	nop
+
+4. PSEUDOCÓDIGO APROXIMADO
+La siguiente representación es deliberadamente conservadora y no asigna símbolos no presentes:
+function at 0x19790 (probable SDK-version formatter):
+    input = query_name_0x374aa_via_helper_0x10240(output_4_bytes)
+    if query fails: return error converted through 0x1bb0
+    high = input >> 24
+    middle = extract_bits(input, control=0x0c0c)
+    low = input & 0xfff
+    format output with "%2x.%03x.%03x"
+    store original packed value in an output field
+
+functions at 0x1be10/0x1be70/0x1bed0/0x1bf40/0x1bfd0/0x1c030:
+    if required output pointer is null: return 0x80020016 or equivalent error path
+    query one machdep.* name through helper 0x10240
+    use a 4-byte or 1-byte buffer depending on function
+    copy/transform returned bytes; on failure use 0x1bb0 and 0x13d90 where observed
+    return helper/result status
+
+5. VALORES DE VERSIÓN ENCONTRADOS
+No se encontró un valor literal inequívoco 13.52, 13_52 o 1352 dentro del blob. Sí se encontró el formato "%2x.%03x.%03x" y código de extracción de campos de un valor de 32 bits obtenido en runtime. Las constantes observadas son 0xc0c, 0xfff, 0x18, 0x40c, 0x4, 0x24 y 0x80020016; ninguna prueba por sí sola que el valor sea 13.52.
+
+6. RELACIÓN kern.sdk_version / machdep.*
+Ambos grupos usan el helper común 0x10240 y buffers de tamaño pequeño, con rutas de error conectadas a 0x1bb0. kern.sdk_version se transforma en componentes de formato; machdep.* se consulta como identificadores, flags o versiones de sistema. El código común demuestra una infraestructura de consulta compartida, no que todos los valores representen la misma versión ni que alguno sea necesariamente el firmware PS4.
+
+7. EVIDENCIA DIRECTA
+- Bytes exactos de las cadenas y sus offsets de archivo.
+- Instrucciones RIP-relative cuyo comentario de objdump resuelve al offset de una cadena.
+- Llamadas observables a 0x10240 desde consumidores.
+- Longitudes de buffers, constantes, comparaciones y ramas presentes en las ventanas analizadas.
+- Rutas de error que llaman 0x1bb0; llamadas a 0x13d90 cuando el código las muestra.
+
+8. INFERENCIAS
+- 0x19790 parece un consumidor/formateador de un valor empaquetado de SDK por la consulta de 4 bytes, el formato y BEXTR/AND/SHR.
+- Las funciones machdep parecen wrappers de consulta y conversión de valores de sistema.
+- 0x10240 es probablemente un helper tipo sysctl-by-name, pero su nombre no está demostrado por símbolos.
+- La organización es compatible con versionado/runtime de Orbis, no con una prueba autónoma de FW 13.52.
+
+9. UNKNOWN
+- El valor runtime real devuelto por kern.sdk_version.
+- El nombre de símbolo de cada función consumidora.
+- El tipo C exacto de los buffers y estructuras.
+- La semántica exacta de cada número de sysctl y del helper 0x10240.
+- Si 0x374a9 fue documentado como inicio por una convención de offset o es un error de un byte; el byte exacto de la string visible debe respetarse.
+- Si cualquiera de las variables machdep contiene o deriva el firmware 13.52.
+- La relación con una dirección virtual o GOT: todos los offsets aquí son relativos al archivo.
+
+10. SIGUIENTE PASO
+Obtener un artefacto estático de la misma build que contenga el valor runtime o una tabla de símbolos/exports, idealmente el eboot exacto con sus relocaciones y el resultado de la consulta kern.sdk_version. El siguiente análisis estático más valioso es correlacionar 0x10240 y 0x10130 con una tabla de imports/exports o con un dump de sysctl/SDK version de la misma consola; sin ese valor, el blob sólo demuestra el mecanismo de consulta, no la versión concreta.
+
+11. NOTA SOBRE COMPLETITUD
+La búsqueda de XREFs se hizo sobre el desensamblado completo generado localmente. Sólo se consideran XREF directas cuando el destino aparece explícito en una referencia RIP-relative o comentario de destino; punteros indirectos, tablas sin relocación y referencias externas al blob quedan UNKNOWN.

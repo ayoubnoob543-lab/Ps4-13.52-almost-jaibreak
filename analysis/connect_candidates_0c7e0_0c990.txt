@@ -1,0 +1,244 @@
+/home/ubuntu/ps4-research/repos/PS4_13_52_libkerneldump/libkernel_sys_13.52.bin:     file format binary
+    c7c0:	64 48 8b 04 25 10 00 	mov    rax,QWORD PTR fs:0x10
+    c7c7:	00 00
+    c7c9:	48 8b 88 a8 00 00 00 	mov    rcx,QWORD PTR [rax+0xa8]
+    c7d0:	48 89 0f             	mov    QWORD PTR [rdi],rcx
+    c7d3:	48 8b 80 b0 00 00 00 	mov    rax,QWORD PTR [rax+0xb0]
+    c7da:	48 89 06             	mov    QWORD PTR [rsi],rax
+    c7dd:	c3                   	ret
+    c7de:	90                   	nop
+    c7df:	90                   	nop
+    c7e0:	55                   	push   rbp
+    c7e1:	48 89 e5             	mov    rbp,rsp
+    c7e4:	41 57                	push   r15
+    c7e6:	41 56                	push   r14
+    c7e8:	41 55                	push   r13
+    c7ea:	41 54                	push   r12
+    c7ec:	53                   	push   rbx
+    c7ed:	50                   	push   rax
+    c7ee:	41 89 fc             	mov    r12d,edi
+    c7f1:	64 4c 8b 2c 25 10 00 	mov    r13,QWORD PTR fs:0x10
+    c7f8:	00 00
+    c7fa:	4c 89 ef             	mov    rdi,r13
+    c7fd:	49 89 d6             	mov    r14,rdx
+    c800:	49 89 f7             	mov    r15,rsi
+    c803:	e8 c8 70 ff ff       	call   0x38d0
+    c808:	44 89 e7             	mov    edi,r12d
+    c80b:	4c 89 fe             	mov    rsi,r15
+    c80e:	4c 89 f2             	mov    rdx,r14
+    c811:	e8 9a 4d ff ff       	call   0x15b0
+    c816:	31 f6                	xor    esi,esi
+    c818:	83 f8 ff             	cmp    eax,0xffffffff
+    c81b:	4c 89 ef             	mov    rdi,r13
+    c81e:	89 c3                	mov    ebx,eax
+    c820:	40 0f 94 c6          	sete   sil
+    c824:	e8 57 71 ff ff       	call   0x3980
+    c829:	89 d8                	mov    eax,ebx
+    c82b:	48 83 c4 08          	add    rsp,0x8
+    c82f:	5b                   	pop    rbx
+    c830:	41 5c                	pop    r12
+    c832:	41 5d                	pop    r13
+    c834:	41 5e                	pop    r14
+    c836:	41 5f                	pop    r15
+    c838:	5d                   	pop    rbp
+    c839:	c3                   	ret
+    c83a:	90                   	nop
+    c83b:	90                   	nop
+    c83c:	90                   	nop
+    c83d:	90                   	nop
+    c83e:	90                   	nop
+    c83f:	90                   	nop
+    c840:	55                   	push   rbp
+    c841:	48 89 e5             	mov    rbp,rsp
+    c844:	41 57                	push   r15
+    c846:	41 56                	push   r14
+    c848:	41 54                	push   r12
+    c84a:	53                   	push   rbx
+    c84b:	49 89 fc             	mov    r12,rdi
+    c84e:	64 48 8b 1c 25 10 00 	mov    rbx,QWORD PTR fs:0x10
+    c855:	00 00
+    c857:	48 89 df             	mov    rdi,rbx
+    c85a:	49 89 d6             	mov    r14,rdx
+    c85d:	41 89 f7             	mov    r15d,esi
+    c860:	e8 6b 70 ff ff       	call   0x38d0
+    c865:	4c 89 e7             	mov    rdi,r12
+    c868:	44 89 fe             	mov    esi,r15d
+    c86b:	4c 89 f2             	mov    rdx,r14
+    c86e:	e8 5d 4d ff ff       	call   0x15d0
+    c873:	48 89 df             	mov    rdi,rbx
+    c876:	be 01 00 00 00       	mov    esi,0x1
+    c87b:	41 89 c6             	mov    r14d,eax
+    c87e:	e8 fd 70 ff ff       	call   0x3980
+    c883:	44 89 f0             	mov    eax,r14d
+    c886:	5b                   	pop    rbx
+    c887:	41 5c                	pop    r12
+    c889:	41 5e                	pop    r14
+    c88b:	41 5f                	pop    r15
+    c88d:	5d                   	pop    rbp
+    c88e:	c3                   	ret
+    c88f:	90                   	nop
+    c890:	55                   	push   rbp
+    c891:	48 89 e5             	mov    rbp,rsp
+    c894:	41 57                	push   r15
+    c896:	41 56                	push   r14
+    c898:	53                   	push   rbx
+    c899:	50                   	push   rax
+    c89a:	41 89 fe             	mov    r14d,edi
+    c89d:	64 48 8b 1c 25 10 00 	mov    rbx,QWORD PTR fs:0x10
+    c8a4:	00 00
+    c8a6:	48 89 df             	mov    rdi,rbx
+    c8a9:	31 f6                	xor    esi,esi
+    c8ab:	e8 70 70 ff ff       	call   0x3920
+    c8b0:	44 89 f7             	mov    edi,r14d
+    c8b3:	e8 38 4d ff ff       	call   0x15f0
+    c8b8:	48 89 df             	mov    rdi,rbx
+    c8bb:	be 01 00 00 00       	mov    esi,0x1
+    c8c0:	41 89 c7             	mov    r15d,eax
+    c8c3:	e8 b8 70 ff ff       	call   0x3980
+    c8c8:	45 85 ff             	test   r15d,r15d
+    c8cb:	79 12                	jns    0xc8df
+    c8cd:	e8 de 52 ff ff       	call   0x1bb0
+    c8d2:	83 38 01             	cmp    DWORD PTR [rax],0x1
+    c8d5:	75 08                	jne    0xc8df
+    c8d7:	49 63 fe             	movsxd rdi,r14d
+    c8da:	e8 11 00 00 00       	call   0xc8f0
+    c8df:	44 89 f8             	mov    eax,r15d
+    c8e2:	48 83 c4 08          	add    rsp,0x8
+    c8e6:	5b                   	pop    rbx
+    c8e7:	41 5e                	pop    r14
+    c8e9:	41 5f                	pop    r15
+    c8eb:	5d                   	pop    rbp
+    c8ec:	c3                   	ret
+    c8ed:	90                   	nop
+    c8ee:	90                   	nop
+    c8ef:	90                   	nop
+    c8f0:	55                   	push   rbp
+    c8f1:	48 89 e5             	mov    rbp,rsp
+    c8f4:	48 89 fa             	mov    rdx,rdi
+    c8f7:	bf 08 83 ff a0       	mov    edi,0xa0ff8308
+    c8fc:	be 01 00 00 00       	mov    esi,0x1
+    c901:	31 c9                	xor    ecx,ecx
+    c903:	45 31 c0             	xor    r8d,r8d
+    c906:	45 31 c9             	xor    r9d,r9d
+    c909:	e8 92 a8 01 00       	call   0x271a0
+    c90e:	5d                   	pop    rbp
+    c90f:	c3                   	ret
+    c910:	55                   	push   rbp
+    c911:	48 89 e5             	mov    rbp,rsp
+    c914:	41 57                	push   r15
+    c916:	41 56                	push   r14
+    c918:	53                   	push   rbx
+    c919:	50                   	push   rax
+    c91a:	41 89 fe             	mov    r14d,edi
+    c91d:	64 48 8b 1c 25 10 00 	mov    rbx,QWORD PTR fs:0x10
+    c924:	00 00
+    c926:	48 89 df             	mov    rdi,rbx
+    c929:	31 f6                	xor    esi,esi
+    c92b:	e8 f0 6f ff ff       	call   0x3920
+    c930:	44 89 f7             	mov    edi,r14d
+    c933:	e8 b8 4c ff ff       	call   0x15f0
+    c938:	48 89 df             	mov    rdi,rbx
+    c93b:	be 01 00 00 00       	mov    esi,0x1
+    c940:	41 89 c7             	mov    r15d,eax
+    c943:	e8 38 70 ff ff       	call   0x3980
+    c948:	45 85 ff             	test   r15d,r15d
+    c94b:	79 12                	jns    0xc95f
+    c94d:	e8 5e 52 ff ff       	call   0x1bb0
+    c952:	83 38 01             	cmp    DWORD PTR [rax],0x1
+    c955:	75 08                	jne    0xc95f
+    c957:	49 63 fe             	movsxd rdi,r14d
+    c95a:	e8 11 00 00 00       	call   0xc970
+    c95f:	44 89 f8             	mov    eax,r15d
+    c962:	48 83 c4 08          	add    rsp,0x8
+    c966:	5b                   	pop    rbx
+    c967:	41 5e                	pop    r14
+    c969:	41 5f                	pop    r15
+    c96b:	5d                   	pop    rbp
+    c96c:	c3                   	ret
+    c96d:	90                   	nop
+    c96e:	90                   	nop
+    c96f:	90                   	nop
+    c970:	55                   	push   rbp
+    c971:	48 89 e5             	mov    rbp,rsp
+    c974:	48 89 fa             	mov    rdx,rdi
+    c977:	bf 07 83 ff a0       	mov    edi,0xa0ff8307
+    c97c:	be 01 00 02 80       	mov    esi,0x80020001
+    c981:	31 c9                	xor    ecx,ecx
+    c983:	45 31 c0             	xor    r8d,r8d
+    c986:	45 31 c9             	xor    r9d,r9d
+    c989:	e8 12 a8 01 00       	call   0x271a0
+    c98e:	5d                   	pop    rbp
+    c98f:	c3                   	ret
+    c990:	55                   	push   rbp
+    c991:	48 89 e5             	mov    rbp,rsp
+    c994:	41 57                	push   r15
+    c996:	41 56                	push   r14
+    c998:	41 55                	push   r13
+    c99a:	41 54                	push   r12
+    c99c:	53                   	push   rbx
+    c99d:	50                   	push   rax
+    c99e:	41 89 fc             	mov    r12d,edi
+    c9a1:	64 4c 8b 2c 25 10 00 	mov    r13,QWORD PTR fs:0x10
+    c9a8:	00 00
+    c9aa:	4c 89 ef             	mov    rdi,r13
+    c9ad:	41 89 d6             	mov    r14d,edx
+    c9b0:	49 89 f7             	mov    r15,rsi
+    c9b3:	e8 18 6f ff ff       	call   0x38d0
+    c9b8:	44 89 e7             	mov    edi,r12d
+    c9bb:	4c 89 fe             	mov    rsi,r15
+    c9be:	44 89 f2             	mov    edx,r14d
+    c9c1:	e8 4a 4c ff ff       	call   0x1610
+    c9c6:	31 f6                	xor    esi,esi
+    c9c8:	83 f8 ff             	cmp    eax,0xffffffff
+    c9cb:	4c 89 ef             	mov    rdi,r13
+    c9ce:	89 c3                	mov    ebx,eax
+    c9d0:	40 0f 94 c6          	sete   sil
+    c9d4:	e8 a7 6f ff ff       	call   0x3980
+    c9d9:	89 d8                	mov    eax,ebx
+    c9db:	48 83 c4 08          	add    rsp,0x8
+    c9df:	5b                   	pop    rbx
+    c9e0:	41 5c                	pop    r12
+    c9e2:	41 5d                	pop    r13
+    c9e4:	41 5e                	pop    r14
+    c9e6:	41 5f                	pop    r15
+    c9e8:	5d                   	pop    rbp
+    c9e9:	c3                   	ret
+    c9ea:	90                   	nop
+    c9eb:	90                   	nop
+    c9ec:	90                   	nop
+    c9ed:	90                   	nop
+    c9ee:	90                   	nop
+    c9ef:	90                   	nop
+    c9f0:	55                   	push   rbp
+    c9f1:	48 89 e5             	mov    rbp,rsp
+    c9f4:	41 57                	push   r15
+    c9f6:	41 56                	push   r14
+    c9f8:	41 54                	push   r12
+    c9fa:	53                   	push   rbx
+    c9fb:	49 89 ff             	mov    r15,rdi
+    c9fe:	64 4c 8b 24 25 10 00 	mov    r12,QWORD PTR fs:0x10
+    ca05:	00 00
+    ca07:	4c 89 e7             	mov    rdi,r12
+    ca0a:	41 89 f6             	mov    r14d,esi
+    ca0d:	e8 be 6e ff ff       	call   0x38d0
+    ca12:	4c 89 ff             	mov    rdi,r15
+    ca15:	44 89 f6             	mov    esi,r14d
+    ca18:	e8 43 14 00 00       	call   0xde60
+    ca1d:	31 f6                	xor    esi,esi
+    ca1f:	83 f8 ff             	cmp    eax,0xffffffff
+    ca22:	4c 89 e7             	mov    rdi,r12
+    ca25:	89 c3                	mov    ebx,eax
+    ca27:	40 0f 94 c6          	sete   sil
+    ca2b:	e8 50 6f ff ff       	call   0x3980
+    ca30:	89 d8                	mov    eax,ebx
+    ca32:	5b                   	pop    rbx
+    ca33:	41 5c                	pop    r12
+    ca35:	41 5e                	pop    r14
+    ca37:	41 5f                	pop    r15
+    ca39:	5d                   	pop    rbp
+    ca3a:	c3                   	ret
+    ca3b:	90                   	nop
+    ca3c:	90                   	nop
+    ca3d:	90                   	nop
+    ca3e:	90                   	nop
+    ca3f:	90                   	nop

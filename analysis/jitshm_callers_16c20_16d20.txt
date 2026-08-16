@@ -1,0 +1,116 @@
+
+./libkernel_sys_13.52.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000016c20 <.data+0x16c20>:
+   16c20:	c9                   	leave
+   16c21:	bb 16 00 02 80       	mov    ebx,0x80020016
+   16c26:	83 f8 02             	cmp    eax,0x2
+   16c29:	0f 94 c1             	sete   cl
+   16c2c:	83 f8 16             	cmp    eax,0x16
+   16c2f:	8d 8c 09 00 00 02 80 	lea    ecx,[rcx+rcx*1-0x7ffe0000]
+   16c36:	0f 45 d9             	cmovne ebx,ecx
+   16c39:	49 8b 45 00          	mov    rax,QWORD PTR [r13+0x0]
+   16c3d:	48 3b 45 d0          	cmp    rax,QWORD PTR [rbp-0x30]
+   16c41:	75 11                	jne    0x16c54
+   16c43:	89 d8                	mov    eax,ebx
+   16c45:	48 83 c4 28          	add    rsp,0x28
+   16c49:	5b                   	pop    rbx
+   16c4a:	41 5c                	pop    r12
+   16c4c:	41 5d                	pop    r13
+   16c4e:	41 5e                	pop    r14
+   16c50:	41 5f                	pop    r15
+   16c52:	5d                   	pop    rbp
+   16c53:	c3                   	ret
+   16c54:	e8 87 71 ff ff       	call   0xdde0
+   16c59:	0f 0b                	ud2
+   16c5b:	90                   	nop
+   16c5c:	90                   	nop
+   16c5d:	90                   	nop
+   16c5e:	90                   	nop
+   16c5f:	90                   	nop
+   16c60:	55                   	push   rbp
+   16c61:	48 89 e5             	mov    rbp,rsp
+   16c64:	53                   	push   rbx
+   16c65:	50                   	push   rax
+   16c66:	48 89 cb             	mov    rbx,rcx
+   16c69:	e8 a2 98 fe ff       	call   0x510
+   16c6e:	85 c0                	test   eax,eax
+   16c70:	78 0d                	js     0x16c7f
+   16c72:	89 c1                	mov    ecx,eax
+   16c74:	31 c0                	xor    eax,eax
+   16c76:	48 85 db             	test   rbx,rbx
+   16c79:	74 16                	je     0x16c91
+   16c7b:	89 0b                	mov    DWORD PTR [rbx],ecx
+   16c7d:	eb 12                	jmp    0x16c91
+   16c7f:	e8 2c af fe ff       	call   0x1bb0
+   16c84:	8b 08                	mov    ecx,DWORD PTR [rax]
+   16c86:	8d 81 00 00 02 80    	lea    eax,[rcx-0x7ffe0000]
+   16c8c:	85 c9                	test   ecx,ecx
+   16c8e:	0f 44 c1             	cmove  eax,ecx
+   16c91:	48 83 c4 08          	add    rsp,0x8
+   16c95:	5b                   	pop    rbx
+   16c96:	5d                   	pop    rbp
+   16c97:	c3                   	ret
+   16c98:	90                   	nop
+   16c99:	90                   	nop
+   16c9a:	90                   	nop
+   16c9b:	90                   	nop
+   16c9c:	90                   	nop
+   16c9d:	90                   	nop
+   16c9e:	90                   	nop
+   16c9f:	90                   	nop
+   16ca0:	55                   	push   rbp
+   16ca1:	48 89 e5             	mov    rbp,rsp
+   16ca4:	53                   	push   rbx
+   16ca5:	50                   	push   rax
+   16ca6:	48 89 d3             	mov    rbx,rdx
+   16ca9:	e8 82 98 fe ff       	call   0x530
+   16cae:	85 c0                	test   eax,eax
+   16cb0:	78 0d                	js     0x16cbf
+   16cb2:	89 c1                	mov    ecx,eax
+   16cb4:	31 c0                	xor    eax,eax
+   16cb6:	48 85 db             	test   rbx,rbx
+   16cb9:	74 16                	je     0x16cd1
+   16cbb:	89 0b                	mov    DWORD PTR [rbx],ecx
+   16cbd:	eb 12                	jmp    0x16cd1
+   16cbf:	e8 ec ae fe ff       	call   0x1bb0
+   16cc4:	8b 08                	mov    ecx,DWORD PTR [rax]
+   16cc6:	8d 81 00 00 02 80    	lea    eax,[rcx-0x7ffe0000]
+   16ccc:	85 c9                	test   ecx,ecx
+   16cce:	0f 44 c1             	cmove  eax,ecx
+   16cd1:	48 83 c4 08          	add    rsp,0x8
+   16cd5:	5b                   	pop    rbx
+   16cd6:	5d                   	pop    rbp
+   16cd7:	c3                   	ret
+   16cd8:	90                   	nop
+   16cd9:	90                   	nop
+   16cda:	90                   	nop
+   16cdb:	90                   	nop
+   16cdc:	90                   	nop
+   16cdd:	90                   	nop
+   16cde:	90                   	nop
+   16cdf:	90                   	nop
+   16ce0:	55                   	push   rbp
+   16ce1:	48 89 e5             	mov    rbp,rsp
+   16ce4:	41 57                	push   r15
+   16ce6:	41 56                	push   r14
+   16ce8:	41 55                	push   r13
+   16cea:	41 54                	push   r12
+   16cec:	53                   	push   rbx
+   16ced:	48 83 ec 28          	sub    rsp,0x28
+   16cf1:	4c 8d 2d 68 8b 04 00 	lea    r13,[rip+0x48b68]        # 0x5f860
+   16cf8:	49 89 d6             	mov    r14,rdx
+   16cfb:	41 89 f4             	mov    r12d,esi
+   16cfe:	48 8d 55 b8          	lea    rdx,[rbp-0x48]
+   16d02:	be 09 80 18 40       	mov    esi,0x40188009
+   16d07:	41 89 ff             	mov    r15d,edi
+   16d0a:	49 8b 45 00          	mov    rax,QWORD PTR [r13+0x0]
+   16d0e:	48 89 45 d0          	mov    QWORD PTR [rbp-0x30],rax
+   16d12:	31 c0                	xor    eax,eax
+   16d14:	e8 77 81 fe ff       	call   0xffffffffffffee90
+   16d19:	85 c0                	test   eax,eax
+   16d1b:	74 2d                	je     0x16d4a
+   16d1d:	e8 8e ae         	call   0x1bb0

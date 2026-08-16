@@ -1,0 +1,66 @@
+1585:  364c0 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_umtx.c
+1590:  36552 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_attr.c
+1598:  36709 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_cond.c
+1608:  36920 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_kern.c
+1611:  369a7 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_mutexattr.c
+1614:  36b10 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_sleepq.c
+1616:  36b85 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_spinlock.c
+1639:  370b1 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread.c
+1658:  372e2 [libkernel] %s: failed to initialize (table)
+1671:  374a9 kern.sdk_version
+1712:  378c0 machdep.upd_version
+1713:  378d4 machdep.lower_limit_upd_version
+1714:  378f4 machdep.lower_limit_sysex_version
+1715:  37916 machdep.system_ex_version
+1752:  37cc5 /dev/sdk_eventlog
+1849:  3a561 _orbis_rtld_entry
+1853:  3a5bd _orbis_rtld_entry: get the main program entry
+1855:  3a5f3 /%s/common/lib/libSceSysmodule.sprx
+1856:  3a617 /system/common/lib/libSceSysmodule.sprx
+1862:  3a6cf sceSysmodulePreloadModuleForLibkernel
+1884:  3a9d9 allocate tls in compatible mode with sdk16xx
+1900:  3ac07 libSceDbgUBSanitizer.sprx
+1904:  3ac46 SCE_KERNEL_PROC_IMAGE_AREA
+1905:  3ac61 SCE_KERNEL_DL_AREA
+1906:  3ac74 SCE_KERNEL_HEAP_AREA
+1907:  3ac89 SCE_KERNEL_STACK_AREA
+1908:  3ac9f SCE_KERNEL_GBASE_AREA
+1909:  3acb5 SCE_KERNEL_SYSTEM_DL_AREA
+1910:  3accf SCE_KERNEL_SYSTEM_HEAP_AREA
+1911:  3aceb SCE_KERNEL_JIT_SHM_AREA
+1912:  3ad03 SCE_KERNEL_JIT_SHM_AREA2
+1913:  3ad1c SCE_KERNEL_RAZOR_GPU_AREA
+1914:  3ad36 SCE_KERNEL_GNMDRIVER_AREA
+1915:  3ad50 SCE_KERNEL_GNM_TESS_AREA
+1920:  3ae07 orbis_rtld_allocate_module_info
+1922:  3ae30 handle=%x rv==SCE_KERNEL_ERROR_ENOENT
+1928:  3af0b libkernel.sprx
+1929:  3af1a libSceLibcInternal.sprx
+1931:  3af42 libSceFios2.sprx
+1933:  3af5c libc.sprx
+1935:  3af75 libSceFace.sprx
+1937:  3af94 libSceHand.sprx
+1939:  3afb4 libSceSmart.sprx
+1940:  3afc5 libSceS3DConversion.prx
+1941:  3afdd libSceS3DConversion.sprx
+1943:  3b00c libSceHeadTracker.sprx
+1945:  3b039 libSceFaceTracker.sprx
+1947:  3b066 libSceHandTracker.sprx
+1949:  3b09e libSceAudioLatencyEstimation.sprx
+1951:  3b0d4 libSceNpToolkit.sprx
+1953:  3b0fe libSceJobManager.sprx
+1955:  3b129 libSceNpToolkit2.sprx
+1957:  3b155 libSceNpCppWebApi.sprx
+1959:  3b17e libSceFontGsm.sprx
+1975:  3b3c8 Invalid SDK version for 0x%x 0x%x
+1980:  3b467 	failed orbis_rtld_free_module_info(). rx=%x
+1986:  3b53f libSceMat.sprx
+2001:  3b8c5 __orbis_rtld_rlock_acquire
+2004:  3b918 __orbis_rtld_wlock_acquire
+2006:  3b94d __orbis_rtld_lockdflt_init
+2008:  3b984 __orbis_rtld__rtld_thread_init
+2012:  3ba10 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_mutex.c
+2027:  3bc8c W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_init.c
+2041:  3be11 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_list.c
+2043:  3be84 W:\Build\J02697906\sys\internal\usermode\src\libkernel\pthread\src\thread\thr_spec.c
+2052:  3c026 libkernel: FIXME: Retrying memory space creation.

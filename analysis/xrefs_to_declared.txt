@@ -1,0 +1,150 @@
+jitshm_create	0x510	refs=1
+  0x16c69	call	16c69:	e8 a2 98 fe ff       	call   0x510
+jitshm_alias	0x530	refs=1
+  0x16ca9	call	16ca9:	e8 82 98 fe ff       	call   0x530
+error	0x1bb0	refs=586
+  0x25db	call	25db:	e8 d0 f5 ff ff       	call   0x1bb0
+  0x263a	call	263a:	e8 71 f5 ff ff       	call   0x1bb0
+  0x26bb	call	26bb:	e8 f0 f4 ff ff       	call   0x1bb0
+  0x271a	call	271a:	e8 91 f4 ff ff       	call   0x1bb0
+  0x2875	call	2875:	e8 36 f3 ff ff       	call   0x1bb0
+  0x2e68	call	2e68:	e8 43 ed ff ff       	call   0x1bb0
+  0x6116	call	6116:	e8 95 ba ff ff       	call   0x1bb0
+  0x6281	call	6281:	e8 2a b9 ff ff       	call   0x1bb0
+  0x6679	call	6679:	e8 32 b5 ff ff       	call   0x1bb0
+  0x6d14	call	6d14:	e8 97 ae ff ff       	call   0x1bb0
+  0x6f6b	call	6f6b:	e8 40 ac ff ff       	call   0x1bb0
+  0x6fcc	call	6fcc:	e8 df ab ff ff       	call   0x1bb0
+  0x728c	call	728c:	e8 1f a9 ff ff       	call   0x1bb0
+  0x72dd	call	72dd:	e8 ce a8 ff ff       	call   0x1bb0
+  0x73f8	call	73f8:	e8 b3 a7 ff ff       	call   0x1bb0
+  0x744c	call	744c:	e8 5f a7 ff ff       	call   0x1bb0
+  0x7572	call	7572:	e8 39 a6 ff ff       	call   0x1bb0
+  0x75c1	call	75c1:	e8 ea a5 ff ff       	call   0x1bb0
+  0x7652	call	7652:	e8 59 a5 ff ff       	call   0x1bb0
+  0x76cb	call	76cb:	e8 e0 a4 ff ff       	call   0x1bb0
+  0x773b	call	773b:	e8 70 a4 ff ff       	call   0x1bb0
+  0x77ab	call	77ab:	e8 00 a4 ff ff       	call   0x1bb0
+  0x8357	call	8357:	e8 54 98 ff ff       	call   0x1bb0
+  0x837d	call	837d:	e8 2e 98 ff ff       	call   0x1bb0
+  0xa692	call	a692:	e8 19 75 ff ff       	call   0x1bb0
+  0xa69f	call	a69f:	e8 0c 75 ff ff       	call   0x1bb0
+  0xa83d	call	a83d:	e8 6e 73 ff ff       	call   0x1bb0
+  0xa872	call	a872:	e8 39 73 ff ff       	call   0x1bb0
+  0xad62	call	ad62:	e8 49 6e ff ff       	call   0x1bb0
+  0xad8d	call	ad8d:	e8 1e 6e ff ff       	call   0x1bb0
+  0xb268	call	b268:	e8 43 69 ff ff       	call   0x1bb0
+  0xb282	call	b282:	e8 29 69 ff ff       	call   0x1bb0
+  0xb2b3	call	b2b3:	e8 f8 68 ff ff       	call   0x1bb0
+  0xb316	call	b316:	e8 95 68 ff ff       	call   0x1bb0
+  0xb3a3	call	b3a3:	e8 08 68 ff ff       	call   0x1bb0
+  0xb3dc	call	b3dc:	e8 cf 67 ff ff       	call   0x1bb0
+  0xb4bd	call	b4bd:	e8 ee 66 ff ff       	call   0x1bb0
+  0xb9c3	call	b9c3:	e8 e8 61 ff ff       	call   0x1bb0
+  0xba37	call	ba37:	e8 74 61 ff ff       	call   0x1bb0
+  0xc8cd	call	c8cd:	e8 de 52 ff ff       	call   0x1bb0
+  0xc94d	call	c94d:	e8 5e 52 ff ff       	call   0x1bb0
+  0xdb59	call	db59:	e8 52 40 ff ff       	call   0x1bb0
+  0xdbf8	call	dbf8:	e8 b3 3f ff ff       	call   0x1bb0
+  0xdc8f	call	dc8f:	e8 1c 3f ff ff       	call   0x1bb0
+  0xdd1f	call	dd1f:	e8 8c 3e ff ff       	call   0x1bb0
+  0xe73b	call	e73b:	e8 70 34 ff ff       	call   0x1bb0
+  0xe81f	call	e81f:	e8 8c 33 ff ff       	call   0x1bb0
+  0xe8ba	call	e8ba:	e8 f1 32 ff ff       	call   0x1bb0
+  0xe8f7	call	e8f7:	e8 b4 32 ff ff       	call   0x1bb0
+  0xe92a	call	e92a:	e8 81 32 ff ff       	call   0x1bb0
+  0xea26	call	ea26:	e8 85 31 ff ff       	call   0x1bb0
+  0xeaf5	call	eaf5:	e8 b6 30 ff ff       	call   0x1bb0
+  0xebe3	call	ebe3:	e8 c8 2f ff ff       	call   0x1bb0
+  0xed28	call	ed28:	e8 83 2e ff ff       	call   0x1bb0
+  0xeed6	call	eed6:	e8 d5 2c ff ff       	call   0x1bb0
+  0xeee3	call	eee3:	e8 c8 2c ff ff       	call   0x1bb0
+  0xeef6	call	eef6:	e8 b5 2c ff ff       	call   0x1bb0
+  0xef36	call	ef36:	e8 75 2c ff ff       	call   0x1bb0
+  0xf08e	call	f08e:	e8 1d 2b ff ff       	call   0x1bb0
+  0xf09c	call	f09c:	e8 0f 2b ff ff       	call   0x1bb0
+  0xf0ac	call	f0ac:	e8 ff 2a ff ff       	call   0x1bb0
+  0xf1cb	call	f1cb:	e8 e0 29 ff ff       	call   0x1bb0
+  0xf29c	call	f29c:	e8 0f 29 ff ff       	call   0x1bb0
+  0xf2ae	call	f2ae:	e8 fd 28 ff ff       	call   0x1bb0
+  0xf323	call	f323:	e8 88 28 ff ff       	call   0x1bb0
+  0xf378	call	f378:	e8 33 28 ff ff       	call   0x1bb0
+  0xf3a7	call	f3a7:	e8 04 28 ff ff       	call   0x1bb0
+  0xf3fa	call	f3fa:	e8 b1 27 ff ff       	call   0x1bb0
+  0xf502	call	f502:	e8 a9 26 ff ff       	call   0x1bb0
+  0xf51f	call	f51f:	e8 8c 26 ff ff       	call   0x1bb0
+  0xf565	call	f565:	e8 46 26 ff ff       	call   0x1bb0
+  0xf636	call	f636:	e8 75 25 ff ff       	call   0x1bb0
+  0xf701	call	f701:	e8 aa 24 ff ff       	call   0x1bb0
+  0xf73a	call	f73a:	e8 71 24 ff ff       	call   0x1bb0
+  0xf7cb	call	f7cb:	e8 e0 23 ff ff       	call   0x1bb0
+  0xf801	call	f801:	e8 aa 23 ff ff       	call   0x1bb0
+  0xf8c8	call	f8c8:	e8 e3 22 ff ff       	call   0x1bb0
+  0xf8fa	call	f8fa:	e8 b1 22 ff ff       	call   0x1bb0
+  0xf90c	call	f90c:	e8 9f 22 ff ff       	call   0x1bb0
+  0xf97f	call	f97f:	e8 2c 22 ff ff       	call   0x1bb0
+  0xf98c	call	f98c:	e8 1f 22 ff ff       	call   0x1bb0
+  0xf9bd	call	f9bd:	e8 ee 21 ff ff       	call   0x1bb0
+  0xfade	call	fade:	e8 cd 20 ff ff       	call   0x1bb0
+  0xfb1e	call	fb1e:	e8 8d 20 ff ff       	call   0x1bb0
+  0xfb7e	call	fb7e:	e8 2d 20 ff ff       	call   0x1bb0
+  0xfbf3	call	fbf3:	e8 b8 1f ff ff       	call   0x1bb0
+  0xfc35	call	fc35:	e8 76 1f ff ff       	call   0x1bb0
+  0xffbd	call	ffbd:	e8 ee 1b ff ff       	call   0x1bb0
+  0xffc5	call	ffc5:	e8 e6 1b ff ff       	call   0x1bb0
+  0xffee	call	ffee:	e8 bd 1b ff ff       	call   0x1bb0
+  0x10003	call	10003:	e8 a8 1b ff ff       	call   0x1bb0
+  0x1002c	call	1002c:	e8 7f 1b ff ff       	call   0x1bb0
+  0x1003b	call	1003b:	e8 70 1b ff ff       	call   0x1bb0
+  0x10059	call	10059:	e8 52 1b ff ff       	call   0x1bb0
+  0x100f1	call	100f1:	e8 ba 1a ff ff       	call   0x1bb0
+  0x10101	call	10101:	e8 aa 1a ff ff       	call   0x1bb0
+  0x10146	call	10146:	e8 65 1a ff ff       	call   0x1bb0
+  0x101b3	call	101b3:	e8 f8 19 ff ff       	call   0x1bb0
+  0x101f2	call	101f2:	e8 b9 19 ff ff       	call   0x1bb0
+  0x103dd	call	103dd:	e8 ce 17 ff ff       	call   0x1bb0
+socket	0x45f0	refs=0
+connect_alt	0xc970	refs=1
+  0xc95a	call	c95a:	e8 11 00 00 00       	call   0xc970
+connect	0xc990	refs=0
+mmap	0x114e0	refs=16
+  0x7f1e	call	7f1e:	e8 bd 95 00 00       	call   0x114e0
+  0xc65c	call	c65c:	e8 7f 4e 00 00       	call   0x114e0
+  0xc685	call	c685:	e8 56 4e 00 00       	call   0x114e0
+  0xf01f	call	f01f:	e8 bc 24 00 00       	call   0x114e0
+  0x154c4	call	154c4:	e8 17 c0 ff ff       	call   0x114e0
+  0x16354	call	16354:	e8 87 b1 ff ff       	call   0x114e0
+  0x16af4	call	16af4:	e8 e7 a9 ff ff       	call   0x114e0
+  0x16d62	call	16d62:	e8 79 a7 ff ff       	call   0x114e0
+  0x172fa	call	172fa:	e8 e1 a1 ff ff       	call   0x114e0
+  0x17427	call	17427:	e8 b4 a0 ff ff       	call   0x114e0
+  0x17612	call	17612:	e8 c9 9e ff ff       	call   0x114e0
+  0x18b2c	call	18b2c:	e8 af 89 ff ff       	call   0x114e0
+  0x18eee	call	18eee:	e8 ed 85 ff ff       	call   0x114e0
+  0x25f9f	call	25f9f:	e8 3c b5 fe ff       	call   0x114e0
+  0x25fec	call	25fec:	e8 ef b4 fe ff       	call   0x114e0
+  0x324f9	call	324f9:	e8 e2 ef fd ff       	call   0x114e0
+usleep	0x13b20	refs=2
+  0x27225	call	27225:	e8 f6 c8 fe ff       	call   0x13b20
+  0x2749a	call	2749a:	e8 81 c6 fe ff       	call   0x13b20
+read	0x14870	refs=0
+write	0x148a0	refs=0
+open	0x148d0	refs=2
+  0x346bd	call	346bd:	e8 0e 02 fe ff       	call   0x148d0
+  0x347ba	call	347ba:	e8 11 01 fe ff       	call   0x148d0
+close	0x14900	refs=4
+  0x34727	call	34727:	e8 d4 01 fe ff       	call   0x14900
+  0x3474b	call	3474b:	e8 b0 01 fe ff       	call   0x14900
+  0x3481d	jmp	3481d:	e9 de 00 fe ff       	jmp    0x14900
+  0x34836	call	34836:	e8 c5 00 fe ff       	call   0x14900
+unlink	0x14930	refs=0
+stat	0x15310	refs=0
+pread	0x15460	refs=2
+  0x346ec	call	346ec:	e8 6f 0d fe ff       	call   0x15460
+  0x347e9	call	347e9:	e8 72 0c fe ff       	call   0x15460
+pwrite	0x15490	refs=1
+  0x34710	call	34710:	e8 7b 0d fe ff       	call   0x15490
+lseek	0x154f0	refs=0
+notify	0x19320	refs=0
+
+ALL_DIRECT_REFS_COUNT=14061
