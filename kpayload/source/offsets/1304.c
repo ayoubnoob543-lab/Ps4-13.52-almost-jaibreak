@@ -105,6 +105,7 @@ const struct kpayload_offsets offsets_1304 PAYLOAD_RDATA = {
   .nidf_libSceDipsw_patch4         = 0x00A28272,
 
   // SceShellCore patches - bypass firmware checks
+  // PLACEHOLDER / UNVERIFIED: no verified 13.04 patch site is recorded.
   .check_disc_root_param_patch     = 0xDEADC0DE,
   .app_installer_patch             = 0x001389A0,
   .check_system_version            = 0x003CA3A7,

@@ -62,6 +62,14 @@ jobs:
           assert Path("analysis/xref_version_analysis_13.52.txt").stat().st_size > 0
           print("static_audit_assertions=true")
           PY
+      - name: Static source quality checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash -n build.sh tools/run_static_audit.sh
+          node --check jordy_stage2.js
+          python3 tools/check_source_quality.py
+
       - name: Upload static audit artifacts
         uses: actions/upload-artifact@v4
         with:

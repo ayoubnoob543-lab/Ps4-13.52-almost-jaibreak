@@ -20,7 +20,7 @@ El dump binario ya formaba parte del corpus. No se añaden otros dumps propietar
 | Auditoría reproducible | `tools/verify_offsets.py`, `tools/analyze_xref_versions.py`, `tools/run_static_audit.sh` |
 | Resultados | `analysis/` con hashes, XREFs, consumidores de versión, fingerprints y JSON |
 | Documentación | `AUDIT_REPORT.md`, `RESEARCH_STATUS.md`, `docs/` |
-| Investigación de offsets | `1304.c`, `1304.h`, `1352_offsets.txt`, `kpayload/` |
+| Investigación de offsets | `1304.c` (wrapper histórico), `kpayload/source/offsets/1304.c` (fuente canónica), `1304.h`, `1352_offsets.txt`, `kpayload/` |
 | Scanner BD-J histórico | `src/org/bdj/SuidScanner.java`, `scanner_1304.iso` |
 | Installer y payload SDK | `installer/`, `kpayload/`, `third_party/ps4-payload-sdk` |
 | Investigación adicional | `cve_analysis.md`, auditorías de entrada y documentos de pmap/SYSENT |
@@ -126,7 +126,7 @@ El uso documentado del scanner requiere grabar `scanner_1304.iso` en BD-R, inser
 
 ### Offsets de kernel 13.04 y 13.52
 
-La tabla completa histórica de 13.04 se conserva en `1304.c`/`1304.h`. La tabla parcial de 13.52 conserva estos valores:
+La tabla completa histórica de 13.04 se conserva mediante el wrapper `1304.c`/`1304.h`; la única definición canónica está en `kpayload/source/offsets/1304.c`. La tabla parcial de 13.52 conserva estos valores:
 
 ```text
 PRISON0    = 0x111FA18
@@ -147,6 +147,28 @@ La documentación histórica declara expresamente que el repositorio no contiene
 La documentación histórica conserva el análisis de un MP4 malformado que provoca crashes reportados en FW 11.00 y posiblemente 13.04, con una estructura `moov.udta.meta` y offsets de inyección documentados. Su estado es “under investigation” y no demuestra un exploit 13.52.
 
 También conserva estas clasificaciones históricas: CVE-2026-7270 descartada por incompatibilidad con FreeBSD 9; CVE-2026-49415 como candidata; y Celsius como confirmado para 13.04. Deben mantenerse separadas de cualquier conclusión sobre 13.52.
+
+## Estado operativo y límites de validación
+
+### Qué funciona
+
+Las comprobaciones estáticas del dump, la reconstrucción exacta de sus tres chunks, el cálculo de hashes, el análisis de XREFs y la compilación host documentada de `kpayload` e `installer` son reproducibles en el entorno indicado. El CI puede validar estas propiedades de archivos y fuentes sin ejecutar payloads ni hardware.
+
+### Qué es investigación o POC
+
+`jordy_stage2.js`, el scanner BD-J, las tablas de offsets y los documentos de WebKit/kernel son material de investigación, prototipos o preservación histórica. Sus nombres, consumidores y comentarios describen hipótesis o integraciones incompletas cuando así se indica en el archivo correspondiente. La presencia de una tabla dentro de un payload demuestra inclusión binaria en ese payload, no validez contra el kernel retail.
+
+### Qué está incompleto
+
+No existe en este repositorio un kernel/eboot retail 13.52 con hash, base de carga y bytes suficientes para validar `SYSENT`, `pmap_protect`, `ALLPROC`, `M_TEMP`, `kernel_pmap_store`, `vmspace_*`, `vm_map_*` o `proc_rwmem`. Tampoco están resueltas las bases/versiones de WebKit y libkernel de `jordy_stage2.js`, ni el pivot de ejecución. El layout de `struct stat` del scanner está documentado como objetivo Orbis/FreeBSD y requiere validación contra el ABI exacto.
+
+### Qué NO debe considerarse validado
+
+La compilación host no demuestra compatibilidad con una consola. Una coincidencia de offsets entre tablas, un valor embebido en HEN, un nombre semántico, un patch site o un comentario de una fuente externa no constituye validación de bytes del kernel ni prueba de jailbreak. `scanner_1304.iso` sigue siendo histórico de 13.04 y no es una entrada 13.52 confirmada.
+
+### Placeholders conocidos
+
+`kpayload/source/offsets/1304.c` conserva deliberadamente `.check_disc_root_param_patch = 0xDEADC0DE` como `PLACEHOLDER / UNVERIFIED`; no se ha sustituido por un valor supuesto. `unknown1=0x4D6D0` y `unknown2=0xE6C60` de la investigación 13.52 siguen sin semántica demostrada. En `jordy_stage2.js`, las bases WebKit/libkernel y el pivot ROP devuelven estados incompletos explícitos hasta disponer de anchors versionados; no se inventan offsets.
 
 ## Estado de evidencia
 
