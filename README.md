@@ -137,14 +137,14 @@ python3 -m unittest discover -s tests -v
 
 `tools/libkernel_1352_manifest.json` fija el hash, tamaño, chunks y offsets de la ancla real `libkernel_sys_13.52.bin`. La validación confirma la reconstrucción byte a byte y clasifica `jitshm_create`/`jitshm_alias` como `DIRECT_BYTES`; el manifest también registra `stat`, `pwrite`, `lseek`, `unlink`, `socket` y `connect_alt`, todos como `STRUCTURAL`.
 
-`tools/webkit_1352_migration.json` deja parametrizados WebKit, `libkernel_web`, `libSceLibcInternal`, bases, `.text`, `PT_SCE_RELRO`, vtables, imports, GOT/PLT y gadgets. No contiene direcciones inventadas. `scan_webkit_patterns.py` sólo eleva una entrada cuando encuentra los bytes configurados; después siguen siendo necesarias XREFs y validación de módulo.
+`tools/webkit_1352_migration.json` deja parametrizados WebKit, `libkernel_web`, `libSceLibcInternal`, bases, `.text`, `PT_SCE_RELRO`, vtables, imports, GOT/PLT y gadgets. No contiene direcciones inventadas. `scan_webkit_patterns.py` acepta blobs RAW, ELF64 little-endian y contenedores SELF-like, registra SHA-256/tamaño y extrae metadatos de `PT_LOAD`/`PT_SCE_RELRO`; sólo eleva una entrada cuando encuentra los bytes configurados, y después siguen siendo necesarias XREFs y validación de módulo.
 
 `tools/jordy_1352_migration.json` separa lógica portable de bases, GOT, gadgets, pivot y ROP pendientes. `tools/scan_kernel_structures.py` es independiente de la capa libkernel y devuelve candidatos conservadores para `sysent`, `pmap_protect`, `allproc`, `rootvnode` y `kernel_map`; no calcula deltas ni confirma offsets sin bytes del kernel objetivo.
 
 La documentación ampliada está en [`docs/migration-1352.md`](docs/migration-1352.md). El análisis específico de PSFree 8.50/8.52→13.52 está en [`docs/psfree-850-852-to-1352-porting.md`](docs/psfree-850-852-to-1352-porting.md). Actualmente la cadena queda así:
 
 ```text
-WebKit 13.52:        AUSENTE (las páginas técnicas consultadas documentan módulos/User-Agent, pero no aportan bytes ni hashes)
+WebKit 13.52:        AUSENTE (ver `analysis/webkit_13.52.json`; las páginas técnicas consultadas documentan módulos/User-Agent, pero no aportan bytes ni hashes)
 libkernel_sys 13.52: VERIFICADO
 kernel 13.52:        AUSENTE
 ```

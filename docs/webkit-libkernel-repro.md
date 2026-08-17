@@ -27,6 +27,27 @@ Complete static reproducibility of a WebKit-to-libkernel-to-kernel chain would r
 
 For the kernel side, a same-build 13.52 kernel/eboot with hash, segment/base information and bytes around `SYSENT`, `pmap_protect`, `ALLPROC`, `kernel_pmap_store`, `M_TEMP`, `vmspace_*`, `vm_map_*` and `proc_rwmem` is required. For the entry path, a matching WebKit build, documented JIT evidence and non-hardware static logs would be needed. Hardware logs would still be required for claims about runtime compatibility.
 
+## Scanner RAW/ELF64/SELF y estado actual
+
+`tools/scan_webkit_patterns.py` acepta imágenes RAW, ELF64 little-endian y contenedores SELF-like sin ejecutarlas. Para ELF64 extrae únicamente metadatos de program headers, incluyendo `PT_LOAD`, candidatos `.text` y `PT_SCE_RELRO`; los offsets reportados son offsets de archivo, no bases runtime. Una coincidencia de bytes se clasifica como `DIRECT_BYTES`, pero su identidad semántica permanece `REQUIRES_REANALYSIS` hasta validar XREFs, límites del módulo y procedencia de la misma build.
+
+El informe reproducible actual es `analysis/webkit_13.52.json` y permanece explícitamente ausente:
+
+```json
+{"target_firmware":"13.52","status":"ABSENT","classification":"ABSENT"}
+```
+
+No se encontró una imagen verificable de `libSceNKWebKit.sprx`, `libkernel_web.sprx`, `libSceLibcInternal.sprx`, SELF/eboot o crash dump de PS4 13.52 en el corpus local. Cuando aparezca un artefacto con procedencia, el flujo será:
+
+```bash
+python3 tools/scan_webkit_patterns.py \\
+  --image /ruta/al/artefacto_13.52 \\
+  --config tools/webkit_1352_migration.json \\
+  --json > analysis/webkit_13.52.json
+```
+
+El resultado debe conservar SHA-256, tamaño, formato, segmentos, patrones, roles de segmento y advertencias de identidad semántica. No se deben rellenar bases, vtables, GOT/PLT, imports o gadgets por delta numérico.
+
 ## Classification policy
 
 A gadget or structure copied from a different firmware is historical documentation, not 13.52 validation. A value embedded in a payload is evidence of payload/table inclusion. A `VERIFIED_INTERNAL` classification requires bytes from the same target image plus a defensible address mapping and semantic cross-reference. No file in the current repository meets that standard for the pending retail-kernel offsets.

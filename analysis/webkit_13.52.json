@@ -1,0 +1,25 @@
+{
+  "target_firmware": "13.52",
+  "status": "ABSENT",
+  "artifact": null,
+  "searched_names": [
+    "webkit_13.52.bin",
+    "libSceNKWebKit.sprx",
+    "libkernel_web.sprx",
+    "libSceLibcInternal.sprx",
+    "eboot.bin",
+    "*.self",
+    "*.sprx",
+    "*.elf",
+    "*.nxdp",
+    "*.orbisdmp"
+  ],
+  "local_result": "No verified WebKit/libkernel_web/libc image for firmware 13.52 is present in the laboratory corpus.",
+  "sha256": null,
+  "size": null,
+  "format": null,
+  "segments": [],
+  "patterns": {},
+  "next_action": "Run tools/scan_webkit_patterns.py when a same-build WebKit artifact with provenance is supplied.",
+  "classification": "ABSENT"
+}

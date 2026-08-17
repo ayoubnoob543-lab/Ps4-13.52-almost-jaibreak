@@ -86,6 +86,30 @@ class StaticMigrationTests(unittest.TestCase):
         self.assertEqual(loader_status["13_52_offset_block"], "STRUCTURAL")
         self.assertEqual(loader_status["kernel_bytes"], "ABSENT")
 
+    def test_webkit_scanner_reports_container_and_segments(self) -> None:
+        import struct
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            image = bytearray(0x180)
+            image[:16] = b"\x7fELF" + bytes([2, 1, 1]) + bytes(9)
+            struct.pack_into("<Q", image, 32, 64)
+            struct.pack_into("<H", image, 54, 56)
+            struct.pack_into("<H", image, 56, 2)
+            struct.pack_into("<IIQQQQQQ", image, 64, 1, 5, 0x120, 0x400000, 0, 8, 8, 0x10)
+            struct.pack_into("<IIQQQQQQ", image, 120, 0x61000010, 4, 0x128, 0x400008, 0, 8, 8, 0x10)
+            image[0x120:0x128] = bytes.fromhex("48c7c01502000049")
+            image[0x128:0x130] = bytes.fromhex("89ca0f057201c348")
+            image_path = tmp_path / "synthetic.elf"
+            config_path = tmp_path / "config.json"
+            image_path.write_bytes(image)
+            config_path.write_text(json.dumps({"target_firmware": "13.52", "patterns": {"stub": {"bytes": "48c7c01502000049"}}}), encoding="utf-8")
+            report = self.run_json([sys.executable, "tools/scan_webkit_patterns.py", "--image", str(image_path), "--config", str(config_path), "--json"])
+            self.assertEqual(report["container"]["format"], "ELF64_LE")
+            self.assertEqual(len(report["container"]["segments"]), 2)
+            self.assertEqual(report["patterns"]["stub"]["status"], "DIRECT_BYTES")
+            self.assertEqual(report["patterns"]["stub"]["semantic_identity"], "REQUIRES_REANALYSIS")
+
     def test_webkit_pattern_statuses_are_conservative(self) -> None:
         import tempfile
         with tempfile.TemporaryDirectory() as tmp:
@@ -151,7 +175,16 @@ class StaticMigrationTests(unittest.TestCase):
                 if path.name == "webkit_1352_migration.json":
                     self.assertEqual(data["portable_methodology"]["rip_relative_import_resolution"]["status"], "PORTABLE")
                     self.assertEqual(data["modules"]["libSceNKWebKit.sprx"]["status"], "ABSENT")
+                    self.assertEqual(data["scanner"]["supported_formats"], ["RAW", "ELF64_LE", "SELF"])
                     self.assertEqual(data["libkernel_sys_anchor"]["symbols"]["stat"]["category"], "STRUCTURAL")
+
+    def test_webkit_absence_report_is_explicit(self) -> None:
+        report = json.loads((ROOT / "analysis/webkit_13.52.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["target_firmware"], "13.52")
+        self.assertEqual(report["status"], "ABSENT")
+        self.assertIsNone(report["artifact"])
+        self.assertIsNone(report["sha256"])
+        self.assertEqual(report["classification"], "ABSENT")
 
 
 if __name__ == "__main__":

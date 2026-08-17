@@ -6,6 +6,13 @@
     "format": "UNVERIFIED",
     "status": "ABSENT"
   },
+  "scanner": {
+    "tool": "tools/scan_webkit_patterns.py",
+    "status": "PORTABLE",
+    "supported_formats": ["RAW", "ELF64_LE", "SELF"],
+    "segment_metadata": ["PT_LOAD", "text_candidate", "PT_SCE_RELRO"],
+    "semantic_identity": "REQUIRES_REANALYSIS"
+  },
   "modules": {
     "libSceNKWebKit.sprx": {"status": "ABSENT", "base": null, "text": null, "relro": null},
     "libkernel_web.sprx": {"status": "ABSENT", "base": null, "text": null, "relro": null},
