@@ -242,6 +242,21 @@ class StaticMigrationTests(unittest.TestCase):
         self.assertEqual(by_repo["Gustuds/PS4-AIO-Host-by-Gustuds"]["classification"], "STRUCTURAL")
         self.assertTrue(all(item["firmware"] != "13.52" or item["classification"] != "DIRECT_BYTES" for item in by_repo["Gustuds/PS4-AIO-Host-by-Gustuds"]["patches"]))
 
+    def test_github_deep_audit_remains_conservative(self) -> None:
+        report = json.loads((ROOT / "analysis/github_deep_audit_13.52.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["target_firmware"], "13.52")
+        self.assertEqual(report["cross_source_conclusions"]["new_direct_1352_bytes"], 0)
+        by_repo = {item["repo"]: item for item in report["findings"]}
+        self.assertEqual(by_repo["Leandrobts/Test"]["artifact_status"], "ABSENT")
+        self.assertEqual(by_repo["Leandrobts/Test"]["classification"], "UNVERIFIED")
+        self.assertEqual(by_repo["Gezine/BD-JB5"]["candidate_1352_table"]["SYSENT_661_OFFSET"], "0x110A760")
+        self.assertIn("PS4 support gate ends at 13.00", by_repo["Gezine/BD-JB5"]["why_not_direct"])
+        loader = by_repo["ps4-linux/ps4-linux-loader"]
+        self.assertEqual(loader["candidate_1352_offsets"]["pmap_protect"], "0x58570")
+        self.assertEqual(loader["candidate_1352_offsets"]["SYSENT"], "0x1102B70")
+        self.assertEqual(by_repo["andleexploit/masticore-13.52"]["artifact_status"], "ABSENT")
+        self.assertEqual(report["issues_and_prs"][0]["classification"], "UNVERIFIED")
+
     def test_webkit_absence_report_is_explicit(self) -> None:
         report = json.loads((ROOT / "analysis/webkit_13.52.json").read_text(encoding="utf-8"))
         self.assertEqual(report["target_firmware"], "13.52")

@@ -10,6 +10,7 @@
     "REQUIRES_REANALYSIS"
   ],
   "github_indirect_findings_manifest": "analysis/github_indirect_findings_13.52.json",
+  "github_deep_audit_manifest": "analysis/github_deep_audit_13.52.json",
   "github_audit_additions": [
     {
       "repo": "BillZaiD/ps4-kernel-uaf-research-fw1352",
@@ -31,6 +32,36 @@
       "classification": "STRUCTURAL",
       "artifact_status": "ABSENT",
       "contribution": "historical CSSFontFace layouts and per-firmware patch inventory through 11.02"
+    }
+  ],
+  "github_deep_audit_additions": [
+    {
+      "repo": "Leandrobts/Test",
+      "commit": "24dd1e17dcca73098a025b583c2d73d8c7f5e79e",
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "contribution": "source-level 13.52 WebKit/libkernel table; alleged decrypted module files are absent"
+    },
+    {
+      "repo": "Leandrobts/Host",
+      "commit": "c6f66c7b0ba363e618da95c6f7a013c901a3c316",
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "contribution": "host-side copy of the same unverified 13.52 table"
+    },
+    {
+      "repo": "Gezine/BD-JB5",
+      "commit": "4c28ff2d36cf9cade6763f2a8b801c2219e951f5",
+      "classification": "UNVERIFIED",
+      "artifact_status": "HISTORICAL_CROSS_PLATFORM",
+      "contribution": "independent 13.52 source table with SYSENT 0x110A760; PS4 runtime gate ends at 13.00"
+    },
+    {
+      "repo": "andleexploit/masticore-13.52",
+      "commit": "1e890a84256f4a8a898eecad1c4834d65b9427a4",
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "contribution": "no reproducible technical evidence"
     }
   ],
   "found": [

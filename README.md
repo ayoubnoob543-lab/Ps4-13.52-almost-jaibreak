@@ -36,6 +36,7 @@ El primer porcentaje mide la infraestructura y migración estática; el segundo 
 - [`BillZaiD/ps4-kernel-uaf-research-fw1352`][20], commit `aa5802c`, contiene sólo README, FINDINGS y PoC Lua; no contiene kernel, WebKit, libkernel, crash dump, build ID ni logs runtime adjuntos. Sus afirmaciones sobre `EVFILT_USER=-7`, la base `0x80a67c000` y el UAF quedan `UNVERIFIED`; la construcción de `kevent` y la metodología de inventario syscall son `PORTABLE`.
 - [`alferdoss/SLOPOS-offsets`][21], commit `42273e2`, aporta una tabla `ps4/1352.h` con `SYSENT=0x1102B70`, `pmap_protect=0x58570`, `kernel_map=0x22D1D50`, `kernel_pmap_store=0x1B2C3A0` y `rootvnode=0x2136E90`. Su `CREDITS.md` declara que los offsets kexec se copian de `ps4-linux-loader` y atribuye 13.52 a ArabPixel. Esto mejora la trazabilidad de `0x58570`, pero no resuelve la discrepancia con `ps4-hen` (`0x59DF0`) ni convierte ninguna tabla en `DIRECT_BYTES`.
 - [`Gustuds/PS4-AIO-Host-by-Gustuds`][22], commit `7792f6e`, conserva CSSFontFace histórico con layouts, vtables, `m_featureSettings` y parches `.bin` hasta 11.02; su manifest no incluye 13.52. Los hashes y tamaños de sus patches se registran en `analysis/github_indirect_findings_13.52.json`; sólo sirven como correlación histórica.
+- La auditoría GitHub profunda de [`Leandrobts/Test`][23], [`Gezine/BD-JB5`][24] y [`ps4-linux-loader`][2] añadió código y tablas que explican mejor la procedencia de los candidatos. `Leandrobts/Test` contiene una tabla WebKit/libkernel 13.52 y un scanner runtime, pero no contiene los tres módulos `.decrypted` que sus comentarios mencionan: sus valores quedan `UNVERIFIED` y la lógica de configuración es sólo `PORTABLE`. `BD-JB5` mantiene `SYSENT_661_OFFSET=0x110A760` y shellcode bajo la clave 13.52, pero su propia puerta de soporte PS4 rechaza versiones superiores a 13.00; no es prueba de compatibilidad 13.52. `ps4-linux-loader` contiene un bloque `PS4_13_52` con `SYSENT=0x1102B70` y `pmap_protect=0x58570` en `linux/magic.h:678-710`, mientras que `ps4-hen` mantiene `0x59DF0`/`0x59E37`. Todas son tablas fuente sin bytes del kernel objetivo y la contradicción permanece abierta. El detalle reproducible está en `analysis/github_deep_audit_13.52.json`.
 
 ## Lo que falta
 
@@ -170,10 +171,11 @@ Se añadió `tools/cross_source_evidence.py` para auditar estáticamente y cruza
 - CSSFontFace-Exploit: layouts históricos, `m_featureSettings` y ausencia de una tabla 13.52.
 - Vue-After-Free: separación entre userland y kernel, sin elevar sus offsets históricos.
 - `ps4-linux-loader` v25: bloque etiquetado `PS4_13_52` y entrada de dispatch `1352`, clasificados como `STRUCTURAL` porque el repositorio no contiene bytes de kernel retail.
+- La auditoría GitHub profunda se conserva en `analysis/github_deep_audit_13.52.json`, con commits, rangos de líneas, hashes, issues y condiciones de migrabilidad. No produjo nuevos bytes `CONFIRMED_1352`.
 
 La herramienta sólo lee texto, hashes y manifests. No importa, construye ni ejecuta payloads o exploits. Las categorías permitidas son `CONFIRMED_1352`, `DIRECT_BYTES`, `STRUCTURAL`, `PORTABLE`, `REQUIRES_REANALYSIS`, `UNVERIFIED` y `ABSENT`.
 
-Se añadió `tools/audit_psfree_porting.py`, que lee PSFree como texto y genera un inventario de estructuras, algoritmos portables, offsets históricos y soporte explícito de firmware sin ejecutar JavaScript. `tools/run_static_audit.sh` lo ejecuta cuando se proporciona `PSFREE_ROOT`; sin esa variable produce un estado `ABSENT` explícito. Las suites `tests/test_static_migration.py` y `tests/test_webkit_artifact.py` validan hash/tamaño/chunks, offsets secuenciales, evidencia fuerte, JSON de manifests, clasificación CSSFontFace, matriz cruzada, auditor PSFree, límites ELF truncados/fuera de rango, RELRO inválido, `.text` inválido, máscaras incompatibles y separación hit/identidad. Actualmente pasan 20 tests.
+Se añadió `tools/audit_psfree_porting.py`, que lee PSFree como texto y genera un inventario de estructuras, algoritmos portables, offsets históricos y soporte explícito de firmware sin ejecutar JavaScript. `tools/run_static_audit.sh` lo ejecuta cuando se proporciona `PSFREE_ROOT`; sin esa variable produce un estado `ABSENT` explícito. Las suites `tests/test_static_migration.py` y `tests/test_webkit_artifact.py` validan hash/tamaño/chunks, offsets secuenciales, evidencia fuerte, JSON de manifests, clasificación CSSFontFace, matriz cruzada, auditor PSFree, límites ELF truncados/fuera de rango, RELRO inválido, `.text` inválido, máscaras incompatibles y separación hit/identidad. Actualmente pasan 23 tests, incluidos los tests conservadores del manifest GitHub profundo.
 
 ## Estado del proyecto
 
@@ -193,6 +195,8 @@ Este proyecto está **en investigación activa**. Tiene una base técnica organi
 [20]: https://github.com/BillZaiD/ps4-kernel-uaf-research-fw1352 "PS4 FW 13.52 kqueue/knote research"
 [21]: https://github.com/alferdoss/SLOPOS-offsets "SLOPOS per-firmware kernel offset tables"
 [22]: https://github.com/Gustuds/PS4-AIO-Host-by-Gustuds "Historical CSSFontFace PS4 host"
+[23]: https://github.com/Leandrobts/Test "Leandrobts/Test — PS4 13.52 source-level offset table"
+[24]: https://github.com/Gezine/BD-JB5 "Gezine/BD-JB5 — BD-JB5 PS4/PS5 source and payload references"
 [5]: https://github.com/Scene-Collective/ps4-kernel-dumper "PS4 kernel dumper"
 [6]: https://www.psdevwiki.com/ps4/COREDMP "PS4 Developer Wiki — COREDMP/NXDP"
 [7]: https://github.com/kmeps4/PSFree/tree/368d82aa40d3017c220757ce315761adb5f06678 "PSFree — audited commit"

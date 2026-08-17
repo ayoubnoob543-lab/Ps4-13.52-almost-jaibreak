@@ -1,0 +1,229 @@
+{
+  "target_firmware": "13.52",
+  "policy": "static source/metadata inspection only; no JavaScript, Java, Lua, payload, ELF or binary execution",
+  "search_scope": {
+    "github_searches": [
+      "PS4 13.52 commits",
+      "pmap_protect",
+      "pmap_protect PS4",
+      "CSSFontFace pull requests",
+      "libkernel_web pull requests",
+      "WebKit 13.52 commits",
+      "libkernel_web 13.52 commits"
+    ],
+    "issues_pmap_protect_records": 13,
+    "issues_pmap_protect_ps4_records": 0,
+    "new_repositories_audited": 4,
+    "new_technically_relevant_repositories": 3
+  },
+  "findings": [
+    {
+      "repo": "Leandrobts/Test",
+      "url": "https://github.com/Leandrobts/Test",
+      "head_commit": "24dd1e17dcca73098a025b583c2d73d8c7f5e79e",
+      "relevant_commits": [
+        "5341287914968d2506f3152d3787ae51dba63c01",
+        "798587fccceefe41381858039bbd0ac5e73ae07c",
+        "5bc343911f2b409bf071f910fed65889223ae0fa",
+        "0619ebc30306515e1697a586564bdeddd00f098f"
+      ],
+      "tracked_files": 59,
+      "approx_disk_size_bytes": 3200000,
+      "releases": [],
+      "firmware": "13.52 claimed by source comments; no independent build artifact",
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "source_files": [
+        {
+          "path": "13.52.js",
+          "size": 11820,
+          "sha256": "d924361c4616a1ab05c785fa21cc98b26c1ed3eb73b670ef117a5010978eff45",
+          "lines": "2-246",
+          "relevance": "WebKit/libkernel_web/libc source offset table"
+        },
+        {
+          "path": "ps4_runtime_scanner.js",
+          "size": 19989,
+          "sha256": "95bf4dd9c54c3a28d8aa305768be1d4197ecd30fa870cf6da1339123b307f6c2",
+          "lines": "1-498",
+          "relevance": "runtime memory scanner and module-string discovery"
+        }
+      ],
+      "what_it_demonstrates": "A source-level schema for locating modules, NIDs, imports and candidate RVAs; comments claim analysis of three decrypted modules but those files are absent from the repository.",
+      "migratable": [
+        "portable manifest fields for module, NID, RVA, confidence and provenance",
+        "static review checklist for separating WebKit, libkernel_web and libc layers"
+      ],
+      "requires_reanalysis": [
+        "all numeric WebKit/libkernel/libc offsets",
+        "host constructor and vtable candidates",
+        "ASLR/base claims",
+        "runtime scanner behavior"
+      ],
+      "do_not_transfer": [
+        "0x36F9E20, 0xC87A20, 0x3CB8C80, 0x61410 and other source constants as 13.52 DIRECT_BYTES",
+        "runtime compatibility or exploit support"
+      ],
+      "why_not_direct": "No .sprx, ELF, SELF, dump, build ID, SHA-256 of the alleged decrypted modules or runtime log is present."
+    },
+    {
+      "repo": "Leandrobts/Host",
+      "url": "https://github.com/Leandrobts/Host",
+      "head_commit": "c6f66c7b0ba363e618da95c6f7a013c901a3c316",
+      "relevant_commit": "8fae6357d4a93cf461b32259320e1f12b6d147c6",
+      "tracked_files": 7,
+      "approx_disk_size_bytes": 572000,
+      "releases": [],
+      "firmware": "13.52 claimed by host source; no binary artifact",
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "source_files": [
+        {
+          "path": "13.52.js",
+          "size": 11820,
+          "sha256": "d924361c4616a1ab05c785fa21cc98b26c1ed3eb73b670ef117a5010978eff45",
+          "lines": "2-246",
+          "relevance": "same source-level 13.52 table as Leandrobts/Test"
+        }
+      ],
+      "what_it_demonstrates": "A host-side copy of the same unverified offset table and WebKit/libkernel relationship.",
+      "migratable": [
+        "portable configuration shape and layer separation"
+      ],
+      "requires_reanalysis": [
+        "all offsets, bases, imports, vtables and gadgets"
+      ],
+      "why_not_direct": "No retail module bytes or independent build provenance."
+    },
+    {
+      "repo": "Gezine/BD-JB5",
+      "url": "https://github.com/Gezine/BD-JB5",
+      "head_commit": "4c28ff2d36cf9cade6763f2a8b801c2219e951f5",
+      "tag": "2.0",
+      "tracked_files": 66,
+      "approx_disk_size_bytes": 1900000,
+      "releases": [],
+      "firmware": "PS4 table entries 9.00-13.52; Poops.java runtime gate rejects PS4 above 13.00",
+      "classification": "UNVERIFIED",
+      "artifact_status": "HISTORICAL_CROSS_PLATFORM",
+      "source_files": [
+        {
+          "path": "payloads/poops/src/org/bdj/external/PS4_KernelOffset.java",
+          "size": 20135,
+          "sha256": "3015df2472a3f48a64eaa6e07cbd56718368ae13235e20edd4f722f5b9285e9a",
+          "lines": "26-64, 95, 109-140",
+          "relevance": "PS4 firmware offset table and shellcode strings"
+        },
+        {
+          "path": "payloads/poops/src/org/bdj/external/Poops.java",
+          "size": 48903,
+          "sha256": "e23a19f9561706fc3fc551018d5fd846071e452338da5b3507802fa8b97f0c32",
+          "lines": "292-313, 1152-1204",
+          "relevance": "platform/firmware gate and kernel patch flow"
+        }
+      ],
+      "candidate_1352_table": {
+        "PRISON0": "0x111FA18",
+        "ROOTVNODE": "0x2136E90",
+        "SYSENT_661_OFFSET": "0x110A760",
+        "JMP_RSI_GADGET": "0x4D6D0",
+        "KL_LOCK": "0xE6C60"
+      },
+      "what_it_demonstrates": "An independent source table retains SYSENT_661_OFFSET=0x110A760 for 13.52 and includes a 13.52 shellcode string, but the executable path explicitly rejects PS4 firmware above 13.00.",
+      "migratable": [
+        "static schema for separating PRISON0/ROOTVNODE/SYSENT/gadget/KL_LOCK fields",
+        "cross-version table comparison"
+      ],
+      "requires_reanalysis": [
+        "every 13.52 kernel offset and shellcode relocation"
+      ],
+      "do_not_transfer": [
+        "0x110A760 or 0x4D6D0 as confirmed 13.52 kernel bytes",
+        "the shellcode string as evidence of a working 13.52 path"
+      ],
+      "why_not_direct": "No retail kernel bytes, hash, symbol dump or independent runtime artifact is present; PS4 support gate ends at 13.00."
+    },
+    {
+      "repo": "ps4-linux/ps4-linux-loader",
+      "url": "https://github.com/ps4-linux/ps4-linux-loader",
+      "commit": "9acef9fbf79097a2bb39d6c9c17228198bc445cc",
+      "firmware": "13.52 source/configuration block",
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "source_files": [
+        {
+          "path": "linux/magic.h",
+          "sha256": "0f3b55b2b8a522c1bf4c001c1f571aea7bf4c1dfbda9851d6a5fa9fd6f8cc12d",
+          "size": 26489,
+          "lines": "678-710",
+          "relevance": "PS4_13_52 offset block"
+        },
+        {
+          "path": "linux/ps4-kexec-common/kernel.c",
+          "sha256": "068415883373fff5fe3ab6affe75265595866edd0d251d0f1ae8b4296575c061",
+          "size": 10366,
+          "lines": "125, 250-285",
+          "relevance": "pmap_protect resolution and patch-pattern scan"
+        }
+      ],
+      "candidate_1352_offsets": {
+        "pmap_protect": "0x58570",
+        "SYSENT": "0x1102B70",
+        "kernel_map": "0x22D1D50",
+        "kernel_pmap_store": "0x1B2C3A0"
+      },
+      "what_it_demonstrates": "A source/configuration block explicitly labelled PS4_13_52 and runtime code that scans up to 0x500 bytes from the configured pmap_protect address for patch patterns.",
+      "migratable": [
+        "provenance-aware offset table format",
+        "static representation of pattern-based function/patch-site search"
+      ],
+      "requires_reanalysis": [
+        "target kernel bytes and exact pmap_protect function identity"
+      ],
+      "why_not_direct": "The commit adds source and configuration, not a retail kernel image or hash. The block comment attributes the 13.52 values to ArabPixel/from 12.02."
+    },
+    {
+      "repo": "andleexploit/masticore-13.52",
+      "url": "https://github.com/andleexploit/masticore-13.52",
+      "commit": "1e890a84256f4a8a898eecad1c4834d65b9427a4",
+      "tracked_files": 2,
+      "approx_disk_size_bytes": 208000,
+      "firmware": "13.52 claimed only in repository name/README",
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "source_files": [
+        {
+          "path": "README",
+          "size": 148,
+          "sha256": "086f2fbe1402eb720b702a0f02d6c866961fae6605a21a1a19c9594ba179dd43",
+          "lines": "1-2",
+          "relevance": "unattributed claim and external link"
+        }
+      ],
+      "what_it_demonstrates": "No reproducible technical evidence.",
+      "migratable": [],
+      "why_rejected": "No source, offsets, artifact, provenance or independent build information. The external link was not followed."
+    }
+  ],
+  "issues_and_prs": [
+    {
+      "url": "https://github.com/valentinbreiz/PS4-Linux-Loader/issues/19",
+      "title": "pmap_protect patch failed!",
+      "created": "2019-01-14T02:40:54Z",
+      "firmware": "5.05 claimed in issue body",
+      "classification": "UNVERIFIED",
+      "what_it_demonstrates": "A historical report of a pmap_protect patch failure and a memory-map line, with no target kernel bytes.",
+      "migratable": "None for 13.52; historical failure context only"
+    }
+  ],
+  "cross_source_conclusions": {
+    "SYSENT_0x1102B70": "UNVERIFIED; independently repeated by ps4-hen, SLOPOS and ps4-linux-loader source tables",
+    "SYSENT_0x110A760": "UNVERIFIED; independently present in BD-JB5 13.52 source table, but no kernel bytes and PS4 runtime gate ends at 13.00",
+    "pmap_protect_0x58570": "UNVERIFIED; present in ps4-linux-loader PS4_13_52 block and SLOPOS-derived tables",
+    "pmap_protect_0x59DF0": "UNVERIFIED; present in ps4-hen table, absent from the ps4-linux-loader 13.52 block",
+    "webkit_13_52": "ABSENT; Leandrobts source claims absent decrypted modules, no repository bytes",
+    "libkernel_web_13_52": "ABSENT",
+    "kernel_13_52": "ABSENT",
+    "new_direct_1352_bytes": 0
+  }
+}
