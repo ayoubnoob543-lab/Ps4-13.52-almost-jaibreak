@@ -1,0 +1,37 @@
+{
+  "target_firmware": "13.52",
+  "portable": {
+    "stage_dispatch": true,
+    "argument_marshalling": true,
+    "error_propagation": true,
+    "static_pattern_scanning": true
+  },
+  "firmware_dependent": {
+    "webkit_base": null,
+    "webkit_vtable": null,
+    "libkernel_web_base": null,
+    "libc_base": null,
+    "got": {},
+    "plt": {},
+    "gadgets": {},
+    "pivot": null,
+    "rop_chain": [],
+    "status": "REQUIRES_REANALYSIS"
+  },
+  "libkernel_sys_1352": {
+    "artifact": "libkernel_sys_13.52.bin",
+    "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "wrappers": {
+      "jitshm_create": {"offset": "0x510", "syscall": "0x215", "category": "DIRECT_BYTES"},
+      "jitshm_alias": {"offset": "0x530", "syscall": "0x216", "category": "DIRECT_BYTES"},
+      "open": {"offset": "0x148d0", "category": "STRUCTURAL"},
+      "close": {"offset": "0x14900", "category": "STRUCTURAL"},
+      "read": {"offset": "0x14870", "category": "STRUCTURAL"},
+      "write": {"offset": "0x148a0", "category": "STRUCTURAL"},
+      "pread": {"offset": "0x15460", "category": "STRUCTURAL"},
+      "notify": {"offset": "0x19320", "category": "STRUCTURAL"},
+      "mmap": {"offset": "0x114e0", "category": "STRUCTURAL"},
+      "connect": {"offset": "0xc990", "category": "STRUCTURAL"}
+    }
+  }
+}

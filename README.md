@@ -117,6 +117,30 @@ python3 tools/analyze_xref_versions.py ./libkernel_sys_13.52.bin --out-dir ./ana
 
 La compilación host de fuentes y payloads sólo demuestra que el código puede procesarse en el entorno de análisis. No demuestra ABI, ejecución, compatibilidad de consola ni jailbreak.
 
+## Base de migración estática 13.52
+
+La migración ya tiene una base reproducible, pero no rellena valores ausentes con offsets de otros firmwares:
+
+```bash
+python3 tools/validate_libkernel_1352.py --json
+python3 tools/scan_webkit_patterns.py --image /ruta/a/webkit_13.52.bin --json
+python3 tools/scan_kernel_structures.py --kernel /ruta/a/kernel_13.52.bin --firmware 13.52
+```
+
+`tools/libkernel_1352_manifest.json` fija el hash, tamaño, chunks y offsets de la ancla real `libkernel_sys_13.52.bin`. La validación confirma la reconstrucción byte a byte y clasifica `jitshm_create`/`jitshm_alias` como `DIRECT_BYTES`; los wrappers restantes se conservan como `STRUCTURAL`.
+
+`tools/webkit_1352_migration.json` deja parametrizados WebKit, `libkernel_web`, `libSceLibcInternal`, bases, `.text`, `PT_SCE_RELRO`, vtables, imports, GOT/PLT y gadgets. No contiene direcciones inventadas. `scan_webkit_patterns.py` sólo eleva una entrada cuando encuentra los bytes configurados; después siguen siendo necesarias XREFs y validación de módulo.
+
+`tools/jordy_1352_migration.json` separa lógica portable de bases, GOT, gadgets, pivot y ROP pendientes. `tools/scan_kernel_structures.py` es independiente de la capa libkernel y devuelve candidatos conservadores para `sysent`, `pmap_protect`, `allproc`, `rootvnode` y `kernel_map`; no calcula deltas ni confirma offsets sin bytes del kernel objetivo.
+
+La documentación ampliada está en [`docs/migration-1352.md`](docs/migration-1352.md). Actualmente la cadena queda así:
+
+```text
+WebKit 13.52:        AUSENTE
+libkernel_sys 13.52: VERIFICADO
+kernel 13.52:        AUSENTE
+```
+
 ## Higiene de publicación
 
 Antes de cada publicación se comprueba que el cambio no incluya claves API, tokens, credenciales, claves privadas, logs privados, copias de seguridad, capturas personales ni archivos enormes que no deban distribuirse. Los binarios de investigación se conservan fuera del README y se referencian mediante ruta, tamaño, hash y procedencia cuando corresponde.

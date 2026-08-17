@@ -1,0 +1,42 @@
+{
+  "target_firmware": "13.52",
+  "artifact": {
+    "path": "",
+    "sha256": "",
+    "format": "UNVERIFIED",
+    "status": "ABSENT"
+  },
+  "modules": {
+    "libSceNKWebKit.sprx": {"status": "ABSENT", "base": null, "text": null, "relro": null},
+    "libkernel_web.sprx": {"status": "ABSENT", "base": null, "text": null, "relro": null},
+    "libSceLibcInternal.sprx": {"status": "ABSENT", "base": null, "text": null, "relro": null},
+    "eboot.bin": {"status": "ABSENT", "base": null, "text": null, "relro": null}
+  },
+  "patterns": {
+    "HTMLTextAreaElement_vtable": {"bytes": "", "mask": "", "status": "REQUIRES_REANALYSIS"},
+    "import___stack_chk_fail": {"bytes": "", "mask": "", "status": "REQUIRES_REANALYSIS"},
+    "import_strlen": {"bytes": "", "mask": "", "status": "REQUIRES_REANALYSIS"}
+  },
+  "imports": {
+    "__stack_chk_fail": {"offset": null, "status": "REQUIRES_REANALYSIS"},
+    "strlen": {"offset": null, "status": "REQUIRES_REANALYSIS"},
+    "memcpy": {"offset": null, "status": "REQUIRES_REANALYSIS"}
+  },
+  "libkernel_sys_anchor": {
+    "path": "libkernel_sys_13.52.bin",
+    "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "symbols": {
+      "jitshm_create": {"offset": "0x510", "category": "DIRECT_BYTES"},
+      "jitshm_alias": {"offset": "0x530", "category": "DIRECT_BYTES"},
+      "usleep": {"offset": "0x13b20", "category": "STRUCTURAL"},
+      "open": {"offset": "0x148d0", "category": "STRUCTURAL"},
+      "close": {"offset": "0x14900", "category": "STRUCTURAL"},
+      "read": {"offset": "0x14870", "category": "STRUCTURAL"},
+      "write": {"offset": "0x148a0", "category": "STRUCTURAL"},
+      "pread": {"offset": "0x15460", "category": "STRUCTURAL"},
+      "notify": {"offset": "0x19320", "category": "STRUCTURAL"},
+      "mmap": {"offset": "0x114e0", "category": "STRUCTURAL"},
+      "connect": {"offset": "0xc990", "category": "STRUCTURAL"}
+    }
+  }
+}
