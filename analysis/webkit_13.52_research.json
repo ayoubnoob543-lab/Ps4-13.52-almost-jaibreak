@@ -1,0 +1,128 @@
+{
+  "target_firmware": "13.52",
+  "classification_vocabulary": [
+    "DIRECT_BYTES",
+    "CONFIRMED_1352",
+    "STRUCTURAL",
+    "PORTABLE",
+    "UNVERIFIED",
+    "ABSENT",
+    "REQUIRES_REANALYSIS"
+  ],
+  "found": [
+    {
+      "name": "libkernel_sys_13.52.bin",
+      "origin": "local firmware-lab corpus; source lineage recorded in tools/libkernel_1352_manifest.json",
+      "path": "libkernel_sys_13.52.bin",
+      "firmware": "13.52",
+      "size": 479232,
+      "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+      "format": "raw x86-64 blob; not ELF/SELF/WebKit",
+      "bytes": true,
+      "classification": "CONFIRMED_1352",
+      "contribution": "libkernel_sys anchor; two syscall stubs are DIRECT_BYTES, remaining named wrappers are STRUCTURAL"
+    },
+    {
+      "name": "lk_dump1.bin/lk_dump2.bin/lk_dump3.bin",
+      "origin": "local firmware-lab corpus",
+      "firmware": "13.52 attribution follows the combined libkernel anchor; chunks are supporting artifacts",
+      "size": 159744,
+      "sha256": [
+        "d4a9a642f85446785469750532d9353c9010ebec4373b8e9c4c06d594536da57",
+        "e044d0e5303596df94f86190d34bee6dda8e87f9a51578d067e8d1650ca15e8d",
+        "e31dd16ddc488851c98bc1782cfe919ece1cab2c141bd0ef7c8a9ef82fb9fdf2"
+      ],
+      "format": "raw data chunks",
+      "bytes": true,
+      "classification": "DIRECT_BYTES",
+      "contribution": "byte-for-byte reconstruction support; offsets 0x00000, 0x27000 and 0x4e000 are validated"
+    },
+    {
+      "name": "scanner_1304.iso",
+      "origin": "local firmware-lab corpus",
+      "path": "scanner_1304.iso",
+      "firmware": "13.04 indicated by filename/corpus context; not 13.52",
+      "size": 16777216,
+      "sha256": "6ed15acd9cfb2539e034cde72a9003f52cf6338f04549670e1b8d515d948bd30",
+      "format": "UDF filesystem data version 1.5",
+      "bytes": true,
+      "classification": "STRUCTURAL",
+      "contribution": "historical comparison candidate only; cannot confirm 13.52 WebKit or modules"
+    },
+    {
+      "name": "hen.bin",
+      "origin": "local firmware-lab corpus; provenance does not demonstrate a retail 13.52 module",
+      "path": "hen.bin",
+      "firmware": "UNVERIFIED",
+      "size": 499680,
+      "sha256": "32570b6e54c9531dc8a7d75ef4da6557d440bf69c4b765a85a77d428db3a4b73",
+      "format": "DOS COM/raw payload according to file(1)",
+      "bytes": true,
+      "classification": "UNVERIFIED",
+      "contribution": "payload/table reference only; not accepted as retail kernel or WebKit bytes"
+    },
+    {
+      "name": "plugin_shellcore.prx.inc.c",
+      "origin": "local source corpus",
+      "firmware": "UNVERIFIED",
+      "path": "installer/source/plugin_shellcore.prx.inc.c",
+      "size": 544362,
+      "sha256": "92a8aac8643ecc2a8077a586632a1c4285903c8de948e891a79868f6bc80e864",
+      "format": "ASCII C include containing serialized bytes",
+      "bytes": true,
+      "classification": "UNVERIFIED",
+      "contribution": "source-embedded payload bytes; no demonstrated 13.52 build identity"
+    }
+  ],
+  "candidates": [],
+  "verified": [
+    {
+      "name": "libkernel_sys_13.52.bin",
+      "classification": "CONFIRMED_1352",
+      "evidence": ["file exists", "size matches manifest", "SHA-256 matches", "all chunk hashes match", "chunk offsets are sequential", "reconstruction matches combined blob"]
+    },
+    {
+      "name": "jitshm_create / jitshm_alias stubs",
+      "classification": "DIRECT_BYTES",
+      "evidence": ["bytes in the confirmed local libkernel blob", "syscall numbers 0x215 and 0x216 observed in stubs"]
+    }
+  ],
+  "rejected": [
+    {
+      "name": "scanner_1304.iso",
+      "reason": "historical 13.04-labeled UDF image; no demonstrated same-build 13.52 identity"
+    },
+    {
+      "name": "hen.bin",
+      "reason": "local payload format and hash are known, but retail firmware/module provenance is absent"
+    },
+    {
+      "name": "plugin_shellcore.prx.inc.c",
+      "reason": "serialized source include without verified 13.52 build identity or standalone module header"
+    },
+    {
+      "name": "public search claims/videos/social results",
+      "reason": "no bytes, hash, build ID or reproducible artifact; excluded as evidence"
+    },
+    {
+      "name": "fail0verflow PS4 crash-dump article",
+      "reason": "technical historical methodology, not a 13.52 artifact"
+    }
+  ],
+  "missing": [
+    "libSceNKWebKit.sprx 13.52",
+    "libkernel_web.sprx 13.52",
+    "libSceLibcInternal.sprx 13.52",
+    "13.52 SELF/ELF/eboot containing WebKit or imports",
+    "13.52 NXDP/ORBISDMP or ORBISDMP-derived module bytes",
+    "13.52 kernel retail bytes",
+    "same-build WebKit .text/PT_SCE_RELRO/build ID"
+  ],
+  "next_best_artifact": {
+    "name": "libSceNKWebKit.sprx 13.52",
+    "required_properties": ["same-build provenance", "SHA-256", "ELF64/SELF metadata", ".text", "PT_SCE_RELRO or PT_GNU_RELRO", "program headers", "preferably build ID"],
+    "action": "run tools/scan_webkit_patterns.py and correlate imports/relocations with libkernel_web before considering any layout or gadget migration",
+    "classification_until_obtained": "ABSENT"
+  },
+  "research_result": "No new public binary artifact for WebKit/libkernel_web/libc/kernel 13.52 was found or accepted in this cycle."
+}

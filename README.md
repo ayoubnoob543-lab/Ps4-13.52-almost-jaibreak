@@ -141,7 +141,7 @@ python3 -m unittest discover -s tests -v
 
 `tools/jordy_1352_migration.json` separa lógica portable de bases, GOT, gadgets, pivot y ROP pendientes. `tools/scan_kernel_structures.py` es independiente de la capa libkernel y devuelve candidatos conservadores para `sysent`, `pmap_protect`, `allproc`, `rootvnode` y `kernel_map`; no calcula deltas ni confirma offsets sin bytes del kernel objetivo.
 
-La documentación ampliada está en [`docs/migration-1352.md`](docs/migration-1352.md). El análisis específico de PSFree 8.50/8.52→13.52 está en [`docs/psfree-850-852-to-1352-porting.md`](docs/psfree-850-852-to-1352-porting.md). Actualmente la cadena queda así:
+La documentación ampliada está en [`docs/migration-1352.md`](docs/migration-1352.md). El análisis específico de PSFree 8.50/8.52→13.52 está en [`docs/psfree-850-852-to-1352-porting.md`](docs/psfree-850-852-to-1352-porting.md). El mapa reproducible de candidatos binarios está en [`analysis/webkit_13.52_research.json`](analysis/webkit_13.52_research.json); registra origen, tamaño, SHA-256, formato, decisión y el siguiente artefacto prioritario. Actualmente la cadena queda así:
 
 ```text
 WebKit 13.52:        AUSENTE (ver `analysis/webkit_13.52.json`; las páginas técnicas consultadas documentan módulos/User-Agent, pero no aportan bytes ni hashes)

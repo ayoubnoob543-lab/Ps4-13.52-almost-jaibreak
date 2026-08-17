@@ -198,6 +198,14 @@ class StaticMigrationTests(unittest.TestCase):
                     self.assertIn("build_id", data["scanner"]["segment_metadata"])
                     self.assertEqual(data["libkernel_sys_anchor"]["symbols"]["stat"]["category"], "STRUCTURAL")
 
+    def test_webkit_research_map_is_explicit(self) -> None:
+        report = json.loads((ROOT / "analysis/webkit_13.52_research.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["target_firmware"], "13.52")
+        self.assertIn("libkernel_sys_13.52.bin", [item["name"] for item in report["verified"]])
+        self.assertTrue(report["missing"])
+        self.assertEqual(report["next_best_artifact"]["classification_until_obtained"], "ABSENT")
+        self.assertIn("rejected", report)
+
     def test_webkit_absence_report_is_explicit(self) -> None:
         report = json.loads((ROOT / "analysis/webkit_13.52.json").read_text(encoding="utf-8"))
         self.assertEqual(report["target_firmware"], "13.52")
