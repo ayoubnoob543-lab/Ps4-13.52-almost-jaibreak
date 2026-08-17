@@ -1,12 +1,12 @@
 {
   "target_firmware": "13.52",
-  "repo_count": 34,
+  "repo_count": 35,
   "scan_policy": "complete clones where available; text/path/git/release metadata and passive artifact inspection; no repository code execution",
   "additional_github_audit_manifest": "analysis/github_indirect_findings_13.52.json",
   "deep_github_audit_manifest": "analysis/github_deep_audit_13.52.json",
   "downloaded_artifacts_manifest": "analysis/github_downloaded_artifacts_13.52.json",
   "additional_github_audit_repositories": 7,
-  "total_audited_clones_including_additions": 41,
+  "total_audited_clones_including_additions": 42,
   "classification_vocabulary": [
     "DIRECT_BYTES",
     "CONFIRMED_1352",
@@ -17105,6 +17105,31 @@
       "classification": "STRUCTURAL",
       "reason": "Large OSS source collection; no retail 13.52 module bytes or exact module names.",
       "notes": "Literal 13.52 matches were LayoutTests numeric false positives."
+    },
+    {
+      "repo": "ArabPixel/WebKitty",
+      "url": "https://github.com/ArabPixel/WebKitty",
+      "head_commit": "074463f5e2dfea65b692a33110a5fd31238053f3",
+      "branch": "main",
+      "files_scanned": "complete clone; 173 commits and August 2026 history",
+      "firmware_identified": "functional CSSFontFace chain 9.00-11.02; UI also lists newer firmware payload choices",
+      "artifact_types": [
+        "exploit host source",
+        "historical patch blobs",
+        "payload files"
+      ],
+      "module_presence": {
+        "WebKit": "STRUCTURAL source",
+        "libkernel_web": "ABSENT",
+        "libSceLibcInternal": "ABSENT",
+        "kernel": "ABSENT",
+        "SELF": "ABSENT",
+        "SPRX": "ABSENT"
+      },
+      "sha256": [],
+      "classification": "STRUCTURAL",
+      "reason": "Complete host clone and commit history link ufm42/ntfargo CSSFontFace work while README limits the tested chain to 9.00-11.02; August changes are cache/UI/navigation updates.",
+      "notes": "No repository code or payload was executed; no 13.52 module bytes were found."
     }
   ],
   "external_artifact_evidence": [
@@ -17135,13 +17160,14 @@
     }
   ],
   "research_summary": {
-    "verified_repo_count": 34,
-    "cloned_repo_count": 34,
+    "verified_repo_count": 35,
+    "cloned_repo_count": 35,
     "new_13_52_binary_artifacts_confirmed": 0,
     "new_13_52_indirect_artifacts": 1,
     "full_webkit_13_52_image_present": false,
     "full_libkernel_web_13_52_image_present": false,
     "full_kernel_13_52_image_present": false,
     "evidence_percent_must_not_increase_from_repo_or_test_work": true
-  }
+  },
+  "new_13_52_binary_artifacts_confirmed": 0
 }

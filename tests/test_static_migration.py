@@ -141,6 +141,8 @@ class StaticMigrationTests(unittest.TestCase):
             self.assertEqual(report["patterns"]["stub"]["semantic_identity"], "REQUIRES_REANALYSIS")
 
     def test_psfree_porting_audit_is_conservative(self) -> None:
+        if not PSFREE.is_dir():
+            self.skipTest("external PSFree clone is not present in this checkout")
         out = ROOT / "tests/.psfree-porting-report.json"
         subprocess.run(
             [
@@ -219,7 +221,11 @@ class StaticMigrationTests(unittest.TestCase):
 
     def test_repository_evidence_integration_is_conservative(self) -> None:
         inventory = json.loads((ROOT / "analysis/research_repos_13.52.json").read_text(encoding="utf-8"))
-        self.assertEqual(inventory["repo_count"], 34)
+        self.assertEqual(inventory["repo_count"], 35)
+        self.assertEqual(inventory["research_summary"]["verified_repo_count"], 35)
+        self.assertEqual(inventory["research_summary"]["cloned_repo_count"], 35)
+        self.assertTrue(any(item["repo"] == "ntfargo/CSSFontFace-Exploit" for item in inventory["repositories"]))
+        self.assertTrue(any(item["repo"] == "ArabPixel/WebKitty" for item in inventory["repositories"]))
         hen = next(item for item in inventory["repositories"] if item["repo"] == "Scene-Collective/ps4-hen")
         self.assertEqual(hen["evidence_summary"]["classification"], "UNVERIFIED")
         self.assertEqual(hen["evidence_summary"]["candidate_offsets"]["SYSENT"], "0x1102B70")

@@ -6572,7 +6572,7 @@
     }
   },
   "method": {
-    "disassembly": "objdump -D binary x86-64 Intel",
+    "disassembly": "objdump -D binary x86-64 Intel or Capstone x86-64 fallback",
     "offset_semantics": "file-relative from blob start",
     "execution": "none"
   }

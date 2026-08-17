@@ -1,5 +1,5 @@
 XREF VERSION ANALYSIS — libkernel_sys_13.52.bin
-Scope: static analysis only. The raw blob was read and disassembled as x86-64; no recovered code, payload, exploit or hardware was executed. Offsets are file-relative offsets from blob start, not virtual addresses.
+Scope: static analysis only. The raw blob was read and disassembled as x86-64 with objdump or a Capstone fallback; no recovered code, payload, exploit or hardware was executed. Offsets are file-relative offsets from blob start, not virtual addresses.
 1. RESUMEN
 File size: 479232 bytes (0x75000); SHA-256: ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c. The requested strings were searched byte-for-byte and all RIP-relative disassembly targets were scanned. The exact byte start of kern.sdk_version is recorded separately because the requested 0x374a9 is one byte before the visible string start in this corpus.
 2. TABLA COMPLETA DE XREF
