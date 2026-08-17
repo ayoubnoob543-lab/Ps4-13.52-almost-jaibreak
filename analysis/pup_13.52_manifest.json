@@ -1,0 +1,55 @@
+{
+  "artifact": "PS4UPDATE.PUP",
+  "firmware": "13.52",
+  "source_url": "https://pc.ps4.update.playstation.net/update/ps4/image/2026_0611/sys_2ce20d9fbb48274ceb369b40412e616c/PS4UPDATE.PUP",
+  "source": "Sony PlayStation official PS4 support download",
+  "http": {
+    "content_length": 503310848,
+    "content_type": "text/plain",
+    "accept_ranges": "bytes",
+    "etag": "2ce20d9fbb48274ceb369b40412e616c:1781579172.795957",
+    "last_modified": "Thu, 11 Jun 2026 11:14:05 GMT"
+  },
+  "container": {
+    "format": "SLB2",
+    "magic": "SLB2",
+    "version": 2,
+    "flags": 0,
+    "entry_count": 2,
+    "size_in_sectors": 983029,
+    "declared_size": 503310848,
+    "sha256": "daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11",
+    "classification": "VERIFIED_METADATA",
+    "decryption_performed": false
+  },
+  "entries": [
+    {
+      "name": "PS4UPDATE1.PUP",
+      "offset": 1024,
+      "size": 326026951,
+      "sha256": "fd5e6c16398e628b3f258bce5f395c9fda687011a1a985d4b507928f54e6b580",
+      "classification": "VERIFIED_METADATA",
+      "contents_classification": "ABSENT_UNTIL_DECRYPTED"
+    },
+    {
+      "name": "PS4UPDATE2.PUP",
+      "offset": 326028288,
+      "size": 177282367,
+      "sha256": "44cd0c0e85b5912150112df99867357c3822a90f366198d11e2ec4c1e10adee7",
+      "classification": "VERIFIED_METADATA",
+      "contents_classification": "ABSENT_UNTIL_DECRYPTED"
+    }
+  ],
+  "local_paths": {
+    "full_pup": "/home/ubuntu/ps4-lab-1352/pup/PS4UPDATE.PUP",
+    "slb2_inventory": "/home/ubuntu/ps4-lab-1352/pup/PS4UPDATE.PUP.slb2.json",
+    "ranges_manifest": "/home/ubuntu/ps4-lab-1352/pup/PS4UPDATE.PUP.ranges.json",
+    "fragments_dir": "/home/ubuntu/ps4-lab-1352/pup/fragments"
+  },
+  "notes": [
+    "The PUP is retained outside the Git repository because it is approximately 503 MB.",
+    "The outer SLB2 and fragment byte ranges are verified locally.",
+    "No internal file is classified as extracted or decrypted from the raw PUP.",
+    "No WebKit, libkernel_web, libc or kernel retail artifact is confirmed by this manifest alone."
+  ]
+}

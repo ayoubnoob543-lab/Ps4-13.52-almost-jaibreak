@@ -20,7 +20,7 @@ El primer porcentaje mide la infraestructura y migración estática; el segundo 
 
 - `libkernel_sys_13.52.bin` forma parte del corpus público actual y tiene SHA-256 `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c`. Su existencia no demuestra por sí sola que todos los offsets asociados pertenezcan al kernel retail.
 - El análisis estático de `libkernel_sys` identifica wrappers y patrones compatibles con syscalls, incluyendo stubs que cargan `rax=0x215` y `rax=0x216`, además de funciones candidatas para operaciones temporales, lectura, escritura y posicionamiento. Los nombres semánticos permanecen separados de la evidencia de bytes.
-- [`RuxaXa/ps4-research`][14] documenta el PUP oficial de sistema 13.52 con versión `13.520.000`, SDK `13.520.001`, tamaño `503310848` y un SHA-256 declarado. En este ciclo se comprobó pasivamente que la [URL oficial de Sony][13] responde `200`, anuncia exactamente ese tamaño y que su prefijo de 32 bytes contiene la magia `SLB2`; el PUP completo no se conserva localmente y su SHA-256 no se recalculó de forma independiente. Por ello esta evidencia queda como `UNVERIFIED` a nivel de hash completo y no confirma módulos internos.
+- [`RuxaXa/ps4-research`][14] documenta el PUP oficial de sistema 13.52 con versión `13.520.000`, SDK `13.520.001` y tamaño `503310848`. En este ciclo se descargó íntegramente desde la [URL oficial de Sony][13] mediante ocho rangos HTTP, se verificó el tamaño y se calculó localmente SHA-256 `daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11`. El contenedor es SLB2 versión 2, con `PS4UPDATE1.PUP` y `PS4UPDATE2.PUP`; sus hashes son `fd5e6c16398e628b3f258bce5f395c9fda687011a1a985d4b507928f54e6b580` y `44cd0c0e85b5912150112df99867357c3822a90f366198d11e2ec4c1e10adee7`. Esta evidencia es `VERIFIED_METADATA` del contenedor y fragmentos, no confirma módulos internos porque no se ha realizado descifrado.
 - `SYSENT=0x1102B70` aparece en dos proyectos versionados con soporte específico para 13.52: [`ps4-linux-loader`][2] y [`ps4-hen`][3]. Es el candidato estructural preferido, pero todavía no está confirmado mediante bytes del kernel retail.
 - `SYSENT=0x110A760` aparece en una tabla parcial cuya fuente se declara anónima e incompleta. Permanece sin verificar.
 - `pmap_protect` aparece como `0x58570` en `ps4-linux-loader` y SLOPOS, y como `0x59DF0` en `ps4-hen`, con `0x59E37` como patch site asociado en HEN. `0x58570` es el candidato estructural prioritario por procedencia de la tabla PS4_13_52, pero ambos valores siguen sin confirmación por bytes del kernel retail.
@@ -65,7 +65,7 @@ El primer porcentaje mide la infraestructura y migración estática; el segundo 
 |---|---|
 | Hash y concatenación del dump local de `libkernel_sys` | `DIRECT_BYTES` |
 | Instrucciones syscall observadas en el blob | `DIRECT_BYTES` |
-| URL oficial Sony + tamaño HTTP + prefijo `SLB2` del PUP 13.52 | `UNVERIFIED` para el hash completo; no es evidencia de módulos internos |
+| PUP oficial Sony 13.52 completo, tamaño, SHA-256 y estructura SLB2 verificados localmente | `VERIFIED_METADATA`; no es evidencia de módulos internos descifrados |
 | Commits de soporte 13.52 en `ps4-linux-loader` y `ps4-hen` | `STRUCTURAL` (referencia de payload/tabla, no bytes de kernel) |
 | `SYSENT=0x1102B70` en tablas de soporte | `STRUCTURAL` (sin bytes de kernel objetivo) |
 | Metodología de dumps WebKit/libc/libkernel en `bad_hoist` | `PORTABLE` |
@@ -95,10 +95,10 @@ Si ya existe un artefacto local suficiente, no se repetirá la búsqueda públic
 El corpus local prioritario se mantiene fuera de la publicación cuando contiene archivos grandes o sensibles. Incluye:
 
 - dump de `libkernel_sys_13.52` y sus hashes;
-- metadatos y prefijo HTTP del PUP oficial 13.52; el PUP completo se mantiene fuera del corpus publicado;
+- PUP oficial 13.52 completo y sus fragmentos SLB2, conservados fuera del corpus Git por tamaño; manifests y hashes publicados;
 - documentación y pruebas locales de WebKit/Orbis;
 - repositorios clonados de `900-host`, `pOOBs4`, `bad_hoist`, el exploit WebKit 6.20 y `ps4jb-payloads`;
-- fuentes de parsers PUP y dumper ELF/SELF;
+- parser estático SLB2/PUP (`tools/parse_slb2_static.py`) y pruebas de límites;
 - investigaciones mast1c0re y UAF de 13.52.
 
 La prioridad de análisis será:

@@ -1,0 +1,30 @@
+{
+  "scope": ["13.04", "13.50", "13.52"],
+  "method": "static source and metadata comparison; no delta-derived offsets",
+  "retail_pup_bytes": {
+    "13.04": "ABSENT",
+    "13.50": "ABSENT",
+    "13.52": "VERIFIED_METADATA"
+  },
+  "webkit_modules": {
+    "13.04": "ABSENT",
+    "13.50": "ABSENT",
+    "13.52": "ABSENT"
+  },
+  "kernel_bytes": {
+    "13.04": "ABSENT",
+    "13.50": "ABSENT",
+    "13.52": "ABSENT"
+  },
+  "source_level": {
+    "13.04": "STRUCTURAL",
+    "13.50": "STRUCTURAL",
+    "13.52": "STRUCTURAL/UNVERIFIED"
+  },
+  "confirmed_changes": [],
+  "blocked_by": [
+    "No decrypted retail module or kernel image for 13.04, 13.50, or 13.52 is present in this laboratory.",
+    "No direct byte comparison or valid offset delta can therefore be made."
+  ],
+  "classification": "REQUIRES_REANALYSIS"
+}
