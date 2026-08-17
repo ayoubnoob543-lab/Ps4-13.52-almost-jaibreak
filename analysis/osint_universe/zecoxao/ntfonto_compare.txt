@@ -1,0 +1,147 @@
+--- paths and hashes ---
+ntfonto/appcache_manifest_generator.py
+ntfonto/cache.manifest
+ntfonto/includes/cat.jpg
+ntfonto/includes/script.js
+ntfonto/includes/style.css
+ntfonto/index.html
+ntfonto/src/lapse.js
+ntfonto/src/loader.js
+ntfonto/src/main.js
+ntfonto/src/misc.js
+ntfonto/src/netctrl.js
+ntfonto/src/payload.bin
+ntfonto/src/ps4/constants.js
+ntfonto/src/ps4/kernel.js
+ntfonto/src/ps4/offsets.mjs
+ntfonto/src/ps4/patches/1000.bin
+ntfonto/src/ps4/patches/1050.bin
+ntfonto/src/ps4/patches/1100.bin
+ntfonto/src/ps4/patches/1102.bin
+ntfonto/src/ps4/patches/600.bin
+ntfonto/src/ps4/patches/620.bin
+ntfonto/src/ps4/patches/650.bin
+ntfonto/src/ps4/patches/670.bin
+ntfonto/src/ps4/patches/700.bin
+ntfonto/src/ps4/patches/750.bin
+ntfonto/src/ps4/patches/800.bin
+ntfonto/src/ps4/patches/850.bin
+ntfonto/src/ps4/patches/900.bin
+ntfonto/src/ps4/patches/903.bin
+ntfonto/src/ps4/patches/950.bin
+ntfonto/src/ps4/userland.js
+ntfonto/src/ps4/userland.mjs
+ntfonto/src/utils.mjs
+ntfonto/src/worker.js
+ntfonto/src/workers.js
+ntfonto2/appcache_manifest_generator.py
+ntfonto2/cache.manifest
+ntfonto2/includes/cat.jpg
+ntfonto2/includes/script.js
+ntfonto2/includes/style.css
+ntfonto2/index.html
+ntfonto2/src/_payload.bin
+ntfonto2/src/lapse.js
+ntfonto2/src/loader.js
+ntfonto2/src/main.js
+ntfonto2/src/misc.js
+ntfonto2/src/netctrl.js
+ntfonto2/src/payload.bin
+ntfonto2/src/ps4/constants.js
+ntfonto2/src/ps4/kernel.js
+ntfonto2/src/ps4/offsets.mjs
+ntfonto2/src/ps4/patches/1000.bin
+ntfonto2/src/ps4/patches/1050.bin
+ntfonto2/src/ps4/patches/1100.bin
+ntfonto2/src/ps4/patches/1102.bin
+ntfonto2/src/ps4/patches/600.bin
+ntfonto2/src/ps4/patches/620.bin
+ntfonto2/src/ps4/patches/650.bin
+ntfonto2/src/ps4/patches/670.bin
+ntfonto2/src/ps4/patches/700.bin
+ntfonto2/src/ps4/patches/750.bin
+ntfonto2/src/ps4/patches/800.bin
+ntfonto2/src/ps4/patches/850.bin
+ntfonto2/src/ps4/patches/900.bin
+ntfonto2/src/ps4/patches/903.bin
+ntfonto2/src/ps4/patches/950.bin
+ntfonto2/src/ps4/userland.js
+ntfonto2/src/ps4/userland.mjs
+ntfonto2/src/utils.mjs
+ntfonto2/src/worker.js
+ntfonto2/src/workers.js
+--- commits by path ---
+4ab2eb6363003f9bdf0369e25243edf330ed11fb\t2026-08-03 18:55:11 +0100\tntfonto2 elfldr
+fe5bba740d7d3965c78a381df089d4fbd567d429\t2026-07-28 04:51:50 +0100\tUpdate kernel.js
+2540bbd46b183d269c77b0daba14b456c3d506ec\t2026-07-26 12:48:50 +0100\tfix crash in some games
+44f95d90c0f324f10bcfe44d8f3064ed62e96b81\t2026-07-26 12:45:55 +0100\tfix crash in some games
+2888b37674dbd04cbddef4c724126d653a7cd93d\t2026-07-25 22:53:29 +0100\tlatest hen fonto
+19cc3d6d0242e534ab84b3fed067aeddfc04205b\t2026-07-25 22:50:53 +0100\tntfonto with ps4 hex
+048f36e51c9922dc2e40c1adcb8096c064a06615\t2026-07-25 22:26:22 +0100\tntfonto with usb0
+49fa1d2a0cdfd999b11acc4c53ae4cf9c9435048\t2026-07-25 16:51:10 +0100\tfix appcache
+be016f48633dcd18c53bc4c6aad5f44683b03b4f\t2026-07-25 16:39:53 +0100\tAdd files via upload
+a16a839dad11ce828a10ce2f3954daf9fc929b30\t2026-07-25 16:39:13 +0100\tUpdate cache.manifest
+d04dffbef6a121995b79e9778a903abc0cffda7e\t2026-07-25 16:38:20 +0100\tAdd files via upload
+abbe7bf959bbc2b3b4e0178352d0c962b01b8d93\t2026-07-25 16:37:12 +0100\tUpdate cache.manifest
+54f9009b574fcaa6cf87ccc65593c07109c39255\t2026-07-25 16:00:11 +0100\tntfonto cache
+7b17a266f34ff5977d4675caa84c273ea3b9bf34\t2026-07-25 15:38:04 +0100\tntfonto
+c96a085d6ea14045ba0c1203c1395c5de7c14c85\t2026-06-25 00:45:37 +0100\tntfonto supreme
+60d19f4bcefd22e08001cf3c7ee5af8e363f60f2\t2026-05-11 22:29:47 +0100\tntfonto
+--- content markers ---
+[35mntfonto/src/ps4/constants.js[m[36m:[m[32m7[m[36m:[m      wk_CSSFontFace_[1;31mm_featureSettings[m_m_buffer: 0x28,
+[35mntfonto/src/ps4/constants.js[m[36m:[m[32m8[m[36m:[m      wk_CSSFontFace_[1;31mm_featureSettings[m_m_size: 0x30,
+[35mntfonto/src/ps4/constants.js[m[36m:[m[32m9[m[36m:[m      wk_CSSFontFace_[1;31mm_featureSettings[m_m_capacity: 0x34,
+[35mntfonto/src/ps4/offsets.mjs[m[36m:[m[32m28[m[36m:[m  get wk_CSSFontFace_[1;31mm_featureSettings[m_m_buffer() { return 0x28; }
+[35mntfonto/src/ps4/offsets.mjs[m[36m:[m[32m29[m[36m:[m  get wk_CSSFontFace_[1;31mm_featureSettings[m_m_size() { return 0x30; }
+[35mntfonto/src/ps4/offsets.mjs[m[36m:[m[32m30[m[36m:[m  get wk_CSSFontFace_[1;31mm_featureSettings[m_m_capacity() { return 0x34; }
+[35mntfonto/src/ps4/userland.js[m[36m:[m[32m955[m[36m:[m        uaf_view.setBInt(constants.wk_CSSFontFace_[1;31mm_featureSettings[m_m_buffer, ptr, true); // [1;31mm_featureSettings[m.m_buffer
+[35mntfonto/src/ps4/userland.js[m[36m:[m[32m956[m[36m:[m        uaf_view.setInt32(constants.wk_CSSFontFace_[1;31mm_featureSettings[m_m_size, 1, true); // [1;31mm_featureSettings[m.m_size
+[35mntfonto/src/ps4/userland.js[m[36m:[m[32m957[m[36m:[m        uaf_view.setInt32(constants.wk_CSSFontFace_[1;31mm_featureSettings[m_m_capacity, 1, true); // [1;31mm_featureSettings[m.m_capacity
+[35mntfonto/src/ps4/userland.mjs[m[36m:[m[32m1094[m[36m:[m        uaf_view.setBigUint64(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_buffer, ptr, true); // [1;31mm_featureSettings[m.m_buffer
+[35mntfonto/src/ps4/userland.mjs[m[36m:[m[32m1095[m[36m:[m        uaf_view.setInt32(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_size, 1, true); // [1;31mm_featureSettings[m.m_size
+[35mntfonto/src/ps4/userland.mjs[m[36m:[m[32m1096[m[36m:[m        uaf_view.setInt32(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_capacity, 1, true); // [1;31mm_featureSettings[m.m_capacity
+[35mntfonto/src/ps4/userland.mjs[m[36m:[m[32m1266[m[36m:[m  uaf_view.setBigUint64(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_buffer, 0n, true); // [1;31mm_featureSettings[m.m_buffer
+[35mntfonto/src/ps4/userland.mjs[m[36m:[m[32m1267[m[36m:[m  uaf_view.setInt32(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_size, 0, true); // [1;31mm_featureSettings[m.m_size
+[35mntfonto/src/ps4/userland.mjs[m[36m:[m[32m1268[m[36m:[m  uaf_view.setInt32(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_capacity, 0, true); // [1;31mm_featureSettings[m.m_capacity
+Binary file [35mntfonto2/src/_payload.bin[m matches
+Binary file [35mntfonto2/src/payload.bin[m matches
+[35mntfonto2/src/ps4/constants.js[m[36m:[m[32m7[m[36m:[m      wk_CSSFontFace_[1;31mm_featureSettings[m_m_buffer: 0x28,
+[35mntfonto2/src/ps4/constants.js[m[36m:[m[32m8[m[36m:[m      wk_CSSFontFace_[1;31mm_featureSettings[m_m_size: 0x30,
+[35mntfonto2/src/ps4/constants.js[m[36m:[m[32m9[m[36m:[m      wk_CSSFontFace_[1;31mm_featureSettings[m_m_capacity: 0x34,
+[35mntfonto2/src/ps4/offsets.mjs[m[36m:[m[32m28[m[36m:[m  get wk_CSSFontFace_[1;31mm_featureSettings[m_m_buffer() { return 0x28; }
+[35mntfonto2/src/ps4/offsets.mjs[m[36m:[m[32m29[m[36m:[m  get wk_CSSFontFace_[1;31mm_featureSettings[m_m_size() { return 0x30; }
+[35mntfonto2/src/ps4/offsets.mjs[m[36m:[m[32m30[m[36m:[m  get wk_CSSFontFace_[1;31mm_featureSettings[m_m_capacity() { return 0x34; }
+[35mntfonto2/src/ps4/userland.js[m[36m:[m[32m955[m[36m:[m        uaf_view.setBInt(constants.wk_CSSFontFace_[1;31mm_featureSettings[m_m_buffer, ptr, true); // [1;31mm_featureSettings[m.m_buffer
+[35mntfonto2/src/ps4/userland.js[m[36m:[m[32m956[m[36m:[m        uaf_view.setInt32(constants.wk_CSSFontFace_[1;31mm_featureSettings[m_m_size, 1, true); // [1;31mm_featureSettings[m.m_size
+[35mntfonto2/src/ps4/userland.js[m[36m:[m[32m957[m[36m:[m        uaf_view.setInt32(constants.wk_CSSFontFace_[1;31mm_featureSettings[m_m_capacity, 1, true); // [1;31mm_featureSettings[m.m_capacity
+[35mntfonto2/src/ps4/userland.mjs[m[36m:[m[32m1094[m[36m:[m        uaf_view.setBigUint64(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_buffer, ptr, true); // [1;31mm_featureSettings[m.m_buffer
+[35mntfonto2/src/ps4/userland.mjs[m[36m:[m[32m1095[m[36m:[m        uaf_view.setInt32(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_size, 1, true); // [1;31mm_featureSettings[m.m_size
+[35mntfonto2/src/ps4/userland.mjs[m[36m:[m[32m1096[m[36m:[m        uaf_view.setInt32(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_capacity, 1, true); // [1;31mm_featureSettings[m.m_capacity
+[35mntfonto2/src/ps4/userland.mjs[m[36m:[m[32m1266[m[36m:[m  uaf_view.setBigUint64(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_buffer, 0n, true); // [1;31mm_featureSettings[m.m_buffer
+[35mntfonto2/src/ps4/userland.mjs[m[36m:[m[32m1267[m[36m:[m  uaf_view.setInt32(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_size, 0, true); // [1;31mm_featureSettings[m.m_size
+[35mntfonto2/src/ps4/userland.mjs[m[36m:[m[32m1268[m[36m:[m  uaf_view.setInt32(Offsets.current.wk_CSSFontFace_[1;31mm_featureSettings[m_m_capacity, 0, true); // [1;31mm_featureSettings[m.m_capacity
+--- file hashes ---
+0a66a76be8815caf8fc2c012811b0795bafce86758b89a42915afda6fb930c67  ntfonto/index.html
+799f5962c9f5084826804db5a2fffd8a38d70a9ce62637e195952ec572962eba  ntfonto/src/main.js
+c6329401d1810e16c84e6474ac30977dbdc951987c10cdb559370de7d59db0b0  ntfonto/src/payload.bin
+c832a6f7ba08b729a291a5807caf5f2caffac52823e32ca8bca6dbba3252e329  ntfonto/src/ps4/constants.js
+6589f2a138103c4869ece63f7ccd4e49de64a4915b1bcc9a5c260ac0a4604ecf  ntfonto/src/ps4/offsets.mjs
+dc1ae1fd99829511818dd0ecde813e75287f804b4543af4186d09ab875d5c2a4  ntfonto/src/ps4/userland.js
+0a66a76be8815caf8fc2c012811b0795bafce86758b89a42915afda6fb930c67  ntfonto2/index.html
+568d57e7c6bfff1b96fc20a4e00b9ca744aa58b135a56eeb5c66c1175acfac3e  ntfonto2/src/_payload.bin
+799f5962c9f5084826804db5a2fffd8a38d70a9ce62637e195952ec572962eba  ntfonto2/src/main.js
+9525dc95393ab943758db69a1f49fea6e82f36f2821bf5f41bc00bfc4d6f75df  ntfonto2/src/payload.bin
+c832a6f7ba08b729a291a5807caf5f2caffac52823e32ca8bca6dbba3252e329  ntfonto2/src/ps4/constants.js
+6589f2a138103c4869ece63f7ccd4e49de64a4915b1bcc9a5c260ac0a4604ecf  ntfonto2/src/ps4/offsets.mjs
+dc1ae1fd99829511818dd0ecde813e75287f804b4543af4186d09ab875d5c2a4  ntfonto2/src/ps4/userland.js
+--- first-parent provenance ---
+[ntfonto]
+be016f48633dcd18c53bc4c6aad5f44683b03b4f\t2026-07-25 16:39:53 +0100\tAdd files via upload
+d04dffbef6a121995b79e9778a903abc0cffda7e\t2026-07-25 16:38:20 +0100\tAdd files via upload
+54f9009b574fcaa6cf87ccc65593c07109c39255\t2026-07-25 16:00:11 +0100\tntfonto cache
+7b17a266f34ff5977d4675caa84c273ea3b9bf34\t2026-07-25 15:38:04 +0100\tntfonto
+c96a085d6ea14045ba0c1203c1395c5de7c14c85\t2026-06-25 00:45:37 +0100\tntfonto supreme
+60d19f4bcefd22e08001cf3c7ee5af8e363f60f2\t2026-05-11 22:29:47 +0100\tntfonto
+[ntfonto2]
+4ab2eb6363003f9bdf0369e25243edf330ed11fb\t2026-08-03 18:55:11 +0100\tntfonto2 elfldr
+048f36e51c9922dc2e40c1adcb8096c064a06615\t2026-07-25 22:26:22 +0100\tntfonto with usb0

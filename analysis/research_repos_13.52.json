@@ -1,11 +1,91 @@
 {
   "target_firmware": "13.52",
-  "repo_count": 35,
+  "repo_count": 39,
   "scan_policy": "complete clones where available; text/path/git/release metadata and passive artifact inspection; no repository code execution",
   "additional_github_audit_manifest": "analysis/github_indirect_findings_13.52.json",
   "deep_github_audit_manifest": "analysis/github_deep_audit_13.52.json",
   "downloaded_artifacts_manifest": "analysis/github_downloaded_artifacts_13.52.json",
-  "additional_github_audit_repositories": 7,
+  "additional_github_audit_repositories": [
+    {
+      "repo": "Leandrobts/Host",
+      "commit": "c6f66c7b0ba363e618da95c6f7a013c901a3c316",
+      "classification": "STRUCTURAL",
+      "artifact_status": "ABSENT",
+      "contribution": "Public 13.52.js resolver source; claims analysis of three decrypted modules but ships no WebKit/libkernel_web/libc artifacts, hashes, logs or build IDs. The current source is shared byte-for-byte with Leandrobts/Test.",
+      "provenance": "https://github.com/Leandrobts/Host",
+      "not_accepted_as": "DIRECT_BYTES or VERIFIED_METADATA for 13.52 retail modules",
+      "evidence": {
+        "file": "13.52.js",
+        "size": 11820,
+        "sha256": "d924361c4616a1ab05c785fa21cc98b26c1ed3eb73b670ef117a5010978eff45",
+        "module_claims": [
+          "libSceNKWebKit_sprx.decrypted (~70 MB)",
+          "libkernel_web_sprx.decrypted (~448 KB)",
+          "libSceLibcInternal_sprx.decrypted (~1.5 MB)"
+        ],
+        "history": [
+          "8fae6357d4a93cf461b32259320e1f12b6d147c6",
+          "c3b181fefeb130983dcd891f716b1bc02ea61b44",
+          "ba5f35570a6c836687c630e592e9e96966108876",
+          "b2a1fca690dced722217e7bccd96aa0497dd4aac",
+          "d418755d1c7b4807aa2e53b9b665307ddfafa372",
+          "4647873f1bc999e1019a06801dcb4abf4fce13e2",
+          "5c469e9bf9ab5844b8247c327d7016fa89621656"
+        ]
+      }
+    },
+    {
+      "repo": "Leandrobts/Test",
+      "commit": "24dd1e17dcca73098a025b583c2d73d8c7f5e79e",
+      "classification": "STRUCTURAL",
+      "artifact_status": "ABSENT",
+      "contribution": "Related host/resolver source. Shared 13.52.js and resources/main.js hashes with Leandrobts/Host; no standalone retail modules or reproducible dump.",
+      "provenance": "https://github.com/Leandrobts/Test",
+      "not_accepted_as": "independent binary corroboration"
+    },
+    {
+      "repo": "Gezine/BD-JB5",
+      "commit": "4c28ff2d36cf9cade6763f2a8b801c2219e951f5",
+      "classification": "STRUCTURAL",
+      "artifact_status": "VERIFIED_METADATA_ONLY",
+      "contribution": "BD-J Poops source includes a 13.52 offset table and shellcode string; release 2.0 assets have verified GitHub digests, but none is a retail kernel/WebKit module.",
+      "provenance": "https://github.com/Gezine/BD-JB5",
+      "not_accepted_as": "DIRECT_BYTES of the 13.52 kernel or WebKit",
+      "evidence": {
+        "source_commit": "fef9084ef18435cc451f2fb5039d88957ddc8f85",
+        "release": "2.0",
+        "assets": [
+          {
+            "name": "BD-JB5-2.0.iso",
+            "size": 16777216,
+            "sha256": "88dec100489794cb3790f802511146cdc2e8c1fc3845a6347f8c2913908bbde4",
+            "format": "BDMV/BD-J ISO"
+          },
+          {
+            "name": "bdj_unpatch_1360.elf",
+            "size": 433704,
+            "sha256": "22bae58b6214832c99457d56fc97676ce8eef1d626fbaf50b6a69508e5c1e18e",
+            "format": "ELF64 PIE"
+          },
+          {
+            "name": "poops_1.8.jar",
+            "size": 178729,
+            "sha256": "96cf108e0a2fe38a7a644775f9775e09be69a0ccb138f8597453d59b6587ac03",
+            "format": "Java archive"
+          }
+        ]
+      }
+    },
+    {
+      "repo": "andleexploit/masticore-13.52",
+      "commit": "1e890a84256f4a8a898eecad1c4834d65b9427a4",
+      "classification": "DOCUMENTATION",
+      "artifact_status": "ABSENT",
+      "contribution": "Two-commit README-only claim; no source, binary, log, hash or compiler SELF.",
+      "provenance": "https://github.com/andleexploit/masticore-13.52",
+      "not_accepted_as": "mast1c0re 13.52 evidence"
+    }
+  ],
   "total_audited_clones_including_additions": 42,
   "classification_vocabulary": [
     "DIRECT_BYTES",
@@ -17130,6 +17210,85 @@
       "classification": "STRUCTURAL",
       "reason": "Complete host clone and commit history link ufm42/ntfargo CSSFontFace work while README limits the tested chain to 9.00-11.02; August changes are cache/UI/navigation updates.",
       "notes": "No repository code or payload was executed; no 13.52 module bytes were found."
+    },
+    {
+      "repo": "Leandrobts/Host",
+      "commit": "c6f66c7b0ba363e618da95c6f7a013c901a3c316",
+      "classification": "STRUCTURAL",
+      "artifact_status": "ABSENT",
+      "contribution": "Public 13.52.js resolver source; claims analysis of three decrypted modules but ships no WebKit/libkernel_web/libc artifacts, hashes, logs or build IDs. The current source is shared byte-for-byte with Leandrobts/Test.",
+      "provenance": "https://github.com/Leandrobts/Host",
+      "not_accepted_as": "DIRECT_BYTES or VERIFIED_METADATA for 13.52 retail modules",
+      "evidence": {
+        "file": "13.52.js",
+        "size": 11820,
+        "sha256": "d924361c4616a1ab05c785fa21cc98b26c1ed3eb73b670ef117a5010978eff45",
+        "module_claims": [
+          "libSceNKWebKit_sprx.decrypted (~70 MB)",
+          "libkernel_web_sprx.decrypted (~448 KB)",
+          "libSceLibcInternal_sprx.decrypted (~1.5 MB)"
+        ],
+        "history": [
+          "8fae6357d4a93cf461b32259320e1f12b6d147c6",
+          "c3b181fefeb130983dcd891f716b1bc02ea61b44",
+          "ba5f35570a6c836687c630e592e9e96966108876",
+          "b2a1fca690dced722217e7bccd96aa0497dd4aac",
+          "d418755d1c7b4807aa2e53b9b665307ddfafa372",
+          "4647873f1bc999e1019a06801dcb4abf4fce13e2",
+          "5c469e9bf9ab5844b8247c327d7016fa89621656"
+        ]
+      }
+    },
+    {
+      "repo": "Leandrobts/Test",
+      "commit": "24dd1e17dcca73098a025b583c2d73d8c7f5e79e",
+      "classification": "STRUCTURAL",
+      "artifact_status": "ABSENT",
+      "contribution": "Related host/resolver source. Shared 13.52.js and resources/main.js hashes with Leandrobts/Host; no standalone retail modules or reproducible dump.",
+      "provenance": "https://github.com/Leandrobts/Test",
+      "not_accepted_as": "independent binary corroboration"
+    },
+    {
+      "repo": "Gezine/BD-JB5",
+      "commit": "4c28ff2d36cf9cade6763f2a8b801c2219e951f5",
+      "classification": "STRUCTURAL",
+      "artifact_status": "VERIFIED_METADATA_ONLY",
+      "contribution": "BD-J Poops source includes a 13.52 offset table and shellcode string; release 2.0 assets have verified GitHub digests, but none is a retail kernel/WebKit module.",
+      "provenance": "https://github.com/Gezine/BD-JB5",
+      "not_accepted_as": "DIRECT_BYTES of the 13.52 kernel or WebKit",
+      "evidence": {
+        "source_commit": "fef9084ef18435cc451f2fb5039d88957ddc8f85",
+        "release": "2.0",
+        "assets": [
+          {
+            "name": "BD-JB5-2.0.iso",
+            "size": 16777216,
+            "sha256": "88dec100489794cb3790f802511146cdc2e8c1fc3845a6347f8c2913908bbde4",
+            "format": "BDMV/BD-J ISO"
+          },
+          {
+            "name": "bdj_unpatch_1360.elf",
+            "size": 433704,
+            "sha256": "22bae58b6214832c99457d56fc97676ce8eef1d626fbaf50b6a69508e5c1e18e",
+            "format": "ELF64 PIE"
+          },
+          {
+            "name": "poops_1.8.jar",
+            "size": 178729,
+            "sha256": "96cf108e0a2fe38a7a644775f9775e09be69a0ccb138f8597453d59b6587ac03",
+            "format": "Java archive"
+          }
+        ]
+      }
+    },
+    {
+      "repo": "andleexploit/masticore-13.52",
+      "commit": "1e890a84256f4a8a898eecad1c4834d65b9427a4",
+      "classification": "DOCUMENTATION",
+      "artifact_status": "ABSENT",
+      "contribution": "Two-commit README-only claim; no source, binary, log, hash or compiler SELF.",
+      "provenance": "https://github.com/andleexploit/masticore-13.52",
+      "not_accepted_as": "mast1c0re 13.52 evidence"
     }
   ],
   "external_artifact_evidence": [
@@ -17160,8 +17319,8 @@
     }
   ],
   "research_summary": {
-    "verified_repo_count": 35,
-    "cloned_repo_count": 35,
+    "verified_repo_count": 39,
+    "cloned_repo_count": 39,
     "new_13_52_binary_artifacts_confirmed": 0,
     "new_13_52_indirect_artifacts": 1,
     "full_webkit_13_52_image_present": false,
@@ -17169,5 +17328,15 @@
     "full_kernel_13_52_image_present": false,
     "evidence_percent_must_not_increase_from_repo_or_test_work": true
   },
-  "new_13_52_binary_artifacts_confirmed": 0
+  "new_13_52_binary_artifacts_confirmed": 0,
+  "additional_github_audit_repositories_count": 7,
+  "latest_cycle_coverage": {
+    "date": "2026-08-17",
+    "candidate_repositories": 974,
+    "search_queries": 108,
+    "selected_full_clones": 12,
+    "selected_tracked_files": 2652,
+    "selected_commits": 1875,
+    "selection_policy": "technical relevance, artifact/module terms, author provenance, recent activity, or recursive references; candidates were not auto-accepted"
+  }
 }

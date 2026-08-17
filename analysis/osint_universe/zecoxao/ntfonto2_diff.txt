@@ -1,0 +1,34 @@
+[33mcommit 4ab2eb6[m
+Author:     Your Name <you@example.com>
+AuthorDate: 2026-08-03 18:55:11 +0100
+Commit:     Your Name <you@example.com>
+CommitDate: 2026-08-03 18:55:11 +0100
+
+    ntfonto2 elfldr
+
+ ntfonto2/cache.manifest   |   5 [32m+++[m[31m--[m
+ ntfonto2/src/_payload.bin | Bin [31m0[m -> [32m499776[m bytes
+ ntfonto2/src/payload.bin  | Bin [31m499776[m -> [32m261012[m bytes
+ 3 files changed, 3 insertions(+), 2 deletions(-)
+--- names ---
+M	ntfonto2/cache.manifest
+A	ntfonto2/src/_payload.bin
+M	ntfonto2/src/payload.bin
+--- changed paths compared with parent ---
+3	2	ntfonto2/cache.manifest
+-	-	ntfonto2/src/_payload.bin
+-	-	ntfonto2/src/payload.bin
+--- exact markers in changed text ---
+[1mdiff --git a/ntfonto2/cache.manifest b/ntfonto2/cache.manifest[m
+[1m--- a/ntfonto2/cache.manifest[m
+[1m+++ b/ntfonto2/cache.manifest[m
+[36m@@ -9,12 +9,13 @@[m [msrc/loader.js #57f9bce0340bb5c7d59b24a5370c86300063edec435ece75c1491e55dbd980c8[m
+[31m-src/payload.bin #568d57e7c6bfff1b96fc20a4e00b9ca744aa58b135a56eeb5c66c1175acfac3e[m
+[32m+[m[32msrc/payload.bin #9525dc95393ab943758db69a1f49fea6e82f36f2821bf5f41bc00bfc4d6f75df[m
+[32m+[m[32msrc/_payload.bin #568d57e7c6bfff1b96fc20a4e00b9ca744aa58b135a56eeb5c66c1175acfac3e[m
+[31m-src/ps4/kernel.js #c26d11fd3b565818f673a191e60d4564db71f19023e7d490329f1a5373c5fb50[m
+[32m+[m[32msrc/ps4/kernel.js #bb184cf282dcb9c94aec0a39306e93923ece1b549f847010fc8eb1fe0468ff33[m
+[1mdiff --git a/ntfonto2/src/_payload.bin b/ntfonto2/src/_payload.bin[m
+Binary files /dev/null and b/ntfonto2/src/_payload.bin differ
+[1mdiff --git a/ntfonto2/src/payload.bin b/ntfonto2/src/payload.bin[m
+Binary files a/ntfonto2/src/payload.bin and b/ntfonto2/src/payload.bin differ

@@ -1,0 +1,90 @@
+{
+  "date": "2026-08-17",
+  "target_firmware": "13.52",
+  "search_universe": {
+    "github_queries": 108,
+    "unique_repository_candidates": 974,
+    "raw_results_path_local_only": "analysis/osint_universe/",
+    "candidate_policy": "Candidates were deduplicated by full_name and filtered for PS4/Orbis, WebKit, CSSFontFace, PSFree, kernel, libkernel, SELF/SPRX/ELF, dumps, firmware, exploit research, named investigators, or recursive references. Search hits alone were not accepted as evidence."
+  },
+  "full_clone_coverage": {
+    "repositories": 12,
+    "tracked_files": 2652,
+    "commits": 1875,
+    "tracked_bytes": 324461841,
+    "largest_corpus": {
+      "repository": "zecoxao/zecoxao.github.io",
+      "files": 1817,
+      "commits": 474,
+      "tracked_bytes": 289579998,
+      "audit": "reachable tree, tags, relevant history, FontFace/WebKit paths, payloads, and exact rtfonto history search"
+    },
+    "repositories": [
+      "zecoxao/zecoxao.github.io",
+      "ntfargo/CSSFontFace-Exploit",
+      "ArabPixel/WebKitty",
+      "Gezine/BD-JB5",
+      "andleexploit/masticore-13.52",
+      "Leandrobts/Test",
+      "Leandrobts/Host",
+      "ArabPixel/CSSFontFace-Exploit",
+      "Feyzee61/WebKitty",
+      "ke5adb/672-1304-PSFree-Enhanced",
+      "neo305/css",
+      "novaxverse/CSSExploit"
+    ]
+  },
+  "new_high_value_leads": [
+    {
+      "repository": "Leandrobts/Host",
+      "head": "c6f66c7b0ba363e618da95c6f7a013c901a3c316",
+      "file": "13.52.js",
+      "classification": "STRUCTURAL",
+      "artifact_status": "ABSENT",
+      "reason": "Source claims analysis of three decrypted modules, but no modules, hashes, logs, build IDs, or independent dump are included."
+    },
+    {
+      "repository": "Gezine/BD-JB5",
+      "commit": "fef9084ef18435cc451f2fb5039d88957ddc8f85",
+      "classification": "STRUCTURAL",
+      "artifact_status": "VERIFIED_METADATA_ONLY",
+      "reason": "13.52 source offset table and release assets are public; assets are BD-J/payload/loader, not retail kernel or WebKit modules."
+    }
+  ],
+  "verified_new_metadata": [
+    {
+      "name": "BD-JB5-2.0.iso",
+      "url": "https://github.com/Gezine/BD-JB5/releases/download/2.0/BD-JB5-2.0.iso",
+      "size": 16777216,
+      "sha256": "88dec100489794cb3790f802511146cdc2e8c1fc3845a6347f8c2913908bbde4",
+      "classification": "VERIFIED_METADATA",
+      "scope": "BDMV/BD-J content; no WebKit/kernel retail module"
+    },
+    {
+      "name": "bdj_unpatch_1360.elf",
+      "url": "https://github.com/Gezine/BD-JB5/releases/download/2.0/bdj_unpatch_1360.elf",
+      "size": 433704,
+      "sha256": "22bae58b6214832c99457d56fc97676ce8eef1d626fbaf50b6a69508e5c1e18e",
+      "classification": "VERIFIED_METADATA",
+      "scope": "ELF64 PIE BD-J helper; not PS4 13.52 retail module"
+    },
+    {
+      "name": "poops_1.8.jar",
+      "url": "https://github.com/Gezine/BD-JB5/releases/download/2.0/poops_1.8.jar",
+      "size": 178729,
+      "sha256": "96cf108e0a2fe38a7a644775f9775e09be69a0ccb138f8597453d59b6587ac03",
+      "classification": "VERIFIED_METADATA",
+      "scope": "Java BD-J exploit package; embeds payload/source, not retail kernel bytes"
+    }
+  ],
+  "negative_results": {
+    "rtfonto_reachable_history": "not found in zecoxao.github.io reachable paths or git log -S search",
+    "leandrobts_forks_releases": "no forks, tags or releases for Host; no forks/releases for Test",
+    "new_retail_1352_webkit_kernel": false,
+    "existing_anchor_unchanged": "libkernel_sys_13.52.bin SHA-256 ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c"
+  },
+  "raw_search_files": {
+    "local_only": true,
+    "policy": "Do not commit generated raw API output or large binaries; retain concise counts, hashes, provenance, and reproducible URLs in this manifest."
+  }
+}

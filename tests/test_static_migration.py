@@ -221,9 +221,9 @@ class StaticMigrationTests(unittest.TestCase):
 
     def test_repository_evidence_integration_is_conservative(self) -> None:
         inventory = json.loads((ROOT / "analysis/research_repos_13.52.json").read_text(encoding="utf-8"))
-        self.assertEqual(inventory["repo_count"], 35)
-        self.assertEqual(inventory["research_summary"]["verified_repo_count"], 35)
-        self.assertEqual(inventory["research_summary"]["cloned_repo_count"], 35)
+        self.assertEqual(inventory["repo_count"], 39)
+        self.assertEqual(inventory["research_summary"]["verified_repo_count"], 39)
+        self.assertEqual(inventory["research_summary"]["cloned_repo_count"], 39)
         self.assertTrue(any(item["repo"] == "ntfargo/CSSFontFace-Exploit" for item in inventory["repositories"]))
         self.assertTrue(any(item["repo"] == "ArabPixel/WebKitty" for item in inventory["repositories"]))
         hen = next(item for item in inventory["repositories"] if item["repo"] == "Scene-Collective/ps4-hen")

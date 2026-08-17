@@ -1,0 +1,326 @@
+--- counts ---
+tracked_files	1817
+git_objects	count: 0;size: 0;in-pack: 3377;packs: 1;size-pack: 305960;prune-packable: 0;garbage: 0;size-garbage: 0;
+--- relevant content ---
+[35mDocumentFontLoader/asan.log[m[36m:[m[32m50[m[36m:[m    #5 0x13d1a4da0 in WebCore::[1;31mCSSFontFace[mSrcResourceValue::fontLoadRequest(WebCore::ScriptExecutionContext&, bool)+0x490 (/d6f064dc8eb8b9f04171f24f4c04c94244de6b73/WebKitBuild/Release/WebCore.framework/Versions/A/WebCore:arm64+0x4914da0)
+[35mDocumentFontLoader/asan.log[m[36m:[m[32m51[m[36m:[m    #6 0x13d17551c in WebCore::[1;31mCSSFontFace[m::appendSources(WebCore::[1;31mCSSFontFace[m&, WebCore::CSSValueList&, WebCore::ScriptExecutionContext*, bool)+0x294 (/d6f064dc8eb8b9f04171f24f4c04c94244de6b73/WebKitBuild/Release/WebCore.framework/Versions/A/WebCore:arm64+0x48e551c)
+[35mETAHEN/userland.js[m[36m:[m[32m670[m[36m:[m	var [1;31mlibSceLibcInternal[mBase = p.read8(get_jmptgt(gadgets_temp.memset));
+[35mETAHEN/userland.js[m[36m:[m[32m671[m[36m:[m	[1;31mlibSceLibcInternal[mBase.sub32inplace(gadgets_temp.memset_offset);
+[35mETAHEN/userland.js[m[36m:[m[32m672[m[36m:[m	window.[1;31mlibSceLibcInternal[mBase = [1;31mlibSceLibcInternal[mBase;
+[35mETAHEN/userland.js[m[36m:[m[32m673[m[36m:[m	//alert([1;31mlibSceLibcInternal[mBase);
+[35mETAHEN/userland.js[m[36m:[m[32m675[m[36m:[m		return [1;31mlibSceLibcInternal[mBase.add32(o);
+[35mETAHEN/userland.js[m[36m:[m[32m1220[m[36m:[m		var module_id = p.syscall("sys_dynlib_load_prx", p.stringify("[1;31mlibkernel_web[m.sprx"), 0, scratch, 0);
+[35mETAHEN/userland.js[m[36m:[m[32m1225[m[36m:[m		alert(p.fcall(p.read8(scratch), p.stringify("[1;31mlibkernel_web[m.sprx"), 0, scratch.add32(0x40), 0, 0, 0));
+[35mFTP/userland.js[m[36m:[m[32m670[m[36m:[m	var [1;31mlibSceLibcInternal[mBase = p.read8(get_jmptgt(gadgets_temp.memset));
+[35mFTP/userland.js[m[36m:[m[32m671[m[36m:[m	[1;31mlibSceLibcInternal[mBase.sub32inplace(gadgets_temp.memset_offset);
+[35mFTP/userland.js[m[36m:[m[32m672[m[36m:[m	window.[1;31mlibSceLibcInternal[mBase = [1;31mlibSceLibcInternal[mBase;
+[35mFTP/userland.js[m[36m:[m[32m673[m[36m:[m	//alert([1;31mlibSceLibcInternal[mBase);
+[35mFTP/userland.js[m[36m:[m[32m675[m[36m:[m		return [1;31mlibSceLibcInternal[mBase.add32(o);
+[35mFTP/userland.js[m[36m:[m[32m1220[m[36m:[m		var module_id = p.syscall("sys_dynlib_load_prx", p.stringify("[1;31mlibkernel_web[m.sprx"), 0, scratch, 0);
+[35mFTP/userland.js[m[36m:[m[32m1225[m[36m:[m		alert(p.fcall(p.read8(scratch), p.stringify("[1;31mlibkernel_web[m.sprx"), 0, scratch.add32(0x40), 0, 0, 0));
+[35mLoader/userland.js[m[36m:[m[32m670[m[36m:[m	var [1;31mlibSceLibcInternal[mBase = p.read8(get_jmptgt(gadgets_temp.memset));
+[35mLoader/userland.js[m[36m:[m[32m671[m[36m:[m	[1;31mlibSceLibcInternal[mBase.sub32inplace(gadgets_temp.memset_offset);
+[35mLoader/userland.js[m[36m:[m[32m672[m[36m:[m	window.[1;31mlibSceLibcInternal[mBase = [1;31mlibSceLibcInternal[mBase;
+[35mLoader/userland.js[m[36m:[m[32m673[m[36m:[m	//alert([1;31mlibSceLibcInternal[mBase);
+[35mLoader/userland.js[m[36m:[m[32m675[m[36m:[m		return [1;31mlibSceLibcInternal[mBase.add32(o);
+[35mLoader/userland.js[m[36m:[m[32m1220[m[36m:[m		var module_id = p.syscall("sys_dynlib_load_prx", p.stringify("[1;31mlibkernel_web[m.sprx"), 0, scratch, 0);
+[35mLoader/userland.js[m[36m:[m[32m1225[m[36m:[m		alert(p.fcall(p.read8(scratch), p.stringify("[1;31mlibkernel_web[m.sprx"), 0, scratch.add32(0x40), 0, 0, 0));
+[35mUART/userland.js[m[36m:[m[32m670[m[36m:[m	var [1;31mlibSceLibcInternal[mBase = p.read8(get_jmptgt(gadgets_temp.memset));
+[35mUART/userland.js[m[36m:[m[32m671[m[36m:[m	[1;31mlibSceLibcInternal[mBase.sub32inplace(gadgets_temp.memset_offset);
+[35mUART/userland.js[m[36m:[m[32m672[m[36m:[m	window.[1;31mlibSceLibcInternal[mBase = [1;31mlibSceLibcInternal[mBase;
+[35mUART/userland.js[m[36m:[m[32m673[m[36m:[m	//alert([1;31mlibSceLibcInternal[mBase);
+[35mUART/userland.js[m[36m:[m[32m675[m[36m:[m		return [1;31mlibSceLibcInternal[mBase.add32(o);
+[35mUART/userland.js[m[36m:[m[32m1220[m[36m:[m		var module_id = p.syscall("sys_dynlib_load_prx", p.stringify("[1;31mlibkernel_web[m.sprx"), 0, scratch, 0);
+[35mUART/userland.js[m[36m:[m[32m1225[m[36m:[m		alert(p.fcall(p.read8(scratch), p.stringify("[1;31mlibkernel_web[m.sprx"), 0, scratch.add32(0x40), 0, 0, 0));
+[35ma/userland.js[m[36m:[m[32m670[m[36m:[m	var [1;31mlibSceLibcInternal[mBase = p.read8(get_jmptgt(gadgets_temp.memset));
+[35ma/userland.js[m[36m:[m[32m671[m[36m:[m	[1;31mlibSceLibcInternal[mBase.sub32inplace(gadgets_temp.memset_offset);
+[35ma/userland.js[m[36m:[m[32m672[m[36m:[m	window.[1;31mlibSceLibcInternal[mBase = [1;31mlibSceLibcInternal[mBase;
+[35ma/userland.js[m[36m:[m[32m673[m[36m:[m	//alert([1;31mlibSceLibcInternal[mBase);
+[35ma/userland.js[m[36m:[m[32m675[m[36m:[m		return [1;31mlibSceLibcInternal[mBase.add32(o);
+[35ma/userland.js[m[36m:[m[32m1220[m[36m:[m		var module_id = p.syscall("sys_dynlib_load_prx", p.stringify("[1;31mlibkernel_web[m.sprx"), 0, scratch, 0);
+[35ma/userland.js[m[36m:[m[32m1225[m[36m:[m		alert(p.fcall(p.read8(scratch), p.stringify("[1;31mlibkernel_web[m.sprx"), 0, scratch.add32(0x40), 0, 0, 0));
+[35mboobs/kexploit.js[m[36m:[m[32m10[m[36m:[mvar [1;31mlibSceLibcInternal[mBase;
+[35mboobs/kexploit.js[m[36m:[m[32m109[m[36m:[m    [1;31mlibSceLibcInternal[mBase = p.read8(get_jmptgt(webKitBase.add32(OFFSET_WK_memset_import)));
+[35mboobs/kexploit.js[m[36m:[m[32m110[m[36m:[m    [1;31mlibSceLibcInternal[mBase.sub32inplace(OFFSET_libcint_memset);
+[35mboobs/kexploit.js[m[36m:[m[32m192[m[36m:[m    p.write8(fakeVtable_setjmp.add32(0x8), [1;31mlibSceLibcInternal[mBase.add32(OFFSET_libcint_setjmp));
+[35mboobs/kexploit.js[m[36m:[m[32m198[m[36m:[m    p.write8(fakeVtable_longjmp.add32(0x8), [1;31mlibSceLibcInternal[mBase.add32(OFFSET_libcint_longjmp));
+[35mboobs/kexploit.js[m[36m:[m[32m204[m[36m:[m        chain.push([1;31mlibSceLibcInternal[mBase.add32(OFFSET_libcint_longjmp));
+[35mdef.m3u[m[36m:[m[32m6421[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/20000[1;31m1352[m
+[35mdef.m3u[m[36m:[m[32m36616[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m32
+[35mdef.m3u[m[36m:[m[32m45286[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m18
+[35mdef.m3u[m[36m:[m[32m46286[m[36m:[m#EXTINF:-1 tvg-id="" tvg-name="EG: Mix Hollywood" tvg-logo="http://s3.i3ns.net:2052/portal/picon/2021-09/f99757317f9e65[1;31m1352[mf644c77d4701e0.png" group-title="Egypt",EG: Mix Hollywood
+[35mdef.m3u[m[36m:[m[32m54721[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m15
+[35mdef.m3u[m[36m:[m[32m54988[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m66
+[35mdef.m3u[m[36m:[m[32m58996[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m67
+[35mdef.m3u[m[36m:[m[32m59230[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m78
+[35mdef.m3u[m[36m:[m[32m60709[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m94
+[35mdef.m3u[m[36m:[m[32m62440[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m25
+[35mdef.m3u[m[36m:[m[32m63658[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m24
+[35mdef.m3u[m[36m:[m[32m64027[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m41
+[35mdef.m3u[m[36m:[m[32m64888[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m71
+[35mdef.m3u[m[36m:[m[32m65002[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m54
+[35mdef.m3u[m[36m:[m[32m68203[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m70
+[35mdef.m3u[m[36m:[m[32m68521[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m93
+[35mdef.m3u[m[36m:[m[32m68782[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m42
+[35mdef.m3u[m[36m:[m[32m69016[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m68
+[35mdef.m3u[m[36m:[m[32m70885[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m65
+[35mdef.m3u[m[36m:[m[32m71809[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m45
+[35mdef.m3u[m[36m:[m[32m74059[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m56
+[35mdef.m3u[m[36m:[m[32m75136[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m62
+[35mdef.m3u[m[36m:[m[32m75520[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m06
+[35mdef.m3u[m[36m:[m[32m77572[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/79992113[1;31m1352[m
+[35mdef.m3u[m[36m:[m[32m78001[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m16
+[35mdef.m3u[m[36m:[m[32m78118[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m74
+[35mdef.m3u[m[36m:[m[32m78421[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m89
+[35mdef.m3u[m[36m:[m[32m78514[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m92
+[35mdef.m3u[m[36m:[m[32m78595[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m58
+[35mdef.m3u[m[36m:[m[32m78973[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m57
+[35mdef.m3u[m[36m:[m[32m79537[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m52
+[35mdef.m3u[m[36m:[m[32m79612[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m44
+[35mdef.m3u[m[36m:[m[32m79690[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m11
+[35mdef.m3u[m[36m:[m[32m80173[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m03
+[35mdef.m3u[m[36m:[m[32m80590[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m13
+[35mdef.m3u[m[36m:[m[32m80941[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m53
+[35mdef.m3u[m[36m:[m[32m80944[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m49
+[35mdef.m3u[m[36m:[m[32m80947[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m40
+[35mdef.m3u[m[36m:[m[32m81043[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m04
+[35mdef.m3u[m[36m:[m[32m81046[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m02
+[35mdef.m3u[m[36m:[m[32m81139[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m37
+[35mdef.m3u[m[36m:[m[32m81358[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m60
+[35mdef.m3u[m[36m:[m[32m81484[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m31
+[35mdef.m3u[m[36m:[m[32m81580[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m50
+[35mdef.m3u[m[36m:[m[32m81656[m[36m:[m#EXTINF:-1 tvg-id="" tvg-name="US (RK) Vevo Pop" tvg-logo="https://images.sr.roku.com/idType/roku/context/trc/id/e50a8f06d3245c95a4e250dc5c33c2be/https%3A%2F%2Fimage.roku.com%2Fbh-uploads%2Fproduction%2FinfoHUDLogo%2F16751[1;31m1352[m0589_Info_HUD_Logo_260X147_center_%252814%2529.png" group-title="US Entertainment",US (RK) Vevo Pop
+[35mdef.m3u[m[36m:[m[32m81856[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m43
+[35mdef.m3u[m[36m:[m[32m81946[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m27
+[35mdef.m3u[m[36m:[m[32m82291[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m64
+[35mdef.m3u[m[36m:[m[32m82294[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m55
+[35mdef.m3u[m[36m:[m[32m82297[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m10
+[35mdef.m3u[m[36m:[m[32m82423[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m69
+[35mdef.m3u[m[36m:[m[32m82426[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m22
+[35mdef.m3u[m[36m:[m[32m82807[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m30
+[35mdef.m3u[m[36m:[m[32m83071[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m14
+[35mdef.m3u[m[36m:[m[32m83236[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m09
+[35mdef.m3u[m[36m:[m[32m83239[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m07
+[35mdef.m3u[m[36m:[m[32m83338[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m01
+[35mdef.m3u[m[36m:[m[32m83899[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m47
+[35mdef.m3u[m[36m:[m[32m84043[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m20
+[35mdef.m3u[m[36m:[m[32m84229[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m51
+[35mdef.m3u[m[36m:[m[32m84232[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m34
+[35mdef.m3u[m[36m:[m[32m84388[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m05
+[35mdef.m3u[m[36m:[m[32m84700[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m35
+[35mdef.m3u[m[36m:[m[32m84877[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m28
+[35mdef.m3u[m[36m:[m[32m88108[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/799921[1;31m1352[m91
+[35mdef.m3u[m[36m:[m[32m90547[m[36m:[mhttps://dumdumbullet.com/1011454237/bHg8wYxrId/66630[1;31m1352[m
+[35mgenuine/exploit.js[m[36m:[m[32m4[m[36m:[mlet [1;31mlibSceNKWebKit[mBase;
+[35mgenuine/exploit.js[m[36m:[m[32m5[m[36m:[mlet [1;31mlibSceLibcInternal[mBase;
+[35mgenuine/exploit.js[m[36m:[m[32m75[m[36m:[m    //use address of 1st entry (in .text) to calculate [1;31mlibSceNKWebKit[mBase
+[35mgenuine/exploit.js[m[36m:[m[32m76[m[36m:[m    [1;31mlibSceNKWebKit[mBase = p.read8(textAreaVtable).sub32(OFFSET_wk_vtable_first_element);
+[35mgenuine/exploit.js[m[36m:[m[32m78[m[36m:[m    [1;31mlibSceLibcInternal[mBase = p.read8([1;31mlibSceNKWebKit[mBase.add32(OFFSET_wk_memset_import));
+[35mgenuine/exploit.js[m[36m:[m[32m79[m[36m:[m    [1;31mlibSceLibcInternal[mBase.sub32inplace(OFFSET_lc_memset);
+[35mgenuine/exploit.js[m[36m:[m[32m81[m[36m:[m    libKernelBase = p.read8([1;31mlibSceNKWebKit[mBase.add32(OFFSET_wk___stack_chk_guard_import));
+[35mgenuine/exploit.js[m[36m:[m[32m85[m[36m:[m        gadgets[gadget] = [1;31mlibSceNKWebKit[mBase.add32(wk_gadgetmap[gadget]);
+[35mgenuine/exploit.js[m[36m:[m[32m179[m[36m:[m        chain.push([1;31mlibSceLibcInternal[mBase.add32(OFFSET_lc_setjmp));
+[35mgenuine/exploit.js[m[36m:[m[32m190[m[36m:[m        chain.push([1;31mlibSceLibcInternal[mBase.add32(OFFSET_lc_longjmp));
+[35mgenuine/rop.js[m[36m:[m[32m354[m[36m:[m        await chain.call(libKernelBase.add32(OFFSET_lk_pthread_create_name_np), this.stack_memory.add32(0x48), 0x0, [1;31mlibSceLibcInternal[mBase.add32(OFFSET_lc_longjmp), this.stack_memory, this.stack_memory.add32(0x50));
+[35mhen/exploit.js[m[36m:[m[32m4[m[36m:[mlet [1;31mlibSceNKWebKit[mBase;
+[35mhen/exploit.js[m[36m:[m[32m5[m[36m:[mlet [1;31mlibSceLibcInternal[mBase;
+[35mhen/exploit.js[m[36m:[m[32m82[m[36m:[m    //use address of 1st entry (in .text) to calculate [1;31mlibSceNKWebKit[mBase
+[35mhen/exploit.js[m[36m:[m[32m83[m[36m:[m    [1;31mlibSceNKWebKit[mBase = p.read8(textAreaVtable).sub32(OFFSET_wk_vtable_first_element);
+[35mhen/exploit.js[m[36m:[m[32m84[m[36m:[m    //debug_log("webkit base: 0x" + [1;31mlibSceNKWebKit[mBase);
+[35mhen/exploit.js[m[36m:[m[32m86[m[36m:[m    [1;31mlibSceLibcInternal[mBase = p.read8([1;31mlibSceNKWebKit[mBase.add32(OFFSET_wk_memset_import));
+[35mhen/exploit.js[m[36m:[m[32m87[m[36m:[m    [1;31mlibSceLibcInternal[mBase.sub32inplace(OFFSET_lc_memset);
+[35mhen/exploit.js[m[36m:[m[32m89[m[36m:[m    libKernelBase = p.read8([1;31mlibSceNKWebKit[mBase.add32(OFFSET_wk___stack_chk_guard_import));
+[35mhen/exploit.js[m[36m:[m[32m95[m[36m:[m        gadgets[gadget] = [1;31mlibSceNKWebKit[mBase.add32(wk_gadgetmap[gadget]);
+[35mhen/exploit.js[m[36m:[m[32m201[m[36m:[m        chain.push([1;31mlibSceLibcInternal[mBase.add32(OFFSET_lc_setjmp));
+[35mhen/exploit.js[m[36m:[m[32m212[m[36m:[m        chain.push([1;31mlibSceLibcInternal[mBase.add32(OFFSET_lc_longjmp));
+[35mhen/module/memtools.js[m[36m:[m[32m185[m[36m:[m    [1;31mlibkernel_web[m_base,
+[35mhen/module/memtools.js[m[36m:[m[32m195[m[36m:[m    const [1;31mlibkernel_web[m_buffer = make_buffer(
+[35mhen/module/memtools.js[m[36m:[m[32m196[m[36m:[m        [1;31mlibkernel_web[m_base,
+[35mhen/module/memtools.js[m[36m:[m[32m199[m[36m:[m    const kbuf = new Uint8Array([1;31mlibkernel_web[m_buffer);
+[35mhen/module/memtools.js[m[36m:[m[32m201[m[36m:[m    // Search 'rdlo' string from [1;31mlibkernel_web[m's .rodata section to gain an
+[35mhen/module/memtools.js[m[36m:[m[32m218[m[36m:[m            '"rdlo" string not found in [1;31mlibkernel_web[m, base address:'
+[35mhen/module/memtools.js[m[36m:[m[32m219[m[36m:[m            + ` ${[1;31mlibkernel_web[m_base}`
+[35mhen/module/memtools.js[m[36m:[m[32m239[m[36m:[m            syscall_array[syscall_num] = [1;31mlibkernel_web[m_base.add(i);
+[35mhen/psfree/module/memtools.js[m[36m:[m[32m186[m[36m:[m    [1;31mlibkernel_web[m_base,
+[35mhen/psfree/module/memtools.js[m[36m:[m[32m196[m[36m:[m    const [1;31mlibkernel_web[m_buffer = make_buffer(
+[35mhen/psfree/module/memtools.js[m[36m:[m[32m197[m[36m:[m        [1;31mlibkernel_web[m_base,
+[35mhen/psfree/module/memtools.js[m[36m:[m[32m200[m[36m:[m    const kbuf = new Uint8Array([1;31mlibkernel_web[m_buffer);
+[35mhen/psfree/module/memtools.js[m[36m:[m[32m202[m[36m:[m    // Search 'rdlo' string from [1;31mlibkernel_web[m's .rodata section to gain an
+[35mhen/psfree/module/memtools.js[m[36m:[m[32m219[m[36m:[m            '"rdlo" string not found in [1;31mlibkernel_web[m, base address:'
+[35mhen/psfree/module/memtools.js[m[36m:[m[32m220[m[36m:[m            + ` ${[1;31mlibkernel_web[m_base}`
+[35mhen/psfree/module/memtools.js[m[36m:[m[32m240[m[36m:[m            syscall_array[syscall_num] = [1;31mlibkernel_web[m_base.add(i);
+[35mhen/psfree/send.js[m[36m:[m[32m69[m[36m:[m// dump for [1;31mlibSceNKWebKit[m.sprx
+[35mhen/psfree/send.js[m[36m:[m[32m84[m[36m:[m    dump('[1;31mlibSceNKWebKit[m', lib_base, lib_end);
+[35mhen/psfree/send.js[m[36m:[m[32m89[m[36m:[m// dump for [1;31mlibkernel_web[m.sprx
+[35mhen/psfree/send.js[m[36m:[m[32m100[m[36m:[m    dump('[1;31mlibkernel_web[m', lib_base, lib_end);
+[35mhen/psfree/send.js[m[36m:[m[32m103[m[36m:[m// dump for [1;31mlibSceLibcInternal[m.sprx
+[35mhen/psfree/send.js[m[36m:[m[32m114[m[36m:[m    dump('[1;31mlibSceLibcInternal[m', lib_base, lib_end);
+[35mhen/rop.js[m[36m:[m[32m352[m[36m:[m        p.write8(this.thr_new_args.add32(0x0), [1;31mlibSceLibcInternal[mBase.add32(OFFSET_lc_longjmp)); //fn
+[35mhen/rop.js[m[36m:[m[32m373[m[36m:[m        await chain.call(libKernelBase.add32(OFFSET_lk_pthread_create_name_np), this.stack_memory.add32(0x48), 0x0, [1;31mlibSceLibcInternal[mBase.add32(OFFSET_lc_longjmp), this.stack_memory, this.stack_memory.add32(0x50));
+[35mhen2/exploit.js[m[36m:[m[32m4[m[36m:[mlet [1;31mlibSceNKWebKit[mBase;
+[35mhen2/exploit.js[m[36m:[m[32m5[m[36m:[mlet [1;31mlibSceLibcInternal[mBase;
+[35mhen2/exploit.js[m[36m:[m[32m82[m[36m:[m    //use address of 1st entry (in .text) to calculate [1;31mlibSceNKWebKit[mBase
+[35mhen2/exploit.js[m[36m:[m[32m83[m[36m:[m    [1;31mlibSceNKWebKit[mBase = p.read8(textAreaVtable).sub32(OFFSET_wk_vtable_first_element);
+[35mhen2/exploit.js[m[36m:[m[32m84[m[36m:[m    //debug_log("webkit base: 0x" + [1;31mlibSceNKWebKit[mBase);
+--- relevant files with size/hash ---
+ETAHEN/etaHEN-DK.bin	13464	0e01fbd14dd050662400d3106dafa34b1524f672e20ad13bcf5305aaf6918835
+ETAHEN/userland.js	48282	c85e9567352c12f07f3b73ed290618b9c2ef7fe8cfc5c252dc84bf0e5de1f20b
+FTP/ps4-ftp-vtx-master-devkit.bin	17256	20a4cc813379ff2ce19c9e4390e7c44979bbe55969e4c46e442fbb3282323394
+FTP/userland.js	48345	11971c6f6d961526b6bf50bd872fb4aa8e08b16866a81fa28da241bf46148e8e
+Loader/userland.js	49939	f39cc090b58674462217d16ccbce3b48e1313800ffc78d60629ef4a3318cd52e
+UART/ps4-devkit-uart-enabler-5.05.bin	11608	0d16aa6d17f05de448e8d02f1d433c6fe11d2c3505d9ef5fbf71cc11f18ce02c
+UART/userland.js	48493	f51399fb688686fb3f769ed4676645285c2fc8ff0b7fa4a1c30f8a1a59fa37aa
+a/PS4-devkit-activator-5.05-activate.bin	10696	1cfb39dde1848be189c329a8026107d6d786573b44a83e5fb9e0297b9b4af37e
+a/userland.js	49601	d9dfbd8633c167ae524934c7d1483d08d737aacf2825dc0fb9885a3656bedb41
+goldhen_505_tk.bin	226840	f3e5e2948e6bad581ad6264fc4807e168dfa8400b585dcb426bcfc45fa0e9003
+goldhen_505_tk_tty.bin	223128	dce40e7c35f14ac20e2d3a601da521ecc818094811b5fb95e209fd262e70678e
+goldhen_672_tk.bin	228856	d3ff05daf2e38015b35880318f87f9951b3c0e91609b3c2c0ec372d06093aec4
+goldhen_672_tk_targetId.bin	222264	b68cec6a924c49cf04aa500a2d4b8f908980a4f6040933ed7e4ccb00b4eb644e
+goldhen_850_tk.bin	225080	4afeb2f2a7d12531aab76384e1f8e5e9a1ff011ace38f4a40f8766b7ba8f1523
+hen/module/constants.js	752	b54528345211246f62e2dca8fc76f005fc42f279e565ff2abcf9333777485833
+hen/payloads/elfldr.elf	1336368	1e1fa38330a8c4f77bc73e27b9ce22d6b823a25e091dbcb96427d042fa150af1
+hen/payloads/hello_world.elf	91320	1ad4e807ca8f248147c334d64d2d6f820fe02c03268191b21197dc5f68177dc5
+hen/psfree/module/constants.js	773	27ce6981d3a26ce5ae125bceef73daf62040394e5c10541c1527bd15e66a86a7
+hen/webkit_fontface.js	14786	b8fc5741fe4cae7537c7a288343b1e21a4117f85f131da4b222654470a178d20
+hen2/module/constants.js	752	b54528345211246f62e2dca8fc76f005fc42f279e565ff2abcf9333777485833
+hen2/payloads/elfldr.elf	1516592	9a668d5309654de9763cea4734d1aae8baa9a108eb806e689b9e98a0b7934e40
+hen2/payloads/hello_world.elf	91320	1ad4e807ca8f248147c334d64d2d6f820fe02c03268191b21197dc5f68177dc5
+hen2/psfree/module/constants.js	773	27ce6981d3a26ce5ae125bceef73daf62040394e5c10541c1527bd15e66a86a7
+hen2/webkit_fontface.js	14786	b8fc5741fe4cae7537c7a288343b1e21a4117f85f131da4b222654470a178d20
+hen3/module/constants.js	752	b54528345211246f62e2dca8fc76f005fc42f279e565ff2abcf9333777485833
+hen3/payloads/elfldr.elf	157032	2ec2de626428128d66cef132733f32c018475a20e9d84d7984d0db452f7b82ec
+hen3/payloads/hello_world.elf	91320	1ad4e807ca8f248147c334d64d2d6f820fe02c03268191b21197dc5f68177dc5
+hen3/psfree/module/constants.js	773	27ce6981d3a26ce5ae125bceef73daf62040394e5c10541c1527bd15e66a86a7
+hen3/webkit_fontface.js	14786	b8fc5741fe4cae7537c7a288343b1e21a4117f85f131da4b222654470a178d20
+idlesauce/payload_map.js	8384	361cae1a3970e93c30b45957c4a841938b0b2b6280107dbb1a04c9a86246d955
+idlesauce/payloads/byepervisor.elf	334688	af4b66faeb980cc6b7ffa791d407410d975aadb18acd0f3bd0fc7fc84cab626d
+idlesauce/payloads/elfldr.elf	460496	249fbfd7a68d7f201978b39964e41c0fa7edb94f1b2d4208c3876469583220e2
+idlesauce/payloads/etaHEN.bin	2344928	f14912bf3f12519437bafdc8cee405099d7a8f7c6f9fe701336712d5f8489464
+idlesauce/payloads/ftpsrv.elf	139856	e3bf017d45b19aafcce0de2235cf8401e3628866a36e7504da7bff9dfe7a220e
+idlesauce/payloads/gdbsrv.elf	158136	282684844ec5a4fe5d1c721dbe0e575ba55714468d0d5a7b9262509fb4bef474
+idlesauce/payloads/idps.elf	91840	3e6cfedf28996fc451ed0a8d42103b847651bf6dff6fa79ab7e7cbe543d19a6c
+idlesauce/payloads/klogsrv.elf	136704	add53ad13cf39e5b5b7757c15b93228007df0dbb1f3477e820702c36d9150ebb
+idlesauce/payloads/kstuff.elf	1444016	659d35de3f24c748b63d6ca32da6b8511cc11eac49fea9eac477aca10488c8fe
+idlesauce/payloads/libhijacker-game-patch.v1.160.elf	1162832	6ea242cb1ed033f5111b63f0ed7d8162f30f417a778364213261636962cbf5fc
+idlesauce/payloads/ps5-kstuff.bin	177064	16644edbf8f770323dc09aebc675fd6ba6a7e8bc52a15519ef93f20cbf193954
+idlesauce/payloads/ps5-versions.elf	9880	4df615bf70ad51d977f4f2898ae23b7c7349d32afe0e37783d8b62aedd7700be
+idlesauce/payloads/ps5debug_dizz.elf	165928	550885996e8e44b050b8bbfabd3e4740076065da1d3468d4798ddbbc22370a2f
+idlesauce/payloads/ps5debug_v1.0b2.elf	148808	6d242c9757478bd27d9efa1f04ffffc03af4af9ee7c9d319a8a9d6a8dcfcc15a
+idlesauce/payloads/rp-get-pin.elf	117848	1d611c1856dd2f4b4b6cb42ead1128a7f08a26585788f92de79fa4f67d721472
+idlesauce/payloads/shsrv.elf	1020288	e1e9271910378dc9fba81a1409047a9ac9e6800dd7d023bcb68b9f0b3d55a43b
+idlesauce/payloads/websrv.elf	704288	e9819c3f2024f93229d82eb5ef230a3d4d8a2f23b47ceb5864120da8ddd552e4
+idlesauce/webkit_fontface.js	14771	360fc0c928e09f985d21fa9ce447edd7761f8b4e41545e1bb57e6081fc0d81da
+idlesauceretail/payload_map.js	8384	361cae1a3970e93c30b45957c4a841938b0b2b6280107dbb1a04c9a86246d955
+idlesauceretail/payloads/byepervisor.elf	334688	af4b66faeb980cc6b7ffa791d407410d975aadb18acd0f3bd0fc7fc84cab626d
+idlesauceretail/payloads/elfldr.elf	460496	249fbfd7a68d7f201978b39964e41c0fa7edb94f1b2d4208c3876469583220e2
+idlesauceretail/payloads/etaHEN.bin	2344928	f14912bf3f12519437bafdc8cee405099d7a8f7c6f9fe701336712d5f8489464
+idlesauceretail/payloads/ftpsrv.elf	139856	e3bf017d45b19aafcce0de2235cf8401e3628866a36e7504da7bff9dfe7a220e
+idlesauceretail/payloads/gdbsrv.elf	158136	282684844ec5a4fe5d1c721dbe0e575ba55714468d0d5a7b9262509fb4bef474
+idlesauceretail/payloads/idps.elf	91840	3e6cfedf28996fc451ed0a8d42103b847651bf6dff6fa79ab7e7cbe543d19a6c
+idlesauceretail/payloads/klogsrv.elf	136704	add53ad13cf39e5b5b7757c15b93228007df0dbb1f3477e820702c36d9150ebb
+idlesauceretail/payloads/kstuff.elf	1444016	659d35de3f24c748b63d6ca32da6b8511cc11eac49fea9eac477aca10488c8fe
+idlesauceretail/payloads/libhijacker-game-patch.v1.160.elf	1162832	6ea242cb1ed033f5111b63f0ed7d8162f30f417a778364213261636962cbf5fc
+idlesauceretail/payloads/ps5-kstuff.bin	177064	16644edbf8f770323dc09aebc675fd6ba6a7e8bc52a15519ef93f20cbf193954
+idlesauceretail/payloads/ps5-versions.elf	9880	4df615bf70ad51d977f4f2898ae23b7c7349d32afe0e37783d8b62aedd7700be
+idlesauceretail/payloads/ps5debug_dizz.elf	165928	550885996e8e44b050b8bbfabd3e4740076065da1d3468d4798ddbbc22370a2f
+idlesauceretail/payloads/ps5debug_v1.0b2.elf	148808	6d242c9757478bd27d9efa1f04ffffc03af4af9ee7c9d319a8a9d6a8dcfcc15a
+idlesauceretail/payloads/rp-get-pin.elf	117848	1d611c1856dd2f4b4b6cb42ead1128a7f08a26585788f92de79fa4f67d721472
+idlesauceretail/payloads/shsrv.elf	1020288	e1e9271910378dc9fba81a1409047a9ac9e6800dd7d023bcb68b9f0b3d55a43b
+idlesauceretail/payloads/websrv.elf	704288	e9819c3f2024f93229d82eb5ef230a3d4d8a2f23b47ceb5864120da8ddd552e4
+idlesauceretail/webkit_fontface.js	14771	360fc0c928e09f985d21fa9ce447edd7761f8b4e41545e1bb57e6081fc0d81da
+ksamj/Browser_appCache_remove.elf	26320	49a9812171425d8284e296afefb77fcbc973cd89c8ca694b02d65857d33b4144
+ksamj/constants.js	752	b54528345211246f62e2dca8fc76f005fc42f279e565ff2abcf9333777485833
+ksamj/elfldr.elf	97512	640237ae12fe0ad784fffcb2a57fea754eda87b29946541d56c18a9c38e041e1
+ksamj/etaHEN-1.5B.bin	1345368	557493721ffd573b195ac834cd190c4f85fadfcee7a772be6d17015c66a9465a
+ksamj/etaHEN-1.6B.bin	1348400	502a18a7c4d1ad3fcd3f7296b683a1239a69a861d0e2bd63522430bf1c979ad8
+ksamj/ftps5-np.elf	26320	52bf7b127ae4e85f7270ca48e026d30a250680ac22d1e08a5a42aff4c6db9de5
+ksamj/ftps5-p.elf	26320	b4dfb0071eafe89b4146b490706617d6dfd9660f0eedce1dcc3b0bbdce7d309a
+ksamj/getOsVersion.elf	33792	85228c219ccd6ee2c70050b89c7655eb8c8620cb8e5ea284e1174d44098c1015
+ksamj/payload_map.js	1721	5a1aef1251fb62262e62c8ae31cc305d6db96f590378f31ee69dae1566f3c599
+ksamj/ps5-kstuff-v1.4.bin	193544	0cface2f21412da6867322a3a2f073d751a0b2a433f32a3f1fe0036d043885bf
+ksamj/ps5debug.elf	66512	411f24b53847bcfa467dd0a04bbd66256e5415572e9cc034929c01762614fcbe
+ksamj/versions.elf	9880	4df615bf70ad51d977f4f2898ae23b7c7349d32afe0e37783d8b62aedd7700be
+ksamj/webkit_fontface.js	14786	b8fc5741fe4cae7537c7a288343b1e21a4117f85f131da4b222654470a178d20
+kstack/module/constants.js	752	b54528345211246f62e2dca8fc76f005fc42f279e565ff2abcf9333777485833
+kstack/payloads/elfldr.elf	255888	cfc1d75770427e4923ddbe0b22904b410151a159456b3181c516e18900cda4f4
+kstack/payloads/hello_world.elf	91320	1ad4e807ca8f248147c334d64d2d6f820fe02c03268191b21197dc5f68177dc5
+kstack/psfree/module/constants.js	773	27ce6981d3a26ce5ae125bceef73daf62040394e5c10541c1527bd15e66a86a7
+kstack/webkit_fontface.js	14786	b8fc5741fe4cae7537c7a288343b1e21a4117f85f131da4b222654470a178d20
+lapsus/kpatch/950.bin	229	f6cffe0eadbaf3280116704f55d7bfeeeae91689eec31556d818e098417a3a9f
+lapsus/payload.bin	262976	d2b01a5aeb80d26c5ce6d863ff85b94b0237bbf6103784c0c9a53b512c2c4cd3
+luasauce/main.js	50968	f7d28ad5717e8d69c340e817fbb2c3a8ff9acc36bc305dd32660ed169a6dd957
+luasauce/payload_map.js	7142	e3a1546266dffa03c89ecd11f6df8d6d9f4a0b8cf97f6f5d6d289eb2227f43fc
+luasauce/payloads/byepervisor.elf	358448	15f0459fa4c0d014193172bf22196a7bed2c01b7b0551227650a63c8539ceb6a
+luasauce/payloads/elf-arsenal.elf	4692176	cec800889364e4e8a4586989f27a1e31717b3b384683386b88deef9c78bc50dd
+luasauce/payloads/elfldr.elf	412544	930982bb4e98612f70441922efadbb0aa7e7b16ec260d6b243276ed02cadc29d
+luasauce/payloads/etaHEN-2.5B.bin	4678728	4845cac45095361b8983b14d6690622183b0dcfbf6d7fda16e161aa91ff0531e
+luasauce/payloads/etaHEN-2.6B.bin	4740712	512c74a9d6f56bb5a4ab871a0306a8cbefb8b3d5454ba8f1d833b020b245a126
+luasauce/payloads/etaHEN.elf	2956272	a498f8837900bd70db6c4cab90a61bdfe5ac19f4d01a63d2ff4bc463e2370813
+luasauce/payloads/ftpsrv-ps5.elf	174712	8f305a959fb9d70fd8d52ba88409e0d5a1632e83d4ecdd38646a0a33e54089da
+luasauce/payloads/ftpsrv.elf	174712	03ae8aa1790ac36c10d8035cd99eaaa9b26b6ab04c8f36c12e2e767a6d589b1e
+luasauce/payloads/gdbsrv.elf	158136	c4664547cf96b8815357183e448f257cc5c131b5e156ec4fe4ea0cb80acc0590
+luasauce/payloads/klogsrv.elf	136704	ab58c2b21bef58cae4dc77a5e8218303cd8a472516b23cb2d06980ca4afef25a
+luasauce/payloads/kstuff.elf	1572824	ec5212794dc6e44ee8e70fd0549abec6d3dac8c3e03ddbeafd9f869ffe97d4e8
+luasauce/payloads/libhijacker-game-patch.v1.160.elf	1162832	6ea242cb1ed033f5111b63f0ed7d8162f30f417a778364213261636962cbf5fc
+luasauce/payloads/ps5-backpork.elf	116184	f76dd1885ef6aebec55e12a71b32a6bbf0e1cafb9146960a51b231fd52b914fe
+luasauce/payloads/ps5-hen.elf	1525848	754f2c45d5ba60ec3a1d27cc74bbde876e4a1fde37b9bcb034cf68ef410494aa
+luasauce/payloads/ps5-linux-loader.elf	179112	0723b5d5e09120861023e91780d9ec345a3aa2f32c8a17fdfb3a60a9e934e8a5
+luasauce/payloads/ps5-versions.elf	9880	4df615bf70ad51d977f4f2898ae23b7c7349d32afe0e37783d8b62aedd7700be
+luasauce/payloads/ps5debug-NG_v1.2.5.elf	3994008	a2e88c191245aefa7d9a0ff35923c779924d65a6d40d60eda8cfb43764f9988d
+luasauce/payloads/ps5debug-NG_v1.3.0.elf	4043160	8f75fb90b45d7cc4d59147e3323577d7264cf572c78a27f76722202f492ad16a
+luasauce/payloads/ps5debug_dizz.elf	165928	550885996e8e44b050b8bbfabd3e4740076065da1d3468d4798ddbbc22370a2f
+luasauce/payloads/ps5debug_v1.0b2.elf	148808	6d242c9757478bd27d9efa1f04ffffc03af4af9ee7c9d319a8a9d6a8dcfcc15a
+luasauce/payloads/ps5debug_v1.0b3.elf	148808	777e29178b14333f6aeda5ad15f507ab38afee91c8d35784a71bacf81a9da568
+luasauce/payloads/rp-get-pin.elf	171856	eb48df58ba9bd1c83878f1ae58f51ce9f84aa7065a5b3b78d48fe69ca3aa1350
+luasauce/payloads/shadowmountplus.elf	1457528	a35246fb3bb6042b25653b51cdcbc33254b40339342bf1d2dd0d2eceee2ca526
+luasauce/payloads/shsrv.elf	1137352	029cd3ff51d04b11762ad15acce4007f50eb2e13e9c4c44e9bcd8bfc7000daf7
+luasauce/payloads/voidshell.elf	2629696	719f92d95c8334e11be8f6141410ca73f2e4e3706f46d5f4e541bda88176d63c
+luasauce/payloads/websrv.elf	705312	30bf0aa007230a9f70861b84ba88c796d32719cae2daf6abffdc9affc0f9b1b0
+luasaucedev/main.js	51756	23ae372c7adc43eac21cc11cd1b68a4f29149fd8a319913856eee26dac08eb47
+luasaucedev/payload_map.js	7728	97be2444c5fd3fd15537a55c3123d3132276746439269ff0ac5db4d8adcd0d40
+luasaucedev/payloads/byepervisor.elf	334688	af4b66faeb980cc6b7ffa791d407410d975aadb18acd0f3bd0fc7fc84cab626d
+luasaucedev/payloads/elfldr.elf	412544	930982bb4e98612f70441922efadbb0aa7e7b16ec260d6b243276ed02cadc29d
+luasaucedev/payloads/etaHEN-2.0b.bin	2344928	f14912bf3f12519437bafdc8cee405099d7a8f7c6f9fe701336712d5f8489464
+luasaucedev/payloads/etaHEN.bin	2344928	f14912bf3f12519437bafdc8cee405099d7a8f7c6f9fe701336712d5f8489464
+luasaucedev/payloads/etaHEN.elf	4741304	fcbd60cdafc1f175a80e45c87aa115740d5a44fac3e3e6769994d5a67b28185a
+luasaucedev/payloads/ftpsrv.elf	139856	e3bf017d45b19aafcce0de2235cf8401e3628866a36e7504da7bff9dfe7a220e
+luasaucedev/payloads/gdbsrv.elf	158136	282684844ec5a4fe5d1c721dbe0e575ba55714468d0d5a7b9262509fb4bef474
+luasaucedev/payloads/klogsrv.elf	136704	add53ad13cf39e5b5b7757c15b93228007df0dbb1f3477e820702c36d9150ebb
+luasaucedev/payloads/kstuff.elf	1444016	659d35de3f24c748b63d6ca32da6b8511cc11eac49fea9eac477aca10488c8fe
+luasaucedev/payloads/libhijacker-game-patch.v1.160.elf	1162832	6ea242cb1ed033f5111b63f0ed7d8162f30f417a778364213261636962cbf5fc
+luasaucedev/payloads/ps5-versions.elf	9880	4df615bf70ad51d977f4f2898ae23b7c7349d32afe0e37783d8b62aedd7700be
+luasaucedev/payloads/ps5debug_dizz.elf	165928	550885996e8e44b050b8bbfabd3e4740076065da1d3468d4798ddbbc22370a2f
+luasaucedev/payloads/ps5debug_v1.0b2.elf	148808	6d242c9757478bd27d9efa1f04ffffc03af4af9ee7c9d319a8a9d6a8dcfcc15a
+luasaucedev/payloads/rp-get-pin.elf	117848	1d611c1856dd2f4b4b6cb42ead1128a7f08a26585788f92de79fa4f67d721472
+luasaucedev/payloads/shsrv.elf	1020288	e1e9271910378dc9fba81a1409047a9ac9e6800dd7d023bcb68b9f0b3d55a43b
+luasaucedev/payloads/websrv.elf	705232	b125c7174dbb47e48c14cffe83b0c7c44b47400578e520f2948beb27da71feed
+luasaucespoof/main.js	52883	ff446338b3fcc4dad7a4f5c998bd1a6aa46b2f40a4d1d33c42f2126cb8c55276
+luasaucespoof/payload_map.js	7755	b2f9f54086c21cd32c555f8fdc45cb5b6b2794d9f12eebf9b8ed1bf17171ba4e
+luasaucespoof/payloads/byepervisor.elf	334688	af4b66faeb980cc6b7ffa791d407410d975aadb18acd0f3bd0fc7fc84cab626d
+luasaucespoof/payloads/elfldr.elf	412544	930982bb4e98612f70441922efadbb0aa7e7b16ec260d6b243276ed02cadc29d
+luasaucespoof/payloads/etaHEN-2.0b.bin	2344928	f14912bf3f12519437bafdc8cee405099d7a8f7c6f9fe701336712d5f8489464
+luasaucespoof/payloads/etaHEN.bin	2344928	f14912bf3f12519437bafdc8cee405099d7a8f7c6f9fe701336712d5f8489464
+luasaucespoof/payloads/ftpsrv.elf	139856	e3bf017d45b19aafcce0de2235cf8401e3628866a36e7504da7bff9dfe7a220e
+luasaucespoof/payloads/gdbsrv.elf	158136	282684844ec5a4fe5d1c721dbe0e575ba55714468d0d5a7b9262509fb4bef474
+luasaucespoof/payloads/klogsrv.elf	136704	add53ad13cf39e5b5b7757c15b93228007df0dbb1f3477e820702c36d9150ebb
+luasaucespoof/payloads/kstuff.elf	1444016	659d35de3f24c748b63d6ca32da6b8511cc11eac49fea9eac477aca10488c8fe
+luasaucespoof/payloads/libhijacker-game-patch.v1.160.elf	1162832	6ea242cb1ed033f5111b63f0ed7d8162f30f417a778364213261636962cbf5fc
+luasaucespoof/payloads/ps5-versions.elf	9880	4df615bf70ad51d977f4f2898ae23b7c7349d32afe0e37783d8b62aedd7700be
+luasaucespoof/payloads/ps5debug_dizz.elf	165928	550885996e8e44b050b8bbfabd3e4740076065da1d3468d4798ddbbc22370a2f
+luasaucespoof/payloads/ps5debug_v1.0b2.elf	148808	6d242c9757478bd27d9efa1f04ffffc03af4af9ee7c9d319a8a9d6a8dcfcc15a
+luasaucespoof/payloads/rp-get-pin.elf	117848	1d611c1856dd2f4b4b6cb42ead1128a7f08a26585788f92de79fa4f67d721472
+luasaucespoof/payloads/shsrv.elf	1020288	e1e9271910378dc9fba81a1409047a9ac9e6800dd7d023bcb68b9f0b3d55a43b
+luasaucespoof/payloads/websrv.elf	705232	b125c7174dbb47e48c14cffe83b0c7c44b47400578e520f2948beb27da71feed
+ntfonto/src/main.js	3170	799f5962c9f5084826804db5a2fffd8a38d70a9ce62637e195952ec572962eba
+ntfonto/src/payload.bin	290016	c6329401d1810e16c84e6474ac30977dbdc951987c10cdb559370de7d59db0b0
+ntfonto/src/ps4/constants.js	24540	c832a6f7ba08b729a291a5807caf5f2caffac52823e32ca8bca6dbba3252e329
+ntfonto/src/ps4/patches/1000.bin	589	954ff624c9c92ab991c3e92a93fde1583da291dfd9674e245354c7efdcd07cf8
+ntfonto/src/ps4/patches/1050.bin	632	fbf815d2d47a707cf788815ef11558fa6d8f718e628d508e8540417083c55e1f
+ntfonto/src/ps4/patches/1100.bin	632	15497a2b748dafd49bfb89c51ed048d0c5ba3c5092c5254da46dd4443f80983b
+ntfonto/src/ps4/patches/1102.bin	632	4634f7bcdaeea7a48307a6b0c2f0575dc131d4fcf15138c6678f18b4f19058fd
+ntfonto/src/ps4/patches/600.bin	245	0926e4aad37d12795826c01c0341aac1e67daaa5d346d37a2f6179366a12eee0
+ntfonto/src/ps4/patches/620.bin	245	e239de491039a189983157be063b99270b6834bcfeb8fe62092168b9c8ab4360
+ntfonto/src/ps4/patches/650.bin	285	1083e8b16f1c3dbc26c94cd594a41e36642651fd400b19d7e57994fd37cba070
+ntfonto/src/ps4/patches/670.bin	285	589afd201592ccefab68e460297f625ee8826fdab7a982e32c3550643903e171
+ntfonto/src/ps4/patches/700.bin	427	b2793ae0c589b0746964693a5ab1795ff2516b5fcac6fa2e493814ce677b0cb7
+--- history evidence ---
