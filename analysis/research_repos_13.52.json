@@ -1,7 +1,7 @@
 {
   "target_firmware": "13.52",
-  "repo_count": 31,
-  "scan_policy": "shallow clones, text/path inspection, git metadata; no repository code execution",
+  "repo_count": 34,
+  "scan_policy": "complete clones where available; text/path/git/release metadata and passive artifact inspection; no repository code execution",
   "classification_vocabulary": [
     "DIRECT_BYTES",
     "CONFIRMED_1352",
@@ -4438,7 +4438,56 @@
       "binary_named_files": [],
       "classification": "PORTABLE",
       "firmware_13_52_evidence": "ABSENT",
-      "notes": "Static text/path scan only; repository code was not executed."
+      "notes": "Static text/path scan only; repository code was not executed.",
+      "new_cycle_evidence": {
+        "source_commit": "2beb4cfcef1d416a32d6fb7b35f01189e9eb62e2",
+        "release_asset": {
+          "name": "hen.bin",
+          "release_tag": "pre-release-main-179",
+          "url": "https://github.com/Scene-Collective/ps4-hen/releases/download/pre-release-main-179/hen.bin",
+          "release_note": "Add 13.50 support",
+          "size": 498880,
+          "sha256": "54b39b0e56efe00287238f55317b8111b895b96a5a4f779507b3931a58e6c4a2",
+          "format": "raw x86-64 payload; file identifies as DOS COM due raw entry bytes",
+          "strings": [
+            "libkernel.sprx",
+            "libkernel_web.sprx",
+            "libkernel_sys.sprx"
+          ],
+          "classification": "DIRECT_BYTES",
+          "firmware": "13.50 release note; not 13.52",
+          "limitations": "Payload bytes and strings do not prove retail module provenance or 13.52 compatibility."
+        },
+        "source_table_hashes": {
+          "kpayload/source/offsets/1352.c": {
+            "size": 5895,
+            "sha256": "8edcfc42d702b43731651c3108843d118814d861df1d34b4bf9624b358263957"
+          },
+          "kpayload/include/offsets/1352.h": {
+            "size": 133,
+            "sha256": "055815a7f26c7d367bcbd08147946ad425bc1c2e8985597f49ebc88348a7609f"
+          },
+          "installer/include/offsets.h": {
+            "size": 52667,
+            "sha256": "91fce669f8ac58dcb4a0b035cd9d8fc71ce0e3b1cd1b4f3053338db736ed2409"
+          }
+        },
+        "commit_subject": "Add 13.52 support",
+        "table_files": [
+          "kpayload/source/offsets/1352.c",
+          "installer/include/offsets.h"
+        ],
+        "offset_references": {
+          "SYSENT": "0x01102B70",
+          "pmap_protect": "0x00059DF0",
+          "pmap_protect_patch_site": "0x00059E37",
+          "ALLPROC": "0x01B28538",
+          "ROOTVNODE": "0x02136E90",
+          "PMAP_STORE": "0x01B2C3A0"
+        },
+        "classification": "UNVERIFIED",
+        "reason": "Version-specific source tables and provenance commit exist, but no matching retail 13.52 kernel bytes are present in the repository."
+      }
     },
     {
       "repo": "Scene-Collective/ps4-kernel-dumper",
@@ -16935,6 +16984,101 @@
       "classification": "PORTABLE",
       "firmware_13_52_evidence": "ABSENT",
       "notes": "Static text/path scan only; repository code was not executed."
+    },
+    {
+      "repo": "jevinskie/ps4-kern-dump",
+      "url": "https://github.com/jevinskie/ps4-kern-dump.git",
+      "head_commit": "a91e27d879301ea4101270c2b48772cf3c3e63ef",
+      "branch": "master",
+      "remote_refs_observed": [
+        "origin"
+      ],
+      "files_scanned": 15,
+      "releases_assets": [],
+      "firmware_identified": "UNVERIFIED historical PS4 research; no firmware label in repository",
+      "artifact_types": [
+        "kernel dumper source",
+        "Z85 dump encoder/decoder",
+        "page-table dumper"
+      ],
+      "module_presence": {
+        "WebKit": "ABSENT",
+        "libkernel": "ABSENT",
+        "kernel_dump_bytes": "ABSENT",
+        "SELF": "ABSENT",
+        "SPRX": "ABSENT",
+        "NXDP": "ABSENT"
+      },
+      "sha256": [],
+      "classification": "PORTABLE",
+      "reason": "Relevant static kernel-dump methodology; tracked tree contains source only and no dump binary. It references kernel_map and dumping page tables but supplies no 13.52 artifact.",
+      "notes": "Repository code was not executed."
+    },
+    {
+      "repo": "a0zhar/PS4.badhoist",
+      "url": "https://github.com/a0zhar/PS4.badhoist.git",
+      "head_commit": "802278a129877aeb08d93f3e68a5f3239b3640fe",
+      "branch": "main",
+      "remote_refs_observed": [
+        "origin",
+        "origin/main"
+      ],
+      "files_scanned": 15,
+      "releases_assets": [
+        "v1.0/dumps.rar",
+        "v1.2/newDump.rar",
+        "v2/dumps.rar"
+      ],
+      "firmware_identified": "6.72 claim; not independently demonstrated",
+      "artifact_types": [
+        "RAR5 WebKit/libc/libkernel dumps"
+      ],
+      "module_presence": {
+        "WebKit": "DIRECT_BYTES historical",
+        "libkernel": "DIRECT_BYTES historical",
+        "kernel": "ABSENT",
+        "SELF": "ABSENT",
+        "SPRX": "ABSENT"
+      },
+      "sha256": [
+        "75679ba9cf33cecdd445bf6bf983cf3ae07de0600a1502c91da1dd2a74c8b512",
+        "b0f4a160f658a1ef941f754ba127d07d740033e9162353ffd66345a0b8b96a4b",
+        "15aa35a0c70cb568da91a1788efa1df63d1c84be46e8d95f0f5992405ce78802"
+      ],
+      "classification": "DIRECT_BYTES",
+      "reason": "Historical module bytes and release hashes exist; no same-build 13.52 identity.",
+      "notes": "Repository and release assets were inspected statically; no payload executed."
+    },
+    {
+      "repo": "FreeBSDKernel9-0/PS4OSSCode",
+      "url": "https://github.com/FreeBSDKernel9-0/PS4OSSCode.git",
+      "head_commit": "d636699770323d7968a2c37955aa513bda5f8a37",
+      "branch": "main",
+      "remote_refs_observed": [
+        "origin",
+        "origin/main"
+      ],
+      "files_scanned": 584706,
+      "releases_assets": [],
+      "firmware_identified": "historical OSS source trees; WebKit-601-1300 commit describes PS4 13.00-13.04",
+      "artifact_types": [
+        "WebKit OSS source",
+        "FreeBSD 9.0 source",
+        "historical ZIP source archives"
+      ],
+      "module_presence": {
+        "WebKit": "STRUCTURAL source",
+        "libkernel_web": "ABSENT",
+        "libSceLibcInternal": "ABSENT",
+        "kernel": "STRUCTURAL source",
+        "SELF": "ABSENT",
+        "SPRX": "ABSENT",
+        "NXDP": "ABSENT"
+      },
+      "sha256": [],
+      "classification": "STRUCTURAL",
+      "reason": "Large OSS source collection; no retail 13.52 module bytes or exact module names.",
+      "notes": "Literal 13.52 matches were LayoutTests numeric false positives."
     }
   ],
   "external_artifact_evidence": [
@@ -16965,8 +17109,8 @@
     }
   ],
   "research_summary": {
-    "verified_repo_count": 31,
-    "cloned_repo_count": 31,
+    "verified_repo_count": 34,
+    "cloned_repo_count": 34,
     "new_13_52_binary_artifacts_confirmed": 0,
     "new_13_52_indirect_artifacts": 1,
     "full_webkit_13_52_image_present": false,

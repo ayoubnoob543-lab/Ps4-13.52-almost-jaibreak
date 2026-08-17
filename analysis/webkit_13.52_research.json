@@ -142,6 +142,26 @@
       "classification": "STRUCTURAL",
       "use": "WebKit/FreeBSD source correlation",
       "not_accepted_as": "retail 13.52 module bytes or build identity"
+    },
+    {
+      "name": "Scene-Collective/ps4-hen commit 2beb4cf",
+      "url": "https://github.com/Scene-Collective/ps4-hen/commit/2beb4cfcef1d416a32d6fb7b35f01189e9eb62e2",
+      "firmware": "13.52 source table claim; 13.50 release asset separately observed",
+      "modules": ["kernel offset table", "hen.bin payload"],
+      "classification": "UNVERIFIED",
+      "use": "provenance and candidate offset cross-reference only",
+      "candidate_offsets": {"SYSENT": "0x01102B70", "pmap_protect": "0x00059DF0", "pmap_protect_patch_site": "0x00059E37", "ALLPROC": "0x01B28538", "ROOTVNODE": "0x02136E90", "PMAP_STORE": "0x01B2C3A0"},
+      "payload_asset": {"release_tag": "pre-release-main-179", "sha256": "54b39b0e56efe00287238f55317b8111b895b96a5a4f779507b3931a58e6c4a2", "size": 498880, "firmware": "13.50", "classification": "DIRECT_BYTES"},
+      "not_accepted_as": "retail 13.52 kernel bytes or proof of runtime compatibility"
+    },
+    {
+      "name": "jevinskie/ps4-kern-dump",
+      "url": "https://github.com/jevinskie/ps4-kern-dump",
+      "firmware": "historical/unspecified",
+      "modules": [],
+      "classification": "PORTABLE",
+      "use": "kernel_map/page-table dump methodology",
+      "not_accepted_as": "kernel dump bytes or 13.52 offsets"
     }
   ],
   "external_artifacts": [

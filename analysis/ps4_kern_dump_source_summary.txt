@@ -1,0 +1,37 @@
+repo=jevinskie/ps4-kern-dump
+https://github.com/jevinskie/ps4-kern-dump.git
+a91e27d879301ea4101270c2b48772cf3c3e63ef
+a91e27d879301ea4101270c2b48772cf3c3e63ef 2018-11-11 19:29:46 -0500 dunno
+792303d6fe722edd9ea182fc4fb06717d79fb229 2018-11-07 15:20:03 -0500 start ptviewer
+ca4d098da7bdfb52ec50b35a2117ac72fc8f7cf5 2018-11-06 17:12:43 -0500 dump kernbase via z85
+fe88a1640d16d1efc0fef1a5f603368889ea4e63 2018-11-04 22:33:00 -0500 wip
+a940aad09fc36814aa52aaed25c77ad01cb14435 2018-11-04 22:11:04 -0500 dump proc info
+30fa52e6c7ab1ee4c6b037e5020b4c4b6d578c4c 2018-11-04 13:36:17 -0500 initial commit
+--- files ---
+.gitignore
+.gitmodules
+assert.h
+dump.c
+dump.h
+kd.c
+kd.mk
+procinfo.c
+procinfo.mk
+ptanal.py
+ptdump.c
+ptdump.h
+z85.c
+z85.h
+z85/__init__.py
+--- binary candidates ---
+--- firmware matches ---
+[35mdump.c[m[36m:[m[32m5[m[36m:[m#include <sys/[1;31mkernel[m.h>
+[35mkd.c[m[36m:[m[32m3[m[36m:[m#include <sys/[1;31mkernel[m.h>
+[35mkd.c[m[36m:[m[32m22[m[36m:[mextern vm_map_t [1;31mkernel_map[m;
+[35mkd.c[m[36m:[m[32m64[m[36m:[m			uprintf("[1;31mkernel_map[m: %p\n", [1;31mkernel_map[m);
+[35mkd.c[m[36m:[m[32m66[m[36m:[m			if ([1;31mkernel_map[m) {
+[35mkd.c[m[36m:[m[32m67[m[36m:[m				uprintf("dumping [1;31mkernel_map[m\n");
+[35mkd.c[m[36m:[m[32m68[m[36m:[m				dump_map([1;31mkernel_map[m);
+[35mptdump.c[m[36m:[m[32m6[m[36m:[m#include <sys/[1;31mkernel[m.h>
+[35mz85.c[m[36m:[m[32m32[m[36m:[m#include <sys/[1;31mkernel[m.h>
+--- releases ---
