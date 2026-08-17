@@ -1,0 +1,292 @@
+{
+  "target_firmware": "13.52",
+  "policy": "static metadata/source inspection only; no repository code, Lua, JavaScript, payload or binary execution",
+  "new_sources": [
+    {
+      "repo": "BillZaiD/ps4-kernel-uaf-research-fw1352",
+      "url": "https://github.com/BillZaiD/ps4-kernel-uaf-research-fw1352",
+      "commit": "aa5802cf6d3f0111351dad2bb444b08ea7ea2595",
+      "files_tracked": 9,
+      "disk_size_bytes": 299008,
+      "releases": [],
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "claims": {
+        "firmware": "13.52",
+        "component": "BSD kqueue/knote",
+        "filter_value": "-7 (0xFFF9)",
+        "libkernel_base": "0x80a67c000",
+        "uaf": "claimed confirmed by runtime testing"
+      },
+      "why_not_direct": "No kernel/WebKit/libkernel dump, runtime log, crash dump, build ID or signed artifact is present; claims are prose and PoC source only.",
+      "migrability": {
+        "portable": [
+          "kevent structure construction",
+          "syscall-number inventory methodology",
+          "static separation of sandbox observations from kernel offsets"
+        ],
+        "requires_reanalysis": [
+          "knote layout",
+          "EVFILT_USER value",
+          "libkernel base",
+          "UAF trigger and race behavior"
+        ],
+        "do_not_transfer": [
+          "runtime claims as 13.52 bytes",
+          "kernel exploitability conclusion"
+        ]
+      },
+      "files": [
+        {
+          "path": "BillZaiD_ps4-kernel-uaf-research-fw1352/README.md",
+          "size": 22076,
+          "sha256": "498347519a4ae3459112746ed3ace1cf1ff47acd666282fa6cf17d0a1a9e9eb8",
+          "firmware": "13.52 claimed",
+          "classification": "UNVERIFIED",
+          "role": "prose claim"
+        },
+        {
+          "path": "BillZaiD_ps4-kernel-uaf-research-fw1352/FINDINGS.md",
+          "size": 4128,
+          "sha256": "09be3087008e6c6bbd0243e08a16348edd079c0050139cd9a572b76c0c80e9e2",
+          "firmware": "13.52 claimed",
+          "classification": "UNVERIFIED",
+          "role": "prose findings log"
+        },
+        {
+          "path": "BillZaiD_ps4-kernel-uaf-research-fw1352/poc/uaf_confirm.lua",
+          "size": 4560,
+          "sha256": "9c2fb5dcb78b9b4c9cbc613ce025f24f7ba3b4a5d009c50b419732f9bab45db5",
+          "firmware": "13.52 claimed",
+          "classification": "PORTABLE",
+          "role": "PoC source pattern; not executed"
+        },
+        {
+          "path": "BillZaiD_ps4-kernel-uaf-research-fw1352/poc/lib/ps4_utils.lua",
+          "size": 4991,
+          "sha256": "7a1b7be1219c6333d61c066b8d370a0fb07e99eb14ca45f086465b0a831e9294",
+          "firmware": "13.52 claimed",
+          "classification": "PORTABLE",
+          "role": "utility source; not executed"
+        }
+      ]
+    },
+    {
+      "repo": "alferdoss/SLOPOS-offsets",
+      "url": "https://github.com/alferdoss/SLOPOS-offsets",
+      "commit": "42273e2180cae9aa0c1a67332994d75e1baa713c",
+      "source_commit": "43f365e7a672f9e756e415cd72aba1c9159d43e9",
+      "files_tracked": 84,
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "firmware": "table includes 13.52; credits say kexec offsets copied from ps4-linux-loader and attributes 13.52 to ArabPixel",
+      "candidate_offsets": {
+        "SYSENT": "0x1102B70",
+        "pmap_protect": "0x58570",
+        "kernel_map": "0x22D1D50",
+        "kernel_pmap_store": "0x1B2C3A0",
+        "rootvnode": "0x2136E90"
+      },
+      "why_not_direct": "Header tables and credits contain no kernel bytes, hashes of a target kernel, or independent binary validation.",
+      "migrability": [
+        "portable manifest/schema and provenance tracking",
+        "historical cross-version comparison only"
+      ],
+      "do_not_transfer": [
+        "any 13.52 offset as DIRECT_BYTES",
+        "pmap_protect 0x58570 as resolved against 0x59DF0"
+      ],
+      "files": [
+        {
+          "path": "alferdoss_SLOPOS-offsets/ps4/1352.h",
+          "size": 2823,
+          "sha256": "5a19a879bd67430ea14a12ff6e2f59b7dce055698614995463a8d3b3086c7092",
+          "firmware": "13.52 claimed",
+          "classification": "UNVERIFIED",
+          "role": "offset header"
+        },
+        {
+          "path": "alferdoss_SLOPOS-offsets/CREDITS.md",
+          "size": 1023,
+          "sha256": "7738cf5f2acaa2e46e77a31abf81de1782a550c6b0cc667268056a8060b5bd19",
+          "firmware": "historical",
+          "classification": "STRUCTURAL",
+          "role": "provenance record"
+        }
+      ]
+    },
+    {
+      "repo": "Gustuds/PS4-AIO-Host-by-Gustuds",
+      "url": "https://github.com/Gustuds/PS4-AIO-Host-by-Gustuds",
+      "commit": "7792f6e",
+      "classification": "STRUCTURAL",
+      "artifact_status": "ABSENT",
+      "firmware": "CSSFontFace manifest supports 9.03 through 11.02; no 13.52 entry",
+      "why_not_direct": "Patch blobs are tiny historical patch data, not retail WebKit/libkernel/kernel images; no 13.52 table exists.",
+      "migrability": [
+        "portable CSSFontFace object-field inventory methodology",
+        "historical per-firmware configuration schema"
+      ],
+      "do_not_transfer": [
+        "vtable/gadget/field offsets from 6.xx–11.02",
+        "patch blobs as 13.52 patches"
+      ],
+      "files": [
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/manifest.json",
+          "size": 490,
+          "sha256": "26ca2cbcdeecfe387c303a2d10eba2f2b7021902cb95869a02ad0ec977ad051f",
+          "firmware": "9.03–11.02",
+          "classification": "STRUCTURAL",
+          "role": "supported-firmware manifest"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/constants.js",
+          "size": 24540,
+          "sha256": "c832a6f7ba08b729a291a5807caf5f2caffac52823e32ca8bca6dbba3252e329",
+          "firmware": "6.00–11.02 historical map",
+          "classification": "STRUCTURAL",
+          "role": "CSSFontFace fields/vtables/gadgets"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/userland.js",
+          "size": 37526,
+          "sha256": "dc1ae1fd99829511818dd0ecde813e75287f804b4543af4186d09ab875d5c2a4",
+          "firmware": "historical",
+          "classification": "PORTABLE",
+          "role": "algorithmic userland logic; firmware values remain dependent"
+        }
+      ],
+      "patches": [
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/1000.bin",
+          "size": 589,
+          "sha256": "954ff624c9c92ab991c3e92a93fde1583da291dfd9674e245354c7efdcd07cf8",
+          "firmware": "1000",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/1050.bin",
+          "size": 632,
+          "sha256": "fbf815d2d47a707cf788815ef11558fa6d8f718e628d508e8540417083c55e1f",
+          "firmware": "1050",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/1100.bin",
+          "size": 632,
+          "sha256": "15497a2b748dafd49bfb89c51ed048d0c5ba3c5092c5254da46dd4443f80983b",
+          "firmware": "1100",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/1102.bin",
+          "size": 632,
+          "sha256": "4634f7bcdaeea7a48307a6b0c2f0575dc131d4fcf15138c6678f18b4f19058fd",
+          "firmware": "1102",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/600.bin",
+          "size": 245,
+          "sha256": "0926e4aad37d12795826c01c0341aac1e67daaa5d346d37a2f6179366a12eee0",
+          "firmware": "600",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/620.bin",
+          "size": 245,
+          "sha256": "e239de491039a189983157be063b99270b6834bcfeb8fe62092168b9c8ab4360",
+          "firmware": "620",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/650.bin",
+          "size": 285,
+          "sha256": "1083e8b16f1c3dbc26c94cd594a41e36642651fd400b19d7e57994fd37cba070",
+          "firmware": "650",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/670.bin",
+          "size": 285,
+          "sha256": "589afd201592ccefab68e460297f625ee8826fdab7a982e32c3550643903e171",
+          "firmware": "670",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/700.bin",
+          "size": 427,
+          "sha256": "b2793ae0c589b0746964693a5ab1795ff2516b5fcac6fa2e493814ce677b0cb7",
+          "firmware": "700",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/750.bin",
+          "size": 606,
+          "sha256": "70bb383269face27d5203be7aa83d0d184fd7f94b31f2403328b8cb733cc5b41",
+          "firmware": "750",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/800.bin",
+          "size": 589,
+          "sha256": "aa30be1ce005f10d6fdae3357e07c073bde4e0e1072514d324e1e6f71b660b2c",
+          "firmware": "800",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/850.bin",
+          "size": 589,
+          "sha256": "889aeea9e4d4316ca1cbbb49066faac85e90c3b0fc5bbea2126c6eac57ca977c",
+          "firmware": "850",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/900.bin",
+          "size": 589,
+          "sha256": "1645039fd48ec3f9b4fbbbb92daf7df5faf41e6bb8d815b4a8edb27f35fd9ae4",
+          "firmware": "900",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/903.bin",
+          "size": 589,
+          "sha256": "779a980d04afc6dc89ff6b77af058636904b3559734f9efe3c1d46d20dc14a73",
+          "firmware": "903",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        },
+        {
+          "path": "Gustuds_PS4-AIO-Host-by-Gustuds/methods/cssfontface/files/public/src/ps4/patches/950.bin",
+          "size": 589,
+          "sha256": "d3d536b07cf9f07d91a18472255f71d83233d6b094628ced474477cd8b912608",
+          "firmware": "950",
+          "classification": "DIRECT_BYTES",
+          "role": "historical CSSFontFace kernel patch blob; not retail module"
+        }
+      ]
+    }
+  ],
+  "cross_source_conclusions": {
+    "SYSENT_0x1102B70": "UNVERIFIED; appears in ps4-hen and SLOPOS table sources, no target kernel bytes",
+    "pmap_protect_0x58570": "UNVERIFIED; SLOPOS/ArabPixel table source",
+    "pmap_protect_0x59DF0": "UNVERIFIED; ps4-hen table source, not present in SLOPOS 13.52 header",
+    "cssfontface_13_52": "ABSENT; historical host stops at 11.02",
+    "webkit_13_52": "ABSENT",
+    "kernel_13_52": "ABSENT"
+  }
+}

@@ -33,6 +33,9 @@ El primer porcentaje mide la infraestructura y migración estática; el segundo 
 - [`PS4OSSCode`][19] fue auditado como el mayor corpus público disponible en el laboratorio: 7,7 GiB en el árbol de trabajo, 1,54 GiB de objetos Git, 584.706 archivos rastreados y 8 commits. Contiene fuentes WebKit/FreeBSD y archives históricos de WebKit 601.2.7 para ramas 6.00–11.00, pero ningún `libSceNKWebKit.sprx`, `libkernel_web.sprx`, `libSceLibcInternal.sprx`, SELF, SPRX, NXDP, ORBISDMP, PUP o kernel retail 13.52. Las 30 coincidencias de `13.52` en fuentes/documentación son numéricas o pertenecen a LayoutTests; el corpus queda clasificado `STRUCTURAL`.
 - `pOOBs4`, `bad_hoist` y el exploit WebKit de PS4 6.20 son material histórico de 6.20–9.00. Sirven como referencia de metodología, no como evidencia de 13.52.
 - La investigación pública de UAF `kqueue/knote` para 13.52 documenta una línea experimental, pero no demuestra una primitiva estable de kread/kwrite ni un jailbreak funcional.
+- [`BillZaiD/ps4-kernel-uaf-research-fw1352`][20], commit `aa5802c`, contiene sólo README, FINDINGS y PoC Lua; no contiene kernel, WebKit, libkernel, crash dump, build ID ni logs runtime adjuntos. Sus afirmaciones sobre `EVFILT_USER=-7`, la base `0x80a67c000` y el UAF quedan `UNVERIFIED`; la construcción de `kevent` y la metodología de inventario syscall son `PORTABLE`.
+- [`alferdoss/SLOPOS-offsets`][21], commit `42273e2`, aporta una tabla `ps4/1352.h` con `SYSENT=0x1102B70`, `pmap_protect=0x58570`, `kernel_map=0x22D1D50`, `kernel_pmap_store=0x1B2C3A0` y `rootvnode=0x2136E90`. Su `CREDITS.md` declara que los offsets kexec se copian de `ps4-linux-loader` y atribuye 13.52 a ArabPixel. Esto mejora la trazabilidad de `0x58570`, pero no resuelve la discrepancia con `ps4-hen` (`0x59DF0`) ni convierte ninguna tabla en `DIRECT_BYTES`.
+- [`Gustuds/PS4-AIO-Host-by-Gustuds`][22], commit `7792f6e`, conserva CSSFontFace histórico con layouts, vtables, `m_featureSettings` y parches `.bin` hasta 11.02; su manifest no incluye 13.52. Los hashes y tamaños de sus patches se registran en `analysis/github_indirect_findings_13.52.json`; sólo sirven como correlación histórica.
 
 ## Lo que falta
 
@@ -187,6 +190,9 @@ Este proyecto está **en investigación activa**. Tiene una base técnica organi
 [15]: https://github.com/a0zhar/PS4.badhoist "a0zhar/PS4.badhoist — historical FW 6.72 module releases"
 [16]: https://github.com/FreeBSDKernel9-0/PS4OSSCode "FreeBSDKernel9-0/PS4OSSCode — PS4 OSS/WebKit source collection"
 [19]: https://github.com/FreeBSDKernel9-0/PS4OSSCode "PS4OSSCode — largest public OSS/WebKit corpus audited"
+[20]: https://github.com/BillZaiD/ps4-kernel-uaf-research-fw1352 "PS4 FW 13.52 kqueue/knote research"
+[21]: https://github.com/alferdoss/SLOPOS-offsets "SLOPOS per-firmware kernel offset tables"
+[22]: https://github.com/Gustuds/PS4-AIO-Host-by-Gustuds "Historical CSSFontFace PS4 host"
 [5]: https://github.com/Scene-Collective/ps4-kernel-dumper "PS4 kernel dumper"
 [6]: https://www.psdevwiki.com/ps4/COREDMP "PS4 Developer Wiki — COREDMP/NXDP"
 [7]: https://github.com/kmeps4/PSFree/tree/368d82aa40d3017c220757ce315761adb5f06678 "PSFree — audited commit"

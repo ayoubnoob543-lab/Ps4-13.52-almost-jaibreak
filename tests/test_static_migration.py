@@ -232,6 +232,16 @@ class StaticMigrationTests(unittest.TestCase):
         self.assertEqual(largest["artifact_assessment"]["libSceNKWebKit_13_52"], "ABSENT")
         self.assertEqual(largest["artifact_assessment"]["historical_webkit_source"], "STRUCTURAL")
 
+    def test_github_indirect_findings_remain_conservative(self) -> None:
+        report = json.loads((ROOT / "analysis/github_indirect_findings_13.52.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["target_firmware"], "13.52")
+        by_repo = {item["repo"]: item for item in report["new_sources"]}
+        self.assertEqual(by_repo["BillZaiD/ps4-kernel-uaf-research-fw1352"]["classification"], "UNVERIFIED")
+        self.assertEqual(by_repo["BillZaiD/ps4-kernel-uaf-research-fw1352"]["artifact_status"], "ABSENT")
+        self.assertEqual(by_repo["alferdoss/SLOPOS-offsets"]["candidate_offsets"]["pmap_protect"], "0x58570")
+        self.assertEqual(by_repo["Gustuds/PS4-AIO-Host-by-Gustuds"]["classification"], "STRUCTURAL")
+        self.assertTrue(all(item["firmware"] != "13.52" or item["classification"] != "DIRECT_BYTES" for item in by_repo["Gustuds/PS4-AIO-Host-by-Gustuds"]["patches"]))
+
     def test_webkit_absence_report_is_explicit(self) -> None:
         report = json.loads((ROOT / "analysis/webkit_13.52.json").read_text(encoding="utf-8"))
         self.assertEqual(report["target_firmware"], "13.52")

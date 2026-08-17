@@ -9,6 +9,30 @@
     "ABSENT",
     "REQUIRES_REANALYSIS"
   ],
+  "github_indirect_findings_manifest": "analysis/github_indirect_findings_13.52.json",
+  "github_audit_additions": [
+    {
+      "repo": "BillZaiD/ps4-kernel-uaf-research-fw1352",
+      "commit": "aa5802cf6d3f0111351dad2bb444b08ea7ea2595",
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "contribution": "portable kqueue/kevent research methodology and unverified 13.52 runtime claims"
+    },
+    {
+      "repo": "alferdoss/SLOPOS-offsets",
+      "commit": "42273e2180cae9aa0c1a67332994d75e1baa713c",
+      "classification": "UNVERIFIED",
+      "artifact_status": "ABSENT",
+      "contribution": "versioned 13.52 offset table; SYSENT 0x1102B70 and pmap_protect 0x58570 remain source claims"
+    },
+    {
+      "repo": "Gustuds/PS4-AIO-Host-by-Gustuds",
+      "commit": "7792f6e",
+      "classification": "STRUCTURAL",
+      "artifact_status": "ABSENT",
+      "contribution": "historical CSSFontFace layouts and per-firmware patch inventory through 11.02"
+    }
+  ],
   "found": [
     {
       "name": "libkernel_sys_13.52.bin",
