@@ -1,0 +1,273 @@
+{
+  "corpus": {
+    "name": "FreeBSDKernel9-0/PS4OSSCode",
+    "url": "https://github.com/FreeBSDKernel9-0/PS4OSSCode",
+    "head_commit": "d636699770323d7968a2c37955aa513bda5f8a37",
+    "branch": "main",
+    "is_shallow": false,
+    "commit_count_all_refs": 8,
+    "tracked_file_count": 584706,
+    "disk_size_bytes": 6487288846,
+    "git_object_store_bytes": 1754430099,
+    "submodules": [],
+    "git_lfs_files": [],
+    "releases_assets": [],
+    "selection_reason": "Largest cloned public PS4/Orbis corpus in the laboratory with extensive WebKit, FreeBSD and historical source trees; no smaller candidate combines comparable file count and WebKit coverage."
+  },
+  "candidate_comparison": [
+    {
+      "name": "FreeBSDKernel9-0/PS4OSSCode",
+      "disk_size": "7.7G",
+      "git_size": "1.7G",
+      "tracked_files": 584706,
+      "binary_candidate_paths": 20,
+      "releases_assets": "0/0",
+      "relevance": "WebKit/FreeBSD source trees; historical WebKit archives; largest corpus",
+      "selection": "SELECTED"
+    },
+    {
+      "name": "kimariin/BlueLoader",
+      "disk_size": "414M",
+      "git_size": "202M",
+      "tracked_files": 112,
+      "binary_candidate_paths": 8,
+      "releases_assets": "6/17",
+      "relevance": "BD-JB loader and payload assets; no 13.52 retail modules",
+      "selection": "REJECTED_AS_SMALLER"
+    },
+    {
+      "name": "Vuemony/vue-after-free",
+      "disk_size": "100M",
+      "git_size": "48M",
+      "tracked_files": 250,
+      "binary_candidate_paths": 2,
+      "releases_assets": "6/5",
+      "relevance": "historical WebKit/kernel exploit research; no 13.52 retail modules",
+      "selection": "REJECTED_AS_SMALLER"
+    },
+    {
+      "name": "a0zhar/PS4.badhoist",
+      "disk_size": "9.5M",
+      "git_size": "4.8M",
+      "tracked_files": 15,
+      "binary_candidate_paths": 0,
+      "releases_assets": "3/3",
+      "relevance": "historical FW 6.72 WebKit/libc/libkernel ELF releases",
+      "selection": "RETAINED_HISTORICAL"
+    },
+    {
+      "name": "jevinskie/ps4-kern-dump",
+      "disk_size": "440K",
+      "git_size": "372K",
+      "tracked_files": 15,
+      "binary_candidate_paths": 0,
+      "releases_assets": "0/0",
+      "relevance": "kernel dump methodology; no dump bytes",
+      "selection": "RETAINED_PORTABLE"
+    }
+  ],
+  "source_roots": {
+    "WebKit-601-1300": 183721,
+    "WebKit-616-1300": 30268,
+    "WebKit-616-1250": 28860,
+    "webkit-1150-1": 29022,
+    "webkit-1150-2": 23614,
+    "webkit-1200-1": 4079,
+    "webkit-1200-2": 24016,
+    "freebsd-9.0": 49061
+  },
+  "archive_artifacts": [
+    {
+      "path": "webkit-1000/WebKit-601.2.7-1000.zip",
+      "size": "10208131",
+      "sha256": "c4627f50e247aadf66aba26b10fed689270a42ee125a8b02324a9e9465d02926",
+      "head32": "504b03040a0000000000ac64d852000000000000000000000000140000005765",
+      "tail64": "32ec316e5d5665acd6e8afc5546600cc247d51d9078f973c518c96668f8bcf0b32ec316e5d5665acd6e8afc5546600cc247d51d9078f973c518c96668f8bcf0b",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    },
+    {
+      "path": "webkit-1050/WebKit-601.2.7-1050.zip",
+      "size": "35851294",
+      "sha256": "70d4c892669f35e54bc5497ed8c529cdcff03f6865750cdac195043d663fad9b",
+      "head32": "504b03040a0000000000ac64d852000000000000000000000000140000005765",
+      "tail64": "f0925b329edd586ad02be664018febf57fa1e44a4817ec2ecb3569856a66e5ef9806fa8d03a3294e4c0d3ba7b46c7990bce5d049e33503ca810c3ea7b0806a1f",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    },
+    {
+      "path": "webkit-1100/WebKit-601.2.7-1100.zip",
+      "size": "33336662",
+      "sha256": "a36fed0c9fe1149b830de42622e9e52cf2e752d3db7a37fdf2c3180eab046781",
+      "head32": "504b03040a0000000000ac64d852000000000000000000000000150000005765",
+      "tail64": "ffffffffffffffffffffffffffffffff*",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    },
+    {
+      "path": "webkit-600/webkit-601.2.7.zip",
+      "size": "33846556",
+      "sha256": "a8e3ab97654942b5801876a1ea84ddef9f2a07daa0d50871103302e7d012e695",
+      "head32": "504b03040a0000000000cb74eb4c0000000000000000000000000f0000007765",
+      "tail64": "ffffffffffffffffffffffffffffffff*",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    },
+    {
+      "path": "webkit-650/webkit-601.2.7.zip",
+      "size": "33402358",
+      "sha256": "b6d54f67b9973bd0aba52dbf65db411e17c0a73267bf2046b3992dd95a246238",
+      "head32": "504b03040a0000000000d12a1e4d0000000000000000000000000f0000007765",
+      "tail64": "ffffffffffffffffffffffffffffffff*",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    },
+    {
+      "path": "webkit-700/webkit-601.2.7.zip",
+      "size": "32000807",
+      "sha256": "987a25f0277c6c3ffa0ab138650eb0e5e6df7c257d8b2cca44a6283a0f8cd227",
+      "head32": "504b03040a00000000006686b64e000000000000000000000000130000007765",
+      "tail64": "77ace27d4eaa07a8a7571e4f791f04723c975ee738f266285f43a4f88f3582bce3a53eea0e77c9ab47d5f057eae264df8dbab6ba4875e45b704ccb67464e7b17",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    },
+    {
+      "path": "webkit-750/WebKit-601.2.7-750.zip",
+      "size": "11122117",
+      "sha256": "99b27578685831a7159358a317a0095e41de2416319418ddfeabc4ee53bdc5c1",
+      "head32": "504b03040a00000000004e8d3f50000000000000000000000000130000005765",
+      "tail64": "46fdf638423d9a635542abb66e134ec435444e24db1fbef23e3c230f1c509f0a6cd35b2a713e0f870812fcc0ff83d5c846fdf638423d9a635542abb66e134ec4",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    },
+    {
+      "path": "webkit-800/WebKit-601.2.7-800.zip",
+      "size": "36401094",
+      "sha256": "ae1aed9aa5890bc090403377baab96fede48aa7bd2ad1a92f82b1ead5133d6e6",
+      "head32": "504b03040a00000000006e69d350000000000000000000000000130000005765",
+      "tail64": "bd53f4f822f7e00c7ad2420f7b679524ddbac99d2467cfc0f2fba0ae6b5d0ed0bd53f4f822f7e00c7ad2420f7b679524ddbac99d2467cfc0f2fba0ae6b5d0ed0",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    },
+    {
+      "path": "webkit-850/WebKit-601.2.7-850.zip",
+      "size": "32744630",
+      "sha256": "5ee082652e296d4972cb47b679303ff1dc933de45a75121521ebc5c7d4710255",
+      "head32": "504b03040a00000000006e69d350000000000000000000000000130000005765",
+      "tail64": "ffffffffffffffffffffffffffffffff*",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    },
+    {
+      "path": "webkit-900/WebKit-601.2.7-900.zip",
+      "size": "11096938",
+      "sha256": "eb73cf0ea68aa1d265600b19a15ca99c3fb5cbf36de4697b4fce01d2ea66bb52",
+      "head32": "504b03040a00000000006e69d350000000000000000000000000130000005765",
+      "tail64": "ffffffffffffffffffffffffffffffff*",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    },
+    {
+      "path": "webkit-950/WebKit-601.2.7-950.zip",
+      "size": "10046693",
+      "sha256": "9a12e96ffb4d4a94636f98ea49aae0ab1386e9785120f7006e764e603c98b46e",
+      "head32": "504b03040a0000000000ac64d852000000000000000000000000130000005765",
+      "tail64": "7691353cd0083f90335f3dc37691353cd0083f90335f3dc37691353cd0083f90335f3dc37691353cd0083f90335f3dc37691353cd0083f90335f3dc37691353c",
+      "zip_eocd_count": "0",
+      "file": "Zip archive data, at least v1.0 to extract, compression method=store"
+    }
+  ],
+  "tracked_direct_module_paths": [
+    "zlib-1.2.8/zlib-1.2.8/amiga/Makefile.pup"
+  ],
+  "keyword_counts_text_sources": {
+    "13\\.52": {
+      "files": 30,
+      "lines": 65
+    },
+    "13\\.520": {
+      "files": 0,
+      "lines": 0
+    },
+    "13\\.50": {
+      "files": 57,
+      "lines": 192
+    },
+    "WebKit": {
+      "files": 15932,
+      "lines": 70988
+    },
+    "libSceNKWebKit": {
+      "files": 0,
+      "lines": 0
+    },
+    "libkernel_web": {
+      "files": 0,
+      "lines": 0
+    },
+    "libSceLibcInternal": {
+      "files": 0,
+      "lines": 0
+    },
+    "libkernel_sys": {
+      "files": 0,
+      "lines": 0
+    },
+    "NXDP": {
+      "files": 3,
+      "lines": 3
+    },
+    "ORBISDMP": {
+      "files": 0,
+      "lines": 0
+    },
+    "SYSENT": {
+      "files": 29,
+      "lines": 58
+    },
+    "pmap_protect": {
+      "files": 14,
+      "lines": 37
+    },
+    "CSSFontFace": {
+      "files": 191,
+      "lines": 834
+    },
+    "coredump": {
+      "files": 55,
+      "lines": 123
+    },
+    "crashdump": {
+      "files": 22,
+      "lines": 57
+    },
+    "kernel_map": {
+      "files": 74,
+      "lines": 211
+    },
+    "SELF": {
+      "files": 293,
+      "lines": 667
+    },
+    "SPRX": {
+      "files": 2,
+      "lines": 2
+    },
+    "ELF": {
+      "files": 1113,
+      "lines": 9279
+    }
+  },
+  "artifact_assessment": {
+    "libSceNKWebKit_13_52": "ABSENT",
+    "libkernel_web_13_52": "ABSENT",
+    "libSceLibcInternal_13_52": "ABSENT",
+    "kernel_or_eboot_13_52": "ABSENT",
+    "PUP_13_52": "ABSENT",
+    "retail_module_bytes_13_52": "ABSENT",
+    "historical_webkit_source": "STRUCTURAL",
+    "historical_archives": "STRUCTURAL"
+  },
+  "corpus_conclusion": "The corpus is predominantly OSS source and historical WebKit source archives. Exact 13.52 matches are numeric/LayoutTest false positives; no direct module names or retail PS4 module bytes were found.",
+  "analysis_policy": "Passive static analysis only; no archive extraction was required, no unknown binary was executed, and no runtime/hardware operation was performed."
+}

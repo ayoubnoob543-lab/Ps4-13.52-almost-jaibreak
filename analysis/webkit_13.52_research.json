@@ -184,6 +184,22 @@
       "format": "SLB2 outer PUP container; inner PUPs remain encrypted",
       "classification": "UNVERIFIED",
       "reason": "The official URL, size, SLB2 prefix and source-repository claim agree, but this cycle did not retain the complete PUP to recompute its SHA-256 locally."
+    },
+    {
+      "name": "largest_corpus_ps4osscode_13.52.json",
+      "origin": "FreeBSDKernel9-0/PS4OSSCode",
+      "origin_url": "https://github.com/FreeBSDKernel9-0/PS4OSSCode",
+      "origin_commit": "d636699770323d7968a2c37955aa513bda5f8a37",
+      "firmware": "historical OSS/WebKit source trees; no verified 13.52 module build",
+      "modules": [],
+      "tracked_files": 584706,
+      "disk_size_bytes": 8254971904,
+      "git_object_store_bytes": 1653166080,
+      "archive_count": 11,
+      "classification": "STRUCTURAL",
+      "use": "largest-corpus inventory and historical WebKit/FreeBSD correlation",
+      "not_accepted_as": "retail 13.52 WebKit, libkernel_web, libc, kernel, SELF, SPRX, NXDP, ORBISDMP or PUP bytes",
+      "manifest": "analysis/largest_corpus_ps4osscode_13.52.json"
     }
   ],
   "research_result": "A new indirect 13.52 artifact was verified at the transport/header level: official Sony PUP URL, 503310848-byte response and SLB2 prefix. No WebKit/libkernel_web/libc/kernel 13.52 module bytes were obtained or accepted."

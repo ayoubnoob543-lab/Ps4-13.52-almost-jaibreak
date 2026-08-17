@@ -30,6 +30,7 @@ El primer porcentaje mide la infraestructura y migración estática; el segundo 
 - El commit [`ps4-hen` `2beb4cf`][17] añade una tabla de offsets etiquetada 13.52. Contiene `SYSENT=0x01102B70`, `pmap_protect=0x00059DF0`, `pmap_protect_patch_site=0x00059E37`, `ALLPROC=0x01B28538`, `ROOTVNODE=0x02136E90` y `PMAP_STORE=0x01B2C3A0`. Es una referencia versionada de fuente, clasificada `UNVERIFIED`: el repositorio no contiene bytes retail del kernel 13.52 que permitan validar esos valores.
 - La release `pre-release-main-179` de ps4-hen aporta un `hen.bin` de 498.880 bytes, SHA-256 `54b39b0e56efe00287238f55317b8111b895b96a5a4f779507b3931a58e6c4a2`, cuyo texto contiene `libkernel_web.sprx` y `libkernel_sys.sprx`. La nota de release indica soporte 13.50, no 13.52. Es `DIRECT_BYTES` de un payload 13.50, no un dump retail ni una prueba de compatibilidad 13.52.
 - [`ps4-kern-dump`][18] es una fuente adicional de metodología para dumpear `kernel_map` y tablas de páginas mediante salida Z85. No incluye dumps binarios, firmware, SELF, SPRX o NXDP; queda clasificado como `PORTABLE`.
+- [`PS4OSSCode`][19] fue auditado como el mayor corpus público disponible en el laboratorio: 7,7 GiB en el árbol de trabajo, 1,54 GiB de objetos Git, 584.706 archivos rastreados y 8 commits. Contiene fuentes WebKit/FreeBSD y archives históricos de WebKit 601.2.7 para ramas 6.00–11.00, pero ningún `libSceNKWebKit.sprx`, `libkernel_web.sprx`, `libSceLibcInternal.sprx`, SELF, SPRX, NXDP, ORBISDMP, PUP o kernel retail 13.52. Las 30 coincidencias de `13.52` en fuentes/documentación son numéricas o pertenecen a LayoutTests; el corpus queda clasificado `STRUCTURAL`.
 - `pOOBs4`, `bad_hoist` y el exploit WebKit de PS4 6.20 son material histórico de 6.20–9.00. Sirven como referencia de metodología, no como evidencia de 13.52.
 - La investigación pública de UAF `kqueue/knote` para 13.52 documenta una línea experimental, pero no demuestra una primitiva estable de kread/kwrite ni un jailbreak funcional.
 
@@ -169,7 +170,7 @@ Se añadió `tools/cross_source_evidence.py` para auditar estáticamente y cruza
 
 La herramienta sólo lee texto, hashes y manifests. No importa, construye ni ejecuta payloads o exploits. Las categorías permitidas son `CONFIRMED_1352`, `DIRECT_BYTES`, `STRUCTURAL`, `PORTABLE`, `REQUIRES_REANALYSIS`, `UNVERIFIED` y `ABSENT`.
 
-Se añadió `tools/audit_psfree_porting.py`, que lee PSFree como texto y genera un inventario de estructuras, algoritmos portables, offsets históricos y soporte explícito de firmware sin ejecutar JavaScript. `tools/run_static_audit.sh` lo ejecuta cuando se proporciona `PSFREE_ROOT`; sin esa variable produce un estado `ABSENT` explícito. Las suites `tests/test_static_migration.py` y `tests/test_webkit_artifact.py` validan hash/tamaño/chunks, offsets secuenciales, evidencia fuerte, JSON de manifests, clasificación CSSFontFace, matriz cruzada, auditor PSFree, límites ELF truncados/fuera de rango, RELRO inválido, `.text` inválido, máscaras incompatibles y separación hit/identidad. Actualmente pasan 17 tests.
+Se añadió `tools/audit_psfree_porting.py`, que lee PSFree como texto y genera un inventario de estructuras, algoritmos portables, offsets históricos y soporte explícito de firmware sin ejecutar JavaScript. `tools/run_static_audit.sh` lo ejecuta cuando se proporciona `PSFREE_ROOT`; sin esa variable produce un estado `ABSENT` explícito. Las suites `tests/test_static_migration.py` y `tests/test_webkit_artifact.py` validan hash/tamaño/chunks, offsets secuenciales, evidencia fuerte, JSON de manifests, clasificación CSSFontFace, matriz cruzada, auditor PSFree, límites ELF truncados/fuera de rango, RELRO inválido, `.text` inválido, máscaras incompatibles y separación hit/identidad. Actualmente pasan 20 tests.
 
 ## Estado del proyecto
 
@@ -185,6 +186,7 @@ Este proyecto está **en investigación activa**. Tiene una base técnica organi
 [4]: https://github.com/sleirsgoevy/bad_hoist "bad_hoist — WebKit/ROP porting methodology"
 [15]: https://github.com/a0zhar/PS4.badhoist "a0zhar/PS4.badhoist — historical FW 6.72 module releases"
 [16]: https://github.com/FreeBSDKernel9-0/PS4OSSCode "FreeBSDKernel9-0/PS4OSSCode — PS4 OSS/WebKit source collection"
+[19]: https://github.com/FreeBSDKernel9-0/PS4OSSCode "PS4OSSCode — largest public OSS/WebKit corpus audited"
 [5]: https://github.com/Scene-Collective/ps4-kernel-dumper "PS4 kernel dumper"
 [6]: https://www.psdevwiki.com/ps4/COREDMP "PS4 Developer Wiki — COREDMP/NXDP"
 [7]: https://github.com/kmeps4/PSFree/tree/368d82aa40d3017c220757ce315761adb5f06678 "PSFree — audited commit"
