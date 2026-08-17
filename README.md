@@ -47,19 +47,19 @@ Este porcentaje representa el avance del plan técnico, no una probabilidad de �
 | Hash y concatenación del dump local de `libkernel_sys` | `DIRECT_BYTES` |
 | Instrucciones syscall observadas en el blob | `DIRECT_BYTES` |
 | PUP oficial 13.52 validado localmente por tamaño y MD5 | `DIRECT_BYTES`, artefacto no publicado aquí |
-| Commits de soporte 13.52 en `ps4-linux-loader` y `ps4-hen` | `STRONG_STRUCTURAL` |
-| `SYSENT=0x1102B70` en ambas tablas de soporte | `STRONG_STRUCTURAL` |
-| Metodología de dumps WebKit/libc/libkernel en `bad_hoist` | `DOCUMENTATION / STRONG_METHODOLOGY` |
+| Commits de soporte 13.52 en `ps4-linux-loader` y `ps4-hen` | `STRUCTURAL` (referencia de payload/tabla, no bytes de kernel) |
+| `SYSENT=0x1102B70` en tablas de soporte | `STRUCTURAL` (sin bytes de kernel objetivo) |
+| Metodología de dumps WebKit/libc/libkernel en `bad_hoist` | `PORTABLE` |
 | Imágenes exFAT de `pOOBs4` y sus hashes | `DIRECT_BYTES`, pero sólo firmware 9.00 |
 
 ### Candidato o sin verificar
 
 | Evidencia | Clasificación |
 |---|---|
-| `SYSENT=0x110A760` | `OFFSET_REFERENCE / UNVERIFIED` |
-| `pmap_protect=0x58570` | `STRONG_STRUCTURAL`, sin bytes del kernel 13.52 |
-| `pmap_protect=0x59DF0` | `STRONG_STRUCTURAL`, conflictivo y sin bytes |
-| Patch site `0x59E37` | `OFFSET_REFERENCE` |
+| `SYSENT=0x110A760` | `UNVERIFIED` |
+| `pmap_protect=0x58570` | `UNVERIFIED`, sin bytes del kernel 13.52 |
+| `pmap_protect=0x59DF0` | `UNVERIFIED`, conflictivo y sin bytes |
+| Patch site `0x59E37` | `STRUCTURAL`, sin bytes objetivo |
 | Versión exacta del firmware deducida sólo desde el blob libkernel | `UNVERIFIED` |
 | UAF `kqueue/knote` como vía explotable | `UNVERIFIED` para una primitiva de kernel |
 

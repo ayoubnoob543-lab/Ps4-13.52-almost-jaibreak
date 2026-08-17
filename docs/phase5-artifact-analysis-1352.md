@@ -2,19 +2,20 @@
 
 ## Resumen ejecutivo
 
-La fase pasó de documentación a artefactos binarios públicos verificables. Se descargó y verificó un asset `hen.bin` de GitHub asociado exactamente al commit `2beb4cfcef1d416a32d6fb7b35f01189e9eb62e2`, cuyo mensaje es **“Add 13.52 support”**. El asset tiene SHA-256 publicado y confirmado localmente:
+La fase documenta un asset externo de GitHub asociado al commit `2beb4cfcef1d416a32d6fb7b35f01189e9eb62e2`, cuyo mensaje es **“Add 13.52 support”**. El asset externo no está incluido en este checkout y su digest no se ha recalculado a partir de un archivo local en la auditoría actual. El `hen.bin` local es un artefacto distinto, de 499680 bytes y SHA-256 `32570b6e54c9531dc8a7d75ef4da6557d440bf69c4b765a85a77d428db3a4b73`; no debe confundirse con HEN 181.
 
 ```text
 pre-release-main-181/hen.bin
-size:   499776 bytes
-sha256: 568d57e7c6bfff1b96fc20a4e00b9ca744aa58b135a56eeb5c66c1175acfac3e
+external_expected_size: 499776 bytes
+external_recorded_sha256: 568d57e7c6bfff1b96fc20a4e00b9ca744aa58b135a56eeb5c66c1175acfac3e
 commit: 2beb4cfcef1d416a32d6fb7b35f01189e9eb62e2
+local_checkout_status: ABSENT
 tag:    pre-release-main-181
 ```
 
-El artefacto no es un kernel/eboot ni un ELF/SELF: es un payload raw que contiene tablas, código y strings de HEN. Sin embargo, contiene una prueba binaria reproducible nueva: los **89 campos de `offsets_1352` están serializados exactamente, en orden, en el offset de archivo `0x105e0–0x10743`**. El bloque de 356 bytes coincide byte a byte con la tabla fuente del commit externo.
+Según la evidencia documental del asset externo, no se trata de un kernel/eboot ni de un ELF/SELF, sino de un payload raw que contiene tablas, código y strings de HEN. La afirmación de que los **89 campos de `offsets_1352` están serializados en `0x105e0–0x10743`** es `DOCUMENTATION`/`UNVERIFIED` en este checkout porque el archivo externo correspondiente no está disponible localmente para repetir la comparación.
 
-Además, el código del propio payload selecciona esa tabla cuando recibe `fw_version == 0x548`, es decir, `1352` decimal:
+La documentación del commit también describe código del payload que selecciona esa tabla cuando recibe `fw_version == 0x548`, es decir, `1352` decimal. Sin el asset externo local, esta relación permanece `DOCUMENTATION`/`UNVERIFIED` para la reproducción actual:
 
 ```asm
 0xc549: cmp $0x548,%di
@@ -23,13 +24,13 @@ Además, el código del propio payload selecciona esa tabla cuando recibe `fw_ve
 0xc559: ret
 ```
 
-Esto demuestra directamente que el binario HEN publicado incorpora y selecciona la tabla 13.52. **No demuestra que los offsets sean correctos en el kernel retail**, porque el payload puede contener valores documentados incorrectamente. La nueva evidencia es, por tanto, `DIRECT_BYTES` para la relación **asset → tabla → selector → consumidores**, pero no `DIRECT_BYTES` de la imagen kernel target.
+Si se obtiene el asset externo exacto y su hash coincide, esas relaciones podrían clasificarse como `DIRECT_BYTES` del payload. En el estado actual sólo se conserva la clasificación `UNVERIFIED`; no es `DIRECT_BYTES` del kernel retail ni del archivo local `hen.bin`.
 
 ## 1. Artefactos descargados y hashes
 
 | Artefacto | Procedencia | Tamaño | SHA-256 | Resultado |
 |---|---|---:|---|---|
-| `pre-release-main-181/hen.bin` | GitHub Release `Scene-Collective/ps4-hen` | 499776 B | `568d57e7c6bfff1b96fc20a4e00b9ca744aa58b135a56eeb5c66c1175acfac3e` | Digest local = digest publicado |
+| `pre-release-main-181/hen.bin` | GitHub Release `Scene-Collective/ps4-hen` | 499776 B | `568d57e7c6bfff1b96fc20a4e00b9ca744aa58b135a56eeb5c66c1175acfac3e` | Registro externo; archivo no incluido en checkout actual |
 | `pre-release-main-179/hen.bin` | GitHub Release `Scene-Collective/ps4-hen` | 498880 B | `54b39b0e56efe00287238f55317b8111b895b96a5a4f779507b3931a58e6c4a2` | Digest local = digest publicado |
 | `PSFree/kpatch/900.elf` | Clon público histórico | 5588 B | `56183734c0b4c694344971479c3e070a6a6f0d13f783804b1610218314a7ae33` | ELF 64-bit x86-64, sin relocations |
 | `PSFree/goldhen.bin` | Clon público histórico | 290016 B | `c6329401d1810e16c84e6474ac30977dbdc951987c10cdb559370de7d59db0b0` | Payload raw histórico |
@@ -68,18 +69,18 @@ Campos representativos y sus posiciones dentro del asset:
 | `proc_rwmem_addr` | `0x366760` | `0x106a0` | `60673600` |
 | `proc_path_offset` | `0x474` | `0x10740` | `74040000` |
 
-El asset contiene también múltiples tablas de otras versiones, porque HEN selecciona offsets según la versión del firmware. Las tablas completas 13.50 y 13.52 se localizaron así:
+El registro del asset externo describe múltiples tablas de otras versiones, porque HEN selecciona offsets según la versión del firmware. En el checkout actual esas tablas no pueden volver a localizarse byte a byte; se conserva la referencia como `UNVERIFIED`:
 
 | Tabla | HEN 179 | HEN 181 |
 |---|---:|---:|
 | `1350.c` completa | `0xf1c0` | `0xffe0` |
 | `1352.c` completa | No encontrada | `0x105e0` |
 
-Esto es evidencia binaria reproducible de que HEN 181 añadió una tabla completa específica para `1352`, mientras el release 179 anterior no la contenía.
+La documentación externa afirma que HEN 181 añadió una tabla específica para `1352`, mientras el release 179 anterior no la contenía. Sin el asset externo local, esta afirmación queda `UNVERIFIED` en la reproducción actual.
 
 ## 3. Selector de firmware y XREF estructural
 
-El desensamblado raw del HEN 181 muestra que el selector compara el valor de firmware en `%di` y devuelve punteros a tablas internas mediante `lea RIP-relative`.
+La documentación del asset HEN 181 describe un selector que compara el valor de firmware en `%di` y devuelve punteros a tablas internas mediante `lea RIP-relative`. Al no estar el asset en el checkout, el bloque siguiente es evidencia `UNVERIFIED` para esta auditoría local.
 
 La rama crítica es:
 
@@ -121,11 +122,11 @@ líneas 309–340: shellui_patch y búsqueda de SceShellUI
 líneas 425–455: remoteplay_patch y búsqueda de SceRemotePlay
 ```
 
-Esto demuestra que el asset no sólo contiene valores aislados: el código fuente y la tabla forman una cadena coherente de **tabla → punteros de funciones/estructuras → consumidores de kernel/payload**. La corrección de los valores en el kernel sigue sin estar demostrada.
+La documentación del commit presenta una cadena coherente de **tabla → punteros de funciones/estructuras → consumidores de kernel/payload**. Sin el asset exacto disponible localmente, esa relación se mantiene como `UNVERIFIED`; en cualquier caso, la corrección de los valores en el kernel sigue sin estar demostrada.
 
 ## 5. Comparación binaria 13.50 → 13.52
 
-Los bloques completos 13.50 y 13.52 comparten sus primeros 14 campos, incluidos:
+La comparación externa documentada afirma que los bloques 13.50 y 13.52 comparten sus primeros 14 campos, incluidos. No se ha podido repetir byte a byte con un asset HEN 181 local:
 
 ```text
 XFAST_SYSCALL = 0x1c0
@@ -151,7 +152,8 @@ A partir del campo `memcmp_addr`, las funciones comunes y offsets de funciones c
 | `proc_rwmem` | `0x366360` | `0x366760` |
 | `printf` | `0x2e0460` | `0x2e0510` |
 
-La persistencia de `SYSENT=0x1102B70`, `ALLPROC=0x1B28538` y `M_TEMP=0x1520D00` en dos assets binarios consecutivos es nueva evidencia estructural y versionada, pero no una prueba de bytes del kernel. La ausencia de `0x110A760` en ambos bloques favorece la primera tabla dentro de la línea Scene-Collective, aunque no elimina la posibilidad de que el valor alternativo provenga de otra build, módulo o fuente incorrecta.
+La persistencia documentada de `SYSENT=0x1102B70`, `ALLPROC=0x1B28538` y `M_TEMP=0x1520D00` en dos assets binarios consecutivos sería evidencia `STRUCTURAL` de inclusión en payloads, pero no es una prueba de bytes del kernel y no se recalculó en este checkout.
+ La ausencia de `0x110A760` en ambos bloques favorece la primera tabla dentro de la línea Scene-Collective, aunque no elimina la posibilidad de que el valor alternativo provenga de otra build, módulo o fuente incorrecta.
 
 ## 6. `pmap_protect`, patch site y kernel_pmap_store
 
@@ -179,15 +181,15 @@ El `patch.c` externo consume `vmspace_*`, `vm_map_*` y `proc_rwmem`, pero no con
 
 | Offset | Evidencia nueva | Clasificación correcta | Cambio |
 |---|---|---|---|
-| `SYSENT=0x1102B70` | Bloque completo serializado en HEN 181; selector `0x548 → 0x105e0`; mismo valor en HEN 179/13.50 | `DIRECT_BYTES` para el payload; `STRONG_STRUCTURAL` para la tabla 13.52; no validado contra kernel | Sube en evidencia de inclusión/uso, no a validación firmware |
-| `SYSENT=0x110A760` | No aparece en HEN 179/181 ni en la tabla Scene 13.52 | `UNVERIFIED` / `CONTRADICTORY_UNVERIFIABLE` | Sin cambio de valor operativo |
-| `ALLPROC=0x1B28538` | Serializado y consumido en HEN 181; igual en 13.50 | `DIRECT_BYTES` para asset; `STRONG_STRUCTURAL` para tabla | Evidencia binaria nueva de inclusión |
-| `M_TEMP=0x1520D00` | Serializado y consumido; igual en 13.50 | `DIRECT_BYTES` para asset; `STRONG_STRUCTURAL` para tabla | Evidencia binaria nueva de inclusión |
-| `vmspace_*`, `vm_map_*`, `proc_rwmem` | Bloque serializado exacto y consumidores de `patch.c` | `DIRECT_BYTES` para asset; `STRONG_STRUCTURAL` para tabla | Evidencia binaria nueva de inclusión |
-| `pmap_protect=0x58570` | Ausente de la tabla y del asset | `DOCUMENTATION_COPY` | Sigue sin resolver |
-| `pmap_protect=0x59DF0` | Ausente de la tabla y del asset | `CONTRADICTORY_UNVERIFIABLE` | Sigue sin resolver |
-| `patch site=0x59E37` | Ausente del asset | `INDIRECT_STRUCTURAL` únicamente | Sigue sin resolver |
-| `kernel_pmap_store=0x1B2C3A0` | Ausente del asset | `DOCUMENTATION_COPY` / `UNVERIFIED` binario | Sigue sin resolver |
+| `SYSENT=0x1102B70` | Bloque completo serializado en HEN 181; selector `0x548 → 0x105e0`; mismo valor en HEN 179/13.50 | `STRUCTURAL` para la tabla/payload; no validado contra kernel | Sube en evidencia de inclusión/uso, no a validación firmware |
+| `SYSENT=0x110A760` | No aparece en HEN 179/181 ni en la tabla Scene 13.52 | `UNVERIFIED` (conflicto no resuelto) | Sin cambio de valor operativo |
+| `ALLPROC=0x1B28538` | Serializado y consumido en HEN 181; igual en 13.50 | `STRUCTURAL` para asset/table claim; no validado contra kernel | Evidencia binaria nueva de inclusión |
+| `M_TEMP=0x1520D00` | Serializado y consumido; igual en 13.50 | `STRUCTURAL` para asset/table claim; no validado contra kernel | Evidencia binaria nueva de inclusión |
+| `vmspace_*`, `vm_map_*`, `proc_rwmem` | Bloque serializado exacto y consumidores de `patch.c` | `STRUCTURAL` para asset/table claim; no validado contra kernel | Evidencia binaria nueva de inclusión |
+| `pmap_protect=0x58570` | Ausente de la tabla y del asset | `UNVERIFIED` (referencia documental sin bytes objetivo) | Sigue sin resolver |
+| `pmap_protect=0x59DF0` | Ausente de la tabla y del asset | `UNVERIFIED` (conflicto no resuelto) | Sigue sin resolver |
+| `patch site=0x59E37` | Ausente del asset | `STRUCTURAL` únicamente; sin bytes objetivo | Sigue sin resolver |
+| `kernel_pmap_store=0x1B2C3A0` | Ausente del asset | `UNVERIFIED` (referencia documental sin bytes objetivo) / `UNVERIFIED` binario | Sigue sin resolver |
 | `unknown1`, `unknown2` | Ausentes del asset y sin consumidores | `UNVERIFIED` | Sin cambio |
 
 ## 9. Qué se ha demostrado y qué no

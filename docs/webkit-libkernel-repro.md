@@ -50,4 +50,4 @@ El resultado debe conservar SHA-256, tamaño, formato, segmentos, patrones, role
 
 ## Classification policy
 
-A gadget or structure copied from a different firmware is historical documentation, not 13.52 validation. A value embedded in a payload is evidence of payload/table inclusion. A `VERIFIED_INTERNAL` classification requires bytes from the same target image plus a defensible address mapping and semantic cross-reference. No file in the current repository meets that standard for the pending retail-kernel offsets.
+A gadget or structure copied from a different firmware is historical documentation, not 13.52 validation. A value embedded in a payload is evidence of payload/table inclusion. A `DIRECT_BYTES` classification requires bytes from the same target image plus a defensible address mapping and semantic cross-reference. No file in the current repository meets that standard for the pending retail-kernel offsets.

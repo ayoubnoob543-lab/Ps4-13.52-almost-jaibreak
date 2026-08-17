@@ -23,6 +23,8 @@ class StaticMigrationTests(unittest.TestCase):
     def test_libkernel_anchor_and_chunks(self) -> None:
         report = self.run_json([sys.executable, "tools/validate_libkernel_1352.py", "--json"])
         self.assertTrue(report["artifact"]["sha256_match"])
+        self.assertEqual(report["artifact"]["sha256"], "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c")
+        self.assertNotEqual(report["artifact"]["sha256"], "ef15204fee6f9f9e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c")
         self.assertEqual(report["artifact"]["size"], 479232)
         self.assertTrue(report["reconstruction"]["sha256_matches_artifact"])
         self.assertTrue(report["reconstruction"]["size_matches_artifact"])

@@ -92,7 +92,7 @@ No se puede determinar estáticamente, sin bytes de WebKit 13.52, si el UAF suby
 El dump `libkernel_sys_13.52.bin` sigue siendo válido como ancla independiente:
 
 ```text
-SHA-256: ef15204fee6f9f9e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c
+SHA-256: ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c
 ```
 
 Sus wrappers y syscalls no proporcionan por sí mismos la vtable CSSFontFace, los imports de `libkernel_web`, los límites `.text`/`PT_SCE_RELRO` ni gadgets WebKit. La conexión sólo podrá elevarse por encima de `UNVERIFIED` con bytes de WebKit/libkernel_web de la misma build y referencias de importación o relocación que conduzcan al dump 13.52.
