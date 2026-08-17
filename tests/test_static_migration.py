@@ -8,6 +8,8 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+import cross_source_evidence
 PS4_RESEARCH = ROOT.parent
 CSS = PS4_RESEARCH / "CSSFontFace-Exploit"
 PSFREE = PS4_RESEARCH / "PSFree"
@@ -32,6 +34,19 @@ class StaticMigrationTests(unittest.TestCase):
         self.assertEqual(report["offsets"]["jitshm_create"]["category"], "DIRECT_BYTES")
         self.assertEqual(report["offsets"]["jitshm_alias"]["category"], "DIRECT_BYTES")
 
+    def test_manifest_chunks_are_sequential(self) -> None:
+        manifest = json.loads((ROOT / "tools/libkernel_1352_manifest.json").read_text(encoding="utf-8"))
+        offsets = [int(item["offset"], 16) for item in manifest["chunks"]]
+        sizes = [item["size"] for item in manifest["chunks"]]
+        self.assertEqual(offsets, [0, sizes[0], sizes[0] + sizes[1]])
+
+    def test_strong_evidence_requires_artifact_hash_and_reconstruction(self) -> None:
+        with self.assertRaises(ValueError):
+            cross_source_evidence.validate_strong_claims({"status": "CONFIRMED_1352", "artifact": None, "sha256": None, "size": None, "chunks": [], "reconstruction_match": False})
+        with self.assertRaises(ValueError):
+            cross_source_evidence.validate_strong_claims({"status": "UNVERIFIED", "findings": [{"status": "DIRECT_BYTES"}]})
+        cross_source_evidence.validate_strong_claims({"status": "CONFIRMED_1352", "artifact": "libkernel_sys_13.52.bin", "sha256": "a" * 64, "size": 1, "chunks": [{"sha256_match": True, "size_match": True, "offset_match": True}], "reconstruction_match": True})
+
     def test_cssfontface_parser_marks_1352_absent(self) -> None:
         out = ROOT / "tests/.cssfontface-report.json"
         constants_path = CSS / "public/src/ps4/constants.js"
@@ -46,7 +61,8 @@ class StaticMigrationTests(unittest.TestCase):
             report = json.loads(out.read_text(encoding="utf-8"))
         finally:
             out.unlink(missing_ok=True)
-        self.assertEqual(report["target_13_52"]["status"], "ABSENT_FROM_PUBLIC_TABLE")
+        self.assertEqual(report["target_13_52"]["status"], "ABSENT")
+        self.assertEqual(report["target_13_52"]["detail"], "ABSENT_FROM_PUBLIC_TABLE")
         self.assertIn("wk_CSSFontFace_m_featureSettings_m_buffer", report["field_presence"])
         self.assertNotIn("11.50", [item["label"] for item in report["firmware_keys"]])
 
@@ -177,7 +193,9 @@ class StaticMigrationTests(unittest.TestCase):
                 if path.name == "webkit_1352_migration.json":
                     self.assertEqual(data["portable_methodology"]["rip_relative_import_resolution"]["status"], "PORTABLE")
                     self.assertEqual(data["modules"]["libSceNKWebKit.sprx"]["status"], "ABSENT")
-                    self.assertEqual(data["scanner"]["supported_formats"], ["RAW", "ELF64_LE", "SELF"])
+                    self.assertEqual(data["scanner"]["supported_formats"], ["RAW", "ELF64_LE", "ELF64_LE_WITH_ERRORS", "SELF"])
+                    self.assertIn(".text", data["scanner"]["segment_metadata"])
+                    self.assertIn("build_id", data["scanner"]["segment_metadata"])
                     self.assertEqual(data["libkernel_sys_anchor"]["symbols"]["stat"]["category"], "STRUCTURAL")
 
     def test_webkit_absence_report_is_explicit(self) -> None:

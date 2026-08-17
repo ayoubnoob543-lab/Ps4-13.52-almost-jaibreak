@@ -22,7 +22,7 @@ Es la candidata más próxima por usar BD-J y una ISO de entrada, pero no es una
 
 ## Auditoría de offsets y dependencias
 
-Los 89 campos de `kpayload/source/offsets/1352.c` coinciden exactamente con la tabla pública de Scene-Collective consultada. El bloque `PS4_13_52` de `ps4-linux-loader` confirma directamente varios campos comparables, incluidos `printf`, `pmap_protect = 0x58570`, `sysent = 0x1102B70` y `kernel_pmap_store = 0x1B2C3A0`. No se encontró una fuente pública completa que permita reconstruir los gadgets WebKit, estructuras de userland, primitive de escape y transporte de payload necesarios para un port de la entrada.
+Los 89 campos de `kpayload/source/offsets/1352.c` coinciden exactamente con la tabla pública de Scene-Collective consultada. El bloque `PS4_13_52` de `ps4-linux-loader` aporta evidencia `STRUCTURAL` para varios campos comparables, incluidos `printf`, `pmap_protect = 0x58570`, `sysent = 0x1102B70` y `kernel_pmap_store = 0x1B2C3A0`; no son `DIRECT_BYTES` del kernel retail 13.52. No se encontró una fuente pública completa que permita reconstruir los gadgets WebKit, estructuras de userland, primitive de escape y transporte de payload necesarios para un port de la entrada.
 
 ## Decisión
 

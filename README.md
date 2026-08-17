@@ -10,11 +10,11 @@ El proyecto **no se presenta como terminado**. No afirma la existencia de un jai
 
 ## Progreso
 
-### 40 %
+### 86 % de infraestructura estática / 35 % de evidencia específica 13.52
 
-Ya están identificadas las principales piezas y líneas técnicas necesarias. El repositorio contiene un dump de `libkernel_sys`, análisis reproducibles, tablas de offsets, documentación de WebKit/Orbis y límites de validación claramente separados. El trabajo que queda se concentra en obtener y validar artefactos de la misma build 13.52 que permitan pasar de referencias estructurales a evidencia directa.
+Ya están identificadas las principales piezas y líneas técnicas necesarias. El repositorio contiene el ancla `libkernel_sys`, validación de hash/chunks, manifests conservadores, scanner RAW/ELF64/SELF, tests negativos de límites ELF y una matriz separada por capas. El trabajo que queda se concentra en obtener y validar artefactos de la misma build 13.52 que permitan pasar de referencias estructurales a evidencia directa.
 
-Este porcentaje representa el avance del plan técnico, no una probabilidad de éxito ni una afirmación de jailbreak.
+El primer porcentaje mide la infraestructura y migración estática; el segundo mide únicamente evidencia binaria específica de 13.52. Ninguno es una probabilidad de éxito ni una afirmación de jailbreak.
 
 ## Lo que ya sabemos
 
@@ -23,7 +23,7 @@ Este porcentaje representa el avance del plan técnico, no una probabilidad de �
 - El PUP oficial de sistema 13.52 se validó en el laboratorio local por tamaño y MD5. El archivo comienza con `SLB2`, pero el PUP no expone directamente un ELF, `kernel.elf` ni los módulos Shell mediante el escaneo estático realizado. El PUP completo no se incorpora al repositorio.
 - `SYSENT=0x1102B70` aparece en dos proyectos versionados con soporte específico para 13.52: [`ps4-linux-loader`][2] y [`ps4-hen`][3]. Es el candidato estructural preferido, pero todavía no está confirmado mediante bytes del kernel retail.
 - `SYSENT=0x110A760` aparece en una tabla parcial cuya fuente se declara anónima e incompleta. Permanece sin verificar.
-- `pmap_protect` aparece como `0x58570` en `ps4-linux-loader` y como `0x59DF0` en `ps4-hen`, con `0x59E37` como patch site asociado en HEN. La discrepancia sigue abierta porque no existe una firma binaria pública de la misma imagen 13.52 que permita compararlos.
+- `pmap_protect` aparece como `0x58570` en `ps4-linux-loader` y SLOPOS, y como `0x59DF0` en `ps4-hen`, con `0x59E37` como patch site asociado en HEN. `0x58570` es el candidato estructural prioritario por procedencia de la tabla PS4_13_52, pero ambos valores siguen sin confirmación por bytes del kernel retail.
 - [`bad_hoist`][4] aporta la metodología más útil para el siguiente paso: obtener dumps de WebKit, localizar GOT, separar módulos, identificar libc/libkernel y generar información de gadgets desde la build concreta.
 - `pOOBs4`, `bad_hoist` y el exploit WebKit de PS4 6.20 son material histórico de 6.20–9.00. Sirven como referencia de metodología, no como evidencia de 13.52.
 - La investigación pública de UAF `kqueue/knote` para 13.52 documenta una línea experimental, pero no demuestra una primitiva estable de kread/kwrite ni un jailbreak funcional.
@@ -135,9 +135,9 @@ python3 tools/cross_source_evidence.py \
 python3 -m unittest discover -s tests -v
 ```
 
-`tools/libkernel_1352_manifest.json` fija el hash, tamaño, chunks y offsets de la ancla real `libkernel_sys_13.52.bin`. La validación confirma la reconstrucción byte a byte y clasifica `jitshm_create`/`jitshm_alias` como `DIRECT_BYTES`; el manifest también registra `stat`, `pwrite`, `lseek`, `unlink`, `socket` y `connect_alt`, todos como `STRUCTURAL`.
+`tools/libkernel_1352_manifest.json` fija el hash, tamaño, offsets secuenciales (`0x00000`, `0x27000`, `0x4e000`), chunks y offsets de la ancla real `libkernel_sys_13.52.bin`. La validación confirma la reconstrucción byte a byte y clasifica `jitshm_create`/`jitshm_alias` como `DIRECT_BYTES`; el manifest también registra `stat`, `pwrite`, `lseek`, `unlink`, `socket` y `connect_alt`, todos como `STRUCTURAL`.
 
-`tools/webkit_1352_migration.json` deja parametrizados WebKit, `libkernel_web`, `libSceLibcInternal`, bases, `.text`, `PT_SCE_RELRO`, vtables, imports, GOT/PLT y gadgets. No contiene direcciones inventadas. `scan_webkit_patterns.py` acepta blobs RAW, ELF64 little-endian y contenedores SELF-like, registra SHA-256/tamaño y extrae metadatos de `PT_LOAD`/`PT_SCE_RELRO`; sólo eleva una entrada cuando encuentra los bytes configurados, y después siguen siendo necesarias XREFs y validación de módulo.
+`tools/webkit_1352_migration.json` deja parametrizados WebKit, `libkernel_web`, `libSceLibcInternal`, bases, `.text`, `PT_SCE_RELRO`, vtables, imports, GOT/PLT y gadgets. No contiene direcciones inventadas. `scan_webkit_patterns.py` acepta blobs RAW, ELF64 little-endian y contenedores SELF-like, registra SHA-256/tamaño, valida límites, extrae `.text`, `PT_LOAD`, `PT_SCE_RELRO`, `PT_GNU_RELRO`, notas/build ID cuando existen y relaciona cada hit con segmentos válidos. Un hit sólo es bytes encontrados; la identidad semántica sigue siendo `REQUIRES_REANALYSIS`.
 
 `tools/jordy_1352_migration.json` separa lógica portable de bases, GOT, gadgets, pivot y ROP pendientes. `tools/scan_kernel_structures.py` es independiente de la capa libkernel y devuelve candidatos conservadores para `sysent`, `pmap_protect`, `allproc`, `rootvnode` y `kernel_map`; no calcula deltas ni confirma offsets sin bytes del kernel objetivo.
 
@@ -164,7 +164,7 @@ Se añadió `tools/cross_source_evidence.py` para auditar estáticamente y cruza
 
 La herramienta sólo lee texto, hashes y manifests. No importa, construye ni ejecuta payloads o exploits. Las categorías permitidas son `CONFIRMED_1352`, `DIRECT_BYTES`, `STRUCTURAL`, `PORTABLE`, `REQUIRES_REANALYSIS`, `UNVERIFIED` y `ABSENT`.
 
-Se añadió `tools/audit_psfree_porting.py`, que lee PSFree como texto y genera un inventario de estructuras, algoritmos portables, offsets históricos y soporte explícito de firmware sin ejecutar JavaScript. `tools/run_static_audit.sh` lo ejecuta cuando se proporciona `PSFREE_ROOT`; sin esa variable produce un estado `ABSENT` explícito. `tests/test_static_migration.py` valida hash/tamaño/chunks de `libkernel_sys_13.52.bin`, JSON de manifests, clasificación CSSFontFace, matriz cruzada y el auditor PSFree.
+Se añadió `tools/audit_psfree_porting.py`, que lee PSFree como texto y genera un inventario de estructuras, algoritmos portables, offsets históricos y soporte explícito de firmware sin ejecutar JavaScript. `tools/run_static_audit.sh` lo ejecuta cuando se proporciona `PSFREE_ROOT`; sin esa variable produce un estado `ABSENT` explícito. Las suites `tests/test_static_migration.py` y `tests/test_webkit_artifact.py` validan hash/tamaño/chunks, offsets secuenciales, evidencia fuerte, JSON de manifests, clasificación CSSFontFace, matriz cruzada, auditor PSFree, límites ELF truncados/fuera de rango, RELRO inválido, `.text` inválido, máscaras incompatibles y separación hit/identidad. Actualmente pasan 17 tests.
 
 ## Estado del proyecto
 

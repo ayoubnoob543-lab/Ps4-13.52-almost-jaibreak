@@ -11,7 +11,7 @@ This map records existing values without changing them. A payload embedding or c
 | `ALLPROC_addr` | `0x1B28538` | Kernel target | Process-list consumers in payload | Same as above | `STRUCTURAL` (payload consumer; no kernel bytes) | Unverified retail target |
 | `SYSENT_addr` | `0x1102B70` | Kernel target | Syscall-table field in payload | Same as above | `STRUCTURAL` (payload consumer; no kernel bytes) | Favored candidate; not retail-verified |
 | `SYSENT_addr` alternative | `0x110A760` | Kernel target | Historical/partial table | Existing research corpus | `UNVERIFIED` | No consumer or target bytes |
-| `pmap_protect` candidate A | `0x58570` | Kernel target | Patch/pmap research | Existing external tables | `UNVERIFIED` (documentation/external reference only) | Conflict unresolved |
+| `pmap_protect` candidate A | `0x58570` | Kernel target | Patch/pmap research | `ps4-linux-loader` PS4_13_52 block and SLOPOS mirror | `STRUCTURAL` (same source lineage; no target bytes) | Priority candidate; not retail-verified |
 | `pmap_protect` candidate B | `0x59DF0` | Kernel target | Patch/pmap research | Existing external tables | `UNVERIFIED` (documentation/external reference only) | Conflict unresolved |
 | `pmap` patch site | `0x59E37` | Kernel target | Candidate patch site | Existing research corpus | `STRUCTURAL` (indirect candidate; no target bytes) | No target bytes |
 | `kernel_pmap_store` | `0x1B2C3A0` | Kernel target | Kernel mapping research | Existing table | `UNVERIFIED` (external table only) | No target bytes |

@@ -131,15 +131,73 @@ def scan_loader(path: Path) -> dict[str, Any]:
 def scan_anchor(root: Path) -> dict[str, Any]:
     manifest_path = root / "tools/libkernel_1352_manifest.json"
     manifest = json.loads(read_text(manifest_path)) if manifest_path.is_file() else {}
-    artifact = root / manifest.get("artifact", {}).get("path", "")
+    artifact_meta = manifest.get("artifact", {})
+    artifact = root / artifact_meta.get("path", "")
     actual = sha256(artifact)
-    expected = manifest.get("artifact", {}).get("sha256")
-    status = "CONFIRMED_1352" if actual and actual == expected else "UNVERIFIED"
+    expected = artifact_meta.get("sha256")
+    size = artifact.stat().st_size if artifact.is_file() else None
+    size_match = size == artifact_meta.get("size")
     chunks = []
+    chunk_bytes: list[bytes] = []
+    expected_offset = 0
+    offsets_valid = True
     for item in manifest.get("chunks", []):
         p = root / item["path"]
-        chunks.append({"path": item["path"], "size": p.stat().st_size if p.is_file() else None, "sha256": sha256(p), "expected": item.get("sha256")})
-    return {"source": "firmware-lab", "artifact": str(artifact), "sha256": actual, "expected_sha256": expected, "status": status, "chunks": chunks, "findings": [{"name": "libkernel_sys_anchor", "status": status, "evidence": "manifest hash and local artifact match." if status == "CONFIRMED_1352" else "manifest/artifact mismatch or absent."}]}
+        present = p.is_file()
+        data = p.read_bytes() if present else b""
+        digest = sha256(p)
+        try:
+            declared_offset = int(item.get("offset", "-1"), 16)
+        except (TypeError, ValueError):
+            declared_offset = -1
+        offset_match = declared_offset == expected_offset
+        offsets_valid = offsets_valid and offset_match
+        item_result = {
+            "path": item["path"],
+            "offset": item.get("offset"),
+            "offset_match": offset_match,
+            "size": len(data) if present else None,
+            "size_expected": item.get("size"),
+            "size_match": present and len(data) == item.get("size"),
+            "sha256": digest,
+            "expected": item.get("sha256"),
+            "sha256_match": present and digest == item.get("sha256"),
+        }
+        chunks.append(item_result)
+        if present:
+            chunk_bytes.append(data)
+            expected_offset += len(data)
+        else:
+            expected_offset += int(item.get("size", 0))
+    reconstructed = b"".join(chunk_bytes) if len(chunk_bytes) == len(chunks) else b""
+    reconstruction_match = bool(reconstructed) and reconstructed == artifact.read_bytes() if artifact.is_file() else False
+    chunks_valid = bool(chunks) and offsets_valid and all(item["size_match"] and item["sha256_match"] for item in chunks)
+    status = "CONFIRMED_1352" if artifact.is_file() and actual and actual == expected and size_match and chunks_valid and reconstruction_match else "UNVERIFIED"
+    return {
+        "source": "firmware-lab",
+        "artifact": str(artifact),
+        "size": size,
+        "expected_size": artifact_meta.get("size"),
+        "sha256": actual,
+        "expected_sha256": expected,
+        "status": status,
+        "chunks": chunks,
+        "reconstruction_match": reconstruction_match,
+        "findings": [{"name": "libkernel_sys_anchor", "status": status, "evidence": "local artifact, size, hash, chunks and reconstruction match." if status == "CONFIRMED_1352" else "artifact/hash/chunk/reconstruction evidence is incomplete or inconsistent."}],
+    }
+
+
+def validate_strong_claims(anchor: dict[str, Any]) -> None:
+    if anchor.get("status") == "CONFIRMED_1352":
+        required = (anchor.get("artifact"), anchor.get("sha256"), anchor.get("size"), anchor.get("chunks"), anchor.get("reconstruction_match"))
+        digest = anchor.get("sha256")
+        if not all(required) or not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
+            raise ValueError("CONFIRMED_1352 requires identifiable artifact, valid SHA-256, size, chunks and reconstruction")
+        if not all(item.get("offset_match") and item.get("sha256_match") and item.get("size_match") for item in anchor.get("chunks", [])):
+            raise ValueError("CONFIRMED_1352 requires sequential, size- and hash-matching chunks")
+    for finding in anchor.get("findings", []):
+        if finding.get("status") == "DIRECT_BYTES" and anchor.get("status") != "CONFIRMED_1352":
+            raise ValueError("DIRECT_BYTES cannot be asserted without a confirmed local artifact")
 
 
 def validate(node: Any) -> None:
@@ -169,6 +227,7 @@ def main() -> int:
         "sources": [scan_psfree(args.psfree), scan_css(args.cssfontface), scan_vue(args.vue), scan_loader(args.loader)],
     }
     validate(report)
+    validate_strong_claims(report["anchor"])
     args.out.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0

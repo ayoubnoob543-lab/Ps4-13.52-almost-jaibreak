@@ -122,7 +122,7 @@ python3 tools/analyze_cssfontface_constants.py \
   --out /tmp/cssfontface_constants_report.json
 ```
 
-La herramienta produce el hash del archivo, firmwares detectados, presencia de campos y clasificación de cada registro. Marca explícitamente 13.52 como `ABSENT_FROM_PUBLIC_TABLE` y no promueve ningún valor histórico.
+La herramienta produce el hash del archivo, firmwares detectados, presencia de campos y clasificación de cada registro. Marca explícitamente 13.52 como `ABSENT` con detalle `ABSENT_FROM_PUBLIC_TABLE` y no promueve ningún valor histórico.
 
 ## Estado
 

@@ -9,9 +9,11 @@
   "scanner": {
     "tool": "tools/scan_webkit_patterns.py",
     "status": "PORTABLE",
-    "supported_formats": ["RAW", "ELF64_LE", "SELF"],
-    "segment_metadata": ["PT_LOAD", "text_candidate", "PT_SCE_RELRO"],
-    "semantic_identity": "REQUIRES_REANALYSIS"
+    "supported_formats": ["RAW", "ELF64_LE", "ELF64_LE_WITH_ERRORS", "SELF"],
+    "segment_metadata": ["PT_LOAD", "text_candidate", "PT_SCE_RELRO", "PT_GNU_RELRO", ".text", "PT_NOTE", "build_id"],
+    "semantic_identity": "REQUIRES_REANALYSIS",
+    "hash_and_size": "DIRECT_BYTES for analyzed file metadata only",
+    "runtime_base": null
   },
   "modules": {
     "libSceNKWebKit.sprx": {"status": "ABSENT", "base": null, "text": null, "relro": null},
@@ -38,7 +40,12 @@
   },
   "libkernel_sys_anchor": {
     "path": "libkernel_sys_13.52.bin",
+    "firmware": "13.52",
+    "size": 479232,
     "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "status": "CONFIRMED_1352",
+    "format": "raw x86-64 blob; not WebKit/ELF/SELF",
+    "runtime_evidence": false,
     "symbols": {
       "jitshm_create": {"offset": "0x510", "category": "DIRECT_BYTES"},
       "jitshm_alias": {"offset": "0x530", "category": "DIRECT_BYTES"},

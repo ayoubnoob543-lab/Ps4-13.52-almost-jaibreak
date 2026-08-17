@@ -4,7 +4,7 @@
 
 The repository reproduces static checks over the checked-in libkernel corpus. `tools/verify_offsets.py` verifies the combined dump hash, the three-chunk concatenation, expected file ranges and structural byte windows. `tools/analyze_xref_versions.py` regenerates disassembly-derived reports and version-string XREF reports. The host build validates compilation of the available sources with the pinned payload SDK; it does not execute Orbis code.
 
-The Phase 5 HEN artifact analysis reproduces a separate fact: a public HEN payload contains a serialized 89-field 13.52 table and a selector that maps `0x548` to the table at `0x105e0`. That proves payload inclusion and selector behavior in that payload. It does not prove the values against retail kernel bytes.
+The Phase 5 analysis records a separate documented claim: an external public HEN payload is described as containing a serialized 89-field 13.52 table and a selector that maps `0x548` to the table at `0x105e0`. The exact external asset is not present in the current checkout, so this is not locally reproduced binary evidence. Even if obtained, payload inclusion would not prove the values against retail kernel bytes.
 
 ## What is not available
 

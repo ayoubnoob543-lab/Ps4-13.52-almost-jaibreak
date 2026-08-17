@@ -103,7 +103,8 @@ def parse(path: Path) -> dict[str, Any]:
             for field in sorted({r["field"] for r in css_records})
         },
         "target_13_52": {
-            "status": "ABSENT_FROM_PUBLIC_TABLE",
+            "status": "ABSENT",
+            "detail": "ABSENT_FROM_PUBLIC_TABLE",
             "rule": "No historical constant is promoted to 13.52 without same-build WebKit bytes.",
             "required": [
                 "libSceNKWebKit.sprx or equivalent WebKit image",

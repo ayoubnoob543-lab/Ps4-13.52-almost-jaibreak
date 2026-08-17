@@ -11,7 +11,7 @@
   "chunks": [
     {"path": "lk_dump1.bin", "offset": "0x00000", "size": 159744, "sha256": "d4a9a642f85446785469750532d9353c9010ebec4373b8e9c4c06d594536da57"},
     {"path": "lk_dump2.bin", "offset": "0x27000", "size": 159744, "sha256": "e044d0e5303596df94f86190d34bee6dda8e87f9a51578d067e8d1650ca15e8d"},
-    {"path": "lk_dump3.bin", "offset": "0x4f000", "size": 159744, "sha256": "e31dd16ddc488851c98bc1782cfe919ece1cab2c141bd0ef7c8a9ef82fb9fdf2"}
+    {"path": "lk_dump3.bin", "offset": "0x4e000", "size": 159744, "sha256": "e31dd16ddc488851c98bc1782cfe919ece1cab2c141bd0ef7c8a9ef82fb9fdf2"}
   ],
   "symbols": {
     "jitshm_create": {"offset": "0x510", "category": "DIRECT_BYTES", "syscall": "0x215", "evidence": "same-blob syscall stub"},
