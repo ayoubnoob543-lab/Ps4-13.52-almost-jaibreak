@@ -217,6 +217,21 @@ class StaticMigrationTests(unittest.TestCase):
         self.assertEqual(pup["format"].split()[0], "SLB2")
         self.assertIn("libSceNKWebKit.sprx 13.52", report["missing"])
 
+    def test_repository_evidence_integration_is_conservative(self) -> None:
+        inventory = json.loads((ROOT / "analysis/research_repos_13.52.json").read_text(encoding="utf-8"))
+        self.assertEqual(inventory["repo_count"], 34)
+        hen = next(item for item in inventory["repositories"] if item["repo"] == "Scene-Collective/ps4-hen")
+        self.assertEqual(hen["evidence_summary"]["classification"], "UNVERIFIED")
+        self.assertEqual(hen["evidence_summary"]["candidate_offsets"]["SYSENT"], "0x1102B70")
+        self.assertEqual(hen["evidence_summary"]["candidate_offsets"]["pmap_protect"], "0x59DF0")
+        self.assertEqual(hen["evidence_summary"]["candidate_offsets"]["pmap_protect_alternate"], "0x58570")
+        corpus = next(item for item in inventory["repositories"] if item["repo"] == "FreeBSDKernel9-0/PS4OSSCode")
+        self.assertEqual(corpus["corpus_audit"]["tracked_files"], 584706)
+        self.assertEqual(corpus["corpus_audit"]["retail_1352_modules"], "ABSENT")
+        largest = json.loads((ROOT / "analysis/largest_corpus_ps4osscode_13.52.json").read_text(encoding="utf-8"))
+        self.assertEqual(largest["artifact_assessment"]["libSceNKWebKit_13_52"], "ABSENT")
+        self.assertEqual(largest["artifact_assessment"]["historical_webkit_source"], "STRUCTURAL")
+
     def test_webkit_absence_report_is_explicit(self) -> None:
         report = json.loads((ROOT / "analysis/webkit_13.52.json").read_text(encoding="utf-8"))
         self.assertEqual(report["target_firmware"], "13.52")

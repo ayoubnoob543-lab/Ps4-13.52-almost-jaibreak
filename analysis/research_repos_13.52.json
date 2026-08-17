@@ -3536,6 +3536,17 @@
       "repo": "Scene-Collective/ps4-hen",
       "url": "https://github.com/Scene-Collective/ps4-hen.git",
       "head_commit": "2beb4cfcef1d416a32d6fb7b35f01189e9eb62e2",
+      "evidence_summary": {
+        "firmware_claim": "13.52 source-table claim; no retail kernel bytes",
+        "classification": "UNVERIFIED",
+        "candidate_offsets": {
+          "SYSENT": "0x1102B70",
+          "pmap_protect": "0x59DF0",
+          "pmap_protect_patch_site": "0x59E37",
+          "pmap_protect_alternate": "0x58570"
+        },
+        "reason": "Versioned source references only; candidates cannot be promoted without same-build kernel bytes."
+      },
       "branch": "main",
       "remote_refs_observed": [
         "origin",
@@ -17053,6 +17064,16 @@
       "repo": "FreeBSDKernel9-0/PS4OSSCode",
       "url": "https://github.com/FreeBSDKernel9-0/PS4OSSCode.git",
       "head_commit": "d636699770323d7968a2c37955aa513bda5f8a37",
+      "corpus_audit": {
+        "disk_size_bytes": 8254971904,
+        "git_object_store_bytes": 1653166080,
+        "tracked_files": 584706,
+        "commit_count_all_refs": 8,
+        "archive_count": 11,
+        "manifest": "analysis/largest_corpus_ps4osscode_13.52.json",
+        "classification": "STRUCTURAL",
+        "retail_1352_modules": "ABSENT"
+      },
       "branch": "main",
       "remote_refs_observed": [
         "origin",
