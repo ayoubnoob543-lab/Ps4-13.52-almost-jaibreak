@@ -43,7 +43,7 @@ class WebKitArtifactTests(unittest.TestCase):
             e_shentsize = 0
             e_shnum = 0
             e_shstrndx = 0
-            elf_hdr = struct.pack("<HHIQQIHHHHHH", e_type, e_machine, e_version, e_entry, e_phoff, e_shoff, e_flags, e_ehsize, e_phentsize, e_phnum, e_shentsize, e_shnum, e_shstrndx)
+            elf_hdr = struct.pack("<HHIQQQIHHHHHH", e_type, e_machine, e_version, e_entry, e_phoff, e_shoff, e_flags, e_ehsize, e_phentsize, e_phnum, e_shentsize, e_shnum, e_shstrndx)
             # Program header: p_type, p_flags, p_offset, p_vaddr, p_paddr, p_filesz, p_memsz, p_align
             ph = struct.pack("<IIQQQQQQ", PT_GNU_RELRO, 0, 0, 0, 0, 0, 0, 0)
             content = e_ident + elf_hdr + ph

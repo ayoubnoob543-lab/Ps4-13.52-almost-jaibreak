@@ -16,6 +16,7 @@ from pathlib import Path
 
 PT_LOAD = 1
 PT_SCE_RELRO = 0x61000010
+PT_GNU_RELRO = 0x6474E550
 
 
 def parse_hex(value: str) -> bytes:
@@ -96,6 +97,7 @@ def parse_container(blob: bytes) -> dict:
                     text_section = sections.get(".text")
         return {
             "format": "ELF64_LE",
+            "detected": True,
             "class": 2,
             "endianness": "little",
             "program_header_offset": e_phoff,
@@ -103,12 +105,13 @@ def parse_container(blob: bytes) -> dict:
             "section_header_offset": e_shoff,
             "section_header_count": e_shnum,
             "sections": sections,
+            "relro_present_heuristic": any(int(segment["p_type"], 16) in (PT_SCE_RELRO, PT_GNU_RELRO) for segment in segments),
             "text_section": text_section,
             "segments": segments,
         }
     if blob[:4] == b"SELF":
-        return {"format": "SELF", "segments": [], "note": "SELF container not decrypted or mapped; no offsets inferred."}
-    return {"format": "RAW", "segments": [], "note": "No ELF/SELF header detected."}
+        return {"format": "SELF", "detected": True, "segments": [], "note": "SELF container not decrypted or mapped; no offsets inferred."}
+    return {"format": "RAW", "detected": False, "segments": [], "note": "No ELF/SELF header detected."}
 
 
 def hit_segment(hit: int, length: int, segments: list[dict]) -> list[str]:
@@ -138,6 +141,7 @@ def main() -> int:
         "sha256": hashlib.sha256(image).hexdigest(),
         "target_firmware": cfg.get("target_firmware"),
         "container": container,
+        "elf": container,
         "patterns": {},
         "warning": "No runtime base, loader, GOT/PLT or semantic function identity is inferred from a match.",
     }
