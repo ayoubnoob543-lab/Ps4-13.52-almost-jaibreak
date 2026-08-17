@@ -1,0 +1,64 @@
+{
+  "target_firmware": "13.52",
+  "static_only": true,
+  "primary_local_provenance": {
+    "repository": "ayoubnoob543-lab/firmware-lab",
+    "path": "libkernel_sys_13.52.bin",
+    "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "size": 479232
+  },
+  "independent_provenance": {
+    "repository": "Suchi96/PS4_13_52_libkerneldump",
+    "url": "https://github.com/Suchi96/PS4_13_52_libkerneldump",
+    "commit": "930e3af24294ebe405920de2b0cdfaddd4acb4e7",
+    "path": "libkernel_sys_13.52.bin",
+    "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "size": 479232,
+    "sha256_matches_local": true,
+    "bytes_match_local_byte_for_byte": true
+  },
+  "chunks": [
+    {"path": "lk_dump1.bin", "size": 159744, "sha256": "d4a9a642f85446785469750532d9353c9010ebec4373b8e9c4c06d594536da57", "base": "0x0", "matches_local": true},
+    {"path": "lk_dump2.bin", "size": 159744, "sha256": "e044d0e5303596df94f86190d34bee6dda8e87f9a51578d067e8d1650ca15e8d", "base": "0x27000", "matches_local": true},
+    {"path": "lk_dump3.bin", "size": 159744, "sha256": "e31dd16ddc488851c98bc1782cfe919ece1cab2c141bd0ef7c8a9ef82fb9fdf2", "base": "0x4e000", "matches_local": true}
+  ],
+  "reconstruction": {
+    "size": 479232,
+    "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "matches_suchi96_combined": true,
+    "matches_firmware_lab_combined": true,
+    "byte_difference_count": 0
+  },
+  "fingerprints": {
+    "usleep": {"offset": "0x13b20", "bytes16": "554889e54156534883ec304c8d352ebd"},
+    "open": {"offset": "0x148d0", "bytes16": "554889e531c0e8b583ffff85c078025d"},
+    "close": {"offset": "0x14900", "bytes16": "554889e5e80780ffff85c078025dc3e8"},
+    "read": {"offset": "0x14870", "bytes16": "554889e5e86787ffff4885c078025dc3"},
+    "write": {"offset": "0x148a0", "bytes16": "554889e5e8a78cffff4885c078025dc3"},
+    "pread": {"offset": "0x15460", "bytes16": "554889e5e887c0ffff4885c078025dc3"},
+    "pwrite": {"offset": "0x15490", "bytes16": "554889e5e867c0ffff4885c078025dc3"},
+    "lseek": {"offset": "0x154f0", "bytes16": "554889e5e8d7bfffff4885c078025dc3"},
+    "stat": {"offset": "0x15310", "bytes16": "554889e5e8379afeff85c078025dc3e8"},
+    "unlink": {"offset": "0x14930", "bytes16": "554889e5e897a1feff85c078025dc3e8"},
+    "notify": {"offset": "0x19320", "bytes16": "554889e5415741564154534989f489fb"},
+    "socket": {"offset": "0x45f0", "bytes16": "554889e5415741564154534889d34989"},
+    "connect": {"offset": "0xc990", "bytes16": "554889e5415741564155415453504189"},
+    "connect_alt": {"offset": "0xc970", "bytes16": "554889e54889fabf0783ffa0be010002"},
+    "mmap": {"offset": "0x114e0", "bytes16": "e9eb03ffff9090909090909090909090"},
+    "__error": {"offset": "0x1bb0", "bytes16": "554889e5488b05154c05004885c07405"},
+    "jitshm_create": {"offset": "0x510", "bytes16": "48c7c0150200004989ca0f057201c348"},
+    "jitshm_alias": {"offset": "0x530", "bytes16": "48c7c0160200004989ca0f057201c348"}
+  },
+  "classification": {
+    "combined_artifact": "CONFIRMED_1352",
+    "combined_bytes": "DIRECT_BYTES",
+    "chunk_reconstruction": "DIRECT_BYTES",
+    "jitshm_create": "DIRECT_BYTES",
+    "jitshm_alias": "DIRECT_BYTES",
+    "named_wrappers": "STRUCTURAL",
+    "runtime_claims_in_source_readme": "UNVERIFIED",
+    "kernel_offsets": "UNVERIFIED",
+    "webkit_1352": "ABSENT"
+  },
+  "note": "Exact byte equality corroborates the same artifact through two repository lineages; it does not independently prove the original retail acquisition or runtime behavior. No kernel/WebKit offsets are promoted."
+}

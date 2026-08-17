@@ -6,7 +6,19 @@
     "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
     "format": "raw x86-64 blob; not ELF/SELF",
     "runtime_evidence": false,
-    "analysis_mode": "static file-relative x86-64 disassembly; no runtime or hardware evidence"
+    "analysis_mode": "static file-relative x86-64 disassembly; no runtime or hardware evidence",
+    "provenance": {
+      "primary": "ayoubnoob543-lab/firmware-lab local anchor",
+      "independent": {
+        "repository": "Suchi96/PS4_13_52_libkerneldump",
+        "url": "https://github.com/Suchi96/PS4_13_52_libkerneldump",
+        "commit": "930e3af24294ebe405920de2b0cdfaddd4acb4e7",
+        "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+        "size": 479232,
+        "byte_for_byte_match": true
+      }
+    },
+    "corroboration_report": "analysis/libkernel_1352_corroboration.json"
   },
   "chunks": [
     {"path": "lk_dump1.bin", "offset": "0x00000", "size": 159744, "sha256": "d4a9a642f85446785469750532d9353c9010ebec4373b8e9c4c06d594536da57"},
@@ -32,6 +44,11 @@
     "connect_alt": {"offset": "0xc970", "category": "STRUCTURAL"},
     "__error": {"offset": "0x1bb0", "category": "STRUCTURAL"},
     "mmap": {"offset": "0x114e0", "category": "STRUCTURAL", "evidence": "relative jump thunk/dispatch entry"}
+  },
+  "evidence_notes": {
+    "named_wrapper_offsets": "STRUCTURAL: bytes and function-like prologues are present at the declared file-relative positions; symbol identity and runtime behavior are not proven by this raw blob alone.",
+    "source_readme_runtime_claims": "UNVERIFIED: the independent README claims retail runtime validation, but no runtime log or hardware evidence is included in this static audit.",
+    "independent_corroboration": "DIRECT_BYTES: the independent combined blob and all three chunks match the local anchor byte-for-byte."
   },
   "kernel_offsets": {
     "sysent_0x1102b70": {"offset": "0x1102b70", "category": "UNVERIFIED", "reason": "kernel bytes absent"},

@@ -278,5 +278,25 @@ class StaticMigrationTests(unittest.TestCase):
         self.assertEqual(report["classification"], "ABSENT")
 
 
+    def test_independent_suchi96_corroboration_manifest(self) -> None:
+        report = json.loads((ROOT / "analysis/libkernel_1352_corroboration.json").read_text(encoding="utf-8"))
+        independent = report["independent_provenance"]
+        self.assertEqual(independent["repository"], "Suchi96/PS4_13_52_libkerneldump")
+        self.assertEqual(independent["commit"], "930e3af24294ebe405920de2b0cdfaddd4acb4e7")
+        self.assertEqual(independent["sha256"], "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c")
+        self.assertTrue(independent["bytes_match_local_byte_for_byte"])
+        self.assertTrue(report["reconstruction"]["matches_firmware_lab_combined"])
+        self.assertEqual(report["reconstruction"]["byte_difference_count"], 0)
+        self.assertEqual(report["classification"]["runtime_claims_in_source_readme"], "UNVERIFIED")
+        self.assertEqual(report["classification"]["kernel_offsets"], "UNVERIFIED")
+
+    def test_manifest_records_independent_provenance(self) -> None:
+        manifest = json.loads((ROOT / "tools/libkernel_1352_manifest.json").read_text(encoding="utf-8"))
+        independent = manifest["artifact"]["provenance"]["independent"]
+        self.assertEqual(independent["sha256"], "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c")
+        self.assertTrue(independent["byte_for_byte_match"])
+        self.assertEqual(manifest["evidence_notes"]["source_readme_runtime_claims"], "UNVERIFIED: the independent README claims retail runtime validation, but no runtime log or hardware evidence is included in this static audit.")
+
+
 if __name__ == "__main__":
     unittest.main()
