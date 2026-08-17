@@ -257,6 +257,18 @@ class StaticMigrationTests(unittest.TestCase):
         self.assertEqual(by_repo["andleexploit/masticore-13.52"]["artifact_status"], "ABSENT")
         self.assertEqual(report["issues_and_prs"][0]["classification"], "UNVERIFIED")
 
+    def test_downloaded_issue_artifact_remains_historical(self) -> None:
+        report = json.loads((ROOT / "analysis/github_downloaded_artifacts_13.52.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["target_1352_status"]["new_confirmed_1352_bytes"], 0)
+        artifact = report["artifacts"][0]
+        self.assertEqual(artifact["declared_firmware"], "11.02")
+        member = artifact["members"][0]
+        self.assertEqual(member["path"], "11.02/kernel.bin")
+        self.assertEqual(member["classification"], "DIRECT_BYTES")
+        self.assertEqual(member["sha256"], "451f87357637beedc92fe822fc5942f86e12231a53fa8dfd81c24433093408d4")
+        self.assertEqual(member["scope"], "DIRECT_BYTES for historical 11.02 kernel artifact only; not evidence of 13.52")
+        self.assertEqual(report["target_1352_status"]["kernel_1352"], "ABSENT")
+
     def test_webkit_absence_report_is_explicit(self) -> None:
         report = json.loads((ROOT / "analysis/webkit_13.52.json").read_text(encoding="utf-8"))
         self.assertEqual(report["target_firmware"], "13.52")

@@ -11,6 +11,7 @@
   ],
   "github_indirect_findings_manifest": "analysis/github_indirect_findings_13.52.json",
   "github_deep_audit_manifest": "analysis/github_deep_audit_13.52.json",
+  "github_downloaded_artifacts_manifest": "analysis/github_downloaded_artifacts_13.52.json",
   "github_audit_additions": [
     {
       "repo": "BillZaiD/ps4-kernel-uaf-research-fw1352",
@@ -62,6 +63,16 @@
       "classification": "UNVERIFIED",
       "artifact_status": "ABSENT",
       "contribution": "no reproducible technical evidence"
+    }
+  ],
+  "downloaded_artifact_additions": [
+    {
+      "name": "11.02/kernel.bin",
+      "source": "ps4boot/ps4-linux-payloads-archive issue #5 attachment 22009718",
+      "firmware": "11.02",
+      "classification": "DIRECT_BYTES",
+      "scope": "historical kernel only; not evidence of 13.52",
+      "sha256": "451f87357637beedc92fe822fc5942f86e12231a53fa8dfd81c24433093408d4"
     }
   ],
   "found": [

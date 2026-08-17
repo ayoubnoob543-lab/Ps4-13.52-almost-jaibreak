@@ -4,6 +4,7 @@
   "scan_policy": "complete clones where available; text/path/git/release metadata and passive artifact inspection; no repository code execution",
   "additional_github_audit_manifest": "analysis/github_indirect_findings_13.52.json",
   "deep_github_audit_manifest": "analysis/github_deep_audit_13.52.json",
+  "downloaded_artifacts_manifest": "analysis/github_downloaded_artifacts_13.52.json",
   "additional_github_audit_repositories": 7,
   "total_audited_clones_including_additions": 41,
   "classification_vocabulary": [

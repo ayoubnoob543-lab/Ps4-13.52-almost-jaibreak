@@ -1,0 +1,97 @@
+{
+  "target_firmware": "13.52",
+  "policy": "public artifact metadata and static byte inspection only; no payload execution",
+  "issue_search": {
+    "queries": 12,
+    "total_issue_results": 197,
+    "artifact_urls_found": 14,
+    "relevant_ps4_binary_attachment": "https://github.com/user-attachments/files/22009718/11.02.zip",
+    "irrelevant_attachment_urls_rejected": "The remaining URLs were emulator logs, controller crash reports, GIS archives or unrelated projects."
+  },
+  "artifacts": [
+    {
+      "name": "11.02.zip",
+      "source_url": "https://github.com/user-attachments/files/22009718/11.02.zip",
+      "issue_url": "https://github.com/ps4boot/ps4-linux-payloads-archive/issues/5",
+      "repository": "ps4boot/ps4-linux-payloads-archive",
+      "attachment_id": "22009718",
+      "provenance": "public issue attachment; issue asks for a PS4 11.02 payload",
+      "declared_firmware": "11.02",
+      "size": 17376614,
+      "sha256": "2448c442ff96ff7e53adcd2e3a2160f002d2cb90bd84223632112a4e39ec13d9",
+      "format": "ZIP archive",
+      "members": [
+        {
+          "path": "11.02/kernel.bin",
+          "uncompressed_size": 44040192,
+          "size": 44040192,
+          "sha256": "451f87357637beedc92fe822fc5942f86e12231a53fa8dfd81c24433093408d4",
+          "format": "ELF64 LE x86-64 EXEC FreeBSD, no section headers",
+          "elf": {
+            "entry": "0xffffffff837c08d0",
+            "program_headers": 6,
+            "load_segments": 2,
+            "rx_load": {"file_offset": "0x0", "vaddr": "0xffffffff835b4000", "file_size": "0xcfe6d8", "mem_size": "0xcfe6d8"},
+            "ro_segment": {"file_offset": "0xcff000", "vaddr": "0xffffffff846b3000", "file_size": "0x20c70", "mem_size": "0x200000"},
+            "rw_load": {"file_offset": "0xd20000", "vaddr": "0xffffffff84ad4000", "file_size": "0x605280", "mem_size": "0x12fda10"},
+            "section_headers": "ABSENT",
+            "notes": "No ELF notes detected"
+          },
+          "scanner_results": {
+            "kernel_structure_scanner": "No configured candidates; classification UNVERIFIED",
+            "webkit_container_scanner": "ELF64_LE; 6 program headers; historical target label 11.02"
+          },
+          "strings_evidence": [
+            "SONY COMPUTER ENTERTAINMENT INC.",
+            "W:\\Build\\J02660907\\sys\\freebsd\\...",
+            "E:\\exfat\\orbis\\modules\\...",
+            "ORBIS debug tentative ppid",
+            "libkernel_sysc_se"
+          ],
+          "classification": "DIRECT_BYTES",
+          "scope": "DIRECT_BYTES for historical 11.02 kernel artifact only; not evidence of 13.52"
+        },
+        {
+          "path": "11.02/kernel.complete",
+          "size": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "format": "empty marker file",
+          "classification": "STRUCTURAL"
+        }
+      ],
+      "migration_value": {
+        "portable": [
+          "ELF64 program-header parsing for kernel images without section headers",
+          "same-build artifact manifest shape and static hash recording",
+          "historical FreeBSD/Orbis string and segment inspection workflow"
+        ],
+        "structural_only": [
+          "kernel RX/RO/RW segment relationships",
+          "candidate scanning pipeline"
+        ],
+        "requires_reanalysis": [
+          "SYSENT",
+          "pmap_protect",
+          "allproc",
+          "rootvnode",
+          "kernel_map"
+        ],
+        "do_not_transfer": [
+          "any 11.02 virtual address to 13.52",
+          "any 11.02 function identity without 13.52 bytes"
+        ]
+      }
+    }
+  ],
+  "target_1352_status": {
+    "new_confirmed_1352_bytes": 0,
+    "webkit_1352": "ABSENT",
+    "libkernel_web_1352": "ABSENT",
+    "libSceLibcInternal_1352": "ABSENT",
+    "kernel_1352": "ABSENT",
+    "sysent_0x1102B70": "UNVERIFIED",
+    "sysent_0x110A760": "UNVERIFIED",
+    "pmap_protect_0x58570": "UNVERIFIED",
+    "pmap_protect_0x59DF0": "UNVERIFIED"
+  }
+}
