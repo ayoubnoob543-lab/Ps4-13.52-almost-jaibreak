@@ -12,10 +12,17 @@
     "libSceLibcInternal.sprx": {"status": "ABSENT", "base": null, "text": null, "relro": null},
     "eboot.bin": {"status": "ABSENT", "base": null, "text": null, "relro": null}
   },
+  "portable_methodology": {
+    "module_boundary_scan": {"status": "PORTABLE", "source": "PSFree/module/memtools.mjs", "method": "page-boundary scan for text/data limits"},
+    "rip_relative_import_resolution": {"status": "PORTABLE", "source": "PSFree/module/memtools.mjs", "pattern": "FF 25 disp32"},
+    "libkernel_web_rdlo_scan": {"status": "PORTABLE", "source": "PSFree/module/memtools.mjs", "anchor": "rdlo"},
+    "syscall_wrapper_scan": {"status": "PORTABLE", "source": "PSFree/module/memtools.mjs", "pattern": "mov rax, imm32; mov r10, rcx; syscall"}
+  },
   "patterns": {
     "HTMLTextAreaElement_vtable": {"bytes": "", "mask": "", "status": "REQUIRES_REANALYSIS"},
     "import___stack_chk_fail": {"bytes": "", "mask": "", "status": "REQUIRES_REANALYSIS"},
-    "import_strlen": {"bytes": "", "mask": "", "status": "REQUIRES_REANALYSIS"}
+    "import_strlen": {"bytes": "", "mask": "", "status": "REQUIRES_REANALYSIS"},
+    "import_memcpy": {"bytes": "", "mask": "", "status": "REQUIRES_REANALYSIS"}
   },
   "imports": {
     "__stack_chk_fail": {"offset": null, "status": "REQUIRES_REANALYSIS"},
@@ -33,10 +40,17 @@
       "close": {"offset": "0x14900", "category": "STRUCTURAL"},
       "read": {"offset": "0x14870", "category": "STRUCTURAL"},
       "write": {"offset": "0x148a0", "category": "STRUCTURAL"},
+      "stat": {"offset": "0x15310", "category": "STRUCTURAL"},
       "pread": {"offset": "0x15460", "category": "STRUCTURAL"},
+      "pwrite": {"offset": "0x15490", "category": "STRUCTURAL"},
+      "lseek": {"offset": "0x154f0", "category": "STRUCTURAL"},
+      "unlink": {"offset": "0x14930", "category": "STRUCTURAL"},
       "notify": {"offset": "0x19320", "category": "STRUCTURAL"},
-      "mmap": {"offset": "0x114e0", "category": "STRUCTURAL"},
-      "connect": {"offset": "0xc990", "category": "STRUCTURAL"}
+      "socket": {"offset": "0x45f0", "category": "STRUCTURAL"},
+      "connect": {"offset": "0xc990", "category": "STRUCTURAL"},
+      "connect_alt": {"offset": "0xc970", "category": "STRUCTURAL"},
+      "__error": {"offset": "0x1bb0", "category": "STRUCTURAL"},
+      "mmap": {"offset": "0x114e0", "category": "STRUCTURAL"}
     }
   }
 }

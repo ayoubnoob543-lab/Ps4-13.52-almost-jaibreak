@@ -5,7 +5,8 @@
     "size": 479232,
     "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
     "format": "raw x86-64 blob; not ELF/SELF",
-    "runtime_evidence": false
+    "runtime_evidence": false,
+    "analysis_mode": "static file-relative x86-64 disassembly; no runtime or hardware evidence"
   },
   "chunks": [
     {"path": "lk_dump1.bin", "offset": "0x00000", "size": 159744, "sha256": "d4a9a642f85446785469750532d9353c9010ebec4373b8e9c4c06d594536da57"},
@@ -13,18 +14,24 @@
     {"path": "lk_dump3.bin", "offset": "0x4f000", "size": 159744, "sha256": "e31dd16ddc488851c98bc1782cfe919ece1cab2c141bd0ef7c8a9ef82fb9fdf2"}
   ],
   "symbols": {
-    "jitshm_create": {"offset": "0x510", "category": "DIRECT_BYTES", "syscall": "0x215"},
-    "jitshm_alias": {"offset": "0x530", "category": "DIRECT_BYTES", "syscall": "0x216"},
+    "jitshm_create": {"offset": "0x510", "category": "DIRECT_BYTES", "syscall": "0x215", "evidence": "same-blob syscall stub"},
+    "jitshm_alias": {"offset": "0x530", "category": "DIRECT_BYTES", "syscall": "0x216", "evidence": "same-blob syscall stub"},
     "usleep": {"offset": "0x13b20", "category": "STRUCTURAL"},
     "open": {"offset": "0x148d0", "category": "STRUCTURAL"},
     "close": {"offset": "0x14900", "category": "STRUCTURAL"},
     "read": {"offset": "0x14870", "category": "STRUCTURAL"},
     "write": {"offset": "0x148a0", "category": "STRUCTURAL"},
+    "stat": {"offset": "0x15310", "category": "STRUCTURAL"},
     "pread": {"offset": "0x15460", "category": "STRUCTURAL"},
+    "pwrite": {"offset": "0x15490", "category": "STRUCTURAL"},
+    "lseek": {"offset": "0x154f0", "category": "STRUCTURAL"},
+    "unlink": {"offset": "0x14930", "category": "STRUCTURAL"},
     "notify": {"offset": "0x19320", "category": "STRUCTURAL"},
-    "mmap": {"offset": "0x114e0", "category": "STRUCTURAL"},
+    "socket": {"offset": "0x45f0", "category": "STRUCTURAL"},
     "connect": {"offset": "0xc990", "category": "STRUCTURAL"},
-    "__error": {"offset": "0x1bb0", "category": "STRUCTURAL"}
+    "connect_alt": {"offset": "0xc970", "category": "STRUCTURAL"},
+    "__error": {"offset": "0x1bb0", "category": "STRUCTURAL"},
+    "mmap": {"offset": "0x114e0", "category": "STRUCTURAL", "evidence": "relative jump thunk/dispatch entry"}
   },
   "kernel_offsets": {
     "sysent_0x1102b70": {"offset": "0x1102b70", "category": "UNVERIFIED", "reason": "kernel bytes absent"},

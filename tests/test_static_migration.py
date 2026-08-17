@@ -123,6 +123,10 @@ class StaticMigrationTests(unittest.TestCase):
             with self.subTest(path=path):
                 data = json.loads(path.read_text(encoding="utf-8"))
                 self.assertEqual(data.get("target_firmware", data.get("artifact", {}).get("firmware")), "13.52")
+                if path.name == "webkit_1352_migration.json":
+                    self.assertEqual(data["portable_methodology"]["rip_relative_import_resolution"]["status"], "PORTABLE")
+                    self.assertEqual(data["modules"]["libSceNKWebKit.sprx"]["status"], "ABSENT")
+                    self.assertEqual(data["libkernel_sys_anchor"]["symbols"]["stat"]["category"], "STRUCTURAL")
 
 
 if __name__ == "__main__":

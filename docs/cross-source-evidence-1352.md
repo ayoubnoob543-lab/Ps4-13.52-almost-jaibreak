@@ -83,3 +83,14 @@ No se integran offsets históricos directamente. La matriz de implementación si
 Continúan ausentes `libSceNKWebKit.sprx` 13.52, `libkernel_web.sprx` 13.52, `libSceLibcInternal.sprx` 13.52, un kernel retail 13.52 y un SELF/eboot que permita correlacionar imports. Por ello permanecen pendientes la vtable CSSFontFace 13.52, `m_propertiesOrCSSConnection`, gadgets, GOT/PLT y la conexión binaria WebKit → libkernel.
 
 No se ha demostrado jailbreak, ejecución de payload ni compatibilidad runtime en PS4 13.52.
+
+
+## Búsqueda dirigida de artefactos WebKit 13.52
+
+Se realizaron consultas exactas para `libSceNKWebKit.sprx`, `libkernel_web.sprx` y `libSceLibcInternal.sprx` junto con `13.52`. Las fuentes técnicas devueltas fueron las páginas de [Vulnerabilities](https://www.psdevwiki.com/ps4/Vulnerabilities) e [Internet Browser](https://www.psdevwiki.com/ps4/Internet_Browser) del PS4 Developer Wiki. Estas páginas documentan módulos, User-Agent y alcance histórico de vulnerabilidades, pero no contienen un archivo 13.52, hash, segmento `.text`, `PT_SCE_RELRO`, tabla de relocaciones o símbolos.
+
+Clasificación: contexto de módulos y browser `DOCUMENTATION`; binarios WebKit 13.52 `ABSENT`; offsets y layout 13.52 `UNVERIFIED`.
+
+## Cobertura ampliada del ancla libkernel
+
+El manifest también registra `stat=0x15310`, `pwrite=0x15490`, `lseek=0x154f0`, `unlink=0x14930`, `socket=0x45f0` y `connect_alt=0xc970`. Todos proceden del mismo blob hashado y se mantienen `STRUCTURAL`; no son identificaciones runtime ni símbolos demostrados únicamente por el prólogo.

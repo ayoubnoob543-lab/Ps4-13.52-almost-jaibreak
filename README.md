@@ -135,7 +135,7 @@ python3 tools/cross_source_evidence.py \
 python3 -m unittest discover -s tests -v
 ```
 
-`tools/libkernel_1352_manifest.json` fija el hash, tamaño, chunks y offsets de la ancla real `libkernel_sys_13.52.bin`. La validación confirma la reconstrucción byte a byte y clasifica `jitshm_create`/`jitshm_alias` como `DIRECT_BYTES`; los wrappers restantes se conservan como `STRUCTURAL`.
+`tools/libkernel_1352_manifest.json` fija el hash, tamaño, chunks y offsets de la ancla real `libkernel_sys_13.52.bin`. La validación confirma la reconstrucción byte a byte y clasifica `jitshm_create`/`jitshm_alias` como `DIRECT_BYTES`; el manifest también registra `stat`, `pwrite`, `lseek`, `unlink`, `socket` y `connect_alt`, todos como `STRUCTURAL`.
 
 `tools/webkit_1352_migration.json` deja parametrizados WebKit, `libkernel_web`, `libSceLibcInternal`, bases, `.text`, `PT_SCE_RELRO`, vtables, imports, GOT/PLT y gadgets. No contiene direcciones inventadas. `scan_webkit_patterns.py` sólo eleva una entrada cuando encuentra los bytes configurados; después siguen siendo necesarias XREFs y validación de módulo.
 
@@ -144,7 +144,7 @@ python3 -m unittest discover -s tests -v
 La documentación ampliada está en [`docs/migration-1352.md`](docs/migration-1352.md). Actualmente la cadena queda así:
 
 ```text
-WebKit 13.52:        AUSENTE
+WebKit 13.52:        AUSENTE (las páginas técnicas consultadas documentan módulos/User-Agent, pero no aportan bytes ni hashes)
 libkernel_sys 13.52: VERIFICADO
 kernel 13.52:        AUSENTE
 ```
@@ -182,3 +182,5 @@ Este proyecto está **en investigación activa**. Tiene una base técnica organi
 [8]: https://github.com/ntfargo/CSSFontFace-Exploit/tree/221baa6e7349b96a6fd299808a25a4178e47741c "CSSFontFace-Exploit — audited commit"
 [9]: https://github.com/Vuemony/vue-after-free/tree/6e37d510c7383aac2378b7215aefd14c1defd8d1 "Vue-After-Free — audited commit"
 [10]: https://github.com/ps4-linux/ps4-linux-loader/commit/9acef9fbf79097a2bb39d6c9c17228198bc445cc "ps4-linux-loader v25 — PS4 13.52 support"
+[11]: https://www.psdevwiki.com/ps4/Vulnerabilities "PS4 Developer Wiki — Vulnerabilities"
+[12]: https://www.psdevwiki.com/ps4/Internet_Browser "PS4 Developer Wiki — Internet Browser"
