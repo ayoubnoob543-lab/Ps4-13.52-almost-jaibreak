@@ -206,6 +206,17 @@ class StaticMigrationTests(unittest.TestCase):
         self.assertEqual(report["next_best_artifact"]["classification_until_obtained"], "ABSENT")
         self.assertIn("rejected", report)
 
+    def test_official_pup_metadata_does_not_promote_modules(self) -> None:
+        report = json.loads((ROOT / "analysis/webkit_13.52_research.json").read_text(encoding="utf-8"))
+        pup = next(item for item in report["external_artifacts"] if item["name"] == "PS4UPDATE.PUP")
+        self.assertEqual(pup["firmware"], "13.52")
+        self.assertEqual(pup["classification"], "UNVERIFIED")
+        self.assertFalse(pup["local_full_file_retained"])
+        self.assertEqual(pup["http_status"], 200)
+        self.assertEqual(pup["content_length"], 503310848)
+        self.assertEqual(pup["format"].split()[0], "SLB2")
+        self.assertIn("libSceNKWebKit.sprx 13.52", report["missing"])
+
     def test_webkit_absence_report_is_explicit(self) -> None:
         report = json.loads((ROOT / "analysis/webkit_13.52.json").read_text(encoding="utf-8"))
         self.assertEqual(report["target_firmware"], "13.52")

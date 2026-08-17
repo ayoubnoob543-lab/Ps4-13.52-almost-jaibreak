@@ -20,7 +20,7 @@ El primer porcentaje mide la infraestructura y migración estática; el segundo 
 
 - `libkernel_sys_13.52.bin` forma parte del corpus público actual y tiene SHA-256 `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c`. Su existencia no demuestra por sí sola que todos los offsets asociados pertenezcan al kernel retail.
 - El análisis estático de `libkernel_sys` identifica wrappers y patrones compatibles con syscalls, incluyendo stubs que cargan `rax=0x215` y `rax=0x216`, además de funciones candidatas para operaciones temporales, lectura, escritura y posicionamiento. Los nombres semánticos permanecen separados de la evidencia de bytes.
-- El PUP oficial de sistema 13.52 se validó en el laboratorio local por tamaño y MD5. El archivo comienza con `SLB2`, pero el PUP no expone directamente un ELF, `kernel.elf` ni los módulos Shell mediante el escaneo estático realizado. El PUP completo no se incorpora al repositorio.
+- [`RuxaXa/ps4-research`][14] documenta el PUP oficial de sistema 13.52 con versión `13.520.000`, SDK `13.520.001`, tamaño `503310848` y un SHA-256 declarado. En este ciclo se comprobó pasivamente que la [URL oficial de Sony][13] responde `200`, anuncia exactamente ese tamaño y que su prefijo de 32 bytes contiene la magia `SLB2`; el PUP completo no se conserva localmente y su SHA-256 no se recalculó de forma independiente. Por ello esta evidencia queda como `UNVERIFIED` a nivel de hash completo y no confirma módulos internos.
 - `SYSENT=0x1102B70` aparece en dos proyectos versionados con soporte específico para 13.52: [`ps4-linux-loader`][2] y [`ps4-hen`][3]. Es el candidato estructural preferido, pero todavía no está confirmado mediante bytes del kernel retail.
 - `SYSENT=0x110A760` aparece en una tabla parcial cuya fuente se declara anónima e incompleta. Permanece sin verificar.
 - `pmap_protect` aparece como `0x58570` en `ps4-linux-loader` y SLOPOS, y como `0x59DF0` en `ps4-hen`, con `0x59E37` como patch site asociado en HEN. `0x58570` es el candidato estructural prioritario por procedencia de la tabla PS4_13_52, pero ambos valores siguen sin confirmación por bytes del kernel retail.
@@ -46,7 +46,7 @@ El primer porcentaje mide la infraestructura y migración estática; el segundo 
 |---|---|
 | Hash y concatenación del dump local de `libkernel_sys` | `DIRECT_BYTES` |
 | Instrucciones syscall observadas en el blob | `DIRECT_BYTES` |
-| PUP oficial 13.52 validado localmente por tamaño y MD5 | `DIRECT_BYTES`, artefacto no publicado aquí |
+| URL oficial Sony + tamaño HTTP + prefijo `SLB2` del PUP 13.52 | `UNVERIFIED` para el hash completo; no es evidencia de módulos internos |
 | Commits de soporte 13.52 en `ps4-linux-loader` y `ps4-hen` | `STRUCTURAL` (referencia de payload/tabla, no bytes de kernel) |
 | `SYSENT=0x1102B70` en tablas de soporte | `STRUCTURAL` (sin bytes de kernel objetivo) |
 | Metodología de dumps WebKit/libc/libkernel en `bad_hoist` | `PORTABLE` |
@@ -76,7 +76,7 @@ Si ya existe un artefacto local suficiente, no se repetirá la búsqueda públic
 El corpus local prioritario se mantiene fuera de la publicación cuando contiene archivos grandes o sensibles. Incluye:
 
 - dump de `libkernel_sys_13.52` y sus hashes;
-- PUP oficial 13.52 y escaneo estático reproducible;
+- metadatos y prefijo HTTP del PUP oficial 13.52; el PUP completo se mantiene fuera del corpus publicado;
 - documentación y pruebas locales de WebKit/Orbis;
 - repositorios clonados de `900-host`, `pOOBs4`, `bad_hoist`, el exploit WebKit 6.20 y `ps4jb-payloads`;
 - fuentes de parsers PUP y dumper ELF/SELF;
@@ -173,6 +173,8 @@ Este proyecto está **en investigación activa**. Tiene una base técnica organi
 ## Fuentes principales
 
 [1]: https://www.playstation.com/en-us/support/hardware/ps4/system-software/ "Sony — PS4 system software"
+[13]: https://pc.ps4.update.playstation.net/update/ps4/image/2026_0611/sys_2ce20d9fbb48274ceb369b40412e616c/PS4UPDATE.PUP "Sony CDN — PS4UPDATE.PUP candidate documented as 13.52"
+[14]: https://github.com/RuxaXa/ps4-research/tree/e14d0647927c6675dc619f89ab700dfda50dcd55 "RuxaXa/ps4-research — 13.52 acquisition dossier"
 [2]: https://github.com/ps4boot/ps4-linux-loader/commit/9acef9fbf79097a2bb39d6c9c17228198bc445cc "ps4-linux-loader — PS4 13.52 support"
 [3]: https://github.com/Scene-Collective/ps4-hen/commit/2beb4cfcef1d416a32d6fb7b35f01189e9eb62e2 "ps4-hen — PS4 13.52 support"
 [4]: https://github.com/sleirsgoevy/bad_hoist "bad_hoist — WebKit/ROP porting methodology"

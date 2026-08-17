@@ -124,5 +124,27 @@
     "action": "run tools/scan_webkit_patterns.py and correlate imports/relocations with libkernel_web before considering any layout or gadget migration",
     "classification_until_obtained": "ABSENT"
   },
-  "research_result": "No new public binary artifact for WebKit/libkernel_web/libc/kernel 13.52 was found or accepted in this cycle."
+  "external_artifacts": [
+    {
+      "name": "PS4UPDATE.PUP",
+      "origin": "RuxaXa/ps4-research",
+      "origin_url": "https://github.com/RuxaXa/ps4-research",
+      "origin_commit": "e14d0647927c6675dc619f89ab700dfda50dcd55",
+      "official_url": "https://pc.ps4.update.playstation.net/update/ps4/image/2026_0611/sys_2ce20d9fbb48274ceb369b40412e616c/PS4UPDATE.PUP",
+      "firmware": "13.52",
+      "system_version": "13.520.000",
+      "sdk_version": "13.520.001",
+      "size": 503310848,
+      "claimed_sha256": "daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11",
+      "local_full_file_retained": false,
+      "http_status": 200,
+      "content_length": 503310848,
+      "etag": "\\\"2ce20d9fbb48274ceb369b40412e616c:1781579172.795957\\\"",
+      "prefix_hex": "534c4232020000000000000002000000f5ff0e00000000000000000000000000",
+      "format": "SLB2 outer PUP container; inner PUPs remain encrypted",
+      "classification": "UNVERIFIED",
+      "reason": "The official URL, size, SLB2 prefix and source-repository claim agree, but this cycle did not retain the complete PUP to recompute its SHA-256 locally."
+    }
+  ],
+  "research_result": "A new indirect 13.52 artifact was verified at the transport/header level: official Sony PUP URL, 503310848-byte response and SLB2 prefix. No WebKit/libkernel_web/libc/kernel 13.52 module bytes were obtained or accepted."
 }
