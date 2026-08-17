@@ -40,8 +40,12 @@ def parse_container(blob: bytes) -> dict:
         if len(blob) < 64 or blob[4] != 2 or blob[5] != 1:
             return {"format": "ELF_UNSUPPORTED", "segments": []}
         e_phoff = struct.unpack_from("<Q", blob, 32)[0]
+        e_shoff = struct.unpack_from("<Q", blob, 40)[0]
         e_phentsize = struct.unpack_from("<H", blob, 54)[0]
         e_phnum = struct.unpack_from("<H", blob, 56)[0]
+        e_shentsize = struct.unpack_from("<H", blob, 58)[0]
+        e_shnum = struct.unpack_from("<H", blob, 60)[0]
+        e_shstrndx = struct.unpack_from("<H", blob, 62)[0]
         segments: list[dict] = []
         for index in range(e_phnum):
             off = e_phoff + index * e_phentsize
@@ -70,12 +74,36 @@ def parse_container(blob: bytes) -> dict:
             elif p_type == PT_LOAD and (p_flags & 0x5) == 0x5:
                 segment["role"] = ".text_candidate"
             segments.append(segment)
+        sections: dict[str, dict] = {}
+        text_section = None
+        if e_shoff and e_shentsize >= 64 and e_shnum and e_shstrndx < e_shnum:
+            shstr_header = e_shoff + e_shstrndx * e_shentsize
+            if shstr_header + 64 <= len(blob):
+                _, _, _, _, shstr_off, shstr_size, _, _, _, _ = struct.unpack_from("<IIQQQQIIQQ", blob, shstr_header)
+                if shstr_off + shstr_size <= len(blob):
+                    names = blob[shstr_off:shstr_off + shstr_size]
+                    for index in range(min(e_shnum, 4096)):
+                        section_off = e_shoff + index * e_shentsize
+                        if section_off + 64 > len(blob):
+                            break
+                        name_off, sh_type, sh_flags, sh_addr, file_off, file_size, _, _, _, _ = struct.unpack_from("<IIQQQQIIQQ", blob, section_off)
+                        if name_off >= len(names):
+                            name = ""
+                        else:
+                            end = names.find(b"\x00", name_off)
+                            name = names[name_off:end if end >= 0 else len(names)].decode("utf-8", errors="replace")
+                        sections[name] = {"index": index, "type": hex(sh_type), "flags": hex(sh_flags), "file_offset": hex(file_off), "file_size": file_size, "vaddr": hex(sh_addr)}
+                    text_section = sections.get(".text")
         return {
             "format": "ELF64_LE",
             "class": 2,
             "endianness": "little",
             "program_header_offset": e_phoff,
             "program_header_count": e_phnum,
+            "section_header_offset": e_shoff,
+            "section_header_count": e_shnum,
+            "sections": sections,
+            "text_section": text_section,
             "segments": segments,
         }
     if blob[:4] == b"SELF":
