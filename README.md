@@ -125,6 +125,14 @@ La migración ya tiene una base reproducible, pero no rellena valores ausentes c
 python3 tools/validate_libkernel_1352.py --json
 python3 tools/scan_webkit_patterns.py --image /ruta/a/webkit_13.52.bin --json
 python3 tools/scan_kernel_structures.py --kernel /ruta/a/kernel_13.52.bin --firmware 13.52
+python3 tools/cross_source_evidence.py \
+  --lab . \
+  --psfree /ruta/a/PSFree \
+  --cssfontface /ruta/a/CSSFontFace-Exploit \
+  --vue /ruta/a/vue-after-free \
+  --loader /ruta/a/ps4-linux-loader \
+  --out /tmp/cross_source_evidence.json
+python3 -m unittest discover -s tests -v
 ```
 
 `tools/libkernel_1352_manifest.json` fija el hash, tamaño, chunks y offsets de la ancla real `libkernel_sys_13.52.bin`. La validación confirma la reconstrucción byte a byte y clasifica `jitshm_create`/`jitshm_alias` como `DIRECT_BYTES`; los wrappers restantes se conservan como `STRUCTURAL`.
@@ -145,6 +153,19 @@ kernel 13.52:        AUSENTE
 
 Antes de cada publicación se comprueba que el cambio no incluya claves API, tokens, credenciales, claves privadas, logs privados, copias de seguridad, capturas personales ni archivos enormes que no deban distribuirse. Los binarios de investigación se conservan fuera del README y se referencian mediante ruta, tamaño, hash y procedencia cuando corresponde.
 
+## Integración cruzada de fuentes
+
+Se añadió `tools/cross_source_evidence.py` para auditar estáticamente y cruzar:
+
+- PSFree: búsqueda de límites de módulos, resolución de imports y escaneo de wrappers de `libkernel_web`.
+- CSSFontFace-Exploit: layouts históricos, `m_featureSettings` y ausencia de una tabla 13.52.
+- Vue-After-Free: separación entre userland y kernel, sin elevar sus offsets históricos.
+- `ps4-linux-loader` v25: bloque etiquetado `PS4_13_52` y entrada de dispatch `1352`, clasificados como `STRUCTURAL` porque el repositorio no contiene bytes de kernel retail.
+
+La herramienta sólo lee texto, hashes y manifests. No importa, construye ni ejecuta payloads o exploits. Las categorías permitidas son `CONFIRMED_1352`, `DIRECT_BYTES`, `STRUCTURAL`, `PORTABLE`, `REQUIRES_REANALYSIS`, `UNVERIFIED` y `ABSENT`.
+
+Se añadió `tests/test_static_migration.py`, que valida hash/tamaño/chunks de `libkernel_sys_13.52.bin`, JSON de manifests, clasificación CSSFontFace y la matriz cruzada de fuentes.
+
 ## Estado del proyecto
 
 Este proyecto está **en investigación activa**. Tiene una base técnica organizada y candidatos estructurales reproducibles, pero todavía no dispone de la evidencia binaria necesaria para cerrar los offsets críticos ni de una demostración reproducible de jailbreak en 13.52.
@@ -157,3 +178,7 @@ Este proyecto está **en investigación activa**. Tiene una base técnica organi
 [4]: https://github.com/sleirsgoevy/bad_hoist "bad_hoist — WebKit/ROP porting methodology"
 [5]: https://github.com/Scene-Collective/ps4-kernel-dumper "PS4 kernel dumper"
 [6]: https://www.psdevwiki.com/ps4/COREDMP "PS4 Developer Wiki — COREDMP/NXDP"
+[7]: https://github.com/kmeps4/PSFree/tree/368d82aa40d3017c220757ce315761adb5f06678 "PSFree — audited commit"
+[8]: https://github.com/ntfargo/CSSFontFace-Exploit/tree/221baa6e7349b96a6fd299808a25a4178e47741c "CSSFontFace-Exploit — audited commit"
+[9]: https://github.com/Vuemony/vue-after-free/tree/6e37d510c7383aac2378b7215aefd14c1defd8d1 "Vue-After-Free — audited commit"
+[10]: https://github.com/ps4-linux/ps4-linux-loader/commit/9acef9fbf79097a2bb39d6c9c17228198bc445cc "ps4-linux-loader v25 — PS4 13.52 support"

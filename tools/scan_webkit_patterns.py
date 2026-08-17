@@ -53,10 +53,11 @@ def main() -> int:
         mask = parse_hex(mask_text) if mask_text else b"\xff" * len(pattern)
         hits = find_masked(image, pattern, mask) if pattern else []
         result["patterns"][name] = {
-            "status": "MATCHED_BYTES" if hits else entry.get("status", "REQUIRES_REANALYSIS"),
+            "status": "DIRECT_BYTES" if hits else entry.get("status", "REQUIRES_REANALYSIS"),
             "hits": [hex(x) for x in hits],
             "pattern_length": len(pattern),
-            "note": "Exact bytes/pattern only; confirm with XREFs and module headers."
+            "semantic_identity": "REQUIRES_REANALYSIS" if hits else "ABSENT",
+            "note": "Byte match only; confirm XREFs, module headers and same-build provenance before assigning a symbol."
         }
     print(json.dumps(result, indent=2, sort_keys=True) if args.json else text_result(result))
     return 0

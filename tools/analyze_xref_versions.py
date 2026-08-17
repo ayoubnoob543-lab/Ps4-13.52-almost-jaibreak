@@ -1,5 +1,11 @@
 from pathlib import Path
+import shutil
 import subprocess, re, hashlib, json, argparse
+
+try:
+    from capstone import Cs, CS_ARCH_X86, CS_MODE_64
+except ImportError:
+    Cs = None
 
 parser = argparse.ArgumentParser(description='Static XREF/version analysis for a raw x86-64 libkernel dump')
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -36,11 +42,24 @@ def all_occ(needle):
         out.append(p); p+=1
 
 def objdump(start=None, stop=None):
-    cmd=['objdump','-D','-b','binary','-m','i386:x86-64','-M','intel','--adjust-vma=0']
-    if start is not None: cmd += [f'--start-address=0x{start:x}']
-    if stop is not None: cmd += [f'--stop-address=0x{stop:x}']
-    cmd += [str(BIN)]
-    return subprocess.check_output(cmd, text=True, errors='replace')
+    """Return objdump-compatible text, falling back to Capstone when needed."""
+    if shutil.which('objdump'):
+        cmd=['objdump','-D','-b','binary','-m','i386:x86-64','-M','intel','--adjust-vma=0']
+        if start is not None: cmd += [f'--start-address=0x{start:x}']
+        if stop is not None: cmd += [f'--stop-address=0x{stop:x}']
+        cmd += [str(BIN)]
+        return subprocess.check_output(cmd, text=True, errors='replace')
+    if Cs is None:
+        raise RuntimeError('objdump is unavailable and Python capstone is not installed')
+    decoder = Cs(CS_ARCH_X86, CS_MODE_64)
+    decoder.detail = False
+    lo = 0 if start is None else max(0, start)
+    hi = len(raw) if stop is None else min(len(raw), stop)
+    lines = []
+    for insn in decoder.disasm(raw[lo:hi], lo):
+        byte_text = ' '.join(f'{b:02x}' for b in insn.bytes)
+        lines.append(f'{insn.address:x}:\\t{byte_text}\\t{insn.mnemonic} {insn.op_str}'.rstrip())
+    return '\\n'.join(lines) + ('\\n' if lines else '')
 
 full_path=WORK/'full_objdump.txt'
 full_path.write_text(objdump())
@@ -143,7 +162,7 @@ for term in terms:
 # Compact report sections.
 report=[]
 report.append('XREF VERSION ANALYSIS — libkernel_sys_13.52.bin\n')
-report.append('Scope: static analysis only. The raw blob was read and disassembled as x86-64; no recovered code, payload, exploit or hardware was executed. Offsets are file-relative offsets from blob start, not virtual addresses.\n')
+report.append('Scope: static analysis only. The raw blob was read and disassembled as x86-64 with objdump or a Capstone fallback; no recovered code, payload, exploit or hardware was executed. Offsets are file-relative offsets from blob start, not virtual addresses.\n')
 report.append('1. RESUMEN\n')
 report.append(f'File size: {len(raw)} bytes (0x{len(raw):x}); SHA-256: {hashlib.sha256(raw).hexdigest()}. The requested strings were searched byte-for-byte and all RIP-relative disassembly targets were scanned. The exact byte start of kern.sdk_version is recorded separately because the requested 0x374a9 is one byte before the visible string start in this corpus.\n')
 report.append('2. TABLA COMPLETA DE XREF\n')
@@ -180,7 +199,7 @@ report.append('\n11. NOTA SOBRE COMPLETITUD\n')
 report.append('La búsqueda de XREFs se hizo sobre el desensamblado completo generado localmente. Sólo se consideran XREF directas cuando el destino aparece explícito en una referencia RIP-relative o comentario de destino; punteros indirectos, tablas sin relocación y referencias externas al blob quedan UNKNOWN.\n')
 TXT.write_text(''.join(report))
 
-data={'file':BIN.name,'size':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),'requested_strings':strings,'focus_functions':functions,'term_hits':term_hits,'method':{'disassembly':'objdump -D binary x86-64 Intel','offset_semantics':'file-relative from blob start','execution':'none'}}
+data={'file':BIN.name,'size':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),'requested_strings':strings,'focus_functions':functions,'term_hits':term_hits,'method':{'disassembly':'objdump -D binary x86-64 Intel or Capstone x86-64 fallback','offset_semantics':'file-relative from blob start','execution':'none'}}
 JS.write_text(json.dumps(data,indent=2,ensure_ascii=False))
 print(TXT)
 print(JS)
