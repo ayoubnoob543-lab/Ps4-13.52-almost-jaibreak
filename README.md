@@ -41,7 +41,10 @@ El primer porcentaje mide la infraestructura y migración estática; el segundo 
 
 - El release [`Gezine/BD-JB5 2.0`][29] publicado el 4 de agosto de 2026 aporta tres assets con digest GitHub verificado localmente: `BD-JB5-2.0.iso` (16.777.216 bytes, SHA-256 `88dec100489794cb3790f802511146cdc2e8c1fc3845a6347f8c2913908bbde4`), `bdj_unpatch_1360.elf` (433.704 bytes, SHA-256 `22bae58b6214832c99457d56fc97676ce8eef1d626fbaf50b6a69508e5c1e18e`) y `poops_1.8.jar` (178.729 bytes, SHA-256 `96cf108e0a2fe38a7a644775f9775e09be69a0ccb138f8597453d59b6587ac03`). Son metadata verificada de assets BD-J/loader/payload; el ISO sólo contiene BDMV/JAR/BDJO y ninguno contiene WebKit, libkernel o kernel retail 13.52.
 
-- La cobertura cuantificada de este ciclo comprende 974 candidatos GitHub deduplicados a partir de 108 consultas, 12 clones completos, 2.652 archivos rastreados y 1.875 commits. El mayor corpus fue `zecoxao/zecoxao.github.io`, con 1.817 archivos y 474 commits. Estas cifras describen cobertura, no número de artefactos aceptados. El manifiesto reproducible está en `analysis/osint_coverage_20260817.json`.
+- La cobertura cuantificada del ciclo anterior comprende 974 candidatos GitHub deduplicados a partir de 108 consultas, 12 clones completos, 2.652 archivos rastreados y 1.875 commits. El mayor corpus fue `zecoxao/zecoxao.github.io`, con 1.817 archivos y 474 commits. Estas cifras describen cobertura, no número de artefactos aceptados. El manifiesto reproducible está en `analysis/osint_coverage_20260817.json`.
+- La nueva auditoría del historial de [`Leandrobts/Host`][30] demuestra que `13.52.js` comenzó como un blob de 463 bytes con offsets placeholder el 12 de agosto de 2026 y creció gradualmente hasta 11.820 bytes en `5c469e9`. Los tres módulos `.decrypted` declarados no aparecen en ningún commit, rama, tag, release o asset; por tanto, la tabla final permanece `STRUCTURAL/UNVERIFIED`, no `DIRECT_BYTES`.
+- El host público de [`GamerHack/GamerHack.github.io`][31], commit `e00f40ab`, enumera PS4 sólo hasta 11.02. El post de GamerHack del 10 de agosto también limita CSSFontFace a 10.xx–11.02. Esta fuente es una corroboración nueva de la frontera pública, no soporte 13.52.
+- El gist de [`hasyimy-ctrl`][32] sobre CVE-2026-3038 contiene un único `rtsock_exploit.c` de 1.974 bytes, SHA-256 `a0bf7271b62dd009b862ee68e94c3f23b236e232b72e677649687490de186de2`, y afirma aplicar el bug al kernel PS4 13.52. El advisory firmado de [FreeBSD][33] y [NVD][34] confirma la vulnerabilidad upstream en FreeBSD y su mitigación por canario, pero no menciona Orbis ni PS4. La aplicación a 13.52 queda `UNVERIFIED`; el archivo sólo tiene metadata verificable de su gist.
 - Un adjunto público del issue [`ps4-linux-payloads-archive #5`][25] contiene `11.02/kernel.bin`: 44.040.192 bytes, ELF64 FreeBSD x86-64 sin section headers, SHA-256 `451f87357637beedc92fe822fc5942f86e12231a53fa8dfd81c24433093408d4`. Es `DIRECT_BYTES` sólo para un kernel histórico 11.02; aporta validación del pipeline de ELF program headers y comparación estructural, pero no confirma ningún offset de 13.52. Los metadatos y scans están en `analysis/github_downloaded_artifacts_13.52.json`.
 
 ## Lo que falta
@@ -208,6 +211,11 @@ Este proyecto está **en investigación activa**. Tiene una base técnica organi
 [27]: https://github.com/ArabPixel/WebKitty "ArabPixel/WebKitty — public exploit host"
 [28]: https://github.com/Leandrobts/Host "Leandrobts/Host — public 13.52 resolver source"
 [29]: https://github.com/Gezine/BD-JB5/releases/tag/2.0 "Gezine/BD-JB5 — release 2.0 assets"
+[30]: https://github.com/Leandrobts/Host
+[31]: https://github.com/GamerHack/GamerHack.github.io
+[32]: https://gist.github.com/hasyimy-ctrl/a79460845e7268785c8129e18b00655a
+[33]: https://security.freebsd.org/advisories/FreeBSD-SA-26:05.route.asc
+[34]: https://nvd.nist.gov/vuln/detail/CVE-2026-3038
 [5]: https://github.com/Scene-Collective/ps4-kernel-dumper "PS4 kernel dumper"
 [6]: https://www.psdevwiki.com/ps4/COREDMP "PS4 Developer Wiki — COREDMP/NXDP"
 [7]: https://github.com/kmeps4/PSFree/tree/368d82aa40d3017c220757ce315761adb5f06678 "PSFree — audited commit"

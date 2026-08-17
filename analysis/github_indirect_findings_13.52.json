@@ -279,6 +279,23 @@
           "role": "historical CSSFontFace kernel patch blob; not retail module"
         }
       ]
+    },
+    {
+      "repo": "hasyimy-ctrl/a79460845e7268785c8129e18b00655a",
+      "url": "https://gist.github.com/hasyimy-ctrl/a79460845e7268785c8129e18b00655a",
+      "commit": "ea43af2001ccf0d3a2b1220f98db0eeb663b935a",
+      "classification": "UNVERIFIED",
+      "artifact_status": "VERIFIED_METADATA",
+      "firmware_claim": "PS4 13.52",
+      "file": {
+        "path": "rtsock_exploit.c",
+        "size": 1974,
+        "sha256": "a0bf7271b62dd009b862ee68e94c3f23b236e232b72e677649687490de186de2",
+        "raw_url": "https://gist.githubusercontent.com/hasyimy-ctrl/a79460845e7268785c8129e18b00655a/raw/71127c98a3a5bb2026dab26df91a621f7f2f3bdc/rtsock_exploit.c"
+      },
+      "contribution": "Single-file hypothesis applying FreeBSD CVE-2026-3038/rtsock_msg_buffer to Orbis; no kernel bytes, log, build ID, hash or reproduction.",
+      "upstream_contrast": "Official FreeBSD advisory and NVD scope FreeBSD 13.5/14.3/15.0; neither mentions PS4/Orbis.",
+      "not_accepted_as": "kernel 13.52 bytes, confirmed UAF/overflow, or WebKit-to-kernel chain"
     }
   ],
   "cross_source_conclusions": {
@@ -288,5 +305,8 @@
     "cssfontface_13_52": "ABSENT; historical host stops at 11.02",
     "webkit_13_52": "ABSENT",
     "kernel_13_52": "ABSENT"
-  }
+  },
+  "classification_vocabulary": [
+    "VERIFIED_METADATA"
+  ]
 }

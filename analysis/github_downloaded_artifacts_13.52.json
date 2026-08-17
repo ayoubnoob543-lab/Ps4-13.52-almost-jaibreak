@@ -31,9 +31,24 @@
             "entry": "0xffffffff837c08d0",
             "program_headers": 6,
             "load_segments": 2,
-            "rx_load": {"file_offset": "0x0", "vaddr": "0xffffffff835b4000", "file_size": "0xcfe6d8", "mem_size": "0xcfe6d8"},
-            "ro_segment": {"file_offset": "0xcff000", "vaddr": "0xffffffff846b3000", "file_size": "0x20c70", "mem_size": "0x200000"},
-            "rw_load": {"file_offset": "0xd20000", "vaddr": "0xffffffff84ad4000", "file_size": "0x605280", "mem_size": "0x12fda10"},
+            "rx_load": {
+              "file_offset": "0x0",
+              "vaddr": "0xffffffff835b4000",
+              "file_size": "0xcfe6d8",
+              "mem_size": "0xcfe6d8"
+            },
+            "ro_segment": {
+              "file_offset": "0xcff000",
+              "vaddr": "0xffffffff846b3000",
+              "file_size": "0x20c70",
+              "mem_size": "0x200000"
+            },
+            "rw_load": {
+              "file_offset": "0xd20000",
+              "vaddr": "0xffffffff84ad4000",
+              "file_size": "0x605280",
+              "mem_size": "0x12fda10"
+            },
             "section_headers": "ABSENT",
             "notes": "No ELF notes detected"
           },
@@ -81,6 +96,23 @@
           "any 11.02 function identity without 13.52 bytes"
         ]
       }
+    },
+    {
+      "repo": "hasyimy-ctrl/a79460845e7268785c8129e18b00655a",
+      "url": "https://gist.github.com/hasyimy-ctrl/a79460845e7268785c8129e18b00655a",
+      "commit": "ea43af2001ccf0d3a2b1220f98db0eeb663b935a",
+      "classification": "UNVERIFIED",
+      "artifact_status": "VERIFIED_METADATA",
+      "firmware_claim": "PS4 13.52",
+      "file": {
+        "path": "rtsock_exploit.c",
+        "size": 1974,
+        "sha256": "a0bf7271b62dd009b862ee68e94c3f23b236e232b72e677649687490de186de2",
+        "raw_url": "https://gist.githubusercontent.com/hasyimy-ctrl/a79460845e7268785c8129e18b00655a/raw/71127c98a3a5bb2026dab26df91a621f7f2f3bdc/rtsock_exploit.c"
+      },
+      "contribution": "Single-file hypothesis applying FreeBSD CVE-2026-3038/rtsock_msg_buffer to Orbis; no kernel bytes, log, build ID, hash or reproduction.",
+      "upstream_contrast": "Official FreeBSD advisory and NVD scope FreeBSD 13.5/14.3/15.0; neither mentions PS4/Orbis.",
+      "not_accepted_as": "kernel 13.52 bytes, confirmed UAF/overflow, or WebKit-to-kernel chain"
     }
   ],
   "target_1352_status": {
@@ -93,5 +125,8 @@
     "sysent_0x110A760": "UNVERIFIED",
     "pmap_protect_0x58570": "UNVERIFIED",
     "pmap_protect_0x59DF0": "UNVERIFIED"
-  }
+  },
+  "classification_vocabulary": [
+    "VERIFIED_METADATA"
+  ]
 }

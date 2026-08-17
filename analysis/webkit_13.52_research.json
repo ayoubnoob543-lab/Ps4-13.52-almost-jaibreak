@@ -7,7 +7,8 @@
     "PORTABLE",
     "UNVERIFIED",
     "ABSENT",
-    "REQUIRES_REANALYSIS"
+    "REQUIRES_REANALYSIS",
+    "VERIFIED_METADATA"
   ],
   "github_indirect_findings_manifest": "analysis/github_indirect_findings_13.52.json",
   "github_deep_audit_manifest": "analysis/github_deep_audit_13.52.json",
@@ -132,6 +133,15 @@
       "contribution": "Complete public exploit host; current README and firmware-based manifests keep CSSFontFace+Lapse/NetCtrl at 9.00-11.02. August 2026 commits change cache, UI, navigation and payload paths, not a 13.52 WebKit implementation.",
       "provenance": "https://github.com/ArabPixel/WebKitty",
       "not_accepted_as": "13.52 WebKit/libkernel_web/libc/kernel bytes or functional chain"
+    },
+    {
+      "repo": "GamerHack/GamerHack.github.io",
+      "classification": "DOCUMENTATION",
+      "artifact_status": "ABSENT",
+      "contribution": "Public host and README explicitly stop at PS4 11.02; the Aug 10 X post says CSSFontFace was added only for 10.xx-11.02.",
+      "provenance": "https://github.com/GamerHack/GamerHack.github.io",
+      "commit": "e00f40ab52d965ca73ef968bf06bc0da17cad157",
+      "not_accepted_as": "13.52 WebKit implementation or binary artifact"
     }
   ],
   "downloaded_artifact_additions": [
@@ -264,7 +274,7 @@
     "same-build WebKit .text/PT_SCE_RELRO/build ID"
   ],
   "next_best_artifact": {
-    "name": "The three decrypted 13.52 modules cited by Leandrobts/Host, or the exact WebKit snapshot used by ufm42/rtfonto",
+    "name": "libSceNKWebKit_sprx.decrypted or the exact ufm42/rtfonto snapshot",
     "classification_until_obtained": "ABSENT",
     "required_properties": [
       "publicly downloadable bytes",
