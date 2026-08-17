@@ -24,6 +24,21 @@ class WebKitArtifactTests(unittest.TestCase):
         self.assertEqual(cfg.get("artifact", {}).get("status"), "ABSENT")
         self.assertEqual(cfg.get("modules", {}).get("libSceNKWebKit.sprx", {}).get("status"), "ABSENT")
 
+    def test_target_firmware_override_is_explicit(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            image_path = Path(tmp) / "historical.bin"
+            config_path = Path(tmp) / "config.json"
+            image_path.write_bytes(b"\x90\xc3")
+            config_path.write_text(json.dumps({"target_firmware": "13.52", "patterns": {}}), encoding="utf-8")
+            report = self.run_json(SCAN + [
+                "--image", str(image_path),
+                "--config", str(config_path),
+                "--target-firmware", "6.72",
+                "--json",
+            ])
+            self.assertEqual(report["target_firmware"], "6.72")
+            self.assertEqual(report["size"], 2)
+
     def test_scan_detects_minimal_elf_and_relro(self) -> None:
         # Build a minimal ELF64 little-endian header with one program header of type PT_GNU_RELRO
         with tempfile.TemporaryDirectory() as tmp:

@@ -25,6 +25,8 @@ El primer porcentaje mide la infraestructura y migración estática; el segundo 
 - `SYSENT=0x110A760` aparece en una tabla parcial cuya fuente se declara anónima e incompleta. Permanece sin verificar.
 - `pmap_protect` aparece como `0x58570` en `ps4-linux-loader` y SLOPOS, y como `0x59DF0` en `ps4-hen`, con `0x59E37` como patch site asociado en HEN. `0x58570` es el candidato estructural prioritario por procedencia de la tabla PS4_13_52, pero ambos valores siguen sin confirmación por bytes del kernel retail.
 - [`bad_hoist`][4] aporta la metodología más útil para el siguiente paso: obtener dumps de WebKit, localizar GOT, separar módulos, identificar libc/libkernel y generar información de gadgets desde la build concreta.
+- La auditoría completa de [`PS4.badhoist`][15] encontró releases v1.0, v1.2 y v2 anunciados para FW 6.72. Los assets RAR tienen bytes y hashes verificables; v1.2 y v2 contienen ELF históricos de `webkit`, `libc` y `libkernel`, pero su firmware se conserva como una atribución declarada y no como identidad independiente de build. Se registraron tamaños, hashes, cabeceras ELF, `.text`, PT_LOAD, ausencia de RELRO/build ID y los fallos de extracción de algunos raw `.bin`.
+- [`PS4OSSCode`][16] es una colección de código fuente OSS de WebKit/FreeBSD y no un repositorio de dumps retail. Su HEAD documenta `WebKit-601-1300` como PS4 13.00–13.04; no contiene `libSceNKWebKit`, `libkernel_web`, `libSceLibcInternal` ni ORBISDMP 13.52. Las coincidencias literales `13.52` son falsos positivos en datos de LayoutTests. Su utilidad queda clasificada como `STRUCTURAL`, no como evidencia binaria 13.52.
 - `pOOBs4`, `bad_hoist` y el exploit WebKit de PS4 6.20 son material histórico de 6.20–9.00. Sirven como referencia de metodología, no como evidencia de 13.52.
 - La investigación pública de UAF `kqueue/knote` para 13.52 documenta una línea experimental, pero no demuestra una primitiva estable de kread/kwrite ni un jailbreak funcional.
 
@@ -178,6 +180,8 @@ Este proyecto está **en investigación activa**. Tiene una base técnica organi
 [2]: https://github.com/ps4boot/ps4-linux-loader/commit/9acef9fbf79097a2bb39d6c9c17228198bc445cc "ps4-linux-loader — PS4 13.52 support"
 [3]: https://github.com/Scene-Collective/ps4-hen/commit/2beb4cfcef1d416a32d6fb7b35f01189e9eb62e2 "ps4-hen — PS4 13.52 support"
 [4]: https://github.com/sleirsgoevy/bad_hoist "bad_hoist — WebKit/ROP porting methodology"
+[15]: https://github.com/a0zhar/PS4.badhoist "a0zhar/PS4.badhoist — historical FW 6.72 module releases"
+[16]: https://github.com/FreeBSDKernel9-0/PS4OSSCode "FreeBSDKernel9-0/PS4OSSCode — PS4 OSS/WebKit source collection"
 [5]: https://github.com/Scene-Collective/ps4-kernel-dumper "PS4 kernel dumper"
 [6]: https://www.psdevwiki.com/ps4/COREDMP "PS4 Developer Wiki — COREDMP/NXDP"
 [7]: https://github.com/kmeps4/PSFree/tree/368d82aa40d3017c220757ce315761adb5f06678 "PSFree — audited commit"

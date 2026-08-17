@@ -124,6 +124,26 @@
     "action": "run tools/scan_webkit_patterns.py and correlate imports/relocations with libkernel_web before considering any layout or gadget migration",
     "classification_until_obtained": "ABSENT"
   },
+  "historical_comparison_sources": [
+    {
+      "name": "a0zhar/PS4.badhoist releases v1.2/v2",
+      "url": "https://github.com/a0zhar/PS4.badhoist",
+      "firmware": "6.72 claim; not independently demonstrated",
+      "modules": ["webkit.elf", "libc.elf", "libkernel.elf"],
+      "classification": "DIRECT_BYTES",
+      "use": "historical pattern/segment comparison only",
+      "not_accepted_as": "13.52 WebKit, libkernel_web, libc or kernel evidence"
+    },
+    {
+      "name": "FreeBSDKernel9-0/PS4OSSCode",
+      "url": "https://github.com/FreeBSDKernel9-0/PS4OSSCode",
+      "firmware": "historical OSS source trees; WebKit-601-1300 commit describes PS4 13.00-13.04",
+      "modules": [],
+      "classification": "STRUCTURAL",
+      "use": "WebKit/FreeBSD source correlation",
+      "not_accepted_as": "retail 13.52 module bytes or build identity"
+    }
+  ],
   "external_artifacts": [
     {
       "name": "PS4UPDATE.PUP",

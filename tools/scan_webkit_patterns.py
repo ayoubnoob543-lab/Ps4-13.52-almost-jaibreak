@@ -259,6 +259,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--image", type=Path, required=True)
     ap.add_argument("--config", type=Path, default=Path(__file__).with_name("webkit_1352_migration.json"))
+    ap.add_argument("--target-firmware", help="Override the config firmware label for historical artifacts; does not prove provenance")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
@@ -269,7 +270,7 @@ def main() -> int:
         "image": str(args.image),
         "size": len(image),
         "sha256": hashlib.sha256(image).hexdigest(),
-        "target_firmware": cfg.get("target_firmware"),
+        "target_firmware": args.target_firmware or cfg.get("target_firmware"),
         "container": container,
         "elf": container,
         "patterns": {},

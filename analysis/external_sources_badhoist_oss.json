@@ -1,0 +1,187 @@
+{
+  "audit_scope": {
+    "target_firmware": "13.52",
+    "repositories": [
+      {
+        "name": "a0zhar/PS4.badhoist",
+        "url": "https://github.com/a0zhar/PS4.badhoist",
+        "commit": "802278a129877aeb08d93f3e68a5f3239b3640fe",
+        "branches": ["main"],
+        "tags": ["v1.0", "v1.2", "v2"],
+        "releases": true
+      },
+      {
+        "name": "FreeBSDKernel9-0/PS4OSSCode",
+        "url": "https://github.com/FreeBSDKernel9-0/PS4OSSCode",
+        "commit": "d636699770323d7968a2c37955aa513bda5f8a37",
+        "branches": ["main"],
+        "releases": false
+      }
+    ],
+    "method": "Passive static inventory only. Archives were hashed, listed and extracted where possible; ELF metadata was parsed; no module, payload or exploit was executed."
+  },
+  "badhoist": {
+    "firmware_claim": "6.72",
+    "firmware_claim_source": "PS4.badhoist README and release titles",
+    "firmware_classification": "UNVERIFIED",
+    "releases": [
+      {
+        "tag": "v1.0",
+        "url": "https://github.com/a0zhar/PS4.badhoist/releases/tag/v1.0",
+        "asset": "dumps.rar",
+        "download_url": "https://github.com/a0zhar/PS4.badhoist/releases/download/v1.0/dumps.rar",
+        "size": 12047561,
+        "sha256": "75679ba9cf33cecdd445bf6bf983cf3ae07de0600a1502c91da1dd2a74c8b512",
+        "format": "RAR5",
+        "classification": "DIRECT_BYTES",
+        "members_declared": {
+          "libc.bin": 1700224,
+          "libkernel.bin": 285883,
+          "webkit.bin": 80837607
+        },
+        "member_status": "UNVERIFIED: extraction failed for all members with the available extractor; no complete module bytes accepted"
+      },
+      {
+        "tag": "v1.2",
+        "url": "https://github.com/a0zhar/PS4.badhoist/releases/tag/v1.2",
+        "asset": "newDump.rar",
+        "download_url": "https://github.com/a0zhar/PS4.badhoist/releases/download/v1.2/newDump.rar",
+        "size": 56049178,
+        "sha256": "b0f4a160f658a1ef941f754ba127d07d740033e9162353ffd66345a0b8b96a4b",
+        "format": "RAR5",
+        "classification": "DIRECT_BYTES",
+        "members_declared": {
+          "webkit.bin": 25517966,
+          "webkit.elf": 25522608,
+          "libc.bin": 1700224,
+          "libc.elf": 1704864,
+          "libkernel.bin": 285883,
+          "libkernel.elf": 290536,
+          "webkit-gadgets.txt": 105448606,
+          "gadgets.txt": 154308474,
+          "libc-gadgets.txt": 22219549,
+          "syscalls.txt": 10531
+        },
+        "accepted_modules": [
+          {
+            "name": "webkit.elf",
+            "module": "WebKit",
+            "firmware": "6.72 claim; not independently demonstrated",
+            "size": 25522608,
+            "sha256": "50ba273955b1d4e2fc010e9eb0661a27a72822478cafb5defaa218e3ad7c6e69",
+            "format": "ELF64 little-endian x86-64 EXEC, statically linked, not stripped",
+            "segments": "one PT_LOAD; .text at file offset 0x1000, size 25517966; no PT_SCE_RELRO/PT_GNU_RELRO detected; no build ID",
+            "classification": "DIRECT_BYTES"
+          },
+          {
+            "name": "libc.elf",
+            "module": "libSceLibcInternal equivalent/userland libc dump",
+            "firmware": "6.72 claim; not independently demonstrated",
+            "size": 1704864,
+            "sha256": "386a2e09f890067243e2ca2cc0d65a19339d7b90dea82ed89c69cc213e1118ec",
+            "format": "ELF64 little-endian x86-64 EXEC, statically linked, not stripped",
+            "classification": "DIRECT_BYTES"
+          },
+          {
+            "name": "libkernel.elf",
+            "module": "libkernel",
+            "firmware": "6.72 claim; not independently demonstrated",
+            "size": 290536,
+            "sha256": "84e6206e0c2011e568b08a0a90e52626f3d9b757197813407c95dd7b35d0ee30",
+            "format": "ELF64 little-endian x86-64 EXEC, statically linked, not stripped",
+            "classification": "DIRECT_BYTES"
+          }
+        ],
+        "raw_member_status": "UNVERIFIED: libc.bin and libkernel.bin extracted shorter than their declared archive sizes because extraction reported truncated data; they were not used as complete dumps"
+      },
+      {
+        "tag": "v2",
+        "url": "https://github.com/a0zhar/PS4.badhoist/releases/tag/v2",
+        "asset": "dumps.rar",
+        "download_url": "https://github.com/a0zhar/PS4.badhoist/releases/download/v2/dumps.rar",
+        "size": 47885477,
+        "sha256": "15aa35a0c70cb568da91a1788efa1df63d1c84be46e8d95f0f5992405ce78802",
+        "format": "RAR5",
+        "classification": "DIRECT_BYTES",
+        "members_declared": {
+          "webkit.bin": 26259456,
+          "webkit.elf": 26264096,
+          "libc.bin": 1225728,
+          "libc.elf": 1230368,
+          "libkernel.bin": 293888,
+          "libkernel.elf": 298536,
+          "webkit-gadgets.txt": 98490109,
+          "gadgets.txt": 126670734,
+          "libc-gadgets.txt": 6084455,
+          "syscalls.txt": 13749
+        },
+        "accepted_modules": [
+          {
+            "name": "webkit.elf",
+            "module": "WebKit",
+            "firmware": "6.72 claim; not independently demonstrated",
+            "size": 26264096,
+            "sha256": "39e235494fd7b1353401f2c0536f582c57dea8c024169cec1a539e3699e0a897",
+            "format": "ELF64 little-endian x86-64 EXEC, statically linked, not stripped",
+            "segments": "one PT_LOAD; scanner reports .text candidate and no RELRO/build ID",
+            "classification": "DIRECT_BYTES"
+          },
+          {
+            "name": "libc.elf",
+            "module": "libSceLibcInternal equivalent/userland libc dump",
+            "firmware": "6.72 claim; not independently demonstrated",
+            "size": 1230368,
+            "sha256": "34c45a62781980ac54f1af626504959b72091ec4f01d3f3c5316e06b43e32556",
+            "format": "ELF64 little-endian x86-64 EXEC, statically linked, not stripped",
+            "classification": "DIRECT_BYTES"
+          },
+          {
+            "name": "libkernel.elf",
+            "module": "libkernel",
+            "firmware": "6.72 claim; not independently demonstrated",
+            "size": 298536,
+            "sha256": "16e1343146773464bf70e91037212896c6f2c6de88b5aeb6052f0594030fd4b9",
+            "format": "ELF64 little-endian x86-64 EXEC, statically linked, not stripped",
+            "classification": "DIRECT_BYTES"
+          }
+        ]
+      }
+    ],
+    "portability_boundary": "These are historical WebKit/libc/libkernel references only. No 13.52 offset, vtable, base, gadget or ABI value is promoted."
+  },
+  "ps4osscode": {
+    "source_only": true,
+    "source_commit_note": "HEAD commit says WebKit-601-1300 is PS4 13.00-13.04; the repository also contains WebKit-616-1250 and WebKit-616-1300 source trees, but no 13.52 build identity.",
+    "source_trees": [
+      "WebKit-601-1250",
+      "WebKit-601-1300",
+      "WebKit-616-1250",
+      "WebKit-616-1300",
+      "freebsd-9.0",
+      "webkit-1150-1",
+      "webkit-1150-2",
+      "webkit-1200-1",
+      "webkit-1200-2"
+    ],
+    "exact_13_52_module_evidence": "ABSENT",
+    "module_name_matches": {
+      "libSceNKWebKit": 0,
+      "libkernel_web": 0,
+      "libSceLibcInternal": 0,
+      "ORBISDMP": 0
+    },
+    "search_observation": "Literal 13.52 matches were found in layout-test SVG/expected-data numerics, not as firmware labels or module provenance. No dedicated 13.52 artifact record was found.",
+    "tracked_binary_archives": "Historical WebKit source ZIPs exist, but selected ZIPs have valid PKZIP headers and lack a readable central directory in this checkout; they were not accepted as extractable module artifacts.",
+    "classification": "STRUCTURAL",
+    "contribution": "OSS WebKit/FreeBSD source correlation and historical CSS/WebKit methodology; no retail PS4 13.52 bytes."
+  },
+  "comparison_with_firmware_lab": {
+    "new_13_52_artifacts": 0,
+    "new_historical_webkit_artifacts": 6,
+    "firmware_lab_anchor_unchanged": "libkernel_sys_13.52.bin SHA-256 ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "webkit_1352_status": "ABSENT",
+    "libkernel_web_1352_status": "ABSENT",
+    "kernel_1352_status": "ABSENT",
+    "next_best_artifact": "A same-build 13.52 libSceNKWebKit.sprx, libkernel_web.sprx, or a decryptable/extracted PUP module; historical badhoist ELF dumps cannot substitute for it."
+  }
+}
