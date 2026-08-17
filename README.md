@@ -164,7 +164,7 @@ Se añadió `tools/cross_source_evidence.py` para auditar estáticamente y cruza
 
 La herramienta sólo lee texto, hashes y manifests. No importa, construye ni ejecuta payloads o exploits. Las categorías permitidas son `CONFIRMED_1352`, `DIRECT_BYTES`, `STRUCTURAL`, `PORTABLE`, `REQUIRES_REANALYSIS`, `UNVERIFIED` y `ABSENT`.
 
-Se añadió `tests/test_static_migration.py`, que valida hash/tamaño/chunks de `libkernel_sys_13.52.bin`, JSON de manifests, clasificación CSSFontFace y la matriz cruzada de fuentes.
+Se añadió `tools/audit_psfree_porting.py`, que lee PSFree como texto y genera un inventario de estructuras, algoritmos portables, offsets históricos y soporte explícito de firmware sin ejecutar JavaScript. `tools/run_static_audit.sh` lo ejecuta cuando se proporciona `PSFREE_ROOT`; sin esa variable produce un estado `ABSENT` explícito. `tests/test_static_migration.py` valida hash/tamaño/chunks de `libkernel_sys_13.52.bin`, JSON de manifests, clasificación CSSFontFace, matriz cruzada y el auditor PSFree.
 
 ## Estado del proyecto
 

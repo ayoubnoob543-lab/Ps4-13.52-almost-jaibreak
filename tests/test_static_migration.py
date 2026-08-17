@@ -98,6 +98,31 @@ class StaticMigrationTests(unittest.TestCase):
             self.assertEqual(report["patterns"]["stub"]["status"], "DIRECT_BYTES")
             self.assertEqual(report["patterns"]["stub"]["semantic_identity"], "REQUIRES_REANALYSIS")
 
+    def test_psfree_porting_audit_is_conservative(self) -> None:
+        out = ROOT / "tests/.psfree-porting-report.json"
+        subprocess.run(
+            [
+                sys.executable,
+                "tools/audit_psfree_porting.py",
+                "--psfree",
+                str(PSFREE),
+                "--out",
+                str(out),
+            ],
+            cwd=ROOT,
+            check=True,
+            stdout=subprocess.DEVNULL,
+        )
+        try:
+            report = json.loads(out.read_text(encoding="utf-8"))
+        finally:
+            out.unlink(missing_ok=True)
+        self.assertEqual(report["target_firmware"], "13.52")
+        self.assertEqual(report["source_support"]["public_13_52_support"], "ABSENT")
+        self.assertEqual(report["source_support"]["8_50_8_52_webkit_table"], "UNVERIFIED")
+        self.assertTrue(any(item["status"] == "PORTABLE" for item in report["portable_mechanisms"]))
+        self.assertTrue(all(item["status"] == "OBSOLETE" for item in report["historical_absolute_values"]))
+
     def test_xref_analyzer_has_static_fallback(self) -> None:
         out_dir = ROOT / "tests/.xref-output"
         out_dir.mkdir(exist_ok=True)

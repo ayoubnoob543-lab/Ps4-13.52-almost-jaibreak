@@ -21,10 +21,16 @@ require_file libkernel_sys_13.52.bin
 for chunk in lk_dump1.bin lk_dump2.bin lk_dump3.bin; do require_file "$chunk"; done
 require_file tools/verify_offsets.py
 require_file tools/analyze_xref_versions.py
+require_file tools/audit_psfree_porting.py
 
 mkdir -p "$ROOT/analysis"
 python3 "$ROOT/tools/verify_offsets.py" --repo "$ROOT" --json > "$ROOT/analysis/verify_offsets.json"
 python3 "$ROOT/tools/analyze_xref_versions.py" "$ROOT/libkernel_sys_13.52.bin" --out-dir "$ROOT/analysis"
+if [[ -n "${PSFREE_ROOT:-}" && -d "$PSFREE_ROOT" ]]; then
+  python3 "$ROOT/tools/audit_psfree_porting.py" --psfree "$PSFREE_ROOT" --out "$ROOT/analysis/psfree_porting.json" >/dev/null
+else
+  printf '%s\n' '{"target_firmware":"13.52","status":"ABSENT","reason":"PSFREE_ROOT not provided; no external source was executed"}' > "$ROOT/analysis/psfree_porting.json"
+fi
 python3 -m unittest discover -s "$ROOT/tests" -v
 (cd "$ROOT" && sha256sum ./*.bin) > "$ROOT/analysis/hash_inventory.txt"
 (cd "$ROOT" && cat lk_dump1.bin lk_dump2.bin lk_dump3.bin | sha256sum) > "$ROOT/analysis/concatenation_sha256.txt"
