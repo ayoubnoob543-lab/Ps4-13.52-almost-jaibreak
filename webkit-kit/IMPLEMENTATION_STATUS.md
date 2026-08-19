@@ -192,3 +192,21 @@ Informe: `homebrew/JSCBRIDGE_PUBLIC_ORIGIN_RESEARCH.md`.
 Recomendación única: usar WebKitGTK/WPE moderno como ruta OSS funcional y modular de host, y reservar QuickJS para una aplicación JS reducida. No tratar 601-1300 como compilable hasta recuperar legítimamente el proveedor JSCBRIDGE.
 
 Informe: `WEBKIT_ROUTE_COMPARISON.md`.
+
+## Prototipo WebKitGTK moderno
+
+| Componente | Estado |
+|---|---|
+| WebKitGTK 4.1 runtime/development 2.52.3 | `AVAILABLE/INSTALLED` |
+| Navegador mínimo compilado localmente | `AVAILABLE/VALIDATED` |
+| DOM real | `VALIDATED` |
+| CSS/layout computado | `VALIDATED` |
+| JavaScriptCore integrado en WebKitGTK | `VALIDATED` |
+| Evento DOM `click` | `VALIDATED` |
+| Navegación local `file://` | `VALIDATED` |
+| WebKitGTK engine compilado desde fuentes en este entorno | `BLOCKED` por source package/espacio |
+| WPE backend | `NOT_INTEGRATED` |
+| OpenOrbis backend WebKit | `MISSING/UNKNOWN` |
+| PS4/Orbis/13.52 compatibility | `UNKNOWN` |
+
+Detalle: `WEBKITGTK_MODERN_PROTOTYPE.md`.

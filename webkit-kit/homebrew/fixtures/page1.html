@@ -1,0 +1,10 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>WebKitGTK modern smoke</title>
+<style>
+#box { width: 120px; height: 40px; }
+</style>
+<body data-dom-ready="yes">
+<div id="box">initial</div>
+<button id="action" data-clicked="no" onclick="this.dataset.clicked='yes'; document.getElementById('box').textContent='clicked';">activate</button>
+</body>
