@@ -1,0 +1,18 @@
+Route comparison source findings
+
+WebKitGTK official build script: https://github.com/WebKit/webkit/blob/main/Tools/gtk/install-dependencies
+The public script supports apt-get, dnf, pacman and brew and installs the GTK port dependency set. This supports a reproducible public host route, but it describes current WebKitGTK rather than the historical PS4OSS 601 tree.
+
+WPE official page: https://wpewebkit.org/about/get-wpe.html
+WPE is an official WebKit port. Its documented components are WebKit, libwpe, WPEBackend-fdo and Cog. It explicitly supports building from source and cross-compiling with OpenEmbedded/Yocto recipes. WPE separates the engine from the platform backend, making it architecturally attractive for a future public backend, but it still requires a compatible WebKit revision, backend, GL/EGL or software rendering stack and target platform integration.
+
+Local inventory on 2026-08-19: 3.3 GB free; cc/gcc/cmake/ninja/make/ruby/perl/python/pkg-config available; clang/clang++ and meson not found; JavaScriptCoreGTK 4.1 version 2.52.3 available; historical PS4OSSCode and materialized WebKit-601-1300 build tree available; no local OpenOrbis tree detected.
+
+OpenOrbis official repository: https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain
+The repository provides a public homebrew-oriented PS4 toolchain, headers, library stubs, ELF/packaging tools and PS4-specific EGL/GLES/freetype headers. It states that its stubs may need updates for undiscovered functions. It is suitable for building applications, but does not provide WebKit/JSC port glue, WebCore/WebKit2 integration, a historical 601 ABI, or the missing JSCBRIDGE provider.
+
+QuickJS official: https://bellard.org/quickjs/
+QuickJS is MIT-licensed, small and embeddable, consists of a few C files with no external dependency for a simple build, supports modern ECMAScript, and is not a DOM/WebCore/WebKit engine. It is a viable standalone JS fallback for a PS4 homebrew application, but not a WebKit browser replacement.
+
+Duktape official: https://duktape.org/
+Duktape is MIT-licensed, portable and compact; integration is by adding duktape.c, duktape.h and duk_config.h. It targets ES5/E5.1 with partial ES2015/2016 and has no DOM, WebCore, WebKit2, browser networking or graphics stack. It is easier to port than JSC but materially less compatible with WebKit content than QuickJS or JSC.

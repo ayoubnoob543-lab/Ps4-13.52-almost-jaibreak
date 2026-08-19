@@ -174,3 +174,21 @@ Informe: `homebrew/JSCBRIDGE_CONTRACT.md`.
 | Fuente compatible integrable | `NOT_FOUND` | No se incorporó código ni stub. |
 
 Informe: `homebrew/JSCBRIDGE_PUBLIC_ORIGIN_RESEARCH.md`.
+
+## Comparación de rutas OSS sin JSCBRIDGE
+
+| Ruta | Estado real |
+|---|---|
+| JSC host mediante JavaScriptCoreGTK 4.1 | `AVAILABLE/VALIDATED` |
+| WebKit-601-1300 GTK | `CONFIGURED/BLOCKED` por `bridge/Memory.h` y proveedor JSCBRIDGE ausente |
+| WebKit-616 PS4OSS | `AVAILABLE_AS_SOURCE/UNVALIDATED_BUILD` |
+| WebKitGTK moderno | `PUBLIC_ROUTE/NOT_BUILT_IN_THIS_PHASE` |
+| WPE WebKit | `PUBLIC_ROUTE/NOT_BUILT_IN_THIS_PHASE`; backend target pendiente |
+| QuickJS | `PUBLIC_ALTERNATIVE/NOT_INTEGRATED`; no WebCore |
+| Duktape | `PUBLIC_ALTERNATIVE/NOT_INTEGRATED`; compatibilidad web limitada |
+| OpenOrbis | `PUBLIC_TOOLCHAIN/NOT_PRESENT_LOCALLY`; no WebKit port disponible |
+| Navegador WebKit PS4 real | `UNKNOWN/MISSING` |
+
+Recomendación única: usar WebKitGTK/WPE moderno como ruta OSS funcional y modular de host, y reservar QuickJS para una aplicación JS reducida. No tratar 601-1300 como compilable hasta recuperar legítimamente el proveedor JSCBRIDGE.
+
+Informe: `WEBKIT_ROUTE_COMPARISON.md`.
