@@ -161,3 +161,16 @@ Informe: `homebrew/BRIDGE_MEMORY_FORENSICS.md`.
 | Fuente alternativa legítima compatible | `NOT_FOUND` | No apareció en variantes PS4OSS, upstream WebKit ni búsquedas públicas. |
 
 Informe: `homebrew/JSCBRIDGE_CONTRACT.md`.
+
+## Investigación pública del origen JSCBRIDGE
+
+| Candidato | Estado | Motivo |
+|---|---|---|
+| JSON `libSceJitBridge.sprx` de pset4/orbisLibGen | `FOUND_METADATA_ONLY` | Inventario de módulos; no contiene implementación, headers ni biblioteca enlazable. |
+| CTurt `allocateJIT` | `FOUND_WRAPPER_ONLY` | Wrapper de exports JIT propietarios; no implementa JSCBridgeVM/Comp ni allocators WebKit. |
+| PS4OSSCode forks/commits | `NOT_FOUND` | Sin provider JSCBRIDGE adicional. |
+| GitHub code/commit/repository searches | `NOT_FOUND` | Sin fuente OSS coincidente para macros, headers o PoolAllocator16K. |
+| Upstream WebKit/Safari-601 | `UNRELATED` | Bridge estándar de WebCore; no JSCBRIDGE. |
+| Fuente compatible integrable | `NOT_FOUND` | No se incorporó código ni stub. |
+
+Informe: `homebrew/JSCBRIDGE_PUBLIC_ORIGIN_RESEARCH.md`.

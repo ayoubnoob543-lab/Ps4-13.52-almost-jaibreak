@@ -1,0 +1,28 @@
+Initial public search findings (2026-08-19)
+
+GitHub code search for exact JSCBRIDGE implementation identifiers returned no source hits for:
+- JSCBridge_vm
+- JSCBridge_comp
+- PoolAllocator16K
+- JSCBRIDGE_INSTANCE
+- JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED
+- bridge/VirtualMethodCall.h
+- bridge/VTableMap.h
+
+Searches involving SceJitBridge returned public metadata/documentation hits, not implementation sources, including:
+- ShawnTSH1229/pset4 tools/SceModuleGenerator/ps4libdoc-5.05/system/common/lib/libSceJitBridge.sprx.json
+- VV1LD/DumpFile455 and DumpFile405 references
+- rtyker/ps4-linux-baikal consolidado/ps4_system_files.txt
+- astrelsky/libNidResolver and related sysmodule tables
+- CrazyVoidProgrammer/orbisLibGen libSceJscCompiler.sprx.json
+
+These are module metadata or sysmodule names and must not be treated as an OSS JSCBRIDGE provider. Further provenance, licenses and content verification are pending.
+
+Public source follow-up:
+
+CTurt's article https://cturt.github.io/ps4-3.html states that libSceJitBridge.sprx was reverse engineered and that a simple `allocateJIT` wrapper was added to PS4-SDK. The cited source is https://github.com/CTurt/PS4-SDK/blob/master/libPS4/source/jit.c. The repository is archived (Oct 13, 2019); its jit.c dynamically resolves sceKernelJitCreateSharedMemory, sceKernelJitCreateAliasOfSharedMemory and sceKernelJitMapSharedMemory, then maps executable/writable aliases. It is an application-side wrapper for proprietary runtime exports, not the JSCBridge VM/compiler provider required by WebKit-601-1300. It does not contain JSCBridge.h, Memory.h, PoolAllocator16K, VTableMap, VirtualMethodCall, JscBridge_vm or SceJitBridge implementation.
+
+The public metadata candidates `libSceJitBridge.sprx.json` were downloaded only to /tmp and hashed:
+- ShawnTSH1229/pset4: b735eced2a270a7910df2312f06667d58abf73d31cff8ca4025296c88d192883, 17,803 bytes.
+- CrazyVoidProgrammer/orbisLibGen: 1a454dad6bb9843fda80b4c8ad55bb6f8cdccf2a377108caeecb2b5e3943686f, 17,946 bytes.
+Both are JSON module metadata (shared_object_names/modules), not source or linkable libraries. The pset4 repository reports MIT; orbisLibGen has no declared SPDX license in its GitHub metadata. Neither is compatible provider source.

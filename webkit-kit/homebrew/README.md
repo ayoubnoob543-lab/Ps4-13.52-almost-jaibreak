@@ -89,3 +89,9 @@ La ruta y el contrato no están presentes en los objetos Git públicos disponibl
 El árbol 601-1300 expone un bridge externo de memoria compartida, split-process JIT, registro de `ClassInfo` y fixup de vtables. Sus headers `bridge/JSCBridge*.h`, `Memory.h`, `VTableMap.h`, `VirtualMethodCall.h` y `unique_ptr_*` no están incluidos en el corpus público. `PlatformManx.cmake` y `PlatformManx.cmake` de WebKit2 requieren `LIBJSCBRIDGE_INCLUDE_DIRS` y, para split-process JIT, las bibliotecas `JscBridge_vm` y `SceJitBridge`.
 
 El contrato observable y la búsqueda de nombres alternativos están documentados en `JSCBRIDGE_CONTRACT.md`. No se creó ningún equivalente ni se modificó el build para ocultar el bloqueo.
+
+## Investigación pública del origen JSCBRIDGE
+
+Se revisaron GitHub, commits, forks de PS4OSSCode, repositorios relacionados, documentación pública, mirrors y búsquedas web para los headers, macros, allocators y bibliotecas JSCBRIDGE. Sólo se encontraron JSON de metadatos de `libSceJitBridge.sprx` y un wrapper histórico `allocateJIT` que resuelve exports del runtime; ninguno es una implementación OSS compatible con WebKit-601-1300.
+
+No se integró ningún candidato, módulo, SDK ni stub. El detalle de fuentes, hashes, licencias y descartes está en `JSCBRIDGE_PUBLIC_ORIGIN_RESEARCH.md`.
