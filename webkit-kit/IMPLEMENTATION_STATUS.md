@@ -78,3 +78,20 @@ Se añadió una aplicación mínima en `homebrew/` con entry point, arena de mem
 | Ejecución PS4 real | UNKNOWN | No hay dispositivo ni método de desarrollo conectado. |
 
 El resultado de esta fase es `MINIMAL_HOST_BROWSER_AVAILABLE`; la transición a `PS4_HOMEBREW_BROWSER` permanece bloqueada por toolchain/sysroot/ABI y backend de plataforma.
+
+## JavaScriptCore host real
+
+Se instaló legalmente desde los repositorios Ubuntu la dependencia pública `libjavascriptcoregtk-4.1-dev` versión `2.52.3-0ubuntu0.24.04.1`, junto con su runtime y herramienta host. El `minimal-browser` ahora enlaza mediante `pkg-config javascriptcoregtk-4.1` y ejecuta una expresión JavaScript real con la API C pública de JavaScriptCore.
+
+| Componente | Estado | Evidencia |
+|---|---|---|
+| JavaScriptCore host API pública | AVAILABLE | `jsc_context_new/evaluate`, `jsc_value_to_boolean/string`; smoke devuelve `passed=true`. |
+| Smoke JavaScript dentro de minimal-browser | AVAILABLE | `homebrew/build/host/minimal-browser-output.txt` y `tests/test_homebrew_jsc.py`. |
+| Corpus OSS PS4 WebKit/JSC | AVAILABLE | `/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/PS4OSSCode`, commit `d636699770323d7968a2c37955aa513bda5f8a37`. |
+| Build directo del árbol PS4OSSCode | UNKNOWN/MISSING | El corpus localizado no expone un build host listo para este prototipo; requiere adaptación y dependencias adicionales. |
+| WebCore/WebKit OSS ejecutable integrado | MISSING | No se ha compilado ni conectado el port layer completo. |
+| JSC de la misma revisión histórica PS4 | UNKNOWN | JavaScriptCore GTK host no demuestra equivalencia con WebKit 601/616 PS4. |
+| OpenOrbis target build | MISSING | Siguen ausentes toolchain, sysroot, headers y ABI target. |
+| PS4/retail 13.52 | MISSING/UNKNOWN | No se añadieron módulos Sony, SDK retail ni afirmaciones de compatibilidad. |
+
+El estado de esta fase es `HOST_JSC_SMOKE_AVAILABLE`; no es `WEBKIT_OSS_PS4_BUILD_AVAILABLE` ni `WEBKIT_RETAIL_1352_CONFIRMED`.

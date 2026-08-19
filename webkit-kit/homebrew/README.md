@@ -51,3 +51,13 @@ El prototipo no carga payloads externos, no busca ni invoca vulnerabilidades, no
 El puente `oss_webkit_bridge` separa la futura integración del motor. Una variable `WEBKIT_SOURCE_DIR` sólo registra una fuente candidata; **no basta para declarar el motor disponible**, porque aún deben generarse headers, compilar JSC/WebCore/WebKit y proporcionar un port adapter. En el entorno actual el estado es `oss-source-not-configured`.
 
 La integración real de JSC/WebCore/WebKit queda bloqueada por la ausencia de toolchain OpenOrbis, sysroot, headers target, dependencias de build y capa de plataforma. El backend gráfico permanece en `graphics=stub`. No se añadió ninguna API propietaria ni se inventó un ABI PS4.
+
+## JavaScriptCore host real
+
+El target `minimal-browser` detecta JavaScriptCore GTK mediante `pkg-config javascriptcoregtk-4.1`, compila contra la API C pública `jsc_context_new`, `jsc_context_evaluate`, `jsc_value_to_boolean` y `jsc_value_to_string`, y ejecuta un programa JavaScript determinista dentro del navegador host. La expresión prueba `Array.prototype.map`, `Uint32Array` y `JSON.parse`.
+
+La dependencia instalada en el host es `libjavascriptcoregtk-4.1-dev` versión `2.52.3-0ubuntu0.24.04.1`. Esta biblioteca es un runtime WebKitGTK host y no es la fuente histórica PS4 601/616, no es un módulo Sony y no prueba compatibilidad con firmware 13.52.
+
+El árbol OSS PS4 ya auditado está en `/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/PS4OSSCode`, commit `d636699770323d7968a2c37955aa513bda5f8a37`. El repositorio contiene fuentes de referencia, pero no un sistema de build host listo para compilar el árbol histórico completo dentro de este prototipo. Por ello la integración actual utiliza la API pública de JavaScriptCore GTK para probar el contrato de ejecución, mientras que el corpus PS4OSSCode permanece separado como fuente estructural.
+
+El estado `jsc-host-available-oss-source-not-configured` significa que el motor host está disponible pero no se ha configurado una ruta de árbol OSS para un port adapter. `WEBKIT_SOURCE_DIR` nunca convierte automáticamente una fuente en un motor compilado.

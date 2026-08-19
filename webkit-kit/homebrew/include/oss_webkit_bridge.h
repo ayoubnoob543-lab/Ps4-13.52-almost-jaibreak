@@ -12,6 +12,7 @@ extern "C" {
  */
 const char *oss_webkit_bridge_status(void);
 int oss_webkit_bridge_available(void);
+int oss_webkit_bridge_run_smoke(char *output, unsigned output_size);
 
 #ifdef __cplusplus
 }

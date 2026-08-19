@@ -1,6 +1,7 @@
 homebrew-minimal-browser
 running ticks=3 root=. memory=4096 filesystem=checked webkit=unavailable graphics=stub thread=joined
-oss-source-not-configured
+jsc-host-available-oss-source-not-configured
+{"engine":"JavaScriptCore-GTK-host","passed":true,"value":"true"}
 profile=host-safe
 oss_engine=external-or-host-harness
 network=disabled

@@ -27,7 +27,18 @@ int main(void) {
     }
     puts("homebrew-minimal-browser");
     puts(hb_browser_status(browser));
-    puts(oss_webkit_bridge_status());
+    {
+        char jsc_result[256];
+        puts(oss_webkit_bridge_status());
+        if (!oss_webkit_bridge_available() ||
+            oss_webkit_bridge_run_smoke(jsc_result, sizeof(jsc_result)) != 0) {
+            fputs("javascriptcore smoke unavailable or failed\n", stderr);
+            hb_browser_destroy(browser);
+            wk_runtime_shutdown(&runtime);
+            return 1;
+        }
+        puts(jsc_result);
+    }
     puts(wk_runtime_capability_report(&runtime));
     hb_browser_destroy(browser);
     wk_runtime_shutdown(&runtime);
