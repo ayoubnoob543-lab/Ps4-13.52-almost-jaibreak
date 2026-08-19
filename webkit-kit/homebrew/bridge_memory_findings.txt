@@ -1,0 +1,14 @@
+bridge/Memory.h forensic findings
+
+Local PS4OSSCode refs: only main d636699770323d7968a2c37955aa513bda5f8a37.
+Exact path history: none.
+Exact path in all local tree objects: none.
+References remain in ten JSC/WTF files, including GCActivityCallback.h, Vector.h, HashTable.h, MallocPtr.h, StructureChain.h and JIT files.
+
+Public upstream checks:
+- WebKit tag Safari-601.1.32.1: Source/WebCore/bridge/Memory.h HTTP 404; Source/JavaScriptCore/bridge/Memory.h HTTP 404; Source/WTF/wtf/bridge/Memory.h HTTP 404; Source/WebCore/bridge/jsc/Memory.h HTTP 404.
+- WebKit tag Safari-601.1.32.1 GCActivityCallback.h has no bridge/Memory.h include.
+- WebKit tag Safari-601.1.46.25.2: Source/WebCore/bridge/Memory.h HTTP 404; GCActivityCallback.h has no bridge/Memory.h include.
+- Chromium external/Webkit Source/WebCore/bridge listing contains Bridge.h and runtime/NP files, but no Memory.h.
+
+Interpretation pending further source comparison: the include is not present in standard upstream WebKit bridge trees and appears to be a PS4OSSCode variant dependency or incomplete imported port artifact, not a recoverable generic WebKit header.

@@ -134,3 +134,16 @@ El nuevo `tools/probe_historical_oss_build.py` y `homebrew/historical-oss-build-
 | SDK retail, `.sprx`, ABI 13.52 | MISSING | Deliberadamente no utilizados ni inventados. |
 
 El informe operativo está en `homebrew/OSS_601_BUILD_RESULTS.md`.
+
+## Investigación `bridge/Memory.h`
+
+| Elemento | Estado | Resultado |
+|---|---|---|
+| `bridge/Memory.h` en PS4OSS 601-1300 | MISSING | Referenciado por 9 archivos, pero no existe en checkout ni objetos Git. |
+| `JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED` | MISSING | Usado por 25 archivos; no hay definición pública en el corpus. |
+| `JSCBRIDGE_INSTANCE` / `PoolAllocator16K` | MISSING | Contrato de memoria/JIT externo no recuperado. |
+| Dependencia estándar WebKit upstream | NOT_FOUND | Tags Safari-601 y árbol Chromium WebKit no contienen `Memory.h`. |
+| Fuente compatible recuperada | NOT_FOUND | No se integró código inventado ni una fuente incompatible. |
+| Build JSC histórico | BLOCKED | Falla exactamente en `bridge/Memory.h`. |
+
+Informe: `homebrew/BRIDGE_MEMORY_FORENSICS.md`.

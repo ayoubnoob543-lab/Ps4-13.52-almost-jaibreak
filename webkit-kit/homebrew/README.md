@@ -77,3 +77,9 @@ Se materializó el árbol completo necesario para build (`Source/`, CMake, `Tool
 La compilación real de `JavaScriptCore` avanzó hasta fuentes WTF/JSC y se detuvo por la cabecera ausente `bridge/Memory.h`. Esa ruta no aparece en el checkout ni en los objetos Git del corpus; no se creó una cabecera inventada. Como WebCore/WebKit dependen de JSC, sus builds quedan bloqueados por la misma ausencia.
 
 El port Manx no configura en Linux: `OptionsManx.cmake` termina con `Unknown OS 'Linux'`. Su `ORBIS.cmake` requiere `orbis-clang`, `orbis-clang++` y `SCE_ORBIS_SDK_DIR`; además `FindLibmanx.cmake` y `FindPrecompiledShaders.cmake` requieren headers y bibliotecas target específicas. Todas esas dependencias permanecen separadas y marcadas como `MISSING` o `UNKNOWN`.
+
+## Investigación exclusiva de `bridge/Memory.h`
+
+La inclusión no existe en las tags upstream Safari-601 consultadas ni en las variantes PS4OSS 601-1250, 616-1250 o 616-1300. Sólo aparece en la variante 601-1300 junto con `JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED`, `JSCBRIDGE_INSTANCE` y la referencia externa `LIBJSCBRIDGE_INCLUDE_DIRS`.
+
+La ruta y el contrato no están presentes en los objetos Git públicos disponibles. La compilación JSC real sigue bloqueada en esa cabecera. No se añadió una implementación aproximada porque no sería una recuperación compatible y afectaría memoria, allocators y JIT. El análisis completo está en `BRIDGE_MEMORY_FORENSICS.md`.
