@@ -1,0 +1,31 @@
+{
+  "absolute_offsets": "DISABLED",
+  "common_build_id": "MISSING",
+  "firmware": "13.52",
+  "modules": [
+    {
+      "name": "libSceNKWebKit.sprx",
+      "path": null,
+      "sha256": null,
+      "size": null,
+      "status": "MISSING"
+    },
+    {
+      "name": "libkernel_web.sprx",
+      "path": null,
+      "sha256": null,
+      "size": null,
+      "status": "MISSING"
+    },
+    {
+      "name": "libSceLibcInternal.sprx",
+      "path": null,
+      "sha256": null,
+      "size": null,
+      "status": "MISSING"
+    }
+  ],
+  "promotion_rule": "all three bytes plus coherent manifest/build identity required",
+  "provenance": "REQUIRES_AUTHORIZED_OR_USER_SUPPLIED_SOURCE",
+  "schema": "webkit-triple-module-manifest/v1"
+}

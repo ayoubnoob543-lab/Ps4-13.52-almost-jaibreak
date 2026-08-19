@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "harness": "/home/ubuntu/firmware-lab/webkit-kit/harness/basic_capabilities.js",
+  "kind": "HOST_ECMASCRIPT_SMOKE",
+  "scope": "host_only_not_ps4_webkit",
+  "status": "PASS",
+  "stderr": "",
+  "stdout": "{\"harness\":\"webkit-kit/basic-capabilities\",\"safe\":true,\"network\":false,\"exploit_primitives\":false,\"results\":[{\"name\":\"array_map\",\"ok\":true,\"value\":\"true\"},{\"name\":\"promise_microtask\",\"ok\":true,\"value\":\"true\"},{\"name\":\"typed_arrays\",\"ok\":true,\"value\":\"true\"},{\"name\":\"unicode\",\"ok\":true,\"value\":\"true\"},{\"name\":\"json\",\"ok\":true,\"value\":\"true\"}]}\n"
+}
