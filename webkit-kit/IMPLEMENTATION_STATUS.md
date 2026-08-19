@@ -218,3 +218,17 @@ El smoke moderno valida DOM complejo, flexbox, CSS Grid, animación CSS, JavaScr
 La evaluación WPE usa headers públicos de libwpe commit `445a0b5579aba7eca619973ca476bb5291a85cf5`. Las interfaces públicas de view backend, renderer host/EGL, input, loader, pasteboard y gamepad están documentadas, pero `libwpe-1.0-dev` no está disponible en los repositorios configurados y no se compiló WPE.
 
 El baseline recomendado es WebKitGTK moderno para host y una futura arquitectura inspirada en WPE para separar WebKit/WebCore/JSC de ventana, input y compositor. OpenOrbis/Orbis sigue `MISSING/UNKNOWN` para un backend WebKit; PS4 13.52 no se afirma compatible.
+
+## WPE WebKit moderno — build host
+
+| Componente | Estado | Evidencia |
+|---|---|---|
+| libwpe 1.16.3 | `AVAILABLE/BUILD_PASS` | Tarball oficial fijado por SHA-256; compilado en prefijo temporal. |
+| WPEBackend-fdo 1.16.1 | `AVAILABLE/BUILD_PASS` | Tarball oficial fijado por SHA-256; Meson completó 53/53 tareas. |
+| WPE WebKit 2.52.6 | `SOURCE_AVAILABLE/CMAKE_PASS` | Configuración WPE sin GTK completó `Configuring done` y `Generating done`. |
+| WPE MiniBrowser target | `GENERATED/BUILD_PENDING` | Target generado con `ENABLE_MINIBROWSER=ON`; el build fue interrumpido por límite operativo durante la generación de headers. |
+| WPE HTML smoke | `NOT_RUN` | No se generó todavía el ejecutable WebKit/WPE. |
+| OpenOrbis/Orbis WPE backend | `UNKNOWN/MISSING` | Requiere contratos públicos de superficie, presentación, input, timers, memoria, filesystem, red y sincronización. |
+| Sony/retail/JSCBRIDGE | `MISSING/NOT_USED` | No utilizados ni incorporados. |
+
+Detalle operativo: `homebrew/WPE_HOST_BUILD_STATUS.md`.

@@ -95,3 +95,9 @@ El contrato observable y la búsqueda de nombres alternativos están documentado
 Se revisaron GitHub, commits, forks de PS4OSSCode, repositorios relacionados, documentación pública, mirrors y búsquedas web para los headers, macros, allocators y bibliotecas JSCBRIDGE. Sólo se encontraron JSON de metadatos de `libSceJitBridge.sprx` y un wrapper histórico `allocateJIT` que resuelve exports del runtime; ninguno es una implementación OSS compatible con WebKit-601-1300.
 
 No se integró ningún candidato, módulo, SDK ni stub. El detalle de fuentes, hashes, licencias y descartes está en `JSCBRIDGE_PUBLIC_ORIGIN_RESEARCH.md`.
+
+## WPE WebKit moderno host
+
+Se fijaron públicamente `libwpe` 1.16.3 y `WPEBackend-fdo` 1.16.1; ambos se configuraron y compilaron en prefijos temporales sin GTK. WPE WebKit 2.52.6 se configuró con el port WPE, `ENABLE_MINIBROWSER=ON`, `USE_GSTREAMER=OFF` y dependencias públicas de Ubuntu. El target `MiniBrowser` fue generado; su compilación completa quedó pendiente por el límite operativo de tiempo/recursos mientras generaba headers WTF. No se afirma un smoke HTML WPE hasta producir el ejecutable.
+
+El detalle reproducible está en `../WPE_HOST_BUILD_STATUS.md`. No se incorporan SDKs, módulos `.sprx`, JSCBRIDGE, offsets, exploits ni backend Orbis propietario.
