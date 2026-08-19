@@ -21,3 +21,11 @@ El corpus reúne fuentes WebKit de varias generaciones, incluyendo `WebKit-601-1
 ## Consecuencia para el kit
 
 La ruta reproducible legítima queda dividida en dos objetivos. El primero es una build de WebKit/JSC basada en la fuente OSS más cercana disponible, con un toolchain abierto y un perfil de compatibilidad documentado. El segundo, separado, sería una build retail-compatible con PS4 13.52; ésta permanece bloqueada por la falta de una fuente 13.52 específica, SDK/headers internos, ABI de plataforma y librerías propietarias de Orbis. No se debe presentar la primera como una réplica de la segunda.
+
+## PS4 Developer Wiki: relaciones de módulos y límites
+
+Fuentes: https://www.psdevwiki.com/ps4/Vulnerabilities y https://www.psdevwiki.com/ps4/Internet_Browser
+
+Estas páginas documentan la relación entre el navegador, `libSceNKWebKit.sprx`, `libkernel_web.sprx` y `libSceLibcInternal.sprx`, y muestran referencias de user-agent para PS4 13.52. No publican una copia verificable de los tres módulos, sus SHA-256, un Build ID de la misma revisión ni tablas completas de GOT/vtables verificadas contra bytes 13.52. La evidencia se clasifica como `DOCUMENTED_ONLY`.
+
+La página oficial de Sony consultada enumera fuentes OSS WebKit hasta los rangos 13.00–13.04, no una fuente específica 13.52. Por tanto, el wiki no cierra la brecha de identidad binaria.
