@@ -1,0 +1,8 @@
+profile=host-safe
+oss_engine=external-or-host-harness
+network=disabled
+filesystem=process-local-only
+graphics=unavailable
+sony_retail_modules=missing
+orbis_sdk=sysroot-required
+{"harness":"homebrew-safe-stub","platform":"portable-host","javascript":true,"network":false,"graphics":false,"sony_modules":false}
