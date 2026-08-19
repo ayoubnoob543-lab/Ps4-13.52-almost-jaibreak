@@ -1,0 +1,40 @@
+name: static-audit
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  static-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile Python tools
+        run: python -m py_compile $(find tools webkit-kit/tools -type f -name '*.py' -print)
+      - name: Validate JSON manifests
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in Path('.').rglob('*.json'):
+              if '.git' not in path.parts:
+                  json.loads(path.read_text(encoding='utf-8'))
+                  print(path)
+          PY
+      - name: Run repository tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Run conservative repository health check
+        run: python tools/repo_health.py --json
+      - name: Check shell syntax
+        run: |
+          for path in $(find . -path './.git' -prune -o -type f -name '*.sh' -print); do
+            bash -n "$path"
+          done
+      - name: Check diff whitespace
+        run: git diff --check
