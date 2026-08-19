@@ -1,0 +1,39 @@
+PS4OSSCode_HEAD=d636699770323d7968a2c37955aa513bda5f8a37
+WebKit-601-1250 files=8579 source_paths=0
+  cssfontface=0 frameloader=0
+  playstation_paths=10
+WebKit-601-1300 files=183721 source_paths=11857
+  cssfontface=12 frameloader=16
+  playstation_paths=318
+WebKit-616-1250 files=28860 source_paths=0
+  cssfontface=0 frameloader=0
+  playstation_paths=34
+WebKit-616-1300 files=30268 source_paths=0
+  cssfontface=0 frameloader=0
+  playstation_paths=34
+webkit-1150-2 files=23614 source_paths=0
+  cssfontface=0 frameloader=0
+  playstation_paths=44
+webkit-1200-2 files=24016 source_paths=0
+  cssfontface=0 frameloader=0
+  playstation_paths=44
+PSFree/CSSFontFace repo inventory sizes:
+  33 /home/ubuntu/firmware-lab/webkit-kit/psfree_reference_960_manifest.tsv
+  68 /home/ubuntu/firmware-lab/webkit-kit/cssfontface_reference_manifest.tsv
+ 101 total
+Existing public source lock:
+    "status": "no exact public WebKit 13.52 source listed by Sony",
+      "name": "Sony WebKit 601 1300",
+      "url": "https://www.playstation.com/content/dam/global_pdc/en-us/external-resources/oss/ps4/webkit/WebKit-601-1300.zip",
+      "sha256": "dc2a7584695474c9b878dcfdc16b2358bda61041053220b146320d6cfed3f02b",
+      "name": "Sony WebKit 616 1300",
+      "url": "https://www.playstation.com/content/dam/global_pdc/en-us/external-resources/oss/ps4/webkit/WebKit-616-1300.zip",
+      "sha256": null,
+    "name": "OpenOrbis PS4 Toolchain",
+    "url": "https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain.git",
+    "commit": "0a1aaf9dd4a92695538bdeb09fb056d06dd11725",
+      "Does not include Sony proprietary SDK headers or internal Orbis WebKit libraries.",
+      "Does not by itself make WebKit source compatible with PS4 13.52.",
+    "name": "PS4OSSCode",
+    "url": "https://github.com/FreeBSDKernel9-0/PS4OSSCode.git",
+    "commit": "d636699770323d7968a2c37955aa513bda5f8a37",
