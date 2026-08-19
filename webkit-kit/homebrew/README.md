@@ -83,3 +83,9 @@ El port Manx no configura en Linux: `OptionsManx.cmake` termina con `Unknown OS 
 La inclusión no existe en las tags upstream Safari-601 consultadas ni en las variantes PS4OSS 601-1250, 616-1250 o 616-1300. Sólo aparece en la variante 601-1300 junto con `JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED`, `JSCBRIDGE_INSTANCE` y la referencia externa `LIBJSCBRIDGE_INCLUDE_DIRS`.
 
 La ruta y el contrato no están presentes en los objetos Git públicos disponibles. La compilación JSC real sigue bloqueada en esa cabecera. No se añadió una implementación aproximada porque no sería una recuperación compatible y afectaría memoria, allocators y JIT. El análisis completo está en `BRIDGE_MEMORY_FORENSICS.md`.
+
+## Mapa de contrato JSCBRIDGE
+
+El árbol 601-1300 expone un bridge externo de memoria compartida, split-process JIT, registro de `ClassInfo` y fixup de vtables. Sus headers `bridge/JSCBridge*.h`, `Memory.h`, `VTableMap.h`, `VirtualMethodCall.h` y `unique_ptr_*` no están incluidos en el corpus público. `PlatformManx.cmake` y `PlatformManx.cmake` de WebKit2 requieren `LIBJSCBRIDGE_INCLUDE_DIRS` y, para split-process JIT, las bibliotecas `JscBridge_vm` y `SceJitBridge`.
+
+El contrato observable y la búsqueda de nombres alternativos están documentados en `JSCBRIDGE_CONTRACT.md`. No se creó ningún equivalente ni se modificó el build para ocultar el bloqueo.

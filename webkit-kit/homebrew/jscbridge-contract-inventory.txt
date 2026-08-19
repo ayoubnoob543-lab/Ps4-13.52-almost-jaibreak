@@ -1,0 +1,349 @@
+=== JSCBRIDGE references ===
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/PlatformManx.cmake:16:    ${LIBJSCBRIDGE_INCLUDE_DIRS}
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/CodeBlock.h:89:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/CodeBlock.h:895:        JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/PolymorphicGetByIdList.h:101:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/PolymorphicPutByIdList.h:189:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/StructureStubClearingWatchpoint.h:49:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/StructureStubInfo.h:254:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/UnlinkedCodeBlock.h:585:        JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/create_regex_tables:95:            function += ("    auto characterClass = std::make_unique<CharacterClass>(JSCBRIDGE_INSTANCE().yarrjit_%sData(), true);\n" % (classes["Inverse"]))
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/create_regex_tables:101:            function += ("    auto characterClass = std::make_unique<CharacterClass>(JSCBRIDGE_INSTANCE().yarrjit_%sData(), false);\n" % (name))
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/CopiedBlock.h:126:    static bridge::PoolAllocator32K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator32K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/CopiedBlock.h:138:    static bridge::PoolAllocator32K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator32K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/GCActivityCallback.h:46:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MarkedBlock.cpp:42:    static JSC::bridge::PoolAllocator16K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator16K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MarkedBlock.cpp:53:    static JSC::bridge::PoolAllocator16K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator16K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/interpreter/Interpreter.h:173:        JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ArityCheckFailReturnThunks.h:39:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/CompactJITCodeMap.h:79:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:64:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/JITStubRoutine.h:56:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/JITThunks.h:50:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/CommonIdentifiers.h:308:        JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/StructureIDTable.h:59:        JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/WeakGCMap.h:40:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrInterpreter.h:341:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.h:53:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.h:219:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.h:262:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.h:417:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/PlatformManx.cmake:20:    ${LIBJSCBRIDGE_INCLUDE_DIRS}
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/PlatformManx.cmake:13:    ${LIBJSCBRIDGE_INCLUDE_DIRS}
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/PlatformManx.cmake:136:    ${LIBJSCBRIDGE_INCLUDE_DIRS}
+=== bridge includes/namespaces/classes ===
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/assembler/MacroAssembler.cpp:29:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/assembler/MacroAssemblerX86Common.h:34:#include <bridge/JSCBridge_comp.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/assembler/MacroAssemblerX86Common.h:35:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/CodeBlock.cpp:65:#include <bridge/JSCBridge_comp.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/CodeBlock.cpp:66:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/CodeBlock.cpp:67:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/CodeBlock.cpp:68:#include <bridge/unique_ptr_shared.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/PolymorphicGetByIdList.cpp:36:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/StructureStubClearingWatchpoint.cpp:35:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/StructureStubClearingWatchpoint.cpp:36:#include <bridge/unique_ptr_virtual.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/StructureStubClearingWatchpoint.h:33:#include <bridge/unique_ptr_shared.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/StructureStubClearingWatchpoint.h:34:#include <bridge/unique_ptr_virtual.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/Watchpoint.h:29:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/Watchpoint.h:30:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/dfg/DFGAllocator.h:44:class Allocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/dfg/DFGCallArrayAllocatorSlowPathGenerator.h:38:class CallArrayAllocatorSlowPathGenerator : public JumpingSlowPathGenerator<MacroAssembler::JumpList> {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/dfg/DFGCallArrayAllocatorSlowPathGenerator.h:77:class CallArrayAllocatorWithVariableSizeSlowPathGenerator : public JumpingSlowPathGenerator<MacroAssembler::JumpList> {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/CopiedAllocator.h:35:class CopiedAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/CopiedBlock.h:37:#include <bridge/JSCBridge_comp.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/CopiedBlock.h:38:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/CopiedBlock.h:48:    friend class CopiedAllocator;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/CopiedBlock.h:126:    static bridge::PoolAllocator32K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator32K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/CopiedBlock.h:138:    static bridge::PoolAllocator32K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator32K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/GCActivityCallback.h:33:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/Heap.cpp:52:#include <bridge/JSCBridge.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/Heap.cpp:53:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/Heap.h:254:    friend class MarkedAllocator;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MarkedAllocator.h:17:class MarkedAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MarkedBlock.cpp:35:#include <bridge/JSCBridge_comp.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MarkedBlock.cpp:36:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MarkedBlock.cpp:42:    static JSC::bridge::PoolAllocator16K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator16K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MarkedBlock.cpp:53:    static JSC::bridge::PoolAllocator16K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator16K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MarkedBlock.h:53:    class MarkedAllocator;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ArityCheckFailReturnThunks.cpp:36:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ArityCheckFailReturnThunks.h:33:#include <bridge/unique_ptr_shared.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/AssemblyHelpers.cpp:34:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocator.cpp:54:class DemandExecutableAllocator : public MetaAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocator.h:79:class DemandExecutableAllocator;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocator.h:99:class ExecutableAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:44:#include <bridge/JSCBridge_comp.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:45:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:46:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:63:class FixedVMPoolExecutableAllocator : public MetaAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/GCAwareJITStubRoutine.cpp:37:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/GCAwareJITStubRoutine.cpp:38:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/GCAwareJITStubRoutine.h:35:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/GCAwareJITStubRoutine.h:36:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/JIT.h:67:    class MarkedAllocator;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/JITCode.h:37:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/JITOperations.cpp:63:#include <bridge/unique_ptr_shared.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/JITStubRoutine.h:33:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/JITStubRoutine.h:34:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/JITStubRoutine.h:35:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/PolymorphicCallStubRoutine.cpp:36:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/Repatch.cpp:52:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ScratchRegisterAllocator.h:41:class ScratchRegisterAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ThunkGenerators.cpp:39:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/llint/LLIntData.cpp:38:#include <bridge/JSCBridge_comp.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/llint/LLIntData.cpp:39:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/llint/LLIntData.cpp:40:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/llint/LLIntSlowPaths.cpp:56:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/ClassInfo.h:31:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/ClassInfo.h:207:        bridge::JSCBridgeVM::classInfoRegisterInstance(this);
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/Executable.h:45:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/InitializeThreading.cpp:49:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/JSCell.h:36:#include <bridge/JSCBridge_comp.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/JSCell.h:37:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/StructureChain.h:33:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/StructureRareData.h:34:#include <bridge/unique_ptr_shared.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/tools/CodeProfiling.h:31:class MetaAllocator;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/tools/CodeProfiling.h:32:class MetaAllocatorTracker;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrInterpreter.h:32:class BumpPointerAllocator;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.cpp:33:#include <bridge/JSCBridge_comp.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.cpp:34:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.cpp:35:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.h:30:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/ANGLE/src/compiler/translator/Compiler.cpp:60:class TScopedPoolAllocator
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/ANGLE/src/compiler/translator/PoolAlloc.h:116:class TPoolAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/ANGLE/src/libANGLE/HandleAllocator.h:22:class HandleAllocator final : angle::NonCopyable
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/BumpPointerAllocator.h:200:    friend class BumpPointerAllocator;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/BumpPointerAllocator.h:206:// To begin allocating using this class call startAllocator().  The result
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/BumpPointerAllocator.h:218:class BumpPointerAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/HashTable.h:26:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/MallocPtr.h:33:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/MetaAllocator.cpp:32:#include <bridge/JSCBridge_inline.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/MetaAllocator.cpp:33:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/MetaAllocator.h:46:class MetaAllocatorTracker {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/MetaAllocator.h:63:class MetaAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/MetaAllocator.h:124:    friend class MetaAllocatorHandle;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/MetaAllocatorHandle.h:40:class MetaAllocator;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/MetaAllocatorHandle.h:42:class MetaAllocatorHandle : public ThreadSafeRefCounted_shared<MetaAllocatorHandle>, public RedBlackTree<MetaAllocatorHandle, void*>::Node {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/MetaAllocatorHandle.h:108:    friend class MetaAllocator;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/OSAllocator.h:34:class OSAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/ThreadSafeRefCounted.h:63:#include <bridge/JSCBridge_vm.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/ThreadSafeRefCounted.h:64:#include <bridge/VTableMap.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/ThreadSafeRefCounted.h:65:#include <bridge/VirtualMethodCall.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Vector.h:24:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/cssjit/RegisterAllocator.h:103:class RegisterAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/cssjit/StackAllocator.h:37:class StackAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/texmap/coordinated/AreaAllocator.h:49:class AreaAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/texmap/coordinated/AreaAllocator.h:79:class GeneralAreaAllocator : public AreaAllocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/Allocator.h:39:class Allocator {
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/BumpAllocator.h:37:class BumpAllocator {
+=== CMake/config references ===
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/CMakeLists.txt:128:elseif (ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/CMakeLists.txt:129:    set(WTF_OS_ORBIS 1)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/ORBIS.cmake:1:set(CMAKE_SYSTEM_NAME ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/ORBIS.cmake:5:    set(CMAKE_GENERATOR_PLATFORM ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/ORBIS.cmake:9:  PATHS ENV SCE_ORBIS_SDK_DIR
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/ORBIS.cmake:15:  PATHS ENV SCE_ORBIS_SDK_DIR
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/ORBIS.cmake:23:file(TO_CMAKE_PATH $ENV{SCE_ORBIS_SDK_DIR} sce_orbis_sdk_dir)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/OptionsManx.cmake:1:if (NOT ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/OptionsManx.cmake:32:if (ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/OptionsManx.cmake:46:    if (MANX_ORBIS_USE_PUBLIC_SDK)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/OptionsManx.cmake:268:if (ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/Platform/ORBIS.cmake:1:set(ORBIS 1)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/WebKitHelpers.cmake:23:        if (WTF_OS_ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/WebKitHelpers.cmake:30:        endif (NOT WTF_OS_ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/WebKitManx.cmake:1:if (ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/API/JSBase.h:75:#elif defined(__ORBIS__)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/API/JSStringRef.h:41:    && !(defined(__ORBIS__)) \
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/CMakeLists.txt:744:if (ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/CMakeLists.txt:746:endif (ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/PlatformManx.cmake:16:    ${LIBJSCBRIDGE_INCLUDE_DIRS}
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/CodeBlock.h:89:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/CodeBlock.h:895:        JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/PolymorphicGetByIdList.h:101:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/PolymorphicPutByIdList.h:189:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/StructureStubClearingWatchpoint.h:49:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/StructureStubInfo.h:254:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/bytecode/UnlinkedCodeBlock.h:585:        JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/create_regex_tables:95:            function += ("    auto characterClass = std::make_unique<CharacterClass>(JSCBRIDGE_INSTANCE().yarrjit_%sData(), true);\n" % (classes["Inverse"]))
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/create_regex_tables:101:            function += ("    auto characterClass = std::make_unique<CharacterClass>(JSCBRIDGE_INSTANCE().yarrjit_%sData(), false);\n" % (name))
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/CopiedBlock.h:126:    static bridge::PoolAllocator32K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator32K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/CopiedBlock.h:138:    static bridge::PoolAllocator32K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator32K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/GCActivityCallback.h:33:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/GCActivityCallback.h:46:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/HeapStatistics.cpp:35:#if OS(UNIX) && !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/HeapStatistics.cpp:49:#if OS(UNIX) && !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MachineStackMarker.cpp:62:#if USE(PTHREADS) && !OS(WINDOWS) && !OS(DARWIN) && !OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MachineStackMarker.cpp:76:#elif OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MachineStackMarker.cpp:169:#if USE(PTHREADS) && !OS(WINDOWS) && !OS(DARWIN) && !OS(ORBIS_PUBLIC) && defined(SA_RESTART)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MachineStackMarker.cpp:360:#elif OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MachineStackMarker.cpp:362:#elif OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MachineStackMarker.cpp:378:#elif OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MachineStackMarker.cpp:380:#elif OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MarkedBlock.cpp:42:    static JSC::bridge::PoolAllocator16K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator16K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/heap/MarkedBlock.cpp:53:    static JSC::bridge::PoolAllocator16K& poolAllocator = JSCBRIDGE_INSTANCE().poolAllocator16K();
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/inspector/JSGlobalObjectInspectorController.cpp:48:#if !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/interpreter/Interpreter.h:173:        JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ArityCheckFailReturnThunks.cpp:36:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ArityCheckFailReturnThunks.h:39:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/CompactJITCodeMap.h:79:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocator.cpp:239:#if OS(WINDOWS) || OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocator.h:83:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:64:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:131:#elif !OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:148:#if !OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:159:#if !OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:166:#if OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:175:#if OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:185:#if OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:207:#if OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/ExecutableAllocatorFixedVMPool.cpp:243:#if OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/JITStubRoutine.h:56:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/JITThunks.h:50:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/PolymorphicCallStubRoutine.cpp:36:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jit/Repatch.cpp:52:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/jsc.cpp:700:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/CommonIdentifiers.h:308:        JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/StructureChain.h:33:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/StructureIDTable.h:59:        JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/runtime/WeakGCMap.h:40:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/shell/PlatformManx.cmake:1:if (ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/shell/PlatformManx.cmake:7:endif (ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrInterpreter.h:341:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.h:30:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.h:53:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.h:219:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.h:262:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/JavaScriptCore/yarr/YarrPattern.h:417:    JSCBRIDGE_MAKE_SHARED_DATA_ALLOCATED;
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/ANGLE/src/compiler/translator/ShaderLangOrbis.h:6:#ifndef _ORBIS_COMPILER_INTERFACE_INCLUDED_
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/ANGLE/src/compiler/translator/ShaderLangOrbis.h:7:#define _ORBIS_COMPILER_INTERFACE_INCLUDED_
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/ANGLE/src/compiler/translator/ShaderLangOrbis.h:90:#endif // _ORBIS_COMPILER_INTERFACE_INCLUDED_
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/gtest/include/gtest/internal/gtest-port.h:222:#elif defined __ORBIS__
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/gtest/include/gtest/internal/gtest-port.h:223:#define GTEST_OS_ORBIS 1
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/gtest/include/gtest/internal/gtest-port.h:253:#elif GTEST_OS_ORBIS
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/gtest/include/gtest/internal/gtest-port.h:501:#if !GTEST_OS_WINDOWS_MOBILE && !GTEST_OS_SYMBIAN && !GTEST_OS_ORBIS
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/gtest/include/gtest/internal/gtest-port.h:625:#if GTEST_OS_ORBIS
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/gtest/include/gtest/internal/gtest-port.h:633:#endif  // GTEST_OS_ORBIS
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/ThirdParty/gtest/src/gtest.cc:2618:#if GTEST_OS_WINDOWS_MOBILE || GTEST_OS_SYMBIAN || GTEST_OS_ZOS || GTEST_OS_ORBIS
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Assertions.cpp:315:#if !defined(__ORBIS__)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Assertions.h:165:#if defined(__ORBIS__)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/DateMath.cpp:126:#if COMPILER(MINGW) || OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/DisallowCType.h:43:#if !(OS(DARWIN) && PLATFORM(GTK)) && !PLATFORM(EFL) && !defined(_LIBCPP_VERSION) && !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/ExportMacros.h:49:#if OS(WINDOWS) || OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/GregorianDateTime.cpp:71:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/HashTable.h:26:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/HashTable.h:53:#elif OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/MallocPtr.h:33:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/NumberOfCores.cpp:61:#elif (OS(LINUX) || OS(AIX) || OS(SOLARIS) || OS(OPENBSD) || OS(NETBSD) || OS(FREEBSD)) && !OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/OSAllocatorPosix.cpp:40:#if defined(__ORBIS__) && ENABLE(SPLITPROC_JIT)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/OSAllocatorPosix.cpp:115:#if defined(__ORBIS__) && ENABLE(SPLITPROC_JIT)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/OSAllocatorPosix.cpp:196:#if defined(__ORBIS__) && ENABLE(SPLITPROC_JIT)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Platform.h:399:/* OS(ORBIS) - Sony Playstation4 */
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Platform.h:400:#if defined(__ORBIS__)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Platform.h:401:#define WTF_OS_ORBIS 1
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Platform.h:593:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Platform.h:616:#if !OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Platform.h:645:#if !OS(WINDOWS) && !OS(SOLARIS) && !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Platform.h:668:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Platform.h:678:#endif /* OS(ORBIS) */
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/PlatformManx.cmake:20:    ${LIBJSCBRIDGE_INCLUDE_DIRS}
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/RAMSize.cpp:74:#elif OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/RandomNumberSeed.h:50:#elif OS(UNIX) && !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/ThreadingPthreads.cpp:62:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/ThreadingPthreads.cpp:179:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/ThreadingPthreads.cpp:197:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/ThreadingPthreads.cpp:206:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/ThreadingPthreads.cpp:221:#elif OS(ORBIS) && !OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/ThreadingPthreads.cpp:346:#if OS(ORBIS) && !OS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/VMTags.h:59:#elif OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/Vector.h:24:#include <bridge/Memory.h>
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WTF/wtf/manx/OSAllocatorManx.cpp:30:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/PlatformManx.cmake:13:    ${LIBJSCBRIDGE_INCLUDE_DIRS}
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/dom/ElementRareData.cpp:45:#if !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/dom/NodeRareData.cpp:41:#if !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/dom/TreeScope.cpp:53:#if !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/html/HTMLSelectElement.cpp:1302:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/html/canvas/WebGLTexture.cpp:36:#if PLATFORM(MANX) && OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/loader/FTPDirectoryParser.cpp:40:#elif PLATFORM(MANX) && OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/loader/cache/CachedResourceLoader.cpp:81:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/loader/cache/CachedResourceLoader.cpp:784:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/page/FrameView.cpp:4540:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/page/NavigatorBase.cpp:51:#elif OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/ScrollableArea.cpp:57:#if !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/GraphicsContext3D.h:45:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/GraphicsContext3D.h:802:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/GraphicsContext3D.h:1429:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/manx/GraphicsContext3DManx.cpp:32:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/manx/GraphicsContext3DManx.cpp:311:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/manx/GraphicsContext3DPrivate.cpp:29:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/manx/GraphicsContext3DPrivate.cpp:48:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/manx/GraphicsContext3DPrivate.cpp:238:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/manx/GraphicsContext3DPrivate.h:47:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/manx/GraphicsContext3DPrivate.h:71:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/manx/OpenGLManx.cpp:46:    static PFNGLGLTEXIMAGE2DCANVASORBISSCEPROC proc = getProcAddress<PFNGLGLTEXIMAGE2DCANVASORBISSCEPROC>("glOrbisTexImageCanvas2DSCE");
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/opengl/GraphicsContext3DOpenGLES.cpp:40:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/opengl/GraphicsContext3DOpenGLES.cpp:89:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/opengl/GraphicsContext3DOpenGLES.cpp:96:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/opengl/GraphicsContext3DOpenGLES.cpp:121:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/surfaces/GraphicsSurfaceToken.h:40:#elif OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/texmap/BitmapTextureGL.cpp:45:#if !USE(TEXMAP_OPENGL_ES_2) || OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/texmap/BitmapTextureGL.cpp:142:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/texmap/BitmapTextureGL.cpp:314:#if !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/texmap/TextureMapperGL.cpp:692:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/graphics/texmap/TextureMapperGL.h:126:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/manx/FileSystemManx.cpp:201:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/platform/manx/FileSystemManx.cpp:250:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/rendering/RootInlineBox.cpp:55:#if !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/rendering/style/FillLayer.cpp:41:#if !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebCore/rendering/style/RenderStyle.cpp:82:#if !OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/Platform/IPC/Arguments.h:31:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/PlatformManx.cmake:136:    ${LIBJSCBRIDGE_INCLUDE_DIRS}
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/PlatformManx.cmake:147:if (ORBIS AND MANX_ENABLE_SPLITPROC_JIT)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/Shared/API/APIClient.h:31:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/Shared/API/c/WKBase.h:49:#if defined(__ORBIS__)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/Shared/API/c/WKDeclarationSpecifiers.h:33:#elif defined(__ORBIS__)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/Shared/API/c/WKString.h:42:    && !defined(__ORBIS__)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/Shared/CoordinatedGraphics/CoordinatedGraphicsArgumentCoders.cpp:574:#elif OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/Shared/CoordinatedGraphics/CoordinatedGraphicsArgumentCoders.cpp:592:#elif OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/UIProcess/API/C/WKAPICast.h:586:#if defined(__ORBIS__)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/UIProcess/CoordinatedGraphics/PageViewportController.cpp:150:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/UIProcess/CoordinatedGraphics/PageViewportController.cpp:201:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/UIProcess/CoordinatedGraphics/PageViewportController.cpp:230:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/UIProcess/CoordinatedGraphics/PageViewportController.cpp:363:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/UIProcess/InspectorServer/manx/WebSocketServerManx.cpp:96:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/UIProcess/manx/ManxWebView.cpp:51:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/UIProcess/manx/ManxWebView.cpp:361:#if USE(COORDINATED_GRAPHICS_MULTIPROCESS) && OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/UIProcess/manx/ManxWebView.h:284:#if USE(COORDINATED_GRAPHICS_MULTIPROCESS) && OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/WebProcess/WebPage/CoordinatedGraphics/CoordinatedLayerTreeHost.cpp:279:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/WebProcess/WebPage/CoordinatedGraphics/CoordinatedLayerTreeHost.h:32:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/WebProcess/WebPage/CoordinatedGraphics/CoordinatedLayerTreeHost.h:104:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/WebProcess/WebPage/CoordinatedGraphics/CoordinatedLayerTreeHost.messages.in:29:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/WebKit2/WebProcess/WebPage/WebPage.cpp:1297:#if OS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/AsyncTask.h:37:#if BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/AsyncTask.h:120:#if BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/BPlatform.h:46:#ifdef __ORBIS__
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/BPlatform.h:47:#define BOS_ORBIS 1
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/Chunk.h:68:#if BPLATFORM(IOS) || BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/LargeChunk.h:72:#if BPLATFORM(IOS) || BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/Sizes.h:49:#if BPLATFORM(IOS) || BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/StaticMutex.cpp:31:#if !BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/StaticMutex.h:35:#if BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/StaticMutex.h:54:#if !BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/StaticMutex.h:59:#if BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/StaticMutex.h:65:#if BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/StaticMutex.h:95:#if BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/StaticMutex.h:99:#if !BOS(ORBIS_PUBLIC)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/VMAllocate.h:41:#if BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/VMAllocate.h:85:#if BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/bmalloc/bmalloc/VMAllocate.h:148:#elif BOS(ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/ORBIS.cmake:1:set(CMAKE_SYSTEM_NAME ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/ORBIS.cmake:5:    set(CMAKE_GENERATOR_PLATFORM ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/ORBIS.cmake:9:  PATHS ENV SCE_ORBIS_SDK_DIR
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/ORBIS.cmake:15:  PATHS ENV SCE_ORBIS_SDK_DIR
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/ORBIS.cmake:23:file(TO_CMAKE_PATH $ENV{SCE_ORBIS_SDK_DIR} sce_orbis_sdk_dir)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/OptionsManx.cmake:1:if (NOT ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/OptionsManx.cmake:32:if (ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/OptionsManx.cmake:46:    if (MANX_ORBIS_USE_PUBLIC_SDK)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/OptionsManx.cmake:268:if (ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/Platform/ORBIS.cmake:1:set(ORBIS 1)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/WebKitHelpers.cmake:23:        if (WTF_OS_ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/WebKitHelpers.cmake:30:        endif (NOT WTF_OS_ORBIS)
+/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/extracted/WebKit-601-1300-build-tree/Source/cmake/WebKitManx.cmake:1:if (ORBIS)

@@ -147,3 +147,17 @@ El informe operativo está en `homebrew/OSS_601_BUILD_RESULTS.md`.
 | Build JSC histórico | BLOCKED | Falla exactamente en `bridge/Memory.h`. |
 
 Informe: `homebrew/BRIDGE_MEMORY_FORENSICS.md`.
+
+## Contrato JSCBRIDGE
+
+| Área | Estado | Evidencia |
+|---|---|---|
+| Call sites JSCBRIDGE en 601-1300 | `CONFIRMED` | Macros, allocators, ClassInfo y split-process JIT referenciados por el código. |
+| Headers `bridge/*` | `MISSING` | `JSCBridge*.h`, `Memory.h`, `VTableMap.h`, `VirtualMethodCall.h` y `unique_ptr_*` ausentes. |
+| `LIBJSCBRIDGE_INCLUDE_DIRS` | `MISSING` | Requerido por PlatformManx de JSC, WebCore y WebKit2; proveedor no presente. |
+| `JscBridge_vm` / `SceJitBridge` | `MISSING` | Sólo nombres de link en CMake; no hay bibliotecas OSS recuperadas. |
+| PoolAllocator16K/32K | `MISSING` | Call sites visibles; implementación y contrato de ownership ausentes. |
+| vtable/class-info bridge | `MISSING` | `classInfoRegisterInstance`, `VTableMap` y virtual-call fixup sin provider. |
+| Fuente alternativa legítima compatible | `NOT_FOUND` | No apareció en variantes PS4OSS, upstream WebKit ni búsquedas públicas. |
+
+Informe: `homebrew/JSCBRIDGE_CONTRACT.md`.
