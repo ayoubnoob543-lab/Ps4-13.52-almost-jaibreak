@@ -232,3 +232,20 @@ El baseline recomendado es WebKitGTK moderno para host y una futura arquitectura
 | Sony/retail/JSCBRIDGE | `MISSING/NOT_USED` | No utilizados ni incorporados. |
 
 Detalle operativo: `homebrew/WPE_HOST_BUILD_STATUS.md`.
+
+
+## Reanudación WPE WebKit 2.52.6
+
+Se reanudó el build existente de `/tmp/wpewebkit-2.52.6-build` sin cambiar de arquitectura ni limpiar fuentes u objetos. `libwpe` 1.16.3, `WPEBackend-fdo` 1.16.1 y la configuración CMake del port WPE siguen validados. `MiniBrowser` no llegó a enlazarse: la compilación de JavaScriptCore fue terminada por el límite de recursos/tiempo del workspace durante unidades unificadas C++ pesadas; no se observó un error semántico reproducible del código WPE.
+
+| Área | Estado actualizado | Evidencia |
+|---|---|---|
+| WPE WebKit CMake | AVAILABLE/PASS | `WPE_HOST_BUILD_STATUS.md`, configuración `PORT=WPE` |
+| MiniBrowser WPE enlazado | BLOCKED | No existe ejecutable final en el build directory |
+| Smoke HTML WPE | NOT_TESTED | No se ejecutó sin ejecutable WPE |
+| DOM/CSS/JS/eventos en WPE | NOT_TESTED | No se atribuyen resultados GTK a WPE |
+| Baseline WebKitGTK | PASS independiente | `WEBKITGTK_CAPABILITY_MATRIX.md` |
+| Comparación automática WPE vs GTK | NOT_TESTED | Requiere MiniBrowser WPE funcional |
+| Compatibilidad PS4 13.52 | UNKNOWN | No se usan SDK, módulos ni ABI propietarios |
+
+El resultado de esta reanudación es `WPE_CMAKE_PASS_MINIBROWSER_BUILD_BLOCKED_BY_WORKSPACE_RESOURCES`, no `WPE_RUNTIME_PASS`.

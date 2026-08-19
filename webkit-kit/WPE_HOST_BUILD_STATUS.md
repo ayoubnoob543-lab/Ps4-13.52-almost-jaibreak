@@ -60,3 +60,45 @@ SONY_RETAIL_COMPATIBILITY = NOT_CLAIMED
 ```
 
 No se incorporan al repositorio los tarballs, árboles temporales ni binarios generados; se conservan sólo URLs, hashes, opciones y resultados reproducibles.
+
+## Reanudación posterior del build
+
+Se reanudó el mismo directorio `/tmp/wpewebkit-2.52.6-build` sin limpiar objetos ni fuentes. La configuración permaneció `PORT=WPE`, `ENABLE_MINIBROWSER=ON`, `USE_GSTREAMER=OFF` y `Release`.
+
+Los intentos realizados fueron:
+
+```text
+ninja -C /tmp/wpewebkit-2.52.6-build MiniBrowser -j2
+ninja -C /tmp/wpewebkit-2.52.6-build MiniBrowser -j4
+ninja -C /tmp/wpewebkit-2.52.6-build MiniBrowser -j1
+```
+
+El build reutilizó los headers y objetos existentes y progresó desde aproximadamente 1.296/9.222 tareas hasta la compilación de unidades de JavaScriptCore. Con `-j4` y `-j2`, los compiladores fueron terminados por la presión de memoria/límite operativo; no apareció un error semántico de C++ del proyecto. En el intento serial, 10 unidades pesadas avanzaron en aproximadamente cinco minutos, por lo que completar las 6.000+ tareas restantes no es viable dentro de este workspace temporal.
+
+El último log `/tmp/wpewebkit-background.log` contiene una terminación externa de `cc1plus` durante `UnifiedSource-f0a787a9-2.cpp`; los mensajes de assembler truncado son consecuencia de esa terminación y no constituyen un diagnóstico válido del código fuente. No existe `MiniBrowser` enlazado ni biblioteca final WPE WebKit.
+
+El workspace conserva aproximadamente 2,6 GB libres, 3,8 GB de RAM total y 2 GB de swap. No se eliminaron fuentes, hashes ni resultados necesarios. Los artefactos del build siguen siendo regenerables y temporales.
+
+## Estado actualizado de smoke/comparación
+
+No se ejecutó ningún smoke WPE porque no existe un ejecutable WPE WebKit enlazado. Los resultados de WebKitGTK permanecen exclusivamente como baseline independiente documentado en `WEBKITGTK_CAPABILITY_MATRIX.md`; no se presentan como resultados WPE.
+
+| Capacidad | WebKitGTK baseline | WPE 2.52.6 en este workspace | Comparación automática |
+|---|---|---|---|
+| DOM | PASS | NOT_TESTED | NOT_TESTED |
+| Flexbox/Grid | PASS | NOT_TESTED | NOT_TESTED |
+| CSS | PASS | NOT_TESTED | NOT_TESTED |
+| JavaScript | PASS | NOT_TESTED | NOT_TESTED |
+| Eventos | PASS | NOT_TESTED | NOT_TESTED |
+| Formularios | PASS | NOT_TESTED | NOT_TESTED |
+| SVG/imágenes | PASS | NOT_TESTED | NOT_TESTED |
+| Canvas | PASS | NOT_TESTED | NOT_TESTED |
+| localStorage | PASS | NOT_TESTED | NOT_TESTED |
+| Navegación page1→page2→page3 | PASS | NOT_TESTED | NOT_TESTED |
+
+```text
+WPEWEBKIT_CMAKE = PASS
+WPE_MINIBROWSER_BUILD = BLOCKED_BY_WORKSPACE_RESOURCES
+WPE_HTML_SMOKE = NOT_TESTED
+WPE_VS_GTK_COMPARISON = NOT_TESTED
+```
