@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "target": {
+    "firmware": "13.52",
+    "status": "no exact public WebKit 13.52 source listed by Sony",
+    "kernel6_bytes": "missing",
+    "retail_orbis_sdk": "not included"
+  },
+  "closest_public_webkit_sources": [
+    {
+      "name": "Sony WebKit 601 1300",
+      "url": "https://www.playstation.com/content/dam/global_pdc/en-us/external-resources/oss/ps4/webkit/WebKit-601-1300.zip",
+      "firmware_range": "13.00-13.04",
+      "sha256": "dc2a7584695474c9b878dcfdc16b2358bda61041053220b146320d6cfed3f02b",
+      "classification": "STRUCTURAL_NEAREST_PUBLIC",
+      "note": "Official archive downloaded and hashed locally; source is 13.00-13.04, not 13.52."
+    },
+    {
+      "name": "Sony WebKit 616 1300",
+      "url": "https://www.playstation.com/content/dam/global_pdc/en-us/external-resources/oss/ps4/webkit/WebKit-616-1300.zip",
+      "firmware_range": "13.00-13.04",
+      "sha256": null,
+      "classification": "STRUCTURAL_NEAREST_PUBLIC",
+      "note": "Hash must be recorded after the user downloads the official archive; it is not fabricated here."
+    }
+  ],
+  "toolchain": {
+    "name": "OpenOrbis PS4 Toolchain",
+    "url": "https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain.git",
+    "ref": "master",
+    "commit": "0a1aaf9dd4a92695538bdeb09fb056d06dd11725",
+    "classification": "LEGAL_OPEN_TOOLCHAIN",
+    "limitations": [
+      "Does not include Sony proprietary SDK headers or internal Orbis WebKit libraries.",
+      "Does not by itself make WebKit source compatible with PS4 13.52.",
+      "LLVM/LLD binaries must be installed or built separately and hashed by the user."
+    ]
+  },
+  "source_corpus": {
+    "name": "PS4OSSCode",
+    "url": "https://github.com/FreeBSDKernel9-0/PS4OSSCode.git",
+    "ref": "main",
+    "commit": "d636699770323d7968a2c37955aa513bda5f8a37",
+    "classification": "STRUCTURAL_OSS_CORPUS",
+    "limitations": [
+      "Sony proprietary modifications and retail binaries are not included.",
+      "The corpus contains 13.00-13.04-era source, not a verified 13.52 source tree."
+    ]
+  }
+}
