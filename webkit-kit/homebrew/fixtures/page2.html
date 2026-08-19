@@ -1,5 +1,5 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>WebKitGTK navigation target</title>
+<title>WebKitGTK page two</title>
 <script>window.page2Ready = true;</script>
-<body><p id="destination">navigation-ok</p></body>
+<body><p id="destination">page2-ok</p><button id="nav">event-target</button><script>document.getElementById('nav').addEventListener('custom', () => { document.getElementById('nav').dataset.seen='yes'; });</script></body>

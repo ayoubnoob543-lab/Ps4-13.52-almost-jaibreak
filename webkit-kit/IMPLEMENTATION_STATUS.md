@@ -210,3 +210,11 @@ Informe: `WEBKIT_ROUTE_COMPARISON.md`.
 | PS4/Orbis/13.52 compatibility | `UNKNOWN` |
 
 Detalle: `WEBKITGTK_MODERN_PROTOTYPE.md`.
+
+## Matriz WebKitGTK ampliada y WPE
+
+El smoke moderno valida DOM complejo, flexbox, CSS Grid, animación CSS, JavaScript, eventos, formularios, SVG, imagen data URI, canvas 2D, localStorage y navegación `file://` de tres páginas. Resultado: `VALIDATED` en host con WebKitGTK 2.52.3.
+
+La evaluación WPE usa headers públicos de libwpe commit `445a0b5579aba7eca619973ca476bb5291a85cf5`. Las interfaces públicas de view backend, renderer host/EGL, input, loader, pasteboard y gamepad están documentadas, pero `libwpe-1.0-dev` no está disponible en los repositorios configurados y no se compiló WPE.
+
+El baseline recomendado es WebKitGTK moderno para host y una futura arquitectura inspirada en WPE para separar WebKit/WebCore/JSC de ventana, input y compositor. OpenOrbis/Orbis sigue `MISSING/UNKNOWN` para un backend WebKit; PS4 13.52 no se afirma compatible.

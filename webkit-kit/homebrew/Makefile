@@ -40,17 +40,18 @@ minimal-browser-smoke: $(BROWSER_TARGET)
 	grep -q 'jsc-host-available' $(BUILD_DIR)/minimal-browser-output.txt
 	grep -q '"engine":"JavaScriptCore-GTK-host","passed":true' $(BUILD_DIR)/minimal-browser-output.txt
 
-$(MODERN_TARGET): $(MODERN_SOURCES) fixtures/page1.html fixtures/page2.html | $(BUILD_DIR)
+$(MODERN_TARGET): $(MODERN_SOURCES) fixtures/page1.html fixtures/page2.html fixtures/page3.html | $(BUILD_DIR)
 	@test -n "$(WEBKIT_LIBS)" || (echo 'webkit2gtk-4.1 development package is required' >&2; exit 1)
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(WEBKIT_CFLAGS) $(MODERN_SOURCES) $(WEBKIT_LIBS) -o $@
 
 modern-webkit-smoke: $(MODERN_TARGET)
 	rm -rf /tmp/webkit-kit-modern-smoke
 	mkdir -p /tmp/webkit-kit-modern-smoke
-	cp fixtures/page1.html fixtures/page2.html /tmp/webkit-kit-modern-smoke/
+	cp fixtures/page1.html fixtures/page2.html fixtures/page3.html /tmp/webkit-kit-modern-smoke/
 	xvfb-run -a -s '-screen 0 1280x800x24' $(MODERN_TARGET) > $(BUILD_DIR)/modern-webkitgtk-output.txt
-	grep -q 'stage=1 result=yes|yes|clicked|120px|40px' $(BUILD_DIR)/modern-webkitgtk-output.txt
-	grep -q 'stage=2 result={"url":true,"dom":"navigation-ok","js":true}' $(BUILD_DIR)/modern-webkitgtk-output.txt
+	grep -q 'stage=1 result={"dom":true,"event":true,"text":"clicked","flex":true,"grid":true,"animation":true,"form":true,"svg":true,"image":true,"canvas":true,"storage":true}' $(BUILD_DIR)/modern-webkitgtk-output.txt
+	grep -q 'stage=2 result={"page":true,"storage":true,"dom":"page2-ok","js":true,"event":true}' $(BUILD_DIR)/modern-webkitgtk-output.txt
+	grep -q 'stage=3 result={"page":true,"history":true,"dom":true,"js":true}' $(BUILD_DIR)/modern-webkitgtk-output.txt
 
 clean:
 	rm -rf build

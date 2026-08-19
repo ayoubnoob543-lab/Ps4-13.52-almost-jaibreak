@@ -1,0 +1,12 @@
+Official public libwpe source inspected from https://github.com/WebPlatformForEmbedded/libwpe.git at commit 445a0b5579aba7eca619973ca476bb5291a85cf5.
+
+Headers include view-backend.h, renderer-host.h, renderer-backend-egl.h, input.h, loader.h, pasteboard.h, process.h and wpe.h. Public interface groups verified:
+
+- view backend: create/destroy, set_fdo, set_size, get_renderer_host, set/get user data, set client, dispatch keyboard/pointer/touch/axis events, dispatch fullscreen change, set device scale factor, get width/height, get renderer host, lock/unlock pointer.
+- renderer host: create/destroy and create_client hooks.
+- EGL renderer backend: create/destroy, get_native_display, get_platform; target create/destroy, set_client, initialize, get_native_window, resize, frame_will_render, frame_rendered, deinitialize; offscreen target create/destroy/initialize/get_native_window; target client frame_complete.
+- input: keyboard, pointer, pointer-lock, axis, touch event structures and key/unicode conversion helpers.
+- loader: load_object and initialization by implementation library name.
+- pasteboard/gamepad/process interfaces are separate public facilities.
+
+The Ubuntu package repositories in this environment did not provide libwpe-1.0-dev, so no WPE build was attempted locally. These interfaces are public libwpe contracts, not Sony/Orbis APIs and do not imply PS4 compatibility.
