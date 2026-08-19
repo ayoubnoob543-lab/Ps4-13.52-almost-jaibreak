@@ -249,3 +249,26 @@ Se reanudó el build existente de `/tmp/wpewebkit-2.52.6-build` sin cambiar de a
 | Compatibilidad PS4 13.52 | UNKNOWN | No se usan SDK, módulos ni ABI propietarios |
 
 El resultado de esta reanudación es `WPE_CMAKE_PASS_MINIBROWSER_BUILD_BLOCKED_BY_WORKSPACE_RESOURCES`, no `WPE_RUNTIME_PASS`.
+
+
+## Investigación profunda de portabilidad WebKit/WPE
+
+Se añadió `WPE_PORTABILITY_RESEARCH.md`, un informe técnico exclusivamente WebKit/WPE que separa engine, WebCore/JSC, libwpe, backend, renderer, input, event loop, red, almacenamiento y presentación. La evidencia fuente usada incluye el tag público WebKit `webkitgtk-2.52.6` (commit `4fb33923db2f945803df49546f75867980365c08`), los headers públicos libwpe 1.16.3 y el WPEBackend-fdo 1.16.1 versionado.
+
+Se añadió `tools/audit_wpe_interfaces.py` y su salida `wpe-interface-audit.json`. La auditoría estática detecta los cinco headers públicos de libwpe (`loader`, `renderer-host`, `renderer-backend-egl`, `view-backend` e `input`), las interfaces loader/host/EGL/view, 53 funciones o contratos relevantes y siete archivos fuente WPE selectivos. El script no ejecuta código, no compila y no genera stubs.
+
+| Área | Estado actualizado |
+|---|---|
+| Separación WebKit/libwpe/backend | `CONFIRMED_BY_SOURCE_AND_PUBLIC_DOCS` |
+| Contrato loader/renderer/view/input | `PUBLIC/AVAILABLE` |
+| WPEBackend-fdo como backend Linux | `HOST_ONLY/BUILD_PASS` |
+| WPE WebKit CMake 2.52.6 | `SOURCE_AVAILABLE/CONFIGURED` |
+| MiniBrowser WPE enlazado | `BLOCKED_BY_WORKSPACE_RESOURCES` |
+| Smoke WPE DOM/CSS/JS/rendering | `NOT_TESTED` |
+| WebCore/JSC común | `PORTABLE_WITH_PLATFORM_CONTRACT` |
+| JSCOnly host route | `PUBLIC_ROUTE/RECOMMENDED_NEXT_TEST` |
+| Backend alternativo no-GTK | `MISSING` |
+| OpenOrbis/Orbis backend WebKit | `MISSING/UNKNOWN` |
+| PS4/retail 13.52 compatibility | `UNKNOWN/NOT_CLAIMED` |
+
+La cobertura se expresa por cadena: la infraestructura host de fuente/configuración/libwpe/backend alcanza aproximadamente 38% de los ocho bloques de una cadena completa; el runtime WPE end-to-end sigue en 0% validado en esta sesión. WebKitGTK permanece únicamente como baseline independiente.

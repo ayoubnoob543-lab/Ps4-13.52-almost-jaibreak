@@ -1,0 +1,300 @@
+{
+  "classification": [
+    {
+      "component": "libwpe public C API",
+      "evidence": "headers/loader, renderer and input contracts",
+      "status": "PUBLIC"
+    },
+    {
+      "component": "WebKit WPE port source",
+      "evidence": "PlatformWPE and WPE marker scan",
+      "status": "AVAILABLE"
+    },
+    {
+      "component": "WPEBackend-fdo implementation",
+      "evidence": "reference Linux/Freedesktop backend; not a target backend",
+      "status": "HOST_ONLY"
+    },
+    {
+      "component": "target renderer/display implementation",
+      "evidence": "must provide native display/window or an offscreen path",
+      "status": "MISSING"
+    },
+    {
+      "component": "target input translation",
+      "evidence": "must translate platform events to wpe_input_* structures",
+      "status": "MISSING"
+    },
+    {
+      "component": "target process IPC/FD transport",
+      "evidence": "backend/application integration owns transport details",
+      "status": "MISSING"
+    },
+    {
+      "component": "WebCore/JSC portable engine",
+      "evidence": "portable source, still requires a complete platform/build contract",
+      "status": "PORTABLE"
+    },
+    {
+      "component": "PS4/Orbis ABI or SDK",
+      "evidence": "not inspected or supplied; deliberately out of scope",
+      "status": "UNKNOWN"
+    }
+  ],
+  "libwpe": {
+    "headers": [
+      {
+        "functions": [
+          "wpe_key_code_to_unicode ",
+          "wpe_unicode_to_key_code "
+        ],
+        "interfaces": [],
+        "path": "/tmp/wpe-header-audit/input.h",
+        "structs": [
+          "wpe_input_axis_2d_event",
+          "wpe_input_axis_event",
+          "wpe_input_keyboard_event",
+          "wpe_input_pointer_event",
+          "wpe_input_pointer_lock_event",
+          "wpe_input_touch_event",
+          "wpe_input_touch_event_raw"
+        ]
+      },
+      {
+        "functions": [
+          "wpe_loader_get_loaded_implementation_library_name",
+          "wpe_loader_init"
+        ],
+        "interfaces": [
+          "wpe_loader_interface"
+        ],
+        "path": "/tmp/wpe-header-audit/loader.h",
+        "structs": [
+          "wpe_loader_interface"
+        ]
+      },
+      {
+        "functions": [
+          "wpe_renderer_backend_egl_create",
+          "wpe_renderer_backend_egl_destroy",
+          "wpe_renderer_backend_egl_get_native_display",
+          "wpe_renderer_backend_egl_get_platform",
+          "wpe_renderer_backend_egl_offscreen_target_create",
+          "wpe_renderer_backend_egl_offscreen_target_destroy",
+          "wpe_renderer_backend_egl_offscreen_target_get_native_window",
+          "wpe_renderer_backend_egl_offscreen_target_initialize",
+          "wpe_renderer_backend_egl_target_create",
+          "wpe_renderer_backend_egl_target_deinitialize",
+          "wpe_renderer_backend_egl_target_destroy",
+          "wpe_renderer_backend_egl_target_dispatch_frame_complete",
+          "wpe_renderer_backend_egl_target_frame_rendered",
+          "wpe_renderer_backend_egl_target_frame_will_render",
+          "wpe_renderer_backend_egl_target_get_native_window",
+          "wpe_renderer_backend_egl_target_initialize",
+          "wpe_renderer_backend_egl_target_resize",
+          "wpe_renderer_backend_egl_target_set_client"
+        ],
+        "interfaces": [
+          "wpe_renderer_backend_egl_interface",
+          "wpe_renderer_backend_egl_offscreen_target_interface",
+          "wpe_renderer_backend_egl_target_interface"
+        ],
+        "path": "/tmp/wpe-header-audit/renderer-backend-egl.h",
+        "structs": [
+          "wpe_renderer_backend_egl",
+          "wpe_renderer_backend_egl_base",
+          "wpe_renderer_backend_egl_interface",
+          "wpe_renderer_backend_egl_offscreen_target",
+          "wpe_renderer_backend_egl_offscreen_target_base",
+          "wpe_renderer_backend_egl_offscreen_target_interface",
+          "wpe_renderer_backend_egl_target",
+          "wpe_renderer_backend_egl_target_base",
+          "wpe_renderer_backend_egl_target_client",
+          "wpe_renderer_backend_egl_target_interface"
+        ]
+      },
+      {
+        "functions": [
+          "wpe_renderer_host_create_client"
+        ],
+        "interfaces": [
+          "wpe_renderer_host_interface"
+        ],
+        "path": "/tmp/wpe-header-audit/renderer-host.h",
+        "structs": [
+          "wpe_renderer_host_base",
+          "wpe_renderer_host_interface"
+        ]
+      },
+      {
+        "functions": [
+          "wpe_view_backend_add_activity_state",
+          "wpe_view_backend_create",
+          "wpe_view_backend_create_with_backend_interface",
+          "wpe_view_backend_destroy",
+          "wpe_view_backend_dispatch_axis_event",
+          "wpe_view_backend_dispatch_did_enter_fullscreen",
+          "wpe_view_backend_dispatch_did_exit_fullscreen",
+          "wpe_view_backend_dispatch_frame_displayed",
+          "wpe_view_backend_dispatch_get_accessible",
+          "wpe_view_backend_dispatch_keyboard_event",
+          "wpe_view_backend_dispatch_pointer_event",
+          "wpe_view_backend_dispatch_pointer_lock_event",
+          "wpe_view_backend_dispatch_request_enter_fullscreen",
+          "wpe_view_backend_dispatch_request_exit_fullscreen",
+          "wpe_view_backend_dispatch_set_device_scale_factor",
+          "wpe_view_backend_dispatch_set_size",
+          "wpe_view_backend_dispatch_touch_event",
+          "wpe_view_backend_get_activity_state",
+          "wpe_view_backend_get_renderer_host_fd",
+          "wpe_view_backend_get_target_refresh_rate",
+          "wpe_view_backend_initialize",
+          "wpe_view_backend_platform_set_fullscreen",
+          "wpe_view_backend_remove_activity_state",
+          "wpe_view_backend_request_pointer_lock",
+          "wpe_view_backend_request_pointer_unlock",
+          "wpe_view_backend_set_backend_client",
+          "wpe_view_backend_set_fullscreen_client",
+          "wpe_view_backend_set_fullscreen_handler",
+          "wpe_view_backend_set_input_client",
+          "wpe_view_backend_set_pointer_lock_handler",
+          "wpe_view_backend_set_target_refresh_rate"
+        ],
+        "interfaces": [
+          "wpe_view_backend_interface"
+        ],
+        "path": "/tmp/wpe-header-audit/view-backend.h",
+        "structs": [
+          "wpe_input_axis_event",
+          "wpe_input_keyboard_event",
+          "wpe_input_pointer_event",
+          "wpe_input_pointer_lock_event",
+          "wpe_input_touch_event",
+          "wpe_view_backend",
+          "wpe_view_backend_base",
+          "wpe_view_backend_client",
+          "wpe_view_backend_fullscreen_client",
+          "wpe_view_backend_input_client",
+          "wpe_view_backend_interface"
+        ]
+      }
+    ],
+    "root": "/tmp/wpe-header-audit",
+    "status": "PUBLIC"
+  },
+  "mode": "static-only",
+  "not_claimed": [
+    "PS4 compatibility",
+    "retail ABI",
+    "functional target backend",
+    "hardware rendering"
+  ],
+  "schema": "webkit-kit/wpe-interface-audit-v1",
+  "webkit": {
+    "cmake_libraries": [],
+    "files_scanned": 22,
+    "platform_markers": {},
+    "process_outputs": [],
+    "root": "/tmp/wpe-source-audit",
+    "status": "AVAILABLE",
+    "wpe_files": [
+      {
+        "marker_count": 5,
+        "marker_lines": [
+          3353,
+          4969,
+          4985,
+          5177,
+          5508
+        ],
+        "path": "/tmp/wpe-source-audit/Source_WebCore_page_EventHandler.cpp"
+      },
+      {
+        "marker_count": 5,
+        "marker_lines": [
+          150,
+          154,
+          238,
+          284,
+          342
+        ],
+        "path": "/tmp/wpe-source-audit/Source_WebCore_platform_graphics_egl_GLContext.cpp"
+      },
+      {
+        "marker_count": 10,
+        "marker_lines": [
+          22,
+          45,
+          71,
+          76,
+          77,
+          79,
+          86,
+          94,
+          104,
+          109
+        ],
+        "path": "/tmp/wpe-source-audit/Source_WebCore_platform_graphics_egl_GLContextLibWPE.cpp"
+      },
+      {
+        "marker_count": 9,
+        "marker_lines": [
+          29,
+          58,
+          62,
+          66,
+          99,
+          105,
+          107,
+          114,
+          119
+        ],
+        "path": "/tmp/wpe-source-audit/Source_WebCore_platform_graphics_libwpe_PlatformDisplayLibWPE.cpp"
+      },
+      {
+        "marker_count": 6,
+        "marker_lines": [
+          28,
+          32,
+          42,
+          45,
+          49,
+          56
+        ],
+        "path": "/tmp/wpe-source-audit/Source_WebCore_platform_graphics_libwpe_PlatformDisplayLibWPE.h"
+      },
+      {
+        "marker_count": 14,
+        "marker_lines": [
+          2,
+          304,
+          326,
+          339,
+          451,
+          534,
+          535,
+          539,
+          544,
+          550,
+          556,
+          751,
+          754,
+          755
+        ],
+        "path": "/tmp/wpe-source-audit/Source_WebKit_PlatformWPE.cmake"
+      },
+      {
+        "marker_count": 6,
+        "marker_lines": [
+          303,
+          310,
+          432,
+          441,
+          1332,
+          1999
+        ],
+        "path": "/tmp/wpe-source-audit/Source_WebKit_WebProcess_WebProcess.cpp"
+      }
+    ]
+  }
+}
