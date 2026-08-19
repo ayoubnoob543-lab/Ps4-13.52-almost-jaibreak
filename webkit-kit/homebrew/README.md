@@ -43,3 +43,11 @@ El entorno no tiene `clang`, `ld.lld`, CMake, Ninja, Docker, un sysroot OpenOrbi
 ## Seguridad
 
 El prototipo no carga payloads externos, no busca ni invoca vulnerabilidades, no accede a una PS4, no usa binarios Sony y no afirma compatibilidad con firmware 13.52. Un smoke test host demuestra únicamente que el contrato del adaptador es coherente.
+
+## Navegador mínimo portable
+
+`src/minimal_browser_main.c` y `src/homebrew_browser.c` implementan el primer escalón de navegador: inicialización, memoria controlada, comprobación del root de filesystem, un event loop mínimo y un hilo POSIX de timer que se une antes de finalizar. La salida es textual y no abre red, GPU, memoria ejecutable ni interfaces privilegiadas.
+
+El puente `oss_webkit_bridge` separa la futura integración del motor. Una variable `WEBKIT_SOURCE_DIR` sólo registra una fuente candidata; **no basta para declarar el motor disponible**, porque aún deben generarse headers, compilar JSC/WebCore/WebKit y proporcionar un port adapter. En el entorno actual el estado es `oss-source-not-configured`.
+
+La integración real de JSC/WebCore/WebKit queda bloqueada por la ausencia de toolchain OpenOrbis, sysroot, headers target, dependencias de build y capa de plataforma. El backend gráfico permanece en `graphics=stub`. No se añadió ninguna API propietaria ni se inventó un ABI PS4.

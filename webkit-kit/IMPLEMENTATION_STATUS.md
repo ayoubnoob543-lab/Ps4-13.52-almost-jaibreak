@@ -55,3 +55,26 @@ El prototipo seguro de `homebrew/` está implementado como una frontera C portab
 | Compatibilidad real con firmware 13.52 | UNKNOWN | No hay build ni prueba en hardware |
 
 El smoke host sólo demuestra la coherencia del adaptador. No se promueve a `PS4_HOMEbrew_BUILD_PASS` ni a `WEBKIT_RETAIL_1352_CONFIRMED`.
+
+## Navegador mínimo portable
+
+Se añadió una aplicación mínima en `homebrew/` con entry point, arena de memoria, comprobación de filesystem sobre el directorio configurado, event loop host, hilo de timer y salida de capacidades. Esta aplicación no incorpora todavía JSC/WebCore/WebKit ejecutable: el puente `oss_webkit_bridge` sólo expone si existe una ruta `WEBKIT_SOURCE_DIR` y mantiene el estado `oss-source-not-configured` o `oss-source-configured-port-adapter-required`.
+
+| Área | Estado actual | Motivo |
+|---|---|---|
+| Entry point portable | AVAILABLE | `src/minimal_browser_main.c` compila y ejecuta en host. |
+| Memoria | AVAILABLE | Arena host controlada, sin memoria ejecutable ni APIs privilegiadas. |
+| Filesystem básico | AVAILABLE | `stat()` sobre el root configurado; no hay acceso fuera del proceso. |
+| Event loop | AVAILABLE | Bucle mínimo determinista. |
+| Threads/timers | AVAILABLE | Hilo POSIX de timer con `pthread`, unido antes de salir. |
+| Salida básica | AVAILABLE | Salida textual determinista del estado. |
+| JSC OSS integrado | MISSING | No existe build system/sysroot/dependencias configuradas para compilarlo aquí. |
+| WebCore OSS integrado | MISSING | Requiere generar headers, port layer y dependencias de WebKit. |
+| WebKit UI/platform layer | MISSING | Requiere backend de plataforma y contrato target. |
+| Backend gráfico host | UNKNOWN | No añadido; el prototipo declara `graphics=stub`. |
+| Backend gráfico PS4 público suficiente | UNKNOWN | No demostrable con las APIs presentes. |
+| Toolchain OpenOrbis | MISSING | No se detectan `clang`, `ld.lld`, CMake, Ninja ni instalación OpenOrbis. |
+| Sysroot/headers OpenOrbis | MISSING | No presentes en el entorno. |
+| Ejecución PS4 real | UNKNOWN | No hay dispositivo ni método de desarrollo conectado. |
+
+El resultado de esta fase es `MINIMAL_HOST_BROWSER_AVAILABLE`; la transición a `PS4_HOMEBREW_BROWSER` permanece bloqueada por toolchain/sysroot/ABI y backend de plataforma.
