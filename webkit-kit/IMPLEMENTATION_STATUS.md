@@ -95,3 +95,21 @@ Se instaló legalmente desde los repositorios Ubuntu la dependencia pública `li
 | PS4/retail 13.52 | MISSING/UNKNOWN | No se añadieron módulos Sony, SDK retail ni afirmaciones de compatibilidad. |
 
 El estado de esta fase es `HOST_JSC_SMOKE_AVAILABLE`; no es `WEBKIT_OSS_PS4_BUILD_AVAILABLE` ni `WEBKIT_RETAIL_1352_CONFIRMED`.
+
+## Build OSS histórico PS4OSSCode
+
+La familia más adecuada quedó identificada como `WebKit-601-1300/WebKit-601-1300`, commit `d636699770323d7968a2c37955aa513bda5f8a37`. Sus archivos de CMake/JSC/WTF/WebCore/WebKit están confirmados en los objetos Git, pero no están checkoutados físicamente en el corpus agregado.
+
+| Elemento | Estado | Resultado |
+|---|---|---|
+| Fuente histórica JSC/WTF/WebCore/WebKit | AVAILABLE | Confirmada en objetos Git del corpus. |
+| CMake y port GTK históricos | AVAILABLE | Confirmados en Git; requieren archive de trabajo. |
+| Port Manx/Orbis | AVAILABLE como fuente | Requiere `ORBIS`, headers/libs públicos y plataforma gráfica. |
+| CMake/Ninja/Gperf/Bison/Flex/Perl/Python/Ruby | AVAILABLE | Herramientas presentes tras instalación/reparación pública. |
+| Configuración GTK host | BLOCKED | Falta metadata/development set, comenzando por Cairo; también faltan varios paquetes GTK/GLib. |
+| Compilación JSC histórica real | BLOCKED | La configuración no alcanzó generación de build por dependencias. |
+| Integración WebCore/WebKit histórica en minimal-browser | MISSING | No existe biblioteca histórica compilada. |
+| Build Manx/Orbis | BLOCKED | No hay sysroot/headers/libs target públicos configurados. |
+| SDK retail, módulos Sony y ABI 13.52 | MISSING | Deliberadamente no usados ni inventados. |
+
+El nuevo `tools/probe_historical_oss_build.py` y `homebrew/historical-oss-build-probe.json` dejan reproducible la diferencia entre contenido Git disponible y checkout/build disponible. El resultado de esta fase es `HISTORICAL_OSS_SOURCE_CONFIRMED` y `HOST_BUILD_BLOCKED_BY_DEPENDENCIES`; no se promociona a build WebKit compilada.

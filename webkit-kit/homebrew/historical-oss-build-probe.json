@@ -1,0 +1,50 @@
+{
+  "blockers": [
+    "GTK_PORT_REQUIRES_ARCHIVE_CHECKOUT",
+    "MANX_PORT_REQUIRES_ARCHIVE_CHECKOUT",
+    "MANX_PORT_REQUIRES_ORBIS_FLAG",
+    "MANX_PORT_REQUIRES_PUBLIC_ORBIS_HEADERS_AND_LIBS",
+    "MANX_PORT_REQUIRES_PLATFORM_GRAPHICS_DEPENDENCIES"
+  ],
+  "git_head": "d636699770323d7968a2c37955aa513bda5f8a37",
+  "git_required_files": {
+    "CMakeLists.txt": true,
+    "Source/CMakeLists.txt": true,
+    "Source/JavaScriptCore/CMakeLists.txt": true,
+    "Source/WTF/CMakeLists.txt": true,
+    "Source/cmake/OptionsGTK.cmake": true,
+    "Source/cmake/OptionsManx.cmake": true
+  },
+  "host_port_available": false,
+  "ports": [
+    "Efl",
+    "GTK",
+    "AppleWin",
+    "WinCairo",
+    "Mac",
+    "Manx"
+  ],
+  "ps4_orbis_port_present": true,
+  "required_files": {
+    "CMakeLists.txt": false,
+    "Source/CMakeLists.txt": false,
+    "Source/JavaScriptCore/CMakeLists.txt": false,
+    "Source/WTF/CMakeLists.txt": false,
+    "Source/cmake/OptionsGTK.cmake": false,
+    "Source/cmake/OptionsManx.cmake": false
+  },
+  "schema": "historical-oss-build-probe/v1",
+  "source_dir": "/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/PS4OSSCode",
+  "source_exists": true,
+  "status": "HOST_BUILD_BLOCKED",
+  "tools": {
+    "bison": "/usr/bin/bison",
+    "cmake": "/usr/bin/cmake",
+    "flex": "/usr/bin/flex",
+    "gperf": "/usr/bin/gperf",
+    "ninja": "/usr/bin/ninja",
+    "perl": "/usr/bin/perl",
+    "python": "/usr/bin/python",
+    "ruby": "/usr/bin/ruby"
+  }
+}

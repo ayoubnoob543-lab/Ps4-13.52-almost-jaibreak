@@ -61,3 +61,11 @@ La dependencia instalada en el host es `libjavascriptcoregtk-4.1-dev` versión `
 El árbol OSS PS4 ya auditado está en `/home/ubuntu/ps4-lab-1352/analysis/webkit_oss_sources_2026-08-19/PS4OSSCode`, commit `d636699770323d7968a2c37955aa513bda5f8a37`. El repositorio contiene fuentes de referencia, pero no un sistema de build host listo para compilar el árbol histórico completo dentro de este prototipo. Por ello la integración actual utiliza la API pública de JavaScriptCore GTK para probar el contrato de ejecución, mientras que el corpus PS4OSSCode permanece separado como fuente estructural.
 
 El estado `jsc-host-available-oss-source-not-configured` significa que el motor host está disponible pero no se ha configurado una ruta de árbol OSS para un port adapter. `WEBKIT_SOURCE_DIR` nunca convierte automáticamente una fuente en un motor compilado.
+
+## WebKit OSS histórico real
+
+El árbol histórico más adecuado es `WebKit-601-1300/WebKit-601-1300` dentro de `PS4OSSCode`, commit `d636699770323d7968a2c37955aa513bda5f8a37`. Sus objetos Git contienen CMake, JavaScriptCore, WTF, WebCore y los ports GTK y Manx. El checkout físico no está materializado completo, por lo que el nuevo probe registra qué archivos existen en Git y cuáles requieren un archive de trabajo.
+
+Se intentó la configuración CMake del port GTK con WebKit/WebKit2/tools desactivados. La configuración histórica avanzó hasta la detección de dependencias y quedó bloqueada por metadata de desarrollo de Cairo; el conjunto GTK completo también requiere LibSoup 2.42, GTK3/GDK3, ATK, HarfBuzz, ICU, LibXML2, LibXSLT, SQLite y otras dependencias. El espacio libre actual no permite instalar de forma segura todo el conjunto.
+
+El port `Manx` es el port Orbis/PlayStation del árbol, pero exige `ORBIS`, headers y bibliotecas públicas de plataforma, además de componentes gráficos. No se convierte en port host ni se rellenan sus variables con SDK retail o símbolos Sony.
