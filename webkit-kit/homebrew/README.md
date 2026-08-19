@@ -69,3 +69,11 @@ El árbol histórico más adecuado es `WebKit-601-1300/WebKit-601-1300` dentro d
 Se intentó la configuración CMake del port GTK con WebKit/WebKit2/tools desactivados. La configuración histórica avanzó hasta la detección de dependencias y quedó bloqueada por metadata de desarrollo de Cairo; el conjunto GTK completo también requiere LibSoup 2.42, GTK3/GDK3, ATK, HarfBuzz, ICU, LibXML2, LibXSLT, SQLite y otras dependencias. El espacio libre actual no permite instalar de forma segura todo el conjunto.
 
 El port `Manx` es el port Orbis/PlayStation del árbol, pero exige `ORBIS`, headers y bibliotecas públicas de plataforma, además de componentes gráficos. No se convierte en port host ni se rellenan sus variables con SDK retail o símbolos Sony.
+
+## Resultado de build histórico real
+
+Se materializó el árbol completo necesario para build (`Source/`, CMake, `Tools/Scripts` y `WebKitLibraries`) en el workspace de análisis. La configuración CMake del port GTK terminó correctamente después de instalar dependencias públicas y aplicar en la copia de trabajo la inclusión estándar `CheckIncludeFiles` requerida por CMake moderno.
+
+La compilación real de `JavaScriptCore` avanzó hasta fuentes WTF/JSC y se detuvo por la cabecera ausente `bridge/Memory.h`. Esa ruta no aparece en el checkout ni en los objetos Git del corpus; no se creó una cabecera inventada. Como WebCore/WebKit dependen de JSC, sus builds quedan bloqueados por la misma ausencia.
+
+El port Manx no configura en Linux: `OptionsManx.cmake` termina con `Unknown OS 'Linux'`. Su `ORBIS.cmake` requiere `orbis-clang`, `orbis-clang++` y `SCE_ORBIS_SDK_DIR`; además `FindLibmanx.cmake` y `FindPrecompiledShaders.cmake` requieren headers y bibliotecas target específicas. Todas esas dependencias permanecen separadas y marcadas como `MISSING` o `UNKNOWN`.

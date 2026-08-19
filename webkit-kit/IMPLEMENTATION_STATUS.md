@@ -113,3 +113,24 @@ La familia más adecuada quedó identificada como `WebKit-601-1300/WebKit-601-13
 | SDK retail, módulos Sony y ABI 13.52 | MISSING | Deliberadamente no usados ni inventados. |
 
 El nuevo `tools/probe_historical_oss_build.py` y `homebrew/historical-oss-build-probe.json` dejan reproducible la diferencia entre contenido Git disponible y checkout/build disponible. El resultado de esta fase es `HISTORICAL_OSS_SOURCE_CONFIRMED` y `HOST_BUILD_BLOCKED_BY_DEPENDENCIES`; no se promociona a build WebKit compilada.
+
+## Build operativo WebKit-601-1300
+
+| Componente | Estado | Evidencia actualizada |
+|---|---|---|
+| Árbol build-relevante 601-1300 materializado | AVAILABLE | `Source/`, CMake, `Tools/Scripts` y `WebKitLibraries`; 18.231 archivos, ~314 MB. |
+| Configuración CMake GTK | AVAILABLE/PASS | Configuración completa con dependencias públicas; `cmake_rc=0`. |
+| JavaScriptCore histórico | BLOCKED | Ninja falla por `bridge/Memory.h`, ausente en Git y checkout. |
+| WTF histórico | BLOCKED | Comparte la dependencia de cabecera ausente durante compilación. |
+| WebCore histórico | BLOCKED | Depende de JSC/WTF no compilados. |
+| WebKit/WebKit2 histórico | BLOCKED | No se llegó a enlazado por bloqueo de JSC. |
+| Port Manx/Orbis | BLOCKED | CMake en Linux termina con `Unknown OS 'Linux'`; no se fuerza `ORBIS`. |
+| `orbis-clang`/`orbis-clang++` | MISSING | Requeridos por `Source/cmake/ORBIS.cmake`. |
+| `SCE_ORBIS_SDK_DIR`/sysroot | MISSING | No está presente en el entorno. |
+| `manx/System.h`, `SceOrbisCompat_stub_weak` | MISSING | Requeridos por `FindLibmanx.cmake`. |
+| `precompiled_shaders.h`, `ScePrecompiledShaders_stub_weak` | MISSING | Requeridos por `FindPrecompiledShaders.cmake`. |
+| `ScePigletv2VSH_stub_weak`, `ScePosix_stub_weak` | MISSING | Referenciados por `OptionsManx.cmake`. |
+| `LIBJSCBRIDGE_INCLUDE_DIRS` | UNKNOWN/MISSING | Referenciado por `PlatformManx.cmake`; proveedor no localizado. |
+| SDK retail, `.sprx`, ABI 13.52 | MISSING | Deliberadamente no utilizados ni inventados. |
+
+El informe operativo está en `homebrew/OSS_601_BUILD_RESULTS.md`.
