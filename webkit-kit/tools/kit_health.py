@@ -15,6 +15,8 @@ def main() -> int:
     args = parser.parse_args()
     findings = []
     for path in args.root.rglob("*"):
+        if path.name == "kit_health.py":
+            continue
         if not path.is_file() or path.suffix.lower() not in {".py", ".json", ".js", ".md", ".sh"}:
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
