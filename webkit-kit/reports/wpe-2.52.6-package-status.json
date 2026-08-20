@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "runtime": "WPE WebKit 2.52.6 x86_64 package",
+  "expected_sha256": "99f09e0a1e62069d1715ee9840d18202b07c4fcdbe5c6ba79b178cb93cf59faf",
+  "status": "BLOCKED_PACKAGE_NOT_PRESENT",
+  "package_path": null,
+  "downloaded": false,
+  "official_indexes_checked": [
+    "https://wpewebkit.org/built-products/x86_64/release/stable/MiniBrowser/",
+    "https://wpewebkit.org/built-products/x86_64/release/beta/MiniBrowser/",
+    "https://wpewebkit.org/built-products/x86_64/release/nightly/MiniBrowser/"
+  ],
+  "official_index_results": {
+    "stable_LAST_IS": "MiniBrowser_wpe_2.52.3.tar.xz",
+    "beta_LAST_IS": "MiniBrowser_wpe_2.53.1.tar.xz",
+    "nightly_LAST_IS": "MiniBrowser_wpe_319501@main.tar.xz",
+    "expected_2_52_6_sha_found": false
+  },
+  "local_search_paths": [
+    "/home/ubuntu/Downloads",
+    "/home/ubuntu/upload",
+    "/home/ubuntu/wpe-bundles",
+    "/home/ubuntu/.cache/wpe",
+    "/tmp/wpe-bundles",
+    "/tmp/wpe-builds"
+  ],
+  "runtime_prerequisites": {
+    "bubblewrap": "/usr/bin/bwrap",
+    "bubblewrap_version": "0.9.0",
+    "unshare_user_namespace": "PASS",
+    "user_max_user_namespaces": 15740,
+    "glibc": "Ubuntu GLIBC 2.39-0ubuntu8.8"
+  },
+  "source_build": {
+    "path": "/tmp/wpewebkit-2.52.6-build",
+    "preserved": true,
+    "minibrowser_present": false,
+    "modified": false
+  },
+  "next_step": "Provide or mount the identified official x86_64 package archive, verify sha256sum equals expected_sha256, then extract outside Git and run the existing WPE diagnostics/smoke tooling."
+}
