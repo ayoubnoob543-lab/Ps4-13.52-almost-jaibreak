@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "runtime": "WPE WebKit 2.53.1",
+  "status": "NOT_RUN",
+  "reason": "No official 2.53.1 bundle was present in this environment",
+  "searched": [
+    "/tmp",
+    "/home/ubuntu",
+    "/home/ubuntu/Downloads",
+    "/tmp/wpe-builds",
+    "/tmp/wpewebkit-2.52.6-build/bin"
+  ],
+  "found": {
+    "MiniBrowser": null,
+    "WPEWebDriver": null,
+    "libWPEWebKit": [],
+    "libwpe": ["/tmp/wpe-prefix/lib/libwpe-1.0.so.1.9.6"],
+    "WPEBackend-fdo": ["/tmp/wpe-prefix/lib/x86_64-linux-gnu/libWPEBackend-fdo-1.0.so.1.10.2"]
+  },
+  "wpe_2526_build": {
+    "preserved": true,
+    "path": "/tmp/wpewebkit-2.52.6-build",
+    "minibrowser": null
+  },
+  "required_command_when_available": "python3 webkit-kit/tools/diagnose_wpe_minibrowser.py /ABSOLUTE/PATH/bin/MiniBrowser --prefix /ABSOLUTE/PATH --output wpe-2531-diagnostic.json && python3 webkit-kit/tools/run_wpe_headless.py --minibrowser /ABSOLUTE/PATH/bin/MiniBrowser --prefix /ABSOLUTE/PATH --headless --output wpe-2531-run.json && python3 webkit-kit/tools/compare_wpe_smoke.py wpe-2531-run.json --output wpe-2531-comparison.json && python3 webkit-kit/tools/render_wpe_report.py wpe-2531-run.json wpe-2531-comparison.json --output wpe-2531-validation-report.md"
+}
