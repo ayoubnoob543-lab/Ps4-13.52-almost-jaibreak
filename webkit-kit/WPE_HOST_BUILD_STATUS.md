@@ -102,3 +102,31 @@ WPE_MINIBROWSER_BUILD = BLOCKED_BY_WORKSPACE_RESOURCES
 WPE_HTML_SMOKE = NOT_TESTED
 WPE_VS_GTK_COMPARISON = NOT_TESTED
 ```
+
+
+## Tooling de integración y pruebas host: 2026-08-20
+
+La build principal `/tmp/wpewebkit-2.52.6-build` fue únicamente auditada en esta fase y no se modificó. El target generado sigue siendo `MiniBrowser`, con `PORT=WPE`, `ENABLE_MINIBROWSER=ON`, `ENABLE_UNIFIED_BUILDS=OFF`, `ENABLE_JIT=OFF`, `ENABLE_WEBASSEMBLY=OFF`, `USE_GSTREAMER=OFF` y `Release`. No existen todavía `bin/MiniBrowser` ni `libWPEWebKit-2.0.so` finales.
+
+Se mejoraron tres herramientas públicas del kit. `probe_host_platform.py` descubre el prefijo WPE, añade sus rutas `pkg-config`, localiza `libwpe` y `WPEBackend-fdo`, valida filesystem, storage host, TLS, fuentes y un servidor/cliente loopback opcional. `diagnose_wpe_minibrowser.py` localiza automáticamente `MiniBrowser` en rutas conocidas, inspecciona `file`, arquitectura ELF, `ldd`, símbolos dinámicos, `DT_NEEDED`, bibliotecas del bundle, prefijo WPE y un arranque acotado opcional. `run_wpe_smoke.sh` conserva la validación SHA-256 de los tres fixtures, prepara `LD_LIBRARY_PATH`, registra backend/display, detecta dependencias dinámicas faltantes y no infiere capacidades funcionales a partir de un simple arranque.
+
+Resultados independientes reproducibles del bloque:
+
+| Componente | Estado | Alcance demostrado |
+|---|---|---|
+| Adaptador software surface/renderer | PASS | Superficie RGBA, resize, checksum y exportación PPM; no es renderer WPE completo |
+| Presentación offscreen | PASS | Callback de frame y exportación software PPM |
+| Event loop host | PASS | Cola FIFO y despacho de tareas |
+| Input host | PASS | Cola y callback de eventos sintéticos; input WPE real sigue backend-dependiente |
+| Filesystem/storage host | PASS | Escritura/lectura temporal y almacenamiento host con rechazo de claves inseguras |
+| Fuentes | AVAILABLE | `fc-list` presente; no demuestra carga de fuentes por WebCore |
+| TLS | PASS | Inicialización del contexto TLS host/OpenSSL; no demuestra networking WebCore |
+| Networking | PASS | Solo servidor/cliente loopback con `--network`; red externa no se ejecuta |
+| libwpe/WPEBackend-fdo | PASS | Bibliotecas públicas localizadas en `/tmp/wpe-prefix` |
+| MiniBrowser automático | NOT_RUN | No existe candidato enlazado |
+| Smoke page1→page2→page3 | NOT_RUN | Se validan fixtures, pero no se invoca ningún WPE runtime |
+| Regresión host existente | BLOCKED | El harness `basic_capabilities.js` no está materializado en el sparse checkout |
+
+El resultado `offscreen-core: PASS` se limita al adaptador host software del kit y no se presenta como ejecución de WebKit/WPE. El resultado de WebKitGTK continúa separado como baseline; ninguna capacidad DOM/CSS/JavaScript/eventos/formularios/SVG/Canvas/localStorage/navegación se marca como PASS para WPE hasta disponer de un MiniBrowser enlazado.
+
+El camino de integración queda preparado como: `MiniBrowser` localizado → inspección ELF/ABI/dependencias → prefijo `libwpe`/`WPEBackend-fdo` y entorno → backend/display → arranque acotado → fixtures page1/page2/page3 → assertions funcionales y comparación independiente contra GTK. Si falla cualquier etapa previa, el estado se registra como `BLOCKED` o `NOT_RUN`, nunca como PASS implícito.
