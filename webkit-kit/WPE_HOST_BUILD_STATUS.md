@@ -130,3 +130,25 @@ Resultados independientes reproducibles del bloque:
 El resultado `offscreen-core: PASS` se limita al adaptador host software del kit y no se presenta como ejecución de WebKit/WPE. El resultado de WebKitGTK continúa separado como baseline; ninguna capacidad DOM/CSS/JavaScript/eventos/formularios/SVG/Canvas/localStorage/navegación se marca como PASS para WPE hasta disponer de un MiniBrowser enlazado.
 
 El camino de integración queda preparado como: `MiniBrowser` localizado → inspección ELF/ABI/dependencias → prefijo `libwpe`/`WPEBackend-fdo` y entorno → backend/display → arranque acotado → fixtures page1/page2/page3 → assertions funcionales y comparación independiente contra GTK. Si falla cualquier etapa previa, el estado se registra como `BLOCKED` o `NOT_RUN`, nunca como PASS implícito.
+
+
+## Fase de validación preparada: assertions y runner headless
+
+Se añadió un contrato explícito en `homebrew/fixtures/wpe-expected-assertions.json`. El contrato exige, por etapa, DOM, CSS, Flexbox, Grid, JavaScript, eventos, formularios, SVG, imágenes, Canvas, localStorage, historial y navegación. El resultado funcional debe ser emitido por el proceso en una línea `WPE_SMOKE_ASSERTIONS=<json>`; sin esa línea el runner clasifica el proceso como `BLOCKED`, aunque haya arrancado.
+
+`tools/run_wpe_headless.py` ejecuta una sola sesión comenzando en `page1.html`, configura `WPE_BACKEND=fdo`, `WPE_RENDERER=software` y `LIBGL_ALWAYS_SOFTWARE=1` cuando se solicita `--headless`, registra arquitectura, SHA-256 del binario, `ldd`, librerías del prefijo, entorno, tiempos y salidas. No usa Xvfb y no afirma que software offscreen sea equivalente a una ejecución WPE funcional.
+
+`tools/compare_wpe_smoke.py` compara exclusivamente assertions explícitas con el contrato esperado. `tools/render_wpe_report.py` genera el informe Markdown a partir de los JSON del runner y comparador. `tools/test_wpe_validation.py` cubre ausencia de MiniBrowser, comparación sin assertions y coincidencia exacta del contrato; sus casos son pruebas del tooling, no resultados WebKit.
+
+Estado ejecutado en este workspace:
+
+```text
+FIXTURE_HASH_VALIDATION = PASS
+VALIDATION_UNIT_TESTS = PASS (3 tests)
+WPE_MINIBROWSER_DISCOVERY = NOT_RUN (no binary found)
+WPE_HEADLESS_RUNTIME = NOT_RUN
+WPE_ASSERTION_COMPARISON = NOT_RUN (no actual assertions)
+WPE_HTML_SMOKE = NOT_RUN
+```
+
+La ausencia de MiniBrowser no se transforma en `BLOCKED` de fixture ni en PASS implícito. Cuando aparezca el binario, el flujo reproducible será `run_wpe_headless.py` → `compare_wpe_smoke.py` → `render_wpe_report.py`, y solo un JSON con todas las assertions coincidentes podrá producir `PASS` funcional.
