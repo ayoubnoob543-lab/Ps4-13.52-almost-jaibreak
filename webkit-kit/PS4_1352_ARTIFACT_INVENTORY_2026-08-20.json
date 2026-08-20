@@ -1,0 +1,41 @@
+{
+  "conclusion": "No retail WebKit 13.52 module is present in scanned roots",
+  "expected": [
+    {
+      "artifact": "libSceNKWebKit.sprx",
+      "matches": [],
+      "role": "retail WebKit module",
+      "status": "MISSING/UNVERIFIED"
+    },
+    {
+      "artifact": "libkernel_web.sprx",
+      "matches": [],
+      "role": "browser kernel module",
+      "status": "MISSING/UNVERIFIED"
+    },
+    {
+      "artifact": "libSceLibcInternal.sprx",
+      "matches": [],
+      "role": "browser libc module",
+      "status": "MISSING/UNVERIFIED"
+    },
+    {
+      "artifact": "eboot.bin",
+      "matches": [],
+      "role": "browser executable candidate",
+      "status": "MISSING/UNVERIFIED"
+    }
+  ],
+  "found": [],
+  "roots": [
+    "/home/ubuntu/wpe-private-repo",
+    "/home/ubuntu/Downloads",
+    "/tmp"
+  ],
+  "schema": "ps4-1352-artifact-inventory-v1",
+  "scope": "static filenames and SHA-256 only; no loading/execution",
+  "structural_context": {
+    "PS4 retail WebKit 13.52 identity": "UNVERIFIED",
+    "Sony PS4 WebKit OSS source 13.00 family": "STRUCTURAL"
+  }
+}
