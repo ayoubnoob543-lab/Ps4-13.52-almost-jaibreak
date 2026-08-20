@@ -71,3 +71,24 @@ No existe una cadena pública Sony continua entre 13.00–13.04 y 13.52 en el co
 [8]: https://github.com/FreeBSDKernel9-0/PS4OSSCode/blob/d636699770323d7968a2c37955aa513bda5f8a37/WebKit-601-1300/WebKit-601-1300/Source/JavaScriptCore/heap/Heap.cpp "Sony OSS Heap.cpp blob"
 [9]: https://github.com/FreeBSDKernel9-0/PS4OSSCode/blob/d636699770323d7968a2c37955aa513bda5f8a37/WebKit-601-1300/WebKit-601-1300/Source/JavaScriptCore/runtime/ArgList.h "Sony OSS ArgList.h blob"
 [10]: https://github.com/FreeBSDKernel9-0/PS4OSSCode/blob/d636699770323d7968a2c37955aa513bda5f8a37/WebKit-601-1300/WebKit-601-1300/Source/WebCore/bindings/js/SerializedScriptValue.cpp "Sony OSS SerializedScriptValue.cpp blob"
+
+## Evidencia temporal adicional del paquete 601-1300
+
+El archivo público `WebKit-601-1300/WebKit-601-1300.txt` contiene una lista de modificaciones atribuidas a Sony Interactive Entertainment. La entrada más reciente visible es del 12 de diciembre de 2022 (`Source/cmake/WebKitHelpers.cmake`); también hay entradas de 2021, 2020 y 2019 para `OptionsManx.cmake`, `PlatformManx.cmake`, JSC y WebCore. Esto demuestra que el paquete 601-1300 conserva una historia de adaptaciones Sony/Manx que llega al menos hasta 2022, aunque el documento no asigna cada cambio a un firmware PS4 concreto.
+
+El mismo manifest menciona cambios históricos en `Source/JavaScriptCore/heap/Heap.cpp`, `runtime/ArgList.cpp`, `runtime/ArgList.h` y `runtime/JSCell.h`. No menciona explícitamente `MarkedVector`, `SerializedScriptValue.cpp`, `CloneSerializer`, `CloneDeserializer` ni `objectPool`. Por ello, el manifest prueba que hubo modificaciones Sony en zonas relacionadas con JSC/GC, pero no permite reconstruir el contenido de esos parches ni decidir si incorporan las correcciones upstream estudiadas.
+
+La referencia upstream `safari-601-branch` existe y su punta pública es `648573fb1bc8a465e645bf704d2ce60dc58eec2f`, fechada el 29 de agosto de 2016 (`Merge r204572`). No apareció una rama upstream exacta `safari-616-branch` en los refs consultados; los nombres `safari-7616*` del índice son ramas modernas distintas y no deben confundirse con la nomenclatura Sony `616-1300`.
+
+El `ChangeLog` del árbol Sony 601-1300 contiene entradas upstream hasta febrero de 2017, incluida una entrada de febrero de 2017 sobre CMake. Esto aporta un límite temporal del corpus fuente y confirma que `601-1300` no es simplemente una copia de la rama upstream `safari-601-branch` de agosto de 2016. La diferencia no identifica por sí misma una build de PS4 13.50/13.52.
+
+### Implicación para 13.50/13.52
+
+Esta nueva evidencia eleva la hipótesis de que Sony mantuvo/adaptó la familia 601 internamente durante varios años, pero no proporciona una versión Sony posterior, un commit de backport ni una correspondencia explícita con PS4 13.50 o 13.52. La clasificación sigue siendo `DIRECT` para el manifest y el contenido del corpus 601-1300, `STRONG_INDIRECT` para la existencia de mantenimiento Sony/Manx posterior, y `UNVERIFIED` para el estado de las tres familias en 13.50/13.52.
+
+## Referencias adicionales
+
+[11]: https://github.com/FreeBSDKernel9-0/PS4OSSCode/blob/d636699770323d7968a2c37955aa513bda5f8a37/WebKit-601-1300/WebKit-601-1300.txt "Sony modification manifest for WebKit-601-1300"
+[12]: https://github.com/WebKit/WebKit/commit/648573fb1bc8a465e645bf704d2ce60dc58eec2f "WebKit safari-601-branch tip"
+[13]: https://github.com/WebKit/WebKit/branches "Public WebKit branches"
+[14]: https://github.com/WebKit/WebKit/blob/main/Source/WebCore/page/Settings.yaml "WebKit upstream source reference"
