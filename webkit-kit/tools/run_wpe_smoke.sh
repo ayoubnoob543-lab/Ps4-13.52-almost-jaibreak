@@ -5,18 +5,22 @@ set -u
 # Functional PASS requires explicit output assertions supplied by the MiniBrowser wrapper.
 
 usage() {
-  printf 'Usage: %s --minibrowser PATH [--fixture-dir DIR] [--output FILE]\n' "$0"
+  printf 'Usage: %s --minibrowser PATH [--fixture-dir DIR] [--output FILE] [--webdriver-driver PATH --webdriver-browser PATH]\n' "$0"
   printf 'Environment: WPE_SMOKE_TIMEOUT (default 15), WPE_MINIBROWSER_ARGS (optional)\n'
 }
 
 MINIBROWSER=""
 FIXTURE_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/../homebrew/fixtures" && pwd)"
 OUTPUT=""
+WEBDRIVER_DRIVER=""
+WEBDRIVER_BROWSER=""
 while [ "$#" -gt 0 ]; do
   case "$1" in
     --minibrowser) MINIBROWSER=${2-}; shift 2 ;;
     --fixture-dir) FIXTURE_DIR=${2-}; shift 2 ;;
     --output) OUTPUT=${2-}; shift 2 ;;
+    --webdriver-driver) WEBDRIVER_DRIVER=${2-}; shift 2 ;;
+    --webdriver-browser) WEBDRIVER_BROWSER=${2-}; shift 2 ;;
     -h|--help) usage; exit 0 ;;
     *) printf 'Unknown argument: %s\n' "$1" >&2; usage >&2; exit 2 ;;
   esac
@@ -28,6 +32,16 @@ fi
 mkdir -p "$(dirname -- "$OUTPUT")"
 MANIFEST="$FIXTURE_DIR/fixture-manifest.json"
 TIMEOUT_SECS="${WPE_SMOKE_TIMEOUT:-15}"
+
+if [ -n "$WEBDRIVER_DRIVER" ] || [ -n "$WEBDRIVER_BROWSER" ]; then
+  if [ -z "$WEBDRIVER_DRIVER" ] || [ -z "$WEBDRIVER_BROWSER" ]; then
+    printf '{"status":"BLOCKED","reason":"both --webdriver-driver and --webdriver-browser are required"}\\n' > "$OUTPUT"
+    cat "$OUTPUT"
+    exit 2
+  fi
+  python3 "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)/run_wpe_webdriver_smoke.py" --driver "$WEBDRIVER_DRIVER" --browser "$WEBDRIVER_BROWSER" --fixtures "$FIXTURE_DIR" --output "$OUTPUT"
+  exit $?
+fi
 
 python3 - "$MINIBROWSER" "$FIXTURE_DIR" "$MANIFEST" "$OUTPUT" "$TIMEOUT_SECS" <<'PY'
 import hashlib, json, os, pathlib, shutil, subprocess, sys, time
