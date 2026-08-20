@@ -1,0 +1,141 @@
+{
+  "conclusion_guardrail": "Byte similarity or shared strings does not establish firmware, module, or WebKit identity without provenance and format metadata.",
+  "pairwise": {
+    "libkernel_sys_13.52.bin__lk_dump1.bin": {
+      "common_prefix_bytes": 159744,
+      "common_suffix_bytes": 0,
+      "compared_bytes": 159744,
+      "equal_byte_count": 159744,
+      "equal_fraction": 1.0,
+      "right_as_contiguous_substring_offsets_in_left": [
+        0
+      ],
+      "same_sha256": false,
+      "same_size": false
+    },
+    "libkernel_sys_13.52.bin__lk_dump2.bin": {
+      "common_prefix_bytes": 0,
+      "common_suffix_bytes": 3,
+      "compared_bytes": 159744,
+      "equal_byte_count": 5639,
+      "equal_fraction": 0.03530023,
+      "right_as_contiguous_substring_offsets_in_left": [
+        159744
+      ],
+      "same_sha256": false,
+      "same_size": false
+    },
+    "libkernel_sys_13.52.bin__lk_dump3.bin": {
+      "common_prefix_bytes": 0,
+      "common_suffix_bytes": 159744,
+      "compared_bytes": 159744,
+      "equal_byte_count": 15202,
+      "equal_fraction": 0.09516476,
+      "right_as_contiguous_substring_offsets_in_left": [
+        319488
+      ],
+      "same_sha256": false,
+      "same_size": false
+    },
+    "lk_dump1.bin__lk_dump2.bin": {
+      "common_prefix_bytes": 0,
+      "common_suffix_bytes": 0,
+      "compared_bytes": 159744,
+      "equal_byte_count": 5639,
+      "equal_fraction": 0.03530023,
+      "right_as_contiguous_substring_offsets_in_left": [],
+      "same_sha256": false,
+      "same_size": true
+    },
+    "lk_dump1.bin__lk_dump3.bin": {
+      "common_prefix_bytes": 0,
+      "common_suffix_bytes": 0,
+      "compared_bytes": 159744,
+      "equal_byte_count": 15202,
+      "equal_fraction": 0.09516476,
+      "right_as_contiguous_substring_offsets_in_left": [],
+      "same_sha256": false,
+      "same_size": true
+    },
+    "lk_dump2.bin__lk_dump3.bin": {
+      "common_prefix_bytes": 0,
+      "common_suffix_bytes": 3,
+      "compared_bytes": 159744,
+      "equal_byte_count": 35767,
+      "equal_fraction": 0.22390199,
+      "right_as_contiguous_substring_offsets_in_left": [],
+      "same_sha256": false,
+      "same_size": true
+    }
+  },
+  "records": [
+    {
+      "classification": "DIRECT_BYTES",
+      "entropy_bits_per_byte": 5.02669295,
+      "generic_aligned_word_summary": {
+        "canonical_like_u64_count": 10210,
+        "nontrivial_aligned_u64_count": 13936
+      },
+      "name": "libkernel_sys_13.52.bin",
+      "path": "/home/ubuntu/ps4-1352-static-audit-2026-08-20/git-blobs/libkernel_sys_13.52.bin",
+      "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+      "size": 479232,
+      "static_only": true,
+      "target_string_hits": [
+        {
+          "offset": 241434,
+          "value": "libSceLibcInternal.sprx"
+        }
+      ]
+    },
+    {
+      "classification": "DIRECT_BYTES",
+      "entropy_bits_per_byte": 6.32259823,
+      "generic_aligned_word_summary": {
+        "canonical_like_u64_count": 1727,
+        "nontrivial_aligned_u64_count": 6540
+      },
+      "name": "lk_dump1.bin",
+      "path": "/home/ubuntu/ps4-1352-static-audit-2026-08-20/git-blobs/lk_dump1.bin",
+      "sha256": "d4a9a642f85446785469750532d9353c9010ebec4373b8e9c4c06d594536da57",
+      "size": 159744,
+      "static_only": true,
+      "target_string_hits": []
+    },
+    {
+      "classification": "DIRECT_BYTES",
+      "entropy_bits_per_byte": 6.03100364,
+      "generic_aligned_word_summary": {
+        "canonical_like_u64_count": 5664,
+        "nontrivial_aligned_u64_count": 6708
+      },
+      "name": "lk_dump2.bin",
+      "path": "/home/ubuntu/ps4-1352-static-audit-2026-08-20/git-blobs/lk_dump2.bin",
+      "sha256": "e044d0e5303596df94f86190d34bee6dda8e87f9a51578d067e8d1650ca15e8d",
+      "size": 159744,
+      "static_only": true,
+      "target_string_hits": [
+        {
+          "offset": 81690,
+          "value": "libSceLibcInternal.sprx"
+        }
+      ]
+    },
+    {
+      "classification": "DIRECT_BYTES",
+      "entropy_bits_per_byte": 1.2267988,
+      "generic_aligned_word_summary": {
+        "canonical_like_u64_count": 2819,
+        "nontrivial_aligned_u64_count": 688
+      },
+      "name": "lk_dump3.bin",
+      "path": "/home/ubuntu/ps4-1352-static-audit-2026-08-20/git-blobs/lk_dump3.bin",
+      "sha256": "e31dd16ddc488851c98bc1782cfe919ece1cab2c141bd0ef7c8a9ef82fb9fdf2",
+      "size": 159744,
+      "static_only": true,
+      "target_string_hits": []
+    }
+  ],
+  "schema": "ps4-1352-blob-comparison-v1",
+  "scope": "byte-level and generic structural comparison only; no execution or exploit offsets"
+}
