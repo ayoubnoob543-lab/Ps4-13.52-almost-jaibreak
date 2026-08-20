@@ -48,6 +48,7 @@ size_t wpe_host_surface_width(const WPEHostSurface *surface);
 size_t wpe_host_surface_height(const WPEHostSurface *surface);
 size_t wpe_host_surface_stride(const WPEHostSurface *surface);
 uint64_t wpe_host_surface_checksum(const WPEHostSurface *surface);
+int wpe_host_surface_write_ppm(const WPEHostSurface *surface, const char *path);
 
 WPEHostView *wpe_host_view_new(size_t width, size_t height);
 void wpe_host_view_free(WPEHostView *view);

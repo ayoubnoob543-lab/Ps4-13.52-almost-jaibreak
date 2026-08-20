@@ -74,6 +74,7 @@ size_t wpe_host_surface_width(const WPEHostSurface *s) { return s ? s->width : 0
 size_t wpe_host_surface_height(const WPEHostSurface *s) { return s ? s->height : 0; }
 size_t wpe_host_surface_stride(const WPEHostSurface *s) { return s ? s->stride : 0; }
 uint64_t wpe_host_surface_checksum(const WPEHostSurface *s) { uint64_t h=1469598103934665603ULL; if (!s) return 0; for(size_t i=0;i<s->stride*s->height;++i){h^=s->pixels[i];h*=1099511628211ULL;} return h; }
+int wpe_host_surface_write_ppm(const WPEHostSurface *s, const char *path) { if (!s || !path) return EINVAL; FILE *f=fopen(path,"wb"); if (!f) return errno; if (fprintf(f,"P6\\n%zu %zu\\n255\\n",s->width,s->height)<0) { fclose(f); return EIO; } for(size_t y=0;y<s->height;++y) for(size_t x=0;x<s->width;++x) { const uint8_t *p=s->pixels+y*s->stride+x*4; if (fwrite(p,1,3,f)!=3) { fclose(f); return EIO; } } if (fclose(f)!=0) return EIO; return 0; }
 
 WPEHostView *wpe_host_view_new(size_t width, size_t height) { WPEHostView *v=calloc(1,sizeof(*v)); if(!v) return NULL; v->surface=wpe_host_surface_new(width,height); if(!v->surface){free(v);return NULL;} return v; }
 void wpe_host_view_free(WPEHostView *v) { if(v){wpe_host_surface_free(v->surface);free(v->inputs);free(v);} }
