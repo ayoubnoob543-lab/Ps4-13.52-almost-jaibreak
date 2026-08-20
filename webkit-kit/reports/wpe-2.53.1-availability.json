@@ -1,14 +1,34 @@
 {
-  "schema": 1,
+  "schema": 2,
   "runtime": "WPE WebKit 2.53.1",
-  "status": "NOT_RUN",
-  "reason": "No official 2.53.1 bundle was present in this environment",
-  "searched": [
-    "/tmp",
-    "/home/ubuntu",
+  "status": "BLOCKED",
+  "reason": "The official current nightly index does not contain the requested SHA-256; no mismatching bundle was downloaded",
+  "expected_sha256": "d25e7f19ca68113de5ec29344889717f3796cabff64ea8b05fd3bcd3ecb3b4f7",
+  "official_release_source_url": "https://wpewebkit.org/releases/wpewebkit-2.53.1.tar.xz",
+  "official_release_page": "https://wpewebkit.org/release/wpewebkit-2.53.1.html",
+  "official_bundle_base_url": "https://wpewebkit.org/built-products/x86_64/release/nightly/MiniBrowser/",
+  "official_bundle_index_checked": true,
+  "official_last_is": {
+    "url": "https://wpewebkit.org/built-products/x86_64/release/nightly/MiniBrowser/LAST-IS",
+    "name": "MiniBrowser_wpe_319501@main.tar.xz",
+    "sha256": "388b167c6a171b3ab6549863e4cc4cb1520c13c56d150268fac161e0ef35b722",
+    "sha256_url": "https://wpewebkit.org/built-products/x86_64/release/nightly/MiniBrowser/MiniBrowser_wpe_319501@main.sha256sum",
+    "download_url": "https://wpewebkit.org/built-products/x86_64/release/nightly/MiniBrowser/MiniBrowser_wpe_319501@main.tar.xz",
+    "downloaded": false,
+    "reason_not_downloaded": "SHA-256 does not match the requested value"
+  },
+  "sha_scan": {
+    "current_nightly_sha_files_checked": 60,
+    "expected_sha_found": false,
+    "historical_2_53_1_bundle_identified": false
+  },
+  "persistent_storage_checked": [
     "/home/ubuntu/Downloads",
-    "/tmp/wpe-builds",
-    "/tmp/wpewebkit-2.52.6-build/bin"
+    "/home/ubuntu/upload",
+    "/home/ubuntu/wpe-bundles",
+    "/home/ubuntu/.cache/wpe",
+    "/tmp/wpe-bundles",
+    "/tmp/wpe-builds"
   ],
   "found": {
     "MiniBrowser": null,
@@ -22,5 +42,6 @@
     "path": "/tmp/wpewebkit-2.52.6-build",
     "minibrowser": null
   },
+  "persistent_bundle_path": null,
   "required_command_when_available": "python3 webkit-kit/tools/diagnose_wpe_minibrowser.py /ABSOLUTE/PATH/bin/MiniBrowser --prefix /ABSOLUTE/PATH --output wpe-2531-diagnostic.json && python3 webkit-kit/tools/run_wpe_headless.py --minibrowser /ABSOLUTE/PATH/bin/MiniBrowser --prefix /ABSOLUTE/PATH --headless --output wpe-2531-run.json && python3 webkit-kit/tools/compare_wpe_smoke.py wpe-2531-run.json --output wpe-2531-comparison.json && python3 webkit-kit/tools/render_wpe_report.py wpe-2531-run.json wpe-2531-comparison.json --output wpe-2531-validation-report.md"
 }

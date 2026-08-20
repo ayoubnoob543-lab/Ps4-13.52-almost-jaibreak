@@ -3,42 +3,66 @@
 ## Estado
 
 ```text
-WPE_2531_BUNDLE = NOT_AVAILABLE_IN_THIS_ENVIRONMENT
+WPE_2531_BUNDLE = BLOCKED_EXPECTED_SHA_NOT_FOUND
 WPE_2531_DIAGNOSTIC = NOT_RUN
 WPE_2531_RUNTIME = NOT_RUN
 WPE_2531_HTML_SMOKE = NOT_RUN
 WPE_2531_COMPARISON = NOT_RUN
 ```
 
-Se buscó un bundle oficial en `/tmp`, `/home/ubuntu`, `Downloads`, `/tmp/wpe-builds` y el árbol `bin` de la build WPE 2.52.6. No se encontró `MiniBrowser`, `WPEWebDriver` ni `libWPEWebKit-2.0.so` de la versión 2.53.1. Solo están disponibles el prefijo local `libwpe` 1.16.3, `WPEBackend-fdo` 1.16.1 y la build incompleta 2.52.6, que se preservó intacta.
+Se comprobó el almacenamiento local/persistente disponible en `/home/ubuntu/Downloads`, `/home/ubuntu/upload`, `/home/ubuntu/wpe-bundles`, `/home/ubuntu/.cache/wpe`, `/tmp/wpe-bundles` y `/tmp/wpe-builds`. No apareció ningún bundle recuperable. La build `/tmp/wpewebkit-2.52.6-build` se preservó intacta y no se modificó.
 
-El checkout actualizado contiene los runners versionados `diagnose_wpe_minibrowser.py`, `run_wpe_headless.py`, `compare_wpe_smoke.py` y `render_wpe_report.py`; se materializaron únicamente desde Git mediante sparse-checkout. Se ejecutaron el diagnóstico y el runner en modo autodetección, y ambos devolvieron `NOT_RUN` porque no encontraron el bundle.
-No se descargó otra build grande, no se recompiló WebKit y no se ejecutaron assertions ni comparación funcional WPE 2.53.1. Por tanto, no existe evidencia funcional 2.53.1 en este entorno; el bloqueo real restante es exclusivamente la ausencia de `MiniBrowser`/`WPEWebDriver`/`libWPEWebKit` 2.53.1.
+La fuente oficial de WPE identifica el tarball de fuentes 2.53.1 en [wpewebkit.org/releases/wpewebkit-2.53.1.tar.xz](https://wpewebkit.org/releases/wpewebkit-2.53.1.tar.xz), pero ese archivo no es el bundle universal con `MiniBrowser` y `WPEWebDriver`. El índice oficial de bundles es `https://wpewebkit.org/built-products/x86_64/release/nightly/MiniBrowser/`. Su `LAST-IS` actual apunta a:
 
-## Comando pendiente
+```text
+MiniBrowser_wpe_319501@main.tar.xz
+SHA-256 actual = 388b167c6a171b3ab6549863e4cc4cb1520c13c56d150268fac161e0ef35b722
+```
 
-Cuando el bundle esté disponible, ejecutar desde la raíz del repositorio:
+El SHA-256 exigido por esta tarea es:
+
+```text
+d25e7f19ca68113de5ec29344889717f3796cabff64ea8b05fd3bcd3ecb3b4f7
+```
+
+Se consultaron los 60 ficheros `.sha256sum` del índice nightly actual y el valor esperado **no apareció**. Por seguridad y reproducibilidad, no se descargó el bundle actual: descargarlo habría incumplido la verificación exacta solicitada. No se descargó otro artefacto alternativo, no se recompiló WebKit y no se ejecutó un runtime cuyo SHA no coincidiera.
+
+## Evidencia disponible
+
+| Elemento | Estado |
+|---|---|
+| Bundle persistente recuperable | **NOT_FOUND** |
+| `MiniBrowser` WPE 2.53.1 | **NOT_FOUND** |
+| `WPEWebDriver` WPE 2.53.1 | **NOT_FOUND** |
+| `libWPEWebKit-2.0.so*` WPE 2.53.1 | **NOT_FOUND** |
+| SHA esperado en índice oficial nightly actual | **NOT_FOUND** |
+| `libwpe` local 1.16.3 | **AVAILABLE** en `/tmp/wpe-prefix` |
+| `WPEBackend-fdo` local 1.16.1 | **AVAILABLE** en `/tmp/wpe-prefix` |
+| Build WPE 2.52.6 | **PRESERVED**, no tocada |
+
+No existe una ruta persistente de bundle que pueda documentarse honestamente. La ruta esperada, una vez proporcionado el artefacto correcto, será `/home/ubuntu/wpe-bundles/wpewebkit-2.53.1/`; el archivo debe conservarse fuera de Git y su manifiesto debe registrar el SHA exacto antes de extraerlo.
+
+## Comando pendiente cuando exista el artefacto correcto
 
 ```sh
+mkdir -p /home/ubuntu/wpe-bundles/wpewebkit-2.53.1
+sha256sum -c /home/ubuntu/wpe-bundles/wpewebkit-2.53.1/MiniBrowser_wpe_*.sha256sum
 python3 webkit-kit/tools/diagnose_wpe_minibrowser.py \
-  /ABSOLUTE/PATH/bin/MiniBrowser \
-  --prefix /ABSOLUTE/PATH \
+  /home/ubuntu/wpe-bundles/wpewebkit-2.53.1/MiniBrowser \
+  --prefix /home/ubuntu/wpe-bundles/wpewebkit-2.53.1 \
   --output wpe-2531-diagnostic.json
-
 python3 webkit-kit/tools/run_wpe_headless.py \
-  --minibrowser /ABSOLUTE/PATH/bin/MiniBrowser \
-  --prefix /ABSOLUTE/PATH \
+  --minibrowser /home/ubuntu/wpe-bundles/wpewebkit-2.53.1/MiniBrowser \
+  --prefix /home/ubuntu/wpe-bundles/wpewebkit-2.53.1 \
   --headless \
   --output wpe-2531-run.json
-
 python3 webkit-kit/tools/compare_wpe_smoke.py \
   wpe-2531-run.json \
   --output wpe-2531-comparison.json
-
 python3 webkit-kit/tools/render_wpe_report.py \
   wpe-2531-run.json \
   wpe-2531-comparison.json \
   --output wpe-2531-validation-report.md
 ```
 
-El bundle debe proporcionar al menos `bin/MiniBrowser`, `lib/libWPEWebKit-2.0.so*`, `lib/libwpe-1.0.so*`, `lib/libWPEBackend-fdo-1.0.so*`, sus dependencias dinámicas y un prefijo coherente. El resultado 2.53.1 se mantendrá separado de cualquier estado 2.52.6.
+Hasta que el archivo exacto esté disponible y pase el SHA indicado, los estados funcionales permanecen `NOT_RUN`.
