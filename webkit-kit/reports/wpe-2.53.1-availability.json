@@ -43,5 +43,11 @@
     "minibrowser": null
   },
   "persistent_bundle_path": null,
+  "git": {
+    "local_commit": "959df0d6cec747183cbe7a83780cc19b6b974b45",
+    "push_status": "BLOCKED_AUTHENTICATION",
+    "push_error": "Invalid username or token; GitHub rejected HTTPS authentication",
+    "remote_head_verification": "BLOCKED_AUTHENTICATION"
+  },
   "required_command_when_available": "python3 webkit-kit/tools/diagnose_wpe_minibrowser.py /ABSOLUTE/PATH/bin/MiniBrowser --prefix /ABSOLUTE/PATH --output wpe-2531-diagnostic.json && python3 webkit-kit/tools/run_wpe_headless.py --minibrowser /ABSOLUTE/PATH/bin/MiniBrowser --prefix /ABSOLUTE/PATH --headless --output wpe-2531-run.json && python3 webkit-kit/tools/compare_wpe_smoke.py wpe-2531-run.json --output wpe-2531-comparison.json && python3 webkit-kit/tools/render_wpe_report.py wpe-2531-run.json wpe-2531-comparison.json --output wpe-2531-validation-report.md"
 }

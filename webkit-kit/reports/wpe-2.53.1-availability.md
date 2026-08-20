@@ -66,3 +66,16 @@ python3 webkit-kit/tools/render_wpe_report.py \
 ```
 
 Hasta que el archivo exacto esté disponible y pase el SHA indicado, los estados funcionales permanecen `NOT_RUN`.
+
+
+## Publicación Git
+
+Las validaciones del manifiesto pasaron y se creó el commit local `959df0d6cec747183cbe7a83780cc19b6b974b45`. El `push` no pudo completarse porque GitHub rechazó la autenticación HTTPS con `Invalid username or token`; `gh auth status` confirmó que los tokens configurados son inválidos. No se hizo force-push, no se borró el commit local y no se modificó ningún artefacto de WPE.
+
+```text
+GIT_COMMIT = 959df0d6cec747183cbe7a83780cc19b6b974b45
+GIT_PUSH = BLOCKED_AUTHENTICATION
+REMOTE_HEAD_VERIFICATION = BLOCKED_AUTHENTICATION
+```
+
+Tras autenticar GitHub, el comando pendiente es `git push origin HEAD:webkit-ps4-1352-kit`; el commit local ya contiene el manifiesto y este informe.
