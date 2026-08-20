@@ -11,11 +11,12 @@ BUILD_DIR ?= build/host
 TARGET := $(BUILD_DIR)/homebrew-safe-smoke
 BROWSER_TARGET := $(BUILD_DIR)/minimal-browser
 MODERN_TARGET := $(BUILD_DIR)/modern-webkitgtk-smoke
+OFFSCREEN_TARGET := $(BUILD_DIR)/wpe-host-offscreen-test
 SOURCES := src/orbis_webkit_stub.c src/homebrew_smoke.c
 BROWSER_SOURCES := src/orbis_webkit_stub.c src/oss_webkit_bridge.c src/homebrew_browser.c src/minimal_browser_main.c
 MODERN_SOURCES := src/modern_webkitgtk_smoke.c
 
-.PHONY: all host-smoke minimal-browser-smoke modern-webkit-smoke clean
+.PHONY: all host-smoke minimal-browser-smoke modern-webkit-smoke offscreen-test clean
 
 all: host-smoke minimal-browser-smoke modern-webkit-smoke
 
@@ -43,6 +44,14 @@ minimal-browser-smoke: $(BROWSER_TARGET)
 $(MODERN_TARGET): $(MODERN_SOURCES) fixtures/page1.html fixtures/page2.html fixtures/page3.html | $(BUILD_DIR)
 	@test -n "$(WEBKIT_LIBS)" || (echo 'webkit2gtk-4.1 development package is required' >&2; exit 1)
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(WEBKIT_CFLAGS) $(MODERN_SOURCES) $(WEBKIT_LIBS) -o $@
+
+offscreen-test: $(OFFSCREEN_TARGET)
+	$(OFFSCREEN_TARGET) > $(BUILD_DIR)/offscreen-test-output.txt
+	grep -q 'offscreen-core: PASS' $(BUILD_DIR)/offscreen-test-output.txt
+	grep -q 'wpe-runtime: NOT_RUN' $(BUILD_DIR)/offscreen-test-output.txt
+
+$(OFFSCREEN_TARGET): src/wpe_host_offscreen.c src/wpe_host_offscreen_test.c include/wpe_host_offscreen.h | $(BUILD_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) src/wpe_host_offscreen.c src/wpe_host_offscreen_test.c -o $@
 
 modern-webkit-smoke: $(MODERN_TARGET)
 	rm -rf /tmp/webkit-kit-modern-smoke
