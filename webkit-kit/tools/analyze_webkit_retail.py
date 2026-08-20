@@ -229,6 +229,47 @@ def load_families(path: Path) -> list[dict[str, Any]]:
     return doc.get("families", [])
 
 
+def validate_provenance(provenance: dict[str, Any] | None, artifact_sha256: str) -> dict[str, Any]:
+    """Validate provenance metadata without making a firmware identity claim.
+
+    The report may say that an artifact is eligible for manual 13.52 review, but
+    automatic promotion to CONFIRMED_13.52 is deliberately impossible.
+    """
+    if provenance is None:
+        return {
+            "status": "MISSING",
+            "firmware": None,
+            "artifact_sha256_matches": False,
+            "authorized": False,
+            "eligible_for_manual_review": False,
+            "reason": "No provenance manifest supplied.",
+        }
+    declared_sha = str(provenance.get("artifact_sha256", "")).lower()
+    firmware = str(provenance.get("firmware", ""))
+    authorized = provenance.get("authorized") is True
+    sha_matches = declared_sha == artifact_sha256.lower()
+    required_source = bool(str(provenance.get("source", "")).strip())
+    if not sha_matches:
+        status, reason = "INVALID", "artifact_sha256 does not match analyzed bytes."
+    elif firmware != "13.52":
+        status, reason = "NOT_13_52", "Provenance manifest does not identify firmware 13.52."
+    elif not authorized or not required_source:
+        status, reason = "INSUFFICIENT", "Authorized flag and non-empty source are required."
+    else:
+        status, reason = "ELIGIBLE_FOR_MANUAL_REVIEW", "Hash and declared provenance are internally consistent."
+    return {
+        "status": status,
+        "firmware": firmware or None,
+        "source": provenance.get("source"),
+        "artifact_sha256_declared": declared_sha or None,
+        "artifact_sha256_matches": sha_matches,
+        "authorized": authorized,
+        "build_id_declared": provenance.get("build_id"),
+        "eligible_for_manual_review": status == "ELIGIBLE_FOR_MANUAL_REVIEW",
+        "reason": reason,
+    }
+
+
 def correlate(families: list[dict[str, Any]], data: bytes, dynsym: dict[str, Any], string_hits: list[dict[str, Any]], xrefs: list[dict[str, Any]], parsed_elf: bool) -> list[dict[str, Any]]:
     text = data.decode("latin1", "ignore")
     names = "\n".join([x["name"] for x in dynsym.get("imports", []) + dynsym.get("exports", [])])
@@ -260,7 +301,7 @@ def correlate(families: list[dict[str, Any]], data: bytes, dynsym: dict[str, Any
     return out
 
 
-def analyze(path: Path, signatures_path: Path = DEFAULT_SIGNATURES) -> dict[str, Any]:
+def analyze(path: Path, signatures_path: Path = DEFAULT_SIGNATURES, provenance: dict[str, Any] | None = None) -> dict[str, Any]:
     data = path.read_bytes()
     families = load_families(signatures_path)
     elf_offset = data.find(ELF_MAGIC)
@@ -282,6 +323,7 @@ def analyze(path: Path, signatures_path: Path = DEFAULT_SIGNATURES) -> dict[str,
         "xref_candidates": xrefs,
         "family_correlations": correlate(families, data, dynsym, hits, xrefs, elf_valid),
         "evidence": "DIRECT_BYTES" if data else "EMPTY",
+        "provenance": validate_provenance(provenance, sha256(data)),
         "semantic_identity": "UNVERIFIED",
         "target_promotion": "CONFIRMED_13.52_DISABLED",
         "execution": "PROHIBITED",
@@ -295,12 +337,20 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("artifact", type=Path)
     parser.add_argument("-s", "--signatures", type=Path, default=DEFAULT_SIGNATURES)
     parser.add_argument("-o", "--output", type=Path, required=True)
+    parser.add_argument("--provenance", type=Path, help="Optional JSON manifest for this exact local artifact.")
     args = parser.parse_args(argv)
     if not args.artifact.is_file():
         parser.error(f"artifact not found: {args.artifact}")
     if not args.signatures.is_file():
         parser.error(f"signature manifest not found: {args.signatures}")
-    args.output.write_text(json.dumps(analyze(args.artifact, args.signatures), indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    provenance = None
+    if args.provenance:
+        if not args.provenance.is_file():
+            parser.error(f"provenance manifest not found: {args.provenance}")
+        provenance = json.loads(args.provenance.read_text(encoding="utf-8"))
+        if not isinstance(provenance, dict):
+            parser.error("provenance manifest must contain a JSON object")
+    args.output.write_text(json.dumps(analyze(args.artifact, args.signatures, provenance), indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return 0
 
 

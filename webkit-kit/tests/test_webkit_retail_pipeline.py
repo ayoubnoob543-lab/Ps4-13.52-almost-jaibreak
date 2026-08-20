@@ -1,3 +1,4 @@
+import hashlib
 import json
 import struct
 import sys
@@ -46,6 +47,22 @@ class WebKitRetailPipelineTests(unittest.TestCase):
             self.assertEqual(len(result["container"]["pt_load"]), 1)
             self.assertEqual(result["container"]["build_ids"], [note_desc.hex()])
             self.assertEqual(result["semantic_identity"], "UNVERIFIED")
+
+    def test_provenance_manifest_requires_matching_hash_and_13_52(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "fixture.bin"
+            data = b"local authorized fixture"
+            path.write_bytes(data)
+            digest = hashlib.sha256(data).hexdigest()
+            valid = {"firmware": "13.52", "source": "authorized-local-fixture", "authorized": True, "artifact_sha256": digest, "build_id": "example"}
+            result = analyze(path, KIT / "three_family_signatures.json", valid)
+            self.assertEqual(result["provenance"]["status"], "ELIGIBLE_FOR_MANUAL_REVIEW")
+            self.assertTrue(result["provenance"]["eligible_for_manual_review"])
+            self.assertEqual(result["target_promotion"], "CONFIRMED_13.52_DISABLED")
+            invalid = dict(valid, artifact_sha256="00" * 32)
+            invalid_result = analyze(path, KIT / "three_family_signatures.json", invalid)
+            self.assertEqual(invalid_result["provenance"]["status"], "INVALID")
+            self.assertFalse(invalid_result["provenance"]["eligible_for_manual_review"])
 
     def test_manifest_has_exact_three_families(self):
         manifest = json.loads((KIT / "three_family_signatures.json").read_text())

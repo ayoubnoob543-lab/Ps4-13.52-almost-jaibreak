@@ -14,6 +14,28 @@ python3 webkit-kit/tools/analyze_webkit_retail.py \
   --output /ruta/fuera-del-repo/modulo-static-evidence.json
 ```
 
+Puede suministrarse un manifest pequeño para registrar la procedencia del archivo exacto. El hash debe calcularse sobre los mismos bytes que se analizan:
+
+```json
+{
+  "firmware": "13.52",
+  "source": "descripción/procedencia autorizada",
+  "authorized": true,
+  "artifact_sha256": "<sha256 del módulo>",
+  "build_id": "<opcional>"
+}
+```
+
+```bash
+python3 webkit-kit/tools/analyze_webkit_retail.py \
+  /ruta/local/al/modulo-autorizado \
+  --signatures webkit-kit/three_family_signatures.json \
+  --provenance /ruta/evidence/modulo.provenance.json \
+  --output /ruta/evidence/modulo.static.json
+```
+
+`provenance.status` puede ser `MISSING`, `INVALID`, `NOT_13_52`, `INSUFFICIENT` o `ELIGIBLE_FOR_MANUAL_REVIEW`. El último sólo significa que el hash declarado coincide y que el manifest declara firmware 13.52, una fuente y autorización; no constituye una confirmación independiente de la build.
+
 El resultado nunca puede tener `CONFIRMED_13.52`: el campo `target_promotion` queda fijado a `CONFIRMED_13.52_DISABLED`. La identidad semántica permanece `UNVERIFIED` hasta que se verifiquen procedencia, bytes y correspondencia de build por medios independientes.
 
 ## Campos principales
@@ -29,6 +51,7 @@ El resultado nunca puede tener `CONFIRMED_13.52`: el campo `target_promotion` qu
 | `xref_candidates` | Coincidencias conservadoras de valores 32/64-bit con offsets de strings; no son desensamblado |
 | `family_correlations` | Clasificación `MATCH`, `PARTIAL MATCH`, `VULNERABLE_LIKE`, `FIXED_LIKE`, `NO MATCH` o `UNVERIFIED` |
 | `evidence` | `DIRECT_BYTES` sólo significa que se leyó el archivo local; no prueba que sea retail 13.52 |
+| `provenance` | Validación interna del manifest: hash, firmware declarado, fuente, autorización y elegibilidad para revisión manual |
 
 ## Interpretación de las tres familias
 
@@ -52,7 +75,7 @@ python3 webkit-kit/tools/analyze_webkit_retail.py \
 python3 -m json.tool /ruta/evidence/modulo.static.json >/dev/null
 ```
 
-Conserve el original fuera de Git y versiona sólo el manifest JSON pequeño, su hash, procedencia autorizada y el informe textual. No renombre un resultado a `13.52` salvo que exista documentación de procedencia y una verificación independiente de la build.
+Conserve el original fuera de Git y versiona sólo el manifest JSON pequeño, su hash, procedencia autorizada y el informe textual. No renombre un resultado a `13.52` salvo que exista documentación de procedencia y una verificación independiente de la build. Un manifest con hash incorrecto queda `INVALID` y nunca habilita revisión manual.
 
 ## Criterios de decisión
 
