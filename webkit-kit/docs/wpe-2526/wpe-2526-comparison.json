@@ -1,0 +1,300 @@
+{
+  "capabilities": {
+    "animation": {
+      "stages": [
+        "page1"
+      ],
+      "status": "PASS"
+    },
+    "canvas": {
+      "stages": [
+        "page1"
+      ],
+      "status": "PASS"
+    },
+    "css": {
+      "stages": [
+        "page1"
+      ],
+      "status": "PASS"
+    },
+    "dom": {
+      "stages": [
+        "page1",
+        "page2",
+        "page3"
+      ],
+      "status": "PASS"
+    },
+    "events": {
+      "stages": [
+        "page1",
+        "page2"
+      ],
+      "status": "PASS"
+    },
+    "flex": {
+      "stages": [
+        "page1"
+      ],
+      "status": "PASS"
+    },
+    "forms": {
+      "stages": [
+        "page1"
+      ],
+      "status": "PASS"
+    },
+    "grid": {
+      "stages": [
+        "page1"
+      ],
+      "status": "PASS"
+    },
+    "history": {
+      "stages": [
+        "page3"
+      ],
+      "status": "PASS"
+    },
+    "images": {
+      "stages": [
+        "page1"
+      ],
+      "status": "PASS"
+    },
+    "javascript": {
+      "stages": [
+        "page1",
+        "page2",
+        "page3"
+      ],
+      "status": "PASS"
+    },
+    "localstorage": {
+      "stages": [
+        "page1",
+        "page2"
+      ],
+      "status": "PASS"
+    },
+    "navigation": {
+      "stages": [
+        "page2",
+        "page3"
+      ],
+      "status": "PASS"
+    },
+    "svg": {
+      "stages": [
+        "page1"
+      ],
+      "status": "PASS"
+    },
+    "text": {
+      "stages": [
+        "page1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "reason": "all expected stages and capabilities matched",
+  "schema": 1,
+  "sequence": {
+    "actual": [
+      "page1",
+      "page2",
+      "page3"
+    ],
+    "expected": [
+      "page1",
+      "page2",
+      "page3"
+    ],
+    "status": "PASS"
+  },
+  "stages": {
+    "page1": {
+      "actual": {
+        "animation": true,
+        "canvas": true,
+        "css": true,
+        "dom": true,
+        "events": true,
+        "flex": true,
+        "forms": true,
+        "grid": true,
+        "images": true,
+        "javascript": true,
+        "localstorage": true,
+        "svg": true,
+        "text": "clicked"
+      },
+      "capabilities": {
+        "animation": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "canvas": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "css": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "dom": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "events": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "flex": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "forms": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "grid": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "images": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "javascript": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "localstorage": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "svg": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "text": {
+          "actual": "clicked",
+          "expected": "clicked",
+          "status": "PASS"
+        }
+      },
+      "expected": {
+        "animation": true,
+        "canvas": true,
+        "css": true,
+        "dom": true,
+        "events": true,
+        "flex": true,
+        "forms": true,
+        "grid": true,
+        "images": true,
+        "javascript": true,
+        "localstorage": true,
+        "svg": true,
+        "text": "clicked"
+      },
+      "status": "PASS"
+    },
+    "page2": {
+      "actual": {
+        "dom": "page2-ok",
+        "events": true,
+        "javascript": true,
+        "localstorage": true,
+        "navigation": true
+      },
+      "capabilities": {
+        "dom": {
+          "actual": "page2-ok",
+          "expected": "page2-ok",
+          "status": "PASS"
+        },
+        "events": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "javascript": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "localstorage": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "navigation": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        }
+      },
+      "expected": {
+        "dom": "page2-ok",
+        "events": true,
+        "javascript": true,
+        "localstorage": true,
+        "navigation": true
+      },
+      "status": "PASS"
+    },
+    "page3": {
+      "actual": {
+        "dom": true,
+        "history": true,
+        "javascript": true,
+        "navigation": true
+      },
+      "capabilities": {
+        "dom": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "history": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "javascript": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        },
+        "navigation": {
+          "actual": true,
+          "expected": true,
+          "status": "PASS"
+        }
+      },
+      "expected": {
+        "dom": true,
+        "history": true,
+        "javascript": true,
+        "navigation": true
+      },
+      "status": "PASS"
+    }
+  },
+  "status": "PASS"
+}

@@ -15,7 +15,8 @@ def main() -> int:
     args = parser.parse_args()
     runner = json.loads(pathlib.Path(args.runner_json).read_text(encoding="utf-8"))
     comparison = json.loads(pathlib.Path(args.comparison_json).read_text(encoding="utf-8"))
-    runtime = runner.get("runtime") or {}
+    runtime_value = runner.get("runtime")
+    runtime = runtime_value if isinstance(runtime_value, dict) else {"description": runtime_value} if runtime_value else {}
     architecture = runtime.get("architecture") or {}
     process = runner.get("process") or {}
     lines = [
@@ -28,9 +29,9 @@ def main() -> int:
         f"| Runner status | **{runner.get('status', 'UNKNOWN')}** |",
         f"| Comparison status | **{comparison.get('status', 'UNKNOWN')}** |",
         f"| Reason | {runner.get('reason') or comparison.get('reason') or ''} |",
-        f"| Binary | `{runtime.get('binary')}` |",
-        f"| Binary SHA-256 | `{runtime.get('binary_sha256')}` |",
-        f"| Architecture probe | `{architecture.get('stdout', '').strip()}` |",
+        f"| Runtime | `{runtime.get('description', runtime.get('binary', 'NOT_RUN'))}` |",
+        f"| Binary SHA-256 | `{runtime.get('binary_sha256', 'NOT_RUN')}` |",
+        f"| Architecture probe | `{architecture.get('stdout', '').strip() or 'NOT_RUN'}` |",
         f"| Process elapsed | `{process.get('elapsed_s', 'NOT_RUN')}` seconds |",
         "",
         "## Fixture validation",
@@ -38,7 +39,7 @@ def main() -> int:
         "| Fixture | SHA-256 | Status |",
         "|---|---|---|",
     ]
-    for fixture in runner.get("fixtures", []):
+    for fixture in runner.get("fixtures", runner.get("fixture_validation", [])):
         lines.append(f"| {fixture['id']} | `{fixture.get('sha256')}` | **{fixture.get('status')}** |")
     lines += ["", "## Capability comparison", "", "| Capability | Status | Stages |", "|---|---|---|"]
     for capability, value in sorted(comparison.get("capabilities", {}).items()):

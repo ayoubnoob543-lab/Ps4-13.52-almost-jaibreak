@@ -1,0 +1,117 @@
+{
+  "actual_assertions": {
+    "page1": {
+      "animation": true,
+      "canvas": true,
+      "css": true,
+      "dom": true,
+      "events": true,
+      "flex": true,
+      "forms": true,
+      "grid": true,
+      "images": true,
+      "javascript": true,
+      "localstorage": true,
+      "svg": true,
+      "text": "clicked"
+    },
+    "page2": {
+      "dom": "page2-ok",
+      "events": true,
+      "javascript": true,
+      "localstorage": true,
+      "navigation": true
+    },
+    "page3": {
+      "dom": true,
+      "history": true,
+      "javascript": true,
+      "navigation": true
+    }
+  },
+  "capabilities": {
+    "CSS": "PASS",
+    "Canvas": "PASS",
+    "DOM": "PASS",
+    "Flexbox": "PASS",
+    "Grid": "PASS",
+    "JavaScript": "PASS",
+    "SVG": "PASS",
+    "events": "PASS",
+    "forms": "PASS",
+    "history": "PASS",
+    "images": "PASS",
+    "localStorage": "PASS",
+    "navigation": "PASS"
+  },
+  "fixture_validation": [
+    {
+      "expected_sha256": "3854930be7753028e3800233758f7015f5f2be590fe3663f0fb61ab035f36e7b",
+      "file": "/home/ubuntu/wpe-private-repo/webkit-kit/homebrew/fixtures/page1.html",
+      "id": "page1",
+      "sha256": "3854930be7753028e3800233758f7015f5f2be590fe3663f0fb61ab035f36e7b",
+      "status": "PASS"
+    },
+    {
+      "expected_sha256": "66b593648c6cec245b505cad043d75a2c2c32d9c2ef0092b203fa17f500dd399",
+      "file": "/home/ubuntu/wpe-private-repo/webkit-kit/homebrew/fixtures/page2.html",
+      "id": "page2",
+      "sha256": "66b593648c6cec245b505cad043d75a2c2c32d9c2ef0092b203fa17f500dd399",
+      "status": "PASS"
+    },
+    {
+      "expected_sha256": "5993bffdc8ff066c281f6786088abae42fd3e6900ee6c3cc86804774bd84ee87",
+      "file": "/home/ubuntu/wpe-private-repo/webkit-kit/homebrew/fixtures/page3.html",
+      "id": "page3",
+      "sha256": "5993bffdc8ff066c281f6786088abae42fd3e6900ee6c3cc86804774bd84ee87",
+      "status": "PASS"
+    }
+  ],
+  "runtime": "WPE MiniBrowser WebDriver",
+  "schema": 1,
+  "stages": [
+    {
+      "page": "page1",
+      "result": {
+        "animation": true,
+        "canvas": true,
+        "css": true,
+        "dom": true,
+        "event": true,
+        "flex": true,
+        "form": true,
+        "grid": true,
+        "image": true,
+        "js": true,
+        "storage": true,
+        "svg": true,
+        "text": "clicked"
+      }
+    },
+    {
+      "page": "page2",
+      "result": {
+        "dom": "page2-ok",
+        "event": true,
+        "events": true,
+        "javascript": true,
+        "js": true,
+        "localstorage": true,
+        "navigation": true,
+        "page": true,
+        "storage": true
+      }
+    },
+    {
+      "page": "page3",
+      "result": {
+        "dom": true,
+        "history": true,
+        "js": true,
+        "page": true
+      }
+    }
+  ],
+  "status": "PASS",
+  "version": "2.52.6"
+}

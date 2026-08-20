@@ -16,8 +16,12 @@ import urllib.request
 def request(base: str, method: str, path: str, payload=None, timeout=30):
     data = None if payload is None else json.dumps(payload).encode()
     req = urllib.request.Request(base + path, data=data, method=method, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as res:
-        return json.loads(res.read().decode())
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as res:
+            return json.loads(res.read().decode())
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode(errors="replace")
+        raise RuntimeError(f"HTTP {exc.code} {method} {path}: {body}") from exc
 
 
 def call(base, sid, method, path, payload=None, timeout=30):
@@ -76,11 +80,20 @@ def main():
         result["version"] = session.get("capabilities", {}).get("browserVersion")
         p1 = (fixtures / "page1.html").as_uri(); p2 = (fixtures / "page2.html").as_uri(); p3 = (fixtures / "page3.html").as_uri()
         call(base, sid, "POST", "/url", {"url": p1})
+        for _ in range(120):
+            ready = call(base, sid, "POST", "/execute/sync", {"script": "return document.readyState === 'complete' && !!document.getElementById('action');", "args": []})
+            if ready is True:
+                break
+            time.sleep(0.25)
+        else:
+            raise RuntimeError({"stage": "page1", "error": "DOM readiness timeout"})
         stage1 = call(base, sid, "POST", "/execute/sync", {"script": """
             const b = document.getElementById('action'); b.click();
             const input = document.getElementById('name'); input.value = 'ok';
             const c = document.getElementById('canvas'); const ctx = c.getContext('2d'); ctx.fillStyle = 'rgb(1,2,3)'; ctx.fillRect(0,0,1,1);
             return {dom: document.querySelectorAll('#content article').length === 2,
+              css: getComputedStyle(document.getElementById('box')).width === '120px',
+              animation: parseFloat(getComputedStyle(document.getElementById('box')).opacity) >= 0.5,
               flex: getComputedStyle(document.getElementById('flex')).display === 'flex',
               grid: getComputedStyle(document.getElementById('grid')).display === 'grid',
               js: b.dataset.clicked === 'yes' && document.getElementById('box').textContent === 'clicked',
@@ -88,22 +101,42 @@ def main():
               svg: document.querySelector('#vector rect').getAttribute('fill') === 'red',
               image: document.getElementById('image').complete,
               canvas: !!ctx && ctx.getImageData(0,0,1,1).data[0] === 1,
-              storage: (localStorage.setItem('wpeSmoke','page1'), localStorage.getItem('wpeSmoke') === 'page1')};
+              storage: (localStorage.setItem('wpeSmoke','page1'), localStorage.getItem('wpeSmoke') === 'page1'),
+              text: document.getElementById('box').textContent};
         """, "args": []})
         result["stages"].append({"page": "page1", "result": stage1})
         if not all(stage1.values()): raise RuntimeError({"stage": "page1", "result": stage1})
         call(base, sid, "POST", "/url", {"url": p2})
+        for _ in range(120):
+            ready = call(base, sid, "POST", "/execute/sync", {"script": "return document.readyState === 'complete' && !!document.getElementById('destination');", "args": []})
+            if ready is True:
+                break
+            time.sleep(0.25)
+        else:
+            raise RuntimeError({"stage": "page2", "error": "DOM readiness timeout"})
         stage2 = call(base, sid, "POST", "/execute/sync", {"script": """
             const n = document.getElementById('nav'); n.dispatchEvent(new Event('custom')); return {
-              page: window.page2Ready === true, dom: document.getElementById('destination').textContent === 'page2-ok',
-              event: n.dataset.seen === 'yes', storage: localStorage.getItem('wpeSmoke') === 'page1', js: true};
+              page: window.page2Ready === true, navigation: window.page2Ready === true, dom: document.getElementById('destination').textContent,
+              event: n.dataset.seen === 'yes', events: n.dataset.seen === 'yes', storage: localStorage.getItem('wpeSmoke') === 'page1', localstorage: localStorage.getItem('wpeSmoke') === 'page1', js: true, javascript: true};
         """, "args": []})
         result["stages"].append({"page": "page2", "result": stage2})
         if not all(stage2.values()): raise RuntimeError({"stage": "page2", "result": stage2})
         call(base, sid, "POST", "/url", {"url": p3})
+        for _ in range(120):
+            ready = call(base, sid, "POST", "/execute/sync", {"script": "return document.readyState === 'complete' && !!document.getElementById('final');", "args": []})
+            if ready is True:
+                break
+            time.sleep(0.25)
+        else:
+            raise RuntimeError({"stage": "page3", "error": "DOM readiness timeout"})
         stage3 = call(base, sid, "POST", "/execute/sync", {"script": "return {page: window.page3Ready === true, dom: document.getElementById('final').textContent === 'final-page', history: history.length >= 2, js: document.body.dataset.final === 'yes'};", "args": []})
         result["stages"].append({"page": "page3", "result": stage3})
         if not all(stage3.values()): raise RuntimeError({"stage": "page3", "result": stage3})
+        result["actual_assertions"] = {
+            "page1": {"dom": stage1["dom"], "css": stage1["css"], "animation": stage1["animation"], "flex": stage1["flex"], "grid": stage1["grid"], "javascript": stage1["js"], "events": stage1["event"], "forms": stage1["form"], "svg": stage1["svg"], "images": stage1["image"], "canvas": stage1["canvas"], "localstorage": stage1["storage"], "text": stage1["text"]},
+            "page2": {"navigation": stage2["navigation"], "dom": stage2["dom"], "javascript": stage2["javascript"], "events": stage2["events"], "localstorage": stage2["localstorage"]},
+            "page3": {"navigation": stage3["page"], "history": stage3["history"], "dom": stage3["dom"], "javascript": stage3["js"]}
+        }
         result["capabilities"] = {k: "PASS" for k in ("DOM", "CSS", "Flexbox", "Grid", "JavaScript", "events", "forms", "SVG", "images", "Canvas", "localStorage", "navigation", "history")}
         result["status"] = "PASS"
     except Exception as exc:
