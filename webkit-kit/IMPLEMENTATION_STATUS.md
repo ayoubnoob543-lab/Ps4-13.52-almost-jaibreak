@@ -283,3 +283,13 @@ Se añadió `WEBKIT_VULNERABILITY_AUDIT.md`. La auditoría cruza Apple Safari/iO
 | Candidatos públicos con rango hasta `?13.52?` | CANDIDATE | `WEBKIT_VULNERABILITY_AUDIT.md`, referencia [7] |
 | Confirmación mediante bytes retail 13.52 | MISSING | Faltan `libSceNKWebKit.sprx`, `libkernel_web.sprx` y `libSceLibcInternal.sprx` |
 | Confirmación de CSSFontFace en 13.52 | UNVERIFIED | `CSSFONTFACE_MIGRATION_STATUS.md` |
+
+## Correlación de tres familias WebKit
+
+Se añadió `WEBKIT_THREE_FAMILY_CORRELATION.md` y el manifiesto machine-readable `three_family_signatures.json` para preparar la comparación futura de `JSCell::toX`, `JSC::MarkedVector` y `CloneSerializer/CloneDeserializer/objectPool`. Se verificaron los commits upstream `2a042fede0e705bae4b8ce039b18442696ebb5ce`, `c9880de4a28b9a64a5e1d0513dc245d61a2e6ddb`, `4bd1aab3f384604aa1cd8152c675fe5ca4c90bcc` y `010c6bdfb0cde0485d31f0260ab9a046fa9b8567`. La correlación contra retail 13.52 permanece `NOT_RUN/MISSING_BYTES`; no se confirmó ninguna vulnerabilidad.
+
+| Familia | Referencia pública | Estado retail 13.52 |
+|---|---|---|
+| `JSCell::toX` | `2a042f...` / Bugzilla 270797 | `UNVERIFIED` |
+| `MarkedVector`/GC | `c9880de...` / Bugzilla 254797 | `UNVERIFIED` |
+| `CloneSerializer`/`objectPool` | `010c6bd...` / Bugzilla 265975 | `UNVERIFIED` |

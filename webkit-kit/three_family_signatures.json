@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "scope": "static correlation only; no PS4 13.52 confirmation",
+  "target_firmware": "13.52",
+  "target_bytes_status": "MISSING",
+  "families": [
+    {
+      "id": "jscell_tox_type_validation",
+      "component": "JavaScriptCore",
+      "reference_commit": "2a042fede0e705bae4b8ce039b18442696ebb5ce",
+      "bugzilla": "270797",
+      "reference_files": ["Source/JavaScriptCore/runtime/JSCell.cpp"],
+      "functions": ["JSCell::toPrimitive", "JSCell::toNumber", "JSCell::toObjectSlow"],
+      "pre_fix_markers": [
+        "isString + static_cast<const JSString*>",
+        "isSymbol + static_cast<const Symbol*>",
+        "isHeapBigInt + static_cast<const JSBigInt*>",
+        "static_cast<const JSObject*>"
+      ],
+      "post_fix_markers": [
+        "jsDynamicCast<const JSString*>",
+        "jsDynamicCast<const Symbol*>",
+        "jsDynamicCast<const JSBigInt*>",
+        "jsSecureCast<const JSObject*>",
+        "Integrity::auditStructureID"
+      ],
+      "strings": ["JSCell", "toPrimitive", "toNumber", "toObjectSlow", "jsDynamicCast", "jsSecureCast", "isHeapBigInt", "auditStructureID"],
+      "match": "three conversion functions plus type-branch ordering and at least two independent evidence classes",
+      "partial_match": "one or two conversion functions, or structural sequence without reliable JSCell attribution",
+      "no_match": "component reviewed and no equivalent conversion family found",
+      "status_13_52": "UNVERIFIED"
+    },
+    {
+      "id": "markedvector_gc_containers",
+      "component": "JavaScriptCore heap/runtime and WebCore SerializedScriptValue",
+      "reference_commit": "c9880de4a28b9a64a5e1d0513dc245d61a2e6ddb",
+      "bugzilla": "254797",
+      "reference_files": [
+        "Source/JavaScriptCore/runtime/ArgList.h",
+        "Source/JavaScriptCore/runtime/ArgList.cpp",
+        "Source/JavaScriptCore/heap/Heap.cpp",
+        "Source/JavaScriptCore/heap/Heap.h",
+        "Source/JavaScriptCore/heap/HeapInlines.h",
+        "Source/WebCore/bindings/js/SerializedScriptValue.cpp"
+      ],
+      "functions_or_symbols": ["MarkedVectorBase::markLists", "MarkedVectorBase::addMarkSet", "Heap::markListSet", "MarkedVector::slowAppend", "MarkedVector::slowEnsureCapacity", "CloneDeserializer::deserialize"],
+      "pre_fix_markers": ["Vector storing newly created cell pointers", "absence of mark-list registration for that storage", "MarkedArgumentBufferBase-only heap list"],
+      "post_fix_markers": ["MarkedVector", "MarkedVectorBase", "markLists", "addMarkSet", "Heap::markListSet", "CrashOnOverflow"],
+      "strings": ["MarkedVector", "MarkedVectorBase", "MarkedArgumentBuffer", "markLists", "addMarkSet", "slowEnsureCapacity", "CrashOnOverflow", "SerializedScriptValue", "CloneDeserializer"],
+      "related_interface_commit": "4bd1aab3f384604aa1cd8152c675fe5ca4c90bcc",
+      "match": "marked container connected to heap root registration and a cell-storage/deserialization path",
+      "partial_match": "marked container or root registration found but not connected to CloneDeserializer-equivalent flow",
+      "no_match": "only ordinary Vector-like storage and no equivalent GC visibility mechanism",
+      "status_13_52": "UNVERIFIED"
+    },
+    {
+      "id": "clone_object_pool_alignment",
+      "component": "WebCore bindings/js SerializedScriptValue",
+      "reference_commit": "010c6bdfb0cde0485d31f0260ab9a046fa9b8567",
+      "bugzilla": "265975",
+      "reference_files": ["Source/WebCore/bindings/js/SerializedScriptValue.cpp", "Source/JavaScriptCore/runtime/OptionsList.h"],
+      "functions_or_symbols": ["CloneSerializer::serialize", "CloneSerializer::writeObjectReferenceIfDupe", "CloneSerializer::addToObjectPool", "CloneSerializer::addToObjectPoolIfNotDupe", "CloneDeserializer::addToObjectPool", "CloneDeserializer::deserialize", "validateSerializedResult"],
+      "pre_fix_markers": ["m_gcBuffer used both as object pool and keep-alive buffer", "recordObject", "checkForDuplicate", "startObjectInternal", "redundant BigInt pool additions"],
+      "post_fix_markers": ["m_objectPool", "m_keepAliveBuffer", "objectPoolTags", "appendObjectPoolTag", "writeObjectReferenceIfDupe", "addToObjectPool", "addToObjectPoolIfNotDupe", "validateSerializedResult", "validateSerializedValue"],
+      "strings": ["CloneSerializer", "CloneDeserializer", "SerializedScriptValue", "ObjectReferenceTag", "m_gcBuffer", "m_objectPool", "m_keepAliveBuffer", "addToObjectPool", "validateSerializedResult"],
+      "match": "both serializer/deserializer reference pools and object-tag/index flow identified",
+      "partial_match": "SerializedScriptValue and one side of the pool/reference flow identified",
+      "no_match": "no structured-clone/serialized-script-value implementation found",
+      "status_13_52": "UNVERIFIED"
+    }
+  ],
+  "classification_policy": {
+    "MATCH": "family-level match only; never a vulnerability confirmation",
+    "PARTIAL_MATCH": "incomplete family or one strong evidence class",
+    "NO_MATCH": "reviewed component lacks the family or equivalent",
+    "CONFIRMED_13_52": "reserved for verified retail bytes, coherent provenance, and reproducible correlation",
+    "vulnerability_state": "must be assessed separately as VULNERABLE_LIKE, FIXED_LIKE, or UNVERIFIED"
+  }
+}
