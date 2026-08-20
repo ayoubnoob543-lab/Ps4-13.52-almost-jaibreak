@@ -184,3 +184,37 @@ Los resultados no deben convertir una coincidencia con WPE 2.52.6 ni con WebKit-
 [6]: https://bugs.webkit.org/show_bug.cgi?id=254797 "WebKit Bugzilla 254797"
 [7]: https://bugs.webkit.org/show_bug.cgi?id=265975 "WebKit Bugzilla 265975"
 [8]: https://www.psdevwiki.com/ps4/WebKit_Bugs "PS4 Developer Wiki: WebKit Bugs"
+
+## 7. Correlación nueva: blobs públicos PS4OSSCode 601-1300
+
+Se verificó directamente, mediante la API pública de GitHub, el commit `d636699770323d7968a2c37955aa513bda5f8a37` de `FreeBSDKernel9-0/PS4OSSCode`. Los cuatro blobs relevantes y sus hashes Git son:
+
+| Archivo | Blob Git | Tamaño | Evidencia observada |
+|---|---|---:|---|
+| `WebKit-601-1300/WebKit-601-1300/Source/JavaScriptCore/runtime/JSCell.cpp` | `2c403c813fb38568b0e60ce78989ddea4c953c12` | 7.742 B | `toPrimitive`/`toNumber` usan comprobaciones `isString`/`isSymbol`/`isHeapBigInt` y `static_cast`; no aparecen `jsDynamicCast`/`jsSecureCast` en las rutas observadas |
+| `.../Source/JavaScriptCore/heap/Heap.cpp` | `842625eae6341d18eda50bdc5549ea11e03be2e1` | 44.918 B | `Heap` invoca `MarkedArgumentBuffer::markLists` |
+| `.../Source/JavaScriptCore/runtime/ArgList.h` | `fdfe00102cd38701e93ce759a7223aac4c03899e` | 4.330 B | Declara `MarkedArgumentBuffer` como contenedor marcado, no la interfaz posterior `MarkedVector` |
+| `.../Source/WebCore/bindings/js/SerializedScriptValue.cpp` | `6786119069805e75b7c94addcd71527fafd7ebe3` | 92.486 B | `CloneDeserializer` usa `m_gcBuffer` de tipo `MarkedArgumentBuffer`; la ruta de `ObjectReferenceTag` lee índices desde ese buffer y existe `m_objectPool` en la serialización |
+
+Las URLs reproducibles son [JSCell.cpp][9], [Heap.cpp][10], [ArgList.h][11] y [SerializedScriptValue.cpp][12].
+
+### Interpretación por familia
+
+| Familia | Evidencia en 601-1300 | Clasificación de esta observación | Relación con 13.52 |
+|---|---|---|---|
+| `JSCell::toX` | El árbol 601-1300 público muestra el patrón anterior a `2a042f...`: comprobaciones de tipo seguidas de casts estáticos en `toPrimitive` y `toNumber` | `DIRECT` para el código fuente 601-1300; `STRONG_INDIRECT` sólo para la hipótesis de que una rama retail basada en ese árbol pueda conservar el patrón | `UNVERIFIED`; el lockfile sólo fija 13.00–13.04, no 13.52 |
+| `MarkedVector`/GC | `Heap.cpp` registra `MarkedArgumentBuffer::markLists`, `ArgList.h` declara `MarkedArgumentBuffer` y no hay señal positiva de `MarkedVector` en esos blobs | `DIRECT` para la composición 601-1300; `STRONG_INDIRECT` como evidencia de estado pre-transición en la referencia pública | `UNVERIFIED`; Sony pudo aplicar backports privados o posteriores |
+| `CloneSerializer`/`objectPool` | `SerializedScriptValue.cpp` mantiene `m_gcBuffer` para objetos deserializados, usa sus índices para `ObjectReferenceTag` y conserva `m_objectPool` en la serialización | `DIRECT` para las estructuras 601-1300; `STRONG_INDIRECT` respecto al patrón anterior a `010c6b...` | `UNVERIFIED`; no demuestra si 13.52 separa pool y keep-alive |
+
+Esto es una correlación de **fuente pública**, no una confirmación de bytes ni de vulnerabilidad en PS4 13.52. En particular, la presencia de `m_objectPool` no permite concluir que el pool y el buffer de retención estén fusionados; esa propiedad exige reconstruir el flujo completo.
+
+### Limitación nueva de 616-1300
+
+El commit público contiene para `WebKit-616-1300/WebKit-616-1300` únicamente `LayoutTests`, `WebKit.xcworkspace`, `WebKitLibraries` y `resources` en el árbol accesible consultado. No contiene un árbol `Source` equivalente en esa revisión del corpus, por lo que no es válido afirmar ausencia de una implementación: el resultado correcto es `UNVERIFIED`, no `NO MATCH`.
+
+Tampoco se localizaron en el corpus local fuentes posteriores a 13.00–13.04 que permitan demostrar la incorporación de `2a042f...`, `c9880de...` o `010c6b...` por Sony. La referencia oficial de Sony lista 601/616-1300 como código OSS de 13.00–13.04, no como fuente exacta de 13.52 [2].
+
+[9]: https://github.com/FreeBSDKernel9-0/PS4OSSCode/blob/d636699770323d7968a2c37955aa513bda5f8a37/WebKit-601-1300/WebKit-601-1300/Source/JavaScriptCore/runtime/JSCell.cpp "PS4OSSCode 601-1300 JSCell.cpp"
+[10]: https://github.com/FreeBSDKernel9-0/PS4OSSCode/blob/d636699770323d7968a2c37955aa513bda5f8a37/WebKit-601-1300/WebKit-601-1300/Source/JavaScriptCore/heap/Heap.cpp "PS4OSSCode 601-1300 Heap.cpp"
+[11]: https://github.com/FreeBSDKernel9-0/PS4OSSCode/blob/d636699770323d7968a2c37955aa513bda5f8a37/WebKit-601-1300/WebKit-601-1300/Source/JavaScriptCore/runtime/ArgList.h "PS4OSSCode 601-1300 ArgList.h"
+[12]: https://github.com/FreeBSDKernel9-0/PS4OSSCode/blob/d636699770323d7968a2c37955aa513bda5f8a37/WebKit-601-1300/WebKit-601-1300/Source/WebCore/bindings/js/SerializedScriptValue.cpp "PS4OSSCode 601-1300 SerializedScriptValue.cpp"
