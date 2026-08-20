@@ -272,3 +272,14 @@ Se añadió `tools/audit_wpe_interfaces.py` y su salida `wpe-interface-audit.jso
 | PS4/retail 13.52 compatibility | `UNKNOWN/NOT_CLAIMED` |
 
 La cobertura se expresa por cadena: la infraestructura host de fuente/configuración/libwpe/backend alcanza aproximadamente 38% de los ocho bloques de una cadena completa; el runtime WPE end-to-end sigue en 0% validado en esta sesión. WebKitGTK permanece únicamente como baseline independiente.
+
+## Auditoría estática de vulnerabilidades WebKit
+
+Se añadió `WEBKIT_VULNERABILITY_AUDIT.md`. La auditoría cruza Apple Safari/iOS 10–11, el catálogo público PSDevWiki y los corpus fijados en `sources.lock.json`. No se confirmó ninguna vulnerabilidad para PS4 13.52 porque faltan los bytes retail y la identidad de build. Quedan como `CANDIDATE` tres familias que la fuente pública sitúa explícitamente en `?6.00-13.52?`: comprobación `JSC::JSCell::toX`, interfaz `JSC::MarkedVector` y consistencia del object pool de `WebCore::CloneSerializer/CloneDeserializer`. CSSFontFace permanece `UNVERIFIED/DOCUMENTED_ONLY`; varias CVE históricas de Safari 10/11 y fallos probados sólo hasta PS4 6.72 se clasifican `DESCARTADO` como candidatos prioritarios para 13.52. No se ejecutaron exploits ni payloads.
+
+| Auditoría WebKit/CVE | Estado | Evidencia |
+|---|---|---|
+| Fuentes Apple y rangos de corrección | AVAILABLE | `WEBKIT_VULNERABILITY_AUDIT.md`, referencias [1]–[6] |
+| Candidatos públicos con rango hasta `?13.52?` | CANDIDATE | `WEBKIT_VULNERABILITY_AUDIT.md`, referencia [7] |
+| Confirmación mediante bytes retail 13.52 | MISSING | Faltan `libSceNKWebKit.sprx`, `libkernel_web.sprx` y `libSceLibcInternal.sprx` |
+| Confirmación de CSSFontFace en 13.52 | UNVERIFIED | `CSSFONTFACE_MIGRATION_STATUS.md` |
