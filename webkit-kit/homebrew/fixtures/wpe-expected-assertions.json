@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "engine": "WPE WebKit 2.52.6",
+  "backend": "WPEBackend-fdo 1.16.1",
+  "protocol": "WPE_SMOKE_ASSERTIONS=<json>",
+  "stages": {
+    "page1": {
+      "dom": true,
+      "css": true,
+      "animation": true,
+      "flex": true,
+      "grid": true,
+      "javascript": true,
+      "events": true,
+      "forms": true,
+      "svg": true,
+      "images": true,
+      "canvas": true,
+      "localstorage": true,
+      "text": "clicked"
+    },
+    "page2": {
+      "navigation": true,
+      "dom": "page2-ok",
+      "javascript": true,
+      "events": true,
+      "localstorage": true
+    },
+    "page3": {
+      "navigation": true,
+      "history": true,
+      "dom": true,
+      "javascript": true
+    }
+  },
+  "sequence": ["page1", "page2", "page3"]
+}
