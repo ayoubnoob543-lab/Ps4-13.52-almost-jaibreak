@@ -12,13 +12,13 @@
 | Formularios | WebCore | Widget/input method GTK puede influir en interacción | Input/foco del backend WPE | NOT_TESTED | Validación y submit observados |
 | SVG/imágenes | WebCore/ImageDecoder/graphics | Cairo/GTK puede intervenir en superficie | Cairo/GL/EGL/compositor según backend | NOT_TESTED | Decodificación y dimensiones/estado de carga |
 | Canvas | WebCore + aceleración opcional | Contexto y superficie GTK | EGL/GL/surface WPE y renderer | NOT_TESTED | Píxel/estado canvas o assertion explícita |
-| localStorage | WebCore storage + WebKit process | Directorios/configuración de usuario GTK | Filesystem/configuración del port WPE | NOT_TESTED | Escritura, navegación y lectura posterior |
+| localStorage | WebCore storage + WebKit process | Directorios/configuración de usuario GTK | Filesystem/configuración del port WPE | PARTIAL: storage host auxiliar PASS; WebCore localStorage WPE NOT_TESTED | Escritura, navegación y lectura posterior |
 | Navegación | WebKit/WebCore network process | APIs WebKitGTK y señales GTK | APIs WPE/WebKit y event loop | NOT_TESTED | page1→page2→page3 y códigos de proceso |
 | Historial | WebKit/WebCore page/session | API de navegación GTK | API WPE equivalente/event loop | NOT_TESTED | `history`/back-forward assertion |
-| Event loop | GLib/WebKit process model | Integración GTK main context | Integración GLib + backend WPE | AVAILABLE (documented) | Diagnóstico de runtime, no capability PASS |
-| Ventana/surface | Backend | GDK/GTK window, display, events | libwpe + WPEBackend-fdo | BLOCKED | MiniBrowser arranca con backend real |
-| Presentación | WebCore/compositor + backend | GTK/GDK surface | EGL/Wayland/X11/DRM según backend | BLOCKED | startup y render surface observables |
-| Input | WebCore event plumbing | GTK/GDK input | WPE backend input injection | BLOCKED | evento fixture producido por backend |
+| Event loop | GLib/WebKit process model | Integración GTK main context | Integración GLib + backend WPE | PARTIAL: loop host auxiliar PASS; WPE NOT_TESTED | Diagnóstico de runtime y ejecución real WPE |
+| Ventana/surface | Backend | GDK/GTK window, display, events | libwpe + WPEBackend-fdo | PARTIAL: surface RGBA software auxiliar PASS; WPE BLOCKED | MiniBrowser arranca con backend real |
+| Presentación | WebCore/compositor + backend | GTK/GDK surface | EGL/Wayland/X11/DRM según backend | PARTIAL: frame callback/checksum auxiliar PASS; WPE NOT_TESTED | startup y render surface observables |
+| Input | WebCore event plumbing | GTK/GDK input | WPE backend input injection | PARTIAL: cola/input callback auxiliar PASS; WPE NOT_TESTED | evento fixture producido por backend |
 | Red | WebKit network process/libsoup | Integración WebKitGTK | Igual WebKit/libsoup, configuración WPE | NOT_TESTED | Sólo probar si harness define red controlada |
 | Fuentes | WebCore/Pango/Fontconfig | GTK/Pango integration | Dependencias Linux del port/backend | NOT_TESTED | Render/medición en runtime |
 

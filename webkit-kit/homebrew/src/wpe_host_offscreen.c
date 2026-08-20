@@ -83,6 +83,8 @@ int wpe_host_view_set_input_callback(WPEHostView *v,WPEHostInputCallback cb,void
 int wpe_host_view_queue_input(WPEHostView *v,const WPEHostInputEvent *e){if(!v||!e)return EINVAL;if(v->input_count==v->input_capacity){size_t n=v->input_capacity?v->input_capacity*2:8;void*p=realloc(v->inputs,n*sizeof(*v->inputs));if(!p)return ENOMEM;v->inputs=p;v->input_capacity=n;}v->inputs[v->input_count++]=*e;return 0;}
 int wpe_host_view_request_frame(WPEHostView *v){if(!v)return EINVAL;v->frame_id++;return 0;}
 int wpe_host_view_dispatch(WPEHostView *v){if(!v)return EINVAL;size_t n=0;while(n<v->input_count){if(v->input_callback)v->input_callback(&v->inputs[n],v->input_userdata);++n;}v->input_count=0;if(v->frame_callback&&v->frame_id){v->frame_callback(v->surface->pixels,v->surface->stride,v->surface->width,v->surface->height,v->frame_id,v->frame_userdata);v->frame_id=0;return (int)(n+1);}return (int)n;}
+static void dispatch_view_task(void *userdata) { (void)wpe_host_view_dispatch((WPEHostView *)userdata); }
+int wpe_host_view_schedule_on_loop(WPEHostView *v, WPEHostLoop *loop) { if (!v || !loop) return EINVAL; return wpe_host_loop_post(loop, dispatch_view_task, v); }
 uint64_t wpe_host_view_frame_id(const WPEHostView *v){return v?v->frame_id:0;}
 
 static int mkdir_if_missing(const char *path) { if (!path || !*path) return EINVAL; if (!mkdir(path, 0700) && errno != EEXIST) return errno; return 0; }

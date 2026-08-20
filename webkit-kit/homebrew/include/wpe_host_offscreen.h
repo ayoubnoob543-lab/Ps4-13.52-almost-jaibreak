@@ -57,6 +57,7 @@ int wpe_host_view_set_input_callback(WPEHostView *view, WPEHostInputCallback cal
 int wpe_host_view_queue_input(WPEHostView *view, const WPEHostInputEvent *event);
 int wpe_host_view_request_frame(WPEHostView *view);
 int wpe_host_view_dispatch(WPEHostView *view);
+int wpe_host_view_schedule_on_loop(WPEHostView *view, WPEHostLoop *loop);
 uint64_t wpe_host_view_frame_id(const WPEHostView *view);
 
 WPEHostStorage *wpe_host_storage_open(const char *root);
