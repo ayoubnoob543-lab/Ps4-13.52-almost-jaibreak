@@ -293,3 +293,17 @@ Se añadió `WEBKIT_THREE_FAMILY_CORRELATION.md` y el manifiesto machine-readabl
 | `JSCell::toX` | `2a042f...` / Bugzilla 270797 | `UNVERIFIED` |
 | `MarkedVector`/GC | `c9880de...` / Bugzilla 254797 | `UNVERIFIED` |
 | `CloneSerializer`/`objectPool` | `010c6bd...` / Bugzilla 265975 | `UNVERIFIED` |
+
+## Pipeline estático de correlación retail
+
+Se añadió `tools/analyze_webkit_retail.py`, que acepta un archivo local autorizado y produce SHA-256, detección ELF/SELF embebido, arquitectura, `PT_LOAD`, notas/Build ID, tablas dinámicas, símbolos dinámicos, strings relevantes y candidatos conservadores de xrefs. El analizador no ejecuta, descifra, desensambla ni genera gadgets.
+
+La herramienta carga `three_family_signatures.json` y clasifica las tres familias como `MATCH`, `PARTIAL MATCH`, `VULNERABLE_LIKE`, `FIXED_LIKE`, `NO MATCH` o `UNVERIFIED`. El campo de promoción `CONFIRMED_13.52` está deshabilitado por diseño; la evidencia directa del archivo no se interpreta como identidad retail.
+
+| Elemento | Estado | Evidencia |
+|---|---|---|
+| Analizador local ELF/SELF/raw | AVAILABLE | `tools/analyze_webkit_retail.py` |
+| Correlación JSCell/MarkedVector/Clone/objectPool | AVAILABLE | `three_family_signatures.json` |
+| Fixtures sintéticos ELF y raw | AVAILABLE | `tests/test_webkit_retail_pipeline.py` |
+| Procedimiento reproducible | AVAILABLE | `RETAIL_STATIC_PIPELINE.md` |
+| Confirmación de vulnerabilidad en PS4 13.52 | MISSING | No se aportaron bytes retail en esta fase |
