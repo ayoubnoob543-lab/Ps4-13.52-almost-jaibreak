@@ -1,0 +1,297 @@
+{
+  "classification": "VERIFIED_METADATA",
+  "entries": [
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 313,
+      "name": "BDMV",
+      "path": "/BDMV",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 321,
+      "name": "AUXDATA",
+      "path": "/BDMV/AUXDATA",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2425,
+      "name": "00000.OTF;1",
+      "path": "/BDMV/AUXDATA/00000.OTF;1",
+      "size": 234304
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2540,
+      "name": "00001.OTF;1",
+      "path": "/BDMV/AUXDATA/00001.OTF;1",
+      "size": 36992
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2559,
+      "name": "00002.OTF;1",
+      "path": "/BDMV/AUXDATA/00002.OTF;1",
+      "size": 40308
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2579,
+      "name": "DVB.FON;1",
+      "path": "/BDMV/AUXDATA/DVB.FON;1",
+      "size": 614
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 314,
+      "name": "BACKUP",
+      "path": "/BDMV/BACKUP",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 470,
+      "name": "INDEX.BDM;1",
+      "path": "/BDMV/BACKUP/INDEX.BDM;1",
+      "size": 120
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 471,
+      "name": "INDEX000.BDM;1",
+      "path": "/BDMV/BACKUP/INDEX000.BDM;1",
+      "size": 120
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 472,
+      "name": "MOVIE000.BDM;1",
+      "path": "/BDMV/BACKUP/MOVIE000.BDM;1",
+      "size": 7402
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 476,
+      "name": "MOVIEOBJ.BDM;1",
+      "path": "/BDMV/BACKUP/MOVIEOBJ.BDM;1",
+      "size": 7402
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 318,
+      "name": "BDJO",
+      "path": "/BDMV/BDJO",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2423,
+      "name": "00000.BDJ;1",
+      "path": "/BDMV/BDJO/00000.BDJ;1",
+      "size": 248
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 315,
+      "name": "CLIPINF",
+      "path": "/BDMV/CLIPINF",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 480,
+      "name": "00000.CLP;1",
+      "path": "/BDMV/CLIPINF/00000.CLP;1",
+      "size": 1136
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 465,
+      "name": "INDEX.BDM;1",
+      "path": "/BDMV/INDEX.BDM;1",
+      "size": 526
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 322,
+      "name": "JAR",
+      "path": "/BDMV/JAR",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2580,
+      "name": "00000.JAR;1",
+      "path": "/BDMV/JAR/00000.JAR;1",
+      "size": 43127
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 319,
+      "name": "META",
+      "path": "/BDMV/META",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 320,
+      "name": "DL",
+      "path": "/BDMV/META/DL",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2424,
+      "name": "BDMT_ENG.XML;1",
+      "path": "/BDMV/META/DL/BDMT_ENG.XML;1",
+      "size": 403
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 466,
+      "name": "MOVIEOBJ.BDM;1",
+      "path": "/BDMV/MOVIEOBJ.BDM;1",
+      "size": 7402
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 316,
+      "name": "PLAYLIST",
+      "path": "/BDMV/PLAYLIST",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 481,
+      "name": "00000.MPL;1",
+      "path": "/BDMV/PLAYLIST/00000.MPL;1",
+      "size": 170
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 317,
+      "name": "STREAM",
+      "path": "/BDMV/STREAM",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 482,
+      "name": "00000.M2T;1",
+      "path": "/BDMV/STREAM/00000.M2T;1",
+      "size": 3975168
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 323,
+      "name": "CERTIFIC",
+      "path": "/CERTIFIC",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2602,
+      "name": "APP_DISC.CRT;1",
+      "path": "/CERTIFIC/APP_DISC.CRT;1",
+      "size": 662
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": true,
+      "extent_sector": 324,
+      "name": "BACKUP",
+      "path": "/CERTIFIC/BACKUP",
+      "size": 2048
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2605,
+      "name": "APP_DISC.CRT;1",
+      "path": "/CERTIFIC/BACKUP/APP_DISC.CRT;1",
+      "size": 662
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2606,
+      "name": "BU_DISCR.CRT;1",
+      "path": "/CERTIFIC/BACKUP/BU_DISCR.CRT;1",
+      "size": 663
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2607,
+      "name": "ID.BDM;1",
+      "path": "/CERTIFIC/BACKUP/ID.BDM;1",
+      "size": 636
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2603,
+      "name": "BU_DISCR.CRT;1",
+      "path": "/CERTIFIC/BU_DISCR.CRT;1",
+      "size": 663
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 2604,
+      "name": "ID.BDM;1",
+      "path": "/CERTIFIC/ID.BDM;1",
+      "size": 89
+    },
+    {
+      "classification": "VERIFIED_METADATA",
+      "directory": false,
+      "extent_sector": 325,
+      "name": "GOLDHEN.BIN;1",
+      "path": "/GOLDHEN.BIN;1",
+      "size": 286336
+    }
+  ],
+  "mount_or_extraction_performed": false,
+  "path": "/home/ubuntu/ps4-1352-static-audit-2026-08-20/candidates/scanner_1304.iso",
+  "root": {
+    "directory": true,
+    "extent_sector": 312,
+    "name": ".",
+    "offset": 156,
+    "size": 2048
+  },
+  "schema": "iso9660-static-list-v1",
+  "size": 16777216,
+  "volume_id": "scanner_1304"
+}
