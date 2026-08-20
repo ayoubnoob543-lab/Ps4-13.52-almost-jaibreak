@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "engine": "WPE WebKit 2.52.6",
+  "backend": "WPEBackend-fdo 1.16.1",
+  "fixtures": [
+    {
+      "id": "page1",
+      "file": "page1.html",
+      "sha256": "3854930be7753028e3800233758f7015f5f2be590fe3663f0fb61ab035f36e7b",
+      "capabilities": ["dom", "css", "flexbox", "grid", "javascript", "events", "forms", "svg", "images", "canvas", "localstorage"]
+    },
+    {
+      "id": "page2",
+      "file": "page2.html",
+      "sha256": "66b593648c6cec245b505cad043d75a2c2c32d9c2ef0092b203fa17f500dd399",
+      "capabilities": ["navigation", "dom", "javascript", "events", "localstorage"]
+    },
+    {
+      "id": "page3",
+      "file": "page3.html",
+      "sha256": "5993bffdc8ff066c281f6786088abae42fd3e6900ee6c3cc86804774bd84ee87",
+      "capabilities": ["navigation", "history", "dom", "javascript"]
+    }
+  ],
+  "expected_sequence": ["page1", "page2", "page3"],
+  "result_policy": {
+    "missing_minibrowser": "NOT_RUN",
+    "missing_runtime_backend": "BLOCKED",
+    "process_started_without_assertions": "STARTED_ONLY",
+    "capability_pass_requires": "explicit fixture assertion or automation output"
+  }
+}
+
