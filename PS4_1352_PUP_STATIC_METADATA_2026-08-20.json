@@ -1,0 +1,55 @@
+{
+  "schema": "ps4-1352-pup-static-metadata-v1",
+  "source": "https://pc.ps4.update.playstation.net/update/ps4/image/2026_0611/sys_2ce20d9fbb48274ceb369b40412e616c/PS4UPDATE.PUP",
+  "firmware_label": "13.52",
+  "size": 503310848,
+  "sha256": "daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11",
+  "etag": "2ce20d9fbb48274ceb369b40412e616c:1781579172.795957",
+  "container": {
+    "format": "SLB2",
+    "version": 2,
+    "flags": 0,
+    "entry_count": 2,
+    "size_in_sectors": 983029,
+    "declared_size": 503310848,
+    "size_matches_declared": true,
+    "decryption_performed": false
+  },
+  "entries": [
+    {
+      "name": "PS4UPDATE1.PUP",
+      "offset": 1024,
+      "size": 326026951,
+      "sha256": "fd5e6c16398e628b3f258bce5f395c9fda687011a1a985d4b507928f54e6b580"
+    },
+    {
+      "name": "PS4UPDATE2.PUP",
+      "offset": 326028288,
+      "size": 177282367,
+      "sha256": "44cd0c0e85b5912150112df99867357c3822a90f366198d11e2ec4c1e10adee7"
+    }
+  ],
+  "literal_name_scan": {
+    "performed": true,
+    "decryption_performed": false,
+    "execution_performed": false,
+    "all_targets_literal_hits": false,
+    "targets": [
+      "libSceNKWebKit.sprx",
+      "libkernel_web.sprx",
+      "libSceLibcInternal.sprx",
+      "eboot.bin",
+      "WebProcess",
+      "JSCell",
+      "MarkedVector",
+      "CloneSerializer"
+    ],
+    "interpretation": "No target names appear literally in raw SLB2 entries; this does not prove module absence."
+  },
+  "classification": {
+    "pup_bytes": "DIRECT_BYTES",
+    "slb2_structure": "DIRECT_BYTES",
+    "target_module_presence": "UNVERIFIED",
+    "js_class_correlation": "UNVERIFIED"
+  }
+}
