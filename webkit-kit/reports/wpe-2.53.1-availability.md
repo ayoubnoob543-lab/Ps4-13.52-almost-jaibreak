@@ -12,9 +12,8 @@ WPE_2531_COMPARISON = NOT_RUN
 
 Se buscó un bundle oficial en `/tmp`, `/home/ubuntu`, `Downloads`, `/tmp/wpe-builds` y el árbol `bin` de la build WPE 2.52.6. No se encontró `MiniBrowser`, `WPEWebDriver` ni `libWPEWebKit-2.0.so` de la versión 2.53.1. Solo están disponibles el prefijo local `libwpe` 1.16.3, `WPEBackend-fdo` 1.16.1 y la build incompleta 2.52.6, que se preservó intacta.
 
-La comprobación del checkout actual muestra además que `HEAD=a08f849` no contiene `diagnose_wpe_minibrowser.py`, `run_wpe_headless.py`, `compare_wpe_smoke.py` ni `render_wpe_report.py`. Por ello no es posible ejecutar la infraestructura solicitada en este estado sin recrearla. No se recreará, porque esta tarea exige consumir tooling ya existente y no prepararlo de nuevo.
-
-No se descargó otra build grande, no se recompiló WebKit y no se ejecutaron diagnóstico, runtime, assertions ni comparación WPE 2.53.1. Por tanto, no existe evidencia funcional 2.53.1 en este entorno y hay un bloqueo adicional de checkout/tooling.
+El checkout actualizado contiene los runners versionados `diagnose_wpe_minibrowser.py`, `run_wpe_headless.py`, `compare_wpe_smoke.py` y `render_wpe_report.py`; se materializaron únicamente desde Git mediante sparse-checkout. Se ejecutaron el diagnóstico y el runner en modo autodetección, y ambos devolvieron `NOT_RUN` porque no encontraron el bundle.
+No se descargó otra build grande, no se recompiló WebKit y no se ejecutaron assertions ni comparación funcional WPE 2.53.1. Por tanto, no existe evidencia funcional 2.53.1 en este entorno; el bloqueo real restante es exclusivamente la ausencia de `MiniBrowser`/`WPEWebDriver`/`libWPEWebKit` 2.53.1.
 
 ## Comando pendiente
 
