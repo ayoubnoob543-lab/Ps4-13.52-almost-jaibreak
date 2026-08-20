@@ -112,3 +112,20 @@ WPE_HTML_SMOKE = NOT_RUN
 ```
 
 Bloqueo exacto: el host de 3,8 GiB RAM/2 GiB swap no puede completar de forma fiable las unidades C++ pesadas con las reglas Release actuales; el intento normal termina en el ensamblador, y la compilación global `-O0` requiere una reconfiguración coherente con `RELEASE_WITHOUT_OPTIMIZATIONS` que invalidaría gran parte del árbol. No existe `bin/MiniBrowser` ni biblioteca final `libWPEWebKit-2.0.so` verificable, por lo que no se afirma ningún resultado WPE ni se ejecuta el smoke HTML.
+
+## Iteración incremental posterior: 2026-08-20
+
+Se reanudó exclusivamente el build existente `/tmp/wpewebkit-2.52.6-build` con `ninja -j1 MiniBrowser`, swap temporal de 8 GiB y wrappers localizados únicamente para `StyleBuilderGenerated.cpp`, `StyleExtractorGenerated.cpp`, `StyleInterpolationWrapperMap.cpp`, `JSDocument.cpp` y `JSDOMWindow.cpp`. No se ejecutó `clean`, no se reinició la configuración y las reglas temporales de `build.ninja` fueron restauradas automáticamente después de cada intento.
+
+La estrategia permitió superar los cuellos anteriores y avanzar hasta `279/6079` tareas de la iteración actual. El siguiente cuello fue `Source/WebCore/DerivedSources/JSDOMWindow.cpp`. La compilación localizada con Clang bajo consumo terminó por SIGTERM (`wrapper_rc=241`) sin crear un objeto; la variante localizada GCC con `-O0 -g0`, sin `-pipe`, pases GCC desactivados y `-DRELEASE_WITHOUT_OPTIMIZATIONS` volvió a terminar `cc1plus` (`GCC_LOCAL_RC=1`). El archivo resultante de 416 bytes es un ELF relocatable truncado y no se considera válido ni enlazable.
+
+Estado verificable al cierre: no hay procesos Ninja/compiladores activos; `build.ninja` coincide con la copia restaurada; el host muestra 3,8 GiB de RAM total, aproximadamente 916 MiB usados, 8 GiB de swap disponibles y 23 GiB libres en disco. No existe `bin/MiniBrowser`, por lo que no se ejecutó runtime ni smoke HTML WPE.
+
+```text
+WPE_MINIBROWSER_BUILD = BLOCKED
+WPE_RUNTIME = BLOCKED
+WPE_HTML_SMOKE = NOT_RUN
+NEXT_BLOCKER = JSDOMWindow.cpp.o; cc1plus/Clang terminated by host memory control
+```
+
+La siguiente acción legítima es obtener un host con un límite de memoria de compilación mayor o una configuración CMake coherente específicamente menos costosa antes de volver a intentar esta única unidad; no se debe aceptar el objeto de 416 bytes ni continuar al enlace con él.
