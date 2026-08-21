@@ -88,3 +88,9 @@ Esto refuerza que el límite `parseo local → servicio encsrv` es una propiedad
 ## Conclusión
 
 La nueva evidencia explica el bloqueo con precisión: no estamos mirando una segunda tabla mal localizada; estamos mirando únicamente la cabecera visible de un formato cuya tabla de segmentos y metadata extendida se procesa mediante un servicio de cifrado. El siguiente artefacto de mayor valor sería una salida legítima ya descifrada del `encsrv` para 13.52 o metadata equivalente; el decrypter público revisado no permite obtenerla offline sólo con los PUP.
+
+## Comprobación de ausencia de clave offline
+
+Una búsqueda estática en el commit revisado no encontró constantes o llamadas AES/HMAC/OpenSSL/mbedTLS ni una clave privada embebida. El flujo abre `/dev/pup_update0` y delega la verificación y el descifrado en `ioctl()`/`encsrv`.
+
+Esto no demuestra que ninguna otra herramienta pública tenga una ruta offline, pero sí descarta que este decrypter concreto proporcione una regla de transformación aplicable directamente desde Ubuntu a los PUP 13.50/13.52.
