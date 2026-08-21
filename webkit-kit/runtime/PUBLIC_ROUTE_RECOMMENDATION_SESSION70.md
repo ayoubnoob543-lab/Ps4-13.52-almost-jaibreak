@@ -81,3 +81,7 @@ El README público de `ntfargo/CSSFontFace-Exploit` repite explícitamente dos r
 ## Fuente oficial OSS de PlayStation
 
 El portal oficial de PlayStation para WebKit OSS (https://www.playstation.com/en-us/oss/ps5/webkit/) publica snapshots para PS5 desde 1.00–1.14 hasta 12.00–, incluyendo `WebKit-1200.zip`. La página no publica un snapshot PS4 ni una versión PS4 13.52. Es una referencia legítima para estudiar cambios de WebKit de PS5 y contrastar layouts, pero no puede sustituir a `libSceNKWebKit.sprx` de PS4 13.52. Clasificación: `DIRECT_DOCUMENTATION` para la disponibilidad oficial de fuentes PS5; `UNVERIFIED` para cualquier extrapolación a PS4 13.52.
+
+## Snapshot oficial WebKit-1200: tamaño y límite práctico
+
+El enlace oficial `WebKit-1200.zip` de PlayStation redirige a CDN oficial y declara `Content-Length: 1,620,771,838` bytes (aprox. 1.54 GiB), `Accept-Ranges: bytes` y ETag `7e20a343a44405d94ff1cf7e0a8679fe:1786124810.897318`. La descarga parcial en el sandbox se cerró con error de transferencia tras obtener ~18.6 MB; no se ejecutó ni se analizó contenido. El snapshot sigue siendo una referencia OSS PS5, no evidencia de PS4 13.52. Se puede reanudar o inspeccionar por rangos en una iteración posterior si aporta valor, pero no se debe tratar como sustituto del módulo retail.
