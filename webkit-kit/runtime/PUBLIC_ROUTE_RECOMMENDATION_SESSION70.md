@@ -173,3 +173,7 @@ La búsqueda en `/home/ubuntu/upload` reveló una copia textual de `ufm42/wobkot
 ## Identidad del PUP local detectado
 
 El `PS4UPDATE1.PUP` localizado bajo `/home/ubuntu/upload` coincide con la entrada ya auditada del PUP 13.52: tamaño documentado de 326,026,951 bytes y SHA-256 `fd5e6c16398e628b3f258bce5f395c9fda687011a1a985d4b507928f54e6b580`. Esta coincidencia es evidencia directa de identidad del contenedor exterior, pero no revela ni valida los módulos cifrados internos (`libSceNKWebKit`, JVM o BD-J). No se descifra ni ejecuta.
+
+## Duplicados locales del BIN candidato
+
+La búsqueda por tamaño y SHA-256 encontró siete copias locales del mismo BIN de 479,232 bytes: en los workspaces `firmware-lab-*` y en `ps4-1352-pup-audit-session42/libkernel_dump`. Todas tienen SHA-256 `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c`. Esto confirma que el ZIP corresponde al artefacto ya conservado en el corpus, pero los duplicados no son procedencias independientes ni elevan por sí solos la clasificación más allá de `STRONG_INDIRECT_13.52`.
