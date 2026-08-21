@@ -41,3 +41,19 @@ The enlarged visual transcription is:
 Caution: these are transcribed from pixels, not extracted from source or bytecode. The characters are visually legible in the enlarged crops, but no independent second copy/hash was found. Classify the literal values as `DIRECT_PUBLIC_SCREENSHOT` / `UNVERIFIED_AS_SOURCE_BYTES`, not as direct retail 13.52 bytes.
 
 The screenshot demonstrates a changed string constant inside a privileged static initialization block. It does not reveal the full package/class declaration, the complete method body, the hash algorithm, the input bytes being hashed, or any caller. It therefore cannot by itself establish whether `getOriginalPersistentRoot()` changed, nor whether CodeSource, policy, class loading, or permissions changed beyond the separate BdjPolicy screenshot.
+Additional public verification 2026-08-21:
+
+OpenJDK commit source:
+- https://github.com/openjdk/jdk/commit/35dabb1a5f31d985f00de21badeeedb026a63b94
+- Message: `8244336: Restrict algorithms at JCE layer`.
+- Added `src/java.base/share/classes/com/sun/crypto/provider/RSACipherAdaptor.java`.
+- Class is `com.sun.crypto.provider.RSACipherAdaptor extends SignatureSpi`.
+- It wraps `RSACipher`; verification buffers data and compares decrypted signature output with the data using `MessageDigest.isEqual`.
+- OpenJDK `SunJCE.putEntries()` registers `Signature`, `NONEwithRSA`, implementation `com.sun.crypto.provider.RSACipherAdaptor`, with RSA public/private key classes.
+- This proves the standard Java contract only; it does not prove PS4 13.52 used the same class or code.
+
+PS4-related public comment verified at:
+https://x.com/ps3120/status/2070144817233789048
+Visible text: `And added RSACipherAdaptor in sunjce_provider.jar 13.52`, posted by @ps3120 on Jun 25, 2026, as a reply to Jose Coixao's RootCertManager post. No package, caller, source, JAR hash, or implementation is included.
+
+No public result was found that explicitly contains `RootCertManager` calling `Signature.getInstance("NONEwithRSA")`, `Security.getProvider`, `Provider.Service`, `RSACipherAdaptor`, or any equivalent registration. The missing caller remains the central unverified link.
