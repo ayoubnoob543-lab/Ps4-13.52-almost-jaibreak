@@ -98,3 +98,19 @@ Esto no demuestra que ninguna otra herramienta pública tenga una ruta offline, 
 ## Segundo unpacker público
 
 Se revisó también estáticamente `Dextura/PS4-PUP-UNPACKER`. Su código C# lee la cabecera de 32 bytes (`magic`, tamaños, `fileSize`, `entryCount`) y después interpreta directamente la tabla de entradas/segmentos. No implementa la transformación criptográfica; espera que el archivo de entrada ya tenga la estructura extendida legible. Esto coincide con la separación pública `decrypt → unpack` y no proporciona una ruta adicional para interpretar offline los blobs locales protegidos.
+
+## Tercer parser público: PS4Delta/Prosperity
+
+Se revisó el archivo público `Force67/prosperity/delta/formats/pup_object.cpp`, commit `34752578f273617d6567e0185cccb04b6cd87ae4`, disponible en:
+
+https://github.com/Force67/prosperity/blob/34752578f273617d6567e0185cccb04b6cd87ae4/delta/formats/pup_object.cpp
+
+El código distingue entre el contenedor PUP y los payloads de segmentos. Para PS4, intenta descomprimir segmentos; si la operación falla, marca el contenido como cifrado y conserva los bytes raw. Su mensaje final distingue explícitamente entre imágenes de contenedor extraídas y módulos SELF cifrados dentro de ellas, indicando que hace falta un conjunto de módulos `.sprx` preextraídos para analizar el firmware.
+
+Este proyecto refuerza la separación conceptual:
+
+```text
+PUP/segmentos → contenedor o imagen → SELF cifrado → módulo SPRX analizable
+```
+
+La fuente no demuestra nada específico de 13.52 ni identifica `libSceNKWebKit`; se clasifica como `HISTORICAL_ONLY`/`STRONG_INDIRECT_13.52` para la interpretación de la capa local.
