@@ -165,3 +165,7 @@ El archivo `webkit-kit/libkernel_sys_13.52.signatures.json` ya contiene el SHA-2
 ## Separación libkernel frente a WebKit/JSC
 
 La búsqueda de strings del BIN candidato no encontró `WebKit`, `JavaScriptCore`, `CSSFontFace`, `WebCore`, `JSC`, `CloneSerializer`, `MarkedVector` ni `libSceNKWebKit`. Sí encontró numerosos marcadores de libkernel/Orbis como `sceKernel*`, `libkernel.sprx`, `orbis_rtld`, `SCE_KERNEL_JIT_SHM_AREA` y rutas internas de pthread/libkernel. Esto refuerza que el archivo es coherente con un artefacto libkernel, pero confirma que no puede resolver directamente la cuestión de WebKit/JSC 13.52. Clasificación: `STRONG_INDIRECT_13.52` para identidad funcional de libkernel; `NO MATCH` para las tres familias WebKit en este BIN; `UNVERIFIED` para procedencia retail.
+
+## Archivo local `ufm42/wobkot` separado del objetivo
+
+La búsqueda en `/home/ubuntu/upload` reveló una copia textual de `ufm42/wobkot` (`ps4_kernel.js`). Su contenido define primitivas de memoria y funciones nativas/kernel, por lo que se clasifica como código de explotación/kernel y no se ejecuta, adapta ni usa para construir una cadena. No contiene `libSceNKWebKit`, `CSSFontFace`, `MarkedVector`, `CloneSerializer` ni evidencia del runtime WebKit 13.52. Clasificación: `HISTORICAL_ONLY`/`DISCARDED` para el objetivo WebKit.
