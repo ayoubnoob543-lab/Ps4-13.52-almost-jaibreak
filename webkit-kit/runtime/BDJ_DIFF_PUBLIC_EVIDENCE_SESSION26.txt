@@ -1,0 +1,29 @@
+Public media artifact recovered from Jose Coixao's X post:
+
+- Source post: https://x.com/notnotzecoxao/status/2066944047944446366
+- Author: Jose Coixao (@notnotzecoxao)
+- Post timestamp: 2026-06-16 18:00:37 UTC
+- Media URL exposed by page HTML: https://pbs.twimg.com/media/HK9CpsiXYAAmMbv?format=webp&name=medium
+- Local path: webkit-kit/runtime/rootcertmanager_diff_original_public.webp
+- File type: Web/P image, VP8, 1200x113 pixels
+- Size: 10568 bytes
+- SHA-256: ab98050e2cf3a4e62497e986043387722672460a914fcd51270c74e94ed3d820
+- Nature: public screenshot/image, not Java source, bytecode, JAR, or firmware bytes.
+- Visible content: a narrow screenshot showing a RootCertManager-related comparison; it does not provide a complete source file, code provenance, method body, or a PS4 filesystem path.
+- The `orig` URL variant returned HTTP 404; the `medium` URL succeeded. No protected material was accessed.
+Second public media artifact recovered from the preceding thread post:
+
+- Thread post: https://x.com/notnotzecoxao/status/2066838388976517585
+- Author: Jose Coixao (@notnotzecoxao)
+- Post text: `bdjb patched on 13.52. this code got removed`
+- Media URL: https://pbs.twimg.com/media/HK7ieV2XwAA3gQc?format=webp&name=medium
+- Local path: webkit-kit/runtime/bdjpolicy_public_screenshot.webp
+- File type: Web/P image, VP8, 451x370 pixels
+- Size: 19958 bytes
+- SHA-256: 713f2e92ead82f069160de801231988fdeb884b8ec12c7ddd89182acc43fbf23
+- Nature: public code screenshot, not source or bytecode artifact.
+- It shows the historical BdjPolicy branch involving CodeSource/path matching and `RootCertManager.isSunJCEVerified()` before `AllPermission`; it does not expose the verifier body or the original extracted PS4 files.
+Visual verification notes:
+
+- `rootcertmanager_diff_original_public.webp` is a 1200x113 side-by-side code screenshot. It visibly shows a `static` block, `AccessController.doPrivileged(new 1())`, and two different `sunjce_hash` Base64 assignments. It does not show the class header/package, the method body, imports, file path, build ID, or firmware labels inside the image.
+- `bdjpolicy_public_screenshot.webp` is a 451x370 code screenshot. It visibly shows `codeSource.getLocation()`, `url.getProtocol()` compared with `file`, `url.getFile()`, construction of a `jceJar` path containing `lib`, `ext`, and `sunjce_provider.jar`, equality comparison, `RootCertManager.isSunJCEVerified()`, and `Permissions`/`AllPermission`. It does not show the complete surrounding class or implementation of the verifier.
