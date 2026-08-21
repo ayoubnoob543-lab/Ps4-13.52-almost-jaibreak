@@ -94,3 +94,7 @@ La nueva evidencia explica el bloqueo con precisión: no estamos mirando una seg
 Una búsqueda estática en el commit revisado no encontró constantes o llamadas AES/HMAC/OpenSSL/mbedTLS ni una clave privada embebida. El flujo abre `/dev/pup_update0` y delega la verificación y el descifrado en `ioctl()`/`encsrv`.
 
 Esto no demuestra que ninguna otra herramienta pública tenga una ruta offline, pero sí descarta que este decrypter concreto proporcione una regla de transformación aplicable directamente desde Ubuntu a los PUP 13.50/13.52.
+
+## Segundo unpacker público
+
+Se revisó también estáticamente `Dextura/PS4-PUP-UNPACKER`. Su código C# lee la cabecera de 32 bytes (`magic`, tamaños, `fileSize`, `entryCount`) y después interpreta directamente la tabla de entradas/segmentos. No implementa la transformación criptográfica; espera que el archivo de entrada ya tenga la estructura extendida legible. Esto coincide con la separación pública `decrypt → unpack` y no proporciona una ruta adicional para interpretar offline los blobs locales protegidos.
