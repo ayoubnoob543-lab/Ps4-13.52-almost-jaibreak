@@ -1,0 +1,942 @@
+{
+  "block_size": 20000000,
+  "files": [
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "695dd169e52e12737f4c0bc2be0f74bb1c00664fd32ac900f8815fde8b252baf",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-000",
+      "sha256": "695dd169e52e12737f4c0bc2be0f74bb1c00664fd32ac900f8815fde8b252baf",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "279296f7b431cb1f499106f972700f7497221ab899ec695fc5d7f7d65cecca86",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-001",
+      "sha256": "279296f7b431cb1f499106f972700f7497221ab899ec695fc5d7f7d65cecca86",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "34e8b6b2ad16c54cf3f168f5c1c5b1e60fb7589da0c3426ad70186addd17dce8",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-002",
+      "sha256": "34e8b6b2ad16c54cf3f168f5c1c5b1e60fb7589da0c3426ad70186addd17dce8",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "6b994709f4a52955a484b7827efe867affcb1f453262681f605065db88d117db",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-003",
+      "sha256": "6b994709f4a52955a484b7827efe867affcb1f453262681f605065db88d117db",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "d4391b38da22e924c24a32794cdae53e752381c48def69d0fb50e47620f73c48",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-004",
+      "sha256": "d4391b38da22e924c24a32794cdae53e752381c48def69d0fb50e47620f73c48",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "7c7da10ec90320b1d3c94052d23a173991bda05e47836a8617cc3965137a060a",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-005",
+      "sha256": "7c7da10ec90320b1d3c94052d23a173991bda05e47836a8617cc3965137a060a",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "ed88379eff0fa997d3ea5b96162566950b7ba0371f85b86e1424dff0b7d35f07",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-006",
+      "sha256": "ed88379eff0fa997d3ea5b96162566950b7ba0371f85b86e1424dff0b7d35f07",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "7e7f5fd8ee67e5657d7c86a3641982ec4d1aa3713de6f248d9f61251004a677a",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-007",
+      "sha256": "7e7f5fd8ee67e5657d7c86a3641982ec4d1aa3713de6f248d9f61251004a677a",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "94113c2059f7b782f5abed35d1752ac52dd14e12673a1a18b37d76ab7b622ad6",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-008",
+      "sha256": "94113c2059f7b782f5abed35d1752ac52dd14e12673a1a18b37d76ab7b622ad6",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "ba0a3aecae107d769bbc103d1cd1f00fa25b0a83ff4c68860ef7284eb2ec0e23",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-009",
+      "sha256": "ba0a3aecae107d769bbc103d1cd1f00fa25b0a83ff4c68860ef7284eb2ec0e23",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "8554783c1ac2d1823c41b11e5aa699ba147995cf6dc3103d8b1f0c444646c215",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-010",
+      "sha256": "8554783c1ac2d1823c41b11e5aa699ba147995cf6dc3103d8b1f0c444646c215",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "c3e818c0af5f5b04df6e4b351c377508c360224f05119fb9b44f02bfd6ddc95f",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-011",
+      "sha256": "c3e818c0af5f5b04df6e4b351c377508c360224f05119fb9b44f02bfd6ddc95f",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "0c77968bfc9271ab8246757e99c17b9ef52799d67786daa001cb908faf4727d0",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-012",
+      "sha256": "0c77968bfc9271ab8246757e99c17b9ef52799d67786daa001cb908faf4727d0",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "1bd1478cc6c5b9fb138824b7d7583dda32288187ad4c8ba5ce1d1f7faab4e019",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-013",
+      "sha256": "1bd1478cc6c5b9fb138824b7d7583dda32288187ad4c8ba5ce1d1f7faab4e019",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "93bc78184ea2ad620d7b34c5c25a02a397115490abc21a14051bed49723ceb52",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-014",
+      "sha256": "93bc78184ea2ad620d7b34c5c25a02a397115490abc21a14051bed49723ceb52",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "0455e9a8730f3a60ec14dce0c8ad3c0540026b2efde0464faa96e78b11d9eb90",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-015",
+      "sha256": "0455e9a8730f3a60ec14dce0c8ad3c0540026b2efde0464faa96e78b11d9eb90",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "ae8047e975e8bf050ee1beea16cbc7de83de9586073141b5d75dea808187b653",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-016",
+      "sha256": "ae8047e975e8bf050ee1beea16cbc7de83de9586073141b5d75dea808187b653",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "f5c7d66c200aabc4c5ce23c17a0f86948eb806e39399bd144dadab89a5d61a5b",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-017",
+      "sha256": "f5c7d66c200aabc4c5ce23c17a0f86948eb806e39399bd144dadab89a5d61a5b",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "9b205bb0b6bb22f367914436295fdbde4eadc0e7398f848b638e075d48bc79e8",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-018",
+      "sha256": "9b205bb0b6bb22f367914436295fdbde4eadc0e7398f848b638e075d48bc79e8",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "2db13fd6e19bd994eb74005d3ea6e99c3ce0a8a936fbccdda7359ce972ff3180",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-019",
+      "sha256": "2db13fd6e19bd994eb74005d3ea6e99c3ce0a8a936fbccdda7359ce972ff3180",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "476a962ad2be080ce2a110e7bb66090e2acd0560cf9036f514a5b485517e2d74",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-020",
+      "sha256": "476a962ad2be080ce2a110e7bb66090e2acd0560cf9036f514a5b485517e2d74",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "ac845f96e16a8fd03af0baa9ce2df0a2cc754b2a1e7bc0e4230cec20aeeb0965",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-021",
+      "sha256": "ac845f96e16a8fd03af0baa9ce2df0a2cc754b2a1e7bc0e4230cec20aeeb0965",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "a3de8a9e3f1c9d29a03f447b7aa4dc42acbeeeb33f06a0d90e467b13ccd14d24",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-022",
+      "sha256": "a3de8a9e3f1c9d29a03f447b7aa4dc42acbeeeb33f06a0d90e467b13ccd14d24",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "29e54366709cb8fa67085ccfc8245574a264d649af8284d732c27ebb64e910f1",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-023",
+      "sha256": "29e54366709cb8fa67085ccfc8245574a264d649af8284d732c27ebb64e910f1",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "cac7933499ccf4faf758f48e157a85656946398b72f717c1539910cb2755cda3",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-024",
+      "sha256": "cac7933499ccf4faf758f48e157a85656946398b72f717c1539910cb2755cda3",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "006dbc68cd49c550e9f77c727f31b89bc5f8a20cc4ec27948da0705d350321d0",
+          "size": 3293952
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1350.part-025",
+      "sha256": "006dbc68cd49c550e9f77c727f31b89bc5f8a20cc4ec27948da0705d350321d0",
+      "size": 3293952
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "e781c5f6291bfc646dbaea9eafb20bdddbc32b6a1ad05dd730a833d531e604ac",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-000",
+      "sha256": "e781c5f6291bfc646dbaea9eafb20bdddbc32b6a1ad05dd730a833d531e604ac",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "99a91f29304574b3666b987b3f18bb00e6118349afd81cdc1fecd0c4290eb268",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-001",
+      "sha256": "99a91f29304574b3666b987b3f18bb00e6118349afd81cdc1fecd0c4290eb268",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "b995940c570d0c62c937fefd83e02fce90fc0d7017a44da6047244632e8b057b",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-002",
+      "sha256": "b995940c570d0c62c937fefd83e02fce90fc0d7017a44da6047244632e8b057b",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "d378c0b85ff7dce13983afee3723e9a428ad6086c4919e713aa7d61ab85a09f6",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-003",
+      "sha256": "d378c0b85ff7dce13983afee3723e9a428ad6086c4919e713aa7d61ab85a09f6",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "6362ddedf2e1aa33802dc187f76898912c52430b78a25161dc863cad69b0ddb5",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-004",
+      "sha256": "6362ddedf2e1aa33802dc187f76898912c52430b78a25161dc863cad69b0ddb5",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "1432a362eedae847da79a470ff430683ebd600313bb6ecb256731436ba62d7fa",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-005",
+      "sha256": "1432a362eedae847da79a470ff430683ebd600313bb6ecb256731436ba62d7fa",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "12675cdd7b1810affbedc76954061a1df420d9818b3190e801583709df0defb3",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-006",
+      "sha256": "12675cdd7b1810affbedc76954061a1df420d9818b3190e801583709df0defb3",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "8d7a23adfc3645e08736b24b648726e33ae16b8b8253c1cfa288cf9771520754",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-007",
+      "sha256": "8d7a23adfc3645e08736b24b648726e33ae16b8b8253c1cfa288cf9771520754",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "dd27793176c44bb3a39d97c73d682ed77e38a5152b58737018c5fef690330748",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-008",
+      "sha256": "dd27793176c44bb3a39d97c73d682ed77e38a5152b58737018c5fef690330748",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "d1159aaa724c444fb852636e2cf06c4e2bc484ce26979830f4916cd49d09a890",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-009",
+      "sha256": "d1159aaa724c444fb852636e2cf06c4e2bc484ce26979830f4916cd49d09a890",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "23f81b05cd1020a06973eaa24ff2e04f4f3baa7f05b236f15f11047021955af7",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-010",
+      "sha256": "23f81b05cd1020a06973eaa24ff2e04f4f3baa7f05b236f15f11047021955af7",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "2b7213c13808efe0a8bc939656bd7a694c8a3089474716c936660c7dd7b8875f",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-011",
+      "sha256": "2b7213c13808efe0a8bc939656bd7a694c8a3089474716c936660c7dd7b8875f",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "182c6d66a791f75d96858a28f283eeb4040173847a7dc0ef2b8a946cb90b7056",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-012",
+      "sha256": "182c6d66a791f75d96858a28f283eeb4040173847a7dc0ef2b8a946cb90b7056",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "39023362c79fa8073f365b063d3d90231bffe0916d11216ad54537c1ad7fe3fb",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-013",
+      "sha256": "39023362c79fa8073f365b063d3d90231bffe0916d11216ad54537c1ad7fe3fb",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "b6137121e5299ef857eceedca2f92a2d1aab68110a8415b313958272caac721e",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-014",
+      "sha256": "b6137121e5299ef857eceedca2f92a2d1aab68110a8415b313958272caac721e",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "6250241473a1a6aa9b45823a1fb0efc7ec9cdaf97425ecb97b8023c03a6bcace",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-015",
+      "sha256": "6250241473a1a6aa9b45823a1fb0efc7ec9cdaf97425ecb97b8023c03a6bcace",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "4545a6ef527d3807f6cf38eb917781765d7055fbd892014532beeabda3da92e0",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-016",
+      "sha256": "4545a6ef527d3807f6cf38eb917781765d7055fbd892014532beeabda3da92e0",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "86234c4d3aefa5f92ea5cd845abc3c229ee6512d82ca85a900b014770c878786",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-017",
+      "sha256": "86234c4d3aefa5f92ea5cd845abc3c229ee6512d82ca85a900b014770c878786",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "e3198738bd6a67e81a8455f4257602fcbeb0bebe8411eb5ccf0e195446a0628a",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-018",
+      "sha256": "e3198738bd6a67e81a8455f4257602fcbeb0bebe8411eb5ccf0e195446a0628a",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "5b6d6ace720356f50008281bc5ebbe8d6ae3d733a810caf257714404d5c20a8a",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-019",
+      "sha256": "5b6d6ace720356f50008281bc5ebbe8d6ae3d733a810caf257714404d5c20a8a",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "633c1dde99fc7437f749058b8b0c6d7c6cf1e57aed96ad55297654dbb9a51d71",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-020",
+      "sha256": "633c1dde99fc7437f749058b8b0c6d7c6cf1e57aed96ad55297654dbb9a51d71",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "5af73663cd8d91138a4aac4d2ea380c4226130227349bafd268e7feec07c5819",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-021",
+      "sha256": "5af73663cd8d91138a4aac4d2ea380c4226130227349bafd268e7feec07c5819",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "475446de8a0d8091b6e6a2c0eee3b6a6eff6efef72157998e3cb2f85c3d0dc4e",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-022",
+      "sha256": "475446de8a0d8091b6e6a2c0eee3b6a6eff6efef72157998e3cb2f85c3d0dc4e",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "ddc975407a27f66c73366a29c2f136a189cf5c9002fbb38e2ebf0b0ec441e65c",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-023",
+      "sha256": "ddc975407a27f66c73366a29c2f136a189cf5c9002fbb38e2ebf0b0ec441e65c",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "fd3cb28fcbd243baf2afdc76b1ac7df20e0741e87405375292ff0e77e6b9ef3e",
+          "size": 20000000
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-024",
+      "sha256": "fd3cb28fcbd243baf2afdc76b1ac7df20e0741e87405375292ff0e77e6b9ef3e",
+      "size": 20000000
+    },
+    {
+      "block_count": 1,
+      "block_size": 20000000,
+      "blocks": [
+        {
+          "index": 0,
+          "offset": 0,
+          "sha256": "8fd408f5fa31dd38d05614b0eecf41b2684e95cdf3b39be0c7f69e6356a04fd1",
+          "size": 3310848
+        }
+      ],
+      "bytes_embedded": false,
+      "decryption_performed": false,
+      "execution_performed": false,
+      "path": "/home/ubuntu/firmware-lab-runtime/artifacts/pup_chunks_1350_1352/PS4SYS_1352.part-025",
+      "sha256": "8fd408f5fa31dd38d05614b0eecf41b2684e95cdf3b39be0c7f69e6356a04fd1",
+      "size": 3310848
+    }
+  ],
+  "format": "local-file-sha256-block-manifest-v1"
+}
