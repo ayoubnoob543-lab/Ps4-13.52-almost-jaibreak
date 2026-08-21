@@ -189,3 +189,14 @@ El inventario encontró sólo una referencia textual a `files_diff_bdjstack_jar_
 ## Procedencia declarada del ZIP de libkernel
 
 El README interno se titula `PS4 13.52 libkernel_sys.sprx — Memory Dump` y afirma captura desde una PS4 retail 13.52, pero no incluye una URL directa de publicación, firma criptográfica, manifest externo ni cadena de custodia independiente. Sólo menciona nominalmente repositorios/proyectos relacionados. La consistencia de bytes y la coincidencia con la metadata local son verificables; la procedencia de firmware sigue siendo una afirmación del README. Clasificación final del dump: identidad funcional `STRONG_INDIRECT_13.52`, procedencia exacta `UNVERIFIED`.
+
+
+## Referencias públicas adicionales sobre BD-J y procedencia de artefactos
+
+`Gezine/BD-JB5` documenta un proyecto BD-JB para PS5 con soporte declarado hasta 13.42 y menciona el uso de `rt.jar` y `bdjstack.jar` desde `/system_ex/app/NPXS20113` como stubs del build. Es evidencia de tooling/procedencia histórica, no evidencia de bytes PS4 13.52. URL: https://github.com/Gezine/BD-JB5. Clasificación: `HISTORICAL_ONLY`/`DOCUMENTED_ONLY`.
+
+La documentación pública del build system describe compilación Java 1.4 y empaquetado BD-J compatible, pero exige que `rt.jar` y `bdjstack.jar` procedan del sistema y no proporciona esos artefactos. URL: https://gezine-bd-jb-1250.mintlify.app/development/build-system. Clasificación: `DOCUMENTED_ONLY`/`UNVERIFIED` para 13.52.
+
+`hammer-83/ps5-jar-loader` separa stubs, Xlet y payloads en un loader histórico para PS5 7.61 o anteriores; no aporta `libSceNKWebKit`, runtime BD-J PS4 13.52 ni bytes de `bdjstack.jar`. URL: https://github.com/hammer-83/ps5-jar-loader. Clasificación: `HISTORICAL_ONLY`.
+
+La búsqueda local de la pista `files_diff_bdjstack_jar_ps5.7z` confirma que sólo está almacenada la página de MediaFire, no el archivo 7Z; por tanto sigue sin existir hash ni contenido analizable de ese supuesto diff.
