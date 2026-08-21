@@ -9,7 +9,9 @@ Aparece una región idéntica de **240 bytes** en ambas versiones y en ambas ent
 | Entrada | Offset relativo dentro de la entrada | Offset absoluto 13.50 | Offset absoluto 13.52 | Longitud |
 |---|---:|---:|---:|---:|
 | UPDATE1 | `0x6f0` (`1776`) | `0xaf0` (`2800`) | `0xaf0` (`2800`) | 240 bytes |
-| UPDATE2 | `0x1b0` (`432`) | `0x137000b0` (`326028208`) | `0x137002b0` (`326028720`) | 240 bytes |
+| UPDATE2 | `0x1b0` (`432`) | `0x136ecbb0` (`326028208`) | `0x136ecdb0` (`326028720`) | 240 bytes |
+
+Los offsets absolutos de UPDATE2 se calculan desde las cabeceras internas encontradas en `0x136eca00` (13.50) y `0x136ecc00` (13.52), no desde un offset fijo reutilizado entre versiones.
 
 La región tiene SHA-256:
 
