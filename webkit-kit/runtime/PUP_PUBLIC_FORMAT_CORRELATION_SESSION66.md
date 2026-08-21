@@ -34,3 +34,15 @@ El repositorio público `andy-man/ps4-pup-decrypt` describe un descifrador que o
 La búsqueda debe dejar de tratar los 16 bytes visibles como si fueran un índice de módulos. El formato público explica por qué no aparece `SELF`, `ELF`, `libSceNKWebKit` o la tabla de segmentos: esos datos están dentro de la parte protegida del fragmento.
 
 No se ha usado ningún descifrador contra hardware ni se ha ejecutado payload. Esta nota sólo correlaciona documentación pública con bytes locales ya adquiridos.
+
+## Búsqueda pública adicional
+
+Se consultaron también:
+
+- PSXHAX, `PS4 PUP_Decrypt & PUP_Unpack` (30 enero 2017): https://www.psxhax.com/threads/ps4-pup_decrypt-pup_unpack-decrypt-unpack-ps4-updates-by-idc.1602/
+- Reddit, `PS4 Firmware 6.xx was decrypted...`: https://www.reddit.com/r/ps4homebrew/comments/airtlf/ps4_firmware_6xx_was_decrypted/
+- Vídeo de TheeEvolutionYT, `PS4 13.52 BD-J USERLAND BUG FULLY ACHIEVED!`: https://www.youtube.com/watch?v=ZG-SGV4c-kQ
+
+PSXHAX describe históricamente `pup_decrypt` como una utilidad que invoca el kernel de PS4 para descifrar PUP y luego usa `pup_unpack` sobre los `.PUP.dec`; también documenta que la compatibilidad dependía de la versión instalada y del product code. La lista pública citada llega a firmwares antiguos, no a 13.52. Esto es `HISTORICAL_ONLY` y no demuestra una ruta offline para nuestros PUP.
+
+La página del vídeo de 13.52 (fecha mostrada: 23 julio 2026) afirma en título/descripción que existe BD-J userland en 13.52 y que todavía falta un kernel bug para un jailbreak completo. El contenido extraído no proporciona una cabecera descifrada, hash, módulo `libSceNKWebKit`, offset ni primitive reproducible. Se clasifica como `DOCUMENTED_ONLY`/`UNVERIFIED` respecto a la transformación PUP y como `UNVERIFIED` para cualquier primitive concreta.
