@@ -6,7 +6,7 @@ import json
 import re
 from pathlib import Path
 
-SECRET = re.compile(r"(?i)(private[_-]?key|api[_-]?key|password\s*=\s*[^$\{])")
+SECRET = re.compile(r"(?i)(?:\b(?:private[_-]?key|api[_-]?key)\b\s*[:=]\s*['\"]|\bpassword\b\s*=\s*[^$\{\s])")
 
 
 def main() -> int:
