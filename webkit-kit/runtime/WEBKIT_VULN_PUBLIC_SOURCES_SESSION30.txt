@@ -1,0 +1,34 @@
+External source notes, 2026-08-21:
+
+1) WebKitGTK/WPE advisory WSA-2025-0003: https://webkitgtk.org/security/WSA-2025-0003.html
+- Date reported: 2025-04-07.
+- CVE-2025-24213, WebKit Bugzilla 286694: type confusion; impact memory corruption; addressed with improved handling of floats. Versions affected: WebKitGTK/WPE before 2.48.1. Advisory notes fixed only on ARM; x86_64 not vulnerable and x86 not vulnerable when SSE2 enabled.
+- CVE-2025-30427, WebKit Bugzilla 285643: use-after-free; impact unexpected Safari crash; addressed with improved memory management. Versions affected: before 2.48.1.
+- CVE-2025-24209, Bugzilla 286462: buffer overflow; versions before 2.48.1; addressed with improved memory handling.
+- CVE-2025-24216 and CVE-2025-24264: memory-handling fixes; before 2.48.1.
+
+2) WebKitGTK/WPE advisory WSA-2021-0007: https://webkitgtk.org/security/WSA-2021-0007.html
+- CVE-2021-30809: UAF; arbitrary code execution impact; affected before WebKitGTK/WPE 2.32.4.
+- CVE-2021-30818: type confusion; arbitrary code execution impact; affected before 2.34.0.
+- CVE-2021-30836: out-of-bounds read in malicious audio processing; affected before 2.32.4.
+- CVE-2021-30889: buffer overflow; arbitrary code execution; affected before 2.34.0.
+
+3) WebKitGTK/WPE advisory WSA-2022-0001: https://webkitgtk.org/security/WSA-2022-0001.html
+- CVE-2021-30934: buffer overflow; arbitrary code execution; before 2.34.4.
+- CVE-2021-30936 and CVE-2021-30951: UAF; arbitrary code execution; before 2.34.4.
+- CVE-2021-30952: integer overflow; arbitrary code execution; before 2.34.4; improved input validation.
+- CVE-2021-30953: out-of-bounds read; arbitrary code execution; before 2.34.4; improved bounds checking.
+- CVE-2021-30954: type confusion; arbitrary code execution; before 2.34.4; improved memory handling.
+- CVE-2021-30984: race condition; arbitrary code execution; before 2.34.4.
+
+4) Project Zero JITSploitation I: https://projectzero.google/2020/09/jitsploitation-one.html
+- Author Samuel Groß, 2020-09-01.
+- CVE-2020-9802 was fixed in iOS 13.5; CVE-2020-9870 and CVE-2020-9910 were mitigation bypasses fixed in iOS 13.6.
+- CVE-2020-9802 is a JSC DFG CSE bug: DFGClobberize failed to include ArithMode for ArithNegate (and also ArithAbs), allowing a checked operation to be substituted with an unchecked one. The patch URL is https://github.com/WebKit/webkit/commit/951d27d5ba08b6c29370b05dc6b4ffe18be1ca18 and changes `def(PureValue(node))` to `def(PureValue(node, node->arithMode()))`.
+- The Project Zero article states the bug can yield an out-of-bounds read/write on the JSC heap, and explains DFG/FTL/JIT components. These facts are upstream/iOS research, not PS4 evidence.
+
+5) Local corpus context:
+- The repository documents WebKit-601-1300 as the public Sony snapshot for PS4 13.00–13.04 and does not contain a public Sony 13.50/13.52 WebKit source snapshot.
+- Any version mapping to PS4 13.52 must therefore remain UNVERIFIED unless a direct Sony revision or retail bytes are available.
+
+Classification rule: public advisory/commit facts are DIRECT for the named upstream/advisory version; relation to PS4 13.52 is UNVERIFIED unless a Sony revision mapping is demonstrated.
