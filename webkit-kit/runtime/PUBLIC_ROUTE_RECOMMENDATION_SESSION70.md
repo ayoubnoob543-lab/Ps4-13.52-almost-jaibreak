@@ -139,3 +139,7 @@ La fuente upstream actual `FontFace.h` muestra además un diseño moderno con `R
 ## Correlación estricta sólo sobre fuentes
 
 Se concatenaron únicamente archivos fuente C/C++/Objective-C/Java del directorio `webkit-kit` (725 líneas, 30,830 bytes; SHA-256 `f493abb9a431b4ccdbb589c2578e62eb227166e74a819adcbbdfc689f4b5d8f3`). La búsqueda de `CSSFontFace`, `MarkedVector`, `CloneSerializer`, `CloneDeserializer`, `JSCell::to`, `m_featureSettings` y `m_propertiesOrCSSConnection` no devolvió coincidencias. Por tanto, los `MATCH / FIXED_LIKE` anteriores proceden del corpus documental/configuración y no de una implementación WebKit fuente presente. Clasificación: `NO MATCH` en fuentes locales; estado 13.52 `UNVERIFIED`.
+
+## Búsqueda adicional de contenedores locales
+
+La búsqueda de `.img`, `.tar`, `.zip`, `.7z`, `.zst`, `.xz` y `.lz4` bajo `/home/ubuntu` sólo encontró paquetes Arch/Linux y fuentes WPE (`.pkg.tar.zst`, `.tar.xz`). No apareció una imagen PS4, PUP, SPRX, SELF ni rootfs Orbis. Estos resultados se excluyen como evidencia de 13.52 y no se extrajeron ni ejecutaron.
