@@ -1,0 +1,138 @@
+{
+  "decryption_performed": false,
+  "entries": {
+    "UPDATE1": {
+      "header_offset": 1024,
+      "offset": 2800,
+      "parts": [
+        {
+          "entropy": 5.871928094887363,
+          "field_entropy": [
+            3.875,
+            4.0,
+            4.75,
+            3.875
+          ],
+          "field_sha256": [
+            "77b382ef1fdc275f6adc2d4ebd4c06a27031fd63a9d4f8bbc5c401bb11c05144",
+            "f7784d75e07c9cdcf1dfd9d0678dd4b0c5f8850cb524a3e6209090d051d4b406",
+            "e7daa5e7598101dbff48933e03cdaa816680927bb9de1295fa3aeced9fc7507c",
+            "23a36eecd210343cee257ebcd89c7e994409d6eba4775a4fd7c96e5a6c07ce1f"
+          ],
+          "hex_prefix": "21b9e2df65251b571d233dcea6b7a6a0",
+          "index": 0,
+          "sha256": "b05e5a1060ced8e6d17114579052bdb192887683cce20813433a829f693abaa4",
+          "unique_bytes": 62
+        },
+        {
+          "entropy": 5.928055907333277,
+          "field_entropy": [
+            3.875,
+            4.0,
+            4.9375,
+            3.875
+          ],
+          "field_sha256": [
+            "883f4520f01fca62a7a369ff158e38bd0ee1a1ac57bacde68259d7780932dc57",
+            "9d477bebd469e4c17b1c7b7e84665cbdc0f9c52ce1c94065b26013924a69ac3e",
+            "c91bdb8c74b18beb566b63a4d64e734d421e49ba72ee5189e153b12d72087d8d",
+            "ff530c950d36781c9ca38c39686243104bfa250dfee8131f1ec2f1acd2aac10c"
+          ],
+          "hex_prefix": "f501ab72790055bfa21c7d91ed03be7d",
+          "index": 1,
+          "sha256": "210b3f5da85003857f6ba7883d1a33a7d91d8a1a79a7b1a68fd8ffff0c4dc55d",
+          "unique_bytes": 65
+        },
+        {
+          "entropy": 6.121928094887363,
+          "field_entropy": [
+            3.875,
+            4.0,
+            4.875,
+            4.0
+          ],
+          "field_sha256": [
+            "cbfa36360bfef1d172978c19e9c2b2418d33a5724af040a02278b9975d0fa5b3",
+            "94df0517c230a08e816c90e83174f235145f6dffda8c659e15b1bc6168063fe9",
+            "f229fa1a7a1d8a9cca0ba8fd1684bfe5da6986f27f6c4521828d17e4d28acf7c",
+            "de97e706775c8dcc0b75198172554c5a33b70718280331672507ad8987d2c4f9"
+          ],
+          "hex_prefix": "b6d3fdb203eaa324dcfc453eb407ead6",
+          "index": 2,
+          "sha256": "d6003c3577480722dafc016d52f19690892a59eaf44db16fb2233b824651e6fd",
+          "unique_bytes": 72
+        }
+      ],
+      "relative_region_offset": 1776,
+      "sha256": "dd5f5f7509c0b2a1c8558f1c81522b926c0ed16513007ff60014ac7a453bbbab",
+      "size": 240
+    },
+    "UPDATE2": {
+      "header_offset": 326027776,
+      "offset": 326028208,
+      "parts": [
+        {
+          "entropy": 5.871928094887363,
+          "field_entropy": [
+            3.875,
+            4.0,
+            4.75,
+            3.875
+          ],
+          "field_sha256": [
+            "77b382ef1fdc275f6adc2d4ebd4c06a27031fd63a9d4f8bbc5c401bb11c05144",
+            "f7784d75e07c9cdcf1dfd9d0678dd4b0c5f8850cb524a3e6209090d051d4b406",
+            "e7daa5e7598101dbff48933e03cdaa816680927bb9de1295fa3aeced9fc7507c",
+            "23a36eecd210343cee257ebcd89c7e994409d6eba4775a4fd7c96e5a6c07ce1f"
+          ],
+          "hex_prefix": "21b9e2df65251b571d233dcea6b7a6a0",
+          "index": 0,
+          "sha256": "b05e5a1060ced8e6d17114579052bdb192887683cce20813433a829f693abaa4",
+          "unique_bytes": 62
+        },
+        {
+          "entropy": 5.928055907333277,
+          "field_entropy": [
+            3.875,
+            4.0,
+            4.9375,
+            3.875
+          ],
+          "field_sha256": [
+            "883f4520f01fca62a7a369ff158e38bd0ee1a1ac57bacde68259d7780932dc57",
+            "9d477bebd469e4c17b1c7b7e84665cbdc0f9c52ce1c94065b26013924a69ac3e",
+            "c91bdb8c74b18beb566b63a4d64e734d421e49ba72ee5189e153b12d72087d8d",
+            "ff530c950d36781c9ca38c39686243104bfa250dfee8131f1ec2f1acd2aac10c"
+          ],
+          "hex_prefix": "f501ab72790055bfa21c7d91ed03be7d",
+          "index": 1,
+          "sha256": "210b3f5da85003857f6ba7883d1a33a7d91d8a1a79a7b1a68fd8ffff0c4dc55d",
+          "unique_bytes": 65
+        },
+        {
+          "entropy": 6.121928094887363,
+          "field_entropy": [
+            3.875,
+            4.0,
+            4.875,
+            4.0
+          ],
+          "field_sha256": [
+            "cbfa36360bfef1d172978c19e9c2b2418d33a5724af040a02278b9975d0fa5b3",
+            "94df0517c230a08e816c90e83174f235145f6dffda8c659e15b1bc6168063fe9",
+            "f229fa1a7a1d8a9cca0ba8fd1684bfe5da6986f27f6c4521828d17e4d28acf7c",
+            "de97e706775c8dcc0b75198172554c5a33b70718280331672507ad8987d2c4f9"
+          ],
+          "hex_prefix": "b6d3fdb203eaa324dcfc453eb407ead6",
+          "index": 2,
+          "sha256": "d6003c3577480722dafc016d52f19690892a59eaf44db16fb2233b824651e6fd",
+          "unique_bytes": 72
+        }
+      ],
+      "relative_region_offset": 432,
+      "sha256": "dd5f5f7509c0b2a1c8558f1c81522b926c0ed16513007ff60014ac7a453bbbab",
+      "size": 240
+    }
+  },
+  "execution_performed": false
+}
