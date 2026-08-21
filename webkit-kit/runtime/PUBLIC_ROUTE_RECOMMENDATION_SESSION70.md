@@ -109,3 +109,19 @@ La página pública `PSDevWiki/Vulnerabilities` enumera CSSFontFace como userlan
 ## Comprobación local del snapshot WebKit-1200
 
 Una búsqueda local posterior no encontró archivos `WebKit-1200`/`webkit*1200*` bajo `/home/ubuntu` ni procesos de descarga, extracción o renderizado activos. El snapshot parcial mencionado anteriormente no está disponible como artefacto local; no se inició una nueva descarga. Clasificación: `UNVERIFIED` para cualquier inferencia adicional desde WebKit-1200.
+
+## Nueva auditoría local del corpus BD-J
+
+La revisión de los candidatos `/home/ubuntu/ps4-bdj-1352-research`, `/home/ubuntu/ps4-bdj-trust-audit`, `/home/ubuntu/ps4-bdj-webkit-audit` y `/home/ubuntu/ps4-1352-pup-audit-session42` encontró fuentes Java, notas, capturas y parches históricos, pero ningún `*.jar`, `*.class`, `*.sprx`, `*.self`, `*.bin` o `*.pup` local dentro del corpus auditado. `BDJModule.java`, `API.java`, `KernelAPI.java`, `JitCompilerReceiverImpl.java` y el parche OpenJDK son material histórico o de laboratorio, no evidencia directa del runtime PS4 13.52. No se ejecutó ningún artefacto.
+
+## Búsqueda global de artefactos por nombre/extensión
+
+La búsqueda recursiva en `/home/ubuntu` de `libSceNKWebKit`, `*.sprx`, `*.self`, `*.pup`, `*.PUP.dec`, `*.jar` y `*.class` no reveló un módulo PS4 retail identificable. Los resultados relevantes corresponden a código fuente, documentación y headers/bibliotecas WPE/WebKitGTK bajo `wpe-artifacts-2526`, además de herramientas y corpus históricos ya conocidos. No se toma el nombre `webkit` como prueba de procedencia PS4. Clasificación: `HISTORICAL_ONLY` o `WPE/LINUX`, no `DIRECT_13.52`.
+
+## Separación WPE/Linux
+
+Las bibliotecas encontradas en `/home/ubuntu/wpe-artifacts-2526/arch/rootfs` son `libWPEWebKit-2.0.so.1.9.10` (133,528,480 bytes), `libWPEBackend-fdo-1.0.so.1.10.2` (88,632 bytes) y `libwpe-1.0.so.1.9.6` (47,152 bytes), además de la copia bajo `root/`. Sus nombres, rutas y empaquetado identifican el rootfs Linux/WPE 2.52.6; no son `libSceNKWebKit.sprx`, no prueban procedencia Orbis y se excluyen como evidencia PS4 13.52.
+
+## Archivos ocultos y enlaces en candidatos locales
+
+La inspección con `find -xdev` no encontró enlaces simbólicos ni archivos ocultos que apunten a un rootfs PS4 adicional en los cuatro candidatos. Los únicos ocultos relevantes fueron metadatos Git y archivos de configuración (`.gitignore`, `.prettierrc`, `.gitmodules`). Esto no aporta una nueva procedencia de runtime.
