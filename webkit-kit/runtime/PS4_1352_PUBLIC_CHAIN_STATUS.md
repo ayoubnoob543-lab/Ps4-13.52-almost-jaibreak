@@ -178,3 +178,26 @@ Por tanto, la mejor evidencia actual no es una primitive 13.52, sino una **demos
 [13]: https://github.com/ps3120/CSSFontFace-Exploit "ps3120/CSSFontFace-Exploit"
 [14]: https://www.logic-sunrise.com/news-1221608-ps4ps55-cssfontface-exploit-un-nouvel-exploit-webkit-ps4-et-ps5-par-ntfargo.html "Logic-Sunrise — CSSFontFace Exploit"
 [15]: https://www.reddit.com/r/ps4homebrew/comments/1vsm1de/webkit_for_above_11.02_meaning_11.5x_and_12.xx_and/ "Public discussion of an unpublished high-firmware workaround"
+
+
+## Ampliación: candidatos posteriores a WebKit-601-1300
+
+La página pública de PSDevWiki agrupa `JSCell::toX`, `MarkedVector` y `CloneSerializer/Deserializer.objectPool` bajo vulnerabilidades usadas para PS5 13.60 y les asigna títulos `PS4 FW ?6.00-13.52?`. La interrogación es significativa: no aporta una confirmación binaria del rango. No se publica en esa página un build ID, SHA de módulo, revisión Sony ni testcase ejecutado en PS4 13.52. La clasificación correcta es `STRONG_INDIRECT_13.52` como candidatos y `UNVERIFIED` para una primitive en 13.52.
+
+La matriz de descarte es:
+
+| Familia | Evidencia pública | Motivo para no elevarla a 13.52 |
+|---|---|---|
+| `JSCell::toX` | Código/fix upstream y título `?6.00-13.52?` | Falta revisión retail, comparación Sony y primitive validada |
+| `MarkedVector` | Código/fix upstream y título `?6.00-13.52?` | Falta revisión retail, comparación Sony y primitive validada |
+| `CloneSerializer/Deserializer.objectPool` | Código/fix upstream y título `?6.00-13.52?` | Falta revisión retail, comparación Sony y primitive validada |
+| ProxyObject/JSScope | Rango `?6.00-11.52?` | No llega documentalmente a 13.52 |
+| CloneDeserializer UAF, CVE-2023-28205 | Rango `?6.00-11.00?` | Excluido por rango publicado |
+| RenderLayer UAF | Rango `?12.50?` | No demostrado en 13.52 |
+| ICU `String.normalize` | Rango `?13.02?` | No llega documentalmente a 13.52 |
+| DNG/image processing | Rango `?5.05?-12.02` | Excluido por rango |
+| JIT/Wasm, WebGL y SVG | La propia página limita o descarta por features | No constituyen primera línea segura para 13.52 |
+
+El chart público de ConsoleMods deja 13.50 y 13.52 sin userland/kernel exploit implementado. Esto no prueba inexistencia absoluta, pero sí confirma que los candidatos anteriores no están acompañados por una cadena pública reproducible.
+
+La revisión segura de esta sesión no produce una primitive operativa ni una ruta de escape. El siguiente artefacto de alto valor sigue siendo una revisión Sony posterior a `WebKit-601-1300`, una comparación de código de alguno de los tres candidatos con un módulo retail, o un writeup que publique la condición de vida útil y el comportamiento específico de 13.52.
