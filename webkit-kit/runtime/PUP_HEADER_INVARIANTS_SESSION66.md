@@ -1,0 +1,52 @@
+# Invariantes del header protegido PUP — sesión 66
+
+Se compararon byte a byte los headers protegidos completos indicados por la cabecera visible de `PS4UPDATE1.PUP` y `PS4UPDATE2.PUP` entre 13.50 y 13.52.
+
+## Resultado principal
+
+Aparece una región idéntica de **240 bytes** en ambas versiones y en ambas entradas:
+
+| Entrada | Offset relativo dentro de la entrada | Offset absoluto 13.50 | Offset absoluto 13.52 | Longitud |
+|---|---:|---:|---:|---:|
+| UPDATE1 | `0x6f0` (`1776`) | `0xaf0` (`2800`) | `0xaf0` (`2800`) | 240 bytes |
+| UPDATE2 | `0x1b0` (`432`) | `0x137000b0` (`326028208`) | `0x137002b0` (`326028720`) | 240 bytes |
+
+La región tiene SHA-256:
+
+```text
+dd5f5f7509c0b2a1c8558f1c81522b926c0ed16513007ff60014ac7a453bbbab
+```
+
+Ese hash es idéntico en UPDATE1/UPDATE2 y en 13.50/13.52. El bloque no es cero ni padding ASCII; comienza con:
+
+```text
+21b9e2df65251b571d233dcea6b7a6a0d95949cc31a92c9cf6c5e87d09521e50
+```
+
+## Contexto de límites
+
+Los offsets relativos `0x6f0` y `0x1b0` coinciden exactamente con el valor visible `unknown_0C` de cada cabecera. El resto del header protegido cambia casi por completo:
+
+| Entrada | Bytes protegidos comparados | Bytes iguales | Región continua de 240 bytes |
+|---|---:|---:|---|
+| UPDATE1 | 4816 | 260 | Sí, en `0x6f0–0x7df` |
+| UPDATE2 | 1232 | 243 | Sí, en `0x1b0–0x29f` |
+
+Los bytes iguales adicionales son coincidencias aisladas de un solo byte. No hay otra región continua comparable.
+
+## Interpretación prudente
+
+La región de 240 bytes es un **invariante real y reproducible**, pero su significado no está identificado. Posibilidades compatibles incluyen una estructura constante, una firma o material de metadata que no cambia entre estas versiones; ninguna se puede afirmar sólo por el contenido. No se debe llamarla clave AES, digest, tabla de segmentos o componente WebKit sin una especificación o descifrado que lo confirme.
+
+El hecho de que el bloque empiece en el campo visible `unknown_0C` puede ser una pista de layout, pero no demuestra que sea el inicio de una tabla. La evidencia pública revisada indica que la metadata posterior al límite visible está protegida, por lo que este bloque podría ser parte de una región de formato común que sobrevive sin cambios.
+
+## Clasificación
+
+| Hallazgo | Clasificación |
+|---|---|
+| Existe un bloque idéntico de 240 bytes en ambas entradas y versiones | `DIRECT_13.50` / `DIRECT_13.52` |
+| El bloque coincide con una frontera indicada por `unknown_0C` | `STRONG_INDIRECT_13.52` |
+| El bloque es una clave o permite derivar la clave | `HYPOTHESIS` / `UNVERIFIED` |
+| El bloque contiene WebKit/JSC | `DISCARDED` |
+
+Herramienta reproducible: `webkit-kit/tools/find_pup_header_invariants.py`.
