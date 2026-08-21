@@ -165,3 +165,16 @@ La colección OSS `FreeBSDKernel9-0/PS4OSSCode` contiene un directorio `WebKit-6
 
 [11]: https://github.com/ntfargo/CSSFontFace-Exploit "ntfargo/CSSFontFace-Exploit"
 [12]: https://linearfox.com/blog/cssfontface-uaf-playstation "From CSSFontFace to ARW: A PlayStation Webkit Exploit Writeup"
+
+
+## Actualización: fork ps3120 y estado de la primitive CSSFontFace
+
+El fork público [`ps3120/CSSFontFace-Exploit`][13] fue creado el 28 de junio de 2026 y contiene commits posteriores hasta el 4 de julio de 2026, entre ellos `Update offsets.mjs` (`7a0b599064c84ae78aef84913aee0082bfab5272`), `Update userland.mjs` (`dfa2e2fc5a3b58da07092dfa3e8ec3df2167c9a6`) y `Update lapse.mjs` (`33650b33984188cf76229251caea7d1f450c1455`).
+
+El fork conserva la misma matriz probatoria que el repositorio original: `Vulnerability Scope` PS4 6.00–13.52, pero `Exploitable In` PS4 6.00–11.02; el soporte real del repositorio se declara para PS4 9.00. Sus actualizaciones públicas no añaden un testcase, layout, offsets de WebKit o primitive para 13.52. Logic-Sunrise reproduce la misma limitación y el hilo público sobre un supuesto workaround para firmwares altos afirma que todavía no está publicado [14] [15].
+
+Por tanto, la mejor evidencia actual no es una primitive 13.52, sino una **demostración pública de que la primitive histórica deja de ser utilizable después del rediseño 11.5x**. Esto convierte el siguiente objetivo seguro en identificar una implementación o documentación pública del nuevo layout, no en adaptar una explotación.
+
+[13]: https://github.com/ps3120/CSSFontFace-Exploit "ps3120/CSSFontFace-Exploit"
+[14]: https://www.logic-sunrise.com/news-1221608-ps4ps55-cssfontface-exploit-un-nouvel-exploit-webkit-ps4-et-ps5-par-ntfargo.html "Logic-Sunrise — CSSFontFace Exploit"
+[15]: https://www.reddit.com/r/ps4homebrew/comments/1vsm1de/webkit_for_above_11.02_meaning_11.5x_and_12.xx_and/ "Public discussion of an unpublished high-firmware workaround"
