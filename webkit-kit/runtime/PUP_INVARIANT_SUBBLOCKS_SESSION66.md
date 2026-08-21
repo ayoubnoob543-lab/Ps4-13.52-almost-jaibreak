@@ -28,3 +28,16 @@ Por tanto, el análisis no convierte el bloque en una clave ni proporciona una t
 | El bloque podría corresponder a tres entradas de metadata | `HYPOTHESIS` |
 | Los subbloques son claves AES utilizables | `UNVERIFIED` |
 | El bloque contiene WebKit/JSC | `DISCARDED` |
+
+## Corrección de offset y verificación cruzada
+
+Una primera ejecución de la herramienta usó por error el offset absoluto de UPDATE2 de 13.50 también para 13.52. Esa prueba intermedia apuntó a la cabecera de 13.52 y fue descartada.
+
+La herramienta fue corregida para localizar dinámicamente la cabecera interna única de cada entrada y sumar el desplazamiento relativo documentado (`0x6f0` para UPDATE1 y `0x1b0` para UPDATE2). Con el método corregido:
+
+- UPDATE2 13.50: cabecera en `0x136eca00`, región en `0x136ecbb0`.
+- UPDATE2 13.52: cabecera en `0x136ecc00`, región en `0x136ecdb0`.
+- Las dos regiones corregidas tienen el mismo SHA-256: `dd5f5f7509c0b2a1c8558f1c81522b926c0ed16513007ff60014ac7a453bbbab`.
+- Sus tres subbloques vuelven a producir exactamente los tres hashes indicados arriba.
+
+La conclusión de invariancia es, por tanto, válida sólo después de alinear cada entrada por su propia cabecera; el offset absoluto sí cambia `0x200` entre las dos versiones para UPDATE2.
