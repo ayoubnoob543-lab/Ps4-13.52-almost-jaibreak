@@ -53,3 +53,7 @@ La extracción directa del anuncio de Andrew Marques devuelve exactamente: `If y
 ## Búsqueda adicional del índice descifrado
 
 Las búsquedas nuevas siguen devolviendo el índice `darthsternie.net/ps4-decrypted-firmwares/` sin nombres ni hashes de archivos 13.52 expuestos en la página. El resultado nuevo `andy-man/ps4-pup-decrypt` describe un payload para invocar el descifrado en la PS4, igual que la familia `idc`, y no proporciona un descifrado offline. Los vídeos que afirman un bug BD-J/userland 13.52 son evidencia editorial únicamente; no aportan módulos, hashes ni Build IDs. Se mantiene la clasificación `DOCUMENTED_ONLY`/`UNVERIFIED` y no se descargan payloads ni se ejecutan binarios.
+
+## Internet Archive: comprobación adicional
+
+La búsqueda pública encontró los directorios `PS4-System-Firmwares` y `PS4-Recovery-Firmwares` en Internet Archive, con listados antiguos y archivos PUP retail, pero no mostró una entrada `13.52`, un `.PUP.dec`, `libSceNKWebKit.sprx` ni un hash/Build ID de WebKit. Los resultados de Reddit y YouTube repiten afirmaciones de userland 13.52, sin artefacto técnico. Se clasifica el directorio como `DOCUMENTED_ONLY` para la existencia de un archivo histórico y `UNVERIFIED` para cualquier disponibilidad de 13.52. No se descargó ningún archivo.
