@@ -85,3 +85,7 @@ El portal oficial de PlayStation para WebKit OSS (https://www.playstation.com/en
 ## Snapshot oficial WebKit-1200: tamaño y límite práctico
 
 El enlace oficial `WebKit-1200.zip` de PlayStation redirige a CDN oficial y declara `Content-Length: 1,620,771,838` bytes (aprox. 1.54 GiB), `Accept-Ranges: bytes` y ETag `7e20a343a44405d94ff1cf7e0a8679fe:1786124810.897318`. La descarga parcial en el sandbox se cerró con error de transferencia tras obtener ~18.6 MB; no se ejecutó ni se analizó contenido. El snapshot sigue siendo una referencia OSS PS5, no evidencia de PS4 13.52. Se puede reanudar o inspeccionar por rangos en una iteración posterior si aporta valor, pero no se debe tratar como sustituto del módulo retail.
+
+## Búsqueda adicional: ufm42 y `m_propertiesOrCSSConnection`
+
+La búsqueda no encontró un repositorio nuevo ni un archivo técnico que exponga el workaround de ufm42. Los resultados principales fueron el writeup de LinearFox, Logic-Sunrise, OneJailbreak y publicaciones de X/YouTube ya registradas; todos repiten que la cadena pública llega a 11.02/11.50 mientras que 13.52 se presenta como rango de vulnerabilidad o workaround no publicado. No apareció `libSceNKWebKit.sprx`, un diff retail, offsets o hash de 13.52. Clasificación: `STRONG_INDIRECT_13.52` para la necesidad de tratar por separado el layout posterior; `UNVERIFIED` para el workaround de 13.52. No se reabren las fuentes repetidas.
