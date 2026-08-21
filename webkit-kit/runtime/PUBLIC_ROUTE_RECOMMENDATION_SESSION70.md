@@ -129,3 +129,9 @@ La inspección con `find -xdev` no encontró enlaces simbólicos ni archivos ocu
 ## Correlación estructural del corpus WebKit local
 
 El correlador se ejecutó sólo sobre texto del directorio `webkit-kit`, con documentación incluida. Analizó 57 archivos y produjo `MATCH / FIXED_LIKE` para las tres familias: `jscell_tox_type_validation`, `markedvector_gc_containers` y `clone_object_pool_alignment`. El resultado debe interpretarse con cautela: el corpus contiene referencias, informes y firmas de los candidatos, no un módulo retail; por diseño, el propio correlador mantiene `status_13_52=UNVERIFIED`. El hash SHA-256 del JSON de entrada agregada fue `234013ced17a51541dba8078032e800ae2834d6f2642811c57643fffb1e2fb31`. Clasificación final: correlación estructural local `MATCH`; estado 13.52 `UNVERIFIED`; estado de vulnerabilidad retail `UNVERIFIED`.
+
+## Referencia upstream nueva: WebKit bug 312202 / commit 313821
+
+La base pública de resultados de WebKit registra el commit `313821@main` del 25 de mayo de 2026, asociado al bug 312202, “Use-after-free in CSSFontFace::setStatus and CSSFontFace::pump”. Describe una corrección que sustituye `std::reference_wrapper<CSSFontFace>` por `Ref<CSSFontFace>` en `CSSFontFaceSet::matchingFacesExcludingPreinstalledFonts` y mantiene referencias fuertes durante `FontFaceSet::load`; el testcase es `fast/text/fontface-setstatus-crash.html`. Esto refuerza la reconstrucción del mecanismo de lifetime/UAF, pero es una corrección upstream posterior y no prueba que el código retail PS4 13.52 contenga el fix ni la misma estructura. Clasificación: `HISTORICAL_ONLY` para el mecanismo upstream; `UNVERIFIED` para PS4 13.52.
+
+La fuente upstream actual `FontFace.h` muestra además un diseño moderno con `Ref<CSSFontFace> m_backing`, mientras `CSSFontFaceSet.cpp` usa contenedores `Vector<Ref<CSSFontFace>>` y referencias protegidas. Es evidencia de evolución de ownership, no una correspondencia binaria con PS4.
