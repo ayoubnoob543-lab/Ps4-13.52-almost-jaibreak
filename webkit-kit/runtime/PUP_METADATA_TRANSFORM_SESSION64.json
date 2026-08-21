@@ -1,0 +1,178 @@
+{
+  "comparison": {
+    "entries": [
+      {
+        "inner_header_a": "4f153d1d0001011204000000f006f00b",
+        "inner_header_b": "4f153d1d0001011204000000f006f00b",
+        "inner_header_diff_offsets": [],
+        "inner_prefix_equal": true,
+        "name_a": "PS4UPDATE1.PUP",
+        "name_b": "PS4UPDATE1.PUP",
+        "offset_a": 1024,
+        "offset_b": 1024,
+        "offset_delta": 0,
+        "size_a": 326026471,
+        "size_b": 326026951,
+        "size_delta": 480,
+        "start_sector_a": 2,
+        "start_sector_b": 2
+      },
+      {
+        "inner_header_a": "4f153d1d0001011204000000b0013003",
+        "inner_header_b": "4f153d1d0001011204000000b0013003",
+        "inner_header_diff_offsets": [],
+        "inner_prefix_equal": true,
+        "name_a": "PS4UPDATE2.PUP",
+        "name_b": "PS4UPDATE2.PUP",
+        "offset_a": 326027776,
+        "offset_b": 326028288,
+        "offset_delta": 512,
+        "size_a": 177266167,
+        "size_b": 177282367,
+        "size_delta": 16200,
+        "start_sector_a": 636773,
+        "start_sector_b": 636774
+      }
+    ],
+    "slb2_header_diff_offsets": [
+      16
+    ],
+    "top_level": {
+      "declared_bytes": {
+        "a": 503293952,
+        "b": 503310848,
+        "equal": false
+      },
+      "declared_matches_file": {
+        "a": true,
+        "b": true,
+        "equal": true
+      },
+      "entry_count": {
+        "a": 2,
+        "b": 2,
+        "equal": true
+      },
+      "magic": {
+        "a": "SLB2",
+        "b": "SLB2",
+        "equal": true
+      },
+      "size": {
+        "a": 503293952,
+        "b": 503310848,
+        "equal": false
+      }
+    }
+  },
+  "decryption_performed": false,
+  "execution_performed": false,
+  "image_a": {
+    "declared_bytes": 503293952,
+    "declared_matches_file": true,
+    "entries": [
+      {
+        "end_exclusive": 326027495,
+        "index": 0,
+        "inner_header_common_prefix_8": "4f153d1d00010112",
+        "inner_header_fields_u32le": [
+          490542415,
+          302055680,
+          4,
+          200279792
+        ],
+        "inner_header_hex": "4f153d1d0001011204000000f006f00b",
+        "name": "PS4UPDATE1.PUP",
+        "offset": 1024,
+        "size": 326026471,
+        "start_sector": 2
+      },
+      {
+        "end_exclusive": 503293943,
+        "index": 1,
+        "inner_header_common_prefix_8": "4f153d1d00010112",
+        "inner_header_fields_u32le": [
+          490542415,
+          302055680,
+          4,
+          53477808
+        ],
+        "inner_header_hex": "4f153d1d0001011204000000b0013003",
+        "name": "PS4UPDATE2.PUP",
+        "offset": 326027776,
+        "size": 177266167,
+        "start_sector": 636773
+      }
+    ],
+    "entry_count": 2,
+    "magic": "SLB2",
+    "path": "/home/ubuntu/ps4-1352-pup-audit-session42/pup1350/original/PS4SYS_CRC[6E6D1610]_PS4UPDATE.PUP",
+    "sha256": "04585405bf3ad0836103c1eea5c21657327a377824ad5cda7674ecb94f03822f",
+    "size": 503293952,
+    "slb2_header_fields_u32le": [
+      843205715,
+      2,
+      0,
+      2,
+      982996,
+      0,
+      0,
+      0
+    ],
+    "slb2_header_hex": "534c4232020000000000000002000000d4ff0e00000000000000000000000000"
+  },
+  "image_b": {
+    "declared_bytes": 503310848,
+    "declared_matches_file": true,
+    "entries": [
+      {
+        "end_exclusive": 326027975,
+        "index": 0,
+        "inner_header_common_prefix_8": "4f153d1d00010112",
+        "inner_header_fields_u32le": [
+          490542415,
+          302055680,
+          4,
+          200279792
+        ],
+        "inner_header_hex": "4f153d1d0001011204000000f006f00b",
+        "name": "PS4UPDATE1.PUP",
+        "offset": 1024,
+        "size": 326026951,
+        "start_sector": 2
+      },
+      {
+        "end_exclusive": 503310655,
+        "index": 1,
+        "inner_header_common_prefix_8": "4f153d1d00010112",
+        "inner_header_fields_u32le": [
+          490542415,
+          302055680,
+          4,
+          53477808
+        ],
+        "inner_header_hex": "4f153d1d0001011204000000b0013003",
+        "name": "PS4UPDATE2.PUP",
+        "offset": 326028288,
+        "size": 177282367,
+        "start_sector": 636774
+      }
+    ],
+    "entry_count": 2,
+    "magic": "SLB2",
+    "path": "/home/ubuntu/ps4-1352-pup-audit-session42/original/PS4SYS_CRC[DC9D6197]_PS4UPDATE.PUP",
+    "sha256": "daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11",
+    "size": 503310848,
+    "slb2_header_fields_u32le": [
+      843205715,
+      2,
+      0,
+      2,
+      983029,
+      0,
+      0,
+      0
+    ],
+    "slb2_header_hex": "534c4232020000000000000002000000f5ff0e00000000000000000000000000"
+  }
+}
