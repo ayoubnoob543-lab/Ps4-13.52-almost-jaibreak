@@ -27,3 +27,7 @@ Dejar operativo el WebKit/JSC de laboratorio y preparado el análisis del WebKit
 ## Criterio de parada de cada línea
 
 La ruta de laboratorio se considera completada cuando el host smoke pasa o queda documentado con una causa reproducible. La ruta retail no se considera iniciada hasta que exista un artefacto de PS4 identificable; sin él, cualquier conclusión sobre una vulnerabilidad concreta permanece `UNVERIFIED`.
+
+## Comprobación posterior
+
+La búsqueda local no encontró un checkout materializado bajo `/home/ubuntu/ps4-lab-1352` ni directorios con nombre `WebKit-601-1300`; las referencias históricas permanecen en manifests, informes y objetos/corpus documentales ya inventariados. Por ello no se inicia una compilación histórica en esta iteración: primero habría que materializar legítimamente la fuente exacta y sus dependencias, sin confundirla con el runtime retail 13.52.
