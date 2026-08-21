@@ -57,3 +57,21 @@ https://x.com/ps3120/status/2070144817233789048
 Visible text: `And added RSACipherAdaptor in sunjce_provider.jar 13.52`, posted by @ps3120 on Jun 25, 2026, as a reply to Jose Coixao's RootCertManager post. No package, caller, source, JAR hash, or implementation is included.
 
 No public result was found that explicitly contains `RootCertManager` calling `Signature.getInstance("NONEwithRSA")`, `Security.getProvider`, `Provider.Service`, `RSACipherAdaptor`, or any equivalent registration. The missing caller remains the central unverified link.
+New public repository discovered and audited:
+
+Repository: https://github.com/deepakmathi/BDJB
+Commit: `491852e8cdd66b54166271413371bc65d1b4da07` (`Initial commit`, 2026-03-28).
+
+The repository contains public compiled classes under `bdjstack.jar_out`, including:
+- `1.xx/.../com/sony/bdjstack/security/cert/RootCertManager.class`, repository blob SHA `1910a65fcee69eaf504226d142f4aab32caa8ad6`, size 6977 bytes, downloaded SHA-256 `a4b64e8bbb6ac68606634f562ff8c24b230d4c7eecf41660cb726314235d6da5`.
+- `12.xx/.../RootCertManager.class`, blob SHA `d29b447c645ab0afdcd5f7768b944c237a2531f2`, size 7044 bytes, downloaded SHA-256 `b2a8776617a85dfc0b4ef09b09ce0e1bea7a479298ae5b714105030d3d9c4977`.
+- `13.xx/.../RootCertManager.class`, same Git blob SHA `d29b447c645ab0afdcd5f7768b944c237a2531f2`, same size and same SHA-256 as 12.xx.
+- `13.xx/.../RootCertManager$1.class`, blob SHA `e6433b721913e8d16dfa78a01dc70736ef47d945`, size 956 bytes, downloaded SHA-256 `fbf98772a58c446d1a6df9c38915d65321dfc8134d2c6f4de1c1c8f82f448420`.
+
+The repository's `6.xx-7.xx.txt` and `8.xx-11.xx.txt` manifests list MD5 `6e801548989002ac02b75ba86d8e955c` for `RootCertManager.class` and `c866b4bf9dd432c1f42606b3ccc6ba99` for `RootCertManager$1.class`. The downloaded `12.xx`/`13.xx` class independently computes to the same `RootCertManager.class` MD5. The downloaded 1.xx class computes to MD5 `752318ed0b771606f97efb6b0ad8e7e6`.
+
+Passive class-file parsing of the public `1xx`, `12xx`, and `13xx` RootCertManager classes found methods including `initRootCertificate`, `initPersistentRoot`, `getOriginalPersistentRoot`, `getOriginalBindingunitRoot`, `normalizePath`, `setCredentialCert`, `removeCredentialCert`, `getGrantorDigest`, `isCredentialPath`, `createNewPath`, `createNewBuPath`, `getRootDigestValue`, `getGranteeDigest`, `getDiscOID`, `loadIDFile`, `getGranteeDigestBytes`, `inKeyStore`, and `loadKeyStore`, plus synthetic accessors and `<clinit>`.
+
+Relevant constants/references include `java/security/MessageDigest`, `MessageDigest.getInstance`, `digest`, `SHA1withRSA`, `java/security/KeyStore`, `CertificateFactory.generateCertificate`, `AccessController`, `dvb.persistent.root`, `sony.rootcert`, `bdrootcert`, `/CERTIFICATE/app.discroot.crt`, and `/CERTIFICATE/id.bdmv`. The class contains no visible `sunjce_hash`, `isSunJCEVerified`, `RSACipherAdaptor`, `NONEwithRSA`, or `Provider` string in the parsed UTF-8 constant pool.
+
+The public `12.xx` and `13.xx` RootCertManager.class files are byte-identical (same size and SHA-256). The parser comparison found no method or relevant-constant difference between 12.xx and 13.xx. This is historical/public repository evidence only: the repository does not identify `13.xx` as PS4 13.52 and does not prove that these classes came from the 13.50/13.52 retail builds.
