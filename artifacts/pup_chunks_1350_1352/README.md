@@ -20,3 +20,23 @@ Los SHA-256 esperados son:
 | 13.52 | `daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11` |
 
 Las partes no se han descifrado ni ejecutado. La carpeta contiene bytes de firmware del usuario y debe mantenerse privada y con acceso restringido.
+
+## Utilidad automática
+
+También puede usarse la herramienta reproducible:
+
+```bash
+python3 webkit-kit/tools/reconstruct_pup_parts.py \
+  webkit-kit/runtime/PUP_BYTE_MANIFEST_1350_1352.json \
+  artifacts/pup_chunks_1350_1352 \
+  --firmware 13.50 \
+  --output /tmp/PS4SYS_13.50.rebuilt.PUP
+
+python3 webkit-kit/tools/reconstruct_pup_parts.py \
+  webkit-kit/runtime/PUP_BYTE_MANIFEST_1350_1352.json \
+  artifacts/pup_chunks_1350_1352 \
+  --firmware 13.52 \
+  --output /tmp/PS4SYS_13.52.rebuilt.PUP
+```
+
+La herramienta exige que tamaño y SHA-256 coincidan con la manifest antes de informar éxito.
