@@ -57,3 +57,9 @@ Las búsquedas nuevas siguen devolviendo el índice `darthsternie.net/ps4-decryp
 ## Internet Archive: comprobación adicional
 
 La búsqueda pública encontró los directorios `PS4-System-Firmwares` y `PS4-Recovery-Firmwares` en Internet Archive, con listados antiguos y archivos PUP retail, pero no mostró una entrada `13.52`, un `.PUP.dec`, `libSceNKWebKit.sprx` ni un hash/Build ID de WebKit. Los resultados de Reddit y YouTube repiten afirmaciones de userland 13.52, sin artefacto técnico. Se clasifica el directorio como `DOCUMENTED_ONLY` para la existencia de un archivo histórico y `UNVERIFIED` para cualquier disponibilidad de 13.52. No se descargó ningún archivo.
+
+## PSDevWiki WebKit Bugs y Reddit: detalle nuevo
+
+`PSDevWiki/WebKit_Bugs` mantiene tres entradas con rango editorial `?6.00-13.52?`: `JSC::JSCell::toX`, `JSC MarkedVector` y `WebCore::CloneSerializer/Deserializer objectPool`. La propia notación con signos de interrogación expresa incertidumbre del rango; la página no aporta `libSceNKWebKit.sprx` 13.52, hash, Build ID ni bytes retail. Clasificación: `DOCUMENTED_ONLY`/`UNVERIFIED` para PS4 13.52.
+
+La publicación de Reddit `PS4 and PS5 WebKit userland till latest firmwares 13.52 and 13.60 respectively` atribuye a `ufm42` un workaround para cambios que rompieron WebKit hasta 11.02 y enlaza posts de X, pero los comentarios indican que los enlaces estaban caídos y que las actualizaciones 13.52 aún no se habían publicado. Otros comentarios distinguen explícitamente userland de jailbreak y dicen que 13.52 no tiene homebrew sin kernel. Esto aporta contexto comunitario, no un artefacto ni una primitive reproducible. Clasificación: `DOCUMENTED_ONLY` para las afirmaciones y `UNVERIFIED` para la implementación 13.52.
