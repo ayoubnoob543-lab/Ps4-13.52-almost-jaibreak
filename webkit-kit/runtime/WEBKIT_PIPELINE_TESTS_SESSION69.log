@@ -1,0 +1,14 @@
+test_cve2023_fixed_like (test_jsc_vulnerability_condition_check.JSCConditionCheckTests.test_cve2023_fixed_like) ... ok
+test_cve2023_unverified_without_structural_signals (test_jsc_vulnerability_condition_check.JSCConditionCheckTests.test_cve2023_unverified_without_structural_signals) ... ok
+test_pipeline_writes_comparison_report (test_module_evidence_pipeline.ModuleEvidencePipelineTests.test_pipeline_writes_comparison_report) ... ok
+test_raw_file_is_not_promoted (test_module_evidence_pipeline.ModuleEvidencePipelineTests.test_raw_file_is_not_promoted) ... ok
+test_system_elf_is_parsed_without_execution (test_module_evidence_pipeline.ModuleEvidencePipelineTests.test_system_elf_is_parsed_without_execution) ... ok
+test_manifest_has_exact_three_families (test_webkit_retail_pipeline.WebKitRetailPipelineTests.test_manifest_has_exact_three_families) ... ok
+test_provenance_manifest_requires_matching_hash_and_13_52 (test_webkit_retail_pipeline.WebKitRetailPipelineTests.test_provenance_manifest_requires_matching_hash_and_13_52) ... ok
+test_raw_fixture_is_direct_but_unverified (test_webkit_retail_pipeline.WebKitRetailPipelineTests.test_raw_fixture_is_direct_but_unverified) ... ok
+test_synthetic_elf_has_pt_load_and_build_id_note (test_webkit_retail_pipeline.WebKitRetailPipelineTests.test_synthetic_elf_has_pt_load_and_build_id_note) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.070s
+
+OK
