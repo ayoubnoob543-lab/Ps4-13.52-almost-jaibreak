@@ -40,4 +40,4 @@ El correlador procesó 12 archivos de código del kit homebrew/WPE. La ausencia 
 
 ## Integridad de publicación
 
-El informe y el JSON del correlador se publicaron en la rama privada `pup-byte-manifest-1350-1352` mediante el commit `20da47a45163a01ded6c6ddef5232ab93e5ec319`. La consulta directa de la referencia remota confirmó el mismo SHA-1 (`20da47a45163a01ded6c6ddef5232ab93e5ec319`) y el árbol local no contiene cambios pendientes. El `origin/*` local tenía un rastreo obsoleto durante la primera comprobación, por lo que la verificación final se hizo contra `git ls-remote`, no contra ese caché local.
+El informe y el JSON del correlador se publicaron en la rama privada `pup-byte-manifest-1350-1352`. La versión final del informe quedó en el commit `e3f4cb01fa164c3e4638c1bc189d717daf167d1c`; la consulta directa de la referencia remota confirmó ese mismo SHA-1 y el árbol local no contiene cambios pendientes. El `origin/*` local tenía un rastreo obsoleto durante la primera comprobación, por lo que la verificación final se hizo contra `git ls-remote`, no contra ese caché local.
