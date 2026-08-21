@@ -50,3 +50,19 @@ El hecho de que el bloque empiece en el campo visible `unknown_0C` puede ser una
 | El bloque contiene WebKit/JSC | `DISCARDED` |
 
 Herramienta reproducible: `webkit-kit/tools/find_pup_header_invariants.py`.
+
+## Observación de tamaño
+
+Los 240 bytes invariantes equivalen exactamente a `3 × 0x50`. La documentación pública describe `ScePupMetadataEntry` con tamaño `0x50` bytes, compuesto por clave AES-128, IV, digest y clave de digest. Por ello existe una **correspondencia de tamaño** entre el bloque común y tres entradas de metadata documentadas.
+
+Esta correspondencia no demuestra que el bloque sea metadata ni que contenga claves utilizables: el contenido no se ha descifrado, no se han identificado límites semánticos y un tamaño coincidente puede ser accidental. Se clasifica como `HYPOTHESIS`/`UNVERIFIED`, pero es una pista estructural concreta que merece comprobarse si aparece una cabecera extendida legítimamente descifrada.
+
+Los tres subbloques de `0x50` tienen hashes, respectivamente:
+
+```text
+b05e5a1060ced8e6d17114579052bdb192887683cce20813433a829f693abaa4
+210b3f5da85003857f6ba7883d1a33a7d91d8a1a79a7b1a68fd8ffff0c4dc55d
+d6003c3577480722dafc016d52f19690892a59eaf44db16fb2233b824651e6fd
+```
+
+El espacio inicial de la tercera línea en este bloque es sólo presentación; el hash correcto comienza por `d6003c...`.
