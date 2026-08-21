@@ -84,3 +84,9 @@ Para UPDATE2:
 Esto coincide con la extensión total del header que el parser público calcula como `unknown_0C + unknown_0E`. El bloque invariante empieza exactamente en `unknown_0C`, es decir, en la frontera entre ambas cantidades. Según la nomenclatura pública de `ScePupHeader`, esto es compatible con que `unknown_0C` sea el tamaño de la parte de header y `unknown_0E` el tamaño de metadata.
 
 La lectura más fuerte que permiten los datos es, por tanto, **una región de 240 bytes situada al comienzo de la zona compatible con metadata**. Como `0xf0 = 3 × 0x50`, también es compatible en tamaño con tres entradas `ScePupMetadataEntry`. Esto sigue sin probar que el contenido esté en claro ni que sean claves o digests utilizables; se mantiene como `STRONG_INDIRECT_13.52` para la frontera de layout y `HYPOTHESIS` para la semántica de las tres entradas.
+
+## Evidencia adicional de PS4Delta/Prosperity
+
+En `Force67/prosperity/delta/formats/pup_object.cpp`, el comentario asociado a las entradas especiales `0xE.../0xF...` describe una tabla `ScePupMetadataEntry` que contiene por segmento `AES key/IV/digest/HMAC`. El mismo comentario indica que un archivo `.PUP.dec` obtenido mediante un oracle de consola ya habría consumido y puesto a cero esa tabla.
+
+Esta observación es **código público de la ruta PS5 del proyecto**, no una prueba directa de que el bloque de 240 bytes de los PUP PS4 13.50/13.52 sea esa tabla. Su valor es estructural: aporta una semántica pública posible para el tamaño `0x50` y para regiones especiales de metadata, pero debe clasificarse como `HISTORICAL_ONLY`/`HYPOTHESIS` al trasladarla a PS4 13.52.
