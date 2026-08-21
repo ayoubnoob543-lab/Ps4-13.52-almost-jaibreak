@@ -27,13 +27,13 @@ También puede usarse la herramienta reproducible:
 
 ```bash
 python3 webkit-kit/tools/reconstruct_pup_parts.py \
-  webkit-kit/runtime/PUP_BYTE_MANIFEST_1350_1352.json \
+  webkit-kit/runtime/PUP_PARTS_MANIFEST_1350_1352.json \
   artifacts/pup_chunks_1350_1352 \
   --firmware 13.50 \
   --output /tmp/PS4SYS_13.50.rebuilt.PUP
 
 python3 webkit-kit/tools/reconstruct_pup_parts.py \
-  webkit-kit/runtime/PUP_BYTE_MANIFEST_1350_1352.json \
+  webkit-kit/runtime/PUP_PARTS_MANIFEST_1350_1352.json \
   artifacts/pup_chunks_1350_1352 \
   --firmware 13.52 \
   --output /tmp/PS4SYS_13.52.rebuilt.PUP
