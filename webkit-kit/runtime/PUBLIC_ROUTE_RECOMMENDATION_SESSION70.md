@@ -185,3 +185,7 @@ La búsqueda global de nombres `libSceNKWebKit` y `libkernel_web` devolvió cero
 ## Pista local: archivo MediaFire de diff BD-J
 
 El inventario encontró sólo una referencia textual a `files_diff_bdjstack_jar_ps5.7z`, URL localizada como `https://www.mediafire.com/file/ilf5yaw13frv2w7/files_diff_bdjstack_jar_ps5.7z/file`. La página indica un archivo 7Z de 10.04 KiB, subido el 19 de marzo de 2026, pero el workspace contiene únicamente la página Markdown, no el archivo 7Z. Por tanto, no hay bytes, hash ni contenido analizable; se clasifica como `DOCUMENTED_ONLY`/`UNVERIFIED`, no como artefacto BD-J disponible. No se descarga ni se abre.
+
+## Procedencia declarada del ZIP de libkernel
+
+El README interno se titula `PS4 13.52 libkernel_sys.sprx — Memory Dump` y afirma captura desde una PS4 retail 13.52, pero no incluye una URL directa de publicación, firma criptográfica, manifest externo ni cadena de custodia independiente. Sólo menciona nominalmente repositorios/proyectos relacionados. La consistencia de bytes y la coincidencia con la metadata local son verificables; la procedencia de firmware sigue siendo una afirmación del README. Clasificación final del dump: identidad funcional `STRONG_INDIRECT_13.52`, procedencia exacta `UNVERIFIED`.
