@@ -29,3 +29,9 @@ El repositorio CSSFontFace enlazado por la fuente pública puede ser útil como 
 ## Conclusión
 
 La evidencia pública nueva mejora la ruta documental hacia CSSFontFace/WebKit userland 13.52, pero no cierra el puente hacia el runtime retail. El artefacto mínimo que debemos conseguir es una muestra binaria o metadata descifrada con procedencia verificable; mientras no exista, el laboratorio y el correlador pueden prepararse, pero la presencia de una vulnerabilidad concreta en 13.52 queda `UNVERIFIED`.
+
+## Búsqueda nueva sin artefacto verificable
+
+Se realizó una búsqueda separada por `libSceNKWebKit.sprx`, hashes/Build IDs y extracción de WebKit 13.52. Los resultados nuevos fueron principalmente páginas editoriales, vídeos, Reddit y posts de redes sociales que repiten afirmaciones de userland/jailbreak; no apareció un archivo binario, hash retail, Build ID ni snapshot verificable. `PSDevWiki/Bugs` es una referencia documental útil, pero no constituye por sí sola un artefacto de 13.52. Los repositorios derivados de PSFree encontrados declaran rangos antiguos o no aportan el módulo retail, por lo que quedan apartados y no se volverán a usar como fuente principal.
+
+La lectura adicional de `PSDevWiki/Bugs` y `Feyzee61/ps4jb` no produjo un módulo retail 13.52 ni hashes/Build IDs de `libSceNKWebKit`. `PSDevWiki/Bugs` contiene una clasificación documental de superficies y rangos, pero las entradas no equivalen a bytes del firmware. `Feyzee61/ps4jb` declara soporte 5.05, 6.72 y 7.00–9.60; queda explícitamente descartado como fuente de 13.52. Estas URLs quedan marcadas como revisadas y no se reutilizarán en la siguiente pasada salvo que aparezca un enlace nuevo dentro de ellas.
