@@ -89,3 +89,7 @@ El enlace oficial `WebKit-1200.zip` de PlayStation redirige a CDN oficial y decl
 ## Búsqueda adicional: ufm42 y `m_propertiesOrCSSConnection`
 
 La búsqueda no encontró un repositorio nuevo ni un archivo técnico que exponga el workaround de ufm42. Los resultados principales fueron el writeup de LinearFox, Logic-Sunrise, OneJailbreak y publicaciones de X/YouTube ya registradas; todos repiten que la cadena pública llega a 11.02/11.50 mientras que 13.52 se presenta como rango de vulnerabilidad o workaround no publicado. No apareció `libSceNKWebKit.sprx`, un diff retail, offsets o hash de 13.52. Clasificación: `STRONG_INDIRECT_13.52` para la necesidad de tratar por separado el layout posterior; `UNVERIFIED` para el workaround de 13.52. No se reabren las fuentes repetidas.
+
+## Clone estático de CSSFontFace-Exploit
+
+Se clonó en `/tmp/CSSFontFace-Exploit` con `gh repo clone` y profundidad 50, sin ejecutar archivos. HEAD `221baa6`; últimos commits incluyen `2f37734 fix typo`, `d20b1c0 cleanup`, `0b65ea0 fix kp issue with lapse on some games` y cambios de patches de kernel. El árbol contiene README, servidor host, certificado local, `public/src/lapse.js`, `netctrl.js`, `loader.js`, `main.js`, `worker.js` y recursos web. SHA-256 de `README.md`: `860db9e43151442f43324093d16fe9bbcb2224be83bb2c3ef3412fb9104f6a27`. La estructura confirma que el repositorio público es una cadena orientada a PS4 6.00–11.02, no un port 13.52; no se trata como evidencia de compatibilidad retail 13.52. Clasificación: `HISTORICAL_ONLY`/`UNVERIFIED` para 13.52.
