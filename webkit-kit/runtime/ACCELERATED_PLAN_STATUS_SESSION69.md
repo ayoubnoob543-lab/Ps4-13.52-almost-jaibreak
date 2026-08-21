@@ -37,3 +37,9 @@ La inspección del directorio `webkit-kit/homebrew/wpe-source` encontró únicam
 ## Pasada pasiva sesión 70
 
 El inventario actualizado de `/home/ubuntu/firmware-lab-runtime`, `/home/ubuntu/wpe-artifacts-2526` y `/home/ubuntu/Downloads` volvió a producir `found: []` y `No retail WebKit 13.52 module is present in scanned roots`. Los candidatos `libSceNKWebKit.sprx`, `libkernel_web.sprx`, `libSceLibcInternal.sprx` y `eboot.bin` permanecen `MISSING/UNVERIFIED`. Esta línea queda aparcada; no se repetirá hasta que aparezca un archivo nuevo en esas raíces.
+
+## Política de aparcamiento
+
+La línea de obtención de módulos retail y la línea de interpretación de los PUP quedan aparcadas. Sólo se reabrirán si aparece un artefacto nuevo con procedencia verificable, un hash/Build ID atribuible a PS4 13.52 o una salida autorizada de metadata/segmentos que no esté ya inventariada. No se repetirán las mismas URLs, repositorios, búsquedas de `libSceNKWebKit` ni escaneos locales sin cambios.
+
+La línea activa queda limitada al mantenimiento reproducible del laboratorio: WebKitGTK host, smoke tests, hashes, tests estáticos y preparación del correlador. Ningún PASS de host se promocionará a evidencia retail.
