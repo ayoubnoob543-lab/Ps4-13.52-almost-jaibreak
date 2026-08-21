@@ -1,0 +1,12 @@
+{
+  "engine": "WebKitGTK 2.52.3",
+  "test": "modern_webkitgtk_smoke",
+  "display": "Xvfb",
+  "stages": 3,
+  "capabilities": ["DOM", "events", "CSS flex", "CSS grid", "animation", "form validation", "SVG", "image", "Canvas", "localStorage", "navigation", "history"],
+  "status": "PASS",
+  "exit_code": 0,
+  "stderr_warnings": ["AT-SPI service unavailable", "DRI3 acceleration unavailable"],
+  "scope": "host_only_not_PS4_retail",
+  "binary_sha256": "$(sha256sum /tmp/modern_webkitgtk_smoke | awk '{print $1}')"
+}
