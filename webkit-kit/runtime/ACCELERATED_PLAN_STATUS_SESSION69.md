@@ -33,3 +33,7 @@ La ruta de laboratorio se considera completada cuando el host smoke pasa o queda
 La búsqueda local no encontró un checkout materializado bajo `/home/ubuntu/ps4-lab-1352` ni directorios con nombre `WebKit-601-1300`; las referencias históricas permanecen en manifests, informes y objetos/corpus documentales ya inventariados. Por ello no se inicia una compilación histórica en esta iteración: primero habría que materializar legítimamente la fuente exacta y sus dependencias, sin confundirla con el runtime retail 13.52.
 
 La inspección del directorio `webkit-kit/homebrew/wpe-source` encontró únicamente `wpebackend-fdo-1.16.1.tar.xz`; no hay allí un checkout fuente completo de WPE WebKit ni un árbol WebKit-601-1300 compilable. El siguiente trabajo de laboratorio debe centrarse en usar el WebKitGTK/JSC instalado o en materializar fuentes públicas verificables, no en tratar el tarball backend como si fuera el motor completo.
+
+## Pasada pasiva sesión 70
+
+El inventario actualizado de `/home/ubuntu/firmware-lab-runtime`, `/home/ubuntu/wpe-artifacts-2526` y `/home/ubuntu/Downloads` volvió a producir `found: []` y `No retail WebKit 13.52 module is present in scanned roots`. Los candidatos `libSceNKWebKit.sprx`, `libkernel_web.sprx`, `libSceLibcInternal.sprx` y `eboot.bin` permanecen `MISSING/UNVERIFIED`. Esta línea queda aparcada; no se repetirá hasta que aparezca un archivo nuevo en esas raíces.
