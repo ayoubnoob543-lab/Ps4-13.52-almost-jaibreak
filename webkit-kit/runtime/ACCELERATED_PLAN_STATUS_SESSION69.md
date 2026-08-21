@@ -43,3 +43,7 @@ El inventario actualizado de `/home/ubuntu/firmware-lab-runtime`, `/home/ubuntu/
 La línea de obtención de módulos retail y la línea de interpretación de los PUP quedan aparcadas. Sólo se reabrirán si aparece un artefacto nuevo con procedencia verificable, un hash/Build ID atribuible a PS4 13.52 o una salida autorizada de metadata/segmentos que no esté ya inventariada. No se repetirán las mismas URLs, repositorios, búsquedas de `libSceNKWebKit` ni escaneos locales sin cambios.
 
 La línea activa queda limitada al mantenimiento reproducible del laboratorio: WebKitGTK host, smoke tests, hashes, tests estáticos y preparación del correlador. Ningún PASS de host se promocionará a evidencia retail.
+
+## Estado de continuidad
+
+La iteración 70 dejó el WebKitGTK host validado con un smoke de tres etapas y el pipeline estático en `9/9 PASS`. La búsqueda de artefactos retail no produjo módulos nuevos y queda aparcada con criterio de reapertura. La investigación no se considera finalizada: permanecerá abierta para incorporar únicamente evidencia nueva con procedencia verificable, sin repetir repositorios, URLs o escaneos sin cambios.
