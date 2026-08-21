@@ -1,0 +1,25 @@
+New public lead discovered while tracing zecoxao/Jose Coixao:
+
+- Post: https://x.com/notnotzecoxao/status/2034585765137576040?lang=en
+- Author: Jose Coixao (@notnotzecoxao)
+- Date: 2026-03-19 11:00 UTC (as rendered by X)
+- Text: `some diffs from ps5 bdjstack 12.00 and 13.00`
+- Four public image URLs exposed in page HTML:
+  - https://pbs.twimg.com/media/HDxM4J8bAAAgSIC?format=webp&name=medium
+  - https://pbs.twimg.com/media/HDxM4J6aAAAGNi7?format=webp&name=medium
+  - https://pbs.twimg.com/media/HDxM4JyXkAAvQkc?format=webp&name=medium
+  - https://pbs.twimg.com/media/HDxM4JtWAAAURwt?format=webp&name=medium
+- Follow-up by the same author: https://x.com/notnotzecoxao/status/2034586729684910541
+- Follow-up text/card: `files_diff_bdjstack jar ps5` and `From mediafire.com`; shortened link: https://t.co/TEVzzvY624
+- The X page does not expose the expanded MediaFire URL in the extracted content. The media card is evidence that a downloadable file was advertised, but not yet the file bytes or provenance.
+- Related reply by Jose Coixao: https://x.com/notnotzecoxao/status/2034585816186454272, with two more public images; reply by @NSTG_official says the diffs may show what changed and point to bugs, but is commentary, not artifact provenance.
+- Importance: this is a distinct public lead for PS5 `bdjstack` 12.00/13.00, not evidence of PS4 13.50/13.52. It may explain the origin of a diff workflow, but cannot be reused as PS4 13.52 evidence without an explicit firmware mapping.
+Expanded public download lead:
+
+- X follow-up: https://x.com/notnotzecoxao/status/2034586729684910541
+- Expanded destination: https://www.mediafire.com/file/ilf5yaw13frv2w7/files_diff_bdjstack_jar_ps5.7z/file
+- MediaFire filename: `files_diff_bdjstack_jar_ps5.7z`
+- Public page metadata: 7Z archive, 10.04 KB, uploaded 2026-03-19 06:03:59 (MediaFire page); upload region shown as Portugal.
+- Download URL was exposed by the page, but this investigation has not downloaded the archive because the task requires provenance/metadata first and the filename identifies PS5, not PS4 13.50/13.52.
+- The page offers a VirusTotal summary of 0/28 detections, but this is not evidence of firmware provenance or contents.
+- Classification: `DOCUMENTED_ONLY` for existence of the public download; firmware relation to PS4 13.50/13.52 is `UNVERIFIED` and likely not applicable from the filename alone.
