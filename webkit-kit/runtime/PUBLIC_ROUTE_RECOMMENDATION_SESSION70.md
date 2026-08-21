@@ -105,3 +105,7 @@ La revisión del historial de `public/src/ps4/constants.js` y `public/src/ps4/us
 ## PSDevWiki Vulnerabilities y cobertura CSSFontFace
 
 La página pública `PSDevWiki/Vulnerabilities` enumera CSSFontFace como userland WebKit `FW 6.00–11.50`, mientras la entrada de WebKit Bugs usa el rango editorial `?6.00–13.52?` para otros candidatos. En la misma página, las cadenas BD-J y WebKit se listan por separado y con rangos distintos; esto refuerza que “vulnerabilidad presente” no equivale a “cadena funcional”. Logic-Sunrise repite para CSSFontFace PS4 6.00–13.52 como alcance declarado, pero limita la implementación funcional publicada a PS4 6.00–11.50 y describe `m_propertiesOrCSSConnection` como cambio que invalida la primitive antigua. No aparece módulo retail, hash, Build ID ni código 13.52. Clasificación: `DOCUMENTED_ONLY` para los rangos editoriales; `STRONG_INDIRECT_13.52` para la necesidad de una adaptación de layout; `UNVERIFIED` para userland 13.52.
+
+## Comprobación local del snapshot WebKit-1200
+
+Una búsqueda local posterior no encontró archivos `WebKit-1200`/`webkit*1200*` bajo `/home/ubuntu` ni procesos de descarga, extracción o renderizado activos. El snapshot parcial mencionado anteriormente no está disponible como artefacto local; no se inició una nueva descarga. Clasificación: `UNVERIFIED` para cualquier inferencia adicional desde WebKit-1200.
