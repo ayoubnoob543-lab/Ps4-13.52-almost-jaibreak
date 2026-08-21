@@ -7,8 +7,12 @@
 Repositorio revisado temporalmente:
 
 - `andy-man/ps4-pup-decrypt`
-- Commit obtenido durante esta sesión mediante GitHub CLI.
+- Commit: `74c64c0e8726a7cd6c1de6a9d0b1b751f8fe9b97`
+- Tree: `cbdab5513859acc90d300cd178c8b3d93b06d0b0`
 - Archivos relevantes: `include/pup.h`, `source/decrypt.c`, `source/encryptsrv.c`.
+- SHA-256 de `include/pup.h`: `16e700ed52c229e80a83d006e380c2fe5af33ccc38f1b06b432cca53c36b94b6`.
+- SHA-256 de `source/encryptsrv.c`: `447c0654ac4eac16e7ea4aaa163e6689e21b7d323aa3d4a7783401fcf2353947`.
+- SHA-256 de `source/decrypt.c`: `47711ca281337068aec1a47b2570f8c6b667d7ca9beedda25c60555cf683ceea`.
 
 ## Qué puede parsearse localmente
 
