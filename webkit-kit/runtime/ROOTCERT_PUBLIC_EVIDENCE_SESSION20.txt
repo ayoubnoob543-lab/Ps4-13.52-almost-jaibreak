@@ -1,0 +1,43 @@
+Public evidence captured 2026-08-21
+
+Source 1: https://www.psdevwiki.com/ps4/index.php?title=Vulnerabilities&action=raw&section=51
+Exact section text states:
+- Heading: FW <= 13.50 - Path traversal sandbox escape via sunjce JAR signature (untested)
+- Credits: zecoxao for diffing decompiled 13.50 and 13.52 PS4 BD-J files (2026-06-17)
+- Bug description: "The sunjce hash in RootCertManager.java was changed on PS4 13.52 [https://twitter.com/notnotzecoxao/status/2066944047944446366/photo/1]. This probably disables injecting old signed JAR files, which could possibly contain vulnerabilities or even be fake signed."
+- Patched: Yes since PS4 FW 13.52. Not patched as of PS4 FW 13.50.
+
+Source 2: https://x.com/notnotzecoxao/status/2066944047944446366
+Visible post text:
+- Author Jose Coixao (@notnotzecoxao), dated Jun 16, 2026.
+- Parent/related post text: "bdjb patched on 13.52. this code got removed" with image URL https://pbs.twimg.com/media/HK7ieV2XwAA3gQc?format=webp&name=medium.
+- Follow-up text: "this also got changed (in RootCertManager.java)" with image URL https://pbs.twimg.com/media/HK9CpsiXYAAmMbv?format=webp&name=medium.
+- A visible reply from @ps3120 dated Jun 25 says: "And added RSACipherAdaptor in sunjce_provider.jar 13.52".
+- The screenshot of the parent post visibly shows Java code in a policy method: codeSource != null; codeSource.getLocation(); protocol equals "file"; path; javaHome + "lib" + separator + "ext" + separator + "sunjce_provider.jar"; path.equals(jceJar); RootCertManager.isSunJCEVerified(); new Permissions(); p.add(new AllPermission()); return p.
+- The RootCertManager follow-up screenshot is visible but its source-code text was not extracted as machine-readable text in the browser response. It must not be transcribed beyond the visible claim without an OCR/source artifact.
+
+Classification:
+- PS4 13.50/13.52 comparison claim: DIRECT_PUBLIC_CLAIM, not direct retail bytes in this repository.
+- Exact RootCertManager hash values: UNVERIFIED (not present in the extracted text).
+- Exact old/new source diff: UNVERIFIED (only screenshot-based claim; no text diff obtained).
+- RootCertManager change occurred: STRONG_INDIRECT / public claim, not DIRECT_13.52 bytes.
+- Addition of RSACipherAdaptor in 13.52: DOCUMENTED_ONLY via visible reply, not independently corroborated.
+- Policy AllPermission code path shown in screenshot: HISTORICAL/PUBLIC screenshot evidence; does not prove 13.52 implementation.
+- No conclusion about getOriginalPersistentRoot(), PSDescriptorFactory, CodeSource semantics, or policy behavior in 13.52 without source/bytecode.
+Image evidence captured from https://pbs.twimg.com/media/HK9CpsiXYAAmMbv?format=webp&name=medium
+Image SHA-256: ab98050e2cf3a4e62497e986043387722672460a914fcd51270c74e94ed3d820
+Dimensions: 1200x113 WebP.
+
+The image is a side-by-side code screenshot showing lines 369-374. Both panels visibly contain:
+static {
+    AccessController.doPrivileged(new 1());
+    sunjce_hash = "...";
+}
+
+The enlarged visual transcription is:
+- Left/older panel: `sunjce_hash = "y8ehrm0lQ64cek7k6/+CwpSDLsjfnCesSX0agGpM10g=";`
+- Right/newer panel: `sunjce_hash = "At2dtIBsAdpxI/GWtq2otASAkU5OVg3QG5fFUF+KBek=";`
+
+Caution: these are transcribed from pixels, not extracted from source or bytecode. The characters are visually legible in the enlarged crops, but no independent second copy/hash was found. Classify the literal values as `DIRECT_PUBLIC_SCREENSHOT` / `UNVERIFIED_AS_SOURCE_BYTES`, not as direct retail 13.52 bytes.
+
+The screenshot demonstrates a changed string constant inside a privileged static initialization block. It does not reveal the full package/class declaration, the complete method body, the hash algorithm, the input bytes being hashed, or any caller. It therefore cannot by itself establish whether `getOriginalPersistentRoot()` changed, nor whether CodeSource, policy, class loading, or permissions changed beyond the separate BdjPolicy screenshot.
