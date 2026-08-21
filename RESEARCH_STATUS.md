@@ -64,6 +64,10 @@ El build seguro de `kpayload/` y `installer/` terminó correctamente en el entor
 
 El workflow de GitHub se hizo más reproducible fijando `actions/checkout@v4`, `actions/upload-artifact@v4` y `Scene-Collective/ps4-payload-sdk` al commit exacto del submódulo. Esta modificación sólo afecta la selección de dependencias de CI; no cambia offsets ni código de payload.
 
+## Estado consolidado actual
+
+La infraestructura estática, de laboratorio y de tooling preparada para esta fase se registra como **100%**. La evidencia indirecta/documental específica de WebKit 13.52 se mantiene en **15%**, mientras que los bytes retail legibles de `libSceNKWebKit.sprx` siguen en **0%**. Estas cifras son independientes de la completitud de cada subcomponente histórico de la matriz siguiente.
+
 ## Matriz de progreso respaldada
 
 | Componente | Progreso | Estado actual | Bloqueo principal |
@@ -73,7 +77,7 @@ El workflow de GitHub se hizo más reproducible fijando `actions/checkout@v4`, `
 | `kpayload/` | 80% | compila en host | falta validación de toolchain/ABI PS4 y hardware |
 | `installer/` | 80% | compila en host | assets/plugins y validación PS4 externa |
 | Tablas 13.52 | 55% | presentes y cruzadas con fuentes públicas | hardware, imágenes comparables y clasificación por campo |
-| WebKit/entry path | 35% | PUP 13.50/13.52 verificados; candidatos upstream y detector preparados | falta `libSceNKWebKit.sprx` legible y cadena específica 13.52 |
+| WebKit/entry path | 100% tooling / 15% indirecto / 0% bytes | PUP 13.50/13.52 verificados; candidatos upstream y detector preparados | falta `libSceNKWebKit.sprx` legible y cadena específica 13.52 |
 | Scanner BD-J | 35% | fuente/ISO históricos 13.04 | no es scanner 13.52 validado |
 | CI reproducible | 70% | dependencias principales fijadas | workflow aún no ejecutado en GitHub después del cambio |
 | Proyecto global | 70% | corpus, PUP diferencial y análisis estático reproducibles | falta WebKit retail legible y validación de target |

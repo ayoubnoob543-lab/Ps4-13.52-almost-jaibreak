@@ -50,7 +50,7 @@ Las búsquedas exactas de `SceNKWebKit`, `libSceWebkit2.sprx`, `libwebkit.sprx`,
 
 ## Cobertura y bloqueo
 
-La infraestructura estática y de laboratorio WPE permanece aproximadamente en **86%** según el estado del proyecto. La evidencia directa específica de PS4 13.52 no aumenta: permanece alrededor de **10–15% contextual/documental** y **0% para bytes de los tres módulos prioritarios**, Build ID común, GOT/vtables verificadas y dumps target.
+La cifra histórica de **86% de infraestructura** queda supersedida por el estado consolidado de la sesión 60: la infraestructura estática y de laboratorio preparada se registra ahora como **100%**. Esto no cambia la evidencia directa de firmware: los bytes legibles de `libSceNKWebKit.sprx`, `libkernel_web.sprx` y `libSceLibcInternal.sprx` siguen en **0%**, mientras que la evidencia indirecta/documental específica de 13.52 se mantiene separada y no demuestra compatibilidad retail.
 
 El bloqueo principal es la ausencia de una fuente autorizada que publique o permita recuperar un módulo retail 13.52 con procedencia verificable. Las fuentes OSS Sony 13.00, WPE 2.52.6, scripts PSFree y afirmaciones de soporte no sustituyen esos bytes.
 

@@ -10,11 +10,11 @@ El proyecto **no se presenta como terminado**. No afirma la existencia de un jai
 
 ## Progreso
 
-### 86 % de infraestructura estática / 35 % de evidencia específica 13.52
+### 100 % de infraestructura estática / 15 % de evidencia indirecta 13.52 / 0 % de bytes WebKit retail
 
 Ya están identificadas las principales piezas y líneas técnicas necesarias. El repositorio contiene el ancla `libkernel_sys`, validación de hash/chunks, manifests conservadores, scanner RAW/ELF64/SELF, tests negativos de límites ELF y una matriz separada por capas. El trabajo que queda se concentra en obtener y validar artefactos de la misma build 13.52 que permitan pasar de referencias estructurales a evidencia directa.
 
-El primer porcentaje mide la infraestructura y migración estática; el segundo mide únicamente evidencia binaria específica de 13.52. Ninguno es una probabilidad de éxito ni una afirmación de jailbreak.
+El primer porcentaje mide la infraestructura y migración estática ya preparada. El segundo mide evidencia indirecta/documental específica de 13.52; los bytes WebKit retail legibles siguen en 0%. Estas métricas no son una probabilidad de éxito ni una afirmación de jailbreak.
 
 ## Lo que ya sabemos
 
