@@ -66,3 +66,21 @@ d6003c3577480722dafc016d52f19690892a59eaf44db16fb2233b824651e6fd
 ```
 
 El espacio inicial de la tercera línea en este bloque es sólo presentación; el hash correcto comienza por `d6003c...`.
+
+## Relación aritmética adicional
+
+Para UPDATE1, los campos visibles suman:
+
+```text
+0x06f0 + 0x0bf0 = 0x12e0 = 4832
+```
+
+Para UPDATE2:
+
+```text
+0x01b0 + 0x0330 = 0x04e0 = 1248
+```
+
+Esto coincide con la extensión total del header que el parser público calcula como `unknown_0C + unknown_0E`. El bloque invariante empieza exactamente en `unknown_0C`, es decir, en la frontera entre ambas cantidades. Según la nomenclatura pública de `ScePupHeader`, esto es compatible con que `unknown_0C` sea el tamaño de la parte de header y `unknown_0E` el tamaño de metadata.
+
+La lectura más fuerte que permiten los datos es, por tanto, **una región de 240 bytes situada al comienzo de la zona compatible con metadata**. Como `0xf0 = 3 × 0x50`, también es compatible en tamaño con tres entradas `ScePupMetadataEntry`. Esto sigue sin probar que el contenido esté en claro ni que sean claves o digests utilizables; se mantiene como `STRONG_INDIRECT_13.52` para la frontera de layout y `HYPOTHESIS` para la semántica de las tres entradas.
