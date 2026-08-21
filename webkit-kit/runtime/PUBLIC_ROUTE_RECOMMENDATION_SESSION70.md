@@ -125,3 +125,7 @@ Las bibliotecas encontradas en `/home/ubuntu/wpe-artifacts-2526/arch/rootfs` son
 ## Archivos ocultos y enlaces en candidatos locales
 
 La inspección con `find -xdev` no encontró enlaces simbólicos ni archivos ocultos que apunten a un rootfs PS4 adicional en los cuatro candidatos. Los únicos ocultos relevantes fueron metadatos Git y archivos de configuración (`.gitignore`, `.prettierrc`, `.gitmodules`). Esto no aporta una nueva procedencia de runtime.
+
+## Correlación estructural del corpus WebKit local
+
+El correlador se ejecutó sólo sobre texto del directorio `webkit-kit`, con documentación incluida. Analizó 57 archivos y produjo `MATCH / FIXED_LIKE` para las tres familias: `jscell_tox_type_validation`, `markedvector_gc_containers` y `clone_object_pool_alignment`. El resultado debe interpretarse con cautela: el corpus contiene referencias, informes y firmas de los candidatos, no un módulo retail; por diseño, el propio correlador mantiene `status_13_52=UNVERIFIED`. El hash SHA-256 del JSON de entrada agregada fue `234013ced17a51541dba8078032e800ae2834d6f2642811c57643fffb1e2fb31`. Clasificación final: correlación estructural local `MATCH`; estado 13.52 `UNVERIFIED`; estado de vulnerabilidad retail `UNVERIFIED`.
