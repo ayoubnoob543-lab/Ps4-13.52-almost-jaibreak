@@ -161,3 +161,7 @@ La concatenación de `lk_dump1.bin`, `lk_dump2.bin` y `lk_dump3.bin` produce exa
 ## Comparación con metadata existente del repositorio
 
 El archivo `webkit-kit/libkernel_sys_13.52.signatures.json` ya contiene el SHA-256 `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c` y referencia `libkernel_sys_13.52.bin`, pero la copia binaria no está en el repositorio (`webkit-kit/` ni `runtime/`). El BIN del ZIP de upload coincide con esa metadata por hash. Esto establece una coincidencia de identidad entre el artefacto recién detectado y la anotación local, elevando la coherencia a `STRONG_INDIRECT_13.52`; aún falta una procedencia independiente para `DIRECT_13.52`. El artefacto sigue siendo libkernel, no WebKit/JSC.
+
+## Separación libkernel frente a WebKit/JSC
+
+La búsqueda de strings del BIN candidato no encontró `WebKit`, `JavaScriptCore`, `CSSFontFace`, `WebCore`, `JSC`, `CloneSerializer`, `MarkedVector` ni `libSceNKWebKit`. Sí encontró numerosos marcadores de libkernel/Orbis como `sceKernel*`, `libkernel.sprx`, `orbis_rtld`, `SCE_KERNEL_JIT_SHM_AREA` y rutas internas de pthread/libkernel. Esto refuerza que el archivo es coherente con un artefacto libkernel, pero confirma que no puede resolver directamente la cuestión de WebKit/JSC 13.52. Clasificación: `STRONG_INDIRECT_13.52` para identidad funcional de libkernel; `NO MATCH` para las tres familias WebKit en este BIN; `UNVERIFIED` para procedencia retail.
