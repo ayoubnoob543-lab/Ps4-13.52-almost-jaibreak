@@ -181,3 +181,7 @@ La búsqueda por tamaño y SHA-256 encontró siete copias locales del mismo BIN 
 ## Búsqueda final por nombres de módulos WebKit
 
 La búsqueda global de nombres `libSceNKWebKit` y `libkernel_web` devolvió cero archivos. Las únicas coincidencias fuera de WPE/Linux fueron documentos Markdown sobre WebKit/PSDevWiki y copias de fuentes upstream; no apareció ningún módulo Sony/Orbis identificable. Por tanto, el ZIP de libkernel es el único artefacto binario PS4 candidato localizado en este ciclo y no resuelve la correlación WebKit/JSC.
+
+## Pista local: archivo MediaFire de diff BD-J
+
+El inventario encontró sólo una referencia textual a `files_diff_bdjstack_jar_ps5.7z`, URL localizada como `https://www.mediafire.com/file/ilf5yaw13frv2w7/files_diff_bdjstack_jar_ps5.7z/file`. La página indica un archivo 7Z de 10.04 KiB, subido el 19 de marzo de 2026, pero el workspace contiene únicamente la página Markdown, no el archivo 7Z. Por tanto, no hay bytes, hash ni contenido analizable; se clasifica como `DOCUMENTED_ONLY`/`UNVERIFIED`, no como artefacto BD-J disponible. No se descarga ni se abre.
