@@ -45,3 +45,7 @@ El informe y el JSON del correlador se publicaron en la rama privada `pup-byte-m
 ## Comprobación adicional del laboratorio WPE
 
 Se intentó ejecutar el `MiniBrowser` existente del rootfs WPE 2.52.6 usando sus bibliotecas locales, sin modificar el rootfs. Las tres fixtures pasaron la validación SHA-256. El proceso llegó a iniciarse, pero terminó con código `127` en `page1` por una incompatibilidad de libc del host: `undefined symbol: __pointer_chk_guard, version GLIBC_PRIVATE`. El resultado completo está en `WPE_SMOKE_SESSION69_ROOTFS.json`. Este fallo pertenece al entorno Linux/WPE y no aporta evidencia sobre PS4 13.52.
+
+## Inventario local adicional
+
+La herramienta `inventory_ps4_1352_artifacts.py` inspeccionó `/home/ubuntu/firmware-lab-runtime`, `/home/ubuntu/wpe-artifacts-2526` y `/home/ubuntu/Downloads` usando sólo nombres, rutas y SHA-256. El manifest resultante es `PS4_1352_LOCAL_INVENTORY_SESSION69.json`, SHA-256 `a2cd5dc484718661047f0a81bdd575dac94de65a2cdc31650c1b6a63fc82309e`. No se encontró ningún `libSceNKWebKit.sprx`, `libkernel_web.sprx`, `libSceLibcInternal.sprx` ni `eboot.bin`; todos quedan `MISSING/UNVERIFIED`. El resultado no implica que no existan fuera de las raíces inspeccionadas.
