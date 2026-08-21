@@ -153,3 +153,7 @@ La cabecera del BIN comienza con bytes x86-64 plausibles, pero el archivo se con
 ## Correlación estática inicial del BIN candidato
 
 El BIN combinado tiene 479,232 bytes y su SHA-256 coincide con el valor almacenado en el ZIP (`ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c`). En los offsets indicados por el README se observan prólogos x86-64 coherentes: `0x1bb0`, `0x45f0`, `0xc970`, `0xc990`, `0x13b20`, `0x14870`, `0x148a0`, `0x148d0`, `0x14900`, `0x15310`, `0x15460` y `0x19320` comienzan con `55 48 89 e5`; `0x510` y `0x530` son stubs syscall con números `0x215`/`0x216`. También aparecen strings de build como `W:\Build\J02697906\sys\internal\usermode\src\libkernel\...`, `libkernel.sprx`, `SCE_KERNEL_JIT_SHM_AREA` y nombres de APIs Orbis. Esto es consistente con un dump x86-64 de libkernel, pero no demuestra por sí solo firmware 13.52: la procedencia sigue dependiendo del ZIP/README y falta una cadena de custodia independiente. No se ejecutó el BIN ni se siguió ninguna instrucción operativa del README.
+
+## Coherencia interna del dump
+
+La concatenación de `lk_dump1.bin`, `lk_dump2.bin` y `lk_dump3.bin` produce exactamente 479,232 bytes y SHA-256 `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c`, idéntico al BIN combinado. `cmp` confirma igualdad byte a byte. Esto verifica la consistencia interna del ZIP, no la procedencia del hardware o firmware; la clasificación permanece `STRONG_INDIRECT_13.52`/`UNVERIFIED`.
