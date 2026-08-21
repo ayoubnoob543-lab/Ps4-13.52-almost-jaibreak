@@ -2,8 +2,20 @@
 
 **Proyecto:** PS4-13.52-Jailbreak-Research
 **Estado:** en desarrollo; no es un jailbreak.
-**Última auditoría:** 2026-08-16
+**Última auditoría:** 2026-08-21 — sesión 60
 **Método:** análisis estático, sin ejecutar el dump ni usar hardware.
+
+## Actualización de la sesión 60
+
+Se verificaron PUP retail de PS4 13.50 y 13.52 desde MidnightChannel. El PUP 13.50 tiene SHA-256 `04585405bf3ad0836103c1eea5c21657327a377824ad5cda7674ecb94f03822f`; el PUP 13.52 tiene SHA-256 `daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11`. Ambos son contenedores SLB2. El tamaño total aumentó `16896` bytes entre versiones: `+480` en `PS4UPDATE1.PUP` y `+16200` en `PS4UPDATE2.PUP`.
+
+Este diferencial prueba cambios de bytes en las entradas internas, pero no atribuye esos cambios a WebKit, kernel o BD-J porque las entradas siguen opacas. El extractor externo auditado sólo procesa el contenedor SLB2; no proporciona módulos WebKit ni claves.
+
+La investigación pública reciente prioriza `JSCell::toX`, `MarkedVector` y `CloneSerializer/Deserializer` como hipótesis tentativas de rango `?6.00–13.52?` en PSDevWiki, pero la misma fuente indica que no fueron probados en PS4. `DocumentFontLoader` (CVE-2024-54502), `TransformStream` (CVE-2026-43705) y DFG StoreBarrier (CVE-2025-43529) tienen fixes/testcases upstream, pero no evidencia retail 13.52.
+
+El repositorio público `ufm42/wobkot` contiene una cadena histórica WebKit/PS4 hasta 11.02 y no tiene rama, fork u offset 13.52 verificable. Los claims audiovisuales de un workaround 13.52 permanecen `DOCUMENTED_ONLY/UNVERIFIED`.
+
+El bloqueo principal actualizado es obtener `libSceNKWebKit.sprx` legible de 13.52, o un `PUP.dec` legítimo que permita localizarlo. No se ejecutaron PUP, SELF, SPRX, ELF, payloads ni hardware.
 
 ## Resumen ejecutivo
 
@@ -61,13 +73,13 @@ El workflow de GitHub se hizo más reproducible fijando `actions/checkout@v4`, `
 | `kpayload/` | 80% | compila en host | falta validación de toolchain/ABI PS4 y hardware |
 | `installer/` | 80% | compila en host | assets/plugins y validación PS4 externa |
 | Tablas 13.52 | 55% | presentes y cruzadas con fuentes públicas | hardware, imágenes comparables y clasificación por campo |
-| WebKit/entry path | 25% | artefactos históricos 13.04/13.50 | falta cadena específica 13.52 |
+| WebKit/entry path | 35% | PUP 13.50/13.52 verificados; candidatos upstream y detector preparados | falta `libSceNKWebKit.sprx` legible y cadena específica 13.52 |
 | Scanner BD-J | 35% | fuente/ISO históricos 13.04 | no es scanner 13.52 validado |
 | CI reproducible | 70% | dependencias principales fijadas | workflow aún no ejecutado en GitHub después del cambio |
-| Proyecto global | 65% | corpus y build host reproducibles | faltan artefactos externos y validación de target |
+| Proyecto global | 70% | corpus, PUP diferencial y análisis estático reproducibles | falta WebKit retail legible y validación de target |
 
 Los porcentajes son una métrica de completitud del trabajo reproducible disponible, no una probabilidad de jailbreak ni una medida de seguridad del firmware.
 
 ## Bloqueadores para superar 90%
 
-El bloqueo principal para superar el 90% global es externo al repositorio: se necesitan un eboot/tabla de relocaciones de la misma build, un manifest o hash que relacione `J02697906` con FW 13.52, imágenes comparables de `libkernel_sys` y validación independiente de las tablas en el target. Ninguna de esas ausencias debe cubrirse con inferencias del README.
+El bloqueo principal para superar el 90% global es externo al repositorio: se necesita `libSceNKWebKit.sprx` legible de 13.52, preferiblemente junto con `libkernel_web.sprx`, o un `PUP.dec` legítimo y verificable. Para el diferencial de `libkernel_sys` aún sería útil una imagen comparable de otra versión. Ninguna ausencia debe cubrirse con inferencias del README ni con hashes de contenedores opacos.
