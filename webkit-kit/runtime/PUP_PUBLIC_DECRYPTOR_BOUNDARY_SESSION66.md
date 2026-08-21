@@ -68,6 +68,12 @@ Los bytes locales de 13.50 y 13.52 muestran:
 
 El prefijo de 16 bytes coincide con el magic y el tamaño de `pup_file_header` documentados por el código público. La tabla de segmentos no aparece en texto plano porque el código espera descifrar el header extendido antes de interpretarla.
 
+## Comparación con otro fork público
+
+También se revisó estáticamente el fork público `Scene-Collective/ps4-pup-decrypt`, commit `1325f74307b67a9acc4af8145d9dc7c49965fd5b`. Su interfaz conserva las mismas operaciones `encsrv_decrypt_header`, `encsrv_decrypt_segment` y `encsrv_decrypt_segment_block`, con los mismos IOCTL `0xC0184401`, `0xC0184404` y `0xC0284405`. Las diferencias observadas son de includes y organización del código, no de la frontera criptográfica.
+
+Esto refuerza que el límite `parseo local → servicio encsrv` es una propiedad compartida por las implementaciones públicas revisadas, aunque no constituye evidencia específica del firmware retail 13.52.
+
 ## Clasificación
 
 | Hallazgo | Clasificación |
