@@ -143,3 +143,9 @@ Se concatenaron únicamente archivos fuente C/C++/Objective-C/Java del directori
 ## Búsqueda adicional de contenedores locales
 
 La búsqueda de `.img`, `.tar`, `.zip`, `.7z`, `.zst`, `.xz` y `.lz4` bajo `/home/ubuntu` sólo encontró paquetes Arch/Linux y fuentes WPE (`.pkg.tar.zst`, `.tar.xz`). No apareció una imagen PS4, PUP, SPRX, SELF ni rootfs Orbis. Estos resultados se excluyen como evidencia de 13.52 y no se extrajeron ni ejecutaron.
+
+## Artefacto local nuevo: ZIP de `libkernel_sys_13.52`
+
+Se detectó en `/home/ubuntu/upload/PS4_13.libkernel_sys_[unknowncheats.me]_.zip` un ZIP de 260,531 bytes, SHA-256 `3c8b8e88c915a34c13c7c7504cbe9c44a09de1b504365f51e25dd2e17b331ac4`. Contiene `libkernel_sys_13.52.bin` (479,232 bytes, SHA-256 `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c`), tres fragmentos `lk_dump1.bin`/`2`/`3` de 159,744 bytes cada uno y un README de 5,335 bytes. El README atribuye los datos a una PS4 retail 13.52 y describe offsets de libkernel, pero esa procedencia es una afirmación del propio archivo: no es todavía `DIRECT_13.52` sin cadena de custodia independiente, firma, manifest o correlación con un módulo conocido. Clasificación: `STRONG_INDIRECT_13.52` como artefacto candidato; `UNVERIFIED` para procedencia y exactitud retail.
+
+La cabecera del BIN comienza con bytes x86-64 plausibles, pero el archivo se conserva como dato no confiable y no se ejecuta. El contenido podría permitir una correlación estática de firmas de libkernel, pero no sustituye a `libSceNKWebKit.sprx` ni aporta evidencia directa sobre WebKit/JSC.
