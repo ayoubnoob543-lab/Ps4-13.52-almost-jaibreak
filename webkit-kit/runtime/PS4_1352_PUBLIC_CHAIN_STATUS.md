@@ -141,3 +141,27 @@ El repositorio público [`Gezine/BD-UN-JB`][10] contiene el commit `fef9084ef184
 Esto cambia la evaluación de la etapa kernel: existe un artefacto de software público etiquetado 13.52 con offsets y código de soporte. La clasificación es `DIRECT_13.52` para la presencia del bloque en el repositorio; la reproducibilidad efectiva, la procedencia interna de cada valor y la ejecución en hardware siguen `UNVERIFIED`. El commit no demuestra por sí mismo la entrada BD-J 13.52, el escape de sandbox, WebKit 13.52 ni la entrega al Linux Loader.
 
 [10]: https://github.com/Gezine/BD-UN-JB/commit/fef9084ef18435cc451f2fb5039d88957ddc8f85 "Gezine/BD-UN-JB — Add PS4 13.52 offsets"
+
+
+## Candidato WebKit más fuerte: CSSFontFace UAF
+
+El repositorio público [`ntfargo/CSSFontFace-Exploit`][11] y su writeup técnico [12] ofrecen la cadena estática más completa encontrada para WebKit: causa raíz en referencias no propietarias de `CSSFontFace`, reentrada durante la resolución de promesas, corrección mediante `Ref<CSSFontFace>` y una primitive de memoria documentada en versiones concretas.
+
+La evidencia debe dividirse cuidadosamente. El README declara `Vulnerability Scope: PS4 6.00–13.52`, pero también declara `Exploitable In This Repository: PS4 6.00–11.02` y explica que desde 11.5x se rediseñó el layout CSSFontFace, incluyendo `m_propertiesOrCSSConnection`, por lo que la primitive `m_featureSettings` ya no funciona sobre esas versiones. El writeup describe el UAF y la transición hacia disclosure/read-write, pero no publica una primitive operativa para 13.52.
+
+| Pregunta | Resultado |
+|---|---|
+| ¿Existe bug WebKit con alcance declarado hasta 13.52? | Sí, según el README del repositorio; `STRONG_INDIRECT_13.52` |
+| ¿Existe primitive reproducible publicada para 13.52? | No; `UNVERIFIED` |
+| ¿Se conoce la causa raíz y el fix de ownership? | Sí, en código/documentación upstream; `DOCUMENTED_ONLY` |
+| ¿Se demuestra que Sony dejó intacta la condición en 13.52? | No |
+| ¿Se demuestra RCE, sandbox escape o native usermode en 13.52? | No |
+
+El caso CSSFontFace no permite cerrar la cadena solicitada, pero sí reduce el espacio de búsqueda: el mismo bug puede abarcar versiones nuevas sin que sobreviva la primitive histórica. Para PS4 13.52 faltan la revisión WebKit retail, el layout exacto de `CSSFontFace`, una demostración de la condición de vida útil y una primitive segura y reproducible; no se desarrollará ni adaptará una explotación.
+
+## Estado revisado de WebKit-616-1300
+
+La colección OSS `FreeBSDKernel9-0/PS4OSSCode` contiene un directorio `WebKit-616-1300`, pero la navegación directa sólo muestra `LayoutTests`, `WebKit.xcworkspace`, `WebKitLibraries` y `resources`; no contiene `Source/JavaScriptCore`, `Source/WebCore` ni `JSArray.cpp`. Su nombre no permite identificarlo como WebKit/JSC de PS4 13.52.
+
+[11]: https://github.com/ntfargo/CSSFontFace-Exploit "ntfargo/CSSFontFace-Exploit"
+[12]: https://linearfox.com/blog/cssfontface-uaf-playstation "From CSSFontFace to ARW: A PlayStation Webkit Exploit Writeup"
