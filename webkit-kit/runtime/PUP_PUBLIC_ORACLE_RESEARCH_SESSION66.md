@@ -37,3 +37,7 @@ Se ejecutó `webkit-kit/tools/correlate_three_families.py` sobre el árbol fuent
 | `clone_object_pool_alignment` | `NO MATCH` | `UNVERIFIED` | `UNVERIFIED` |
 
 El correlador procesó 12 archivos de código del kit homebrew/WPE. La ausencia de coincidencias sólo demuestra que esos archivos no contienen las implementaciones upstream buscadas; no demuestra que las familias estén ausentes del WebKit retail de PS4 13.52. El propio resultado marca la procedencia como `UNVERIFIED`, por lo que el árbol OSS/WPE no puede sustituir a `libSceNKWebKit.sprx`.
+
+## Integridad de publicación
+
+El informe y el JSON del correlador se publicaron en la rama privada `pup-byte-manifest-1350-1352` mediante el commit `20da47a45163a01ded6c6ddef5232ab93e5ec319`. La consulta directa de la referencia remota confirmó el mismo SHA-1 (`20da47a45163a01ded6c6ddef5232ab93e5ec319`) y el árbol local no contiene cambios pendientes. El `origin/*` local tenía un rastreo obsoleto durante la primera comprobación, por lo que la verificación final se hizo contra `git ls-remote`, no contra ese caché local.
