@@ -101,3 +101,7 @@ La inspección pasiva del clone mostró constantes de layout (`wk_CSSFontFace_si
 ## Historial Git del repositorio CSSFontFace
 
 La revisión del historial de `public/src/ps4/constants.js` y `public/src/ps4/userland.js` no encontró una rama o commit público con offsets 13.52 ni una implementación basada en `m_propertiesOrCSSConnection`. Las revisiones mantienen la cadena de constantes `m_featureSettings` y el README conserva la separación entre vulnerabilidad declarada 6.00–13.52 y cadena implementada 6.00–11.02. El repositorio, por tanto, no contiene la adaptación que permitiría confirmar 13.52. Clasificación: `HISTORICAL_ONLY` para el código; `UNVERIFIED` para 13.52.
+
+## PSDevWiki Vulnerabilities y cobertura CSSFontFace
+
+La página pública `PSDevWiki/Vulnerabilities` enumera CSSFontFace como userland WebKit `FW 6.00–11.50`, mientras la entrada de WebKit Bugs usa el rango editorial `?6.00–13.52?` para otros candidatos. En la misma página, las cadenas BD-J y WebKit se listan por separado y con rangos distintos; esto refuerza que “vulnerabilidad presente” no equivale a “cadena funcional”. Logic-Sunrise repite para CSSFontFace PS4 6.00–13.52 como alcance declarado, pero limita la implementación funcional publicada a PS4 6.00–11.50 y describe `m_propertiesOrCSSConnection` como cambio que invalida la primitive antigua. No aparece módulo retail, hash, Build ID ni código 13.52. Clasificación: `DOCUMENTED_ONLY` para los rangos editoriales; `STRONG_INDIRECT_13.52` para la necesidad de una adaptación de layout; `UNVERIFIED` para userland 13.52.
