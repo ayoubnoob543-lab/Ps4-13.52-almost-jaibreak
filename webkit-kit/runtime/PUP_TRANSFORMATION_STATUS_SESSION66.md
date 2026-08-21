@@ -35,3 +35,9 @@ Mientras ese artefacto no exista, continuar cambiando nombres, adivinando offset
 | Vulnerabilidad/primitive WebKit en 13.52 | `UNVERIFIED` |
 
 Este informe es un estado de investigación, no una conclusión de compatibilidad ni una afirmación de exploit.
+
+## Auditoría local de artefactos descifrados
+
+Se revisó recursivamente `/home/ubuntu` buscando extensiones `.dec`, nombres `*PUP.dec*` y artefactos `*decrypted*`. El único resultado fue una página documental histórica; no apareció ningún `.PUP.dec`, tabla de segmentos descifrada, SELF legible ni módulo SPRX descifrado.
+
+Esto confirma que el respaldo privado añade los bytes brutos completos, pero no elimina el bloqueo de interpretación de la capa protegida.
