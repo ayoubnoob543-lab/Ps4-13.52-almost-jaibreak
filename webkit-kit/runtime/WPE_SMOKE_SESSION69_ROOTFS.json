@@ -1,0 +1,70 @@
+{
+  "backend": "WPEBackend-fdo 1.16.1",
+  "capabilities": {},
+  "engine": "WPE WebKit 2.52.6",
+  "fixture_validation": [
+    {
+      "exists": true,
+      "expected_sha256": "3854930be7753028e3800233758f7015f5f2be590fe3663f0fb61ab035f36e7b",
+      "file": "webkit-kit/homebrew/fixtures/page1.html",
+      "id": "page1",
+      "sha256": "3854930be7753028e3800233758f7015f5f2be590fe3663f0fb61ab035f36e7b",
+      "status": "PASS"
+    },
+    {
+      "exists": true,
+      "expected_sha256": "66b593648c6cec245b505cad043d75a2c2c32d9c2ef0092b203fa17f500dd399",
+      "file": "webkit-kit/homebrew/fixtures/page2.html",
+      "id": "page2",
+      "sha256": "66b593648c6cec245b505cad043d75a2c2c32d9c2ef0092b203fa17f500dd399",
+      "status": "PASS"
+    },
+    {
+      "exists": true,
+      "expected_sha256": "5993bffdc8ff066c281f6786088abae42fd3e6900ee6c3cc86804774bd84ee87",
+      "file": "webkit-kit/homebrew/fixtures/page3.html",
+      "id": "page3",
+      "sha256": "5993bffdc8ff066c281f6786088abae42fd3e6900ee6c3cc86804774bd84ee87",
+      "status": "PASS"
+    }
+  ],
+  "process_runs": [
+    {
+      "elapsed_s": 1.073,
+      "id": "page1",
+      "returncode": 127,
+      "stderr_tail": "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser: symbol lookup error: /home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/libc.so.6: undefined symbol: __pointer_chk_guard, version GLIBC_PRIVATE\n",
+      "stdout_tail": "",
+      "url": "file:///home/ubuntu/firmware-lab-runtime/webkit-kit/homebrew/fixtures/page1.html"
+    }
+  ],
+  "reason": "MiniBrowser returned 127 for page1",
+  "runtime": {
+    "binary": "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser",
+    "display": ":0",
+    "ldd": [],
+    "preflight": {
+      "display_status": "AVAILABLE",
+      "libwpe": [
+        "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/libwpe-1.0.so",
+        "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/libwpe-1.0.so.1",
+        "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/libwpe-1.0.so.1.9.6"
+      ],
+      "missing_dependencies": [],
+      "prefix": "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr",
+      "wpebackend_fdo": [
+        "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/libWPEBackend-fdo-1.0.so",
+        "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/libWPEBackend-fdo-1.0.so.1",
+        "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/libWPEBackend-fdo-1.0.so.1.10.2"
+      ]
+    },
+    "wpe_env": {
+      "DISPLAY": ":0"
+    }
+  },
+  "schema": 2,
+  "sequence": [
+    "page1"
+  ],
+  "status": "BLOCKED"
+}

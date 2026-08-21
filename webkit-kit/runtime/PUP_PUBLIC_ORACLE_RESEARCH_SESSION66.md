@@ -41,3 +41,7 @@ El correlador procesó 12 archivos de código del kit homebrew/WPE. La ausencia 
 ## Integridad de publicación
 
 El informe y el JSON del correlador se publicaron en la rama privada `pup-byte-manifest-1350-1352`. La versión final del informe quedó en el commit `e3f4cb01fa164c3e4638c1bc189d717daf167d1c`; la consulta directa de la referencia remota confirmó ese mismo SHA-1 y el árbol local no contiene cambios pendientes. El `origin/*` local tenía un rastreo obsoleto durante la primera comprobación, por lo que la verificación final se hizo contra `git ls-remote`, no contra ese caché local.
+
+## Comprobación adicional del laboratorio WPE
+
+Se intentó ejecutar el `MiniBrowser` existente del rootfs WPE 2.52.6 usando sus bibliotecas locales, sin modificar el rootfs. Las tres fixtures pasaron la validación SHA-256. El proceso llegó a iniciarse, pero terminó con código `127` en `page1` por una incompatibilidad de libc del host: `undefined symbol: __pointer_chk_guard, version GLIBC_PRIVATE`. El resultado completo está en `WPE_SMOKE_SESSION69_ROOTFS.json`. Este fallo pertenece al entorno Linux/WPE y no aporta evidencia sobre PS4 13.52.

@@ -1,0 +1,108 @@
+{
+  "backend": "WPEBackend-fdo 1.16.1",
+  "capabilities": {},
+  "engine": "WPE WebKit 2.52.6",
+  "fixture_validation": [
+    {
+      "exists": true,
+      "expected_sha256": "3854930be7753028e3800233758f7015f5f2be590fe3663f0fb61ab035f36e7b",
+      "file": "webkit-kit/homebrew/fixtures/page1.html",
+      "id": "page1",
+      "sha256": "3854930be7753028e3800233758f7015f5f2be590fe3663f0fb61ab035f36e7b",
+      "status": "PASS"
+    },
+    {
+      "exists": true,
+      "expected_sha256": "66b593648c6cec245b505cad043d75a2c2c32d9c2ef0092b203fa17f500dd399",
+      "file": "webkit-kit/homebrew/fixtures/page2.html",
+      "id": "page2",
+      "sha256": "66b593648c6cec245b505cad043d75a2c2c32d9c2ef0092b203fa17f500dd399",
+      "status": "PASS"
+    },
+    {
+      "exists": true,
+      "expected_sha256": "5993bffdc8ff066c281f6786088abae42fd3e6900ee6c3cc86804774bd84ee87",
+      "file": "webkit-kit/homebrew/fixtures/page3.html",
+      "id": "page3",
+      "sha256": "5993bffdc8ff066c281f6786088abae42fd3e6900ee6c3cc86804774bd84ee87",
+      "status": "PASS"
+    }
+  ],
+  "process_runs": [],
+  "reason": "MiniBrowser has unresolved dynamic dependencies",
+  "runtime": {
+    "binary": "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser",
+    "display": ":0",
+    "ldd": [
+      "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.43' not found (required by /home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser)",
+      "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.44' not found (required by /home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser)",
+      "\tlinux-vdso.so.1 (0x00007ffc17d6b000)",
+      "\tlibatk-1.0.so.0 => /lib/x86_64-linux-gnu/libatk-1.0.so.0 (0x00007f1736ec1000)",
+      "\tlibgstreamer-1.0.so.0 => /lib/x86_64-linux-gnu/libgstreamer-1.0.so.0 (0x00007f1736aad000)",
+      "\tlibWPEWebKit-2.0.so.1 => not found",
+      "\tlibgio-2.0.so.0 => /lib/x86_64-linux-gnu/libgio-2.0.so.0 (0x00007f17368dd000)",
+      "\tlibepoxy.so.0 => /lib/x86_64-linux-gnu/libepoxy.so.0 (0x00007f17367ba000)",
+      "\tlibwpe-1.0.so.1 => not found",
+      "\tlibatk-bridge-2.0.so.0 => /lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0 (0x00007f1736e83000)",
+      "\tlibgobject-2.0.so.0 => /lib/x86_64-linux-gnu/libgobject-2.0.so.0 (0x00007f1736757000)",
+      "\tlibglib-2.0.so.0 => /lib/x86_64-linux-gnu/libglib-2.0.so.0 (0x00007f173660e000)",
+      "\tlibWPEBackend-fdo-1.0.so.1 => not found",
+      "\tlibxkbcommon.so.0 => /lib/x86_64-linux-gnu/libxkbcommon.so.0 (0x00007f17365c5000)",
+      "\tlibwayland-server.so.0 => /lib/x86_64-linux-gnu/libwayland-server.so.0 (0x00007f17365af000)",
+      "\tlibwayland-egl.so.1 => /lib/x86_64-linux-gnu/libwayland-egl.so.1 (0x00007f1736e7c000)",
+      "\tlibwayland-client.so.0 => /lib/x86_64-linux-gnu/libwayland-client.so.0 (0x00007f173659f000)",
+      "\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f17364b6000)",
+      "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f1736200000)",
+      "\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f1735e00000)",
+      "\tlibgmodule-2.0.so.0 => /lib/x86_64-linux-gnu/libgmodule-2.0.so.0 (0x00007f1736e73000)",
+      "\tlibunwind.so.8 => /lib/x86_64-linux-gnu/libunwind.so.8 (0x00007f173649b000)",
+      "\tlibdw.so.1 => /lib/x86_64-linux-gnu/libdw.so.1 (0x00007f173614c000)",
+      "\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f173647f000)",
+      "\tlibmount.so.1 => /lib/x86_64-linux-gnu/libmount.so.1 (0x00007f17360ff000)",
+      "\tlibselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x00007f17360d2000)",
+      "\tlibatspi.so.0 => /lib/x86_64-linux-gnu/libatspi.so.0 (0x00007f1736098000)",
+      "\tlibdbus-1.so.3 => /lib/x86_64-linux-gnu/libdbus-1.so.3 (0x00007f1736049000)",
+      "\tlibffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007f173603d000)",
+      "\tlibpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x00007f1735d66000)",
+      "\t/lib64/ld-linux-x86-64.so.2 (0x00007f1736efc000)",
+      "\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f1735d38000)",
+      "\tliblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007f1735d06000)",
+      "\tlibelf.so.1 => /lib/x86_64-linux-gnu/libelf.so.1 (0x00007f173601e000)",
+      "\tlibzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x00007f1735c4c000)",
+      "\tlibbz2.so.1.0 => /lib/x86_64-linux-gnu/libbz2.so.1.0 (0x00007f1735c38000)",
+      "\tlibblkid.so.1 => /lib/x86_64-linux-gnu/libblkid.so.1 (0x00007f1735bfd000)",
+      "\tlibX11.so.6 => /lib/x86_64-linux-gnu/libX11.so.6 (0x00007f1735ac0000)",
+      "\tlibXi.so.6 => /lib/x86_64-linux-gnu/libXi.so.6 (0x00007f1735aad000)",
+      "\tlibsystemd.so.0 => /lib/x86_64-linux-gnu/libsystemd.so.0 (0x00007f17359cd000)",
+      "\tlibxcb.so.1 => /lib/x86_64-linux-gnu/libxcb.so.1 (0x00007f17359a4000)",
+      "\tlibXext.so.6 => /lib/x86_64-linux-gnu/libXext.so.6 (0x00007f1735990000)",
+      "\tlibcap.so.2 => /lib/x86_64-linux-gnu/libcap.so.2 (0x00007f1735983000)",
+      "\tlibgcrypt.so.20 => /lib/x86_64-linux-gnu/libgcrypt.so.20 (0x00007f173583b000)",
+      "\tliblz4.so.1 => /lib/x86_64-linux-gnu/liblz4.so.1 (0x00007f1735819000)",
+      "\tlibXau.so.6 => /lib/x86_64-linux-gnu/libXau.so.6 (0x00007f1736012000)",
+      "\tlibXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007f1735811000)",
+      "\tlibgpg-error.so.0 => /lib/x86_64-linux-gnu/libgpg-error.so.0 (0x00007f17357ec000)",
+      "\tlibbsd.so.0 => /lib/x86_64-linux-gnu/libbsd.so.0 (0x00007f17357d6000)",
+      "\tlibmd.so.0 => /lib/x86_64-linux-gnu/libmd.so.0 (0x00007f17357c7000)"
+    ],
+    "preflight": {
+      "display_status": "AVAILABLE",
+      "libwpe": [],
+      "missing_dependencies": [
+        "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.43' not found (required by /home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser)",
+        "/home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.44' not found (required by /home/ubuntu/wpe-artifacts-2526/arch/rootfs/usr/lib/wpe-webkit-2.0/MiniBrowser)",
+        "libWPEWebKit-2.0.so.1 => not found",
+        "libwpe-1.0.so.1 => not found",
+        "libWPEBackend-fdo-1.0.so.1 => not found"
+      ],
+      "prefix": "/tmp/wpe-prefix",
+      "wpebackend_fdo": []
+    },
+    "wpe_env": {
+      "DISPLAY": ":0"
+    }
+  },
+  "schema": 2,
+  "sequence": [],
+  "status": "BLOCKED"
+}
