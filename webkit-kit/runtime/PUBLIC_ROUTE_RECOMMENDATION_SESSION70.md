@@ -157,3 +157,7 @@ El BIN combinado tiene 479,232 bytes y su SHA-256 coincide con el valor almacena
 ## Coherencia interna del dump
 
 La concatenación de `lk_dump1.bin`, `lk_dump2.bin` y `lk_dump3.bin` produce exactamente 479,232 bytes y SHA-256 `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c`, idéntico al BIN combinado. `cmp` confirma igualdad byte a byte. Esto verifica la consistencia interna del ZIP, no la procedencia del hardware o firmware; la clasificación permanece `STRONG_INDIRECT_13.52`/`UNVERIFIED`.
+
+## Comparación con metadata existente del repositorio
+
+El archivo `webkit-kit/libkernel_sys_13.52.signatures.json` ya contiene el SHA-256 `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c` y referencia `libkernel_sys_13.52.bin`, pero la copia binaria no está en el repositorio (`webkit-kit/` ni `runtime/`). El BIN del ZIP de upload coincide con esa metadata por hash. Esto establece una coincidencia de identidad entre el artefacto recién detectado y la anotación local, elevando la coherencia a `STRONG_INDIRECT_13.52`; aún falta una procedencia independiente para `DIRECT_13.52`. El artefacto sigue siendo libkernel, no WebKit/JSC.
