@@ -1,17 +1,34 @@
 # Contexto BD-J Hello World para análisis externo
 
+## Situación exacta (obligatorio leer)
+
+| Punto | Estado |
+|---|---|
+| ¿Carga en la PS4? | **No sabemos** — no se ha probado en el reproductor BD-J propietario |
+| Validación ISO | Solo Linux, estructura UDF/BDMV (sin ejecución) |
+| Hello World = vulnerabilidad | **No** |
+| Primitive de seguridad | **No** |
+| Escape del sandbox | **No** |
+| Ejecución nativa | **No** |
+| Acceso al kernel | **No** |
+| Evidencia específica PS4 13.52 | **No** |
+| Impacto Bug Bounty | **No** |
+
+**Qué sí tenemos:** ISO BD-J reproducible, JAR firmado, BDJO coherente, fuente, Makefile, hashes, docs. Eso prueba que el disco está bien construido, **no** que contenga un exploit.
+
 ## Qué enviar
 
 La otra IA puede recibir estos archivos en formatos admitidos:
 
 - `src/org/homebrew/MyXlet.java`: fuente completa del Xlet benigno.
 - `Makefile.txt`: instrucciones de build en formato de texto.
-- `README.md`: alcance y dependencias.
+- `README.md`: alcance, dependencias y checklist de estado.
 - `ISO_STATIC_METADATA.json`: metadatos y hashes de la imagen.
 - `BDJO_STATIC_METADATA.txt`: resultado de la inspección textual del BDJO.
+- `docs/BUILD_STATUS.md`: estado exacto del build.
 - `docs/COMPATIBILITY_AUDIT.md`: auditoría estática.
 - `docs/LINUX_ENVIRONMENT_CHECK.md`: límites de la validación Linux.
-- `docs/PLAYSTATION_BUG_BOUNTY_REPORT.md`: borrador de informe responsable.
+- `docs/PLAYSTATION_BUG_BOUNTY_REPORT.md`: informe responsable (sin vulnerabilidad afirmada).
 - `docs/validation.json`: resultado de validación.
 
 ## Qué no puede hacer la otra IA
@@ -26,4 +43,6 @@ El proyecto es un test BD-J benigno. El Xlet crea una escena `HScene`, añade un
 
 ## Preguntas adecuadas para la otra IA
 
-La otra IA puede revisar si el código usa correctamente las APIs BD-J de los stubs públicos, si el nombre `org.homebrew.MyXlet` coincide con el BDJO, si el Makefile es reproducible y qué evidencia adicional sería necesaria para confirmar compatibilidad con una PS4 13.52. No debe concluir que existe una vulnerabilidad sólo porque el disco contenga un Xlet o porque la ISO se haya generado correctamente.
+La otra IA puede revisar si el código usa correctamente las APIs BD-J de los stubs públicos, si el nombre `org.homebrew.MyXlet` coincide con el BDJO, si el Makefile es reproducible y qué evidencia adicional sería necesaria para confirmar compatibilidad con una PS4 13.52.
+
+**No debe concluir que existe una vulnerabilidad** sólo porque el disco contenga un Xlet o porque la ISO se haya generado correctamente.

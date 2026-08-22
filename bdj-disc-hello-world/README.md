@@ -1,10 +1,26 @@
 # BD-J Hello World Disc
 
-Proyecto **benigno** de prueba de authoring BD-J. Su objetivo es generar una aplicación Blu-ray Disc Java mínima que inicialice un Xlet y muestre un mensaje `Hello World` en pantalla. No contiene exploits, payloads, código nativo, acceso a kernel, escape de sandbox ni lógica de jailbreak.
+Proyecto **benigno** de prueba de authoring BD-J. Su objetivo es generar una aplicación Blu-ray Disc Java mínima que inicialice un Xlet y muestre un mensaje `Hello World` en pantalla.
 
-## Estado
+**No contiene exploits, payloads, código nativo, acceso a kernel, escape de sandbox ni lógica de jailbreak.**
 
-El proyecto contiene un flujo reproducible basado en un SDK BD-J público fijado como submódulo Git. La compatibilidad con PS4 13.52 sigue sin afirmarse hasta una prueba autorizada en un reproductor BD-J compatible.
+## Situación exacta
+
+| Afirmación | Estado |
+|---|---|
+| ¿Carga en la PS4? | **No sabemos** — no se ha probado en el reproductor BD-J propietario |
+| Validación de la ISO | Solo Linux, estructura UDF/BDMV (sin ejecución) |
+| Hello World = vulnerabilidad | **No** — comportamiento normal de BD-J si la consola lo acepta |
+| Primitive de seguridad | **No** (ni memoria, ni tipos, ni UAF, ni R/W arbitraria) |
+| Escape del sandbox | **No** |
+| Ejecución nativa | **No** (sin ELF, payload, carga dinámica ni native) |
+| Acceso al kernel | **No** |
+| Evidencia específica PS4 13.52 | **No** — SDK/plantilla públicos y genéricos |
+| Impacto Bug Bounty | **No** — sin condición vulnerable ni impacto reproducible |
+
+### Qué sí tenemos
+
+ISO BD-J reproducible, JAR firmado, BDJO coherente, código fuente, Makefile, hashes, documentación y paquete textual para revisión. Eso prueba que el disco está **bien construido**, no que contenga un exploit.
 
 ## Estructura
 
@@ -13,7 +29,7 @@ src/org/homebrew/        Código fuente del Xlet benigno
 build/                   JAR, árbol discdir, ISO y hashes generados
 third_party/bdj-sdk/     SDK público fijado como submódulo Git
 tools/                   Scripts estáticos de empaquetado/validación
-docs/                    Notas de authoring y procedencia
+docs/                    Notas de authoring, estado y reporte
 ```
 
 ## Dependencias y build
@@ -35,7 +51,13 @@ El resultado se escribe en `build/bdj-hello-world.iso` y su hash en `build/bdj-h
 
 ## Validación segura
 
-Las validaciones locales se limitan a comprobar estructura, nombres, tamaños, hashes, manifests y formato de la imagen. No se ejecutan JARs, ISOs, clases compiladas ni código procedente de la consola. La ISO UDF 2.50 actual mide 16 MiB y tiene SHA-256 `66fb8408dd9a7ff1f7053d3b87a0bfbd3d7617005ca12c26b2a6ce5fea596baf`. La compatibilidad real con una PS4 sólo puede determinarse mediante una prueba autorizada en hardware propio.
+Las validaciones locales se limitan a comprobar estructura, nombres, tamaños, hashes, manifests y formato de la imagen. **No se ejecutan** JARs, ISOs, clases compiladas ni código procedente de la consola.
+
+| Artefacto | SHA-256 |
+|---|---|
+| `build/bdj-hello-world.iso` (16 MiB, UDF 2.50) | `ad043fc4a1ac6ecd1a9a5cabb876e6daa849d52e5ec1afb3de29822dff148fdb` |
+
+La compatibilidad real con una PS4 **sólo** puede determinarse mediante una prueba autorizada en hardware propio.
 
 ## Fuentes públicas
 
@@ -46,3 +68,5 @@ Las validaciones locales se limitan a comprobar estructura, nombres, tamaños, h
 ## Alcance excluido
 
 No se incluyen instrucciones para BD-JB, HEN, GoldHEN, payloads, escalada de privilegios, native usermode, kernel execution o bypasses de seguridad.
+
+Ver también: [`docs/BUILD_STATUS.md`](docs/BUILD_STATUS.md), [`docs/PLAYSTATION_BUG_BOUNTY_REPORT.md`](docs/PLAYSTATION_BUG_BOUNTY_REPORT.md).
