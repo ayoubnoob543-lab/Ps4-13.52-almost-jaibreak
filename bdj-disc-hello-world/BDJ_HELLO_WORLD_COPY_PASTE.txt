@@ -1,0 +1,421 @@
+
+
+===== BEGIN SHARE_WITH_OTHER_AI.md =====
+
+# Contexto BD-J Hello World para análisis externo
+
+## Qué enviar
+
+La otra IA puede recibir estos archivos en formatos admitidos:
+
+- `src/org/homebrew/MyXlet.java`: fuente completa del Xlet benigno.
+- `Makefile.txt`: instrucciones de build en formato de texto.
+- `README.md`: alcance y dependencias.
+- `ISO_STATIC_METADATA.json`: metadatos y hashes de la imagen.
+- `BDJO_STATIC_METADATA.txt`: resultado de la inspección textual del BDJO.
+- `docs/COMPATIBILITY_AUDIT.md`: auditoría estática.
+- `docs/LINUX_ENVIRONMENT_CHECK.md`: límites de la validación Linux.
+- `docs/PLAYSTATION_BUG_BOUNTY_REPORT.md`: borrador de informe responsable.
+- `docs/validation.json`: resultado de validación.
+
+## Qué no puede hacer la otra IA
+
+La plataforma no admite archivos `.iso` ni `.jar`, por lo que no podrá recibir ni inspeccionar directamente el binario de la imagen o el JAR. No se debe renombrar un binario como `.txt`, `.java` o `.json`: eso no lo convierte en código legible y puede provocar un análisis incorrecto.
+
+La ISO original tiene SHA-256 `ad043fc4a1ac6ecd1a9a5cabb876e6daa849d52e5ec1afb3de29822dff148fdb` y mide 16 MiB. El análisis textual sólo permite verificar sus metadatos conocidos; no sustituye la inspección del binario.
+
+## Alcance técnico
+
+El proyecto es un test BD-J benigno. El Xlet crea una escena `HScene`, añade un panel y muestra `Hello World — BD-J test`. No contiene explotación, payload, carga dinámica, red, reflexión, acceso arbitrario a USB, código nativo, escape de sandbox ni acceso al kernel.
+
+## Preguntas adecuadas para la otra IA
+
+La otra IA puede revisar si el código usa correctamente las APIs BD-J de los stubs públicos, si el nombre `org.homebrew.MyXlet` coincide con el BDJO, si el Makefile es reproducible y qué evidencia adicional sería necesaria para confirmar compatibilidad con una PS4 13.52. No debe concluir que existe una vulnerabilidad sólo porque el disco contenga un Xlet o porque la ISO se haya generado correctamente.
+
+
+===== END SHARE_WITH_OTHER_AI.md =====
+
+
+===== BEGIN README.md =====
+
+# BD-J Hello World Disc
+
+Proyecto **benigno** de prueba de authoring BD-J. Su objetivo es generar una aplicación Blu-ray Disc Java mínima que inicialice un Xlet y muestre un mensaje `Hello World` en pantalla. No contiene exploits, payloads, código nativo, acceso a kernel, escape de sandbox ni lógica de jailbreak.
+
+## Estado
+
+El proyecto contiene un flujo reproducible basado en un SDK BD-J público fijado como submódulo Git. La compatibilidad con PS4 13.52 sigue sin afirmarse hasta una prueba autorizada en un reproductor BD-J compatible.
+
+## Estructura
+
+```text
+src/org/homebrew/        Código fuente del Xlet benigno
+build/                   JAR, árbol discdir, ISO y hashes generados
+third_party/bdj-sdk/     SDK público fijado como submódulo Git
+tools/                   Scripts estáticos de empaquetado/validación
+docs/                    Notas de authoring y procedencia
+```
+
+## Dependencias y build
+
+El submódulo `third_party/bdj-sdk` aporta los stubs BD-J `target/lib/enhanced-stubs.zip`, la plantilla BDMV/BDJO, `bdsigner` y el código público de `makefs_termux`. El build usa JDK8 para producir bytecode compatible con BD-J y `libbsd-dev` para compilar `makefs`.
+
+```console
+git clone --recurse-submodules <repository-url>
+cd bdj-disc-hello-world/third_party/bdj-sdk
+ln -sfn /usr/lib/jvm/java-8-openjdk-amd64 host/jdk8
+make -C host/src/makefs_termux
+make -C host/src/makefs_termux install DESTDIR="$PWD/host"
+cd ../../..
+JAVA8_HOME="$PWD/third_party/bdj-sdk/host/jdk8" make all
+python3 tools/validate_project.py
+```
+
+El resultado se escribe en `build/bdj-hello-world.iso` y su hash en `build/bdj-hello-world.iso.sha256`.
+
+## Validación segura
+
+Las validaciones locales se limitan a comprobar estructura, nombres, tamaños, hashes, manifests y formato de la imagen. No se ejecutan JARs, ISOs, clases compiladas ni código procedente de la consola. La ISO UDF 2.50 actual mide 16 MiB y tiene SHA-256 `66fb8408dd9a7ff1f7053d3b87a0bfbd3d7617005ca12c26b2a6ce5fea596baf`. La compatibilidad real con una PS4 sólo puede determinarse mediante una prueba autorizada en hardware propio.
+
+## Fuentes públicas
+
+- [BD-J SDK de john-tornblom](https://github.com/john-tornblom/bdj-sdk)
+- [HDcookbook](https://github.com/enteractive-dev/hdcookbook)
+- [Documentación Oracle BD-J](https://www.oracle.com/technical-resources/articles/javabluray.html)
+
+## Alcance excluido
+
+No se incluyen instrucciones para BD-JB, HEN, GoldHEN, payloads, escalada de privilegios, native usermode, kernel execution o bypasses de seguridad.
+
+
+===== END README.md =====
+
+
+===== BEGIN Makefile.txt =====
+
+PROJECT_ROOT := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
+SDK_ROOT := $(PROJECT_ROOT)third_party/bdj-sdk
+JAVA8_HOME ?= $(SDK_ROOT)/host/jdk8
+JAVAC := $(JAVA8_HOME)/bin/javac
+JAR := $(JAVA8_HOME)/bin/jar
+STUBS := $(SDK_ROOT)/target/lib/enhanced-stubs.zip
+BDSIGNER := $(SDK_ROOT)/host/bin/bdsigner
+MAKEFS := $(SDK_ROOT)/host/bin/makefs
+RESOURCES := $(SDK_ROOT)/resources/AVCHD
+BUILD := $(PROJECT_ROOT)build
+DISC_DIR := $(BUILD)/discdir
+JAR_FILE := $(DISC_DIR)/BDMV/JAR/00000.jar
+ISO := $(BUILD)/bdj-hello-world.iso
+SOURCES := $(shell find $(PROJECT_ROOT)src -name '*.java' -type f | sort)
+
+.PHONY: all check-tools compile image hash clean
+
+all: image hash
+
+check-tools:
+	@test -x "$(JAVAC)" || (echo "Missing compatible JDK8: set JAVA8_HOME"; exit 2)
+	@test -f "$(STUBS)" || (echo "Missing BD-J stubs: $(STUBS)"; exit 2)
+	@test -x "$(BDSIGNER)" || (echo "Missing bdsigner wrapper"; exit 2)
+	@test -x "$(MAKEFS)" || (echo "Missing makefs: run 'make -C $(SDK_ROOT)/host/src/makefs_termux'"; exit 2)
+
+compile: check-tools
+	@rm -rf "$(BUILD)/classes" "$(JAR_FILE)"
+	@mkdir -p "$(BUILD)/classes" "$(DISC_DIR)/BDMV/JAR"
+	"$(JAVAC)" -Xlint:-options -source 1.3 -target 1.3 -cp "$(STUBS)" -d "$(BUILD)/classes" $(SOURCES)
+	"$(JAR)" cf "$(JAR_FILE)" -C "$(BUILD)/classes" .
+	JAVA8_HOME="$(JAVA8_HOME)" "$(BDSIGNER)" -keystore "$(SDK_ROOT)/resources/sig.ks" "$(JAR_FILE)"
+
+image: compile
+	@cp -a "$(RESOURCES)/." "$(DISC_DIR)/"
+	@mkdir -p "$(DISC_DIR)/BDMV/JAR"
+	"$(MAKEFS)" -m 16m -t udf -o T=bdre,v=2.50,L=BDJHELLO "$(ISO)" "$(DISC_DIR)"
+
+hash: image
+	sha256sum "$(ISO)" | tee "$(BUILD)/bdj-hello-world.iso.sha256"
+
+clean:
+	rm -rf "$(BUILD)"
+
+
+===== END Makefile.txt =====
+
+
+===== BEGIN src/org/homebrew/MyXlet.java =====
+
+package org.homebrew;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Graphics;
+import org.havi.ui.HScene;
+import org.havi.ui.HSceneFactory;
+import javax.tv.xlet.Xlet;
+import javax.tv.xlet.XletContext;
+
+/** Minimal benign BD-J Xlet used only to validate disc authoring. */
+public final class MyXlet implements Xlet {
+    private HScene scene;
+    private HelloPanel panel;
+
+    public void initXlet(XletContext context) {
+        panel = new HelloPanel();
+        panel.setSize(1280, 720);
+        scene = HSceneFactory.getInstance().getDefaultHScene();
+        scene.add(panel);
+        scene.validate();
+        scene.repaint();
+    }
+
+    public void startXlet() {
+        if (panel != null) {
+            panel.setVisible(true);
+        }
+        if (scene != null) {
+            scene.setVisible(true);
+        }
+    }
+
+    public void pauseXlet() {
+        if (panel != null) {
+            panel.setVisible(false);
+        }
+    }
+
+    public void destroyXlet(boolean unconditional) {
+        if (scene != null && panel != null) {
+            scene.remove(panel);
+            scene.setVisible(false);
+        }
+        panel = null;
+        scene = null;
+    }
+
+    private static final class HelloPanel extends Container {
+        private final Font title = new Font("SansSerif", Font.PLAIN, 36);
+        private final Font subtitle = new Font("SansSerif", Font.PLAIN, 18);
+        private final Color background = new Color(5, 5, 5);
+        private final Color foreground = new Color(240, 240, 240);
+
+        public void paint(Graphics graphics) {
+            graphics.setColor(background);
+            graphics.fillRect(0, 0, getWidth(), getHeight());
+            graphics.setColor(foreground);
+            graphics.setFont(title);
+            graphics.drawString("Hello World — BD-J test", 80, 180);
+            graphics.setFont(subtitle);
+            graphics.drawString("Benign authoring validation only", 80, 220);
+        }
+    }
+}
+
+
+===== END src/org/homebrew/MyXlet.java =====
+
+
+===== BEGIN ISO_STATIC_METADATA.json =====
+
+{
+  "iso_name": "bdj-hello-world.iso",
+  "iso_size_bytes": 16777216,
+  "iso_sha256": "ad043fc4a1ac6ecd1a9a5cabb876e6daa849d52e5ec1afb3de29822dff148fdb",
+  "jar_name": "BDMV/JAR/00000.jar",
+  "jar_size_bytes": 4320,
+  "jar_sha256": "7cff985677ca0511afeaf35b89f0f7eb0e192708ddb39030734979269fcc7065",
+  "bdjo_name": "BDMV/BDJO/00000.bdjo",
+  "bdjo_size_bytes": 166,
+  "bdjo_sha256": "d32325af03d55c054fe7766cc96a8bb14cd10a0c5dc06a3a58938f04427cdea5",
+  "volume": "BDJHELLO",
+  "filesystem": "UDF 2.50",
+  "xlet_class": "org.homebrew.MyXlet",
+  "classification": "benign_bd_j_authoring_test"
+}
+
+
+===== END ISO_STATIC_METADATA.json =====
+
+
+===== BEGIN BDJO_STATIC_METADATA.txt =====
+
+BDJO static metadata
+====================
+Source: build/discdir/BDMV/BDJO/00000.bdjo
+SHA-256: d32325af03d55c054fe7766cc96a8bb14cd10a0c5dc06a3a58938f04427cdea5
+Size: 166 bytes
+Observed strings:
+BDJO0200
+00000 
+00000*.*
+00000
+org.homebrew.MyXlet
+
+
+===== END BDJO_STATIC_METADATA.txt =====
+
+
+===== BEGIN docs/COMPATIBILITY_AUDIT.md =====
+
+# Static compatibility audit
+
+## Resultado
+
+La imagen generada contiene un BDJO que referencia exactamente `org.homebrew.MyXlet`, y el JAR contiene esa clase junto con sus clases internas. La comprobación de cadenas del BDJO produjo `MATCH`.
+
+El bytecode se inspeccionó con JDK8 sin ejecutarlo. Las referencias simbólicas del Xlet apuntan a `javax.tv.xlet.Xlet`, `javax.tv.xlet.XletContext`, `org.havi.ui.HScene` y `org.havi.ui.HSceneFactory`, que están presentes en los stubs públicos usados durante la compilación.
+
+El JAR contiene una firma JAR válida con `META-INF/MANIFEST.MF`, `META-INF/SIG-BD00.SF` y `META-INF/SIG-BD00.RSA`. La plantilla BDMV incluye `BDMV/index.bdmv`, `MovieObject.bdmv`, el BDJO, playlist, clip info, stream, fuentes y certificados de la plantilla pública del SDK.
+
+## Hashes observados
+
+| Artefacto | Tamaño | SHA-256 |
+|---|---:|---|
+| `build/bdj-hello-world.iso` | 16,777,216 bytes | `ad043fc4a1ac6ecd1a9a5cabb876e6daa849d52e5ec1afb3de29822dff148fdb` |
+| `build/discdir/BDMV/JAR/00000.jar` | 4,320 bytes | `7cff985677ca0511afeaf35b89f0f7eb0e192708ddb39030734979269fcc7065` |
+| `build/discdir/BDMV/BDJO/00000.bdjo` | 166 bytes | `d32325af03d55c054fe7766cc96a8bb14cd10a0c5dc06a3a58938f04427cdea5` |
+
+## Límites
+
+Esta auditoría no emula el reproductor BD-J propietario de PlayStation y no ejecuta el JAR ni la ISO. Por ello confirma consistencia de authoring y referencias, pero no confirma que una PS4 13.52 acepte la imagen o muestre el Xlet. Esa comprobación sólo puede realizarse mediante una prueba autorizada en el equipo objetivo.
+
+La imagen no contiene explotación, código nativo, acceso a kernel, carga dinámica ni lógica para eludir el sandbox.
+
+
+===== END docs/COMPATIBILITY_AUDIT.md =====
+
+
+===== BEGIN docs/LINUX_ENVIRONMENT_CHECK.md =====
+
+# Linux environment check
+
+## Resultado
+
+El entorno local no contiene un reproductor BD-J equivalente al runtime propietario de PlayStation. Se encontraron `java`, `javac` y `ffmpeg`, pero no `vlc`, `xorriso` ni `bdjview`. El rootfs de `/home/ubuntu/wpe-artifacts-2526/arch/rootfs` contiene componentes WPE/Linux y datos de Java auxiliares, pero no un runtime BD-J de PS4.
+
+La ISO fue inspeccionada sin montarla ni extraerla. El parser ISO9660 local informó `no ISO9660 primary volume descriptor`, lo cual es coherente con que la imagen fue generada como UDF 2.50. La búsqueda estática encontró las marcas `*NetBSD UDF`, `*OSTA UDF Compliant`, el volumen `BDJHELLO`, `CERTIFICATE`, `BDJO0200` y `org.homebrew.MyXlet`.
+
+## Conclusión
+
+Linux permite validar la identidad, el formato UDF, la estructura generada, la presencia del BDJO y la correspondencia entre BDJO y JAR. No puede ejecutar el Xlet como lo haría el reproductor BD-J propietario de PS4. Ejecutar el JAR con el Java del host tampoco sería una prueba válida y no se realizó.
+
+La prueba definitiva sigue requiriendo una unidad BD-J autorizada. La ISO no se modificó durante esta comprobación.
+
+
+===== END docs/LINUX_ENVIRONMENT_CHECK.md =====
+
+
+===== BEGIN docs/PLAYSTATION_BUG_BOUNTY_REPORT.md =====
+
+# Informe técnico para PlayStation Bug Bounty
+
+**Estado:** validación técnica; no se afirma una vulnerabilidad.
+
+## Resumen ejecutivo
+
+Se construyó una imagen Blu-ray Disc Java (BD-J) benigna y reproducible para validar el flujo de authoring. La imagen contiene un Xlet que inicializa una escena gráfica y muestra `Hello World — BD-J test`. El proyecto utiliza un SDK BD-J público fijado a una revisión concreta, stubs públicos, JDK8, un firmador del SDK y `makefs` para producir una imagen UDF 2.50 [1] [2].
+
+La evidencia actual demuestra que la imagen puede generarse de forma reproducible en el entorno de authoring. **No demuestra todavía que una PS4 13.52 acepte la imagen ni demuestra una vulnerabilidad, un escape del sandbox, ejecución nativa, jailbreak o acceso al kernel.**
+
+## Producto y entorno
+
+| Campo | Valor |
+|---|---|
+| Producto objetivo | PS4 de pruebas autorizada |
+| Firmware objetivo | PS4 13.52; compatibilidad de esta imagen: `UNVERIFIED` |
+| Entorno de authoring | Ubuntu 24.04 |
+| SDK | `john-tornblom/bdj-sdk` |
+| Revisión del SDK | `9c48049b920514388952ea89cda13fc940ff2183` |
+| Stubs | `target/lib/enhanced-stubs.zip` |
+| Compilador | OpenJDK 8, `1.8.0_492` |
+| Perfil de compilación | `-source 1.3 -target 1.3` |
+| Formato | UDF 2.50 |
+| Tamaño de ISO | 16 MiB |
+| Volumen | `BDJHELLO` |
+
+## Componentes y artefactos
+
+El Xlet es `org.homebrew.MyXlet`. Su comportamiento se limita a crear una `HScene`, añadir un panel gráfico y pintar dos líneas de texto. No realiza llamadas de red, carga dinámica, reflexión, acceso privilegiado al sistema de archivos, uso de `Unsafe`, ejecución de procesos, carga de bibliotecas nativas, corrupción de memoria ni desactivación de controles de seguridad.
+
+| Artefacto | SHA-256 | Descripción |
+|---|---|---|
+| `build/bdj-hello-world.iso` | `ad043fc4a1ac6ecd1a9a5cabb876e6daa849d52e5ec1afb3de29822dff148fdb` | Imagen BD-J UDF 2.50 |
+| `build/discdir/BDMV/JAR/00000.jar` | `7cff985677ca0511afeaf35b89f0f7eb0e192708ddb39030734979269fcc7065` | JAR firmado del Xlet |
+| `build/discdir/BDMV/BDJO/00000.bdjo` | `d32325af03d55c054fe7766cc96a8bb14cd10a0c5dc06a3a58938f04427cdea5` | Descriptor BDJO |
+| `src/org/homebrew/MyXlet.java` | `3d8086a6faa09ff235f43d52e3e1984fa1f1ee68a0e8830f3624626d5de5c1fc` | Fuente del Xlet |
+
+## Reproducción segura
+
+La prueba debe realizarse sólo en una unidad autorizada y mediante un medio o método de carga permitido por el propietario del equipo. Antes de usar la imagen, debe verificarse su SHA-256. Después se debe registrar el modelo de PS4, la versión de firmware, el método de carga, la hora de la prueba, el resultado visible y cualquier mensaje de error.
+
+El resultado esperado es que el reproductor reconozca la imagen y, si la implementación BD-J es compatible con esta authoring, muestre el mensaje del Xlet. No se deben cargar archivos adicionales, modificar el firmware ni ejecutar operaciones fuera del ciclo normal de BD-J.
+
+## Interpretación de resultados
+
+| Observación | Qué permite concluir | Clasificación |
+|---|---|---|
+| La imagen no se reconoce | Incompatibilidad del medio, formato o método de carga | `UNVERIFIED` |
+| La imagen se reconoce | El medio o la imagen son legibles | `CONFIRMED_LOCAL`, sin impacto de seguridad |
+| Aparece `Hello World` | Ejecución BD-J normal | `CONFIRMED_LOCAL`, no vulnerabilidad |
+| Una API documentada funciona | Comportamiento esperado del runtime | `CONFIRMED_LOCAL`, no vulnerabilidad por sí solo |
+| Una operación no permitida falla | El control observado está activo en esa prueba | Evidencia limitada al entorno probado |
+| Aparece un permiso o comportamiento inesperado | Anomalía que requiere reproducción independiente | `UNVERIFIED` |
+| Se cruza el sandbox o se ejecuta código no solicitado | Posible impacto de seguridad | Requiere reporte separado y evidencia fuerte |
+
+## Qué no demuestra este artefacto
+
+El disco no contiene una prueba de concepto de escape del sandbox ni una cadena de explotación. No demuestra que exista una vulnerabilidad en BD-J 13.52, que una vulnerabilidad histórica siga presente, que el WebKit de PS4 sea vulnerable, que exista ejecución native usermode o que sea posible alcanzar el kernel. La ejecución satisfactoria del Xlet sólo validaría el canal BD-J y el empaquetado de la imagen.
+
+## Evidencia necesaria para un reporte de vulnerabilidad
+
+Para presentar un reporte de seguridad sería necesario identificar una condición concreta, demostrar su impacto real en una versión específica y aportar una reproducción mínima, estable y autorizada. El informe tendría que incluir el componente afectado, la causa técnica, las precondiciones, los pasos de reproducción, los resultados observados, los logs o capturas, los hashes de los artefactos y una explicación de por qué el comportamiento excede las capacidades normales de BD-J.
+
+No debe afirmarse una vulnerabilidad basándose únicamente en nombres históricos de clases, similitud con otro firmware, ejecución de un Xlet benigno o comentarios de terceros. Tampoco deben adjuntarse exploits operativos, payloads nativos, cadenas de jailbreak o material de otros investigadores.
+
+## Estado actual y siguiente paso
+
+El estado actual es **validación de authoring BD-J completada localmente**. La compatibilidad con una PS4 13.52 permanece `UNVERIFIED` hasta una prueba autorizada. Si la imagen carga, el siguiente paso seguro es registrar el resultado y, si fuera necesario, ampliar el diagnóstico con comprobaciones pasivas de APIs y permisos documentados, sin intentar eludir el sandbox.
+
+Si sólo aparece el mensaje Hello World, no existe base para un reporte de vulnerabilidad. Si se observa una anomalía, debe conservarse la imagen como baseline limpio y preparar un informe separado centrado exclusivamente en esa anomalía, sin convertir el Xlet en un exploit.
+
+## Referencias
+
+[1]: https://github.com/john-tornblom/bdj-sdk "john-tornblom/bdj-sdk"
+[2]: https://github.com/oliverlietz/bd-j "Herramientas BD-J y HD Cookbook mavenizadas"
+[3]: https://www.oracle.com/technical-resources/articles/javabluray.html "Oracle: antecedentes de authoring Java Blu-ray"
+[4]: ../README.md "README del proyecto BD-J Hello World"
+[5]: validation.json "Validación estática reproducible del proyecto"
+
+
+===== END docs/PLAYSTATION_BUG_BOUNTY_REPORT.md =====
+
+
+===== BEGIN docs/validation.json =====
+
+{
+  "hardware_tested": false,
+  "iso_generated": true,
+  "iso_sha256": "ad043fc4a1ac6ecd1a9a5cabb876e6daa849d52e5ec1afb3de29822dff148fdb",
+  "mode": "static-only",
+  "platform_stub_candidates": [
+    {
+      "path": "lib/bdj.jar",
+      "present": false
+    },
+    {
+      "path": "lib/classes.zip",
+      "present": false
+    },
+    {
+      "path": "platform/bdj.jar",
+      "present": false
+    }
+  ],
+  "project": "bdj-disc-hello-world",
+  "required_files": [
+    "README.md",
+    "src/org/homebrew/MyXlet.java"
+  ],
+  "source_sha256": "3d8086a6faa09ff235f43d52e3e1984fa1f1ee68a0e8830f3624626d5de5c1fc"
+}
+
+
+===== END docs/validation.json =====
