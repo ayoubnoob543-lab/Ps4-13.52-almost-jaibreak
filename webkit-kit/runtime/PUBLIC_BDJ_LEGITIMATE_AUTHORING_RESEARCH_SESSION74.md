@@ -65,3 +65,16 @@ La documentación del Java ME SDK [4] también indica que ofrece stubs BD-J, per
 La búsqueda de código de GitHub encontró `cheeseb1234/auto-bluray-tui/lib/classes.zip` en el commit `9634f695dc049c8af00a6a85c1ac6b202bbe166d`. La API pública de GitHub informa: tamaño `602043` bytes, blob SHA-1 `828002197549f1d7e0fe9e1c5af0d4c8b7857cc6`, URL de archivo `https://github.com/cheeseb1234/auto-bluray-tui/blob/9634f695dc049c8af00a6a85c1ac6b202bbe166d/lib/classes.zip` y URL raw `https://raw.githubusercontent.com/cheeseb1234/auto-bluray-tui/9634f695dc049c8af00a6a85c1ac6b202bbe166d/lib/classes.zip`.
 
 Este resultado demuestra que existe públicamente un archivo llamado `classes.zip`, pero todavía no demuestra que sea la definición de plataforma BD-J adecuada para PS4 13.52. Su procedencia, contenido de clases y compatibilidad deben verificarse estáticamente antes de usarlo. No se descargó ni ejecutó en esta fase.
+
+
+## Fuentes públicas nuevas sobre HENloader y límites
+
+La documentación pública de `dptug/BD-JB-1250-lapse` describe un proyecto BD-JB para hasta PS4 12.50 y recomienda `john-tornblom/bdj-sdk` para compilar. El repositorio contiene `bdj-sdk/`, `src/org/bdj/`, `Makefile` y componentes de integración, pero su propio README incluye afirmaciones e instrucciones de explotación que no se ejecutaron ni se siguieron.
+
+ConsoleMods clasifica BD-JB como una solución que requiere una ISO Blu-ray y firmware 12.52 o inferior; describe Henloader 9.00–12.52 y Lapse 9.00–12.02. Esta fuente es documentación comunitaria, no evidencia de soporte 13.52.
+
+El repositorio `iaceene/HENloader_Source` declara igualmente 9.00–12.52 y no 13.52. En conjunto, estas fuentes permiten recuperar authoring, ejemplos y contexto histórico, pero no aportan el programa exacto de ASaudidos ni una definición de plataforma PS4 13.52.
+
+La búsqueda también encontró un vídeo público titulado “NEW PS4 13.52 BD-J USERLAND BUG FULLY ACHIEVED!”, pero su descripción afirma que el trabajo de MasterMaind/ASaudidos se relaciona con 12.02 y 13.52 y que aún faltaría una cadena de kernel estable. La descripción no enlaza un repositorio de código ni identifica el programa empleado.
+
+Clasificación: soporte histórico de HENloader `DOCUMENTED_ONLY`; artefactos de authoring públicos `DIRECT` respecto a su existencia; relación con ASaudidos `UNVERIFIED`; soporte real en 13.52 `UNVERIFIED` o `DISCARDED` cuando el propio proyecto declara máximo 12.52.
