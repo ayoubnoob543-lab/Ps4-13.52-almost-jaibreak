@@ -1,10 +1,10 @@
 {
   "iso_name": "bdj-hello-world.iso",
   "iso_size_bytes": 16777216,
-  "iso_sha256": "ad043fc4a1ac6ecd1a9a5cabb876e6daa849d52e5ec1afb3de29822dff148fdb",
+  "iso_sha256": "62288604e3689411bcaf47178cf2ce0026b7a489877478abb7563b66a94dd9c4",
   "jar_name": "BDMV/JAR/00000.jar",
   "jar_size_bytes": 4320,
-  "jar_sha256": "7cff985677ca0511afeaf35b89f0f7eb0e192708ddb39030734979269fcc7065",
+  "jar_sha256": "0477294d899c674f409fb3831c3c1e34492e2066e1ce1bbd3e7e48d6d69ef6fe",
   "bdjo_name": "BDMV/BDJO/00000.bdjo",
   "bdjo_size_bytes": 166,
   "bdjo_sha256": "d32325af03d55c054fe7766cc96a8bb14cd10a0c5dc06a3a58938f04427cdea5",

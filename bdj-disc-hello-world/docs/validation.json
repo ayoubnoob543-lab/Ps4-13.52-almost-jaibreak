@@ -1,7 +1,7 @@
 {
   "hardware_tested": false,
   "iso_generated": true,
-  "iso_sha256": "ad043fc4a1ac6ecd1a9a5cabb876e6daa849d52e5ec1afb3de29822dff148fdb",
+  "iso_sha256": "62288604e3689411bcaf47178cf2ce0026b7a489877478abb7563b66a94dd9c4",
   "mode": "static-only",
   "platform_stub_candidates": [
     {
@@ -22,5 +22,5 @@
     "README.md",
     "src/org/homebrew/MyXlet.java"
   ],
-  "source_sha256": "3d8086a6faa09ff235f43d52e3e1984fa1f1ee68a0e8830f3624626d5de5c1fc"
+  "source_sha256": "5c6ee9145fb58b752cd342c7d5d02f50ff2ee27181c49b54b4f1fabd3657a09f"
 }
