@@ -59,3 +59,9 @@ La fuente [8] es especialmente concreta para GNU/Linux: describe un SDK que adap
 La fuente [9] confirma que HDcookbook contiene herramientas BDJO, firma de JARs y Xlets de ejemplo, pero advierte que el build necesita un `classes.zip` con las firmas de la plataforma BD-J. Ese archivo no está incluido en el repositorio por restricciones de redistribución. Éste es el faltante público más concreto para compilar de forma reproducible desde HDcookbook.
 
 La documentación del Java ME SDK [4] también indica que ofrece stubs BD-J, pero el acceso a source/Javadoc de esos stubs se remite a la Blu-ray Disc Association. Por tanto, hay dos vías públicas recuperables para el authoring: usar un `bdj-sdk` Linux con su material incluido, o usar HDcookbook/BD-J tools junto con una definición de plataforma/stubs obtenida legítimamente. Ninguna vía entrega el runtime BD-J propietario de PS4 ni prueba una ruta de explotación.
+
+## Candidato público de `classes.zip`
+
+La búsqueda de código de GitHub encontró `cheeseb1234/auto-bluray-tui/lib/classes.zip` en el commit `9634f695dc049c8af00a6a85c1ac6b202bbe166d`. La API pública de GitHub informa: tamaño `602043` bytes, blob SHA-1 `828002197549f1d7e0fe9e1c5af0d4c8b7857cc6`, URL de archivo `https://github.com/cheeseb1234/auto-bluray-tui/blob/9634f695dc049c8af00a6a85c1ac6b202bbe166d/lib/classes.zip` y URL raw `https://raw.githubusercontent.com/cheeseb1234/auto-bluray-tui/9634f695dc049c8af00a6a85c1ac6b202bbe166d/lib/classes.zip`.
+
+Este resultado demuestra que existe públicamente un archivo llamado `classes.zip`, pero todavía no demuestra que sea la definición de plataforma BD-J adecuada para PS4 13.52. Su procedencia, contenido de clases y compatibilidad deben verificarse estáticamente antes de usarlo. No se descargó ni ejecutó en esta fase.
