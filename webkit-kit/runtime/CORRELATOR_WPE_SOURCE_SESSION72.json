@@ -1,0 +1,55 @@
+{
+  "config": "/home/ubuntu/firmware-lab-runtime/webkit-kit/three_family_signatures.json",
+  "families": [
+    {
+      "bugzilla": "270797",
+      "component": "JavaScriptCore",
+      "functions": [],
+      "id": "jscell_tox_type_validation",
+      "match": "NO MATCH",
+      "matched_files": [],
+      "note": "Structural source correlation only; provenance and retail 13.52 status are not inferred.",
+      "post_fix_markers": [],
+      "pre_fix_markers": [],
+      "reference_commit": "2a042fede0e705bae4b8ce039b18442696ebb5ce",
+      "status_13_52": "UNVERIFIED",
+      "strings": [],
+      "vulnerability_state": "UNVERIFIED"
+    },
+    {
+      "bugzilla": "254797",
+      "component": "JavaScriptCore heap/runtime and WebCore SerializedScriptValue",
+      "functions": [],
+      "id": "markedvector_gc_containers",
+      "match": "NO MATCH",
+      "matched_files": [],
+      "note": "Structural source correlation only; provenance and retail 13.52 status are not inferred.",
+      "post_fix_markers": [],
+      "pre_fix_markers": [],
+      "reference_commit": "c9880de4a28b9a64a5e1d0513dc245d61a2e6ddb",
+      "status_13_52": "UNVERIFIED",
+      "strings": [],
+      "vulnerability_state": "UNVERIFIED"
+    },
+    {
+      "bugzilla": "265975",
+      "component": "WebCore bindings/js SerializedScriptValue",
+      "functions": [],
+      "id": "clone_object_pool_alignment",
+      "match": "NO MATCH",
+      "matched_files": [],
+      "note": "Structural source correlation only; provenance and retail 13.52 status are not inferred.",
+      "post_fix_markers": [],
+      "pre_fix_markers": [],
+      "reference_commit": "010c6bdfb0cde0485d31f0260ab9a046fa9b8567",
+      "status_13_52": "UNVERIFIED",
+      "strings": [],
+      "vulnerability_state": "UNVERIFIED"
+    }
+  ],
+  "file_count": 0,
+  "input": "webkit-kit/homebrew/wpe-source",
+  "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "provenance": "UNVERIFIED unless supplied separately by an authorized manifest",
+  "target_firmware": "13.52"
+}

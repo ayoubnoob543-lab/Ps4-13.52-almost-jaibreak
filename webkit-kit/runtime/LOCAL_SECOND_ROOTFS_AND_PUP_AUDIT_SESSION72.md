@@ -76,3 +76,7 @@ El siguiente paso de mayor valor es obtener legítimamente un módulo WebKit/JSC
 - `LOCAL_SECOND_ROOTFS_CANDIDATES_SESSION72.txt`, SHA-256 inicial `c800a0f956311703273ca9156097d8da53fb1f9b67b9e54c4a7bd4ba026fcd99`.
 - `LOCAL_PUP_METADATA_SESSION72.txt`, SHA-256 tras la diferencial de cabecera `910f6c26acf6e8b4c57f7d1aacb0c1c4fb0db9227e6879c90dc892baa7db579e`.
 - `PS4_IPV6_UAF_670_702_STATIC_REVIEW_SESSION72.md`, SHA-256 `b864f722dfd96b9e43953e08dbd8d1aae1cdf2de6050449356b68e3c54c1cc10`.
+
+## Correlador estructural sobre `webkit-kit/homebrew/wpe-source`
+
+Se ejecutó el correlador local sólo contra texto fuente, con documentación excluida por defecto. El resultado tiene `file_count: 0`, `input_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` y tres resultados `NO MATCH` / `UNVERIFIED`: `jscell_tox_type_validation`, `markedvector_gc_containers` y `clone_object_pool_alignment`. Esto no demuestra ausencia en WPE ni en PS4; sólo demuestra que ese directorio concreto no contiene archivos fuente con las extensiones que el correlador acepta. El JSON completo está en `CORRELATOR_WPE_SOURCE_SESSION72.json`, SHA-256 `1c0ef15ad15ae3dd3d93ee3b8739a4aa21b63cc719719c2aeac3827be680168f`.
