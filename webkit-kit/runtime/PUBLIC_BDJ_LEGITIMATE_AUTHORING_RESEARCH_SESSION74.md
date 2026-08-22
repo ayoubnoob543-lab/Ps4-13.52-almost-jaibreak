@@ -47,3 +47,15 @@ Blu-Play describe un entorno BD-J restringido basado en Java 1.3/AWT, sin SDL/Op
 La misma fuente afirma que la firma no es necesaria para un juego simple y la reserva para acceso a archivos fuera del JAR o red. Esta afirmación es una guía de Blu-Play y no debe extrapolarse automáticamente al runtime propietario de PS4. La fuente propone probar con reproductores de software como PowerDVD o VLC abriendo una carpeta Blu-ray/ISO; esto valida el authoring en un reproductor compatible, no la compatibilidad de PS4 13.52.
 
 La documentación de `net.java.bd.tools.security` [7] https://github.com/oliverlietz/bd-j/blob/master/DiscCreationTools/net.java.bd.tools.security/README.md añade que los JAR BD-J firmados necesitan el atributo de manifest `BDJ-Signature-Version: 1.0`, que un JAR BD-J puede requerir certificados de raíz de aplicación y que BUMF se firma por separado cuando se usa VFS. Estas son exigencias de authoring BD-J estándar; no constituyen permisos privilegiados ni una ruta hacia native usermode.
+
+## Artefactos recuperables y bloqueo principal
+
+[8] john-tornblom/bdj-sdk, “BD-J Linux SDK”: https://github.com/john-tornblom/bdj-sdk
+
+La fuente [8] es especialmente concreta para GNU/Linux: describe un SDK que adapta el toolkit mínimo BD-J de PS3, usa herramientas de authoring actualizadas y un port de `makefs` para generar imágenes ISO. Su ejemplo de uso es `make -C bdj-sdk/samples/helloworld`, que produce `samples/helloworld/helloworld.iso` si se compilan previamente las dependencias. Esto permite localizar un proyecto BD-J público y un flujo de generación de ISO, pero no certifica compatibilidad con PS4 13.52.
+
+[9] enteractive-dev/hdcookbook, README: https://github.com/enteractive-dev/hdcookbook
+
+La fuente [9] confirma que HDcookbook contiene herramientas BDJO, firma de JARs y Xlets de ejemplo, pero advierte que el build necesita un `classes.zip` con las firmas de la plataforma BD-J. Ese archivo no está incluido en el repositorio por restricciones de redistribución. Éste es el faltante público más concreto para compilar de forma reproducible desde HDcookbook.
+
+La documentación del Java ME SDK [4] también indica que ofrece stubs BD-J, pero el acceso a source/Javadoc de esos stubs se remite a la Blu-ray Disc Association. Por tanto, hay dos vías públicas recuperables para el authoring: usar un `bdj-sdk` Linux con su material incluido, o usar HDcookbook/BD-J tools junto con una definición de plataforma/stubs obtenida legítimamente. Ninguna vía entrega el runtime BD-J propietario de PS4 ni prueba una ruta de explotación.
