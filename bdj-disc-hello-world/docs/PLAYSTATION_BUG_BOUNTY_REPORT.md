@@ -16,6 +16,18 @@
 | Evidencia específica PS4 13.52 | **No.** El SDK y la plantilla son públicos y genéricos; no equivalen al runtime propietario de PS4 13.52. |
 | Impacto para Bug Bounty | **No.** Sin condición vulnerable e impacto reproducible, Sony no tendría base para aceptar un reporte como vulnerabilidad. |
 
+## Cadena de vulnerabilidad — estado actual
+
+| # | Etapa | Descripción | Estado en este proyecto |
+|---|-------|-------------|-------------------------|
+| 1 | **Trigger del fallo** | Provoca la condición vulnerable concreta del runtime BD-J/WebKit | **No existe**; el cascarón sólo inicia y muestra texto |
+| 2 | **Primitive** | Convierte el fallo en una capacidad controlable (violación de memoria o de permisos) | **No existe** |
+| 3 | **Puente de privilegios** | Usa esa capacidad para cruzar la frontera del sandbox | **No existe** |
+| 4 | **Ejecución / efecto** | Demuestra el resultado posterior (invocar función permitida o cargar acción controlada) | **No existe** |
+| 5 | **Entrega opcional** | Mecanismo para transportar datos (archivo local, USB, etc.) | Solo transporte; **no es la vulnerabilidad** |
+
+Sin las etapas 1–4 no hay vulnerabilidad demostrable ni impacto de seguridad.
+
 ### Qué sí tenemos
 
 ISO BD-J reproducible, JAR firmado, BDJO coherente, código fuente, Makefile, hashes, documentación y paquete textual para revisión. Eso prueba que el disco está **bien construido**, no que contenga un exploit.
@@ -81,9 +93,11 @@ La ejecución satisfactoria del Xlet (si ocurre) **sólo** validaría el canal B
 
 Para presentar un reporte de seguridad sería necesario:
 
-1. Identificar una **condición vulnerable concreta**
-2. Demostrar **impacto real** en una versión específica
-3. Aportar una reproducción mínima, estable y autorizada
+1. Identificar una **condición vulnerable concreta** (Trigger)
+2. Demostrar una **primitive** controlable
+3. Demostrar **cruzar el sandbox** (Puente de privilegios)
+4. Demostrar **impacto real** en una versión específica (Ejecución/efecto)
+5. Aportar una reproducción mínima, estable y autorizada
 
 El informe tendría que incluir: componente afectado, causa técnica, precondiciones, pasos de reproducción, resultados observados, logs/capturas, hashes de artefactos, y por qué el comportamiento **excede** las capacidades normales de BD-J.
 
