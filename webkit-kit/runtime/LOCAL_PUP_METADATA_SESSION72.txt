@@ -1,0 +1,159 @@
+## /home/ubuntu/upload/PS4UPDATE1.PUP
+type=regular file size=326026951 mode=600 mtime=2026-08-21 14:16:49.918841912 +0000
+fd5e6c16398e628b3f258bce5f395c9fda687011a1a985d4b507928f54e6b580  /home/ubuntu/upload/PS4UPDATE1.PUP
+/home/ubuntu/upload/PS4UPDATE1.PUP: data
+-- first 128 bytes --
+ 4f 15 3d 1d 00 01 01 12 04 00 00 00 f0 06 f0 0b
+ bf b0 27 8b 46 f2 6f 59 12 a3 3c eb 78 72 6b d8
+ 9e 79 32 36 ec d5 19 07 b8 c6 1e 25 c9 04 c2 0b
+ 79 1c 26 27 ba b3 70 00 f3 67 20 a3 e7 8c 9c c0
+ 14 8f c4 88 5e 50 9f 74 fa 91 94 12 7b 3d 13 da
+ 5c 97 1b b9 98 f8 28 27 a1 db f1 ce f1 64 4c 17
+ 7e 1a 61 96 34 e8 55 67 17 49 62 21 90 26 ae 56
+ 0b 7a 2d 00 6b 0a cd 86 f3 30 cb 1b 5b 61 b6 32
+-- printable strings, limited --
+~CRCJsRY
+DpuPi,:rX
+*pcrCsX*
+}kCmpUPu
+SpUpl,$|E
+>RcRcydYf
+GcRcESFB
+mZuPS4:B
+E('PUpj	
+pUP3&m$<
+## /home/ubuntu/ps4-1352-pup-audit-session42/pup1_attachment/original/PS4UPDATE1.PUP
+type=regular file size=326026951 mode=600 mtime=2026-08-21 14:16:49.918841912 +0000
+fd5e6c16398e628b3f258bce5f395c9fda687011a1a985d4b507928f54e6b580  /home/ubuntu/ps4-1352-pup-audit-session42/pup1_attachment/original/PS4UPDATE1.PUP
+/home/ubuntu/ps4-1352-pup-audit-session42/pup1_attachment/original/PS4UPDATE1.PUP: data
+-- first 128 bytes --
+ 4f 15 3d 1d 00 01 01 12 04 00 00 00 f0 06 f0 0b
+ bf b0 27 8b 46 f2 6f 59 12 a3 3c eb 78 72 6b d8
+ 9e 79 32 36 ec d5 19 07 b8 c6 1e 25 c9 04 c2 0b
+ 79 1c 26 27 ba b3 70 00 f3 67 20 a3 e7 8c 9c c0
+ 14 8f c4 88 5e 50 9f 74 fa 91 94 12 7b 3d 13 da
+ 5c 97 1b b9 98 f8 28 27 a1 db f1 ce f1 64 4c 17
+ 7e 1a 61 96 34 e8 55 67 17 49 62 21 90 26 ae 56
+ 0b 7a 2d 00 6b 0a cd 86 f3 30 cb 1b 5b 61 b6 32
+-- printable strings, limited --
+~CRCJsRY
+DpuPi,:rX
+*pcrCsX*
+}kCmpUPu
+SpUpl,$|E
+>RcRcydYf
+GcRcESFB
+mZuPS4:B
+E('PUpj	
+pUP3&m$<
+## /home/ubuntu/ps4-1352-pup-audit-session42/original/PS4SYS_CRC[DC9D6197]_PS4UPDATE.PUP
+type=regular file size=503310848 mode=644 mtime=2026-08-21 13:23:26.590640603 +0000
+daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11  /home/ubuntu/ps4-1352-pup-audit-session42/original/PS4SYS_CRC[DC9D6197]_PS4UPDATE.PUP
+/home/ubuntu/ps4-1352-pup-audit-session42/original/PS4SYS_CRC[DC9D6197]_PS4UPDATE.PUP: data
+-- first 128 bytes --
+ 53 4c 42 32 02 00 00 00 00 00 00 00 02 00 00 00
+ f5 ff 0e 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 02 00 00 00 c7 c6 6e 13 00 00 00 00 00 00 00 00
+ 50 53 34 55 50 44 41 54 45 31 2e 50 55 50 00 00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 66 b7 09 00 3f 1d 91 0a 00 00 00 00 00 00 00 00
+ 50 53 34 55 50 44 41 54 45 32 2e 50 55 50 00 00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+-- printable strings, limited --
+PS4UPDATE1.PUP
+PS4UPDATE2.PUP
+~CRCJsRY
+DpuPi,:rX
+*pcrCsX*
+}kCmpUPu
+SpUpl,$|E
+>RcRcydYf
+GcRcESFB
+mZuPS4:B
+E('PUpj	
+pUP3&m$<
+WuCPuPSjV
+"Wx(CrcO
+7N]@NpuP@
+cRcI7BNE:4Y
+ba}N|>CrCN
+## /home/ubuntu/ps4-1352-pup-audit-session42/pup1350/original/PS4SYS_CRC[6E6D1610]_PS4UPDATE.PUP
+type=regular file size=503293952 mode=644 mtime=2026-08-21 15:16:59.564618631 +0000
+04585405bf3ad0836103c1eea5c21657327a377824ad5cda7674ecb94f03822f  /home/ubuntu/ps4-1352-pup-audit-session42/pup1350/original/PS4SYS_CRC[6E6D1610]_PS4UPDATE.PUP
+/home/ubuntu/ps4-1352-pup-audit-session42/pup1350/original/PS4SYS_CRC[6E6D1610]_PS4UPDATE.PUP: data
+-- first 128 bytes --
+ 53 4c 42 32 02 00 00 00 00 00 00 00 02 00 00 00
+ d4 ff 0e 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 02 00 00 00 e7 c4 6e 13 00 00 00 00 00 00 00 00
+ 50 53 34 55 50 44 41 54 45 31 2e 50 55 50 00 00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 65 b7 09 00 f7 dd 90 0a 00 00 00 00 00 00 00 00
+ 50 53 34 55 50 44 41 54 45 32 2e 50 55 50 00 00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+-- printable strings, limited --
+PS4UPDATE1.PUP
+PS4UPDATE2.PUP
+ut)PUPVU
+H^$cRC=bx
+pn.~pUp|
+CrC22cz$
+i[E+Crck
+-_;pupGvR
+agnY}Crc
+CrckugfT
+CrcX]=\00
+ GhPS4KT U
+w,oCRCG9p	4b
+)puP\y7f
+B17_xPs4G
+)iUw.FCrC
+'(FCrcHs
+SvLbcrC%
+## Static header differential: labeled 13.50 vs 13.52 candidate
+A=/home/ubuntu/ps4-1352-pup-audit-session42/pup1350/original/PS4SYS_CRC[6E6D1610]_PS4UPDATE.PUP
+B=/home/ubuntu/ps4-1352-pup-audit-session42/original/PS4SYS_CRC[DC9D6197]_PS4UPDATE.PUP
+cmp -n 4096:
+/home/ubuntu/ps4-1352-pup-audit-session42/pup1350/original/PS4SYS_CRC[6E6D1610]_PS4UPDATE.PUP /home/ubuntu/ps4-1352-pup-audit-session42/original/PS4SYS_CRC[DC9D6197]_PS4UPDATE.PUP differ: byte 17, line 1
+first differing byte positions (cmp -l, first 32):
+       17 324 365
+       37 347 307
+       38 304 306
+       81 145 146
+       85 367  77
+       86 335  35
+       87 220 221
+      513 163 140
+      514 210 337
+      515 262  33
+      516 114 334
+      517  60 224
+      518 154 233
+      519 362 144
+      520 223 346
+      521 170 274
+      522 214  46
+      523   4 150
+      524 370 266
+      525   4 320
+      526  24 250
+      527 300 341
+      528 304 233
+      529 324 177
+      530 146 336
+      531  71 333
+      532  63 211
+      533 237 350
+      534 331 116
+      535 203  43
+      536 365 127
+      537  42 176
+header words A (uint32 little-endian, 0..64):
+  843205715          2          0          2
+     982996          0          0          0
+          2  326026471          0          0
+ 1429492560 1413563472 1345204549      20565
+header words B (uint32 little-endian, 0..64):
+  843205715          2          0          2
+     983029          0          0          0
+          2  326026951          0          0
+ 1429492560 1413563472 1345204549      20565

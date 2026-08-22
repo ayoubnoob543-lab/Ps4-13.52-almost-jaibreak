@@ -1,0 +1,67 @@
+## Candidate directories/files outside known WPE rootfs
+/home/ubuntu/firmware-lab-audit/webkit-kit/homebrew/include/orbis_webkit_stub.h
+/home/ubuntu/firmware-lab-audit/webkit-kit/homebrew/src/orbis_webkit_stub.c
+/home/ubuntu/firmware-lab-aux/webkit-kit/homebrew/include/orbis_webkit_stub.h
+/home/ubuntu/firmware-lab-aux/webkit-kit/homebrew/src/orbis_webkit_stub.c
+/home/ubuntu/firmware-lab-runtime/webkit-kit/homebrew/include/orbis_webkit_stub.h
+/home/ubuntu/firmware-lab-runtime/webkit-kit/homebrew/src/orbis_webkit_stub.c
+/home/ubuntu/firmware-lab-runtime/webkit-kit/runtime/ROOTFS_WPE_LOCAL_PS4_ARTIFACT_AUDIT_SESSION39.md
+/home/ubuntu/firmware-lab-runtime/webkit-kit/runtime/SECOND_ROOTFS_LOCAL_AUDIT_SESSION40.md
+/home/ubuntu/firmware-lab-runtime/webkit-kit/runtime/WPE_SMOKE_SESSION69_ROOTFS.json
+/home/ubuntu/firmware-lab-runtime/webkit-kit/runtime/LOCAL_SECOND_ROOTFS_CANDIDATES_SESSION72.txt
+/home/ubuntu/firmware-lab-offscreen/webkit-kit/homebrew/include/orbis_webkit_stub.h
+/home/ubuntu/firmware-lab-offscreen/webkit-kit/homebrew/src/orbis_webkit_stub.c
+/home/ubuntu/firmware-lab-bundle/webkit-kit/homebrew/include/orbis_webkit_stub.h
+/home/ubuntu/firmware-lab-bundle/webkit-kit/homebrew/src/orbis_webkit_stub.c
+/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbisenc.so.2.0.12
+/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbisfile.so.3
+/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbis.so.0.4.9
+/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbisfile.so.3.3.8
+/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbis.so.0
+/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbisenc.so.2
+/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/gst/libgstvorbis.so
+/home/ubuntu/rootfs_local_audit.py
+/home/ubuntu/rootfs_local_audit_manifest.json
+/home/ubuntu/rootfs_manifest_summary.py
+/home/ubuntu/rootfs_local_audit_summary.txt
+/home/ubuntu/second_rootfs_locator.py
+/home/ubuntu/second_rootfs_locator_report.txt
+## Large files outside known WPE rootfs (>=100MB)
+503310848	/home/ubuntu/ps4-1352-pup-audit-session42/original/PS4SYS_CRC[DC9D6197]_PS4UPDATE.PUP
+503293952	/home/ubuntu/ps4-1352-pup-audit-session42/pup1350/original/PS4SYS_CRC[6E6D1610]_PS4UPDATE.PUP
+326026951	/home/ubuntu/upload/PS4UPDATE1.PUP
+326026951	/home/ubuntu/ps4-1352-pup-audit-session42/pup1_attachment/original/PS4UPDATE1.PUP
+196389920	/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/MiniBrowser_wpe_2.53.1.tar.xz
+150623704	/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/lib/libWPEWebKit-2.0.so.1.10.0
+143566264	/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libLLVM.so.20.1
+133528480	/home/ubuntu/wpe-artifacts-2526/root/usr/lib/libWPEWebKit-2.0.so.1.9.10
+126310657	/home/ubuntu/wpe-artifacts-2526/arch/archlinux-bootstrap-x86_64.tar.zst
+120078896	/home/ubuntu/.nvm/versions/node/v22.13.0/bin/node
+## Candidate metadata
+regular file\t1422\t644\t2026-08-20 13:05:45.513465473 +0000\t/home/ubuntu/firmware-lab-audit/webkit-kit/homebrew/include/orbis_webkit_stub.h
+regular file\t1568\t644\t2026-08-20 13:05:45.513465473 +0000\t/home/ubuntu/firmware-lab-audit/webkit-kit/homebrew/src/orbis_webkit_stub.c
+regular file\t1422\t644\t2026-08-20 13:13:23.449782096 +0000\t/home/ubuntu/firmware-lab-aux/webkit-kit/homebrew/include/orbis_webkit_stub.h
+regular file\t1568\t644\t2026-08-20 13:13:23.449782096 +0000\t/home/ubuntu/firmware-lab-aux/webkit-kit/homebrew/src/orbis_webkit_stub.c
+regular file\t1422\t644\t2026-08-20 13:22:37.082153433 +0000\t/home/ubuntu/firmware-lab-runtime/webkit-kit/homebrew/include/orbis_webkit_stub.h
+regular file\t1568\t644\t2026-08-20 13:22:37.082153433 +0000\t/home/ubuntu/firmware-lab-runtime/webkit-kit/homebrew/src/orbis_webkit_stub.c
+regular file\t6451\t644\t2026-08-21 13:18:33.478821524 +0000\t/home/ubuntu/firmware-lab-runtime/webkit-kit/runtime/ROOTFS_WPE_LOCAL_PS4_ARTIFACT_AUDIT_SESSION39.md
+regular file\t7995\t644\t2026-08-21 13:18:33.478821524 +0000\t/home/ubuntu/firmware-lab-runtime/webkit-kit/runtime/SECOND_ROOTFS_LOCAL_AUDIT_SESSION40.md
+regular file\t2599\t644\t2026-08-21 21:41:35.188451601 +0000\t/home/ubuntu/firmware-lab-runtime/webkit-kit/runtime/WPE_SMOKE_SESSION69_ROOTFS.json
+regular file\t4288\t644\t2026-08-22 09:13:55.839684608 +0000\t/home/ubuntu/firmware-lab-runtime/webkit-kit/runtime/LOCAL_SECOND_ROOTFS_CANDIDATES_SESSION72.txt
+regular file\t1422\t644\t2026-08-20 13:27:19.418375164 +0000\t/home/ubuntu/firmware-lab-offscreen/webkit-kit/homebrew/include/orbis_webkit_stub.h
+regular file\t1568\t644\t2026-08-20 13:27:19.422375167 +0000\t/home/ubuntu/firmware-lab-offscreen/webkit-kit/homebrew/src/orbis_webkit_stub.c
+regular file\t1422\t644\t2026-08-20 13:59:51.345336793 +0000\t/home/ubuntu/firmware-lab-bundle/webkit-kit/homebrew/include/orbis_webkit_stub.h
+regular file\t1568\t644\t2026-08-20 13:59:51.345336793 +0000\t/home/ubuntu/firmware-lab-bundle/webkit-kit/homebrew/src/orbis_webkit_stub.c
+regular file\t694408\t644\t2026-04-22 13:20:24.859563000 +0000\t/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbisenc.so.2.0.12
+regular file\t34808\t644\t2026-04-22 13:20:24.859563000 +0000\t/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbisfile.so.3
+regular file\t182344\t644\t2026-04-22 13:20:24.859563000 +0000\t/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbis.so.0.4.9
+regular file\t34808\t644\t2026-04-22 13:20:24.859563000 +0000\t/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbisfile.so.3.3.8
+regular file\t182344\t644\t2026-04-22 13:20:24.859563000 +0000\t/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbis.so.0
+regular file\t694408\t644\t2026-04-22 13:20:24.859563000 +0000\t/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/libvorbisenc.so.2
+regular file\t69336\t755\t2026-04-22 13:20:24.859563000 +0000\t/home/ubuntu/wpe-bundles/wpe-minibrowser-2.53.1/extracted/sys/lib/gst/libgstvorbis.so
+regular file\t4595\t644\t2026-08-21 11:39:16.683598374 +0000\t/home/ubuntu/rootfs_local_audit.py
+regular file\t25466897\t644\t2026-08-21 11:45:13.419380778 +0000\t/home/ubuntu/rootfs_local_audit_manifest.json
+regular file\t1068\t644\t2026-08-21 11:46:47.871330478 +0000\t/home/ubuntu/rootfs_manifest_summary.py
+regular file\t79730\t644\t2026-08-21 11:46:53.579327684 +0000\t/home/ubuntu/rootfs_local_audit_summary.txt
+regular file\t2173\t644\t2026-08-21 12:49:20.470986808 +0000\t/home/ubuntu/second_rootfs_locator.py
+regular file\t53324\t644\t2026-08-21 12:49:34.222984454 +0000\t/home/ubuntu/second_rootfs_locator_report.txt
