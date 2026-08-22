@@ -65,3 +65,15 @@ Conclusión de herramienta: `UNVERIFIED`. Evidencia directa del post: existe un 
 Al abrir el medio adjunto desde el post, X lo identifica como vídeo de `01:08` y muestra controles de reproducción. En la vista pública disponible no aparece título interno, nombre de archivo, descripción adicional ni texto que identifique el programa. El frame visible continúa mostrando la interfaz de PS4/Blu-ray; no se observa una terminal o IDE legible en esa vista.
 
 La duración y la existencia del vídeo son `DIRECT`; el programa utilizado y el componente técnico siguen `UNVERIFIED`.
+
+## Repositorio `iaceene/HENloader_Source`
+
+URL: https://github.com/iaceene/HENloader_Source
+
+El README identifica el proyecto como “HENloader LP – SOURCE”, un loader BD-J basado en Blu-ray que combina Lapse, Poopsploit y GoldHEN. Declara compatibilidad de 9.00 a 12.52 según el exploit, no 13.52. El árbol público contiene `InitXlet.java`, `MessagesOutputStream.java`, `Screen.java`, `bluray.InitXlet.perm` y los directorios `api/`, `external/` y `sandbox/`.
+
+El README hace visible una comprobación de seguridad: imprime “Priviledge escalation failure, unsupported firmware?” cuando `System.getSecurityManager()` no queda anulado; si pasa esa condición, llama a componentes internos de offsets de kernel. Esto confirma que el proyecto es un loader de explotación y no un simple harness BD-J legítimo. No se ejecutó ningún archivo ni se siguieron sus instrucciones de uso.
+
+El propio README atribuye el entorno BD-J a `kimariin`, la consola Java a `sleirsgoevy`, Lapse a Gezine y Poops a `theflow0`, e incluye enlaces a releases y payloads. Esos créditos pueden ayudar a reconstruir procedencia, pero no prueban que ASaudidos utilizara este repositorio. Tampoco aparece en el README el texto exacto `BD-J Vuln Probe - PS4 13.50` ni una atribución a ASaudidos.
+
+Clasificación: existencia y contenido del repositorio `DIRECT`; compatibilidad declarada 9.00–12.52 `DOCUMENTED_ONLY`; relación con el programa de ASaudidos `UNVERIFIED`; compatibilidad 13.52 `DISCARDED` como afirmación del README, porque el propio proyecto declara un límite de 12.52; primitive o ruta técnica de ASaudidos `UNVERIFIED`.
