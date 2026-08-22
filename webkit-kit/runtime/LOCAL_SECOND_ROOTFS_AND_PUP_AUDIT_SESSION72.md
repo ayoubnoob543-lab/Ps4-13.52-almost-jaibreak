@@ -80,3 +80,7 @@ El siguiente paso de mayor valor es obtener legítimamente un módulo WebKit/JSC
 ## Correlador estructural sobre `webkit-kit/homebrew/wpe-source`
 
 Se ejecutó el correlador local sólo contra texto fuente, con documentación excluida por defecto. El resultado tiene `file_count: 0`, `input_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` y tres resultados `NO MATCH` / `UNVERIFIED`: `jscell_tox_type_validation`, `markedvector_gc_containers` y `clone_object_pool_alignment`. Esto no demuestra ausencia en WPE ni en PS4; sólo demuestra que ese directorio concreto no contiene archivos fuente con las extensiones que el correlador acepta. El JSON completo está en `CORRELATOR_WPE_SOURCE_SESSION72.json`, SHA-256 `1c0ef15ad15ae3dd3d93ee3b8739a4aa21b63cc719719c2aeac3827be680168f`.
+
+## Correlador sobre `session35_cssfontface_sources`
+
+También se ejecutó el correlador contra `webkit-kit/runtime/session35_cssfontface_sources`. El resultado fue idéntico: `file_count: 0`, `input_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` y `NO MATCH`/`UNVERIFIED` para las tres familias. El JSON está en `CORRELATOR_CSSFONTFACE_SOURCES_SESSION72.json`, SHA-256 `753a3969592535c76a7dd3e3e42e52aa22c3ee240dca74c3c9dec816da4b01eb`. La conclusión correcta es ausencia de entradas fuente aceptadas por el correlador en esa ruta, no ausencia de la vulnerabilidad en ningún runtime.
