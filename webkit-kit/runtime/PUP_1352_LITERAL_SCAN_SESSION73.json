@@ -1,0 +1,40 @@
+{
+  "decryption_performed": false,
+  "entries": [
+    {
+      "literal_hits": {
+        "CloneSerializer": [],
+        "JSCell": [],
+        "MarkedVector": [],
+        "WebProcess": [],
+        "eboot.bin": [],
+        "libSceLibcInternal.sprx": [],
+        "libSceNKWebKit.sprx": [],
+        "libkernel_web.sprx": []
+      },
+      "name": "PS4UPDATE1.PUP",
+      "offset": 1024,
+      "size": 326026951
+    },
+    {
+      "literal_hits": {
+        "CloneSerializer": [],
+        "JSCell": [],
+        "MarkedVector": [],
+        "WebProcess": [],
+        "eboot.bin": [],
+        "libSceLibcInternal.sprx": [],
+        "libSceNKWebKit.sprx": [],
+        "libkernel_web.sprx": []
+      },
+      "name": "PS4UPDATE2.PUP",
+      "offset": 326028288,
+      "size": 177282367
+    }
+  ],
+  "execution_performed": false,
+  "pup": "/home/ubuntu/ps4-1352-pup-audit-session42/original/PS4SYS_CRC[DC9D6197]_PS4UPDATE.PUP",
+  "pup_sha256": "daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11",
+  "pup_size": 503310848,
+  "schema": "ps4-1352-pup-static-name-scan-v1"
+}
