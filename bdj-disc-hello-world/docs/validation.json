@@ -1,6 +1,7 @@
 {
   "hardware_tested": false,
-  "iso_generated": false,
+  "iso_generated": true,
+  "iso_sha256": "ad043fc4a1ac6ecd1a9a5cabb876e6daa849d52e5ec1afb3de29822dff148fdb",
   "mode": "static-only",
   "platform_stub_candidates": [
     {
@@ -19,7 +20,7 @@
   "project": "bdj-disc-hello-world",
   "required_files": [
     "README.md",
-    "src/bdj/HelloWorldXlet.java"
+    "src/org/homebrew/MyXlet.java"
   ],
-  "source_sha256": "4e4b90afcf13399875726ceba45bcefa1579b30e6dbace8084d07fe419ff5d1c"
+  "source_sha256": "3d8086a6faa09ff235f43d52e3e1984fa1f1ee68a0e8830f3624626d5de5c1fc"
 }

@@ -11,13 +11,13 @@ import json
 ROOT = Path(__file__).resolve().parents[1]
 required = [
     ROOT / "README.md",
-    ROOT / "src/bdj/HelloWorldXlet.java",
+    ROOT / "src/org/homebrew/MyXlet.java",
 ]
 for path in required:
     if not path.is_file():
         raise SystemExit(f"MISSING {path.relative_to(ROOT)}")
 
-source = (ROOT / "src/bdj/HelloWorldXlet.java").read_text(encoding="utf-8")
+source = (ROOT / "src/org/homebrew/MyXlet.java").read_text(encoding="utf-8")
 for forbidden in ("Runtime.getRuntime", "System.load", "ProcessBuilder", "java.net", "Unsafe"):
     if forbidden in source:
         raise SystemExit(f"FORBIDDEN_REFERENCE {forbidden}")
@@ -36,7 +36,9 @@ result = {
         for p in platform_candidates
     ],
     "source_sha256": hashlib.sha256(source.encode("utf-8")).hexdigest(),
-    "iso_generated": False,
+    "iso_generated": (ROOT / "build/bdj-hello-world.iso").is_file(),
+    "iso_sha256": (hashlib.sha256((ROOT / "build/bdj-hello-world.iso").read_bytes()).hexdigest()
+                    if (ROOT / "build/bdj-hello-world.iso").is_file() else None),
     "hardware_tested": False,
 }
 (ROOT / "docs").mkdir(exist_ok=True)

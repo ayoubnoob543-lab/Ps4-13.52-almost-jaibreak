@@ -1,3 +1,6 @@
 [submodule "third_party/ps4-payload-sdk"]
 	path = third_party/ps4-payload-sdk
 	url = https://github.com/Scene-Collective/ps4-payload-sdk.git
+[submodule "bdj-disc-hello-world/third_party/bdj-sdk"]
+	path = bdj-disc-hello-world/third_party/bdj-sdk
+	url = https://github.com/john-tornblom/bdj-sdk.git

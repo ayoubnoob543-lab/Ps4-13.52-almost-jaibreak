@@ -4,25 +4,38 @@ Proyecto **benigno** de prueba de authoring BD-J. Su objetivo es generar una apl
 
 ## Estado
 
-Este repositorio contiene el esqueleto reproducible del proyecto. La compilación final depende de una definición de plataforma/stubs BD-J compatible (`bdj.jar` o equivalente) y de las herramientas de authoring. El proyecto no afirma compatibilidad con PS4 13.52 hasta que una imagen sea generada, validada y probada en un reproductor BD-J autorizado.
+El proyecto contiene un flujo reproducible basado en un SDK BD-J público fijado como submódulo Git. La compatibilidad con PS4 13.52 sigue sin afirmarse hasta una prueba autorizada en un reproductor BD-J compatible.
 
 ## Estructura
 
 ```text
-src/bdj/                 Código fuente del Xlet benigno
-disc/BDMV/               Directorio reservado para la imagen BD-J
+src/org/homebrew/        Código fuente del Xlet benigno
+build/                   JAR, árbol discdir, ISO y hashes generados
+third_party/bdj-sdk/     SDK público fijado como submódulo Git
 tools/                   Scripts estáticos de empaquetado/validación
 docs/                    Notas de authoring y procedencia
-manifest.sha256          Hashes de los artefactos generados (cuando existan)
 ```
 
-## Dependencias esperadas
+## Dependencias y build
 
-Se necesita un JDK compatible con el perfil BD-J, una definición de plataforma/stubs BD-J, las herramientas públicas de authoring y un generador de imagen Blu-ray/BDMV. Esas dependencias no se sustituyen por clases inventadas: si no están disponibles, el build debe detenerse y registrarlo.
+El submódulo `third_party/bdj-sdk` aporta los stubs BD-J `target/lib/enhanced-stubs.zip`, la plantilla BDMV/BDJO, `bdsigner` y el código público de `makefs_termux`. El build usa JDK8 para producir bytecode compatible con BD-J y `libbsd-dev` para compilar `makefs`.
+
+```console
+git clone --recurse-submodules <repository-url>
+cd bdj-disc-hello-world/third_party/bdj-sdk
+ln -sfn /usr/lib/jvm/java-8-openjdk-amd64 host/jdk8
+make -C host/src/makefs_termux
+make -C host/src/makefs_termux install DESTDIR="$PWD/host"
+cd ../../..
+JAVA8_HOME="$PWD/third_party/bdj-sdk/host/jdk8" make all
+python3 tools/validate_project.py
+```
+
+El resultado se escribe en `build/bdj-hello-world.iso` y su hash en `build/bdj-hello-world.iso.sha256`.
 
 ## Validación segura
 
-Las validaciones locales deben limitarse a comprobar estructura, nombres, tamaños, hashes, manifests y formato de la imagen. No se ejecutan JARs, ISOs, clases compiladas ni código procedente de la consola. La compatibilidad real con una PS4 sólo puede determinarse mediante una prueba autorizada en hardware propio.
+Las validaciones locales se limitan a comprobar estructura, nombres, tamaños, hashes, manifests y formato de la imagen. No se ejecutan JARs, ISOs, clases compiladas ni código procedente de la consola. La ISO UDF 2.50 actual mide 16 MiB y tiene SHA-256 `66fb8408dd9a7ff1f7053d3b87a0bfbd3d7617005ca12c26b2a6ce5fea596baf`. La compatibilidad real con una PS4 sólo puede determinarse mediante una prueba autorizada en hardware propio.
 
 ## Fuentes públicas
 
