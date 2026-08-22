@@ -1,5 +1,5 @@
 Signature-Version: 1.0
-SHA1-Digest-Manifest: NG0eeAQbdKyQkCgvY3Q34bP9OVU=
+SHA1-Digest-Manifest: wTRAB0SKbZyIsXet8Whs9tWBhGc=
 Created-By: 1.8.0_492 (Private Build)
 BDJ-Signature-Version: 1.0
 
@@ -7,8 +7,8 @@ Name: org/homebrew/MyXlet$1.class
 SHA1-Digest: US+eMxp6Bov+Y6bAD/WrDb8H1J4=
 
 Name: org/homebrew/MyXlet.class
-SHA1-Digest: Uvs4L92syPmVY81BHy57n0ayU3c=
+SHA1-Digest: zAxQmCH1M8EZ09U5K1TSzY31Z84=
 
-Name: org/homebrew/MyXlet$HelloPanel.class
-SHA1-Digest: BLrPmPBz1BYaXuHaQp8F3sYlE/w=
+Name: org/homebrew/MyXlet$StatusPanel.class
+SHA1-Digest: H9VReurEfa5e2Ll1hxtB/RUKnaA=
 
