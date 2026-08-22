@@ -18,6 +18,18 @@ Proyecto **benigno** de prueba de authoring BD-J. Su objetivo es generar una apl
 | Evidencia específica PS4 13.52 | **No** — SDK/plantilla públicos y genéricos |
 | Impacto Bug Bounty | **No** — sin condición vulnerable ni impacto reproducible |
 
+## Cadena de vulnerabilidad (estado actual)
+
+| # | Etapa | Descripción | Estado en este proyecto |
+|---|-------|-------------|-------------------------|
+| 1 | **Trigger del fallo** | Provoca la condición vulnerable concreta del runtime BD-J/WebKit | **No existe**; el cascarón sólo inicia y muestra texto |
+| 2 | **Primitive** | Convierte el fallo en una capacidad controlable (violación de memoria o de permisos) | **No existe** |
+| 3 | **Puente de privilegios** | Usa esa capacidad para cruzar la frontera del sandbox | **No existe** |
+| 4 | **Ejecución / efecto** | Demuestra el resultado posterior (invocar función permitida o cargar acción controlada) | **No existe** |
+| 5 | **Entrega opcional** | Mecanismo para transportar datos (archivo local, USB, etc.) | Solo transporte; **no es la vulnerabilidad** |
+
+Sin las etapas 1–4 no hay vulnerabilidad demostrable ni impacto de seguridad.
+
 ### Qué sí tenemos
 
 ISO BD-J reproducible, JAR firmado, BDJO coherente, código fuente, Makefile, hashes, documentación y paquete textual para revisión. Eso prueba que el disco está **bien construido**, no que contenga un exploit.
