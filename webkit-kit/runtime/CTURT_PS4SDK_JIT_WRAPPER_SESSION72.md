@@ -37,3 +37,17 @@ El archivo mejora la especificación de lo que habría que buscar estáticamente
 [1] [CTurt/PS4-SDK — `jit.c`](https://github.com/CTurt/PS4-SDK/blob/master/libPS4/source/jit.c)
 
 [2] [CTurt/PS4-SDK — ejemplo JIT](https://github.com/CTurt/PS4-SDK/tree/master/examples/jit)
+
+## Firmas y contexto complementario
+
+La cabecera pública `libPS4/include/jit.h` repite las firmas exactas de los tres punteros de función:
+
+```c
+extern int (*sceKernelJitCreateSharedMemory)(int flags, size_t size, int protection, int *destinationHandle);
+extern int (*sceKernelJitCreateAliasOfSharedMemory)(int handle, int protection, int *destinationHandle);
+extern int (*sceKernelJitMapSharedMemory)(int handle, int protection, void **destination);
+```
+
+La fuente `libPS4/source/kernel.c` muestra que los símbolos del kernel se resuelven desde un handle de `libkernel.sprx` mediante `loadModule` y `RESOLVE`. También enumera otras funciones históricas de kernel, pero su presencia en el SDK no demuestra disponibilidad o permisos en 13.52. Fuentes: [3] [CTurt/PS4-SDK — `jit.h`](https://github.com/CTurt/PS4-SDK/blob/master/libPS4/include/jit.h) y [4] [CTurt/PS4-SDK — `kernel.c`](https://github.com/CTurt/PS4-SDK/blob/master/libPS4/source/kernel.c).
+
+La evidencia sigue clasificada como `DIRECT_HISTORICAL`; el contrato equivalente en 13.52 permanece `UNVERIFIED`.
