@@ -1,0 +1,25 @@
+{
+  "hardware_tested": false,
+  "iso_generated": false,
+  "mode": "static-only",
+  "platform_stub_candidates": [
+    {
+      "path": "lib/bdj.jar",
+      "present": false
+    },
+    {
+      "path": "lib/classes.zip",
+      "present": false
+    },
+    {
+      "path": "platform/bdj.jar",
+      "present": false
+    }
+  ],
+  "project": "bdj-disc-hello-world",
+  "required_files": [
+    "README.md",
+    "src/bdj/HelloWorldXlet.java"
+  ],
+  "source_sha256": "4e4b90afcf13399875726ceba45bcefa1579b30e6dbace8084d07fe419ff5d1c"
+}
