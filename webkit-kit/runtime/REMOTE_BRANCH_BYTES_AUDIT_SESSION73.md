@@ -33,3 +33,13 @@ La rama contiene informes, manifests, offsets, scripts de validación, el `libke
 Existe una rama con **bytes reales de `libkernel_sys` y fragmentos de libkernel**, pero no existe en ella una rama con “todos los bytes” del WebKit retail 13.52. La rama `ps4-13.52-build` no aporta `libSceNKWebKit.sprx`, `libkernel_web.sprx`, `libSceLibcInternal.sprx`, un SELF/ELF/eboot de WebKit ni un dump NXDP/ORBISDMP equivalente. Por tanto, la evidencia de WebKit 13.52 sigue siendo `ABSENT/UNVERIFIED`.
 
 Los blobs se inspeccionaron desde objetos Git y no se hizo checkout de la rama ni se ejecutó ningún archivo.
+
+## Análisis estático del `libkernel_sys_13.52.bin`
+
+Se copió el blob desde el objeto Git de `origin/ps4-13.52-build` a `/tmp` sólo para análisis. El SHA-256 volvió a ser `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c` y el tamaño `479232` bytes. La concatenación de `lk_dump1.bin`, `lk_dump2.bin` y `lk_dump3.bin` coincidió byte a byte con el blob combinado y produjo el mismo SHA-256.
+
+`file` lo clasifica como `data`, no como ELF/SELF reconocible por la herramienta estándar. Los primeros bytes son `8d0d3ae9`; los tres fragmentos comienzan respectivamente por `8d0d3ae9`, `85280100` y `00410e10`. Esto es compatible con un blob raw fragmentado, pero no aporta por sí solo una cabecera ELF/SELF.
+
+La búsqueda explícita de strings no encontró `libSceNKWebKit`, `libkernel_web`, `WebKit`, `JavaScriptCore`, `WebCore`, `JSCell`, `MarkedVector`, `CloneSerializer` ni `CSSFontFace`. Sí encontró strings genéricos de infraestructura Orbis/libkernel, incluidos `SCE_KERNEL_JIT_SHM_AREA`, `SCE_KERNEL_JIT_SHM_AREA2`, `_sceKernelLoadStartModule`, `SYS_dynlib_unload_prx`, `dlopen` y mensajes de TLS. El recuento combinado de términos `WebKit|JavaScriptCore|WebCore|libkernel_web|libSceNKWebKit|JIT|dynlib|mprotect|mmap` fue 4, explicado por referencias genéricas de JIT/dynlib/mmap; no hubo coincidencias WebKit/JSC.
+
+Interpretación: el blob puede aportar contexto sobre APIs genéricas de carga dinámica, áreas de memoria JIT y libkernel, pero no identifica el módulo WebKit, sus imports/exports ni sus estructuras JSC. La presencia de `SCE_KERNEL_JIT_SHM_AREA` no demuestra una ruta de ejecución nativa desde WebKit ni un exploit; sólo es una huella de soporte genérico del sistema.
