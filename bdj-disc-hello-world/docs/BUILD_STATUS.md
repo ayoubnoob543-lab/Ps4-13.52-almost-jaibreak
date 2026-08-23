@@ -54,8 +54,8 @@ Eso prueba que el disco está **bien construido**, no que contenga un exploit ni
 
 | Artefacto | SHA-256 |
 |---|---|
-| `build/bdj-hello-world.iso` | `ad043fc4a1ac6ecd1a9a5cabb876e6daa849d52e5ec1afb3de29822dff148fdb` |
-| `build/discdir/BDMV/JAR/00000.jar` | `7cff985677ca0511afeaf35b89f0f7eb0e192708ddb39030734979269fcc7065` |
+| `build/bdj-hello-world.iso` | `62288604e3689411bcaf47178cf2ce0026b7a489877478abb7563b66a94dd9c4` |
+| `build/discdir/BDMV/JAR/00000.jar` | `0477294d899c674f409fb3831c3c1e34492e2066e1ce1bbd3e7e48d6d69ef6fe` |
 | `build/discdir/BDMV/BDJO/00000.bdjo` | `d32325af03d55c054fe7766cc96a8bb14cd10a0c5dc06a3a58938f04427cdea5` |
 
 ## Flags
@@ -65,3 +65,4 @@ Eso prueba que el disco está **bien construido**, no que contenga un exploit ni
 - `mode`: `static-only`
 - Compatibilidad PS4 13.52: `UNVERIFIED`
 - Native usermode / jailbreak / kernel: **fuera de alcance**
+> **Verificación 2026-08-23:** hashes recalculados directamente desde los blobs de git vía API. ISO `62288604…` coincide con `build/bdj-hello-world.iso.sha256` e `ISO_STATIC_METADATA.json`; JAR `0477294d…` verificado con sha256sum sobre el blob. Cabeceras binarias verificadas: `BDID0200` (id.bdmv), `MOBJ0200` (MovieObject.bdmv), `BDJO0200` coherente (referencia org.homebrew.MyXlet, OrgID 56789abc consistente entre id.bdmv y BDJO).
