@@ -1,0 +1,18 @@
+{
+  "experiment": "deep_offline_scan_1352",
+  "date": "2026-08-24T23:30:56.219706+00:00",
+  "new_sources_archived": [
+    "Force67/prosperity pup_object.cpp (parser .dec con ScePupMetadataEntry)",
+    "zecoxao/ps5-pup-decrypt checkheaders+args structs",
+    "SocraticBliss decrypt.c diff",
+    "idc RETAIL.md (MD5 de .dec 1.75-4.xx+)"
+  ],
+  "key_finding": "Los .PUP.dec producidos en consola contienen la tabla metadata EN CLARO (AES128 keys+IVs por segmento) porque decrypt.c hace fwrite(header_data) tras el ioctl DECRYPT_HDR. \u21d2 un \u00fanico acceso console-oracle otorga capacidad offline permanente para ese firmware.",
+  "structural_diff_ps5": {
+    "pup_segment": 40,
+    "ps4_pup_segment": 32,
+    "extra_field": "flags2 u32 @0x04"
+  },
+  "validation_material": "RETAIL_idc.md: MD5 por versi\u00f3n para validar cualquier descifrado futuro",
+  "entropy_fine_scan": "0 ventanas no-HIGH en primeros 128KB de UPDATE1 \u21d2 sin tabla en claro en retail cifrado (refuta comentario optimista de prosperity para ficheros cifrados)"
+}
