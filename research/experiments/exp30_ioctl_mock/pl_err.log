@@ -1,0 +1,37 @@
+[mock] SHIM-v2 conectado (fd=3)
+[payload] Opening /data/data/com.termux/files/home/firmware-lab/research/experiments/exp30_ioctl_mock/host/mnt_usb0/PS4UPDATE.PUP...
+[payload] Creating ./PS4UPDATE1.PUP.dec...
+[payload] Decrypting header...
+[mock->] ioctl DECRYPT_HDR      req=0xC0184401 args_len=24 payload_len=4832
+[mock<-] rv=0 out_len=4832 head=4f153d1d
+[payload] Verifying segments...
+[payload] Verifying segment #2 (3584)... [1]
+[mock->] ioctl VERIFY_SEG_ADD   req=0xC0184402 args_len=24 payload_len=64
+[mock<-] rv=0 out_len=64 head=4f153d1d
+[payload] Verifying segment #1 (3840)... [0]
+[mock->] ioctl VERIFY_SEG       req=0xC0184403 args_len=24 payload_len=64
+[mock<-] rv=0 out_len=64 head=4f153d1d
+[payload] Decrypting 3 segments...
+[payload] Decrypting segment 1/3...
+[mock->] ioctl DECRYPT_SEG      req=0xC0184404 args_len=24 payload_len=65536
+[mock<-] rv=0 out_len=65536 head=467db0e3
+[payload] Skipping watermark segment #1!
+[payload] Skipping additional signature segment #2!
+[payload] Creating ./PS4UPDATE2.PUP.dec...
+[payload] Decrypting header...
+[mock->] ioctl DECRYPT_HDR      req=0xC0184401 args_len=24 payload_len=1248
+[mock<-] rv=0 out_len=1248 head=4f153d1d
+[payload] Verifying segments...
+[payload] Verifying segment #2 (3584)... [1]
+[mock->] ioctl VERIFY_SEG_ADD   req=0xC0184402 args_len=24 payload_len=64
+[mock<-] rv=0 out_len=64 head=4f153d1d
+[payload] Verifying segment #1 (3840)... [0]
+[mock->] ioctl VERIFY_SEG       req=0xC0184403 args_len=24 payload_len=64
+[mock<-] rv=0 out_len=64 head=4f153d1d
+[payload] Decrypting 3 segments...
+[payload] Decrypting segment 1/3...
+[mock->] ioctl DECRYPT_SEG      req=0xC0184404 args_len=24 payload_len=65536
+[mock<-] rv=0 out_len=65536 head=5662c183
+[payload] Skipping watermark segment #1!
+[payload] Skipping additional signature segment #2!
+[host] Bye!

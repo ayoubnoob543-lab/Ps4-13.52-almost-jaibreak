@@ -1,0 +1,4 @@
+[echo] listo en /data/data/com.termux/files/home/firmware-lab/research/experiments/exp30_ioctl_mock/test.sock
+[echo] cliente conectado
+[echo] cmd=0xc0184404 pl=16
+[echo] cerrado

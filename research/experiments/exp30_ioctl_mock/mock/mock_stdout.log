@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/firmware-lab/research/experiments/exp30_ioctl_mock/mock/pup_mock_server.py", line 96, in <module>
+    if __name__ == "__main__": main()
+                               ~~~~^^
+  File "/data/data/com.termux/files/home/firmware-lab/research/experiments/exp30_ioctl_mock/mock/pup_mock_server.py", line 49, in main
+    s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM); s.bind(SOCK); s.listen(1)
+                                                           ~~~~~~^^^^^^
+PermissionError: [Errno 13] Permission denied

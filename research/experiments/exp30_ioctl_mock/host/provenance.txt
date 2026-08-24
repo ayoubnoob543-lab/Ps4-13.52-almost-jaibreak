@@ -1,0 +1,7 @@
+Fuentes copiadas de ~/ps4-pup_decrypt (idc) — commit del repo upstream.
+Cambios de adaptación a host/Termux (mínimos, documentados):
+  * eliminado #include "ps4.h" (runtime libPS4)
+  * printfsocket → vfprintf(stderr) vía host_compat.h
+  * memalign → posix_memalign (host_compat.h)
+  * paths "/mnt/usb0" → "./" (sed)
+  * ioctl/open/close interceptados por shim_ioctl.c hacia el mock

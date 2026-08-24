@@ -1,0 +1,20 @@
+[SRV] recibido cmd=0xc0184401 alen=24 plen=4832
+[MOCK] {"seq": 1, "cmd": "0xc0184401", "name": "DECRYPT_HDR", "fields": {"len": 4832, "type": 0}, "payload_len": 4832, "sha16": "940bc3baeb3b3ce9", "head_hex": "4f153d1d0001011204000000f006f00bbfb0278b46f26f5912a33ceb78726bd8", "response": "MOCK", "rv": 0, "out_len": 4832}
+{
+  "experiment": "exp30_ioctl_mock",
+  "date": "2026-08-24T21:18:39.036256+00:00",
+  "input_pup": "/data/data/com.termux/files/home/fl_pup/out/PS4SYS_13.52.rebuilt.PUP",
+  "payload_exit": 8,
+  "ioctls_captured": 1,
+  "by_name": {
+    "DECRYPT_HDR": 1
+  },
+  "status": "PASS"
+}
+[STDERR payload]
+[mock] conectado a pup_mock_server (fd=3)
+[payload] Opening /data/data/com.termux/files/home/firmware-lab/research/experiments/exp30_ioctl_mock/host/mnt_usb0/PS4UPDATE.PUP...
+[payload] Creating ./PS4UPDATE1.PUP.dec...
+[payload] Decrypting header...
+[mock->] ioctl DECRYPT_HDR      req=0xC0184401 args_len=24 payload_len=4832
+
