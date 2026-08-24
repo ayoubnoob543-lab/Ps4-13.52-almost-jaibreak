@@ -1,5 +1,42 @@
 # CVE Analysis for PS4 Kernel (Orbis OS / FreeBSD 9)
 
+## CVE-2026-58087 — semctl(2) GETALL/SETALL TOCTOU 🔥🔥 MÁXIMO CANDIDATO 13.52
+
+- **Type:** TOCTOU race → heap OOB read/write kernel → posible elevación de privilegios
+- **Component:** `sys/kern/sysv_sem.c` — comandos GETALL/SETALL de semctl(2)
+- **Descubrimiento:** Maik Muench (Secfault Security), reportado a FreeBSD 2026-07-29;
+  advisory [FreeBSD-SA-26:54.sysvsem](https://www.freebsd.org/security/advisories/FreeBSD-SA-26:54.sysvsem.asc)
+- **Bug:** se registra el número de semáforos del set, se suelta el lock, se aloca un
+  buffer con ese tamaño y se re-adquiere el lock. La validación usa el número de
+  secuencia del set, que **envuelve tras 0x8000 ciclos de crear/destruir**. Un proceso
+  atacante recreando sets a alta velocidad en el mismo índice hace pasar un set con
+  otro número de semáforos ⇒ el `copyin/copyout` posterior lee/escribe fuera del buffer.
+- **Impacto declarado:** *"An unprivileged local user can trigger out-of-bounds reads
+  and writes on kernel heap memory, potentially leading to privilege escalation."*
+- **Aplicabilidad PS4 13.52:**
+  - psdevwiki (página Bugs, sección "Kernel → Untested"): **Patched: NO as of PS4 13.52
+    and PS5 13.60. PS4 and PS5 may be affected.**
+  - El bug es lógico y antiguo: presente en la base FreeBSD heredada por Orbis.
+  - El fix upstream sustituye KASSERTs por runtime checks — los asserts no existen en
+    kernels release como el de Sony, lo que hace plausible que el patrón vulnerable
+    esté intacto.
+  - Requiere invocar semctl(2) desde userland nativo: alcanzable vía entry points
+    userland 13.52 (ver `docs/mast1c0re-artifacts.md`).
+- **Estado real:** **UNTESTED_ON_CONSOLE / NO_PUBLIC_EXPLOIT_PS4**. Nadie ha publicado
+  implementación ni confirmación en hardware. Es el primer bug kernel post-13.50 sin
+  parche declarado — prioridad máxima de análisis para este lab.
+- **Clasificación:** `STRUCTURAL_HIGH_PRIORITY` (bug upstream confirmado + estado
+  no-parcheado declarado por wiki; verificación en consola pendiente de terceros).
+
+## Otros bugs "untested" relevantes de psdevwiki/Bugs (2026-08)
+
+| Bug | CVE | Estado 13.52 |
+|---|---|---|
+| UaF en IPV6_MSFILTER socket option | CVE-2026-49412 | Maybe patched since 13.52 |
+| UaF via file descriptor syscalls | CVE-2026-45251 | No as of 13.50; "maybe not affected" |
+| Stack overflow via setcred(2) | CVE-2026-45250 | No as of 13.02; "maybe not affected" |
+| WebKit JSCell::toX (type confusion) | sin CVE público | Funciona 6.00–11.02; OOM 11.50–13.50; "Maybe fully on 13.52" — sin prueba en consola |
+
 ## exFAThax v2 — UVFAT_readupcasetable Roundup Overflow ❌ PATCHED EN 13.52 (reportado)
 
 - **Type:** Integer overflow → kernel heap corruption (DoS confirmado)
