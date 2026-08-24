@@ -1,3 +1,6 @@
 [submodule "third_party/ps4-payload-sdk"]
 	path = third_party/ps4-payload-sdk
 	url = https://github.com/Scene-Collective/ps4-payload-sdk.git
+[submodule "third_party/henloader_lp"]
+	path = third_party/henloader_lp
+	url = https://github.com/GoldHEN/henloader_lp.git

@@ -1,0 +1,114 @@
+{
+  "artifact_set": "GoldHEN v2.4b18 public release",
+  "provenance": {
+    "repository": "https://github.com/GoldHEN/GoldHEN",
+    "release_tag": "2.4b18",
+    "release_url": "https://github.com/GoldHEN/GoldHEN/releases/tag/2.4b18",
+    "asset_url": "https://github.com/GoldHEN/GoldHEN/releases/download/2.4b18/GoldHEN_v2.4b18.7z",
+    "author": "SiSTR0 (SiSTRo)",
+    "license_note": "Source private; binaries redistributed as published by the author.",
+    "downloaded_at": "2026-08-24T10:10:41Z",
+    "download_method": "gh release download 2.4b18 --repo GoldHEN/GoldHEN; extraction with p7zip 17.06"
+  },
+  "supported_firmware": {
+    "payload_goldhen_bin": [
+      "5.05",
+      "6.71",
+      "6.72",
+      "9.00",
+      "9.60",
+      "10.00",
+      "10.01",
+      "10.50",
+      "10.70",
+      "10.71",
+      "11.00"
+    ],
+    "henloader_lp_lapse": "9.00-12.02",
+    "henloader_lp_poops": "9.00-13.00",
+    "fw_13_52_support": false
+  },
+  "classification": {
+    "archive/GoldHEN_v2.4b18.7z": "DIRECT_BYTES_EXTERNAL_RELEASE",
+    "goldhen.bin": "DIRECT_BYTES_EXTERNAL_RELEASE",
+    "docs_and_stage2": "STRUCTURAL_REFERENCE"
+  },
+  "note": "GoldHEN is reference infrastructure for loader/payload-table comparison only. It does not validate any 13.52 kernel offset and is not evidence of a 13.52 jailbreak.",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "size": 3569,
+      "sha256": "d0f1d6d331a5f8902b45416dd5648c6960ab1e9766cc7bc1f88a578eab5349f8"
+    },
+    {
+      "path": "CHEATMENU.md",
+      "size": 1599,
+      "sha256": "79b17e44fecbe5cfc546525de00d01f8252cbf346e6ac2adc37dd90509f4cc60"
+    },
+    {
+      "path": "README.md",
+      "size": 4763,
+      "sha256": "29c71a5526e43d7395145b10ac8a414063b58321a65784c0be2b4975c719ffd3"
+    },
+    {
+      "path": "THANKS.md",
+      "size": 1393,
+      "sha256": "d76ce42932bca466e3e01a20196e0b32be72587010010639eff051170c7fd570"
+    },
+    {
+      "path": "archive/GoldHEN_v2.4b18.7z",
+      "size": 258065,
+      "sha256": "d0c84c79f65df5afc79a00c578f33ab1aa70aeb9c205f1e789895dc7d4fca38d"
+    },
+    {
+      "path": "goldhen.bin",
+      "size": 260160,
+      "sha256": "eb9fee5e9e3618c0a144a6fc6b8fc1ec7e89cf06483ad64ae7c1085efc9525a3"
+    },
+    {
+      "path": "pppnw_stage2/stage2_v1.03.7z",
+      "size": 2163,
+      "sha256": "633b2d6618b223f8f0abce77ed6fd0b8ea43b8e0b73e1a62e44c0a928c56ab03"
+    },
+    {
+      "path": "pppnw_stage2/v1.03/stage2_10.00.bin",
+      "size": 2705,
+      "sha256": "0c6a2becb46d1a81d453993bef1e04d9b4193b0bb5e59cfd2e74395169cf8130"
+    },
+    {
+      "path": "pppnw_stage2/v1.03/stage2_10.01.bin",
+      "size": 2705,
+      "sha256": "0c6a2becb46d1a81d453993bef1e04d9b4193b0bb5e59cfd2e74395169cf8130"
+    },
+    {
+      "path": "pppnw_stage2/v1.03/stage2_10.50.bin",
+      "size": 2705,
+      "sha256": "42087420e9a0b0136c32898c6b1c7fdccaaff800d483062348130519d646570c"
+    },
+    {
+      "path": "pppnw_stage2/v1.03/stage2_10.70.bin",
+      "size": 2705,
+      "sha256": "42087420e9a0b0136c32898c6b1c7fdccaaff800d483062348130519d646570c"
+    },
+    {
+      "path": "pppnw_stage2/v1.03/stage2_10.71.bin",
+      "size": 2705,
+      "sha256": "42087420e9a0b0136c32898c6b1c7fdccaaff800d483062348130519d646570c"
+    },
+    {
+      "path": "pppnw_stage2/v1.03/stage2_11.00.bin",
+      "size": 2705,
+      "sha256": "9d31c33b9296c623596c9ac452c106f1189d14670284e9970a764a51befa9973"
+    },
+    {
+      "path": "pppnw_stage2/v1.03/stage2_9.00.bin",
+      "size": 2705,
+      "sha256": "8c3317e9e8a50273912eb94db1f40d31bd59b8b1516ed031dfc31ad3f2670fa3"
+    },
+    {
+      "path": "pppnw_stage2/v1.03/stage2_9.60.bin",
+      "size": 2705,
+      "sha256": "c193b6ce106c28028635c30bdbd84514823b9dab80511ec62a828d3241fc781c"
+    }
+  ]
+}
