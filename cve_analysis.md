@@ -1,5 +1,27 @@
 # CVE Analysis for PS4 Kernel (Orbis OS / FreeBSD 9)
 
+## exFAThax v2 — UVFAT_readupcasetable Roundup Overflow ❌ PATCHED EN 13.52 (reportado)
+
+- **Type:** Integer overflow → kernel heap corruption (DoS confirmado)
+- **Component:** `UVFAT_readupcasetable` / `UVFAT_copyupcasetable` (driver exFAT del kernel)
+- **Bug:** `table_len = (data_len - 1) + blsize` con chequeo con signo `if (-blsize < data_len)`:
+  un `data_len` negativo grande hace que el roundup produzca un `table_len` menor que
+  `blsize`, que se pasa a `sceFatfsCreateHeapVl()`; el buffer pequeño se desborda al
+  rellenarlo vía `UVFAT_ReadDevice()`.
+- **Descubrimiento:** ASaudidos (reportado a Sony 2026-05-08); PoC de kernel panic por
+  CelesteBlue (2026-06-25). Documentado en psdevwiki como "FW <= 13.50 - exFAT driver
+  integer overflow leading to DOS (exFAThax v2)".
+- **Rango afectado:** 9.03–13.50 (v1, CVE-2022-3349 de TheFloW, era ≤9.00).
+- **Estado en 13.52:** **PATCHED según el propio ASaudidos** — "the new firmware adds a
+  pre-roundup overflow check before allocating the UpCase buffer". Verificación local
+  imposible sin bytes del kernel 13.52 retail (artefacto AUSENTE en este lab);
+  clasificada `PATCHED_PER_AUTHOR_REPORT/UNVERIFIED_LOCALLY`.
+- **Techo de impacto incluso sin parche:** kernel panic (DoS). Ninguna demostración
+  pública de corrupción controlada ⇒ no es vía de code execution ni de jailbreak.
+- **Primitiva BD-J relacionada (separada):** `System.getSecurityManager()==null` +
+  `sun.misc.Unsafe` = R/W arbitrario dentro del proceso BD-J (userland), sin acceso
+  kernel.
+
 ## CVE-2026-7270 — execve() Buffer Overflow ❌ DISCARDED
 
 - **Type:** Local privilege escalation
