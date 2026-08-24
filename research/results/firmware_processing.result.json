@@ -1,0 +1,41 @@
+{
+  "experiment": "firmware_processing_13.52_offline",
+  "date": "2026-08-24T19:47:09.780733+00:00",
+  "input": {
+    "file": "~/fl_pup/out/PS4SYS_13.52.rebuilt.PUP (== PS4SYS_CRC[DC9D6197], sha256 daa44e91\u2026)",
+    "provenance": "reconstrucci\u00f3n verificada desde chunks de la rama pup-byte-manifest"
+  },
+  "steps": [
+    {
+      "step": "carve inner PUPs",
+      "result": "PASS",
+      "detail": "PS4UPDATE1.PUP 326026951B sha256 fd5e6c16\u2026 \u2713; PS4UPDATE2.PUP 177282367B sha256 44cd0c0e\u2026 \u2713"
+    },
+    {
+      "step": "magic check interno",
+      "result": "PASS",
+      "detail": "4F153D1D en offset 0 de ambos"
+    },
+    {
+      "step": "PFU-PupFileUnpacker (python)",
+      "result": "PARCIAL",
+      "detail": "GUI requiere PyQt6 (no headless); core parsea magic+header b\u00e1sico; su decryption.py es naive (keys=(seed+i)%256) NO implementa derivaci\u00f3n real Sony; _analyze_file_structure es fishing O(filesize) \u2014 colgado en 326MB, adaptado fuera"
+    },
+    {
+      "step": "ps4-pup-unpacker C++ (binario NDK aarch64 del usuario)",
+      "result": "FAIL esperado",
+      "detail": "exige .pup.dec (descifrado); sobre PUP cifrado lanza InvalidOperationException al leer tabla cifrada"
+    },
+    {
+      "step": "ps4-pup_decrypt (idc)",
+      "result": "NO_EJECUTABLE_OFFLINE",
+      "detail": "payload para kernel PS4 hackeado (libPS4, base 0x926200000): descifra v\u00eda syscall del kernel en consola. Runtime = jailbreak. Pollo-huevo confirmado a nivel fuente"
+    },
+    {
+      "step": "signature scan 2\u00d7503MB",
+      "result": "sin claro",
+      "detail": "cero ELF/SCE/PNG; candidatos LZMA (18+7) = falsos positivos verificados; header interno cifrado desde 0x10"
+    }
+  ],
+  "conclusion": "Contenido interno \u00edntegramente cifrado. El descifrado exige ejecutar el payload ps4-pup_decrypt EN kernel 13.52 hackeado \u2014 mismo requisito que la investigaci\u00f3n UAF busca abrir. Clasificaci\u00f3n VERIFIED_METADATA se mantiene."
+}
