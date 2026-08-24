@@ -1,0 +1,36 @@
+{
+  "experiment": "exp01b_integrity",
+  "firmware": "13.52",
+  "date": "2026-08-24T16:28:19.087519+00:00",
+  "checks": [
+    {
+      "file": "libkernel_sys_13.52.bin",
+      "size": 479232,
+      "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+      "expected": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+      "status": "PASS"
+    },
+    {
+      "file": "lk_dump1.bin",
+      "size": 159744,
+      "sha256": "d4a9a642f85446785469750532d9353c9010ebec4373b8e9c4c06d594536da57",
+      "expected": "d4a9a642f85446785469750532d9353c9010ebec4373b8e9c4c06d594536da57",
+      "status": "PASS"
+    },
+    {
+      "file": "lk_dump2.bin",
+      "size": 159744,
+      "sha256": "e044d0e5303596df94f86190d34bee6dda8e87f9a51578d067e8d1650ca15e8d",
+      "expected": "e044d0e5303596df94f86190d34bee6dda8e87f9a51578d067e8d1650ca15e8d",
+      "status": "PASS"
+    },
+    {
+      "file": "lk_dump3.bin",
+      "size": 159744,
+      "sha256": "e31dd16ddc488851c98bc1782cfe919ece1cab2c141bd0ef7c8a9ef82fb9fdf2",
+      "expected": "e31dd16ddc488851c98bc1782cfe919ece1cab2c141bd0ef7c8a9ef82fb9fdf2",
+      "status": "PASS"
+    }
+  ],
+  "status": null
+}

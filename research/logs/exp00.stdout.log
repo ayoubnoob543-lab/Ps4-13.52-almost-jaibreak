@@ -1,0 +1,17 @@
+{
+  "experiment": "exp00_gate",
+  "firmware": "13.52",
+  "date": "2026-08-24T16:28:19.355940+00:00",
+  "matrix_files": [
+    "libkernel_sys_13.52.bin",
+    "lk_11_02.elf",
+    "lk_12_00.elf",
+    "lk_12_52.elf",
+    "lk_9_00.elf"
+  ],
+  "kqueue_uaf_path": "PASS",
+  "_note_kqueue": "wrappers presentes en libkernel de juego (9.00-12.52); consistente con UAF reproducido",
+  "semctl_via_libkernel": "FAIL",
+  "_note_semsys": "Sin wrappers SysV en NINGUNA variante de libkernel (9.00-12.52 ni libkernel_sys 13.52). PS4 bloquea syscall directo \u21d2 v\u00eda semctl muerta para procesos normales. \u00danica ruta residual: invocaci\u00f3n directa 220 desde ejecuci\u00f3n nativa JIT (cadena mast1c0re/Luac0re) SI el kernel a\u00fan implementa sysvsem \u2014 indeterminable sin bytes del kernel retail.",
+  "status": "PASS"
+}

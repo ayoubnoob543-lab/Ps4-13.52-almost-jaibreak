@@ -1,0 +1,47 @@
+{
+  "libkernel_sys_13.52.bin": {
+    "362": false,
+    "363": false,
+    "220": false,
+    "221": false,
+    "222": false,
+    "225": false,
+    "231": false
+  },
+  "lk_11_02.elf": {
+    "362": true,
+    "363": true,
+    "220": false,
+    "221": false,
+    "222": false,
+    "225": false,
+    "231": false
+  },
+  "lk_12_00.elf": {
+    "362": true,
+    "363": true,
+    "220": false,
+    "221": false,
+    "222": false,
+    "225": false,
+    "231": false
+  },
+  "lk_12_52.elf": {
+    "362": true,
+    "363": true,
+    "220": false,
+    "221": false,
+    "222": false,
+    "225": false,
+    "231": false
+  },
+  "lk_9_00.elf": {
+    "362": true,
+    "363": true,
+    "220": false,
+    "221": false,
+    "222": false,
+    "225": false,
+    "231": false
+  }
+}

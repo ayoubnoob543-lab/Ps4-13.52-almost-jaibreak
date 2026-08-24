@@ -1,0 +1,50 @@
+{
+  "experiment": "exp01a_static_stubs",
+  "firmware": "13.52",
+  "blob": "libkernel_sys_13.52.bin",
+  "date": "2026-08-24T16:28:19.228273+00:00",
+  "total_stub_sites": 212,
+  "distinct_syscalls": 210,
+  "sanity_known_present": {
+    "mmap": true,
+    "read": true
+  },
+  "gate": {
+    "kqueue": {
+      "num": 362,
+      "present": false,
+      "offsets": []
+    },
+    "kevent": {
+      "num": 363,
+      "present": false,
+      "offsets": []
+    },
+    "__semctl": {
+      "num": 220,
+      "present": false,
+      "offsets": []
+    },
+    "semget": {
+      "num": 221,
+      "present": false,
+      "offsets": []
+    },
+    "semop": {
+      "num": 222,
+      "present": false,
+      "offsets": []
+    },
+    "msgget": {
+      "num": 225,
+      "present": false,
+      "offsets": []
+    },
+    "shmget": {
+      "num": 231,
+      "present": false,
+      "offsets": []
+    }
+  },
+  "status": "PASS"
+}

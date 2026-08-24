@@ -1,0 +1,1 @@
+STOP: sin hardware PS4 disponible. Experimentos exp10/exp20/exp21 quedan en REQUIRES_HARDWARE.
