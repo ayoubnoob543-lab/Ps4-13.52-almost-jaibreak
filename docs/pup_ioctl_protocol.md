@@ -233,3 +233,32 @@ bajo clave **estática por firmware** ⇒ la brecha de descifrado es UNA sola cl
 no el SAMU por operación. Transcripción completa y tabla de índices ID→componente:
 `analysis/sources/psdevwiki/PUP_format_snapshot.md` · hallazgos en
 `research/results/offline_scan.json`.
+
+---
+
+## ✅ VALIDACIÓN END-TO-END OFFLINE DEL PIPELINE (2026-08-24, ronda final)
+
+**Herramienta nueva**: `tools/pupdec_unpack.py` (desempaquetador .dec offline)
++ `tools/pupdec_validate_log.py` (validador contra log real de consola).
+
+**Validación maestra**: reconstrucción sintética del contenedor a partir del log
+REAL de consola (`analysis/sources/unpup4.log1`, masterzorag — FW antiguo,
+UPDATE1 de 206 MB, 32 entradas) ⇒ el parser regeneró **33/33 comandos dd
+idénticos** (skip/count exactos), incluida la tabla hash.bin separada
+(headerSize=1632, hashSize=2816, entryCount=32).
+
+**Reglas empíricamente confirmadas por el log**:
+- Entradas de 32 B: `{u32 flags; u32 pad; u64 offset_abs; u64 csize; u64 usize}`
+- Compresión zlib cuando `flags&8` (coincide 100% con los `openssl zlib -d` del
+  log); csize<usize ⇒ inflate.
+- Tabla hash independiente tras headerSize.
+
+**Capa AES128 implementada y probada**: roundtrip CBC 9728 B OK (clave
+sintética marcada como PRUEBA — no es material Sony). Lista para consumir las
+keys/IVs de una metadata real cuando exista el primer .dec de 13.52.
+
+## Conclusión operativa final
+Todo lo posterior al primer plaintext (.dec) está implementado y validado
+offline. La única pieza que exige consola sigue siendo producir ese .dec una
+vez (kernel-exec → payload ioctl). Tras ello, Termux extrae kernel retail,
+secure_modules y system_fs completo sin depender de la PS4.
