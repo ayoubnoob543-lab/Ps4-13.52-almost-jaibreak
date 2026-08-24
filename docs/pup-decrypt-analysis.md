@@ -110,3 +110,41 @@ La investigación UAF kqueue/knote es, hoy, el único camino público conocido
 hacia ella. Al conseguirla, `ps4-pup_decrypt` adaptado (mismo flujo, mismo PUP
 ya tallado y verificado) cerraría el círculo: kernel retail dump → offsets
 13.52 verificables → objetivos del lab.
+
+---
+
+## BARRIDO EXHAUSTIVO DE ALTERNATIVAS (2026-08-24 tarde)
+
+Búsqueda en GitHub/X/wiki de CUALQUIER implementación que descifre PUP sin
+`/dev/pup_update0`. Resultado completo:
+
+| Herramienta | Plataforma | Mecanismo | ¿Offline? |
+|---|---|---|---|
+| idc/ps4-pup_decrypt (+ forks Creeeeger, andy-man, Scene-Collective, dcac8, vvsx87) | PS4 | ioctl /dev/pup_update0 desde modo kernel | ❌ |
+| PSTools/ps4_unjail | PS4 | variante del mismo payload (unjail primero) | ❌ |
+| zecoxao/ps5-pup-decrypt(-elf) | PS5 | mismo dispositivo, opcodes PS5 | ❌ |
+| **fail0verflow/prosperous** (`pup_decrypt.lua`) | **PS5** | Lua sobre exploit kernel; MISMOS `/dev/pup_update0` con opcodes desplazados (0xC0104401..06); syscalls vía primitivas kernel.lua | ❌ |
+| PFU / pup-py3 / Dextura unpacker | PC | parseo heurístico/post-descifrado | ⚠️ sin descifrado |
+
+**Conclusión del barrido:** las DOS plataformas (PS4 y PS5) resuelven el
+descifrado exactamente igual — delegando al dispositivo del kernel — y ambas
+necesitan ejecución privilegiada previa. No existe decryptor offline público
+porque las claves viven en el SBL/kernel y jamás se han publicado para 13.xx.
+
+## La pieza que falta, formulada con precisión final
+
+```text
+Componente ausente: acceso efectivo a /dev/pup_update0 (o equivalente funcional)
+  ├── Vía clásica: ejecución kernel (payload idc)      ← requiere cerrar UAF→R/W
+  ├── Vía PS5-style: kernel R/W + ioctl desde Lua      ← ídem
+  └── Vía extracción de claves: dump kernel 13.52      ← REQUIRES_KERNEL_DUMP
+```
+
+Alternativa teórica restante: si algún día aparece un dump de kernel 13.52,
+las claves del update-manager podrían extraerse estáticamente y escribirse un
+decryptor Termux real. Ese dump es EL mismo artefacto AUSENTE que persigue el
+lab desde el día uno — ahora con TRES motivos para perseguirlo.
+
+Cadena completa cuando exista R/W kernel:
+UAF → R/W → abrir pup_update0 (o extraer claves) → descifrar PUP 13.52
+→ kernel retail dump verificable → offsets 13.52 → objetivos del lab cerrados.
