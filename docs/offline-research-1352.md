@@ -82,3 +82,10 @@ Hechos verificados en `kern_event_f91.c`:
 - [REQUIRES_HARDWARE] ¿rtsock accesible desde sandbox 13.52?
 - [IMPOSIBLE_SIN_BYTES_RETAIL] offsets absolutos del kernel, KASLR base,
   verificación de parches Sony 13.52.
+
+
+## ADENDA FINAL (2026-08-24 tarde): formato interno PUP documentado + composición identificada
+- Formato completo público en psdevwiki/PUP: metadata entries 0x50B con AES128 key+IV+HMAC por segmento, cifrados bajo clave estática por-FW en la cabecera.
+- Nuestro PUP 13.52 contiene (por IDs psdevwiki + mapa C++): secure_modules(5), SYSTEM fs(6) — kernel retail dentro— , EAP(7/8), PREINST(9), SYSTEM_EX(12), orbis_swu.self(512/514), SECURE LOADER per-console, SYSCON…
+- Entropía 100% medida en ambos PUPs internos ⇒ sin huecos en claro.
+- Detalles: research/results/offline_scan.json · analysis/sources/psdevwiki/PUP_format_snapshot.md

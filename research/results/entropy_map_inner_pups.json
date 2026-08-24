@@ -1,0 +1,26 @@
+{
+ "PS4UPDATE1.PUP": {
+  "size": 326026951,
+  "total_regions": 1,
+  "significant": [
+   {
+    "cls": "ENC/HIGH",
+    "start": 0,
+    "end": 326026951,
+    "bytes": 326026951
+   }
+  ]
+ },
+ "PS4UPDATE2.PUP": {
+  "size": 177282367,
+  "total_regions": 1,
+  "significant": [
+   {
+    "cls": "ENC/HIGH",
+    "start": 0,
+    "end": 177282367,
+    "bytes": 177282367
+   }
+  ]
+ }
+}

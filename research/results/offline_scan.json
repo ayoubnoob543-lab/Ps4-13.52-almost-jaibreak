@@ -1,0 +1,70 @@
+{
+  "experiment": "offline_scan_1352_full",
+  "date": "2026-08-24T23:03:57.881113+00:00",
+  "new_findings": [
+    {
+      "claim": "El formato interno del PUP 13.52 est\u00e1 documentado p\u00fablicamente (psdevwiki/PUP, ed. 2026-06-28): ScePupHeader 0x20 (claro 0x00-0x0F, cifrado 0x10+), ScePupSegmentHeader 32B, ScePupMetadataEntry 0x50 con AES128 key+IV+HMAC-SHA256 digest+key POR SEGMENTO",
+      "evidence": "transcripci\u00f3n estructural en analysis/sources/psdevwiki/PUP_format_snapshot.md",
+      "source": "psdevwiki.com/ps4/PUP",
+      "fw": "gen\u00e9rico PS4 (aplica a 13.52)",
+      "confidence": "ALTA (wiki oficial)",
+      "affects": "redefine la brecha de descifrado: NO hace falta SAMU por segmento; basta la clave que descifra la cabecera (est\u00e1tica por FW) para obtener todas las AES128/IVs y descifrar offline",
+      "does_NOT_demonstrate": "posesi\u00f3n de esa clave; valores reales de metadata"
+    },
+    {
+      "claim": "Las entradas del PUP interno mapean a componentes concretos: ID5=COREOS/secure_modules, ID6=SYSTEM fs, ID7=EAP KERNEL, ID9=PREINST, ID12=SYSTEM_EX, ID512/514=orbis_swu.self, SECURE LOADER por SOCUID (4/45/49/50) a sflash0s1.cryptx2b (per-console), SYSCON 3328\u2026",
+      "evidence": "tabla Indices psdevwiki + mapa C++ Zer0xFF/unpacker (m_fileNames/m_deviceNames) \u2014 coinciden entre s\u00ed",
+      "source": "psdevwiki PUP Indices + ps4-pup-unpacker/PUP.cpp",
+      "fw": "9.00\u201312.52 verificado en dumps locales; estructura aplica a 13.52",
+      "confidence": "ALTA",
+      "affects": "identifica EXACTAMENTE qu\u00e9 archivos contiene nuestro PUP 13.52 cifrado",
+      "does_NOT_demonstrate": "contenido descifrado"
+    },
+    {
+      "claim": "Los PUP internos 13.52 son 100% alta entrop\u00eda (cifrado total) sin islas en claro: escaneo 64KB-window sobre 326MB+177MB = 1 sola regi\u00f3n ENC cada uno",
+      "evidence": "research/results/entropy_map_inner_pups.json",
+      "source": "medici\u00f3n local",
+      "fw": "13.52",
+      "confidence": "ALTA (medido)",
+      "affects": "cierra la posibilidad de entradas sin cifrar o gaps aprovechables offline",
+      "does_NOT_demonstrate": "nada sobre claves"
+    },
+    {
+      "claim": "Codificaci\u00f3n formal ioctl: _IOWR tipo 'D'(0x44): PS4 nr1..5 sizes 24/24/24/24/40B; PS5 nr1 size16 (verify BLS dedicado), nr2..6 desplazados",
+      "evidence": "decodificaci\u00f3n aritm\u00e9tica de opcodes capturados + prosperous/zecoxao",
+      "source": "c\u00f3digo local + prosperous",
+      "fw": "ambas plataformas",
+      "confidence": "ALTA",
+      "affects": "valida structs 24/40B capturados",
+      "does_NOT_demonstrate": "sem\u00e1ntica kernel interna"
+    },
+    {
+      "claim": "ps4-wee-tools expone manipulaci\u00f3n de 'SAMU boot flag' desde consola hackeada",
+      "evidence": "cadenas i18n STR_SAMU_BOOT/UPD/INPUT en repo local",
+      "source": "ps4-wee-tools/lang/en.py",
+      "fw": "PS4 (herramienta on-console)",
+      "confidence": "MEDIA (sin analizar payload subyacente)",
+      "affects": "documenta superficie de interacci\u00f3n SAMU alcanzable post-exploit",
+      "does_NOT_demonstrate": "extracci\u00f3n de claves"
+    }
+  ],
+  "hypotheses_resolved": [
+    "Formato interno documentado p\u00fablicamente (antes: desconocido)",
+    "Composici\u00f3n real del PUP 13.52 identificada por IDs"
+  ],
+  "hypotheses_refuted": [
+    "Posibilidad de huecos sin cifrar en PUPs internos (emp\u00edricamente 100% ENC)"
+  ],
+  "still_unknown": [
+    "clave que cifra la cabecera interna 13.52 (REQUIRES console/kernel-exec una vez, luego est\u00e1tica y compartible)",
+    "tabla de segmentos real",
+    "contenido de system_fs_image (kernel retail dentro)"
+  ],
+  "files_modified": [
+    "docs/pup_ioctl_protocol.md",
+    "docs/offline-research-1352.md",
+    "analysis/sources/psdevwiki/PUP_format_snapshot.md",
+    "research/results/offline_scan.json",
+    "research/results/entropy_map_inner_pups.json"
+  ]
+}

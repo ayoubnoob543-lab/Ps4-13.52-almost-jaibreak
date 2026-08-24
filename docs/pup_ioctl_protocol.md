@@ -222,3 +222,14 @@ de base pública conocida y debería tratarse como sospechosa.
   real SOLO obtenible en consola con kernel exploit activo.
 - Backend: SAMU/HSM — fuera de alcance por diseño de Sony; documentado como
   REQUIRES_PS4_KERNEL permanentemente.
+
+
+## ACTUALIZACIÓN CRÍTICA (ronda final offline): formato interno documentado públicamente
+
+psdevwiki/PUP (ed. 2026-06-28) documenta el formato que estábamos reconstruyendo
+a ciegas: **ScePupMetadataEntry (0x50 B) contiene AES128 key+IV+HMAC digest+key
+POR SEGMENTO**, dentro de la región cifrada de la cabecera. La cabecera se cifra
+bajo clave **estática por firmware** ⇒ la brecha de descifrado es UNA sola clave,
+no el SAMU por operación. Transcripción completa y tabla de índices ID→componente:
+`analysis/sources/psdevwiki/PUP_format_snapshot.md` · hallazgos en
+`research/results/offline_scan.json`.
