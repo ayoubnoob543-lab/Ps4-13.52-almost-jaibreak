@@ -46,3 +46,4 @@ __pycache__/
 /original_names.txt
 /original_pairs.txt
 /original_values.txt
+research/experiments/exp30_ioctl_mock/*.PUP.dec
