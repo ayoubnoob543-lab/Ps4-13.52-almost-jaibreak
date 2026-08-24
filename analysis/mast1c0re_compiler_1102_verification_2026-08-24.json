@@ -1,0 +1,69 @@
+{
+  "verification": "Static verification of ps2-emu-compiler.self (11.02) claims from Suchi96 mast1c0re-13_52-test research",
+  "date": "2026-08-24T12:10:02Z",
+  "artifact": {
+    "source": "Suchi96/ps411_02stuff @ HEAD",
+    "path": "ps2-emu-compiler.self",
+    "size": 2055140,
+    "sha256": "e365484131c067952f9ccc5d1576a236e4ff32c7d30dfa3da042e5db3805c486",
+    "format": "ELF64 x86-64 FreeBSD (plain, magic at 0)"
+  },
+  "claims_checked": [
+    {
+      "claim": "size 2055140",
+      "result": "EXACT MATCH"
+    },
+    {
+      "claim": "Text LOAD off=0x4000 va=0 size=0x1E4BF4 RX",
+      "result": "EXACT MATCH (phdr[0]: flags=5)"
+    },
+    {
+      "claim": "Data va=0x1EC000 off=0x1F0000 filesz=0x1B0",
+      "result": "EXACT MATCH (phdr[1])"
+    },
+    {
+      "claim": "BSS ends 0x1F2820 (memsz)",
+      "result": "EXACT MATCH (0x1EC000+0x6820)"
+    },
+    {
+      "claim": "add r13,0x9CED90 sequence present",
+      "result": "FOUND @0x7758 (unique occurrence)"
+    },
+    {
+      "claim": "store ptrWithinBridgeRegion -> BSS 0x1F2810",
+      "result": "RIP-rel store @file 0x75C6 resolves to va 0x1F2810"
+    },
+    {
+      "claim": "store anotherBridgePtr -> GOT/BSS 0x1F2818",
+      "result": "RIP-rel store @file 0x78C4 resolves to va 0x1F2818"
+    },
+    {
+      "claim": "Vuln3 AVX write vmovdqa [rbx+rax+0x40a0],xmm0 near 0x1C3410",
+      "result": "bytes c5f97f8403a0400000 FOUND @0x1C3459 (= func start +0x49)"
+    }
+  ],
+  "discrepancies": [
+    {
+      "doc_row": "RO segment va=0x1E8000 off=0x1EC000 size=0x1730",
+      "note": "ELF has only 2 PT_LOADs; described RO range does not map cleanly to any phdr. Likely documentation imprecision; all other values exact."
+    }
+  ],
+  "cross_version_libkernel_dumps": {
+    "note": "Same author publishes ELF libkernel_sys.sprx per FW; canonical read-stub bytes located; raw 13.52 dump holds it at 0x1710 matching OFF_READ_STB claim",
+    "hashes": {
+      "lk_9_00.bin": "ec60f91940ce8e0babe4cecadec62d65da38fcc31fbbe648543943e621565ea4",
+      "lk_11_02.bin": "523680545f1e78987f2f9759ef0c8c6deeb9f4f76cc05a602d1b1bdbac5ebe07",
+      "lk_12_00.bin": "18799125486f880047df9c6bff13d1df8e7d563b2fb23eafe88112ad966a4efd",
+      "lk_12_52.bin": "1b6db7bdebc9d984438e56ef822da5f3a2e163b17b0c0ebfd9d193a40017a390"
+    },
+    "read_stub_file_offset": {
+      "9_00": "0x7300",
+      "11_02": "0x7340",
+      "12_00": "0x7340",
+      "12_52": "0x7340",
+      "13_52_raw_dump": "0x1710"
+    }
+  },
+  "classification": "VERIFIED_STATIC_CLAIMS",
+  "note": "Every statically checkable claim about the compiler binary verified byte-exact. Runtime/hardware behavior statements remain author-reported."
+}
