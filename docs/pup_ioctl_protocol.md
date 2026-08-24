@@ -162,3 +162,63 @@ AMD) con key-slots → retorno in-place`.
 - Tabla de segmentos verdadera del 13.52.
 - Cualquier afirmación sobre claves: prohibido especular; modelo dice
   "never x86-visible" como hipótesis principal.
+
+---
+
+## RESPUESTAS DE CADA IOCTL Y PAPEL DE SAMU (investigación pública, 2026-08-24)
+
+### Qué responde cada ioctl (deducido de código + comportamiento documentado)
+
+No existe estructura de respuesta independiente: **la "respuesta" ES el buffer
+de entrada modificado in-place** (descifrado/verificado) + valor de retorno
+entero. Evidencia: `decrypt.c` escribe `buffer` al fichero de salida DESPUÉS del
+ioctl sin transformar nada más (`fwrite(buffer, unencrypted_size, …)`).
+
+| ioctl | Éxito | Modificación del buffer | Fallo |
+|---|---|---|---|
+| DECRYPT_HDR 0xC0184401 | 0 | cabecera interna descifrada in-place (tabla de segmentos pasa a claro) | −errno (p.ej. versión < instalada, product-code distinto — README idc) |
+| VERIFY_SEG_ADD 02 | 0 | sin cambios (verificación) | −errno |
+| VERIFY_SEG 03 | 0 | sin cambios | −errno |
+| DECRYPT_SEG 04 | 0 | segmento descifrado (y descomprimido si flag 0x8) in-place | −errno |
+| DECRYPT_SEG_BLK 05 | 0 | bloque descifrado usando tabla ya en clara | −errno |
+
+Errores documentados por idc: el kernel rechaza updates más antiguos que el FW
+instalado y de product-codes distintos (retail no descifra test/debug).
+
+### Qué hace exactamente SAMU
+
+Fuentes: psdevwiki («AMD SAMU — Secure Asset/Access Management Unit,
+procesador separado que gestiona las tareas de cifrado/descifrado del PS4»),
+CTurt («podemos interactuar para descifrar casi todo, pero es imposible extraer
+claves para descifrar externamente»), marcan 2013, modelo RuxaXa.
+
+```text
+ioctl userland → driver pup_update0 (x86 kernel)
+   → SceSblUpdateMgr / capa SBL
+      → mailbox seguro hacia SAMU (ARM TrustZone-ish, HSM físico)
+         · recupera key-slot apropiado (nunca expuesto)
+         · ejecuta AES dentro del procesador seguro
+         · devuelve plaintext al buffer x86
+```
+
+- Las claves viven en key-slots de SAMU: **never x86-visible** (hipótesis
+  principal de la escena desde marcan 2013; nunca refutada).
+- Consecuencia arquitectónica: ni un dump completo del kernel x86 13.52 permite
+  construir un decryptor offline; el descifrado SIEMPRE requiere la consola
+  (o replicar el protocolo de mailbox del SAMU, desconocido públicamente).
+
+### ¿Backend/emulador público adaptable?
+
+Barrido exhaustivo (GitHub/X/wiki/foros): **NO EXISTE**. Lo más cercano:
+- payload idc + forks (consola obligatoria);
+- prosperous PS5 (mismo diseño, otra plataforma);
+- modelos de investigación (RuxaXa) que describen la interfaz pero sin backend.
+Cualquier herramienta que anuncie "descifrar PUP PS4 en PC" sin consola carece
+de base pública conocida y debería tratarse como sospechosa.
+
+## Estado final de la investigación de protocolo
+- Formato de peticiones: COMPLETO (capturado byte-exacto, validado contra código).
+- Formato de respuestas: definido operativamente (in-place + retval); contenido
+  real SOLO obtenible en consola con kernel exploit activo.
+- Backend: SAMU/HSM — fuera de alcance por diseño de Sony; documentado como
+  REQUIRES_PS4_KERNEL permanentemente.

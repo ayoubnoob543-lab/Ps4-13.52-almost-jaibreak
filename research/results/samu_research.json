@@ -1,0 +1,13 @@
+{
+  "topic": "SAMU role in PUP decryption",
+  "date": "2026-08-24T22:42:01.450563+00:00",
+  "sources": [
+    "psdevwiki.com/ps4/AMD_SAMU (Secure Asset/Access Management Unit \u2014 encryption/decryption tasks)",
+    "cturt.github.io/ps4-3.html (keys never extractable; interaction possible)",
+    "nextgenupdate SAMU thread (HSM by AMD; spoofing/passphrase/index.dat inside)",
+    "RuxaXa/ps4-research pup-update0-samu-model.md (mailbox\u2192SAMU key-slots model)",
+    "idc RETAIL.md (updates decrypted on 1.76 retail console)"
+  ],
+  "conclusion": "Decryption requires console-side interaction with SAMU. No offline backend exists publicly. Keys never leave SAMU.",
+  "classification": "ARCHITECTURE_CONFIRMED_PUBLIC_SOURCES"
+}
