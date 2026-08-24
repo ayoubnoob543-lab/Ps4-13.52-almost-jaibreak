@@ -1,0 +1,79 @@
+{
+  "verification": "Static corroboration of live-measured libkernel_sys.sprx 13.52 offsets (Suchi96 mast1c0re-13_52-test research doc)",
+  "date": "2026-08-24T11:57:23Z",
+  "target_blob": {
+    "path": "libkernel_sys_13.52.bin",
+    "size": 479232,
+    "sha256": "ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c",
+    "provenance": "dual-anchored (local corpus + Suchi96/PS4_13_52_libkerneldump@930e3af2)"
+  },
+  "source_claim": {
+    "repo": "Suchi96/mast1c0re-13_52-test",
+    "artifact": "mast1c0re_13.52_research.docx",
+    "claim_type": "offsets measured live on retail 13.52 hardware via GOT_USLEEP anchor",
+    "entry_vector": "Okage PS2 save exploit (mast1c0re), Vuln 1+3 confirmed working per author"
+  },
+  "disassembler": "capstone x86-64",
+  "per_offset_findings": [
+    {
+      "claim": "USLEEP_OFF",
+      "off": "0x13b20",
+      "found": "nop-pad(7)->push rbp; mov rbp,rsp; push r14; push rbx; sub rsp,0x30",
+      "verdict": "function boundary confirmed"
+    },
+    {
+      "claim": "OFF_OPEN",
+      "off": "0x148d0",
+      "found": "nop-pad(9)->push rbp.. xor eax,eax; call 0xcc90; test",
+      "verdict": "wrapper boundary confirmed"
+    },
+    {
+      "claim": "OFF_CLOSE",
+      "off": "0x14900",
+      "found": "nop-pad(11)->push rbp.. call 0xc910; js",
+      "verdict": "wrapper boundary confirmed"
+    },
+    {
+      "claim": "OFF_WRITE",
+      "off": "0x148a0",
+      "found": "nop-pad(9)->push rbp.. call 0xd550; js",
+      "verdict": "wrapper boundary confirmed"
+    },
+    {
+      "claim": "OFF_READ_STB",
+      "off": "0x001710",
+      "found": "nop-pad(8)->mov rax,3; mov r10,rcx; syscall; jb; ret",
+      "verdict": "DIRECT: syscall 3 = read; canonical stub encoding"
+    },
+    {
+      "claim": "OFF_PREAD",
+      "off": "0x015460",
+      "found": "nop-pad(9)->push rbp.. call 0x114f0; js",
+      "verdict": "wrapper boundary confirmed"
+    },
+    {
+      "claim": "OFF_NOTIFY",
+      "off": "0x019320",
+      "found": "nop-pad(14)->push rbp; r15; r14; r12",
+      "verdict": "function boundary confirmed"
+    },
+    {
+      "claim": "OFF_MMAP_STB",
+      "off": "0x0018D0",
+      "found": "nop-pad(8)->mov rax,0x1dd; mov r10,rcx; syscall; jb; ret",
+      "verdict": "DIRECT: syscall 0x1dd(477) = mmap; canonical stub encoding"
+    }
+  ],
+  "stub_anatomy_reference": {
+    "at": "0x16f0",
+    "bytes": "48 c7 c0 0a 02 00 00 49 89 ca 0f 05 72 01 c3",
+    "decoded": "mov rax,0x20a; mov r10,rcx; syscall; jb +1; ret"
+  },
+  "score": "8/8 claimed offsets land exactly on function boundaries with semantics consistent with their names (read=3, mmap=477)",
+  "classification_upgrade": {
+    "before": "live-measured claims from external research doc (UNVERIFIED)",
+    "after": "STRUCTURAL_CORROBORATED_DIRECT_BYTES_CONSISTENT: offsets verified against dual-anchored local blob",
+    "caveat": "Corroborates libkernel userland module layout only; does not provide kernel retail bytes nor validate kernel offsets"
+  },
+  "entry_vector_note": "If the mast1c0re Okage chain works as documented, 13.52 gains a plausible userland entry path; kernel exploit still required for full jailbreak per same document."
+}

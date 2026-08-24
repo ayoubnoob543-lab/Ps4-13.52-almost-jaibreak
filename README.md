@@ -48,6 +48,8 @@ El primer porcentaje mide la infraestructura y migración estática ya preparada
 - El gist de [`hasyimy-ctrl`][32] sobre CVE-2026-3038 contiene un único `rtsock_exploit.c` de 1.974 bytes, SHA-256 `a0bf7271b62dd009b862ee68e94c3f23b236e232b72e677649687490de186de2`, y afirma aplicar el bug al kernel PS4 13.52. El advisory firmado de [FreeBSD][33] y [NVD][34] confirma la vulnerabilidad upstream en FreeBSD y su mitigación por canario, pero no menciona Orbis ni PS4. La aplicación a 13.52 queda `UNVERIFIED`; el archivo sólo tiene metadata verificable de su gist.
 - Un adjunto público del issue [`ps4-linux-payloads-archive #5`][25] contiene `11.02/kernel.bin`: 44.040.192 bytes, ELF64 FreeBSD x86-64 sin section headers, SHA-256 `451f87357637beedc92fe822fc5942f86e12231a53fa8dfd81c24433093408d4`. Es `DIRECT_BYTES` sólo para un kernel histórico 11.02; aporta validación del pipeline de ELF program headers y comparación estructural, pero no confirma ningún offset de 13.52. Los metadatos y scans están en `analysis/github_downloaded_artifacts_13.52.json`.
 
+- **Vía de entrada candidata 13.52 corroborada (2026-08-24)**: el documento de investigación de [`Suchi96/mast1c0re-13_52-test`][36] afirma haber portado la cadena mast1c0re (Okage PS2 save) a 13.52 retail, con offsets de `libkernel_sys.sprx` medidos en vivo. La verificación estática local desensambló los 8 offsets reclamados sobre el blob dual-anclado (`ef15204f…`) y **los 8 caen exactamente en fronteras de función** con semántica coherente (`READ_STB@0x1710` = stub syscall 3 *read*; `MMAP_STB@0x18d0` = stub syscall 477 *mmap*). Clasificación sube a `STRUCTURAL_CORROBORATED`: layout de libkernel userland confirmado por segunda vía; no aporta bytes de kernel ni valida offsets de kernel. Detalle: [`analysis/mast1c0re_1352_offset_corroboration_2026-08-24.json`](analysis/mast1c0re_1352_offset_corroboration_2026-08-24.json).
+
 ## Lo que falta
 
 1. Obtener un dump de kernel retail 13.52 con bytes, SHA-256, tamaño, build string y base de imagen.
@@ -226,6 +228,7 @@ Este proyecto está **en investigación activa**. Tiene una base técnica organi
 [33]: https://security.freebsd.org/advisories/FreeBSD-SA-26:05.route.asc
 [34]: https://nvd.nist.gov/vuln/detail/CVE-2026-3038
 [35]: https://github.com/Suchi96/PS4_13_52_libkerneldump/tree/930e3af24294ebe405920de2b0cdfaddd4acb4e7 "Suchi96/PS4_13_52_libkerneldump — ancla externa de procedencia del dump libkernel"
+[36]: https://github.com/Suchi96/mast1c0re-13_52-test "Suchi96/mast1c0re-13_52-test — notas de investigación mast1c0re en 13.52 retail"
 [5]: https://github.com/Scene-Collective/ps4-kernel-dumper "PS4 kernel dumper"
 [6]: https://www.psdevwiki.com/ps4/COREDMP "PS4 Developer Wiki — COREDMP/NXDP"
 [7]: https://github.com/kmeps4/PSFree/tree/368d82aa40d3017c220757ce315761adb5f06678 "PSFree — audited commit"
