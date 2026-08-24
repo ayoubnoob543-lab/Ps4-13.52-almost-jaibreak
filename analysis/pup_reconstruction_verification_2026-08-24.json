@@ -1,0 +1,71 @@
+{
+  "verification_event": "PUP chunk-to-image reconstruction and static container validation",
+  "date": "2026-08-24T11:43:43Z",
+  "method": {
+    "source_branch": "origin/pup-byte-manifest-1350-1352",
+    "chunks_extracted_via": "git show per part (52 files, 20 MB each)",
+    "reconstruction_tool": "webkit-kit/tools/reconstruct_pup_parts.py @ that branch",
+    "container_parser": "tools/parse_slb2_static.py @ main",
+    "static_only": true,
+    "decryption_performed": false
+  },
+  "images": [
+    {
+      "firmware": "13.50",
+      "parts": 26,
+      "size": 503293952,
+      "sha256_reconstructed": "04585405bf3ad0836103c1eea5c21657327a377824ad5cda7674ecb94f03822f",
+      "sha256_matches_byte_manifest": true,
+      "per_part_verification": true
+    },
+    {
+      "firmware": "13.52",
+      "parts": 26,
+      "size": 503310848,
+      "sha256_reconstructed": "daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11",
+      "sha256_matches_documented_sony_cdn_download": true,
+      "per_part_verification": true,
+      "slb2_container": {
+        "path": "/data/data/com.termux/files/home/fl_pup/out/PS4SYS_13.52.rebuilt.PUP",
+        "size": 503310848,
+        "sha256": "daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11",
+        "format": "SLB2 outer PUP container",
+        "magic": "SLB2",
+        "version": 2,
+        "flags": 0,
+        "entry_count": 2,
+        "size_in_sectors": 983029,
+        "declared_container_bytes": 503310848,
+        "container_size_matches_declared_sectors": true,
+        "decryption_performed": false,
+        "entries": [
+          {
+            "index": 0,
+            "name": "PS4UPDATE1.PUP",
+            "start_sector": 2,
+            "offset": 1024,
+            "size": 326026951,
+            "end_exclusive": 326027975,
+            "within_container": true,
+            "sha256": "fd5e6c16398e628b3f258bce5f395c9fda687011a1a985d4b507928f54e6b580",
+            "classification": "VERIFIED_METADATA"
+          },
+          {
+            "index": 1,
+            "name": "PS4UPDATE2.PUP",
+            "start_sector": 636774,
+            "offset": 326028288,
+            "size": 177282367,
+            "end_exclusive": 503310655,
+            "within_container": true,
+            "sha256": "44cd0c0e85b5912150112df99867357c3822a90f366198d11e2ec4c1e10adee7",
+            "classification": "VERIFIED_METADATA"
+          }
+        ],
+        "classification": "VERIFIED_METADATA"
+      }
+    }
+  ],
+  "classification": "VERIFIED_METADATA",
+  "note": "Reconstruction proves chunk-set integrity and end-to-end provenance to the official Sony image. Inner modules remain encrypted; this validates metadata and container structure only."
+}
