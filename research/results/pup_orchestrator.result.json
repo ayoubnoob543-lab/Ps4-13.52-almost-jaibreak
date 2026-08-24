@@ -1,0 +1,46 @@
+{
+  "input": "/data/data/com.termux/files/home/fl_pup/out/PS4SYS_13.52.rebuilt.PUP",
+  "size": 503310848,
+  "date": "2026-08-24T19:57:10.505542+00:00",
+  "device": "/dev/pup_update0",
+  "outer_entries": [
+    {
+      "name": "PS4UPDATE1.PUP",
+      "block_offset": 2,
+      "size": 326026951,
+      "byte_offset": 1024
+    },
+    {
+      "name": "PS4UPDATE2.PUP",
+      "block_offset": 636774,
+      "size": 177282367,
+      "byte_offset": 326028288
+    }
+  ],
+  "inner": [
+    {
+      "base_offset": 1024,
+      "flags": 0,
+      "plaintext_header_bytes": 16,
+      "encrypted_header_region": {
+        "offset": 1040,
+        "size": 4816
+      },
+      "segments": [],
+      "header_decrypt": "ioctl 0xC0184401 sobre /dev/pup_update0: REQUIERE_KERNEL_ORBIS (descifrado AES/claves residen en SceSblUpdateMgr del kernel)",
+      "segment_enumeration": "BLOCKED: requiere header descifrado"
+    },
+    {
+      "base_offset": 326028288,
+      "flags": 0,
+      "plaintext_header_bytes": 16,
+      "encrypted_header_region": {
+        "offset": 326028304,
+        "size": 1232
+      },
+      "segments": [],
+      "header_decrypt": "ioctl 0xC0184401 sobre /dev/pup_update0: REQUIERE_KERNEL_ORBIS (descifrado AES/claves residen en SceSblUpdateMgr del kernel)",
+      "segment_enumeration": "BLOCKED: requiere header descifrado"
+    }
+  ]
+}
