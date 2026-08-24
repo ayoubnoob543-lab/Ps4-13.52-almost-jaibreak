@@ -127,3 +127,10 @@ Exp0 (gate) → 1c mapa de heap → 1a/1b leak hunt con churn → 1d rtsock prob
 
 Regla del lab: cada paso se documenta con errnos, bytes crudos y traces; nada entra
 al README sin evidencia asociada.
+
+### 2d. 🆕 Marker-reclaim vía kqueue_scan (añadida 2026-08-24, offline)
+F9.1 `kqueue_scan()` aloca un MARKER desde `knote_zone` en cada kevent()
+(`marker = knote_alloc(1)`), inicializando SOLO `kn_status=KN_MARKER`.
+Kevent() bloqueados/concurrentes = primitiva de reclaim intra-zona SIN
+reinicialización de kn_fop/kn_hook ⇒ habilita ghost-read y doble-procesamiento
+sobre el contenido residual de K1. Ver `docs/offline-research-1352.md` §B.
