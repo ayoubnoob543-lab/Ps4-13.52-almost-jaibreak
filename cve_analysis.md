@@ -12,6 +12,16 @@
   CelesteBlue (2026-06-25). Documentado en psdevwiki como "FW <= 13.50 - exFAT driver
   integer overflow leading to DOS (exFAThax v2)".
 - **Rango afectado:** 9.03–13.50 (v1, CVE-2022-3349 de TheFloW, era ≤9.00).
+- **Mecánica exacta con los valores canónicos (`blsize=0x200`, `data_len=-1`):**
+  ```text
+  table_len = (u64)(-2) + 0x200            = 0x1FE        ← wraparound del SUMANDO
+  table_len -= 0x1FE % 0x200 (=0x1FE)      = 0            ← asignación tamaño 0
+  chequeo con signo: -0x200 < -1           = TRUE         ← pasa (ventana (-blsize, 0))
+  sceFatfsCreateHeapVl(…, 0) → UVFAT_ReadDevice llena |data_len| sectores → OOB masivo
+  ```
+  El chequeo original ya existía en ≤13.50; v2 explota la ventana donde pasa
+  (`-blsize < data_len < 0`) mientras la suma ya envolvió. El fix de 13.52 añade
+  una comprobación de overflow previa al roundup, antes de la aritmética.
 - **Estado en 13.52:** **PATCHED según el propio ASaudidos** — "the new firmware adds a
   pre-roundup overflow check before allocating the UpCase buffer". Verificación local
   imposible sin bytes del kernel 13.52 retail (artefacto AUSENTE en este lab);
