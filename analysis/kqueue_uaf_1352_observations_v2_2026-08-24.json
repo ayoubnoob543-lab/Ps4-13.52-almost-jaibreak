@@ -1,0 +1,110 @@
+{
+  "event": "kqueue/knote UAF on PS4 13.52 — detailed observations v2",
+  "recorded": "2026-08-24T13:30:52Z",
+  "provenance": "AUTHOR_REPORTED hardware experimentation shared via lab owner",
+  "supersedes": "analysis/kqueue_uaf_1352_observations_2026-08-24.json (v1)",
+  "platform": {
+    "firmware": "13.52",
+    "os": "Orbis (modified FreeBSD 9)",
+    "sandbox": "active",
+    "uid": 1
+  },
+  "syscalls_confirmed_working": [
+    "kqueue(362)",
+    "kevent(363)",
+    "pipe(42)",
+    "close(6)",
+    "mmap anon",
+    "AF_INET socket"
+  ],
+  "filters_available": {
+    "EVFILT_READ": -1,
+    "EVFILT_WRITE": -2,
+    "EVFILT_AIO": -3,
+    "EVFILT_VNODE": -4,
+    "EVFILT_PROC": -5,
+    "EVFILT_SIGNAL": -6,
+    "EVFILT_USER": -7,
+    "EVFILT_FS": -8,
+    "_note": "numbering differs from stock FreeBSD (Sony customized); diff against retail kernel bytes pending"
+  },
+  "bug_flow": [
+    "kqueue",
+    "pipe()",
+    "attach EVFILT_READ -> knote K1",
+    "close(fd)",
+    "knlist_remove()",
+    "K1 freed while kqueue_scan() may retain reference",
+    "UAF"
+  ],
+  "reclaim_model": {
+    "spray_primitive": "multiple EVFILT_USER knotes",
+    "mechanism": "freed 0x80 slot reused by K2; kqueue treats K2 memory as K1 -> type confusion/UAF",
+    "control_target": "kn_fop @0x68 -> f_event() invoked during event processing",
+    "quantified_sprays": {
+      "50 knotes": "0 kernel pointers",
+      "100": "0",
+      "200": "0"
+    },
+    "stability": "stable scenario execution with EVFILT_USER spray; crash without spray"
+  },
+  "leak_hunt": {
+    "bytes_examined_approx": 778240,
+    "vectors_returning_data": [
+      "kern.osrelease",
+      "kern.version",
+      "kern.proc.pathname",
+      "kern.37",
+      "kern.47",
+      "kern.48",
+      "kinfo_proc"
+    ],
+    "vectors_zero_pointers": [
+      "sysctl kern.*",
+      "kinfo_proc (addresses sanitized)",
+      "EVFILT_USER events",
+      "/dev/gc",
+      "/dev/random",
+      "libkernel scans",
+      "socket options"
+    ],
+    "crashing_vectors": {
+      "fstat": "crash",
+      "kldstat": "crash",
+      "kern.49": "crash",
+      "_analysis": "standalone-reproducible panics = additional bug candidates OR residual-corruption probes; isolate them"
+    }
+  },
+  "blocked_or_problematic_ops": [
+    "fcntl",
+    "dup2",
+    "sendmsg",
+    "bind",
+    "thr_self",
+    "closefrom",
+    "BPF",
+    "IPv6 socket"
+  ],
+  "confirmed_primitives_checklist": {
+    "kqueue": true,
+    "kevent": true,
+    "EVFILT_USER": true,
+    "EVFILT_READ": true,
+    "pipe": true,
+    "anon_mmap": true,
+    "AF_INET_socket": true,
+    "uaf_trigger": true,
+    "heap_reclaim_evfilt_user": true,
+    "kernel_info_leak": false,
+    "reliable_kn_fop_control": false,
+    "kernel_rw": false,
+    "kernel_code_exec": false,
+    "jailbreak": false
+  },
+  "semctl_cve_2026_58087": {
+    "status": "potentially vulnerable code identified in FreeBSD 9.1 base; NOT confirmed on PS4 13.52 hardware",
+    "theoretical_chain": "kqueue UAF corruption + semctl OOB -> memory primitive",
+    "public_demo_exists": false
+  },
+  "bottom_line": "real, reproducible kernel vulnerability on 13.52; missing: info leak + reliable kn_fop control"
+}

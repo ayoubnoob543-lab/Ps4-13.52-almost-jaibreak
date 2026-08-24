@@ -1,5 +1,26 @@
 # CVE Analysis for PS4 Kernel (Orbis OS / FreeBSD 9)
 
+## kqueue/knote UAF en 13.52 — CONFIRMADO EN HARDWARE (autor-reportado) 🔥
+
+- **Type:** CWE-416 Use-After-Free en subsistema BSD kqueue/knote
+- **Trigger:** `kqueue` + `pipe()` + attach `EVFILT_READ` + `close(fd)`: `knlist_remove()`
+  libera el knote mientras `kqueue_scan()` puede conservar referencia
+- **Reclaim:** sprays de 50/100/200 knotes `EVFILT_USER` reocupan el slot de 0x80 B con
+  ejecución estable del escenario (sin spray: kernel crash)
+- **Leak hunt:** ~760 KB examinados vía kern.*, kinfo_proc, /dev/gc, /dev/random,
+  eventos y scans libkernel ⇒ **0 punteros de kernel** (kinfo_proc devuelve direcciones
+  sanitizadas)
+- **Bloqueadas por sandbox UID=1:** fcntl, dup2, sendmsg, bind, thr_self, closefrom,
+  BPF, IPv6 socket
+- **Crashes adicionales observados:** `fstat`, `kldstat`, `kern.49` → aislar como bugs
+  candidatos independientes o sondas de corrupción residual
+- **Numeración PS4:** `EVFILT_USER=-7`, `EVFILT_FS=-8` difiere de stock FreeBSD →
+  personalización Sony; diff pendiente contra bytes retail
+- **Estado:** `CONFIRMED_CRASH_REPRODUCIBLE_AUTHOR_REPORTED`; faltan info leak y control
+  fiable de `kn_fop@0x68`. Detalle completo:
+  `analysis/kqueue_uaf_1352_observations_v2_2026-08-24.json`
+
+
 ## CVE-2026-58087 — semctl(2) GETALL/SETALL TOCTOU 🔥🔥 MÁXIMO CANDIDATO 13.52
 
 - **Type:** TOCTOU race → heap OOB read/write kernel → posible elevación de privilegios
