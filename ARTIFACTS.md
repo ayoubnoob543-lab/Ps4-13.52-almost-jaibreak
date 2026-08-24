@@ -15,6 +15,7 @@ This file records the artifacts used by the static audit and host build. Hashes 
 | GoldHEN payload (public release) | `goldhen/goldhen.bin` | 260160 B | `eb9fee5e9e3618c0a144a6fc6b8fc1ec7e89cf06483ad64ae7c1085efc9525a3` | Official GitHub release `2.4b18` by SiSTR0; supports FW 5.05–11.00 only; reference infrastructure, not 13.52 evidence | `goldhen/MANIFEST.json`, `docs/goldhen.md` |
 | GoldHEN original archive | `goldhen/archive/GoldHEN_v2.4b18.7z` | 258065 B | `d0c84c79f65df5afc79a00c578f33ab1aa70aeb9c205f1e789895dc7d4fca38d` | Verbatim official asset from `GoldHEN/GoldHEN` release `2.4b18`; provenance anchor for the extracted files | `goldhen/MANIFEST.json` |
 | GoldHEN PPPwn stage2 set v1.03 | `goldhen/pppnw_stage2/` | 8 × 2705 B bins + inner 7z | Per-file hashes in manifest | Included in the official asset; identical builds across minor FW revisions (see `docs/goldhen.md`) | `goldhen/MANIFEST.json` |
+| HenLoader BD-J disc image | `goldhen/henloader.iso` | 16777216 B | `23236fa7c820a7e1b3fc1e4c556f0be6e793fbfcd6c5093346937afc62f399f5` | Built locally from pinned submodule `third_party/henloader_lp` (Lapse/Poops entry, AIO fix embedded); loads GoldHEN as USB `payload.bin`; supported FWs only, not a 13.52 path | `goldhen/MANIFEST.json`, `docs/goldhen.md` |
 
 ## External or generated artifacts not redistributed here
 

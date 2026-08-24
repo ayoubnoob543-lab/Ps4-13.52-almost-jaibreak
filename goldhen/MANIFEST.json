@@ -8,7 +8,13 @@
     "author": "SiSTR0 (SiSTRo)",
     "license_note": "Source private; binaries redistributed as published by the author.",
     "downloaded_at": "2026-08-24T10:10:41Z",
-    "download_method": "gh release download 2.4b18 --repo GoldHEN/GoldHEN; extraction with p7zip 17.06"
+    "download_method": "gh release download 2.4b18 --repo GoldHEN/GoldHEN; extraction with p7zip 17.06",
+    "henloader_iso": {
+      "built_at": "2026-08-24T11:20:20Z",
+      "source": "third_party/henloader_lp (HenLoader 2.0), pinned submodule",
+      "build_env": "Ubuntu 26.04 aarch64 (proot), gcc with prototype shim, JDK8 Temurin 8u462b08 signing, NetBSD makefs UDF 2.50",
+      "embeds": "AIO fix payload; loads payload.bin (= goldhen.bin) from USB"
+    }
   },
   "supported_firmware": {
     "payload_goldhen_bin": [
@@ -64,6 +70,11 @@
       "path": "goldhen.bin",
       "size": 260160,
       "sha256": "eb9fee5e9e3618c0a144a6fc6b8fc1ec7e89cf06483ad64ae7c1085efc9525a3"
+    },
+    {
+      "path": "henloader.iso",
+      "size": 16777216,
+      "sha256": "23236fa7c820a7e1b3fc1e4c556f0be6e793fbfcd6c5093346937afc62f399f5"
     },
     {
       "path": "pppnw_stage2/stage2_v1.03.7z",

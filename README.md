@@ -172,7 +172,7 @@ kernel 13.52:        AUSENTE
 
 ## GoldHEN: infraestructura de referencia de loader/payload
 
-Se integró la release pública [`2.4b18`](https://github.com/GoldHEN/GoldHEN/releases/tag/2.4b18) de GoldHEN (SiSTR0) y el loader [`GoldHEN/henloader_lp`](https://github.com/GoldHEN/henloader_lp) como submódulo. El payload (`goldhen/goldhen.bin`), el asset original verificado por SHA-256 y los stage2 PPPwn están en `goldhen/`, con hashes y procedencia reproducible en `goldhen/MANIFEST.json`. Detalles y clasificación en [`docs/goldhen.md`](docs/goldhen.md).
+Se integró la release pública [`2.4b18`](https://github.com/GoldHEN/GoldHEN/releases/tag/2.4b18) de GoldHEN (SiSTR0) y el loader [`GoldHEN/henloader_lp`](https://github.com/GoldHEN/henloader_lp) como submódulo. El payload (`goldhen/goldhen.bin`), el asset original verificado por SHA-256, los stage2 PPPwn y un **disco BD-J `goldhen/henloader.iso` construido localmente** están en `goldhen/`, con hashes y procedencia reproducible en `goldhen/MANIFEST.json`. La cadena de uso completa (BD-RE + USB `payload.bin`) está en [`docs/goldhen.md`](docs/goldhen.md).
 
 Clasificación honesta: `DIRECT_BYTES_EXTERNAL_RELEASE` para los binarios publicados del autor, soporte declarado **5.05–11.00** (payload) y **9.00–12.02 / 9.00–13.00** vía Lapse/Poops. **GoldHEN no soporta 13.52**; este material es infraestructura de comparación estructural y carga en firmwares soportados, no evidencia 13.52.
 

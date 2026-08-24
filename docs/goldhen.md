@@ -31,6 +31,42 @@ la descarga contra la release oficial en cualquier momento.
 - Las versiones más recientes del payload (por ejemplo `2.4b18.7`) no tienen release pública en
   GitHub; se distribuyen vía Ko-fi del autor y no forman parte de este corpus verificable.
 
+## Cadena de carga funcional (firmwares ≤ 13.00)
+
+El disco `goldhen/henloader.iso` (HenLoader 2.0, construido localmente desde el
+submódulo `third_party/henloader_lp`) es la vía de entrada verificable:
+
+```text
+BD-RE con henloader.iso  ──boot──▶  exploit BD-J (Lapse 9.00–12.02 / Poops 9.00–13.00)
+                                        │  aplica AIO fix embebido en el disco
+USB FAT32/MBR: payload.bin ◀──lee───────┘   (= goldhen.bin renombrado)
+                                        ▼
+                                    GoldHEN activo
+```
+
+Pasos:
+
+1. Grabar `goldhen/henloader.iso` en un disco **BD-RE** (la PS4 no lee imágenes por USB).
+2. Copiar `goldhen/goldhen.bin` a la raíz de un USB FAT32/exFAT **MBR** renombrado a
+   `payload.bin`.
+3. Iniciar la consola con el disco insertado; tras el exploit, GoldHEN se copia a
+   `/data` y arranca desde ahí en siguientes ejecuciones (actualizar solo el
+   `payload.bin` del USB).
+
+## Reproducción del ISO
+
+Construido el 2026-08-24 dentro de Ubuntu 26.04 (proot) desde el submódulo pineado,
+con JDK8 Temurin `8u462b08` para la firma BDSigner. Único ajuste frente al Makefile
+original: un shim de prototipos (`strsuftoll`, `setprogname`) inyectado vía
+`CC="gcc -include build/shim.h"` porque el puerto Linux de NetBSD makefs no compila
+con los errores de declaración implícita de gcc moderno:
+
+```bash
+proot-distro login ubuntu -- bash -c 'cd .../HenLoader && \
+  printf "#include <time.h>\nconst char *getprogname(void);\nvoid setprogname(const char *);\nlong long strsuftoll(const char *, const char *, long long, long long);\nlong long strsuftollx(const char *, const char *, long long, long long, char *, size_t);\n" > build/shim.h && \
+  make CC="gcc -include $PWD/build/shim.h"'
+```
+
 ## Relación con el objetivo 13.52
 
 **GoldHEN no soporta FW 13.52.** Ningún byte de este directorio valida offsets del kernel
