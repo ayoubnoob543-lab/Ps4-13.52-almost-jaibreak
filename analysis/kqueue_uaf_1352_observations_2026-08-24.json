@@ -1,0 +1,78 @@
+{
+  "event": "kqueue/knote UAF observations on PS4 13.52 hardware",
+  "recorded": "2026-08-24T13:16:33Z",
+  "provenance": "AUTHOR_REPORTED experimental notes shared via lab owner; console-side execution implied",
+  "environment": {
+    "firmware": "13.52",
+    "kernel": "Orbis OS (modified FreeBSD 9)",
+    "sandbox": "active",
+    "uid": 1,
+    "syscall_filtering": "several syscalls blocked"
+  },
+  "vulnerability": {
+    "cwe": "CWE-416 Use-After-Free",
+    "component": "BSD kqueue / knote",
+    "syscalls": {
+      "kqueue": 362,
+      "kevent": 363,
+      "pipe": 42,
+      "close": 6
+    },
+    "filters": {
+      "EVFILT_READ": -1,
+      "EVFILT_USER_PS4": -7
+    },
+    "flow": [
+      "kqueue",
+      "pipe()",
+      "EVFILT_READ attach on pipe",
+      "knote K1 created",
+      "close(fd)",
+      "knlist_remove()",
+      "K1 freed",
+      "kqueue_scan() may retain reference",
+      "USE-AFTER-FREE"
+    ],
+    "freebsd9_note": "no knote refcounting in this era; lifetime races are a known class"
+  },
+  "knote_layout_reported": {
+    "+0x00": "kn_link",
+    "+0x08": "kn_selnext",
+    "+0x10": "kn_knlist",
+    "+0x18": "kn_tqe",
+    "+0x28": "kn_kq",
+    "+0x30": "kn_kevent(32B)",
+    "+0x50": "kn_status",
+    "+0x54": "kn_sfflags",
+    "+0x58": "kn_sdata",
+    "+0x60": "kn_ptr",
+    "+0x68": "kn_fop",
+    "+0x70": "kn_hook",
+    "+0x78": "kn_hookid",
+    "total_approx": "0x80",
+    "consistency_check": "struct kevent=32B on amd64 -> status@0x50 coherent with FreeBSD 9 ordering"
+  },
+  "observed_results": {
+    "without_reuse": "UAF -> kernel crash",
+    "with_EVFILT_USER_reuse": "slot reuse possible -> stabilization, but NO kernel pointer obtained",
+    "leak_probes_kernel_pointers": {
+      "sysctl/kinfo_proc": 0,
+      "EVFILT_USER": 0,
+      "/dev/gc": 0,
+      "/dev/random": 0,
+      "libkernel_scan": 0
+    }
+  },
+  "not_achieved": [
+    "kernel info leak",
+    "reliable kn_fop control",
+    "arbitrary kernel exec",
+    "jailbreak"
+  ],
+  "status_classification": "CONFIRMED_CRASH_REPRODUCIBLE_AUTHOR_REPORTED; NOT a jailbreak by itself",
+  "candidate_next_vectors": [
+    "semctl(2) CVE-2026-58087 OOB READ as kernel info-leak primitive (combine with UAF write)",
+    "spray/reclaim candidates: EVFILT_USER knotes themselves, pipe buffers, setsockopt allocations",
+    "enumerate which syscalls survive the UID=1 sandbox filter before planning grooming"
+  ]
+}
