@@ -1,11 +1,11 @@
 {
   "experiment": "exp30_ioctl_mock",
-  "date": "2026-08-24T21:18:39.036256+00:00",
+  "date": "2026-08-24T21:59:30.024053+00:00",
   "input_pup": "/data/data/com.termux/files/home/fl_pup/out/PS4SYS_13.52.rebuilt.PUP",
-  "payload_exit": 8,
-  "ioctls_captured": 1,
+  "payload_exit": 0,
+  "ioctls_captured": 2,
   "by_name": {
-    "DECRYPT_HDR": 1
+    "DECRYPT_HDR": 2
   },
   "status": "PASS"
 }

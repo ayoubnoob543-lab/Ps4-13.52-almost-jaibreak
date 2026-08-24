@@ -69,7 +69,7 @@ def main():
         rc,out,err=-9,(e.stdout or "").decode(errors="replace"),(e.stderr or "").decode(errors="replace")
     open(os.path.join(HERE,"payload_stdout.log"),"w").write(out or "")
     open(os.path.join(HERE,"payload_stderr.log"),"w").write(err or "")
-    json.dump(logs,open(os.path.join(HERE,"ioctl_log.jsonl"),"w"),indent=1)
+    json.dump(logs,open(os.path.join(HERE,"driver_seen.jsonl"),"w"),indent=1)
     summary={"experiment":"exp30_ioctl_mock",
              "date":datetime.datetime.now(datetime.timezone.utc).isoformat(),
              "input_pup":pup,"payload_exit":rc,"ioctls_captured":len(logs),

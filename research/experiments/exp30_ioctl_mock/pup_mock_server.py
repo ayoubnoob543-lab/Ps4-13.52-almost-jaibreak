@@ -4,7 +4,7 @@ responde datos MOCK marcados. NO descifra ni contiene claves."""
 import os,socket,struct,json,hashlib,sys
 HERE=os.path.dirname(os.path.abspath(__file__))
 SOCK=os.path.join(HERE,"pupmock.sock")
-LOGJ=os.path.join(HERE,"ioctl_log.jsonl")
+LOGJ=os.path.join(HERE,"ioctl_log_server.jsonl")
 NAMES={0xC0184401:"DECRYPT_HDR",0xC0184402:"VERIFY_SEG_ADD",0xC0184403:"VERIFY_SEG",
        0xC0184404:"DECRYPT_SEG",0xC0284405:"DECRYPT_SEG_BLK"}
 def _decode(cmd,a):
@@ -54,9 +54,9 @@ def main():
             rv,outb=-1,b""
         seq+=1
         rec={"seq":seq,"cmd":hex(cmd),"name":NAMES.get(cmd,"?"),
-             "fields":_decode(cmd,args),"payload_len":plen,
+             "args_hex":args.hex(),"fields":_decode(cmd,args),"payload_len":plen,
              "sha16":hashlib.sha256(payload).hexdigest()[:16],
-             "head_hex":payload[:32].hex(),"response":"MOCK","rv":rv,"out_len":len(outb)}
+             "args_hex":args.hex(),"head_hex":payload[:32].hex(),"response":"MOCK","rv":rv,"out_len":len(outb)}
         logs.append(rec)
         print("[MOCK]",json.dumps(rec),flush=True)
         open(LOGJ,"w").write("\n".join(json.dumps(x) for x in logs))

@@ -1,19 +1,19 @@
 [mock] listo /data/data/com.termux/files/home/firmware-lab/research/experiments/exp30_ioctl_mock/pupmock.sock
 [mock] payload conectado
-[MOCK] {"seq": 1, "cmd": "0xc0184401", "name": "DECRYPT_HDR", "fields": {"len": 4832, "type": 0}, "payload_len": 4832, "sha16": "940bc3baeb3b3ce9", "head_hex": "4f153d1d0001011204000000f006f00bbfb0278b46f26f5912a33ceb78726bd8", "response": "MOCK", "rv": 0, "out_len": 4832}
+[MOCK] {"seq": 1, "cmd": "0xc0184401", "name": "DECRYPT_HDR", "args_hex": "00c0613c6f0000b4e0120000000000000000000000000000", "fields": {"len": 4832, "type": 0}, "payload_len": 4832, "sha16": "940bc3baeb3b3ce9", "head_hex": "4f153d1d0001011204000000f006f00bbfb0278b46f26f5912a33ceb78726bd8", "response": "MOCK", "rv": 0, "out_len": 4832}
 [mock] respuesta enviada 4840B
-[MOCK] {"seq": 2, "cmd": "0xc0184402", "name": "VERIFY_SEG_ADD", "fields": {"idx": 2, "len": 64}, "payload_len": 64, "sha16": "8d2e2d96837ffa69", "head_hex": "4f153d1d0001011204000000f006f00bbfb0278b46f26f5912a33ceb78726bd8", "response": "MOCK", "rv": 0, "out_len": 64}
+[MOCK] {"seq": 2, "cmd": "0xc0184402", "name": "VERIFY_SEG_ADD", "args_hex": "0200000000000000000062bc6f0000b44000000000000000", "fields": {"idx": 2, "len": 64}, "payload_len": 64, "sha16": "8d2e2d96837ffa69", "head_hex": "4f153d1d0001011204000000f006f00bbfb0278b46f26f5912a33ceb78726bd8", "response": "MOCK", "rv": 0, "out_len": 64}
 [mock] respuesta enviada 72B
-[MOCK] {"seq": 3, "cmd": "0xc0184403", "name": "VERIFY_SEG", "fields": {"idx": 1, "len": 64}, "payload_len": 64, "sha16": "8d2e2d96837ffa69", "head_hex": "4f153d1d0001011204000000f006f00bbfb0278b46f26f5912a33ceb78726bd8", "response": "MOCK", "rv": 0, "out_len": 64}
+[MOCK] {"seq": 3, "cmd": "0xc0184403", "name": "VERIFY_SEG", "args_hex": "0100000000000000000062bc6f0000b44000000000000000", "fields": {"idx": 1, "len": 64}, "payload_len": 64, "sha16": "8d2e2d96837ffa69", "head_hex": "4f153d1d0001011204000000f006f00bbfb0278b46f26f5912a33ceb78726bd8", "response": "MOCK", "rv": 0, "out_len": 64}
 [mock] respuesta enviada 72B
-[MOCK] {"seq": 4, "cmd": "0xc0184404", "name": "DECRYPT_SEG", "fields": {"idx": 0, "len": 65536}, "payload_len": 65536, "sha16": "ce92a785d9e81dad", "head_hex": "467db0e3f3a7f63973ff00c3817416eab5cdafd6f4b7e7e4ce2fcfe80842f82e", "response": "MOCK", "rv": 0, "out_len": 65536}
+[MOCK] {"seq": 4, "cmd": "0xc0184404", "name": "DECRYPT_SEG", "args_hex": "00000000000000000040106d700000b40000010000000000", "fields": {"idx": 0, "len": 65536}, "payload_len": 65536, "sha16": "ce92a785d9e81dad", "head_hex": "467db0e3f3a7f63973ff00c3817416eab5cdafd6f4b7e7e4ce2fcfe80842f82e", "response": "MOCK", "rv": 0, "out_len": 65536}
 [mock] respuesta enviada 65544B
-[MOCK] {"seq": 5, "cmd": "0xc0184401", "name": "DECRYPT_HDR", "fields": {"len": 1248, "type": 0}, "payload_len": 1248, "sha16": "22a3230670bd33c6", "head_hex": "4f153d1d0001011204000000b0013003ef92d6f91fafef86900ed5c70f0808ba", "response": "MOCK", "rv": 0, "out_len": 1248}
+[MOCK] {"seq": 5, "cmd": "0xc0184401", "name": "DECRYPT_HDR", "args_hex": "000062bc6f0000b4e0040000000000000000000000000000", "fields": {"len": 1248, "type": 0}, "payload_len": 1248, "sha16": "22a3230670bd33c6", "head_hex": "4f153d1d0001011204000000b0013003ef92d6f91fafef86900ed5c70f0808ba", "response": "MOCK", "rv": 0, "out_len": 1248}
 [mock] respuesta enviada 1256B
-[MOCK] {"seq": 6, "cmd": "0xc0184402", "name": "VERIFY_SEG_ADD", "fields": {"idx": 2, "len": 64}, "payload_len": 64, "sha16": "53636c1ef096491d", "head_hex": "4f153d1d0001011204000000b0013003ef92d6f91fafef86900ed5c70f0808ba", "response": "MOCK", "rv": 0, "out_len": 64}
+[MOCK] {"seq": 6, "cmd": "0xc0184402", "name": "VERIFY_SEG_ADD", "args_hex": "0200000000000000004061bc6f0000b44000000000000000", "fields": {"idx": 2, "len": 64}, "payload_len": 64, "sha16": "53636c1ef096491d", "head_hex": "4f153d1d0001011204000000b0013003ef92d6f91fafef86900ed5c70f0808ba", "response": "MOCK", "rv": 0, "out_len": 64}
 [mock] respuesta enviada 72B
-[MOCK] {"seq": 7, "cmd": "0xc0184403", "name": "VERIFY_SEG", "fields": {"idx": 1, "len": 64}, "payload_len": 64, "sha16": "53636c1ef096491d", "head_hex": "4f153d1d0001011204000000b0013003ef92d6f91fafef86900ed5c70f0808ba", "response": "MOCK", "rv": 0, "out_len": 64}
+[MOCK] {"seq": 7, "cmd": "0xc0184403", "name": "VERIFY_SEG", "args_hex": "0100000000000000004061bc6f0000b44000000000000000", "fields": {"idx": 1, "len": 64}, "payload_len": 64, "sha16": "53636c1ef096491d", "head_hex": "4f153d1d0001011204000000b0013003ef92d6f91fafef86900ed5c70f0808ba", "response": "MOCK", "rv": 0, "out_len": 64}
 [mock] respuesta enviada 72B
-[MOCK] {"seq": 8, "cmd": "0xc0184404", "name": "DECRYPT_SEG", "fields": {"idx": 0, "len": 65536}, "payload_len": 65536, "sha16": "77ba74733cebc342", "head_hex": "5662c18377e64add42ea123d6ae4eb7289364e5821c51e752d80ce265b89a299", "response": "MOCK", "rv": 0, "out_len": 65536}
+[MOCK] {"seq": 8, "cmd": "0xc0184404", "name": "DECRYPT_SEG", "args_hex": "000000000000000000c00e6d700000b40000010000000000", "fields": {"idx": 0, "len": 65536}, "payload_len": 65536, "sha16": "77ba74733cebc342", "head_hex": "5662c18377e64add42ea123d6ae4eb7289364e5821c51e752d80ce265b89a299", "response": "MOCK", "rv": 0, "out_len": 65536}
 [mock] respuesta enviada 65544B
 [mock] fin
