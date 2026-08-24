@@ -6,7 +6,7 @@ This file records the artifacts used by the static audit and host build. Hashes 
 
 | Artifact | Repository path | Size | SHA-256 | Provenance and status | Reproducible output |
 |---|---|---:|---|---|---|
-| Combined libkernel dump | `libkernel_sys_13.52.bin` | 479232 B (`0x75000`) | `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c` | Existing research corpus; raw libkernel artifact; not a kernel/eboot image | `analysis/verify_offsets.json`, XREF reports |
+| Combined libkernel dump | `libkernel_sys_13.52.bin` | 479232 B (`0x75000`) | `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c` | Existing research corpus; raw libkernel artifact; byte-for-byte corroborated on 2026-08-24 against external anchor `Suchi96/PS4_13_52_libkerneldump@930e3af2`; not a kernel/eboot image | `analysis/libkernel_1352_corroboration.json`, `analysis/verify_offsets.json` |
 | Dump chunk 1 | `lk_dump1.bin` | 159744 B (`0x27000`) | `d4a9a642f85446785469750532d9353c9010ebec4373b8e9c4c06d594536da57` | Existing chunk; concatenation base `0x00000` | `analysis/concatenation_sha256.txt` |
 | Dump chunk 2 | `lk_dump2.bin` | 159744 B (`0x27000`) | `e044d0e5303596df94f86190d34bee6dda8e87f9a51578d067e8d1650ca15e8d` | Existing chunk; concatenation base `0x27000` | `analysis/concatenation_sha256.txt` |
 | Dump chunk 3 | `lk_dump3.bin` | 159744 B (`0x27000`) | `e31dd16ddc488851c98bc1782cfe919ece1cab2c141bd0ef7c8a9ef82fb9fdf2` | Existing chunk; concatenation base `0x4e000` | `analysis/concatenation_sha256.txt` |
@@ -27,6 +27,8 @@ This file records the artifacts used by the static audit and host build. Hashes 
 | Newer GoldHEN builds (e.g. `2.4b18.7`) | Ko-fi distribution by SiSTR0 only, no GitHub release | No local hash | Not included; no verifiable public provenance for this corpus |
 | Local HEN payload rebuild (`hen.rebuilt-local.bin`, not committed) | Regenerated in-place by `./build.sh` on aarch64 host via the portability-adapted pipeline (`docs/build-portability.md`), 2026-08-24 | 514784 B; SHA-256 `38bf58bb22abcb3a431de6a3b05613f19b74432de6cad5870fb87b4979c32eb1`; clang 21.1.8 cross x86_64 + current upstream PRX set | Not canonical; differs from the historical artifact by compiler and plugin-set drift; regenerate with `bash build.sh` |
 | Exact Okage eboot/GOT artifact | External, not present | No local hash | Required to validate the documented GOT anchor; do not fabricate or substitute |
+| External libkernel anchor | `Suchi96/PS4_13_52_libkerneldump` @ commit `930e3af24294ebe405920de2b0cdfaddd4acb4e7` | 479232 B; SHA-256 `ef15204f…` (+3 chunks) — matches local byte-for-byte, re-verified 2026-08-24 by direct download and hashing | Independent provenance anchor for the same artifact; identity of the dump is dual-anchored, firmware identity remains a separate claim |
+| Official PUP chunks (branch `pup-byte-manifest-1350-1352`) | Split parts of PS4SYS 13.52 (`daa44e91…`, 503310848 B) and 13.50 PUPs, ~1 GB in 53 parts | Per-part bytes on branch; reconstruction script `webkit-kit/tools/reconstruct_pup_parts.py` | Encrypted SLB2/PUP content; metadata-only value until decryption exists; kept off main by size policy |
 | Retail kernel/eboot 13.52 | External, not present | No local hash | Critical missing artifact for direct validation of kernel offsets |
 | Shell module images | External, not present | No local hash | Required separately for ShellCore/ShellUI/RemotePlay patch-site validation |
 

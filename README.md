@@ -18,7 +18,7 @@ El primer porcentaje mide la infraestructura y migración estática ya preparada
 
 ## Lo que ya sabemos
 
-- `libkernel_sys_13.52.bin` forma parte del corpus público actual y tiene SHA-256 `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c`. Su existencia no demuestra por sí sola que todos los offsets asociados pertenezcan al kernel retail.
+- `libkernel_sys_13.52.bin` forma parte del corpus público actual y tiene SHA-256 `ef15204fee6f9f3e37892a4d29d779ed90ec4b70025b652d64625d76419b6a9c`. Su existencia no demuestra por sí sola que todos los offsets asociados pertenezcan al kernel retail. **Corroboración independiente verificada (2026-08-24)**: reproducción directa contra [`Suchi96/PS4_13_52_libkerneldump`][35] en el commit `930e3af2` confirma igualdad byte a byte del blob y de los tres chunks (`lk_dump1..3.bin`, bases `0x0/0x27000/0x4e000`). El dump tiene ahora doble ancla de procedencia; sigue siendo un artefacto libkernel, no kernel retail.
 - El análisis estático de `libkernel_sys` identifica wrappers y patrones compatibles con syscalls, incluyendo stubs que cargan `rax=0x215` y `rax=0x216`, además de funciones candidatas para operaciones temporales, lectura, escritura y posicionamiento. Los nombres semánticos permanecen separados de la evidencia de bytes.
 - [`RuxaXa/ps4-research`][14] documenta el PUP oficial de sistema 13.52 con versión `13.520.000`, SDK `13.520.001` y tamaño `503310848`. En este ciclo se descargó íntegramente desde la [URL oficial de Sony][13] mediante ocho rangos HTTP, se verificó el tamaño y se calculó localmente SHA-256 `daa44e91f3d505977d6c64872cee2c0454c36cd2eccb784eb74d3b1bcd762c11`. El contenedor es SLB2 versión 2, con `PS4UPDATE1.PUP` y `PS4UPDATE2.PUP`; sus hashes son `fd5e6c16398e628b3f258bce5f395c9fda687011a1a985d4b507928f54e6b580` y `44cd0c0e85b5912150112df99867357c3822a90f366198d11e2ec4c1e10adee7`. Esta evidencia es `VERIFIED_METADATA` del contenedor y fragmentos, no confirma módulos internos porque no se ha realizado descifrado.
 - `SYSENT=0x1102B70` aparece en dos proyectos versionados con soporte específico para 13.52: [`ps4-linux-loader`][2] y [`ps4-hen`][3]. Es el candidato estructural preferido, pero todavía no está confirmado mediante bytes del kernel retail.
@@ -224,6 +224,7 @@ Este proyecto está **en investigación activa**. Tiene una base técnica organi
 [32]: https://gist.github.com/hasyimy-ctrl/a79460845e7268785c8129e18b00655a
 [33]: https://security.freebsd.org/advisories/FreeBSD-SA-26:05.route.asc
 [34]: https://nvd.nist.gov/vuln/detail/CVE-2026-3038
+[35]: https://github.com/Suchi96/PS4_13_52_libkerneldump/tree/930e3af24294ebe405920de2b0cdfaddd4acb4e7 "Suchi96/PS4_13_52_libkerneldump — ancla externa de procedencia del dump libkernel"
 [5]: https://github.com/Scene-Collective/ps4-kernel-dumper "PS4 kernel dumper"
 [6]: https://www.psdevwiki.com/ps4/COREDMP "PS4 Developer Wiki — COREDMP/NXDP"
 [7]: https://github.com/kmeps4/PSFree/tree/368d82aa40d3017c220757ce315761adb5f06678 "PSFree — audited commit"
