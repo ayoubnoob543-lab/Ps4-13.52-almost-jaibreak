@@ -46,6 +46,37 @@
 - **Estado real:** **UNTESTED_ON_CONSOLE / NO_PUBLIC_EXPLOIT_PS4**. Nadie ha publicado
   implementación ni confirmación en hardware. Es el primer bug kernel post-13.50 sin
   parche declarado — prioridad máxima de análisis para este lab.
+- **Verificación estática contra FreeBSD 9.1 (2026-08-24)**: el patrón vulnerable existe
+  VERBATIM en `sys/kern/sysv_sem.c` (~L737–767, fuentes archivadas en
+  `analysis/sources/freebsd-9.1/`, SHA-256 en `SHA256SUMS`):
+  ```c
+  count = semakptr->u.sem_nsems;      /* snapshot */
+  mtx_unlock(sema_mtxp);              /* suelta lock */
+  array = malloc(sizeof(*array)*count, M_TEMP, M_WAITOK);
+  mtx_lock(sema_mtxp);
+  semvalid(...)                       /* chequeo seq — envuelve a 0x8000 */
+  KASSERT(count == ...sem_nsems, ("nsems changed"));  /* ¡no-op en release! */
+  for (i = 0; i < semakptr->u.sem_nsems; i++)   /* usa count NUEVO → OOB WRITE */
+          array[i] = u.sem_base[i].semval;
+  copyout(array, arg->array, count * sizeof(*array)); /* count VIEJO */
+  ```
+  El comentario original del código ADMITE el wrap de 0x8000 y confía en el KASSERT,
+  que está compilado fuera en kernels release como Orbis. Dos direcciones de primitiva:
+  - **OOB write con contenido controlado**: si el set de reemplazo tiene MÁS semáforos,
+    se escriben `(nuevo-viejo)*2` bytes fuera del buffer con `semval` u16 pre-configurables
+    por SETVAL (0..32767) sobre el set propio.
+  - **Disclosure residual**: si el set nuevo es MÁS PEQUEÑO, el `copyout` con el count
+    viejo devuelve bytes residuales del heap M_TEMP no sobrescritos ⇒ candidato a leak.
+- **Candidatos de reclaim descartados/refinados**:
+  - `msgsnd`: DESCARTADO como reclaim directo — F9 usa pool fijo prealocado (`msgpool`,
+    sysv_msg.c L206) y headers de freelist estática, sin mallocs por mensaje.
+  - `knote_zone`: los knotes viven en UMA zone dedicada (`kern_event.c` L183), NO en el
+    malloc genérico ⇒ el array del semctl (M_TEMP) y los knotes son heaps separados; la
+    combinación UAF+semctl exige puentes indirectos (grooming de vecinos en M_TEMP para
+    el overflow, disclosure para KASLR).
+- **Gate crítico pendiente de test**: `prison_allow(td->td_ucred, PR_ALLOW_SYSVIPC)`
+  (L593) — si el sandbox UID=1 corre sin ese permiso, semctl/semop devuelven ENOSYS
+  antes de tocar nada. Experimento #0: sondear disponibilidad de semsys bajo sandbox.
 - **Clasificación:** `STRUCTURAL_HIGH_PRIORITY` (bug upstream confirmado + estado
   no-parcheado declarado por wiki; verificación en consola pendiente de terceros).
 
