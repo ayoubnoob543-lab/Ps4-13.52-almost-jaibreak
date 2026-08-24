@@ -136,6 +136,8 @@ python3 tools/analyze_xref_versions.py ./libkernel_sys_13.52.bin --out-dir ./ana
 
 La compilación host de fuentes y payloads sólo demuestra que el código puede procesarse en el entorno de análisis. No demuestra ABI, ejecución, compatibilidad de consola ni jailbreak.
 
+El pipeline de build (`./build.sh` → `hen.bin`) es portable a hosts x86_64 nativos y ARM64 vía cross-clang; los detalles, parches del SDK y límites están en [`docs/build-portability.md`](docs/build-portability.md). El preflight completo vive en `tools/check_env.sh`.
+
 ## Base de migración estática 13.52
 
 La migración ya tiene una base reproducible, pero no rellena valores ausentes con offsets de otros firmwares:

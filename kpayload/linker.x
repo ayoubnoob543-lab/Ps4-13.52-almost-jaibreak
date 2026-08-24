@@ -49,5 +49,9 @@ SECTIONS
 		. = ALIGN(8);
 	} : bad_seg
 
+	/* lld refuses to discard .shstrtab; give it a non-alloc slot first.
+	   GNU ld behaves identically, and objcopy -O binary ignores it. */
+	.shstrtab 0 : { *(.shstrtab) }
+
 	/DISCARD/ : { *(*) }
 }

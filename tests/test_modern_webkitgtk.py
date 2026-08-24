@@ -1,4 +1,5 @@
 import pathlib
+import shutil
 import subprocess
 import unittest
 
@@ -8,6 +9,20 @@ HOME_BREW = ROOT / "webkit-kit" / "homebrew"
 OUTPUT = HOME_BREW / "build" / "host" / "modern-webkitgtk-output.txt"
 
 
+def _pkg_config_exists(module: str) -> bool:
+    pkg_config = shutil.which("pkg-config")
+    if not pkg_config:
+        return False
+    return subprocess.run(
+        [pkg_config, "--exists", module], capture_output=True
+    ).returncode == 0
+
+
+@unittest.skipUnless(
+    _pkg_config_exists("webkit2gtk-4.1"),
+    "host webkit2gtk-4.1 development package is not available",
+)
+@unittest.skipUnless(shutil.which("xvfb-run"), "host xvfb-run is not available")
 class ModernWebKitGTKSmokeTest(unittest.TestCase):
     def test_real_webkitgtk_capability_matrix(self):
         result = subprocess.run(

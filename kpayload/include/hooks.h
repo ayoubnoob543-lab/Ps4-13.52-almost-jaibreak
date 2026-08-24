@@ -4,7 +4,6 @@
 // golden
 // 6/12/2018
 
-#include <elf.h>
 #include <stdint.h>
 
 #include "freebsd_helper.h"

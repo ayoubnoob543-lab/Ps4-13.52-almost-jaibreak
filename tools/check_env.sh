@@ -40,10 +40,33 @@ for command_name in bash git python3 node make gcc objdump xxd curl unzip sha256
 done
 
 if command -v python3 >/dev/null 2>&1; then log "python_version=$(python3 --version 2>&1)"; fi
-if command -v node >/dev/null 2>&1; then log "node_version=$(node --version 2>&1)"; fi
+if command -v node >/dev/null 2>&1; then log "node_version=$(node --version)"; fi
 if command -v gcc >/dev/null 2>&1; then log "gcc_version=$(gcc --version | head -1)"; fi
 if command -v objdump >/dev/null 2>&1; then log "objdump_version=$(objdump --version | head -1)"; fi
 if command -v make >/dev/null 2>&1; then log "make_version=$(make --version | head -1)"; fi
+
+# Disassembler backend for tools/analyze_xref_versions.py
+if python3 -c 'import capstone' >/dev/null 2>&1; then
+  log "PASS: python capstone available (disassembler fallback)"
+else
+  log "WARN: python capstone not installed; x86-64 disassembly relies on objdump/llvm-objdump"
+fi
+
+# x86_64 payload build mode (mirrors kpayload/Makefile and installer/Makefile probes)
+probe='int main(void){return 0;}'
+cc_bin="$(command -v gcc || command -v clang || true)"
+if [[ -z "$cc_bin" ]]; then
+  fail "required command is missing: gcc|clang"
+elif printf '%s' "$probe" | "$cc_bin" -m64 -march=btver2 -mabi=sysv -mcmodel=small -x c -fsyntax-only - >/dev/null 2>&1; then
+  log "PASS: x86_64 payload build mode=native ($(basename "$cc_bin"))"
+elif printf '%s' "$probe" | "$cc_bin" --target=x86_64-unknown-freebsd13.0 -fuse-ld=lld -m64 -march=btver2 -mabi=sysv -mcmodel=small -x c -fsyntax-only - >/dev/null 2>&1; then
+  log "PASS: x86_64 payload build mode=cross-clang target=x86_64-unknown-freebsd13.0"
+  for helper in ld.lld llvm-objcopy llvm-ar; do
+    require_command "$helper"
+  done
+else
+  fail "no x86_64-capable compiler found for BTVER2 payload build"
+fi
 
 required_files=(
   "libkernel_sys_13.52.bin"
@@ -73,6 +96,13 @@ if [[ -d "$sdk_path/.git" || -f "$sdk_path/.git" ]]; then
   fi
 else
   fail "SDK submodule is not initialized: $sdk_path"
+fi
+
+henloader_path="${ROOT}/third_party/henloader_lp"
+if [[ -d "$henloader_path/.git" || -f "$henloader_path/.git" ]]; then
+  log "PASS: henloader_lp submodule initialized at $(git -C "$henloader_path" rev-parse --short HEAD 2>/dev/null || echo unknown)"
+else
+  log "WARN: henloader_lp submodule not initialized (run: git submodule update --init)"
 fi
 
 if [[ -f "${ROOT}/libkernel_sys_13.52.bin" ]]; then

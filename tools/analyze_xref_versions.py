@@ -42,15 +42,30 @@ def all_occ(needle):
         out.append(p); p+=1
 
 def objdump(start=None, stop=None):
-    """Return objdump-compatible text, falling back to Capstone when needed."""
-    if shutil.which('objdump'):
-        cmd=['objdump','-D','-b','binary','-m','i386:x86-64','-M','intel','--adjust-vma=0']
-        if start is not None: cmd += [f'--start-address=0x{start:x}']
-        if stop is not None: cmd += [f'--stop-address=0x{stop:x}']
-        cmd += [str(BIN)]
-        return subprocess.check_output(cmd, text=True, errors='replace')
+    """Return objdump-compatible text, falling back to Capstone when needed.
+
+    Preference order:
+      1. GNU/llvm objdump able to disassemble x86-64 (some hosts ship
+         arch-restricted builds, e.g. Termux aarch64 binutils).
+      2. Python Capstone.
+    """
+    candidates = []
+    for name in ('objdump', 'llvm-objdump'):
+        path = shutil.which(name)
+        if path:
+            cmd = [path, '-D', '-b', 'binary', '-m', 'i386:x86-64', '-M', 'intel', '--adjust-vma=0']
+            if start is not None: cmd += [f'--start-address=0x{start:x}']
+            if stop is not None: cmd += [f'--stop-address=0x{stop:x}']
+            cmd += [str(BIN)]
+            candidates.append(cmd)
+    last_error = None
+    for cmd in candidates:
+        try:
+            return subprocess.check_output(cmd, text=True, errors='replace')
+        except (subprocess.CalledProcessError, OSError) as e:
+            last_error = e
     if Cs is None:
-        raise RuntimeError('objdump is unavailable and Python capstone is not installed')
+        raise RuntimeError(f'no working objdump for x86-64 ({last_error}) and Python capstone is not installed')
     decoder = Cs(CS_ARCH_X86, CS_MODE_64)
     decoder.detail = False
     lo = 0 if start is None else max(0, start)
