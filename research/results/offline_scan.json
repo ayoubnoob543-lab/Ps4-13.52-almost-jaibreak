@@ -46,6 +46,24 @@
       "confidence": "MEDIA (sin analizar payload subyacente)",
       "affects": "documenta superficie de interacci\u00f3n SAMU alcanzable post-exploit",
       "does_NOT_demonstrate": "extracci\u00f3n de claves"
+    },
+    {
+      "claim": "Kernel Orbis 11.02 real descargado+verificado; KNOTE zone, SysV IPC completo, pup_update0(SBL), interfaz gbase_for_samu presentes en binario",
+      "evidence": "strings/bin-scan sobre 44MB sha256-verificado",
+      "source": "ps4boot archive issue#5 attachment",
+      "fw": "11.02",
+      "confidence": "ALTA",
+      "affects": "refuerza hip\u00f3tesis de continuidad hacia 13.52",
+      "does_NOT_demonstrate": "nada sobre bytes 13.52"
+    },
+    {
+      "claim": "syscallnames[] completo (680) extra\u00eddo del binario; numeraci\u00f3n calibrada con marcadores #N",
+      "evidence": "research/results/orbis1102_syscall_numbers_verified.txt",
+      "source": "binario local",
+      "fw": "11.02",
+      "confidence": "ALTA",
+      "affects": "mapa syscall transferible como hip\u00f3tesis fuerte",
+      "does_NOT_demonstrate": "numeraci\u00f3n runtime exacta 13.52"
     }
   ],
   "hypotheses_resolved": [
@@ -66,5 +84,6 @@
     "analysis/sources/psdevwiki/PUP_format_snapshot.md",
     "research/results/offline_scan.json",
     "research/results/entropy_map_inner_pups.json"
-  ]
+  ],
+  "date_updated": "2026-08-25T09:33:41.673664+00:00"
 }

@@ -65,3 +65,21 @@ Nuevo artefacto analizado: **kernel Orbis 11.02 real** (44 MB,
 5. sysent[] en kernel dump 11.02 (offline factible pero costoso) → habilitaría
    verificación binaria de CVE-2026-58087 y del patrón knote/M_ZERO sobre
    binario Orbis REAL (11.02), reduciendo incógnitas transferibles a 13.52.
+
+## RONDA RE KERNEL 11.02 — resultados finales (2026-08-25)
+
+Análisis estático sobre `kernel.bin` real (44 MB verificado):
+| Hallazgo | Clase |
+|---|---|
+| Zona UMA **"KNOTE" presente** (x2) — sustrato del UAF existe en binario Orbis | CONFIRMADO_OTRA_VERSION |
+| SysV IPC completo (sem/msg/shm) compilado | CONFIRMADO_OTRA_VERSION |
+| `pup_update0` = módulo SBL (`sbl/pup_update/pup_update.c`) | CONFIRMADO_OTRA_VERSION |
+| Interfaz kernel→SAMU: familia `gbase_*_for_samu` (mapeo de memoria para el procesador seguro) | EVIDENCIA PARCIAL |
+| Tabla `syscallnames[]` completa extraída y archivada | CONFIRMADO_OTRA_VERSION |
+| Numeración exacta vs runtime | DESCONOCIDO (off-by-one sin resolver; marcadores #N sugieren −1) |
+| `sysent[]` localización | DESCONOCIDO — densidad/strides fallaron; dump híbrido sin .data analizable completa |
+| Verificación CVE-2026-58087 en handler __semctl REAL | BLOQUEADA por sysent |
+
+Transferencia a 13.52: la existencia binaria de KNOTE/SysV/pup_update0 en 11.02
+REFUERZA (no demuestra) que 13.52 los hereda — mismo árbol, sin anuncios de
+remoción. Clasificación de cada uno para 13.52: HIPÓTESIS FUERTE.
