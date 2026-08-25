@@ -64,6 +64,15 @@
       "confidence": "ALTA",
       "affects": "mapa syscall transferible como hip\u00f3tesis fuerte",
       "does_NOT_demonstrate": "numeraci\u00f3n runtime exacta 13.52"
+    },
+    {
+      "claim": "Libkernel de juego: 387 stubs comunes desde 9.00; SysV ausente estructuralmente; kqueue/kevent presentes siempre",
+      "evidence": "comparaci\u00f3n exhaustiva de stubs can\u00f3nicos entre 4 ELF dumps",
+      "source": "research/libkernel/*.elf",
+      "fw": "multi-version",
+      "confidence": "ALTA",
+      "affects": "confirma que la v\u00eda semctl requiere exec nativa JIT",
+      "does_NOT_demonstrate": "nada sobre kernel retail"
     }
   ],
   "hypotheses_resolved": [
@@ -85,5 +94,5 @@
     "research/results/offline_scan.json",
     "research/results/entropy_map_inner_pups.json"
   ],
-  "date_updated": "2026-08-25T09:33:41.673664+00:00"
+  "date_updated": "2026-08-25T10:22:43.930310+00:00"
 }

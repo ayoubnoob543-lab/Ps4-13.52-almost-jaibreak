@@ -83,3 +83,9 @@ Análisis estático sobre `kernel.bin` real (44 MB verificado):
 Transferencia a 13.52: la existencia binaria de KNOTE/SysV/pup_update0 en 11.02
 REFUERZA (no demuestra) que 13.52 los hereda — mismo árbol, sin anuncios de
 remoción. Clasificación de cada uno para 13.52: HIPÓTESIS FUERTE.
+
+## VERIFICACIÓN CRUZADA LIBKERNEL (2026-08-25)
+- 387 stubs comunes a las 4 versiones (9.00–12.52); solo 678/679 eliminados en 11.02
+- kqueue(362)/kevent(363): presentes en TODAS las versiones
+- SysV IPC (221/222/510): AUSENTE en TODAS las variantes libkernel de juego
+- Set de wrappers congelado desde 11.02: cero churn en tres versiones mayores
