@@ -299,3 +299,26 @@ del binario (localizar sysent array) — pendiente offline factible.
 - pup_update0 presente ⇒ el device existe; acceso sigue REQUIRES_KERNEL_EXEC.
 - Numeración divergente ⇒ NO usar números F9-stock ni asumir los del runtime
   sin verificar contra sysent real.
+
+## RESOLUCIÓN FINAL DE NUMERACIÓN (kernel 11.02 real)
+
+Array `syscallnames[]` localizado en file `0x1a5f450` (680+ punteros), comenzando
+con `"syscall"` (=número 0, la instrucción syscall envuelta) seguido de
+exit=1, fork=2, read=3… ⇒ **numeración 0-based confirmada doblemente**
+(marcadores #N con delta constante −1 + secuencia completa).
+
+| Syscall | Nº Orbis 11.02 |
+|---|---|
+| kqueue | **362** ✓ (coincide con runtime/investigador) |
+| kevent | **363** ✓ |
+| __semctl | **510** ✓ (coincide con SYS___semctl userland F9.1) |
+| semget | 221 · semop | 222 |
+
+**SysV IPC COMPLETO presente en kernel Orbis 11.02** [CONFIRMADO_OTRA_VERSION]:
+__semctl(510), semget(221), semop(222), msgget(202?), shm*(205-232)…
+⇒ CVE-2026-58087 aplicable al árbol Orbis [CONFIRMADO_OTRA_VERSION];
+extrapolación a 13.52 = HIPÓTESIS fuerte (mismo árbol, sin parche anunciado).
+
+**Pendiente**: localizar `sysent[]` (array de handlers) — dos candidatos
+descartados (freelist BSS y pool de panics); método siguiente: anclar por
+handler conocido vía xrefs al string "syscall"/patrones de dispatch.
