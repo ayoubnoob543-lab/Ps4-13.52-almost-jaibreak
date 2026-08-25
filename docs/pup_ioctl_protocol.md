@@ -322,3 +322,39 @@ extrapolación a 13.52 = HIPÓTESIS fuerte (mismo árbol, sin parche anunciado).
 **Pendiente**: localizar `sysent[]` (array de handlers) — dos candidatos
 descartados (freelist BSS y pool de panics); método siguiente: anclar por
 handler conocido vía xrefs al string "syscall"/patrones de dispatch.
+
+---
+
+## RE BINARIO REAL: handler d_ioctl de pup_update0 (kernel 11.02)
+
+### Dispatcher localizado
+`d_ioctl` @ `0xffffffff83beab80`. Estructura: compara cmd contra rangos,
+usa jump-table para los 4 principales, y truco aritmético anti-tabla
+(`rax = cmd + (-0xC0184401); cmp rax, 3; ja fail`).
+
+### Opcodes descubiertos en el dispatcher (más de los conocidos)
+| Opcode | Args | Nota |
+|---|---|---|
+| `0xC0184401`–`04` | 24 B | Los 4 ya documentados |
+| `0xC008440A` | ? | Nuevo |
+| `0xC008440B` | ? | Nuevo |
+| `0xC010440A` | 16 B? | Nuevo |
+| `0xC010440D` | 24 B; exige buf≠0 y len==1024 | Nuevo |
+| `0x20004407` | sin payload | Nuevo |
+| `0x2000440C` | sin payload | Nuevo |
+| `0x80014406` | 1 B? | Nuevo |
+
+### Camino común (0xbead8f)
+Los 4 casos convergen en `call 0xbeb640` = implementación compartida.
+El caso VERIFY valida: `(len+0x3FFF)&~0x3FFF == 0x4000` (exactamente 16 KB).
+Acceso a credenciales vía `gs:[0]`.
+
+### Funciones internas identificadas
+| Dirección | Función probable |
+|---|---|
+| `0x83891d50` | memset/bzero |
+| `0x838ab140` | make_dev (creación del cdev "pup_update0") |
+| `0x838abb50` | destroy_dev |
+| `0x83bcf780` | copia/validación de buffer con credenciales |
+| `0x83be37b0` | función pup específica (softc + tabla) |
+| `0x83beb640` | implementación común del descifrado |
