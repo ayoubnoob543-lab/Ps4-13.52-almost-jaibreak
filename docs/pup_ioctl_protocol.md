@@ -262,3 +262,40 @@ Todo lo posterior al primer plaintext (.dec) está implementado y validado
 offline. La única pieza que exige consola sigue siendo producir ese .dec una
 vez (kernel-exec → payload ioctl). Tras ello, Termux extrae kernel retail,
 secure_modules y system_fs completo sin depender de la PS4.
+
+---
+
+## KERNEL ORBIS 11.02 REAL — análisis binario (2026-08-25)
+
+Fuente: adjunto público `11.02.zip` (issue ps4-linux-payloads-archive#5),
+`kernel.bin` 44.040.192 B, ELF x86-64, sha256 `451f8735…` ✓ verificado.
+Archivo local: ~/fl_verify/deep/kernel1102/11.02/kernel.bin (NO commiteado, regla no-blobs).
+
+### Hallazgos binarios [CONFIRMADO_OTRA_VERSION]
+1. **Tabla de nombres de syscalls visible en claro** (585 entradas extraídas,
+   `research/results/orbis1102_syscall_names.txt`): exit/fork/read… hasta +
+   585. Incluye compat (freebsd4/7), observaciones obs_* (Sony) y reservados "#N".
+2. **SysV IPC COMPLETO compilado en kernel**: __semctl (dos entradas: compat+
+   nativa), semget, semop, msgget/msgsnd/msgrcv/msgctl, shmat/shmctl/shmdt/shmget.
+   ⇒ CVE-2026-58087 (semctl TOCTOU) aplica a un kernel Orbis REAL (11.02);
+   extrapolación a 13.52 = HIPÓTESIS fuerte (mismo árbol).
+3. **pup_update0 driver PRESENTE**, con ruta de build embebida:
+   `W:\Build\J02660907\sys\internal\modules\sbl\pup_update\pup_update.c`
+   ⇒ pertenece al módulo SBL (`sbl_driver.sbl_service.sbl_chunk.sbl_sm_service`).
+4. **Interfaz kernel↔SAMU identificada por strings**: familia
+   `gbase_map_for_samu / gbase_unmap_for_samu / gbase_set_attr_for_samu /
+   gbase_vtophys / gbase_vm0_vtophys` + zona `gbase_vm_map_zone`
+   ⇒ el x86 SOLO prepara mapeos de memoria para el procesador seguro.
+5. Comparas SLB2 en código (validación de contenedor en kernel) ✓.
+
+### Discrepancia de numeración [DESCONOCIDO]
+Secuencia de nombres sugiere kqueue≈311/kevent≈312, pero el runtime PS4 usa
+362/363 (Luac0re+investigador). Causas posibles: entradas multi-nombre,
+huecos "#N" mal contados, o tabla sysent≠tabla de nombres. RESOLVER con RE
+del binario (localizar sysent array) — pendiente offline factible.
+
+### Implicancia para 13.52
+- sysvsem presente en 11.02 ⇒ HIPÓTESIS reforzada (no confirmada) para 13.52.
+- pup_update0 presente ⇒ el device existe; acceso sigue REQUIRES_KERNEL_EXEC.
+- Numeración divergente ⇒ NO usar números F9-stock ni asumir los del runtime
+  sin verificar contra sysent real.
