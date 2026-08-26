@@ -1,0 +1,33 @@
+## psfree repository lookup
+kmeps4/PSFree	PSFree WebKit Exploit & Lapse Kernel Exploit For PS4 9.00 [WIP] By abc	public	2026-08-17T09:09:36Z
+Nazky/PSFree	PSFree website to jailbreak you'r PS4	public	2026-08-26T16:44:52Z
+kakaroto/PSFreedom	PSFreedom Jailbreak exploit for the PS3	public	2026-07-28T19:37:39Z
+Al-Azif/psfree-lapse		public	2026-08-05T07:39:55Z
+kmeps4/PSFree900	Psfree Webkit Exploit & ChendoChap Kernel Exploit For PS4 Firmware 900	public	2026-07-22T19:23:06Z
+Feyzee61/psfree_lapse	PSFree WebKit Exploit & Lapse Kernel Exploit for PS4	public	2026-07-27T18:55:28Z
+Mesack-Chinhala/PSFree	PSFree is a collection of exploits for the PS4 console, with ongoing work to support the PS5. Contributions are welcome, and you can find the source code and details in the repository! 🐙💻	public	2026-07-26T02:08:16Z
+kmeps4/psfree900m	Kameleon Exploit Host for PS4 9.00 Firmware using PSFree Webkit Exploit Manual Hybrid	public	2026-07-22T19:22:41Z
+kmeps4/psfree900a	Kameleon Exploit Host for PS4 9.00 Firmware using PSFree Webkit Exploit	public	2026-07-22T19:22:38Z
+kmeps4/Kme900_Auto_ESP32_S2_PSFree	Modded Kameleon PS4 900fw Auto Lite Host & PSFree For ESP32-S2 Boards	public	2026-07-01T10:15:20Z
+kmeps4/psfree700	PSFree WebKit Exploit & ChendoChap ROP and Kernel Exploit For PS4 7.02 Firmware	public	2026-02-22T21:48:49Z
+MasterPS0/psfree		public	2026-03-17T01:15:37Z
+CrazeeGhost/PS4JbEmu	PS4 9.00, 10.0x & 11.00 PPPwn auto jailbreak using Raspberry Pi. PS4 Webkit exploit host and USB Emulator on Raspberry Pi for PS4 9.00	public	2026-08-11T04:18:35Z
+kmeps4/PSFree800	PSFree Webkit Exploit & Lapse Kernel Exploit For PS4 8.0X - psfree-1.5rc1	public	2026-06-17T22:57:40Z
+kmeps4/leefulpsfree	Modded Leeful v5 Exploit Host for PS4 9.00 Firmware using PSFree Webkit Exploit	public	2026-07-22T19:23:02Z
+xxKawa/xxkawa.github.io	适用于PS4 7.00-9.60系统 基于PSFree Webkit漏洞与Lapse Kernel漏洞 再开发的可缓存在线注入网站	public	2026-08-01T01:20:07Z
+Nazky/PSFree-Lite	PSFree-Lite website to jailbreak the PS4	public	2026-01-23T10:57:52Z
+prodeveloper0/PSFree-Luckfox	PSFree WebKit Exploit & Lapse Kernel Exploit For PS4 9.00 Luckfox Mini Porting with Web Dashboard	public	2026-02-15T05:43:17Z
+murrahjm/PSFreeBurritos	Powershell script to automate submission of customer survey to chipotlefeedback.com	public	2023-02-18T21:41:38Z
+Nazky/ps4-psfree-fix	Use "aio_fix_505.prx" from @jocover and GoldHEN from Sistr0 to fix issues with PSFree + Lapse (Credit to @RandQalan)	public	2026-07-20T19:50:19Z
+ciss84/PSFree900		public	2025-11-15T04:32:01Z
+x-raen/psfree-lapse-toolkit	Professional-grade tools for efficient binary analysis and automated ROP/JOP gadget map extraction, aimed at accelerating exploit development for PSFree Lapse and similar projects.	public	2025-06-08T18:13:27Z
+speed2games/speed3games	psfree	public	2025-05-20T16:26:39Z
+speed2games/speedgames20	psfree	public	2025-05-20T16:40:15Z
+ifixs/900	Psfree	public	2026-01-29T12:58:10Z
+olepoetter1997/psfree1250		public	2025-05-17T10:57:28Z
+ps4xploit900/beta	psfree	public	2024-02-25T22:46:22Z
+minyamasaki/PSFree06		public	2025-11-17T22:59:52Z
+ps4rokx/psfree1		public	2025-06-06T01:08:15Z
+CODE-NAME-IN-B/psfree900		public	2025-05-20T18:25:01Z
+## exact org repo lookup
+GraphQL: Could not resolve to a Repository with the name 'Scene-Collective/psfree'. (repository)

@@ -818,3 +818,7 @@ The SDK tree contains `libufs` sources (`block.c`, `cgroup.c`, `inode.c`, `sbloc
 ## SDK kernel R/W API scope
 
 The current public SDK exposes `kernel_copyin` and `kernel_copyout`, plus typed getters/setters, kernel image-base discovery, `copyin`/`copyout` address discovery and `kernel_find_pattern`. The source shows these APIs call `kexec` at already-known `KERNEL_ADDRESS_COPYIN`/`KERNEL_ADDRESS_COPYOUT` addresses; they do not obtain the initial corruption primitive. The firmware switch shown includes `0x13500000` and generic pattern scanning for later firmware, but no 13.02 Celsius implementation. This is a reusable post-primitive R/W interface and a model for locating functions once R/W exists, not the missing Celsius-to-R/W conversion. Classification: API `VERIFIED`; Celsius linkage `NOT PROVIDED`.
+
+## Scene-Collective/psfree lookup
+
+The presumed public repository `Scene-Collective/psfree` could not be resolved by GitHub (`Could not resolve to a Repository`). A repository search was recorded separately; no code from that URL was treated as evidence. This leaves the WebKit/Jordy bootstrap gap unchanged and avoids conflating similarly named scene projects.
