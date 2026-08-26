@@ -14,9 +14,9 @@ void write_blob(const char *path, const void *blob, const size_t blobsz) {
   if (file_exists(path)) {
     unlink(path);
   }
-  int fd = open(path, O_CREAT | O_RDWR, 0777);
+  int fd = open(path, O_CREAT | O_RDWR, 0666);
   printf_debug("fd %s %d\n", path, fd);
-  if (fd > 0) {
+  if (fd >= 0) {
     ssize_t written = write(fd, blob, blobsz);
     if (written != (ssize_t)blobsz) {
       printf_notification("Partial write to %s: %zd/%zu bytes", path, written, blobsz);
@@ -43,11 +43,11 @@ void block_updates(void) {
   // Delete existing updates/blocker and recreate
   unlink(PS4UPDATE_FILE);
   rmdir(PS4UPDATE_FILE);
-  mkdir(PS4UPDATE_FILE, 777);
+  mkdir(PS4UPDATE_FILE, 0777);
 
   unlink(PS4UPDATE_TEMP_FILE);
   rmdir(PS4UPDATE_TEMP_FILE);
-  mkdir(PS4UPDATE_TEMP_FILE, 777);
+  mkdir(PS4UPDATE_TEMP_FILE, 0777);
 
   // Unmount update directory. From etaHEN
   if ((int)unmount("/update", 0x80000LL) < 0) {
