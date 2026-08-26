@@ -427,3 +427,13 @@ The scanner repository contains no `org.bdj.api.API` implementation or declarati
 ## Expanded Jordy identifier search
 
 Web searches combining `Jordy` with `m_vector`, `targetAddress`, `Celsius`, and `ffs_mountfs` produced no relevant public technical source beyond the audited scanner and derived local artifacts. The result is a negative indexed-search finding only; it does not exclude private scene material. Classification: `CORROBORATED` for the search result; no new implementation found.
+
+
+## Luac0re p2jb.c kernel-RW comparison
+
+The static `jit_shellcode/p2jb/p2jb.c` source contains a concrete PS5 P2JB kernel-R/W post-exploitation path: it traverses kernel pointers using `kread64/kread32`, modifies the current process `ucred`, changes auth IDs, obtains `rootvnode`, patches file-descriptor vnode pointers, and adjusts dynlib/segment fields. This is materially more complete than `jordy_stage2.js`, but it belongs to the PS5 P2JB chain and relies on exploit-specific primitives, structures and offsets. It does not call `ffs_mountfs`, construct a UFS image, or implement Celsius; it cannot be treated as evidence for PS4 13.02. Classification: concrete kernel-RW code `VERIFIED` for stated PS5 P2JB context; PS4 13.02 transfer `INVALID/UNVERIFIED`.
+
+
+## p2jb.c platform scope
+
+The header of `jit_shellcode/p2jb/p2jb.c` explicitly defines the P2JB socket/kqueue/triple-free environment, PS5-oriented constants (`UCRED_SIZE`, `KQUEUEEX_*`, `KQ_FDP_OFFSET`, `IN6P_OUTPUTOPTS_OFFSET`, `ROOTVNODE_OFFSET`) and the `dlsym_t`/syscall function types. It defines no UFS/FFS/Celsius symbols. This confirms that the concrete kernel-RW code found in Luac0re is a different PS5 network exploit path, not a missing component of the PS4 Jordy/Celsius design.

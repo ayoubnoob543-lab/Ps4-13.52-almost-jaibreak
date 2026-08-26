@@ -88,6 +88,19 @@ La búsqueda de identificadores internos (`call_rop_internal`, `LUA_PIVOT_SCRATC
 
 Estos hallazgos refuerzan la conclusión de que `jordy_stage2.js` es una pieza de diseño que reutiliza gadgets y nomenclatura de otras cadenas, pero no una integración incompleta cuya lógica decisiva esté publicada en otro archivo del repositorio. La única evidencia nueva sobre Celsius sigue siendo el claim textual en `webkit_gadgets_1304.js`; no se ha encontrado el kernel, SPRX, imagen UFS, bootstrap Jordy ni log de hardware que lo respalde.
 
+## Nueva comparación: P2JB C frente a Jordy
+
+La revisión de `jit_shellcode/p2jb/p2jb.c` de Luac0re encuentra una implementación C real de una fase posterior con `kread64`/`kwrite64`, resolución de funciones mediante `dlsym`, manipulación de `ucred`, localización de `curproc`/`allproc` y parcheo de `rootvnode`. No obstante, la cabecera fija un entorno PS5 con sockets IPv6, triple-free, kqueue, `KQUEUEEX_*`, `UCRED_SIZE` y offsets específicos de estructuras PS5. No hay símbolos UFS, `ffs_mountfs`, imagen de filesystem ni Celsius.
+
+Esto permite separar dos conceptos que el repositorio mezcla en sus comentarios. Luac0re/P2JB contiene una fase kernel-R/W concreta, pero para otra plataforma y otra vulnerabilidad; `jordy_stage2.js` contiene una capa de helpers y una arquitectura propuesta, pero no contiene la primitive de entrada, el pivot ni el trigger FFS. La existencia de código PS5 con nombres similares (`dlsym`, `func_wrap`, `kread64`, `kwrite64`) no es evidencia de compatibilidad con PS4 13.02.
+
+| Afirmación | Evidencia encontrada | Clasificación |
+|---|---|---|
+| P2JB tiene código C de kernel-R/W | `p2jb.c` modifica `ucred`, `rootvnode` y estructuras de proceso. | **VERIFIED en PS5/P2JB** |
+| Jordy puede reutilizar directamente P2JB | No hay adaptación de plataforma, offsets ni ABI. | **INVALID** |
+| P2JB demuestra Celsius | No contiene FFS/mount ni `ffs_mountfs`. | **INVALID** |
+| `jordy_stage2.js` era sólo una interfaz a una pieza C externa | No se encontró ninguna referencia a `p2jb.c`/Luac0re en su árbol Git. | **HYPOTHESIS**, no demostrada |
+
 ## Referencias
 
 [1]: https://github.com/Cryptogenic/PS4-4.0x-Code-Execution-PoC/blob/master/index.html "Cryptogenic PS4 4.0x Code Execution PoC"
