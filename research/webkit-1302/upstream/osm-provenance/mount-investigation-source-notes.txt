@@ -666,3 +666,8 @@ The fork `hejran7/CSSFontFace-Exploit` is the only ntfargo fork identified so fa
 ## hejran7 binary metadata and history
 
 The `hejran7` audit identifies `pl_KernelClock.bin` as a DOS/COM-style payload (hash `8b33c2e2d40757a8e91c105d623172dc1512281d9ed49bd7aac804e69b515040`) and `pl_KernelDumper.bin` as another DOS/COM-style payload (hash `f514e1d5479e56a6ec3202e7558558967f867354b1e8085c897b5d8bfd35c99c`). Strings include `Kernel time changed!`, `PS4 Firmware %s` and `libkernel.sprx`; they do not identify a raw kernel image or 13.02. The fork history shows these files were uploaded on 2026-08-04 after the shared 2026-07-25 full-chain lineage. This is historical dumper/payload tooling, not the missing public 13.02 kernel artifact.
+
+
+## Kernel-dumper binary characterization
+
+Static characterization of the preserved `hejran7` payloads gives sizes of 13,184 bytes (`pl_KernelClock.bin`) and 17,832 bytes (`pl_KernelDumper.bin`). Both begin with x86-64 code-like prologues rather than a kernel-image/container header. Printable strings include `Kernel time changed!`, `PS4 Firmware %s`, `libkernel.sprx`, `libkernel_web.sprx`, `libkernel_sys.sprx`, `sysctl`, `sysctlbyname`, `sysarch`, `execve`, `sceKernelOpen`, `sceKernelRead`, `sceKernelLseek`, `sceKernelLoadStartModule`, memory APIs and libc symbols. Their size, code prologue and API strings are consistent with userland payloads/tools, not a raw Orbis kernel dump. No UFS/FFS/Celsius or 13.02 marker was found in the characterization.
