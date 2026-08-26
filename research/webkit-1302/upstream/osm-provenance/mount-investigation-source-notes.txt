@@ -935,3 +935,7 @@ GitHub exposes main, Copilot/PR #1, PR #2 and PR #3; all main refs contain READM
 ## mkufs2 Linux PR #3
 
 PR #3 adds `mkufs2_linux.sh`, using `makefs -t ffs -B le -M 1m -o version=2,bsize=32768,fsize=4096,label=ffpkg`. It provides explicit portable FFS/UFS2 image parameters but no Celsius image, corruption fields, `ffs_mountfs`, disk-size requirement or bootstrap. Verified as image recipe; no Celsius linkage.
+
+## vue-after-free historical refs
+
+The mirror API exposes branches `main`, `ts-new`, `release`, `netctrl_c0w`, `test`, and `ts`, plus tags `2.0`, `v1.4`, `v1.3`, `v1.2`, `v1.1`, and `v1.0`. `netctrl_c0w` and historical tags are candidates for WebKit-to-Netctrl provenance, not automatically Celsius. Main's kernel bridge ends at 13.00; refs require direct comparison before any 13.02 claim.

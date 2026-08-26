@@ -155,3 +155,7 @@ La comparación completa muestra que GitHub mantiene `main` (`4d29e9fc...`), la 
 ### Variante Linux de `mkufs2` (PR #3)
 
 La PR #3 de GitHub añade `mkufs2_linux.sh`, que usa `makefs -t ffs -B le -M 1m -o version=2,bsize=32768,fsize=4096,label=ffpkg`. Esta variante aporta una receta reproducible para construir una imagen FFS/UFS2 desde Linux, con parámetros explícitos de endianess, tamaño de bloque, tamaño de fragmento y etiqueta `ffpkg`. No añade campos de superbloque manipulados, tamaño de disco, imagen Celsius, `ffs_mountfs`, argumentos de corrupción ni bootstrap. Es una mejora de portabilidad de la herramienta, no el artefacto original de Celsius. Clasificación: **VERIFIED** como receta de imagen; **SOURCE_ONLY/HYPOTHESIS** para cualquier relación con Celsius.
+
+## Refs históricas de `vue-after-free`
+
+La API del mirror expone seis ramas: `main`, `ts-new`, `release`, `netctrl_c0w`, `test` y `ts`, además de seis tags: `2.0`, `v1.4`, `v1.3`, `v1.2`, `v1.1` y `v1.0`. La rama `netctrl_c0w` y los tags históricos son candidatos relevantes para comparar procedencia del puente WebKit→Netctrl, aunque el nombre no implica Celsius. El main ya muestra que su kernel bridge llega sólo hasta 13.00; las refs históricas deben verificarse antes de concluir que aportan algo para 13.02. El inventario de refs queda guardado en `earthonion_vue_after_free_refs_full.txt`.
