@@ -404,3 +404,7 @@ The Luac0re clone has an empty `DLSYM_OFFSETS = { }` declaration in `lua/global.
 ## Luac0re identifier reuse search
 
 Searches for exact identifiers `call_rop_internal`, `LUA_PIVOT_SCRATCH`, and `init_dlsym` + `sceKernelGetModuleInfoFromAddr` found no additional publicly indexed implementation beyond Luac0re and the already audited derivative templates. No independent project was found that supplies a PS4 13.02/13.04 adaptation.
+
+## Exact Celsius-claim search
+
+Searches for the exact strings `ffs_mountfs string at 0x7d021f`, `Celsius NOT patched`, and `20,080,104` + PS4 kernel 13.04 produced no additional public result. The claims remain confined to the repository’s `webkit_gadgets_1304.js` as far as the indexed sources checked. Classification: negative search result `CORROBORATED`; the underlying kernel comparison remains `SOURCE_ONLY`.
