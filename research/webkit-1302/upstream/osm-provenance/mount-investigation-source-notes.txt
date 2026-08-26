@@ -452,3 +452,30 @@ Exact searches for `1304_libSceNKWebKit.sprx.decrypted`, `libSceNKWebKit.sprx.de
 Commit `1630d79d2a7146a65436e5f2fc0ff5dc6d9ba07b` in `zecoxao/zecoxao.github.io` is titled `kern and user jordy` and was created on 2026-08-04 with placeholder author metadata (`Your Name`, `you@example.com`). It adds three large HTML pages (`p2jb/index.html`, `poops/index.html`, `userland_only/index.html`) of 1110/1111 lines. Static recovery of the exact commit confirms the same Luac0re/WebKit driver template previously audited: `SHELLCODE_HEX` is empty in userland mode; `FW_OFFSETS` values for dlsym/JIT/gadgets/JOP are zero; fcall, RWX allocation, socket creation, libkernel/eboot base leaks and driver execution remain TODOs or throw errors.
 
 The title is therefore a strong provenance lead for conceptual “user/kern Jordy” work, but the commit does not contain a completed kernel path or any 13.02/13.04 artifact. Classification: commit existence and placeholder content `VERIFIED`; authorship/claim of “kern and user” `SOURCE_ONLY`; completed exploit, Celsius and PS4 13.02 compatibility `INVALID/UNVERIFIED`.
+
+
+## zecoxao history after `kern and user jordy` — 2026-08-26
+
+The full commit-history query for `zecoxao/zecoxao.github.io` shows substantial commits after `1630d79` related to `slopdev` gadget/syscall self-tests. The visible history includes commits dated 2026-08-21 such as `70de9d3a6517506448b369dcd7fca4db51c2c4c6` (`slopdev: name shl rax,3 as broken, make the suite resumable`) and a later commit titled `slopdev: shr rax,4 is broken too; run the syscall tests first`. Their messages discuss test trails, executable-text segment boundaries, broken WebKit gadget RVAs, syscall return validation, and a corrected `worker_wait_return` offset. They are relevant to WebKit/ROP validation but do not, from the observed history text, provide a 13.02/13.04 PS4 FFS/Celsius implementation. These commits require separate static inspection before classification; do not treat their test claims as evidence of Celsius.
+
+
+## zecoxao Jordy lineage lead
+
+The broader zecoxao history reveals an important lead not previously isolated: parent commit `c6b52aea9e212427aa54b12b35557877363f1940` is titled `jordy 11.60` (2026-08-04), immediately before `1630d79` (`kern and user jordy`). After `1630d79`, the repository contains many commits titled `slopkit2 poops lapse p2jb` (2026-08-08/09) and a large `slopdev` test series (2026-08-21). These may be related implementation/testing branches and require direct file/diff audit. Their commit titles alone are not evidence of PS4 13.02, Celsius or kernel-RW.
+
+
+## zecoxao `jordy/index.html` — PS5 11.60
+
+The parent commit `c6b52aea9e212427aa54b12b35557877363f1940` adds `jordy/index.html`, titled `jordy 11.60`. The recovered 786-line/28,646-byte file describes a PS5 FW 11.60 / WebKit 616.1 genuine-view R/W bootstrap. Its visible implementation includes the six-inline-property JSFinalObject layout, forged JSValue/carrier validation, pointer reconstruction helpers and controlled-memory primitives.
+
+This is materially more complete than the scanner’s 13.04 skeleton for the userland side, and is a plausible source of conceptual terminology such as `m_vector`/carrier-based R/W. However, the artifact is explicitly PS5 FW 11.60/WebKit 616.1. It contains no demonstrated PS4 13.02/13.04 offsets, no UFS/FFS mount, no `ffs_mountfs`, no Celsius trigger and no kernel R/W transition in the audited match set. Classification: userland bootstrap `VERIFIED` for stated PS5 target; relation to Jordy scanner `CORROBORATED` at the conceptual level; PS4 13.02/Celsius/kernel R/W `UNVERIFIED`.
+
+
+## Full symbol scan of Jordy 11.60 artifact
+
+A full-file scan of `zecoxao_jordy_11_60.html` finds `targetAddress`, controlled `m_vector` references and pointer/read-write helpers, but no occurrences of `kernel`, `kread`, `kwrite`, `ffs`, `Celsius`, `mount`, `dlsym`, `pivot`, `ROP`, `syscall`, `libkernel`, `SHELLCODE`, or `FW_OFFSETS`. This confirms the artifact is a userland WebKit bootstrap only; its “Jordy” label does not identify a kernel phase. Classification: userland R/W `VERIFIED` for the file’s stated PS5 11.60 scope; kernel/Celsius relation `INVALID` based on absence in the complete scan.
+
+
+## Jordy 11.60 final-stage behavior
+
+The final section of `jordy/index.html` records `ARBITRARY-READ-PASS`, `ARBITRARY-WRITE-PASS` and `GENUINE-U8-RW-PASS` only after validating the forged carrier, target cell, observed read/write and restoration. `beginComposition()` derives `targetAddress` from captured pointers and sets the fake address at `hostAddress + 0x10`; `runGroomAndLoad()` performs the WebKit grooming/composition sequence. No kernel transition, syscall wrapper, dlsym, ROP pivot, mount or FFS operation follows these userland checks. This supports treating the file as a genuine-view userland R/W bootstrap, not as a hidden Celsius stage.

