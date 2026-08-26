@@ -223,3 +223,9 @@ El archivo define `kpatch_mmap_offsets['13.02'] = [0x1fa78a, 0x1fa78d]` y normal
 La evidencia nueva permite documentar una integración pública completa de **Vue/BD-J → NetCtrl → kernel R/W → binloader**, pero únicamente en líneas históricas con alcance declarado hasta 12.00 o 13.00. `claimore22/PS4-12.00-Jailbreak` aporta el wrapper MITM y la integración de carga de payload; `vue-after-free` aporta ramas `netctrl_c0w`, `release` y `ts-new` con primitives R/W históricas. Ninguna de esas líneas contiene la transición `mount → FFS → ffs_mountfs` ni un artefacto Celsius.
 
 El dato más cercano a FW 13.02 es la entrada aislada de mmap en `claimore22/kernel.js`, normalizada también para 13.04, pero la ausencia de shellcode, tabla completa y verificación operativa para esas versiones impide tratarla como soporte kernel completo. El siguiente objetivo de procedencia sigue siendo localizar un proyecto de análisis binario Orbis 13.02/13.04 o una copia histórica del bootstrap Celsius; las cadenas NetCtrl ya no deben utilizarse como sustituto de esa evidencia.
+
+## GhidraOrbis y PSDevWiki como candidatos A
+
+`astrelsky/GhidraOrbis` es un plugin público de Ghidra para formatos y software Orbis, creado en 2020 y con 118 commits, 88 estrellas y 24 forks según su página. Sus créditos incluyen loaders de kernel PS4 y herramientas de PUP, pero el árbol descrito contiene código del plugin (`src/main/java`, scripts y datos), no un dump de kernel 13.02/13.04 ni un proyecto IDA/Ghidra con `ffs_mountfs` localizado.
+
+La página `PSDevWiki/Reverse_Engineering` enumera herramientas de análisis, `ps4-re-utilities`, loaders IDA y referencias a dumps, pero no identifica un artefacto Orbis 13.02/13.04 ni una dirección para `ffs_mountfs` o `0x001512A7`. Ambos recursos son infraestructura para analizar un dump si apareciera; no constituyen el dump. Clasificación: **VERIFIED** como tooling/documentación; **INVALID** como evidencia directa de Celsius 13.02.

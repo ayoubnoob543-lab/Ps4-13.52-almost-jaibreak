@@ -991,3 +991,7 @@ Created 2026-07-08 with 3 commits. README claims a local MITM Vue chain for PS4 
 ## claimore22 kernel.js internal scope distinction
 
 `kernel.js` defines mmap patch offsets for 13.02 and maps 13.04 to that entry, but `shellcode_fw_map` has no 13.02/13.04, the complete `ps4_kernel_offset_list` ends at `13.00: offset_ps4_12_50`, and explicit patch verification handles 12.00/12.02 only. A 13.02 mmap entry is therefore not full 13.02/13.04 kernel-R/W support and does not connect to Celsius.
+
+## GhidraOrbis and PSDevWiki candidates
+
+`astrelsky/GhidraOrbis` provides public Ghidra support for Orbis formats/software and credits PS4 kernel loaders, but no Orbis 13.02/13.04 dump or `ffs_mountfs` project was found in the described tree. `PSDevWiki/Reverse_Engineering` lists RE tools, ps4-re-utilities, IDA loaders and dump references but identifies no 13.02/13.04 artifact or `0x001512A7` mapping. Both are tooling/documentation, not direct Celsius evidence.
