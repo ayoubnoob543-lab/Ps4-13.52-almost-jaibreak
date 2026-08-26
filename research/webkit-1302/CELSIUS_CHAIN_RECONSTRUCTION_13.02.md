@@ -90,3 +90,16 @@ El SDK público aporta `libufs` userland y headers FreeBSD; sus rutinas permiten
 ### Primitive Celsius→kernel R/W
 
 El SDK expone `kernel_copyin`/`kernel_copyout` y el árbol BD-JB contiene un puente histórico `kread`/`kwrite`, recorrido de `allproc`, modificación de `ucred`/`rootvnode` y parche de `sysent`. Ambos son consumidores o puentes de cadenas distintas: no incluyen la primitive inicial que convertiría el overflow de Celsius en R/W, y no existe una adaptación pública 13.02. Estado: **modelo histórico conseguido; primitive Celsius no conseguida**.
+
+## Estado de cierre de la búsqueda focalizada
+
+| Pieza | ¿Conseguida? | Artefacto concreto que podría cerrarla | Siguiente objetivo de búsqueda |
+|---|---|---|---|
+| Bootstrap WebKit/Jordy completo | **No**. Sólo se confirmó la interfaz esperada (`targetAddress`, `m_vector`, bases y helpers) y una referencia secundaria a Jordy para 13.00 | Una copia histórica del árbol WebKit/Jordy o de `jordy_stage2.js` con inicialización, bases, pivot y gadgets | Historiales, mirrors y releases del proyecto que publicó la referencia 13.00; no asumir que `Scene-Collective/psfree` es ese proyecto porque la URL no resolvió |
+| Orbis `ffs_mountfs` / `patch_mount` | **No**. `patch_mount` sigue siendo un nombre de tabla sin bytes ni xref | Dump o disassembly legítimo de Orbis 13.02/13.04 con el bloque de montaje y una referencia al offset `0x1512A7` | Artefactos de análisis estático de kernels 13.02/13.04, proyectos IDA/Ghidra o capturas con símbolos/call graph |
+| Imagen/parametrización UFS | **Parcial**. `libufs`, headers y rutinas de superbloque permiten modelar FFS offline | La imagen original de Celsius, un hash o una receta pública de campos del superbloque y dispositivo usado | Mirar artefactos asociados a la ISO/USB de Celsius y commits del scanner, no generar ni probar imágenes contra hardware |
+| Primitive Celsius→kernel R/W | **No**. Sólo existe el modelo histórico Lapse/Poops y APIs consumidoras del SDK | Código o log técnico que muestre objeto afectado, corrupción controlada y posterior `kread`/`kwrite` en la misma cadena | Buscar una derivación de Celsius que cite estructuras de kernel y una secuencia de R/W; separar siempre los puentes Lapse/Poops por ser otra primitive |
+
+La única pieza nueva parcialmente conseguida en esta fase es la **infraestructura userland de imagen FFS**: `libufs` permite leer/escribir estructuras UFS y el SDK aporta headers coherentes con FreeBSD. No equivale a la imagen de Celsius ni al trigger Orbis. La rama también conserva un modelo histórico de kernel R/W, pero no se clasifica como integración Celsius.
+
+En términos prácticos, la reconstrucción pública actual puede llegar hasta un **diseño estático de interfaces y dependencias**, no hasta una cadena ejecutable 13.02. Los dos artefactos de mayor valor informativo son, en orden, un disassembly legítimo de `ffs_mountfs` Orbis 13.02/13.04 y una copia del bootstrap Jordy que entregue control de datos/llamadas; el artefacto que cerraría funcionalmente la cadena sería un PoC o log de hardware que conecte ambos con la primitive R/W. Esta conclusión no requiere volver a investigar la existencia de Celsius.
