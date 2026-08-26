@@ -855,3 +855,7 @@ Expediente creado desde d42bf9c; se separan las búsquedas A y B y se excluye la
 ## Independent A/B search update
 
 `Feyzee61/ps4jb` was inspected as a possible public WebKit/RW bridge. Its README states support for 5.05, 6.72 and 7.00–9.60 and describes PSFree/Lapse, not Celsius or 13.02. The recent Reddit 13.00 post mentions Jordy's AI WebKit and links an external entrypoint but exposes no Celsius, UFS image or kernel-RW transition. The Instagram Celsius post only repeats the 13.02–13.04 claim and USB requirement. `Al-Azif/ps4-re-utilities` provides kernel-ELF splitting tools, not target-firmware bytes or `ffs_mountfs`. These findings are recorded in `ORbis_CELSIUS_INDEPENDENT_SEARCH_2026-08-27.md` and are classified as historical/secondary, not independent proof of the missing chain.
+
+## A search: RE projects and kernel artifacts
+
+The expanded A search inspected Al-Azif's `ps4-re-utilities`, OpenOrbis, ConsoleMods' SDK documentation, the historical PSXHAX IDA loader page and CTurt's kernel exploitation article. These provide tools, loaders, headers or historical methodology, but no Orbis 13.02/13.04 bytes, pseudocode, call graph, `ffs_mountfs`, `ffs_reload` or xref for `0x001512A7`. `ps4-re-utilities` is useful only as a possible offline parser if a legitimate `80010002` kernel ELF is later found. Classifications are recorded in the session report.

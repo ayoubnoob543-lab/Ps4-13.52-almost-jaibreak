@@ -32,3 +32,15 @@ Cada hallazgo se documentará como: artefacto | URL/origen | fecha | hash | firm
 ## Búsqueda A: resultado provisional
 
 `Al-Azif/ps4-re-utilities` (https://github.com/Al-Azif/ps4-re-utilities, creado 2025-12-04, un commit visible) contiene herramientas para separar el kernel FreeBSD de un Kernel ELF `80010002` y preparar el archivo para depuradores. Es infraestructura de análisis, no un dump 13.02/13.04 y no incluye `ffs_mountfs`, `ffs_reload` ni una referencia a `0x001512A7`. El artículo histórico de CTurt (https://cturt.github.io/ps4-3.html, 2015-12-17) documenta análisis de kernel y WebKit en firmwares antiguos, pero no aporta un artefacto Orbis 13.02/13.04 ni una relación con Celsius. Los resultados Reddit/YouTube recientes son secundarios y no contienen bytes ni proyectos RE del kernel.
+
+## Auditoría A ampliada: proyectos de análisis y SDK
+
+| Artefacto | URL/origen | Fecha | Hash | Firmware | Relación con Celsius | Pieza que aporta | Procedencia |
+|---|---|---:|---|---|---|---|---|
+| `Al-Azif/ps4-re-utilities` | https://github.com/Al-Azif/ps4-re-utilities | 2025-12-04; un commit visible | No se descargó un kernel | Afirma compatibilidad de herramientas hasta 13.50 | Ninguna directa; no incluye `ffs_mountfs` ni bytes Orbis objetivo | `split_kernel.py` puede separar el FreeBSD kernel de un Kernel ELF `80010002` para análisis offline | Fuente primaria de herramienta; **VERIFIED como utilidad, sin dump 13.02/13.04** |
+| `OpenOrbis-PS4-Toolchain` | https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain | Creado 2020-05-11; 558 commits visibles | N/A | SDK general | No contiene kernel retail ni Celsius | Headers, stubs, documentación y scripts de ELF; el README dice que el repo evita incluir binarios pesados | Fuente primaria de toolchain; **VERIFIED como SDK, no artefacto Orbis** |
+| OpenOrbis SDK en ConsoleMods | https://consolemods.org/wiki/PS4:OpenOrbis_SDK | Editado 2025-01-27 | N/A | Documenta principalmente 1.05–9.00 en PS4LibDoc | No contiene Celsius ni análisis 13.02 | Referencia secundaria del ecosistema SDK/Mira | **CORROBORATED como documentación; no evidencia de kernel 13.02** |
+| PS4 Module Loader / IDA | https://www.psxhax.com/threads/ps4-module-loader-for-ida-userland-modules-by-socraticbliss.6945/ | 2019-07-30 | N/A | Histórico | No implementa Celsius; sirve para módulos userland y kernel antiguos | Cargador IDA y contexto de reversing, sin proyecto de kernel Orbis 13.02/13.04 | Fuente secundaria que enlaza descargas restringidas; **SOURCE_ONLY para artefactos no recuperados** |
+| CTurt, “Hacking the PS4, part 3” | https://cturt.github.io/ps4-3.html | 2015-12-17 | N/A | Firmwares antiguos | No es Celsius | Metodología histórica de WebKit, ROP, sysctl y análisis de kernel | Fuente primaria histórica; **VERIFIED en su alcance, no transferible a 13.02** |
+
+Conclusión A provisional: ningún resultado contiene bytes, pseudocódigo, call graph o proyecto RE de Orbis 13.02/13.04 que permita identificar `ffs_mountfs`, `ffs_reload` o la función situada en `0x001512A7`. Los SDK y loaders encontrados son infraestructura, no el artefacto objetivo.
