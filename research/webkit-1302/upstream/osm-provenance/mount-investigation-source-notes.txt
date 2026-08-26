@@ -731,3 +731,8 @@ Searches for the exact filename `1304_libSceNKWebKit.sprx.decrypted`, `midohar36
 ## Direct audit of scanner commit 702fcc3
 
 The clean GitHub commit API response shows that `702fcc3` adds exactly one file: `webkit_gadgets_1304.js`. Its patch contains the claims `Source: 1304_libSceNKWebKit.sprx.decrypted (68 MB) from zecoxao`, `ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)` and `CONFIRMED: Celsius (ffs_mount) is present in 13.04 kernel`. The commit adds no URL to the alleged SPRX, no hash, no binary, no bytes around the string, no disassembly, no function boundary and no test log. Thus the claims are verified as text introduced by this commit, but remain `SOURCE_ONLY` for the asserted artifacts and `UNVERIFIED` for Celsius in Orbis 13.04/13.02.
+
+
+## zecoxao.github.io claim-history audit
+
+A fresh clone of `zecoxao/zecoxao.github.io` contains no current matches for `1304_libSceNKWebKit`, `ffs_mountfs`, `Celsius`, `midohar36`, `13.02` or `13.04` in the checked tree. Git pickaxe history likewise finds no additions for the exact SPRX filename, `ffs_mountfs` or `midohar36`; the `Celsius` matches belong to generic commits such as `slopdev`, `bagagwa`, devkit/tests and ELF tooling, not a PS4 13.04 kernel artifact. The repository therefore does not provide a primary copy or provenance link for the SPRX claim used by scanner commit `702fcc3`.
