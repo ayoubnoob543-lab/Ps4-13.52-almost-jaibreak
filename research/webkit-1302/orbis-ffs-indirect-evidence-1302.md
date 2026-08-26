@@ -339,3 +339,9 @@ El repositorio [`adri22235/ps4-suid-scanner`](https://github.com/adri22235/ps4-s
 El historial visible sólo tiene la rama `main` y una release `v2.0`; no muestra una rama histórica ni un asset de kernel Orbis. `cve_analysis.md` contiene una descripción detallada del patrón FreeBSD y afirma “works up to 13.04 / patched in 13.50”, pero no cita commit de bollars, hash de kernel, diff binario, dirección de `ffs_mountfs()`, captura de IDA/Ghidra, log de hardware ni imagen UFS. Por tanto, el documento es `SOURCE_ONLY` para la atribución/rango y `VERIFIED` únicamente como texto publicado por ese repositorio, no como prueba independiente de Celsius.
 
 La cuenta/repository timeline también muestra que la afirmación se documentó después del anuncio público de julio de 2026; no constituye por sí misma una fuente primaria independiente.
+
+## 27. Auditoría completa del commit original de ArabPixel
+
+El commit [`77a16b7`](https://github.com/ArabPixel/Fusion/commit/77a16b7f236df46f14bb2c744a24540e57245214) tiene el mensaje exacto `13.02 Kernel offsets`, autor y committer ArabPixel, padre `a1b05d4a22d951c1603c06c49b1b869653ce5c6f`, y está asociado oficialmente al PR [`ArabPixel/Fusion#13`](https://github.com/ArabPixel/Fusion/pull/13), creado el 18-ene-2026 y fusionado el 20-ene-2026. El commit añade `Shared/Offsets-1302.h`, registra el build string `226094` en `DetectFirmwareVersion()` e incorpora el caso 13.02 al inicializador.
+
+La API de GitHub no devuelve comentarios asociados al commit. El diff no añade ningún kernel, dump, hash, archivo IDA/Ghidra, herramienta de extracción ni explicación de cómo se midieron los offsets. Por tanto, este commit es `VERIFIED` como primer artefacto público de la tabla y `SOURCE_ONLY` respecto del origen material de las mediciones. El build string `226094` identifica la condición de selección de la tabla en el código, pero no demuestra que el kernel correspondiente haya sido publicado.
