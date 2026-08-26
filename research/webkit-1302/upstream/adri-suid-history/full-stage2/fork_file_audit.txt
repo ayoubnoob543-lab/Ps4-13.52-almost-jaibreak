@@ -1,0 +1,102 @@
+===== ayoubnoob543-lab/ps4-suid-scanner =====
+1304.c
+1304.h
+1352_offsets.txt
+README.md
+cve_analysis.md
+hen.bin
+jordy_stage2.js
+scanner_1304.iso
+src
+webkit_gadgets_1304.js
+webkit_gadgets_1350.js
+-- jordy_stage2.js
+[1;38m{[m
+[1;34m"download_url"[m[1;38m:[m [32m"https://raw.githubusercontent.com/ayoubnoob543-lab/ps4-suid-scanner/main/jordy_stage2.js"[m[1;38m,[m
+[1;34m"name"[m[1;38m:[m [32m"jordy_stage2.js"[m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"c394105d8bb28b7d419dd7295785131ab3035fdb"[m[1;38m,[m
+[1;34m"size"[m[1;38m:[m 9421
+[1;38m}[m
+-- stage2_jordy.js
+[1;37m{[m
+  [1;34m"message"[m[1;37m:[m [32m"Not Found"[m[1;37m,[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/rest/repos/contents#get-repository-content"[m[1;37m,[m
+  [1;34m"status"[m[1;37m:[m [32m"404"[m
+[1;37m}[m
+gh: Not Found (HTTP 404)
+===== ke5adb/ps4-suid-scanner =====
+1304.c
+1304.h
+1352_offsets.txt
+README.md
+cve_analysis.md
+hen.bin
+jordy_stage2.js
+scanner_1304.iso
+src
+webkit_gadgets_1304.js
+webkit_gadgets_1350.js
+-- jordy_stage2.js
+[1;38m{[m
+[1;34m"download_url"[m[1;38m:[m [32m"https://raw.githubusercontent.com/ke5adb/ps4-suid-scanner/main/jordy_stage2.js"[m[1;38m,[m
+[1;34m"name"[m[1;38m:[m [32m"jordy_stage2.js"[m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"c394105d8bb28b7d419dd7295785131ab3035fdb"[m[1;38m,[m
+[1;34m"size"[m[1;38m:[m 9421
+[1;38m}[m
+-- stage2_jordy.js
+[1;37m{[m
+  [1;34m"message"[m[1;37m:[m [32m"Not Found"[m[1;37m,[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/rest/repos/contents#get-repository-content"[m[1;37m,[m
+  [1;34m"status"[m[1;37m:[m [32m"404"[m
+[1;37m}[m
+gh: Not Found (HTTP 404)
+===== kishan9601743105-oss/ps4-suid-scanner =====
+1304.c
+1304.h
+1352_offsets.txt
+README.md
+cve_analysis.md
+hen.bin
+scanner_1304.iso
+src
+webkit_gadgets_1304.js
+webkit_gadgets_1350.js
+-- jordy_stage2.js
+[1;37m{[m
+  [1;34m"message"[m[1;37m:[m [32m"Not Found"[m[1;37m,[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/rest/repos/contents#get-repository-content"[m[1;37m,[m
+  [1;34m"status"[m[1;37m:[m [32m"404"[m
+[1;37m}[m
+gh: Not Found (HTTP 404)
+-- stage2_jordy.js
+[1;37m{[m
+  [1;34m"message"[m[1;37m:[m [32m"Not Found"[m[1;37m,[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/rest/repos/contents#get-repository-content"[m[1;37m,[m
+  [1;34m"status"[m[1;37m:[m [32m"404"[m
+[1;37m}[m
+gh: Not Found (HTTP 404)
+===== OptiTronOffical/ps4-suid-scanner =====
+1304.c
+1304.h
+1352_offsets.txt
+README.md
+cve_analysis.md
+hen.bin
+scanner_1304.iso
+src
+webkit_gadgets_1304.js
+webkit_gadgets_1350.js
+-- jordy_stage2.js
+[1;37m{[m
+  [1;34m"message"[m[1;37m:[m [32m"Not Found"[m[1;37m,[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/rest/repos/contents#get-repository-content"[m[1;37m,[m
+  [1;34m"status"[m[1;37m:[m [32m"404"[m
+[1;37m}[m
+gh: Not Found (HTTP 404)
+-- stage2_jordy.js
+[1;37m{[m
+  [1;34m"message"[m[1;37m:[m [32m"Not Found"[m[1;37m,[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/rest/repos/contents#get-repository-content"[m[1;37m,[m
+  [1;34m"status"[m[1;37m:[m [32m"404"[m
+[1;37m}[m
+gh: Not Found (HTTP 404)

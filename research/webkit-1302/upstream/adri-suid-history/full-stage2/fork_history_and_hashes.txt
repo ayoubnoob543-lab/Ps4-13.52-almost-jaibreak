@@ -1,0 +1,9 @@
+===== adri22235/ps4-suid-scanner =====
+e07e8fee72cae298010304349acdd1876a35bf46e9f0e814585ee7f9f9d47528  research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/adri22235_ps4-suid-scanner_jordy_stage2.js
+1089382ec1e0000e9557b7748d39b57952bbc4f3	2026-08-09T00:35:29Z	Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+===== ayoubnoob543-lab/ps4-suid-scanner =====
+e07e8fee72cae298010304349acdd1876a35bf46e9f0e814585ee7f9f9d47528  research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ayoubnoob543-lab_ps4-suid-scanner_jordy_stage2.js
+1089382ec1e0000e9557b7748d39b57952bbc4f3	2026-08-09T00:35:29Z	Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+===== ke5adb/ps4-suid-scanner =====
+e07e8fee72cae298010304349acdd1876a35bf46e9f0e814585ee7f9f9d47528  research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ke5adb_ps4-suid-scanner_jordy_stage2.js
+1089382ec1e0000e9557b7748d39b57952bbc4f3	2026-08-09T00:35:29Z	Replace skeleton with full stage 2: persistent r/w + ROP for 13.04

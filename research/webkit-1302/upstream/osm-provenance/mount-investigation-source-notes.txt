@@ -293,3 +293,21 @@ Classification: Dr.Yenyen announcement `SOURCE_ONLY`; GameGaz/Wikova reporting `
 ## elfldr and ps4-hen release-history check
 
 `ps4-payload-dev/elfldr` release history records v0.3 with “add offsets for 13.02”, v0.4 with “add offsets for firmware 13.04”, and v0.7 with “add patches for fw 13.50”. `Scene-Collective/ps4-hen` release history records signed releases adding 13.00, 13.02, 13.04, and 13.50 support. These are public, signed support artifacts for payload loading/HEN infrastructure, but the release notes and inspected surfaces do not publish an Orbis kernel image, FFS disassembly, `ffs_mountfs` symbol, Celsius implementation, or proof that the relevant kernel R/W primitive exists on 13.02. Classification: firmware support commits `VERIFIED`; kernel-dump/FFS/Celsius evidence `INVALID`; any inference from support offsets to Celsius `HYPOTHESIS`.
+
+
+## Full stage 2 commit recovery — 2026-08-26
+
+La consulta actual de GitHub confirma que el commit `1089382ec1e0000e9557b7748d39b57952bbc4f3` sí está públicamente accesible en `adri22235/ps4-suid-scanner`. Fue creado y firmado por el autor del repositorio el 2026-08-09 00:35:29Z. Mensaje: `Replace skeleton with full stage 2: persistent r/w + ROP for 13.04`. Tiene como único padre `96a79482d249fdbc6101bc641241488de66c313d`, creado ocho minutos antes con el mensaje `Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04`.
+
+El commit 1089382 elimina `stage2_jordy.js` de 194 líneas y añade `jordy_stage2.js` de 302 líneas. SHA-256 del archivo añadido: `e07e8fee72cae298010304349acdd1876a35bf46e9f0e814585ee7f9f9d47528`. Raw: `https://raw.githubusercontent.com/adri22235/ps4-suid-scanner/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js`.
+
+El archivo sí contiene helpers JavaScript de `read8/read16/read32/read64` y `write8/write32/write64` basados en redirigir `m_vector` de un `Uint8Array`, además de gadgets nominales WebKit 13.04 y cinco constantes de kernel (`PRISON0`, `ROOTVNODE`, `ALLPROC`, `SYSENT`, `memcpy`). Sin embargo, la cadena decisiva no está implementada: `findWebkitBase()` termina en `return 0; // placeholder`; `findLibkernelBase()` termina en `return 0; // placeholder`; la dirección GOT de `pthread_create` sólo se da como “approx”; la dirección de `sceKernelDlsym` y la dirección de su string son TODO; no existe dirección de `mount`, mount point ni imagen UFS construida; la llamada a `mount → triggers ffs_mountfs → Celsius` es un comentario; el parche de `PRISON0/ROOTVNODE` sólo son comentarios; `executeRop()` sólo registra la longitud y contiene `TODO: Implement execution pivot`; `stage2_run()` aborta cuando la base WebKit retorna cero, restaura el estado y no ejecuta la cadena.
+
+El commit demuestra que el “full stage 2” existió como objeto Git y aportó una versión más extensa que el skeleton. No demuestra que fuera full en sentido funcional, ni que contenga kernel R/W, ni que Celsius se haya ejecutado en 13.02/13.04. Clasificación: existencia del commit y contenido `VERIFIED`; título “full” `SOURCE_ONLY/misleading`; primitive userland JavaScript `SOURCE_ONLY` porque depende de un contexto Jordy no incluido; kernel R/W, montaje UFS/FFS y ROP pivot `INVALID` como implementación funcional; relación con Celsius `HYPOTHESIS/UNVERIFIED_13_02`.
+
+Artefactos locales: `research/webkit-1302/upstream/adri-suid-history/full-stage2/github_refs_and_commits.json`, `commit_metadata.txt`, `jordy_stage2_1089382.js`, `stage2_jordy_96a7948.js`, `96a7948_vs_1089382.diff` y `keyword_audit.txt`.
+
+
+## False-positive mirror: firmware-lab
+
+El índice de código de GitHub devuelve también `ayoubnoob543-lab/firmware-lab/jordy_stage2.js`, pero el archivo está en el commit `0d6221d3d9cb1009d1383a36445e26d6faa502bd`, creado por `ayoubnoob543-lab` el 2026-08-26, con padre `e5d9ee5...` y mensaje `docs: remove aggregate progress percentages`. El archivo tiene 315 líneas y SHA-256 `87923c925ee77ea3e596f3d5aff21b61bcd2bd251408236663d16560e8496b27`; es una variante local posterior que usa BigInt y explicita mensajes `INCOMPLETE`, no una fuente independiente ni una copia histórica externa. Su procedencia es `DERIVED/LOCAL RESEARCH ARTIFACT` y debe excluirse de la búsqueda de mirrors de terceros.

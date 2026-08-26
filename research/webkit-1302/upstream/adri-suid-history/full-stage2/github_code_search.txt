@@ -1,0 +1,11 @@
+QUERY=%22TODO%3A+Implement+execution+pivot%22
+total=1
+adri22235/ps4-suid-scanner	jordy_stage2.js	c394105d8bb28b7d419dd7295785131ab3035fdb	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js
+QUERY=%22mount+%E2%86%92+triggers+ffs_mountfs+%E2%86%92+Celsius%22
+total=2
+adri22235/ps4-suid-scanner	jordy_stage2.js	c394105d8bb28b7d419dd7295785131ab3035fdb	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js
+ayoubnoob543-lab/firmware-lab	jordy_stage2.js	ed12c2797689ac3af0e294582302464b3951adc6	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/jordy_stage2.js
+QUERY=filename%3Ajordy_stage2.js
+total=2
+adri22235/ps4-suid-scanner	jordy_stage2.js	c394105d8bb28b7d419dd7295785131ab3035fdb	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js
+ayoubnoob543-lab/firmware-lab	jordy_stage2.js	ed12c2797689ac3af0e294582302464b3951adc6	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/jordy_stage2.js

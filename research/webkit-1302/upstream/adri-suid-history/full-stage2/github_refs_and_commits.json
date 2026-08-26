@@ -1,0 +1,884 @@
+## refs
+[1;37m[[m
+  [1;37m{[m
+    [1;34m"ref"[m[1;37m:[m [32m"refs/heads/main"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"REF_kwDOTcaT169yZWZzL2hlYWRzL21haW4"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/refs/heads/main"[m[1;37m,[m
+    [1;34m"object"[m[1;37m:[m [1;37m{[m
+      [1;34m"sha"[m[1;37m:[m [32m"1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"commit"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/1089382ec1e0000e9557b7748d39b57952bbc4f3"[m
+    [1;37m}[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"ref"[m[1;37m:[m [32m"refs/pull/1/head"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"REF_kwDOTcaT17ByZWZzL3B1bGwvMS9oZWFk"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/refs/pull/1/head"[m[1;37m,[m
+    [1;34m"object"[m[1;37m:[m [1;37m{[m
+      [1;34m"sha"[m[1;37m:[m [32m"e57065f4661a00610666cc061c1bb0145b812bdd"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"commit"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/e57065f4661a00610666cc061c1bb0145b812bdd"[m
+    [1;37m}[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"ref"[m[1;37m:[m [32m"refs/pull/1/merge"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"REF_kwDOTcaT17FyZWZzL3B1bGwvMS9tZXJnZQ"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/refs/pull/1/merge"[m[1;37m,[m
+    [1;34m"object"[m[1;37m:[m [1;37m{[m
+      [1;34m"sha"[m[1;37m:[m [32m"bf38b1cef8360ea842f41f2a18212b06abb4f31b"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"commit"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/bf38b1cef8360ea842f41f2a18212b06abb4f31b"[m
+    [1;37m}[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"ref"[m[1;37m:[m [32m"refs/tags/v2.0"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"REF_kwDOTcaT165yZWZzL3RhZ3MvdjIuMA"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/refs/tags/v2.0"[m[1;37m,[m
+    [1;34m"object"[m[1;37m:[m [1;37m{[m
+      [1;34m"sha"[m[1;37m:[m [32m"3fd35a4e475698b59dae40794901a56126a38c52"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"commit"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/3fd35a4e475698b59dae40794901a56126a38c52"[m
+    [1;37m}[m
+  [1;37m}[m
+[1;37m][m
+## branches
+[1;37m[[m
+  [1;37m{[m
+    [1;34m"name"[m[1;37m:[m [32m"main"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"sha"[m[1;37m:[m [32m"1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/1089382ec1e0000e9557b7748d39b57952bbc4f3"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"protected"[m[1;37m:[m [33mfalse[m
+  [1;37m}[m
+[1;37m][m
+## tags
+[1;37m[[m
+  [1;37m{[m
+    [1;34m"name"[m[1;37m:[m [32m"v2.0"[m[1;37m,[m
+    [1;34m"zipball_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/zipball/refs/tags/v2.0"[m[1;37m,[m
+    [1;34m"tarball_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/tarball/refs/tags/v2.0"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"sha"[m[1;37m:[m [32m"3fd35a4e475698b59dae40794901a56126a38c52"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/3fd35a4e475698b59dae40794901a56126a38c52"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"REF_kwDOTcaT165yZWZzL3RhZ3MvdjIuMA"[m
+  [1;37m}[m
+[1;37m][m
+## commits
+[1;37m[[m
+  [1;37m{[m
+    [1;34m"sha"[m[1;37m:[m [32m"1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"C_kwDOTcaT19oAKDEwODkzODJlYzFlMDAwMGU5NTU3Yjc3NDhkMzliNTc5NTJiYmM0ZjM"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"author"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-08-09T00:35:29Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"committer"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-08-09T00:35:29Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Replace skeleton with full stage 2: persistent r/w + ROP for 13.04"[m[1;37m,[m
+      [1;34m"tree"[m[1;37m:[m [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"7b70786a1091229eb1b8f4e2639545f424fc2358"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/7b70786a1091229eb1b8f4e2639545f424fc2358"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+      [1;34m"comment_count"[m[1;37m:[m 0[1;37m,[m
+      [1;34m"verification"[m[1;37m:[m [1;37m{[m
+        [1;34m"verified"[m[1;37m:[m [33mfalse[m[1;37m,[m
+        [1;34m"reason"[m[1;37m:[m [32m"unsigned"[m[1;37m,[m
+        [1;34m"signature"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"payload"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"verified_at"[m[1;37m:[m [36mnull[m
+      [1;37m}[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/1089382ec1e0000e9557b7748d39b57952bbc4f3/comments"[m[1;37m,[m
+    [1;34m"author"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"committer"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"parents"[m[1;37m:[m [1;37m[[m
+      [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+        [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/96a79482d249fdbc6101bc641241488de66c313d"[m
+      [1;37m}[m
+    [1;37m][m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"sha"[m[1;37m:[m [32m"96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"C_kwDOTcaT19oAKDk2YTc5NDgyZDI0OWZkYmM2MTAxYmM2NDEyNDE0ODhkZTY2YzMxM2Q"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"author"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-08-09T00:26:47Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"committer"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-08-09T00:26:47Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04"[m[1;37m,[m
+      [1;34m"tree"[m[1;37m:[m [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"81e06fefbbce1cf2bf1735031b823bc8568d5d57"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/81e06fefbbce1cf2bf1735031b823bc8568d5d57"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+      [1;34m"comment_count"[m[1;37m:[m 0[1;37m,[m
+      [1;34m"verification"[m[1;37m:[m [1;37m{[m
+        [1;34m"verified"[m[1;37m:[m [33mfalse[m[1;37m,[m
+        [1;34m"reason"[m[1;37m:[m [32m"unsigned"[m[1;37m,[m
+        [1;34m"signature"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"payload"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"verified_at"[m[1;37m:[m [36mnull[m
+      [1;37m}[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/96a79482d249fdbc6101bc641241488de66c313d/comments"[m[1;37m,[m
+    [1;34m"author"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"committer"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"parents"[m[1;37m:[m [1;37m[[m
+      [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"702fcc397d45546baab5311bc0a264870ae90042"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/702fcc397d45546baab5311bc0a264870ae90042"[m[1;37m,[m
+        [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/702fcc397d45546baab5311bc0a264870ae90042"[m
+      [1;37m}[m
+    [1;37m][m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"sha"[m[1;37m:[m [32m"702fcc397d45546baab5311bc0a264870ae90042"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"C_kwDOTcaT19oAKDcwMmZjYzM5N2Q0NTU0NmJhYWI1MzExYmMwYTI2NDg3MGFlOTAwNDI"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"author"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-30T17:34:44Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"committer"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-30T17:34:44Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump"[m[1;37m,[m
+      [1;34m"tree"[m[1;37m:[m [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"4467561ec9f4d46909786111725672ac78d31c2d"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/4467561ec9f4d46909786111725672ac78d31c2d"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/702fcc397d45546baab5311bc0a264870ae90042"[m[1;37m,[m
+      [1;34m"comment_count"[m[1;37m:[m 0[1;37m,[m
+      [1;34m"verification"[m[1;37m:[m [1;37m{[m
+        [1;34m"verified"[m[1;37m:[m [33mfalse[m[1;37m,[m
+        [1;34m"reason"[m[1;37m:[m [32m"unsigned"[m[1;37m,[m
+        [1;34m"signature"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"payload"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"verified_at"[m[1;37m:[m [36mnull[m
+      [1;37m}[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/702fcc397d45546baab5311bc0a264870ae90042"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/702fcc397d45546baab5311bc0a264870ae90042"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/702fcc397d45546baab5311bc0a264870ae90042/comments"[m[1;37m,[m
+    [1;34m"author"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"committer"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"parents"[m[1;37m:[m [1;37m[[m
+      [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"3fd35a4e475698b59dae40794901a56126a38c52"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/3fd35a4e475698b59dae40794901a56126a38c52"[m[1;37m,[m
+        [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/3fd35a4e475698b59dae40794901a56126a38c52"[m
+      [1;37m}[m
+    [1;37m][m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"sha"[m[1;37m:[m [32m"3fd35a4e475698b59dae40794901a56126a38c52"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"C_kwDOTcaT19oAKDNmZDM1YTRlNDc1Njk4YjU5ZGFlNDA3OTQ5MDFhNTYxMjZhMzhjNTI"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"author"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-29T23:45:04Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"committer"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-29T23:45:04Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Add compiled ps4-hen for FW 13.04 with full offsets"[m[1;37m,[m
+      [1;34m"tree"[m[1;37m:[m [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"23caa4f58e49251c860636646e3c794ead7024bf"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/23caa4f58e49251c860636646e3c794ead7024bf"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/3fd35a4e475698b59dae40794901a56126a38c52"[m[1;37m,[m
+      [1;34m"comment_count"[m[1;37m:[m 0[1;37m,[m
+      [1;34m"verification"[m[1;37m:[m [1;37m{[m
+        [1;34m"verified"[m[1;37m:[m [33mfalse[m[1;37m,[m
+        [1;34m"reason"[m[1;37m:[m [32m"unsigned"[m[1;37m,[m
+        [1;34m"signature"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"payload"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"verified_at"[m[1;37m:[m [36mnull[m
+      [1;37m}[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/3fd35a4e475698b59dae40794901a56126a38c52"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/3fd35a4e475698b59dae40794901a56126a38c52"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/3fd35a4e475698b59dae40794901a56126a38c52/comments"[m[1;37m,[m
+    [1;34m"author"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"committer"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"parents"[m[1;37m:[m [1;37m[[m
+      [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"b1570ef644991d6ffe41c459753c169017d28be6"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/b1570ef644991d6ffe41c459753c169017d28be6"[m[1;37m,[m
+        [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/b1570ef644991d6ffe41c459753c169017d28be6"[m
+      [1;37m}[m
+    [1;37m][m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"sha"[m[1;37m:[m [32m"b1570ef644991d6ffe41c459753c169017d28be6"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"C_kwDOTcaT19oAKGIxNTcwZWY2NDQ5OTFkNmZmZTQxYzQ1OTc1M2MxNjkwMTdkMjhiZTY"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"author"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-29T07:54:13Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"committer"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-29T07:54:13Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Add WebKit 13.50 ROP gadgets (17/17 found via radare2)"[m[1;37m,[m
+      [1;34m"tree"[m[1;37m:[m [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"33af673bbcb2edeace57dde400e6593db5209118"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/33af673bbcb2edeace57dde400e6593db5209118"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/b1570ef644991d6ffe41c459753c169017d28be6"[m[1;37m,[m
+      [1;34m"comment_count"[m[1;37m:[m 0[1;37m,[m
+      [1;34m"verification"[m[1;37m:[m [1;37m{[m
+        [1;34m"verified"[m[1;37m:[m [33mfalse[m[1;37m,[m
+        [1;34m"reason"[m[1;37m:[m [32m"unsigned"[m[1;37m,[m
+        [1;34m"signature"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"payload"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"verified_at"[m[1;37m:[m [36mnull[m
+      [1;37m}[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/b1570ef644991d6ffe41c459753c169017d28be6"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/b1570ef644991d6ffe41c459753c169017d28be6"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/b1570ef644991d6ffe41c459753c169017d28be6/comments"[m[1;37m,[m
+    [1;34m"author"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"committer"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"parents"[m[1;37m:[m [1;37m[[m
+      [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"596745e89dc6430697d3085ed31fdcea15d54c1d"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/596745e89dc6430697d3085ed31fdcea15d54c1d"[m[1;37m,[m
+        [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/596745e89dc6430697d3085ed31fdcea15d54c1d"[m
+      [1;37m}[m
+    [1;37m][m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"sha"[m[1;37m:[m [32m"596745e89dc6430697d3085ed31fdcea15d54c1d"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"C_kwDOTcaT19oAKDU5Njc0NWU4OWRjNjQzMDY5N2QzMDg1ZWQzMWZkY2VhMTVkNTRjMWQ"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"author"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-21T20:58:15Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"committer"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-21T20:58:15Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4"[m[1;37m,[m
+      [1;34m"tree"[m[1;37m:[m [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"e5215bae779ab61edd435cd6bea516f16ec75abf"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/e5215bae779ab61edd435cd6bea516f16ec75abf"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/596745e89dc6430697d3085ed31fdcea15d54c1d"[m[1;37m,[m
+      [1;34m"comment_count"[m[1;37m:[m 0[1;37m,[m
+      [1;34m"verification"[m[1;37m:[m [1;37m{[m
+        [1;34m"verified"[m[1;37m:[m [33mfalse[m[1;37m,[m
+        [1;34m"reason"[m[1;37m:[m [32m"unsigned"[m[1;37m,[m
+        [1;34m"signature"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"payload"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"verified_at"[m[1;37m:[m [36mnull[m
+      [1;37m}[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/596745e89dc6430697d3085ed31fdcea15d54c1d"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/596745e89dc6430697d3085ed31fdcea15d54c1d"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/596745e89dc6430697d3085ed31fdcea15d54c1d/comments"[m[1;37m,[m
+    [1;34m"author"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"committer"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"parents"[m[1;37m:[m [1;37m[[m
+      [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"615c637aaf2d75d6bbc3a935590dc1833a0e743f"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/615c637aaf2d75d6bbc3a935590dc1833a0e743f"[m[1;37m,[m
+        [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/615c637aaf2d75d6bbc3a935590dc1833a0e743f"[m
+      [1;37m}[m
+    [1;37m][m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"sha"[m[1;37m:[m [32m"615c637aaf2d75d6bbc3a935590dc1833a0e743f"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"C_kwDOTcaT19oAKDYxNWM2MzdhYWYyZDc1ZDZiYmMzYTkzNTU5MGRjMTgzM2EwZTc0M2Y"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"author"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-21T19:38:34Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"committer"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-21T19:38:34Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets"[m[1;37m,[m
+      [1;34m"tree"[m[1;37m:[m [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"dc5c2d39f782e3386ff18812aab768e198dbcc48"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/dc5c2d39f782e3386ff18812aab768e198dbcc48"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/615c637aaf2d75d6bbc3a935590dc1833a0e743f"[m[1;37m,[m
+      [1;34m"comment_count"[m[1;37m:[m 0[1;37m,[m
+      [1;34m"verification"[m[1;37m:[m [1;37m{[m
+        [1;34m"verified"[m[1;37m:[m [33mfalse[m[1;37m,[m
+        [1;34m"reason"[m[1;37m:[m [32m"unsigned"[m[1;37m,[m
+        [1;34m"signature"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"payload"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"verified_at"[m[1;37m:[m [36mnull[m
+      [1;37m}[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/615c637aaf2d75d6bbc3a935590dc1833a0e743f"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/615c637aaf2d75d6bbc3a935590dc1833a0e743f"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/615c637aaf2d75d6bbc3a935590dc1833a0e743f/comments"[m[1;37m,[m
+    [1;34m"author"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"committer"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"parents"[m[1;37m:[m [1;37m[[m
+      [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"13d44f233b4f693287739b6bb49806b8af058e15"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/13d44f233b4f693287739b6bb49806b8af058e15"[m[1;37m,[m
+        [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/13d44f233b4f693287739b6bb49806b8af058e15"[m
+      [1;37m}[m
+    [1;37m][m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"sha"[m[1;37m:[m [32m"13d44f233b4f693287739b6bb49806b8af058e15"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"C_kwDOTcaT19oAKDEzZDQ0ZjIzM2I0ZjY5MzI4NzczOWI2YmI0OTgwNmI4YWYwNThlMTU"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"author"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-18T15:05:00Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"committer"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-18T15:05:00Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Add Pharaoh2k to credits"[m[1;37m,[m
+      [1;34m"tree"[m[1;37m:[m [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"047dbe0f9fc1658559cff73ae4334ce0d3ad6c72"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/047dbe0f9fc1658559cff73ae4334ce0d3ad6c72"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/13d44f233b4f693287739b6bb49806b8af058e15"[m[1;37m,[m
+      [1;34m"comment_count"[m[1;37m:[m 0[1;37m,[m
+      [1;34m"verification"[m[1;37m:[m [1;37m{[m
+        [1;34m"verified"[m[1;37m:[m [33mfalse[m[1;37m,[m
+        [1;34m"reason"[m[1;37m:[m [32m"unsigned"[m[1;37m,[m
+        [1;34m"signature"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"payload"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"verified_at"[m[1;37m:[m [36mnull[m
+      [1;37m}[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/13d44f233b4f693287739b6bb49806b8af058e15"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/13d44f233b4f693287739b6bb49806b8af058e15"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/13d44f233b4f693287739b6bb49806b8af058e15/comments"[m[1;37m,[m
+    [1;34m"author"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"committer"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"parents"[m[1;37m:[m [1;37m[[m
+      [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"6cacb2432f9940a5710a8d13895d4c799342cca6"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/6cacb2432f9940a5710a8d13895d4c799342cca6"[m[1;37m,[m
+        [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/6cacb2432f9940a5710a8d13895d4c799342cca6"[m
+      [1;37m}[m
+    [1;37m][m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"sha"[m[1;37m:[m [32m"6cacb2432f9940a5710a8d13895d4c799342cca6"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"C_kwDOTcaT19oAKDZjYWNiMjQzMmY5OTQwYTU3MTBhOGQxMzg5NWQ0Yzc5OTM0MmNjYTY"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"author"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-18T15:02:05Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"committer"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-18T15:02:05Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)"[m[1;37m,[m
+      [1;34m"tree"[m[1;37m:[m [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"0bf6eca5280116e8831a1f4f5ab4c6b99d8fbd77"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/0bf6eca5280116e8831a1f4f5ab4c6b99d8fbd77"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/6cacb2432f9940a5710a8d13895d4c799342cca6"[m[1;37m,[m
+      [1;34m"comment_count"[m[1;37m:[m 0[1;37m,[m
+      [1;34m"verification"[m[1;37m:[m [1;37m{[m
+        [1;34m"verified"[m[1;37m:[m [33mfalse[m[1;37m,[m
+        [1;34m"reason"[m[1;37m:[m [32m"unsigned"[m[1;37m,[m
+        [1;34m"signature"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"payload"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"verified_at"[m[1;37m:[m [36mnull[m
+      [1;37m}[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/6cacb2432f9940a5710a8d13895d4c799342cca6"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/6cacb2432f9940a5710a8d13895d4c799342cca6"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/6cacb2432f9940a5710a8d13895d4c799342cca6/comments"[m[1;37m,[m
+    [1;34m"author"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"committer"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"parents"[m[1;37m:[m [1;37m[[m
+      [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"9d0d8e1a509d358439891d1994f5e52e047fd7b0"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/9d0d8e1a509d358439891d1994f5e52e047fd7b0"[m[1;37m,[m
+        [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/9d0d8e1a509d358439891d1994f5e52e047fd7b0"[m
+      [1;37m}[m
+    [1;37m][m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"sha"[m[1;37m:[m [32m"9d0d8e1a509d358439891d1994f5e52e047fd7b0"[m[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"C_kwDOTcaT19oAKDlkMGQ4ZTFhNTA5ZDM1ODQzOTg5MWQxOTk0ZjVlNTJlMDQ3ZmQ3YjA"[m[1;37m,[m
+    [1;34m"commit"[m[1;37m:[m [1;37m{[m
+      [1;34m"author"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-18T11:45:20Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"committer"[m[1;37m:[m [1;37m{[m
+        [1;34m"name"[m[1;37m:[m [32m"Adrián García Casado"[m[1;37m,[m
+        [1;34m"email"[m[1;37m:[m [32m"adriangarciacasado42@gmail.com"[m[1;37m,[m
+        [1;34m"date"[m[1;37m:[m [32m"2026-07-18T11:45:20Z"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"PS4 SUID Scanner for FW 13.04 - BD-JB based"[m[1;37m,[m
+      [1;34m"tree"[m[1;37m:[m [1;37m{[m
+        [1;34m"sha"[m[1;37m:[m [32m"c517361cd21c3453547367fb62e6f223c51db6b0"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/c517361cd21c3453547367fb62e6f223c51db6b0"[m
+      [1;37m}[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/9d0d8e1a509d358439891d1994f5e52e047fd7b0"[m[1;37m,[m
+      [1;34m"comment_count"[m[1;37m:[m 0[1;37m,[m
+      [1;34m"verification"[m[1;37m:[m [1;37m{[m
+        [1;34m"verified"[m[1;37m:[m [33mfalse[m[1;37m,[m
+        [1;34m"reason"[m[1;37m:[m [32m"unsigned"[m[1;37m,[m
+        [1;34m"signature"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"payload"[m[1;37m:[m [36mnull[m[1;37m,[m
+        [1;34m"verified_at"[m[1;37m:[m [36mnull[m
+      [1;37m}[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/9d0d8e1a509d358439891d1994f5e52e047fd7b0"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/9d0d8e1a509d358439891d1994f5e52e047fd7b0"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/9d0d8e1a509d358439891d1994f5e52e047fd7b0/comments"[m[1;37m,[m
+    [1;34m"author"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"committer"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"adri22235"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 161650994[1;37m,[m
+      [1;34m"node_id"[m[1;37m:[m [32m"U_kgDOCaKZMg"[m[1;37m,[m
+      [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/161650994?v=4"[m[1;37m,[m
+      [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235"[m[1;37m,[m
+      [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235"[m[1;37m,[m
+      [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/followers"[m[1;37m,[m
+      [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/following{/other_user}"[m[1;37m,[m
+      [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/gists{/gist_id}"[m[1;37m,[m
+      [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/starred{/owner}{/repo}"[m[1;37m,[m
+      [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/subscriptions"[m[1;37m,[m
+      [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/orgs"[m[1;37m,[m
+      [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/repos"[m[1;37m,[m
+      [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/events{/privacy}"[m[1;37m,[m
+      [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/adri22235/received_events"[m[1;37m,[m
+      [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+      [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+      [1;34m"site_admin"[m[1;37m:[m [33mfalse[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"parents"[m[1;37m:[m [1;37m[[m[1;37m][m
+  [1;37m}[m
+[1;37m][m

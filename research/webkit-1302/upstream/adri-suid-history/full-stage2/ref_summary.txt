@@ -1,0 +1,37 @@
+
+## refs
+    [1;34m"ref"[m[1;37m:[m [32m"refs/heads/main"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/refs/heads/main"[m[1;37m,[m
+      [1;34m"sha"[m[1;37m:[m [32m"1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/1089382ec1e0000e9557b7748d39b57952bbc4f3"[m
+    [1;34m"ref"[m[1;37m:[m [32m"refs/tags/v2.0"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/refs/tags/v2.0"[m[1;37m,[m
+
+## branches
+      [1;34m"sha"[m[1;37m:[m [32m"1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/1089382ec1e0000e9557b7748d39b57952bbc4f3"[m
+
+## tags
+    [1;34m"zipball_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/zipball/refs/tags/v2.0"[m[1;37m,[m
+    [1;34m"tarball_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/tarball/refs/tags/v2.0"[m[1;37m,[m
+
+## commits
+    [1;34m"sha"[m[1;37m:[m [32m"1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Replace skeleton with full stage 2: persistent r/w + ROP for 13.04"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/1089382ec1e0000e9557b7748d39b57952bbc4f3"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/1089382ec1e0000e9557b7748d39b57952bbc4f3/comments"[m[1;37m,[m
+        [1;34m"sha"[m[1;37m:[m [32m"96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+        [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+        [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/96a79482d249fdbc6101bc641241488de66c313d"[m
+    [1;34m"sha"[m[1;37m:[m [32m"96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+    [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/commit/96a79482d249fdbc6101bc641241488de66c313d"[m[1;37m,[m
+    [1;34m"comments_url"[m[1;37m:[m [32m"https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/96a79482d249fdbc6101bc641241488de66c313d/comments"[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump"[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Add compiled ps4-hen for FW 13.04 with full offsets"[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)"[m[1;37m,[m
+      [1;34m"message"[m[1;37m:[m [32m"PS4 SUID Scanner for FW 13.04 - BD-JB based"[m[1;37m,[m
