@@ -1,0 +1,35 @@
+PS4 research environment preflight
+root=/home/ubuntu/firmware-lab
+ci_mode=0
+PASS: command bash -> /usr/bin/bash
+PASS: command git -> /usr/bin/git
+PASS: command python3 -> /usr/bin/python3
+PASS: command node -> /home/ubuntu/.nvm/versions/node/v22.13.0/bin/node
+PASS: command make -> /usr/bin/make
+PASS: command gcc -> /usr/bin/gcc
+PASS: command objdump -> /usr/bin/objdump
+PASS: command xxd -> /usr/bin/xxd
+PASS: command curl -> /usr/bin/curl
+PASS: command unzip -> /usr/bin/unzip
+PASS: command sha256sum -> /usr/bin/sha256sum
+python_version=Python 3.12.3
+node_version=v22.13.0
+gcc_version=gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+objdump_version=GNU objdump (GNU Binutils for Ubuntu) 2.42
+make_version=GNU Make 4.3
+WARN: python capstone not installed; x86-64 disassembly relies on objdump/llvm-objdump
+PASS: x86_64 payload build mode=native (gcc)
+PASS: readable artifact libkernel_sys_13.52.bin
+PASS: readable artifact lk_dump1.bin
+PASS: readable artifact lk_dump2.bin
+PASS: readable artifact lk_dump3.bin
+PASS: readable artifact tools/verify_offsets.py
+PASS: readable artifact tools/analyze_xref_versions.py
+PASS: readable artifact tools/run_static_audit.sh
+PASS: SDK submodule HEAD=46efae910f3705e0171edea5b94e572d01bc00e8
+PASS: henloader_lp submodule initialized at 15f49b2
+PASS: combined dump size=479232
+PASS: lk_dump1.bin size=159744
+PASS: lk_dump2.bin size=159744
+PASS: lk_dump3.bin size=159744
+ENV_PREFLIGHT_PASS

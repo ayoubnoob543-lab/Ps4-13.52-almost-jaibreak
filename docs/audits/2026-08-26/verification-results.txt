@@ -1,0 +1,103 @@
+=== SHELL SYNTAX ===
+PASS build.sh
+PASS clean.sh
+PASS research/experiments/exp30_ioctl_mock/host/build_host.sh
+PASS research/run.sh
+PASS tools/check_env.sh
+PASS tools/run_static_audit.sh
+PASS webkit-kit/bootstrap_sources.sh
+PASS webkit-kit/tools/run_runtime_matrix.sh
+PASS webkit-kit/tools/run_wpe_smoke.sh
+
+=== PYTHON COMPILE ===
+PASS python compileall
+
+=== JAVASCRIPT SYNTAX ===
+PASS jordy_stage2.js
+PASS tests/fixtures/constants.js
+PASS webkit-kit/harness/basic_capabilities.js
+PASS webkit_gadgets_1304.js
+PASS webkit_gadgets_1350.js
+
+=== JSON VALIDATION ===
+PASS .vscode/c_cpp_properties.json
+PASS .vscode/tasks.json
+PASS PS4_1304_ISO_STATIC_LIST_2026-08-20.json
+PASS PS4_1352_BLOB_COMPARISON_2026-08-20.json
+PASS PS4_1352_PUP_STATIC_METADATA_2026-08-20.json
+PASS PS4_1352_STATIC_BLOB_ANALYSIS_2026-08-20.json
+PASS analysis/external_sources_badhoist_oss.json
+PASS analysis/firmware_comparison_13xx.json
+PASS analysis/github_deep_audit_13.52.json
+PASS analysis/github_downloaded_artifacts_13.52.json
+PASS analysis/github_indirect_findings_13.52.json
+PASS analysis/kqueue_uaf_1352_observations_2026-08-24.json
+PASS analysis/kqueue_uaf_1352_observations_v2_2026-08-24.json
+PASS analysis/largest_corpus_ps4osscode_13.52.json
+PASS analysis/libkernel_1352_corroboration.json
+PASS analysis/mast1c0re_1352_offset_corroboration_2026-08-24.json
+PASS analysis/mast1c0re_compiler_1102_verification_2026-08-24.json
+PASS analysis/osint_coverage_20260817.json
+PASS analysis/psfree_porting.json
+PASS analysis/pup_13.52_manifest.json
+PASS analysis/pup_reconstruction_verification_2026-08-24.json
+PASS analysis/research_repos_13.52.json
+PASS analysis/verify_offsets.json
+PASS analysis/webkit_13.52.json
+PASS analysis/webkit_13.52_research.json
+PASS analysis/xref_version_analysis_13.52.json
+PASS goldhen/MANIFEST.json
+PASS research/experiments/exp30_ioctl_mock/result_summary.json
+PASS research/results/deep_offline_scan.json
+PASS research/results/entropy_map_inner_pups.json
+PASS research/results/exp00_gate.result.json
+PASS research/results/exp01a_static_stubs.raw.json
+PASS research/results/exp01a_static_stubs.result.json
+PASS research/results/exp01b_integrity.result.json
+PASS research/results/firmware_processing.result.json
+PASS research/results/offline_scan.json
+PASS research/results/pipeline_summary.json
+PASS research/results/pup_orchestrator.result.json
+PASS research/results/samu_research.json
+PASS research/results/stub_matrix.raw.json
+PASS research/results/stub_sets_full.json
+PASS tools/jordy_1352_migration.json
+PASS tools/libkernel_1352_manifest.json
+PASS tools/webkit_1352_migration.json
+PASS webkit-kit/PS4_1352_ARTIFACT_INVENTORY_2026-08-20.json
+PASS webkit-kit/cssfontface_reference_inventory.json
+PASS webkit-kit/docs/wpe-2526/wpe-2526-comparison.json
+PASS webkit-kit/docs/wpe-2526/wpe-2526-webdriver-smoke.json
+PASS webkit-kit/homebrew/fixtures/fixture-manifest.json
+PASS webkit-kit/homebrew/fixtures/wpe-expected-assertions.json
+PASS webkit-kit/homebrew/historical-oss-build-probe.json
+PASS webkit-kit/host-regression-last.json
+PASS webkit-kit/libkernel_sys_13.52.signatures.json
+PASS webkit-kit/psfree_reference_960_inventory.json
+PASS webkit-kit/reports/wpe-2.52.6-package-status.json
+PASS webkit-kit/reports/wpe-2.53.1-availability.json
+PASS webkit-kit/runtime/PUP_METADATA_TRANSFORM_SESSION64.json
+PASS webkit-kit/sources.lock.json
+PASS webkit-kit/three_family_signatures.json
+PASS webkit-kit/triple-module-manifest.example.json
+PASS webkit-kit/wpe-interface-audit.json
+
+=== GIT INTEGRITY ===
+
+=== SUBMODULE CONFIG ===
+submodule.third_party/ps4-payload-sdk.path=third_party/ps4-payload-sdk
+submodule.third_party/ps4-payload-sdk.url=https://github.com/Scene-Collective/ps4-payload-sdk.git
+submodule.third_party/henloader_lp.path=third_party/henloader_lp
+submodule.third_party/henloader_lp.url=https://github.com/GoldHEN/henloader_lp.git
+-15f49b2e18b3f233dcbc9744b8aa527d54e1fb5d third_party/henloader_lp
+-46efae910f3705e0171edea5b94e572d01bc00e8 third_party/ps4-payload-sdk
+
+=== TOOLCHAIN ===
+bash       /usr/bin/bash
+git        /usr/bin/git
+python3    /usr/bin/python3
+node       /home/ubuntu/.nvm/versions/node/v22.13.0/bin/node
+make       /usr/bin/make
+gcc        clang      objdump    xxd        curl       /usr/bin/curl
+unzip      /usr/bin/unzip
+sha256sum  /usr/bin/sha256sum

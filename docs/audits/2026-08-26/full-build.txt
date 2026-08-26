@@ -1,0 +1,3 @@
+Compiling source/fpkg.c...
+cc1: error: ‘-Wno-error=return-mismatch’: no option ‘-Wreturn-mismatch’; did you mean ‘-Wargument-mismatch’?
+make: *** [Makefile:78: build/fpkg.o] Error 1
