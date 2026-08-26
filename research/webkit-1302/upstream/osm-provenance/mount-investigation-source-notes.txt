@@ -760,3 +760,7 @@ The repository-wide non-document search finds the vulnerable arithmetic and loop
 ## Mount semantic comparison
 
 The existing cross-source comparison confirms that kpayload 13.02/13.04 share several PFS/Shell mount-related offsets (`mountpfs__sceSblPfsSetKeys_hook*`, `enable_data_mount_patch`, `ROOTVNODE`, allocator symbols), but neither table names `patch_mount` or an FFS routine. Fusion/OSM add `patch_mount` alongside generic kernel patch symbols. No source gives an operation description, target bytes, call site or FFS cross-reference for `0x001512A7`. Thus equal mount-related offsets in kpayload are not evidence for Celsius; they are at most evidence of a common offset-table lineage. Classification: common offsets `CORROBORATED/DERIVED`; Celsius relation `HYPOTHESIS`.
+
+## Refined public search: Netctrl/Celsius/13.02
+
+The refined search returned ConsoleMods stating that no public kernel exploit exists for recent PS4 13.02–13.04, several YouTube reports describing a potential Celsius bug, a Reddit status discussion, CTurt's historical PS4 kernel-exploitation writeup, and the public SDK release page with 13.04 offset support. None of the newly returned results exposed Netctrl/ucred code surviving to 13.02, `patch_mount` cross-references, Orbis bytes, a Celsius PoC, a hash or a hardware transcript. The new web evidence is therefore `SECONDARY/SOURCE_ONLY`; ConsoleMods' negative status is useful corroboration of the absence of a public reproducible chain, not proof that the vulnerability is patched.
