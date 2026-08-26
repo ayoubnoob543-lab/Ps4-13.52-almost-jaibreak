@@ -553,3 +553,8 @@ This commit is a real historical full-chain source and explains the architecture
 ## Static identifier overlap: Jordy vs primary PS4 chain
 
 A token-level comparison found 267 identifiers in `jordy_stage2_1089382.js`, 319 in primary `ntfargo` `netctrl.js` and 291 in primary `ps4/kernel.js`. The pairwise intersection is only 24 and 27 identifiers respectively, dominated by generic terms (`buffer`, `read`, `write`, `kernel`, `function`, `return`, `addr`, `length`, `TODO`, `NativeFunction`, etc.). The primary Netctrl/kernel pair itself shares 99 identifiers because they are one integrated chain. This low, generic overlap does not establish direct source-code reuse by `jordy_stage2.js`; at most it supports conceptual similarity. A more conclusive provenance test would require matching distinctive code blocks or commit-level ancestry, neither of which has been found so far.
+
+
+## Distinctive cross-repository search
+
+A literal search across the original `ntfargo/CSSFontFace-Exploit`, `Feyzee61/cssfontface_lapse` and the 13.02 research clone found no shared occurrences of `SSV candidate`, `stage2_init`, `SHELLCODE_HEX`, `targetAddress`, `mount UFS`, `ffs_mountfs` or `Celsius`. The only notable overlap was generic `m_vector` terminology in the historical PS4 userland/lapse implementations. This does not support direct textual reuse of a missing Jordy stage from those repositories.

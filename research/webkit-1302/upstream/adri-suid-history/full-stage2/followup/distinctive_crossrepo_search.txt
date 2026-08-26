@@ -1,0 +1,24 @@
+===== SSV candidate =====
+===== stage2_init =====
+===== SHELLCODE_HEX =====
+===== targetAddress =====
+===== m_vector =====
+/tmp/cssfontface-original/public/src/ps4/userland.js:1095:    const fake_obj_m_vector = rw.read8(fake_obj_addr.add(0x10));
+/tmp/cssfontface-original/public/src/ps4/userland.js:1096:    const fake_vtable_m_vector = rw.read8(fake_vtable_addr.add(0x10));
+/tmp/cssfontface-original/public/src/ps4/userland.js:1117:    fake_obj.setBInt(0, fake_vtable_m_vector, true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:1135:    uaf_view.setBInt(constants.wk_CSSFontFace_m_function, fake_obj_m_vector, true); // m_function
+/tmp/cssfontface-lapse/public/lapse.js:5:const off_view_m_vector = 0x10;
+/tmp/cssfontface-lapse/public/lapse.js:7:const off_vector = 0x04; //off_view_m_vector / 4;
+/tmp/cssfontface-lapse/public/lapse.js:8:const off_vector2 = 0x05; //(off_view_m_vector + 4) / 4;
+/tmp/cssfontface-lapse/public/lapse.js:342:// * main - Uint32Array whose m_vector points to worker
+/tmp/cssfontface-lapse/public/lapse.js:366:      const off_mvec = off_view_m_vector;
+/tmp/cssfontface-lapse/public/lapse.js:414:    return [mem.addrof(backer).readp(off_view_m_vector), backer];
+/tmp/cssfontface-lapse/public/lapse.js:694:  return mem.addrof(view).readp(off_view_m_vector);
+/tmp/cssfontface-lapse/public/lapse.js:1284:  // We will not use a FastTypedArray since its m_vector is visited by the
+/tmp/cssfontface-lapse/public/lapse.js:1290:  // can inspect the invalid m_vector field.
+/tmp/cssfontface-lapse/public/lapse.js:1297:  const old_addr = u_addr.read64(off_view_m_vector);
+/tmp/cssfontface-lapse/public/lapse.js:1299:  u_addr.write64(off_view_m_vector, addr);
+/tmp/cssfontface-lapse/public/lapse.js:1316:  u_addr.write64(off_view_m_vector, old_addr);
+===== mount UFS =====
+===== ffs_mountfs =====
+===== Celsius =====
