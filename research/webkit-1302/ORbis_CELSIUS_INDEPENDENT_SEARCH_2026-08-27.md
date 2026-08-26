@@ -241,3 +241,7 @@ El repositorio público `SocraticBliss/ps4_kernel_loader` fue creado el 2019-05-
 ## Forks de `SocraticBliss/ps4_kernel_loader`
 
 La API de GitHub devolvió ocho forks públicos. La inspección de sus ramas por defecto no encontró archivos con nombres de dumps, proyectos IDA/Ghidra/Binary Ninja, UFS/FFS, `ffs_mountfs` o firmware 13.02/13.04. Son derivados del loader y no aportan un kernel concreto ni una nueva línea de procedencia hacia Celsius. Clasificación: **VERIFIED** como inventario negativo de forks; **INVALID** como artefacto directo Orbis 13.02/Celsius.
+
+## Consultas exactas adicionales de artefactos Orbis
+
+Las consultas exactas `"ffs_mountfs" "Orbis" PS4`, `"0x001512A7" PS4` y `"Orbis" "13.04" "Ghidra" kernel` no devolvieron resultados públicos utilizables. Esto se registra como **ausencia de resultado en el índice consultado**, no como prueba de que el artefacto no exista fuera de los índices públicos.
