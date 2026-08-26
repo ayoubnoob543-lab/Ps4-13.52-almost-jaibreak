@@ -163,3 +163,7 @@ The public history of `egycnq/LUA-Lapse` shows the repository began as `remote_l
 ## LUA-Lapse releases and blob inventory
 
 GitHub API audit of `egycnq/LUA-Lapse` shows one public branch (`main`), no GitHub releases/assets, and no published `kernel.elf`. The largest source is `lapse.lua` (72,353 bytes); the only binary blob is `kpatch/1100.bin` (422 bytes), explicitly an 11.00 patch blob. No 12.02 or 13.02 kernel image is present. Classification: `VERIFIED` inventory; `INVALID` as 13.02 kernel/FFS artifact.
+
+## remote_lua_loader cross-check
+
+`n0llptr/remote_lua_loader` exposes `savedata/kernel_offset.lua`, `savedata/kernel.lua`, `payloads/kernel_dumper.lua`, and `payloads/kdata_dumper.lua`; `ctn123/remote_lua_loader` is a fork with branches including `feature/umtx_curthr`. The public tree contains Lua kernel memory/dumping infrastructure and an `elfldr.elf`, but no public `kernel.elf` output, no 13.02-specific table, and no `patch_mount`, `ffs_mountfs`, `ffs_reload`, UFS, or `struct fs` references in the searched paths. The parent repository is the source lineage for LUA-Lapse, not evidence that Fusion's 13.02 table was generated there. Classification: `VERIFIED` for repository contents; `DERIVED` for fork relationship; `INVALID` as 13.02 FFS/Celsius evidence.

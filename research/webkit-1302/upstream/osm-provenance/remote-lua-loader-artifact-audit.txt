@@ -1,0 +1,76 @@
+=== shahrilnet/remote_lua_loader metadata ===
+n0llptr/remote_lua_loader	2024-11-24T17:30:34Z	2026-08-25T09:35:48Z	main	false
+=== branches ===
+main
+=== releases ===
+=== large blobs ===
+savedata/ps5-elfldr.elf	397000	64271848265ddc64359cced28ae4ce8f956a8ca5
+savedata/elfldr.elf	364424	4bc92317954737ea26ef17ba737982f29f1e78ed
+payloads/psfree-1.5rc1.7z	197966	3e908824bb91218975111d8eb3352990f8de888c
+payloads/lapse.lua	62869	2b04106f4a0d105194095dd9cfd2d8db373142ae
+savedata/offsets.lua	45973	0ce7dc29e111430fc307f68a20b3f582647f34d3
+payloads/p2jb.lua	43900	6e0c46c6b8c771446f73df217d6dc725746054f2
+payloads/umtx.lua	42867	bf6975dc702d00332c16576e25c2e9ef37ebf3b4
+payloads/ftp_server.lua	30968	544a8b3e785bade2bf3946e8c1594a3ada14f0d7
+savedata/ps5-kexp.bin	18912	86ac9166de95aea1c291ea0530188a7cf964f1b0
+savedata/ropchain.lua	18338	6e61c63b1dc04f47f2a81a917040b6b55abe8342
+savedata/misc.lua	16661	59d7229ee2ec6880904772eea6788771813c282f
+savedata/lua.lua	16211	b313f2eaeba31bb27e9b82f9b63d7148e1e2b838
+savedata/kernel_offset.lua	15754	5d1633b42790a7eb40ea9424371a1617edc07bd1
+savedata/kernel.lua	13531	58a115167ead3577911c0e358c1001499ffab039
+savedata/gpu.lua	12553	0ed1f6b075f6738d39bdd073d1a112117858f832
+payloads/elf_loader.lua	9337	561d0daaf1c5a687219374e2198fe788930bca0b
+payloads/kernel_dumper.lua	9214	df9dd385c40f83b8c0ac27ad229b1da130c5969c
+savedata/main.lua	9161	c9888a735e58695769742a8f218e86c3d0ceb82f
+savedata/native.lua	8273	4db781cfeac4f4a93c2c4fd68cfac5fb1596289b
+savedata/thread.lua	7928	885fb2a72a525d5970383fd77ed110fe71f4f9da
+savedata/kernel_patches_ps4.lua	7839	6867203a77abdd1a4dd7df344405e46a9a85b0b2
+payloads/bin_loader.lua	7515	169b38239be9f20182da01bc26aec5c026a22ebf
+savedata/uint64.lua	6726	738b43318a2111ef424f8537a8699ae048ea5c68
+savedata/struct.lua	6429	c631ee752c8f7fa1563c9c4b92fb57c890817c6b
+payloads/sources/ps4-kpatches-src/1150.c	5918	c41c247e0dd02dae87deb1a2631ce478c58d4533
+payloads/sources/ps4-kpatches-src/1200.c	5918	adfba9aeb28efab13d4463ec6b4de8bc4ebb968d
+payloads/sources/ps4-kpatches-src/1050.c	5915	2e0ba0fc8bd5b12e75fea4cc8de7e144f586515d
+payloads/sources/ps4-kpatches-src/1100.c	5910	216cd13e58ab9941e5bc3d4cfa9b175bbc407b14
+payloads/sources/ps4-kpatches-src/1102.c	5910	2156c7012b32ef53cac7a71ec072301c7f816fe1
+payloads/sources/ps4-kpatches-src/1000.c	5684	81d5b767dcd1331ad4dc4203a880f4f8c361aae6
+=== ctn123/remote_lua_loader metadata ===
+ctn123/remote_lua_loader	2025-04-21T01:37:17Z	2026-05-23T13:31:01Z	main	true	n0llptr/remote_lua_loader
+=== branches ===
+feature/cusa13303
+feature/game-resolve
+feature/umtx_curthr
+main
+new-save
+=== releases ===
+=== large blobs ===
+savedata/elfldr.elf	364424	4bc92317954737ea26ef17ba737982f29f1e78ed
+payloads/psfree-1.5rc1.7z	197966	3e908824bb91218975111d8eb3352990f8de888c
+payloads/lapse.lua	57252	3e045e5dc42356bacc96ded5b8b2a7306318995d
+payloads/umtx.lua	42867	bf6975dc702d00332c16576e25c2e9ef37ebf3b4
+savedata/offsets.lua	35110	0ed6544b6273d18442d80e160aba7638640ce2bb
+payloads/ftp_server.lua	30014	9591ecac480c6b23ca37f9f5fbd7a66825b56dca
+savedata/ropchain.lua	18338	6e61c63b1dc04f47f2a81a917040b6b55abe8342
+savedata/lua.lua	14121	7b5da2a0db0a27a2c6adc69190887754472734fc
+savedata/kernel.lua	13531	58a115167ead3577911c0e358c1001499ffab039
+savedata/kernel_offset.lua	13219	be7a9b0e1cee63ba756c685d8bdd2f97ee149370
+savedata/misc.lua	13066	a02a7f4c672ace293423128a6ddc27d1420376f5
+savedata/gpu.lua	12553	0ed1f6b075f6738d39bdd073d1a112117858f832
+payloads/elf_loader.lua	9358	71971f3bae1833bd2593df5178786a99d0840c63
+savedata/main.lua	8817	3b67304678eeeef66cfe0b294a84fb750cbc0ce5
+savedata/native.lua	8198	93370d1a085620bb392e9c408d2ca196d2770032
+savedata/thread.lua	7928	885fb2a72a525d5970383fd77ed110fe71f4f9da
+savedata/uint64.lua	6726	738b43318a2111ef424f8537a8699ae048ea5c68
+savedata/struct.lua	6429	c631ee752c8f7fa1563c9c4b92fb57c890817c6b
+payloads/send_lua.py	4618	cb89506e2043dce4757ffe5ade9a4d413e0418b8
+savedata/bit32.lua	4431	af4c014e9a39783c546635d7f0c8605c6d0aac7d
+savedata/signal.lua	3327	87cdc3c96612d72cf97d69e48893331a98c1c723
+savedata/memory.lua	3229	24078f616232b76b3ff0e2b2afe4a2aa04b51abb
+SETUP.md	3125	ee7b89b9213df96fadfe9a363b72c477fbcc2712
+savedata/syscall.lua	3031	fc31afa0f6ac6ba7a076b727eab6c0368e23f06e
+payloads/kdata_dumper.lua	2989	32d73d9c984bdc3c0ecfd811bb5277aefdfe15ba
+payloads/test_cases/threading_test.lua	2441	8e628ac7786fc65f4166a31e2bcf90f631acda09
+payloads/README.md	2165	8b999bec5b2be4574764cf96ca4f5d27ecec6528
+README.md	1759	627d7e6e91450b1dbf6dab13018ec776bc73be7e
+payloads/read_klog.lua	1565	f41f5b6812eaeda4cad23aca263774b920db31e9
+savedata/saveg.dat	867	2b0997ce3bf466e30a9d17d8163e7648e7d6fe13
