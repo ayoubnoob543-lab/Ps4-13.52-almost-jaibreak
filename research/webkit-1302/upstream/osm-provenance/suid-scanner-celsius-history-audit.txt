@@ -1,0 +1,12 @@
+=== repo metadata ===
+2026-07-18T11:43:40Z	2026-08-22T16:23:07Z	main	false
+=== commits ===
+596745e89dc6430697d3085ed31fdcea15d54c1d	2026-07-21T20:58:15Z	Adrián García Casado	CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4	https://github.com/adri22235/ps4-suid-scanner/commit/596745e89dc6430697d3085ed31fdcea15d54c1d
+615c637aaf2d75d6bbc3a935590dc1833a0e743f	2026-07-21T19:38:34Z	Adrián García Casado	Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets	https://github.com/adri22235/ps4-suid-scanner/commit/615c637aaf2d75d6bbc3a935590dc1833a0e743f
+=== README Celsius history ===
+615c637aaf2d75d6bbc3a935590dc1833a0e743f	2026-07-21T19:38:34Z	Adrián García Casado	Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets	https://github.com/adri22235/ps4-suid-scanner/commit/615c637aaf2d75d6bbc3a935590dc1833a0e743f
+13d44f233b4f693287739b6bb49806b8af058e15	2026-07-18T15:05:00Z	Adrián García Casado	Add Pharaoh2k to credits	https://github.com/adri22235/ps4-suid-scanner/commit/13d44f233b4f693287739b6bb49806b8af058e15
+9d0d8e1a509d358439891d1994f5e52e047fd7b0	2026-07-18T11:45:20Z	Adrián García Casado	PS4 SUID Scanner for FW 13.04 - BD-JB based	https://github.com/adri22235/ps4-suid-scanner/commit/9d0d8e1a509d358439891d1994f5e52e047fd7b0
+=== branches/tags/releases ===
+main
+v2.0	2026-07-29T23:45:04Z	2026-07-29T23:52:36Z	ps4-hen v2.2.0 compiled for FW 13.04
