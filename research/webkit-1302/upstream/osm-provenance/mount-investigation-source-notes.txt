@@ -681,3 +681,13 @@ The reviewed `hejran7/host/src/ps4/kernel.js` explicitly comments `// intended f
 ## hejran7 payload menu references
 
 `host/files/js/menu.js` labels `pl_KernelDumper.bin` as `Kernel Dumper`, `pl_ModuleDumper.bin` as `Kernel Madule Dumper` and `pl_KernelClock.bin` as a separate kernel-clock payload. The files are selected as payload entries in a menu alongside game/app dumper binaries. This confirms their role as payload/tool artifacts; no code path ties them to Jordy, Celsius, UFS/FFS or acquisition of the initial kernel R/W primitive.
+
+
+## hejran7 payload commit provenance correction
+
+The fork audit initially associated the payloads with the current HEAD, but commit `963e188ee1174b6a4ff76bd6a2e8c533ba9f5d99` itself is only an `Add files via upload` commit that modifies `host/src/main.js` and `host/src/netctrl.js`; it does not add the binary files. The payloads appear in separate upload commits immediately preceding it (`952e06c`, `9...` entries in the fork log). Therefore the exact introduction commit for each binary must be assigned from path-specific history, not inferred from HEAD. This correction does not change their static classification as payload/tool artifacts rather than a raw 13.02 kernel dump.
+
+
+## Exact payload introduction commit
+
+Path-specific history resolves the provenance of both binaries: commit `d29bd6c3cfb1cfa75be20952149acda7a6e582aa`, authored by `hejran7` on 2026-08-04, adds `host/files/pl_KernelDumper.bin` as a 17,832-byte binary and `host/files/pl_KernelClock.bin` as a 13,184-byte binary. The later HEAD commit `963e188` does not introduce them. This makes the upload provenance precise, but the commit contains no source, dump metadata, firmware 13.02 label or FFS/Celsius material; classification remains payload/tool artifact `VERIFIED`, 13.02/Celsius relation `UNVERIFIED`.
