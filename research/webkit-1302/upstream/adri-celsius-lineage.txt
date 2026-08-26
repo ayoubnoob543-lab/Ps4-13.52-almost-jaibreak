@@ -1,0 +1,17 @@
+=== cve hashes ===
+fc2041632f81a002fa54b1d18663af5d4417e5d302b2534554d3dc4c724af11e  research/webkit-1302/upstream/adri-cve_analysis.md
+9ae81cb7f5baecdae079ef61ac79f4177bc2e47c703fb58fc2b37a1016d1e534  research/webkit-1302/upstream/adri-1352_offsets.txt
+=== repo history ===
+1089382ec1e0	2026-08-09T00:35:29Z	Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+96a79482d249	2026-08-09T00:26:47Z	Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+702fcc397d45	2026-07-30T17:34:44Z	Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+3fd35a4e4756	2026-07-29T23:45:04Z	Add compiled ps4-hen for FW 13.04 with full offsets
+b1570ef64499	2026-07-29T07:54:13Z	Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+596745e89dc6	2026-07-21T20:58:15Z	CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+615c637aaf2d	2026-07-21T19:38:34Z	Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+13d44f233b4f	2026-07-18T15:05:00Z	Add Pharaoh2k to credits
+6cacb2432f99	2026-07-18T15:02:05Z	Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+9d0d8e1a509d	2026-07-18T11:45:20Z	PS4 SUID Scanner for FW 13.04 - BD-JB based
+=== cve history ===
+596745e89dc6	2026-07-21T20:58:15Z	CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+615c637aaf2d	2026-07-21T19:38:34Z	Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets

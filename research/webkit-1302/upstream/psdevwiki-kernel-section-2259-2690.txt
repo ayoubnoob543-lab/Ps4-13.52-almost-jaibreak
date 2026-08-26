@@ -1,0 +1,432 @@
+Kernel[edit | edit source]
+Untested[edit | edit source]
+FW ?<=13.52? - Heap OOB access due to TOCTOU race in semctl(2) (CVE-2026-58087)[edit | edit source]
+Credits[edit | edit source]
+2026-07-29 Maik Muench of Secfault Security for discovering the vulnerability and reporting it to FreeBSD
+Analysis[edit | edit source]
+FreeBSD advisory for CVE-2026-49412 (2026-07-29)
+FreeBSD 15 patch (2026-07-29)
+FreeBSD fix commit by Mark Johnston (2026-07-29)
+FreeBSD reviewers comments and differential revision about the fix commit (2026-07-23)
+Location of the potentially vulnerable source code in FreeBSD 9.1
+Bug Description[edit | edit source]
+
+The semctl commands take a snapshot of the size of a semaphore set, then drop the lock and malloc an appropriately sized array before reacquiring the lock. A comment explained why this was (probably) safe. Unfortunately, it was wrong; it is indeed possible for a malicious userspace to create and destroy 2^{15} sets in the window where the lock is dropped. This race can lead to out-of-bounds reads and writes, and that can be exploited to elevate privileges.
+
+The bug fix replace the assertions with runtime checks.
+
+Exploit Implementation[edit | edit source]
+Patched[edit | edit source]
+
+No as of PS4 13.52 and PS5 13.60. PS4 and PS5 may be affected.
+
+FW ?<=13.50? - UaF in IPV6_MSFILTER socket option handler (CVE-2026-49412)[edit | edit source]
+Credits[edit | edit source]
+2026-06-09 Andrew Griffiths at Calif.io for discovering the vulnerability and reporting it to FreeBSD
+Analysis[edit | edit source]
+FreeBSD advisory for CVE-2026-49412 (2026-06-09)
+FreeBSD 14 patch (2026-06-09)
+FreeBSD fix commit by Mark Johnston (2026-06-07)
+Location of the potentially vulnerable source code in FreeBSD 9.1
+Bug Description[edit | edit source]
+
+FreeBSD's IPv6 multicast subsystem supports source-specific multicast filtering via the IPV6_MSFILTER socket option. This option, set with setsockopt(2), allows applications to specify which remote hosts are permitted to send to a joined multicast group. The kernel handler for IPV6_MSFILTER dropped a serializing lock in order to copy the source-filter list from userspace, then reacquired the lock. During this window another thread could free the multicast filter structure, leaving the handler with a stale pointer to freed memory. An unprivileged local user can exploit this use-after-free to escalate privileges.
+
+There is a race condition in in6p_set_source_filter() in in6_mcast. It drops the inpcb lock in order to copy in the source list, but this leaves a window where the multicast filter structure might be freed. This can be exploited to obtain root privileges. In the IPv4 code this race is mitigated by holding the global multicast lock across the gap.
+
+The fix commit restructures the code to copy in filters before doing anything else, so that there is no need to drop the inpcb lock and reason about the correctness of doing so. It does the same in the IPv4 code for consistency.
+
+Exploit Implementation[edit | edit source]
+Patched[edit | edit source]
+
+Maybe since PS4 13.52. PS5 may be affected.
+
+FW ?<=13.50? - UaF via file descriptor syscalls (CVE-2026-45251)[edit | edit source]
+Credits[edit | edit source]
+2026-05-20 75Acol, Lexpl0it, fcgboy, robinzeng2015, Ryan at Calif.io for discovering the vulnerability and disclosing it to FreeBSD.
+2026-05-28 Calif.io for making a write-up and PoC.
+Analysis[edit | edit source]
+FreeBSD advisory for CVE-2026-45251 (2026-05-20)
+Patch files for CVE-2026-45251 on FreeBSD 14 (2026-05-20)
+Write-up for CVE-2026-45251 on FreeBSD 14 and 15 by Calif.io (2026-05-28)
+Bug Description[edit | edit source]
+
+procdesc_free() releases an embedded pd_selinfo without draining poll waiters. It can be turned into an arbitrary kernel-pointer write via SCM_RIGHTS reclaim.
+
+FreeBSD implements a number of file descriptor types. Traditionally file descriptors are used to perform file or network I/O, but other variants exist such as process descriptors, which enable operations on a particular process. The select(2) and poll(2) system calls allow applications to wait for events related to the object to which a file descriptor refers. These system calls are implemented for many different file descriptor types. For instance, a process descriptor may be used with either system call to wait for the target process to exit. A file descriptor can be closed while a thread is blocked in a poll(2) or select(2) call waiting for that descriptor. Because the blocked thread does not hold a reference to the underlying object, this closure may result in the object being freed while the thread remains blocked. In this situation, the kernel must remove the blocked thread from the per-object wait queue prior to freeing the object. In the case of some file descriptor types, the kernel failed to unlink blocked threads from the object before freeing it. When the blocked thread is subsequently woken, it accesses memory that has already been freed resulting in a use-after-free vulnerability. The use-after-free vulnerability may be triggered by an unprivileged local user and can be exploited to obtain superuser privileges.
+
+Exploit Implementation[edit | edit source]
+PoC for CVE-2026-45251 on FreeBSD 15 by Calif.io (2026-05-28)
+Patched[edit | edit source]
+
+No as of PS4 13.50 and PS5 13.20 but PS4 and PS5 are maybe not affected.
+
+FW ?<=13.50? - Stack buffer overflow via setcred(2) (CVE-2026-45250)[edit | edit source]
+Credits[edit | edit source]
+2026-05-20 Ryan of Calif.io for discovering the vulnerability and disclosing it to FreeBSD.
+Analysis[edit | edit source]
+FreeBSD advisory for CVE-2026-45250 (2026-05-20)
+Fix commit for CVE-2026-45250 on FreeBSD 14.3 by Dag-Erling Smørgrav (2026-05-19)
+Bug Description[edit | edit source]
+
+The following vulnerability affects FreeBSD 14.3 to 15.0 but not FreeBSD 14.2 and earlier since the sc_supp_groups_nb was not present in sys/kern/kern_prot.c.
+
+System calls are the programmatic interface through which user-space processes request services from the operating system kernel, providing a controlled boundary between unprivileged application code and privileged kernel operations.
+
+setcred(2) is a system call which enables a privileged process to atomically set its full credential set, including the real, effective, and saved user and group identifiers, as well as the list of supplementary groups. It is intended for use by programs such as login(1) and PAM(3)-aware authentication frameworks that must transition a process into a target user context in a single, race-free operation, replacing the need for multiple discrete calls to setuid(2), setgid(2), and setgroups(2).
+
+The setcred(2) system call is only available to privileged users. However, before the privilege level of the caller is checked, the user-supplied list of supplementary groups is copied into a fixed-size kernel stack buffer without first validating its length. If the supplied list exceeds the capacity of that buffer, a stack buffer overflow occurs.
+
+Because the bounds check on the supplementary groups list occurs after the kernel stack buffer has already been written, an unprivileged local user may trigger the overflow without holding any special privilege. Successful exploitation may allow an attacker to execute arbitrary code in the context of the kernel, allowing an unprivileged local user to gain elevated privileges on the affected system.
+
+Exploit Implementation[edit | edit source]
+Patched[edit | edit source]
+
+No as of PS4 13.50 and PS5 13.20 but PS4 and PS5 are maybe not affected.
+
+FW ?<=13.04? - Overflow during UFS/FFS filesystems mount (no CVE)[edit | edit source]
+Credits[edit | edit source]
+2016-11-26 Kirk McKusick for fixing the vulnerability in FreeBSD 11 [48]
+Analysis[edit | edit source]
+Fix commit for FreeBSD 11 by Kirk McKusick (2016-11-26)
+
+See also:
+
+CVE-2006-5679
+Bug Description[edit | edit source]
+
+FFS is one name given to the BSD Fast File System, also known as UFS1 or UFS2 (referring to different versions of the file system). Modern FFS implementations are used in many systems based on 4.2BSD, 4.3BSD and 4.4BSD, including FreeBSD, OpenBSD, and NetBSD. See also [49], [50].
+
+There is an overflow when calculating malloc size for auxiliary data structure sizes when mounting and reloading UFS/FFS filesystems.
+
+To exploit this vulnerability on the PS4, it is required to create a malformed FFS partition on the HDD (250 GB?). Since FFS is encrypted by PFS, another kernel exploit may be required to encrypt the malformed FFS partition with per-console keys.
+
+Exploit Implementation[edit | edit source]
+Patched[edit | edit source]
+
+Yes since PS4 13.50. PS5 may be affected.
+
+FW ?<=13.04? - Local DoS and possible privilege escalation via routing sockets (CVE-2026-3038)[edit | edit source]
+Credits[edit | edit source]
+2026-02-24 Adam Crosser of the Praetorian Labs team for discovering the vulnerability and disclosing it to FreeBSD.
+Analysis[edit | edit source]
+FreeBSD advisory for CVE-2026-3038 (2026-02-24)
+Fix commit for CVE-2026-3038 on FreeBSD 13.5 by Mark Johnston (2026-04-21)
+Bug Description[edit | edit source]
+
+The following vulnerability affects FreeBSD 13.5 to 15.0 but probably not FreeBSD 9.x and earlier since the rtsock_msg_buffer() function was not present. The PS4 is based on FreeBSD version 9 hence it is probably not vulnerable to this vulnerability. However the old FreeBSD implementation of rtsock may be vulnerable to similar bugs.
+
+The routing socket interface, route(4), lets users query the state of the kernel's routing tables. Most routing socket operations require root privileges, but unprivileged users may send RTM_GET messages to obtain information about routing table entries.
+
+The rtsock_msg_buffer() function serializes routing information into a buffer. As a part of this, it copies sockaddr structures into a sockaddr_storage structure on the stack. It assumes that the source sockaddr length field had already been validated, but this is not necessarily the case, and it is possible for a malicious userspace program to craft a request which triggers a 127-byte overflow.
+
+In practice, this overflow immediately overwrites the canary for the rtsock_msg_buffer() stack frame, resulting in a panic once the function returns.
+
+The bug allows an unprivileged user to crash the kernel by triggering a stack buffer overflow in rtsock_msg_buffer(). In particular, the overflow will corrupt a stack canary value that is verified when the function returns; this mitigates the impact of the stack overflow by triggering a kernel panic.
+
+Other kernel bugs may exist which allow userspace to find the canary value and thus defeat the mitigation, at which point local privilege escalation may be possible.
+
+Exploit Implementation[edit | edit source]
+PoC maybe triggering kernel panic on PS4 13.52 by hasyimy-ctrl (2026-08-07)
+Patched[edit | edit source]
+
+No as of PS4 13.04 and PS5 12.70 but PS4 and PS5 are maybe not affected.
+
+FW ?<=13.02? - UaF in TIOCNOTTY handler (CVE-2026-5398)[edit | edit source]
+Credits[edit | edit source]
+2026-04-21 Nicholas Carlini for discovering the vulnerability and disclosing it to FreeBSD.
+2026-05-28 Calif.io for making a write-up and PoC.
+Analysis[edit | edit source]
+FreeBSD advisory for CVE-2026-5398 (2026-04-21)
+Patch files for CVE-2026-5398 on FreeBSD 13.5 (2026-04-21)
+Write-up for CVE-2026-5398 on FreeBSD 15 by Calif.io (2026-05-28)
+Bug Description[edit | edit source]
+
+TIOCNOTTY is an ioctl(2) operation which allows a process to detach itself from its controlling terminal. Unprivileged processes may use this ioctl. The implementation of TIOCNOTTY failed to clear a back-pointer from the structure representing the controlling terminal to the calling process' session. If the invoking process then exits, the terminal structure may end up containing a pointer to freed memory. A malicious process can abuse the dangling pointer to grant itself root privileges.
+
+Exploit Implementation[edit | edit source]
+PoC for CVE-2026-5398 on FreeBSD 15 by Calif.io (2026-05-28)
+Patched[edit | edit source]
+
+No as of PS4 13.02 and PS5 13.00 but PS4 and PS5 are maybe not affected.
+
+FW ?<=13.02? - Remote code execution via ND6 Router Advertisements (CVE-2025-14558)[edit | edit source]
+Credits[edit | edit source]
+2025-12-16 Kevin Day for discovering the vulnerability and disclosing it to FreeBSD.
+Analysis[edit | edit source]
+FreeBSD advisory for CVE-2025-14558 (2025-12-16)
+Fix commit for CVE-2025-14558 on FreeBSD 13.5 by Mark Johnston (2025-12-16)
+Bug introductory commit for CVE-2025-14558 on FreeBSD 9.0 by Hiroki Sato (2011-06-06).
+Bug Description[edit | edit source]
+
+The following vulnerability affects FreeBSD 13.5 to 15.0 and also seems to affect FreeBSD 9.0-13.4 since the introductory commit. This vulnerability is related to the ones discovered in 2020 (CVE-2020-25577, CVE-2020-25583) [51] that also affected rtsold and to the 2014 one (CVE-2014-3954) [52].
+
+rtsold(8) and rtsol(8) are programs which process router advertisement packets as part of the IPv6 stateless address autoconfiguration (SLAAC) mechanism.
+
+The rtsol(8) and rtsold(8) programs do not validate the domain search list options provided in router advertisement messages; the option body is passed to resolvconf(8) unmodified.
+
+resolvconf(8) is a shell script which does not validate its input. A lack of quoting meant that shell commands pass as input to resolvconf(8) may be executed.
+
+Systems running rtsol(8) or rtsold(8) are vulnerable to remote code execution from systems on the same network segment. In particular, router advertisement messages are not routable and should be dropped by routers, so the attack does not cross network boundaries.
+
+Users not using IPv6, and IPv6 users that do not configure the system to accept router advertisement messages, are not affected. A network interface listed by ifconfig(8) accepts router advertisement messages if the string "ACCEPT_RTADV" is present in the nd6 option list.
+
+Exploit Implementation[edit | edit source]
+https://github.com/JohannesLks/CVE-2025-14558
+https://www.exploit-db.com/exploits/52463
+https://rodelllemit.medium.com/replicating-cve-2025-14558-20825dc67ffc
+https://sploitus.com/exploit?id=MSF:EXPLOIT-FREEBSD-MISC-RTSOLD_DNSSL_CMDINJECT-
+Patched[edit | edit source]
+
+No as of PS4 13.02 and PS5 13.00 but PS4 and PS5 are maybe not affected.
+
+FW 5.00-?11.52? - Unknown bug in aio_multi_delete()[edit | edit source]
+Credits[edit | edit source]
+2025-04-01 Anonymous for sharing 12.02 and 12.50 PS4 kernel dumps for diffing.
+2025-04-01 D-Link Turtle for publicly disclosing the patched code of a bug in PS4 12.50 kernel.
+Analysis[edit | edit source]
+Patched code in PS4 kernel 12.50 commented by anonymous (2025-04-01)
+Bug Description[edit | edit source]
+
+This bug is harder to exploit than the Double free due to aio_multi_delete() improper locking so there is almost no point in studying this one.
+
+Exploit Implementation[edit | edit source]
+
+No PoC available.
+
+Patched[edit | edit source]
+
+Yes in PS4 ?12.00? FW (unpatched in 10.71) and PS5 ?10.00? FW. Probably not working before PS4 FW 5.00 because sys_aio_multi_delete() syscall was not implemented.
+
+FW 5.00-?9.60? - UaF in aio_aqueue() due to credential reference count leak (CVE-2022-23090)[edit | edit source]
+Credits[edit | edit source]
+2022-08-09 Chris J-D (chris@accessvector.net) for discovering, reporting publicly CVE-2022-23090 to FreeBSD and publishing a write-up.
+Analysis[edit | edit source]
+Write-up of CVE-2022-23090 by Chris J-D (2022-08-16)
+FreeBSD fix commit for CVE-2022-23090 (2022-07-25)
+FreeBSD Security Advisory for CVE-2022-23090 affecting FreeBSD 12.3 and 13.0 (2022-08-09)
+lio_listio syscall usage
+Bug Description[edit | edit source]
+
+FreeBSD's aio(4) subsystem implements asynchronous I/O. As exposed in CVE-2022-23090, the aio_aqueue() function, used by the lio_listio() system call (#257 on FreeBSD), fails to release a reference to a credential in an error case. An attacker may cause the reference count to overflow, leading to a use-after-free. The PS4 is maybe not affected by this vulnerability because the AIO API was barely implemented before PS4 5.00, and extended in FreeBSD in 2016. Moreover, the vulnerability exists in FreeBSD 12 and 13 but maybe not in FreeBSD 9.1 from which the PS4 kernel takes its source.
+
+Exploit Implementation[edit | edit source]
+PoC for FreeBSD 12.3 and 13.0 by Chris J-D (2022-08-16)
+Some headers that may be useful:
+#define SYS_lio_listio  257
+int kern_lio_listio(struct thread *td, int mode, struct aiocb * const *uacb_list,
+    struct aiocb **acb_list, int nent, struct sigevent *sig,
+    struct aiocb_ops *ops);
+
+Ideas (to be compared with Chris J-D's write-up) to make a PoC for FreeBSD 12.3 by CelesteBlue, based on FreeBSD 12.2 vfs_aio.c:
+
+Precisely, the target error "err4" in the aio_aqueue() function, is triggered only in the case
+
+if (opcode != LIO_MLOCK && ((fp->f_ops->fo_aio_queue == NULL && aio_queue_file(fp, job) != 0) || fo_aio_queue(fp, job) != 0))
+   goto err4;
+
+
+So to jump to err4, the opcode variable must not be LIO_MLOCK, but must be valid to pass earlier checks. Moreover, opcode must not be LIO_NOP else the function exits before triggering the bug. According to
+
+	switch (opcode) {
+	case LIO_WRITE:
+		error = fget_write(td, fd, &cap_pwrite_rights, &fp);
+		break;
+	case LIO_READ:
+		error = fget_read(td, fd, &cap_pread_rights, &fp);
+		break;
+	case LIO_SYNC:
+		error = fget(td, fd, &cap_fsync_rights, &fp);
+		break;
+	case LIO_MLOCK:
+		fp = NULL;
+		break;
+	case LIO_NOP:
+		error = fget(td, fd, &cap_no_rights, &fp);
+		break;
+	default:
+		error = EINVAL;
+	}
+
+
+the remaining possible opcodes are LIO_WRITE, LIO_READ and LIO_SYNC. If you target LIO_WRITE or LIO_READ, you have to ensure that job->uaiocb.aio_offset >= 0 && fp->f_vnode != NULL && fp->f_vnode->v_type == VCHR. If you target LIO_SYNC, you have to ensure that fp->f_vnode != NULL. Next, you have to make sure that ops->store_kernelinfo(ujob, jid) does not return an error. Then, there are two paths that do not make much difference except a few more values checked.
+
+Path A1: job->uaiocb.aio_sigevent.sigev_notify != SIGEV_KEVENT. Then the code jumps to the no_kqueue label.
+Path A2: job->uaiocb.aio_sigevent.sigev_notify == SIGEV_KEVENT. Then, a few more checks have to pass than in path A1. First, you need job->uaiocb.aio_sigevent.sigev_notify_kevent_flags & ~(EV_CLEAR | EV_DISPATCH | EV_ONESHOT)) == 0. Secondly, kqfd_register(kqfd, &kev, td, M_WAITOK) must not return an error. Finally the code arrives at the no_kqueue label.
+
+At the no_kqueue label, there are again two paths to trigger the bug:
+
+Path B1: fp->f_ops->fo_aio_queue == NULL. Then, you have to make aio_queue_file(fp, job) return an error. There are multiple ways.
+Path B1.1: Make aio_qbio(job->userproc, job) return an error. There are tons of ways to do so.
+Path B1.2: Ensure that fp->f_type != DTYPE_VNODE || (fp->f_vnode->v_type != VREG && fp->f_vnode->v_type != VDIR) || (fp->f_vnode->v_mount != NULL && (fp->f_vnode->v_mount->mnt_flag & MNT_LOCAL) == 0). Crafting an invalid vnode should not be that hard.
+Path B1.3 (impossible): Force job->uaiocb.aio_lio_opcode not to be LIO_WRITE, LIO_READ nor LIO_SYNC. This is impossible in our case because earlier we proved that we needed the opcode variable to be LIO_WRITE, LIO_READ or LIO_SYNC to enter this path.
+Path B2 (impossible before 2016, so probably impossible on PS4 and FreeBSD 9): fp->f_ops->fo_aio_queue != NULL. Then, you have to make fo_aio_queue(fp, job) return an error. int fo_aio_queue_t(struct file *fp, struct kaiocb *job); is a file operation, which is responsible for queueing and completing an asynchronous I/O request for a given file. See fo_aio_queue introductory commit. It must be specified in the fileops structure.
+struct fileops {
+	fo_rdwr_t	*fo_read;
+	fo_rdwr_t	*fo_write;
+	fo_truncate_t	*fo_truncate;
+	fo_ioctl_t	*fo_ioctl;
+	fo_poll_t	*fo_poll;
+	fo_kqfilter_t	*fo_kqfilter;
+	fo_stat_t	*fo_stat;
+	fo_close_t	*fo_close;
+	fo_chmod_t	*fo_chmod;
+	fo_chown_t	*fo_chown;
+	fo_sendfile_t	*fo_sendfile;
+	fo_seek_t	*fo_seek;
+	fo_fill_kinfo_t	*fo_fill_kinfo;
+	fo_mmap_t	*fo_mmap;
+	fo_aio_queue_t	*fo_aio_queue;
+	fo_flags_t	fo_flags;	/* DFLAG_* below */
+};
+
+
+Now, looking back to the syscall lio_listio() that calls aio_aqueue(), it does aio_aqueue(td, job, lj, LIO_NOP, ops); so the parameter type is forced to be LIO_NOP. However, in aio_aqueue(), when type == LIO_NOP, the opcode is retrieved from job->uaiocb.aio_lio_opcode, which is itself earlier copied using ops->copyin(ujob, &job->uaiocb);, where ujob is in fact a job element of aiocb_list. The aiocb_list argument is an array of pointers to aiocb structures that describe I/O operations. These operations are executed in an unspecified order. The n argument specifies the size of the array aiocb_list. Null pointers in aiocb_list are ignored. In each control block in aiocb_list, the aio_lio_opcode field specifies the I/O operation to be initiated, as follows:
+
+LIO_READ: Initiate a read operation. The operation is queued as for a call to aio_read(3) specifying this control block.
+LIO_WRITE: Initiate a write operation. The operation is queued as for a call to aio_write(3) specifying this control block.
+LIO_NOP: Ignore this control block.
+
+In conclusion, by fuzzing calls to the lio_listio() syscall with sufficiently valid arguments and a big aiocb_list that contains jobs such that aiocb_list[i]->aio_lio_opcode=LIO_WRITE or LIO_WRITE, an error may be triggered such as:
+
+EAGAIN Out of resources.
+EAGAIN The number of I/O operations specified by n would cause the limit AIO_MAX to be exceeded.
+EINTR mode was LIO_WAIT and a signal was caught before all I/O operations completed; see signal(7). (This may even be one of the signals used for asynchronous I/O completion notification.)
+EINVAL mode is invalid, or n exceeds the limit AIO_LISTIO_MAX.
+EIO One of more of the operations specified by aiocb_list failed. The application can check the status of each operation using aio_return(3).
+
+If lio_listio() fails with the error EAGAIN, EINTR, or EIO, then some of the operations in aiocb_list may have been initiated. If lio_listio() fails for any other reason, then none of the I/O operations has been initiated.
+
+This means that EAGAIN, EINTR, or EIO are likely the errors we want to trigger to obtain a reference count leak.
+
+Patched[edit | edit source]
+
+Maybe (but the bug was also maybe never introduced on PS4).
+
+FW <=?9.xx? - IEEE 802.11 Wi-Fi heap buffer overflow (CVE-2022-23088)[edit | edit source]
+Credits[edit | edit source]
+m00nbsd working with Trend Micro Zero Day Initiative for discovering the vulnerability and reporting it to FreeBSD (2022-04-05)
+Analysis[edit | edit source]
+FreeBSD Security advisory for CVE-2022-23088 (2022-04-06)
+Bug Description[edit | edit source]
+
+FreeBSD's net80211 kernel subsystem provides infrastructure and drivers for IEEE 802.11 wireless (Wi-Fi) communications. The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer. While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.
+
+Exploit Implementation[edit | edit source]
+PoC for CVE-2022-23088 on FreeBSD 13.00 (2022-06-16)
+Patched[edit | edit source]
+
+Maybe in PS4 9.xx and PS5 5.xx.
+
+FW <=?9.xx? - Wrong dst/netmask handling in routing socket code (no CVE)[edit | edit source]
+Credits[edit | edit source]
+melifaro (Alexander V. Chernikov) for discovering the bug in FreeBSD 13.0 and patching it ()
+Analysis[edit | edit source]
+FreeBSD Differential Revision by Alexander V. Chernikov (2021-02-14)
+Fix commit for FreeBSD 13.0 by Alexander V. Chernikov (2021-03-11)
+Bug Description[edit | edit source]
+
+Traditionally routing socket code did almost zero checks on the input message except for the most basic size checks.
+
+This resulted in the unclear KPI boundary for the routing system code (`rtrequest*` and now `rib_action()`) w.r.t message validness.
+
+Multiple potential problems and nuances exists:
+
+Host bits in RTAX_DST sockaddr. Existing applications do send prefixes with hostbits uncleared. Even `route(8)` does this, as they hope the kernel would do the job of fixing it. Code inside `rib_action()` needs to handle it on its own (see `rt_maskedcopy()` ugly hack).
+There are multiple way of adding the host route: it can be DST without netmask or DST with /32(/128) netmask. Also, RTF_HOST has to be set correspondingly. Currently, these 2 options create 2 DIFFERENT routes in the kernel.
+no sockaddr length/content checking for the "secondary" fields exists: nothing stops rtsock application to send sockaddr_in with length of 25 (instead of 16). Kernel will accept it, install to RIB as is and propagate to all rtsock consumers, potentially triggering bugs in their code. Same goes for sin_port, sin_zero, etc.
+Exploit Implementation[edit | edit source]
+Patched[edit | edit source]
+
+Maybe in PS4 9.xx and PS5 5.xx.
+
+FW <=?1.xx? - Kernel memory disclosure in sctp(4) (CVE-2013-5209)[edit | edit source]
+Credits[edit | edit source]
+Julian Seward, Michael Tuexen for discovering the vulnerability and reporting it to FreeBSD (2013-08-22)
+Analysis[edit | edit source]
+FreeBSD Security advisory for CVE-2013-5209 (2013-08-22)
+Fix commit for CVE-2013-5209 (2013-08-22)
+Bug Description[edit | edit source]
+
+The SCTP protocol provides reliable, flow-controlled, two-way transmission of data. It is a message oriented protocol and can support the SOCK_STREAM and SOCK_SEQPACKET abstractions. The SCTP protocol checks the integrity of messages by validating the state cookie information that is returned from the peer. When initializing the SCTP state cookie being sent in INIT-ACK chunks, a buffer allocated from the kernel stack is not completely initialized. Fragments of kernel memory may be included in SCTP packets and transmitted over the network. For each SCTP session, there are two separate instances in which a 4-byte fragment may be transmitted. This memory might contain sensitive information, such as portions of the file cache or terminal buffers. This information might be directly useful, or it might be leveraged to obtain elevated privileges in some way. For example, a terminal buffer might include a user-entered password.
+
+Exploit Implementation[edit | edit source]
+Patched[edit | edit source]
+
+Maybe in PS4 around 1.01.
+
+FW <=?1.xx? - Integer overflow in IP_MSFILTER (CVE-2013-3077)[edit | edit source]
+Credits[edit | edit source]
+Clément Lecigne (Google Security Team) for discovering the vulnerability and reporting it to FreeBSD (2013-08-22)
+Analysis[edit | edit source]
+FreeBSD Security advisory for CVE-2013-3077 (2013-08-22)
+Fix commit for CVE-2013-3077 (2013-08-22)
+Bug Description[edit | edit source]
+
+IP multicast is a method of sending Internet Protocol (IP) datagrams to a group of interested receivers in a single transmission. An integer overflow in computing the size of a temporary buffer can result in a buffer which is too small for the requested operation. An unprivileged process can read or write pages of memory which belong to the kernel. These may lead to exposure of sensitive information or allow privilege escalation.
+
+Exploit Implementation[edit | edit source]
+Patched[edit | edit source]
+
+Maybe in PS4 around 1.01.
+
+Not investigated[edit | edit source]
+IPv6 fragmentation and ICMP/ICMP6 packet filter bypass vulnerability in OpenBSD Packet Filter (CVE-2019-5597, CVE-2019-5598)[edit | edit source]
+
+These vulnerabilities may be related to the other IPv6 vulnerabilities exploited successfully on PS4 and PS5. See Vulnerabilities.
+
+Security advisory for CVE-2019-5597 by Luca Moro, Nicolas Collignon and Corentin Bayet of Synacktiv (2019-03-01)
+FreeBSD security advisory for CVE-2019-5597 (2019-05-14)
+Write-up for CVE-2019-5598 by Luca Moro and Nicolas Collignon of Synacktiv (2019-03-19)
+FreeBSD security advisory for CVE-2019-5598 (2019-05-14)
+Filtering of ICMP error messages by Fernando Gont (2004)
+
+It may be related to CVE-2018-4407 that affects Apple XNU:
+
+https://github.com/apple-oss-distributions/xnu/blob/xnu-11417.121.6/tests/icmp_fragmented_payload.c
+PoC video by Semmle (2018-10-30)
+https://securitylab.github.com/research/apple-xnu-icmp-error-CVE-2018-4407
+PoC by Semmle (2018-11-25)
+Denial-of-Service only[edit | edit source]
+CVE-2022-23093[edit | edit source]
+https://www.freebsd.org/security/advisories/FreeBSD-SA-22:15.ping.asc
+https://www.archcloudlabs.com/projects/cve-2022-23093
+https://github.com/SystemVll/CVE-2022-23093
+PS4 DevKit Specific Bugs[edit | edit source]
+6.20+ DevKit Specific Bug[edit | edit source]
+The Development Kit comes with breakpoint feature that can pause the execution of an application program when the application program accesses a certain location in memory. This data breakpoint is only triggered when an application program accesses memory, but, because of a bug that occurred in version 6.00 of the system software, such breakpoints may be triggered when the kernel accesses the memory of an application program. When this happens, the PlayStation 4 system determines that a serious error has occurred and automatically shuts down the Development Kit.
+
+6.50 DevKit Specific Bug[edit | edit source]
+This bug occurs regardless of the method used to set the data breakpoint (occurring both when a breakpoint is set with the host tool and when it is set with the sceDbgSetHardwareBreakPoint() API). Version 6.50 of the system software will be fixed so that data breakpoints are not triggered when the kernel accesses an application program's memory (thus returning to the behavior of versions of the system software prior to version 6.00).
+
+Not exploitable because 32-bit compatibility syscalls not enabled[edit | edit source]
+FW <= ?4.05? - amd64_set_ldt Heap Overflow (CVE-2016-1885)[edit | edit source]
+Credits[edit | edit source]
+2016-10-25 This vulnerability was discovered and researched by Francisco Falcon from Core Exploit Writers Team
+2016-10-25 Revised patch to address a problem pointed out by ahaha from Chaitin Tech.
+Analysis[edit | edit source]
+https://www.freebsd.org/security/advisories/FreeBSD-SA-16:15.sysarch.asc
+https://www.coresecurity.com/core-labs/advisories/freebsd-kernel-amd64setldt-heap-overflow
+https://web.archive.org/web/20161028222346/https://www.securityfocus.com/archive/1/archive/1/537812/100/0/threaded
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1885
+https://www.mail-archive.com/svn-src-all@freebsd.org/msg132464.html
+https://svnweb.freebsd.org/base?view=revision&revision=296956
+https://wololo.net/2016/10/26/details-surface-ps4-4-01-jailbreak-potentially-enough-public-release-soon
+Bug Description[edit | edit source]
+
+The IA-32 architecture allows programs to define segments, which provides based and size-limited view into the program address space. The memory-resident processor structure, called Local Descriptor Table, usually abbreviated LDT, contains definitions of the segments. Since incorrect or malicious segments would breach system integrity, operating systems do not provide processes direct access to the LDT, instead they provide system calls which allow controlled installation and removal of segments.
+
+A special combination of sysarch(2) arguments, specify a request to uninstall a set of descriptors from the LDT. The start descriptor is cleared and the number of descriptors are provided. Due to lack of sufficient bounds checking during argument validity verification, unbound zero'ing of the process LDT and adjacent memory can be initiated from usermode.
+
+sysarch is syscall #165 on FreeBSD 9.1 and on PS4. Sony removed set_ldt between System Software version 1.76 and 4.05, according to Red-EyeX32.
+
+Exploit Implementation[edit | edit source]
+Patched[edit | edit source]
+
+Yes in some FW <= 4.05 and >= 2.00 as set_ldt was removed. The PS4 is maybe not vulnerable because of a possible lack of 32bit implementation for syscalls.
+
+Tested[edit | edit source]
+
+No.
+
+Reference sites[edit | edit source]

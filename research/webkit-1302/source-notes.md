@@ -153,3 +153,32 @@ Conclusión de procedencia: existe evidencia pública repetida de que el soporte
 En `ps4-linux-loader`, el header 13.02 aparece en `3d7a5456b75c` (2025-12-31). Las releases `v21`, `v21.5` y `v24b.1` anuncian payloads 13.02, pero escriben `13.02(?)`; el commit posterior `217e272eb099` (2026-05-11) añade 13.04/13.50 y mantiene 13.02 como payload de kexec/Linux. No se encontró en ese repositorio la implementación Netctrl/ucred ni una prueba de que los payloads de Linux demuestren la primitive Netctrl en 13.02.
 
 La comparación local de `1300.h` y `1302.h` tiene SHA-256 `a95c48e23743e193f7d1b543dc35a817d68bb71f129476de03c3deff38b1e94b` y `34a206ffa48a406f6d15879b40e941de5e9d0db094bfd2d0932a6cf58961066a`. Muchos offsets 13.02 son exactamente 13.00 + 0x10, mientras otros son idénticos. Sin bytes de kernel, esto es una diferencia documentada de tablas, no una validación binaria ni una prueba de cambio de función.
+
+## Corpus ampliado de PSDevWiki — 26 de agosto de 2026
+
+Fuente principal: [PSDevWiki Vulnerabilities](https://www.psdevwiki.com/ps4/Vulnerabilities) y su sección [PSDevWiki Bugs](https://www.psdevwiki.com/ps4/Bugs).
+
+Candidatos documentados por la wiki que deben mantenerse separados por estado:
+
+- `CVE-2026-58087` semctl TOCTOU: la wiki lo etiqueta `?<=13.52?`; describe OOB read/write por cambio concurrente del tamaño de un conjunto de semáforos entre desbloqueo y realloc. No hay implementación PS4 ni evidencia de hardware; la propia entrada remite a FreeBSD 15 y lo deja sin PoC. `HYPOTHESIS`/`UNVERIFIED_13_02`.
+- `CVE-2026-49412` IPV6_MSFILTER UAF: la wiki lo etiqueta `?<=13.50?`; UAF en `in6p_set_source_filter()` tras soltar el lock durante copia de filtros. PoC pública es FreeBSD 14/15; no hay PS4. `HYPOTHESIS`/`UNVERIFIED_13_02`.
+- `CVE-2026-45251` procdesc/poll UAF: la wiki lo etiqueta `?<=13.50?`; describe posible arbitrary kernel-pointer write mediante reclaim SCM_RIGHTS, pero la PoC es FreeBSD 15 y la entrada advierte que PS4 puede no estar afectada. `HYPOTHESIS`/`UNVERIFIED_13_02`.
+- `CVE-2026-45250` setcred stack overflow: la propia descripción limita el bug a FreeBSD 14.3–15.0 porque el campo problemático no existía antes; no es candidato Orbis 9.x. `DISPROVEN/PATCHED` para PS4 por incompatibilidad de base.
+- UFS/FFS mount overflow (“Celsius”): la wiki describe overflow al calcular buffers auxiliares en mount/reload y requiere imagen FFS malformada; para PS4 exige resolver además PFS/HDD y la entrada declara parche desde 13.50. Se conserva como `SOURCE_ONLY`/`UNVERIFIED_13_02`, no como R/W probado.
+- `CVE-2026-3038` routing sockets: la wiki explica que `rtsock_msg_buffer()` es una función de FreeBSD 13.5–15 y probablemente no existe en FreeBSD 9; como máximo sería un patrón para buscar bugs análogos antiguos. `DISPROVEN/PATCHED` para trasladarlo literalmente a Orbis; hipótesis separada para una variante vieja.
+- `CVE-2026-5398` TIOCNOTTY: UAF por back-pointer de sesión/terminal no limpiado; PoC FreeBSD 15, no PS4. La wiki lo etiqueta `?<=13.02?` pero también dice que PS4/PS5 pueden no estar afectadas. `HYPOTHESIS`/`UNVERIFIED_13_02`.
+- `CVE-2025-14558` ND6/rtsold: inyección de comandos mediante Router Advertisements y `resolvconf`, no kernel R/W directo; la entrada relaciona el código introductorio con FreeBSD 9.0, pero requiere rtsold/rtsol y aceptación de RA. No hay PoC PS4 ni prueba de que la ruta exista en Orbis. `SOURCE_ONLY`/`UNVERIFIED_13_02`.
+- `aio_multi_delete()`: bug no identificado, con código parcheado observado en PS4 12.50; sin PoC y probablemente corregido alrededor de 12.00. No llega a 13.02 como candidato. `SOURCE_ONLY`/`DISPROVEN-PATCHED` para 13.02.
+- `CVE-2022-23090` aio_aqueue/lio_listio: fuga de referencias de credencial que puede acabar en UAF; PoC FreeBSD 12/13, pero la wiki señala que AIO fue ampliado después de FreeBSD 9 y probablemente no existe igual en Orbis. `DISPROVEN/PATCHED` como traslado directo; `HYPOTHESIS` sólo para una variante histórica.
+- `CVE-2022-23088` net80211 Mesh ID: heap overflow remoto en beacon durante escaneo; PoC FreeBSD 13, posible PS4 9.x según la wiki, pero no 13.02 y no hay prueba Orbis. `DISPROVEN/PATCHED` para 13.02.
+- Routing socket wrong dst/netmask: bug de validación/KPI en FreeBSD 13.0, corregido en 2021; la wiki lo limita tentativamente a PS4 <=9.x y no ofrece PoC PS4. `DISPROVEN/PATCHED` para 13.02.
+- `CVE-2013-5209` SCTP stack disclosure y `CVE-2013-3077` IP_MSFILTER integer overflow: la wiki los sitúa alrededor de PS4 1.01; no son candidatos 13.02. `DISPROVEN/PATCHED`.
+- exFAThax `CVE-2022-3349`: heap overflow en `UVFAT_readupcasetable`; funcional PS4 9.00 y corregido en 9.03. La lógica de 9.03–13.50 contiene una comprobación de overflow que la wiki identifica como fix. `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+- `CVE-2020-9892` IP6_EXTHDR_CHECK double-free: PS4 7.50–7.55, parcheado en 8.00; `DISPROVEN/PATCHED` para 13.02.
+- `CVE-2020-7457` IPV6_2292PKTOPTIONS UAF: arbitrary kernel R/W en PS4 hasta 7.02, parcheado en 7.50 según la wiki; `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+- BPF race/double-free: PS4 <=5.07 o <=4.55 según variante, parcheado 5.50/4.70; `DISPROVEN/PATCHED` para 13.02.
+- `CVE-2018-17155` sys_getcontext leak: hasta ~6.00, parcheado entre 6.00 y 6.20; sólo leak/kASLR, no R/W directo. `DISPROVEN/PATCHED` para 13.02.
+- NamedObj type confusion: PS4 1.01–4.05, parcheado 4.06; `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+- `CVE-2016-1885` amd64_set_ldt: limitado a versiones antiguas y posiblemente no aplicable por falta de compatibilidad IA-32; `DISPROVEN/PATCHED` para 13.02.
+
+La página pública es colaborativa y varias entradas son tentativas; su contenido se usa como fuente secundaria, nunca como prueba de que Orbis 13.02 sea vulnerable.

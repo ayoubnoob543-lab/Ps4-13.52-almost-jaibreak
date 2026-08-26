@@ -1,0 +1,140 @@
+286-6.10 bpf_ioctl function blocked or removed
+287-6.11 Device access blocked/removed from webbrowser
+288-6.12 Pointer poisoning in WebKit on 6.xx firmwares
+289-6.13 Flush-to-Zero and Denormals-are-Zero Floating-Point environment
+290-7 Kernel
+291:7.1 FW <= 13.50 - exFAT driver integer overflow leading to DOS (exFAThax v2)
+292-7.1.1 Credits
+293-7.1.2 Analysis
+294-7.1.3 Bug Description
+295-7.1.4 Implementation
+296-7.1.5 Patched
+297-7.2 FW <= 13.00 - Double fdrop on a socket through sys_netcontrol
+298-7.2.1 Credits
+299-7.2.2 Analysis
+300-7.2.3 Bug Description
+301-7.2.4 Implementation
+302-7.2.5 Patched
+303-7.3 FW <= ?13.00? - udf_readlink should check fentry->inf_len
+304-7.3.1 Credits
+305-7.3.2 Analysis
+306-7.3.3 Bug Description
+307-7.3.4 Implementation
+308-7.3.5 Patched
+309-7.4 FW <= 12.52 - Filename buffer overflow in pfs_readdir
+310-7.4.1 Credits
+311-7.4.2 Analysis
+312-7.4.3 Bug Description
+313-7.4.4 Implementation
+--
+334-7.8.1 Credits
+335-7.8.2 Analysis
+336-7.8.3 Bug Description
+337-7.8.4 Implementation
+338-7.8.5 Patched
+339:7.9 FW <= 9.00 - exFAT driver heap-based buffer overflow (exFAThax, CVE-2022-3349)
+340-7.9.1 Credits
+341-7.9.2 Analysis
+342-7.9.3 Bug Description
+343-7.9.4 Implementation
+344-7.9.5 Patched
+345-7.10 FW <= 7.55 - IP6_EXTHDR_CHECK Double Free (CVE-2020-9892)
+346-7.10.1 Credits
+347-7.10.2 Analysis
+348-7.10.3 Bug Description
+349-7.10.4 Implementation
+350-7.10.5 Patched
+351-7.11 FW <= 7.02 - IPV6_2292PKTOPTIONS UaF (yielding arbitrary kernel R/W) (CVE-2020-7457)
+352-7.11.1 Credits
+353-7.11.2 Analysis
+354-7.11.3 Bug Description
+355-7.11.4 Implementation
+356-7.11.5 Patched
+357-7.12 FW <= 5.07 - BPF Race Condition (Yielding Double Free())
+358-7.12.1 Analysis
+359-7.12.2 Bug Description
+360-7.12.3 Implementation
+361-7.12.4 Patched
+--
+2139-Subnormal numbers (also called as denormal numbers in IEEE 754 documents before the 2008 version) are treated as 0 on the PlayStation runtime environment. This isn't technically a security technique but it does inhibit any exploit that uses floating-point numbers for read/write.
+2140-
+2141-An example entrypoint is WebKit where exploits have commonly used double arrays with incorrect length to read/write certain memory areas to gain arbitrary read/write or even code execution. With FTZ/DAZ, the possible 64-bit values one can write have become even more limited. Reads using double arrays are also affected. Even if the bit pattern is nonzero but encodes a subnormal, it will be read by the JavaScript engine as 0.
+2142-
+2143-Kernel[edit | edit source]
+2144:FW <= 13.50 - exFAT driver integer overflow leading to DOS (exFAThax v2)[edit | edit source]
+2145-Credits[edit | edit source]
+2146-2026-05-08 ASaudidos for finding the vulnerability and reporting it to Sony [23]
+2147-2026-06-25 CelesteBlue for releasing a PoC that triggers kernel panic on PS4 <=13.50
+2148-Analysis[edit | edit source]
+2149-Bug Description[edit | edit source]
+2150-
+2151-The PS4 kernel exFAT driver has a heap-based buffer overflow vulnerability that can be triggered by inserting a malicious USB storage device in PS4 in addition to having usermode code execution. Exploitation requires to flash a crafted exFAT image to a common USB storage device. It is unknown if it can lead to arbitrary code execution in PS4 kernel but it can at least generate DOS.
+2152-
+2153-The bug is in the function UVFAT_readupcasetable of the component exFAT Handler.
+2154-
+2155-PS4 from 9.03 to 13.50:
+2156-
+2157-  blsize = (ulong)*(uint *)(fileSystem + 0x4c);
+2158-  table_len = (data_len - 1) + blsize;
+2159-  table_len = table_len - table_len % blsize;
+2160:  if (table_len >> 0x20 == 0) { // fix for exFAThax v1 present since PS4 9.03
+2161-    lVar7 = sceFatfsCreateHeapVl(0,table_len & 0xffffffff);
+2162-
+2163-
+2164-PS4 13.52:
+2165-
+2166-  blsize = (ulong)*(uint *)(fileSystem + 0x4c);
+2167:  if (-blsize < data_len) { // fix for exFAThax v2 present since PS4 13.52
+2168-    printf("%s: invalid UpCase table length: roundup overflow. table_len=%#llx\n",
+2169-           "UVFAT_copyupcasetable");
+2170-    ret = 0x1b;
+2171-  }
+2172-  else {
+2173-    table_len = (data_len - 1) + blsize;
+2174-    table_len = table_len - table_len % blsize;
+2175:    if (table_len >> 0x20 == 0) { // fix for exFAThax v1 present since PS4 9.03
+2176-      pUtableHeap = sceFatfsCreateHeapVl(0,(uint)table_len);
+2177-
+2178-
+2179:To trigger the exFAThax v2 bug, it is required to make a exFAT header with a custom blsize (block size) and upcase table data_len (data length), such that the 64-bit signed integer inequality -blsize < data_len holds. In this case, since table_len = (data_len - 1) + blsize, table_len can become smaller than it should because of roundup overflow, and is passed to sceFatfsCreateHeapVl(). This function will therefore only allocate a small buffer compared to blsize and data_len, and as a result overflow and corrupt subsequent objects on the heap when calling UVFAT_ReadDevice().
+2180-
+2181:In the exFAThax v1 disclosure, TheFloW adviced to take blsize=0x200 and data_len=0x0000000100000200. Maybe consciously, TheFloW gave in his PoC a positive value for data_len, when considered as a signed 64-bit integer, so the bug concerned by exFAThax v2 was not triggered. In his minimal implementation of exFAThax v1, ChendoChap kept blsize=0x200 and took data_len=0x00FF000000001000, which is also positive. To trigger exFAThax v2 we have two possibilities. The first one is to take a negative data_len which is compensated by a positive blsize. We should take a valid blsize, for example 0x200, and data_len=-bl_size+slide where the slide must be between 1 and bl_size. For example, taking blsize=0x200 and data_len=-0x1FF, we have well -blsize = -0x200 < -0x1FF = data_len. The second method is to take a negative blsize and a positive data_len. This forces blsize to be at least 0x8000000000000000 so the sector size would have to be of the order of millions of terabytes. Whilst this USB storage capacity may be achieved, with a huge money and power cost, the required RAM disallows this method.
+2182-
+2183-Suppose that data_len=-bl_size+slide where the slide is between 1 and bl_size. Then the computations are:
+2184-
+2185-table_len = (data_len - 1) + blsize = (-bl_size+slide - 1) + blsize = slide - 1;
+2186-// table_len is between 0 and blsize - 1
+2187-table_len = table_len - table_len % blsize = table_len - table_len = 0;
+2188-
+2189-
+2190-This implies that sceFatfsCreateHeapVl(0,0); is called, which calls malloc(0).
+2191:A similar result could be obtained before exFAThax v1 was patched by taking data_len low 32 bits to zero and non-zero high 32 bits. It would give:
+2192-
+2193-table_len = (data_len - 1) + blsize;
+2194-// table_len low 32 bits equal blsize - 1
+2195-table_len = table_len - table_len % blsize = table_len - table_len = 0;
+2196-
+2197-
+2198:Before exFAThax v1 fix, sceFatfsCreateHeapVl(0,table_len & 0xffffffff); was called without checking high bytes, so malloc(0) was called too. Since exFAThax v1 fix, the check would not pass because of non-zero high 32 bits. Otherwise, if we take zero high 32 bits for data_len, then either data_len is zero which means there is no upcase table and does not cause any bug, or data_len is non-zero 32-bit and no bug is triggered because allocated size (table_len) is greater than data_len and is non-zero.
+2199-
+2200-This allocation of zero bytes would not cause any harm to the kernel if return values and error codes were handled properly. However, in PS4 (before 13.52) and PS5 implementation the zero return value of the malloc was propagated this way in UVFAT_readupcasetable:
+2201-
+2202-    pUtableHeap = sceFatfsCreateHeapVl(0,table_len & 0xffffffff);
+2203-    *(long *)(fileSystem + 0x80) = pUtableHeap;
+2204-    if (pUtableHeap == 0) {
+2205-      printf("UVFAT_initupcasetable: No memory\n");
+2206-      ret = 0xfffffff1; // -15
+2207-      goto UVFAT_initupcasetable_failed;
+2208-    }
+2209-// ...
+2210-UVFAT_initupcasetable_failed:
+2211-  printf("UVFAT_copyupcasetable: UVFAT_initupcasetable failed[%#x]\n",ret);
+2212-// ...
+2213-UVFAT_readcasetable_failed:
+2214-  printf("UVFAT_readupcasetable: UVFAT_copyupcasetable failed[%#x]\n",ret);
+2215-  // The code below is not interesting
+2216-  if (*(long *)(fileSystem + 0x80) != 0) {
+2217-    sceFatfsDeleteHeapVl(0);
+2218-    *(uint64_t *)(fileSystem + 0x80) = 0;
+2219-  }
+2220-  pUtableListBpHeap0x800 = *(undefined8 **)(fileSystem + 0xa8);
