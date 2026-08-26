@@ -1,0 +1,470 @@
+=== tree ===
+Fusion/Kernel/Kernel.vcxproj
+Fusion/Kernel/Kernel.vcxproj.filters
+Fusion/Kernel/Linker
+Fusion/Kernel/Makefile
+Fusion/Kernel/crt0.s
+Fusion/Kernel/include/Common.h
+Fusion/Kernel/include/Driver/DriverKernel.h
+Fusion/Kernel/include/Driver/DriverProc.h
+Fusion/Kernel/include/Driver/FusionDriver.h
+Fusion/Kernel/include/FeatureFlags.h
+Fusion/Kernel/include/Fusion.h
+Fusion/Kernel/include/Homebrew/FakePkgs.h
+Fusion/Kernel/include/Homebrew/FakeSelfs.h
+Fusion/Kernel/include/Misc/DevActSpoofer.h
+Fusion/Kernel/include/Misc/DipSwitchSpoofer.h
+Fusion/Kernel/include/Misc/DirectMemory.h
+Fusion/Kernel/include/Misc/FusionSysctl.h
+Fusion/Kernel/include/Misc/LibraryReplacer.h
+Fusion/Kernel/include/Misc/TTYRedirector.h
+Fusion/Kernel/include/Utils/Asm.h
+Fusion/Kernel/include/Utils/Detours/Detour.h
+Fusion/Kernel/include/Utils/Detours/DetourMemoryPool.h
+Fusion/Kernel/include/Utils/Detours/hde64.h
+Fusion/Kernel/include/Utils/Detours/table64.h
+Fusion/Kernel/include/Utils/Heap.h
+Fusion/Kernel/include/Utils/Misc.h
+Fusion/Kernel/include/Utils/ProcessUtils.h
+Fusion/Kernel/include/Utils/Resolver.h
+Fusion/Kernel/source/Driver/DriverKernel.cpp
+Fusion/Kernel/source/Driver/DriverProc.cpp
+Fusion/Kernel/source/Driver/FusionDriver.cpp
+Fusion/Kernel/source/FeatureFlags.cpp
+Fusion/Kernel/source/Fusion.cpp
+Fusion/Kernel/source/Homebrew/FakePkgs.cpp
+Fusion/Kernel/source/Homebrew/FakeSelfs.cpp
+Fusion/Kernel/source/Main.cpp
+Fusion/Kernel/source/Misc/DevActSpoofer.cpp
+Fusion/Kernel/source/Misc/DipSwitchSpoofer.cpp
+Fusion/Kernel/source/Misc/DirectMemory.cpp
+Fusion/Kernel/source/Misc/FusionSysctl.cpp
+Fusion/Kernel/source/Misc/LibraryReplacer.cpp
+Fusion/Kernel/source/Misc/TTYRedirector.cpp
+Fusion/Kernel/source/Utils/Detours/Detour.cpp
+Fusion/Kernel/source/Utils/Detours/DetourMemoryPool.cpp
+Fusion/Kernel/source/Utils/Detours/hde64.cpp
+Fusion/Kernel/source/Utils/Heap.cpp
+Fusion/Kernel/source/Utils/Misc.cpp
+Fusion/Kernel/source/Utils/ProcessUtils.cpp
+Fusion/Kernel/source/Utils/Resolver.cpp
+Fusion/Loader/Linker
+Fusion/Loader/Loader.vcxproj
+Fusion/Loader/Loader.vcxproj.filters
+Fusion/Loader/Makefile
+Fusion/Loader/crt0.s
+Fusion/Loader/include/ascii.h
+Fusion/Loader/include/asm.h
+Fusion/Loader/include/common.h
+Fusion/Loader/include/compressedblob.c
+Fusion/Loader/include/compressedblob.h
+Fusion/Loader/include/daemon.h
+Fusion/Loader/include/dynlib.h
+Fusion/Loader/include/elf.h
+Fusion/Loader/include/file.h
+Fusion/Loader/include/kernel.h
+Fusion/Loader/include/log.h
+Fusion/Loader/include/patches.h
+Fusion/Loader/include/resolver.h
+Fusion/Loader/include/tinf.h
+Fusion/Loader/resources/param.sfo
+Fusion/Loader/source/adler32.c
+Fusion/Loader/source/ascii.c
+Fusion/Loader/source/compressedblob.c
+Fusion/Loader/source/crc32.c
+Fusion/Loader/source/daemon.c
+Fusion/Loader/source/dynlib.c
+Fusion/Loader/source/elf.c
+Fusion/Loader/source/file.c
+Fusion/Loader/source/fusiondriver.c
+Fusion/Loader/source/fusiondriver.h
+Fusion/Loader/source/kernel.c
+Fusion/Loader/source/log.c
+Fusion/Loader/source/main.c
+Fusion/Loader/source/patches.c
+Fusion/Loader/source/resolver.c
+Fusion/Loader/source/tinfgzip.c
+Fusion/Loader/source/tinflate.c
+Fusion/Loader/source/tinfzlib.c
+Fusion/Shell UI/ShellUIManaged/Internal/ManifestFileAssetLoader.cs
+Fusion/Shell UI/ShellUIManaged/Properties/Resources.Designer.cs
+Fusion/Shell UI/ShellUIManaged/Properties/Resources.resx
+Scripts/make_fself.py
+Shared/Types/ELF.h
+=== source search ===
+--- Fusion/Loader/include/compressedblob.h ---
+1-#pragma once
+2-
+3-#define BLOB_MAGIC (('O') | ('S' << 8) | ('M' << 16))
+4-
+5-typedef struct {
+6-	uint32_t magic;
+7:	uint32_t decompressed_size;
+8-	uint32_t compressed_size;
+9-	uint32_t crc32;
+10-} BlobHeader;
+11-
+12:uint8_t* DecompressBlob(const uint8_t* blobData, size_t* outSize);
+13:int DecompressToFile(const uint8_t* blobData, const char* file);
+--- Fusion/Loader/include/tinf.h ---
+57-/**
+58- * Initialize global data used by tinf.
+59- *
+60- * @deprecated No longer required, may be removed in a future version.
+61- */
+62-void TINFCC tinf_init(void);
+63-
+64-/**
+65: * Decompress `sourceLen` bytes of deflate data from `source` to `dest`.
+66- *
+67- * The variable `destLen` points to must contain the size of `dest` on entry,
+68: * and will be set to the size of the decompressed data on success.
+69- *
+70- * Reads at most `sourceLen` bytes from `source`.
+71- * Writes at most `*destLen` bytes to `dest`.
+72- *
+73: * @param dest pointer to where to place decompressed data
+74- * @param destLen pointer to variable containing size of `dest`
+75- * @param source pointer to compressed data
+76- * @param sourceLen size of compressed data
+77- * @return `TINF_OK` on success, error code on error
+78- */
+79-int TINFCC tinf_uncompress(void *dest, unsigned int *destLen,
+80-                           const void *source, unsigned int sourceLen);
+81-
+82-/**
+83: * Decompress `sourceLen` bytes of gzip data from `source` to `dest`.
+84- *
+85- * The variable `destLen` points to must contain the size of `dest` on entry,
+86: * and will be set to the size of the decompressed data on success.
+87- *
+88- * Reads at most `sourceLen` bytes from `source`.
+89- * Writes at most `*destLen` bytes to `dest`.
+90- *
+91: * @param dest pointer to where to place decompressed data
+92- * @param destLen pointer to variable containing size of `dest`
+93- * @param source pointer to compressed data
+94- * @param sourceLen size of compressed data
+95- * @return `TINF_OK` on success, error code on error
+96- */
+97-int TINFCC tinf_gzip_uncompress(void *dest, unsigned int *destLen,
+98-                                const void *source, unsigned int sourceLen);
+99-
+100-/**
+101: * Decompress `sourceLen` bytes of zlib data from `source` to `dest`.
+102- *
+103- * The variable `destLen` points to must contain the size of `dest` on entry,
+104: * and will be set to the size of the decompressed data on success.
+105- *
+106- * Reads at most `sourceLen` bytes from `source`.
+107- * Writes at most `*destLen` bytes to `dest`.
+108- *
+109: * @param dest pointer to where to place decompressed data
+110- * @param destLen pointer to variable containing size of `dest`
+111- * @param source pointer to compressed data
+112- * @param sourceLen size of compressed data
+113- * @return `TINF_OK` on success, error code on error
+114- */
+115-int TINFCC tinf_zlib_uncompress(void *dest, unsigned int *destLen,
+116-                                const void *source, unsigned int sourceLen);
+117-
+--- Fusion/Loader/source/compressedblob.c ---
+1-#include "common.h"
+2-#include "compressedblob.h"
+3-#include "tinf.h"
+4-
+5:uint8_t* DecompressBlob(const uint8_t* blobData, size_t* outSize)
+6-{
+7-	const BlobHeader* hdr = (const BlobHeader*)blobData;
+8-
+9-	if (hdr->magic != BLOB_MAGIC)
+10-		return NULL;
+11-
+12:	uint8_t* dst = (uint8_t*)malloc(hdr->decompressed_size);
+13-	if (!dst)
+14-		return NULL;
+15-
+16:	unsigned int destLen = hdr->decompressed_size;
+17-	int result = tinf_zlib_uncompress(
+18-		dst,
+19-		&destLen,
+20-		blobData + sizeof(BlobHeader),
+21-		hdr->compressed_size
+22-	);
+23-
+24:	if (result != TINF_OK || destLen != hdr->decompressed_size)
+25-	{
+26-		free(dst);
+27-		return NULL;
+28-	}
+29-
+30-	// Verify CRC32 checksum
+31-	unsigned int actual_crc32 = tinf_crc32(dst, destLen);
+32-	if (actual_crc32 != hdr->crc32)
+--
+36-	}
+37-
+38-	if (outSize)
+39-		*outSize = destLen;
+40-
+41-	return dst;
+42-}
+43-
+44:int DecompressToFile(const uint8_t* blobData, const char* file)
+45-{
+46:	size_t decompressedSize;
+47:	uint8_t* decmopressedBlob = DecompressBlob(blobData, &decompressedSize);
+48-
+49:	int result = WriteFile(file, decmopressedBlob, decompressedSize);
+50-	free(decmopressedBlob);
+51-
+52-	return result;
+53-}
+--- Fusion/Loader/source/daemon.c ---
+27-
+28-	// Resolve libSceLncUtil functions.
+29-	ResolveLnc();
+30-
+31-	// Create necessary directories.
+32-	CreateDirectory(DAEMON_PATH);
+33-	CreateDirectory(DAEMON_SYS_PATH);
+34-
+35:	// Decompress and write the param.sfo if it does not exist.
+36-	if (!FileExist(DAEMON_PARAM_PATH))
+37-	{
+38-		int result = WriteFile(DAEMON_PARAM_PATH, _binary_resources_param_sfo_start, (uint64_t)&_binary_resources_param_sfo_end - (uint64_t)&_binary_resources_param_sfo_start);
+39-		if (result != 0)
+40-		{
+41-			klog("Failed to write the param.sfo %llX.\n", result);
+42-			return;
+43-		}
+44-	}
+45-
+46-	// Remove the existing eboot.bin if it exists.
+47-	if (FileExist(DAEMON_EBOOT_PATH))
+48-	{
+49-		RemoveFile(DAEMON_EBOOT_PATH);
+50-	}
+51-
+52:	// Decompress and write the eboot.bin.
+53:	int result = DecompressToFile(_binary_resources_eboot_bin_compressed_start, DAEMON_EBOOT_PATH);
+54-	if (result != 0)
+55-	{
+56-		klog("Failed to write the eboot %llX.\n", result);
+57-		return;
+58-	}
+59-
+60-	// App is already running kill it so we can restart it.
+61-	int appId = sceLncUtilGetAppId(DAEMON_TITLEID);
+--- Fusion/Loader/source/kernel.c ---
+42-	int r = 0;
+43-	int (*payload_entry)(uint64_t kernelBase, KernelAddrs* addrs);
+44-
+45-	if ((r = load_elf(payload, size, payloadbase, msize, (void**)&payload_entry)))
+46-	{
+47-		return r;
+48-	}
+49-
+50:	kernel_printf("Starting Kernel. (Entry: %llX, ELFBase: %llX, Size: %i)\n", payload_entry, payloadbase, s);
+51-
+52-	if (payload_entry(kernelBase, &g_KernelAddrs))
+53-	{
+54-		return 1;
+55-	}
+56-
+57-	return 0;
+58-}
+--
+70-	}
+71-
+72-	ResolveKernelFunctions();		// Resolve the Kernel funcs for the loader.
+73-	JailbreakProc(kernelBase, td);	// Jailbreak the current process.
+74-	InstallPatches();				// Install kernel patches.
+75-
+76-	kernel_printf("Detected firmware: %s\n", detectedFirmware);
+77-
+78:	/* Install the kernel ELF */
+79-	return InstallKernelElf(args->payload, args->payloadSize, kernelBase);
+80-}
+81-
+82-void LoadKernel()
+83-{
+84:	klog("Installing Kernel ELF\n");
+85-
+86:	// Decompress the Kernel.elf
+87:	size_t decompressedSize;
+88:	uint8_t* decompressedKernel = DecompressBlob(_binary_resources_Kernel_elf_compressed_start, &decompressedSize);
+89-
+90:	if (!decompressedKernel)
+91-	{
+92:		klog("Failed to decompress Kernel.elf\n");
+93-		return;
+94-	}
+95-
+96:	// Install the decompressed kernel
+97:	syscall(11, InstallKernelSyscall, decompressedKernel, decompressedSize);
+98-
+99:	// Free the decompressed buffer
+100:	free(decompressedKernel);
+101-
+102-	klog("Done.\n");
+103-}
+--- Fusion/Loader/source/tinfgzip.c ---
+1-/*
+2: * tinfgzip - tiny gzip decompressor
+3- *
+4- * Copyright (c) 2003-2019 Joergen Ibsen
+5- *
+6- * This software is provided 'as-is', without any express or implied
+7- * warranty. In no event will the authors be held liable for any damages
+8- * arising from the use of this software.
+9- *
+10- * Permission is granted to anyone to use this software for any purpose,
+--
+128-
+129-		if (hcrc != (tinf_crc32(src, start - src) & 0x0000FFFF)) {
+130-			return TINF_DATA_ERROR;
+131-		}
+132-
+133-		start += 2;
+134-	}
+135-
+136:	/* -- Get decompressed length -- */
+137-
+138-	dlen = read_le32(&src[sourceLen - 4]);
+139-
+140-	if (dlen > *destLen) {
+141-		return TINF_BUF_ERROR;
+142-	}
+143-
+144-	/* -- Get CRC32 checksum of original data -- */
+145-
+146-	crc32 = read_le32(&src[sourceLen - 8]);
+147-
+148:	/* -- Decompress data -- */
+149-
+150-	if ((src + sourceLen) - start < 8) {
+151-		return TINF_DATA_ERROR;
+152-	}
+153-
+154-	res = tinf_uncompress(dst, destLen, start,
+155-	                      (src + sourceLen) - start - 8);
+156-
+--- Fusion/Loader/source/tinflate.c ---
+578-		int res;
+579-
+580-		/* Read final block flag */
+581-		bfinal = tinf_getbits(&d, 1);
+582-
+583-		/* Read block type (2 bits) */
+584-		btype = tinf_getbits(&d, 2);
+585-
+586:		/* Decompress block */
+587-		switch (btype) {
+588-		case 0:
+589:			/* Decompress uncompressed block */
+590-			res = tinf_inflate_uncompressed_block(&d);
+591-			break;
+592-		case 1:
+593:			/* Decompress block with fixed Huffman trees */
+594-			res = tinf_inflate_fixed_block(&d);
+595-			break;
+596-		case 2:
+597:			/* Decompress block with dynamic Huffman trees */
+598-			res = tinf_inflate_dynamic_block(&d);
+599-			break;
+600-		default:
+601-			res = TINF_DATA_ERROR;
+602-			break;
+603-		}
+604-
+605-		if (res != TINF_OK) {
+--- Fusion/Loader/source/tinfzlib.c ---
+1-/*
+2: * tinfzlib - tiny zlib decompressor
+3- *
+4- * Copyright (c) 2003-2019 Joergen Ibsen
+5- *
+6- * This software is provided 'as-is', without any express or implied
+7- * warranty. In no event will the authors be held liable for any damages
+8- * arising from the use of this software.
+9- *
+10- * Permission is granted to anyone to use this software for any purpose,
+--
+72-	if (flg & 0x20) {
+73-		return TINF_DATA_ERROR;
+74-	}
+75-
+76-	/* -- Get Adler-32 checksum of original data -- */
+77-
+78-	a32 = read_be32(&src[sourceLen - 4]);
+79-
+80:	/* -- Decompress data -- */
+81-
+82-	res = tinf_uncompress(dst, destLen, src + 2, sourceLen - 6);
+83-
+84-	if (res != TINF_OK) {
+85-		return TINF_DATA_ERROR;
+86-	}
+87-
+88-	/* -- Check Adler-32 checksum -- */
+--- Scripts/create_zlib_blob.py ---
+18-
+19-    # Compress using zlib (DEFLATE with zlib wrapper)
+20-    # Level 9 = maximum compression
+21-    compressed = zlib.compress(data, level=9)
+22-
+23-    # Calculate CRC32 of the original data for integrity checking
+24-    crc32_value = zlib.crc32(data) & 0xFFFFFFFF
+25-
+26:    # Create blob header: magic (4 bytes) + decompressed_size (4 bytes) + compressed_size (4 bytes) + crc32 (4 bytes)
+27-    header = struct.pack('<IIII', MAGIC, len(data), len(compressed), crc32_value)
+28-
+29-    # Write header + compressed data
+30-    output_path.write_bytes(header + compressed)
+31-
+32-    # Calculate and print compression ratio
+33-    ratio = len(compressed) / len(data) * 100 if data else 0
+34-    print(f"{input_path.name}: {len(data)} -> {len(compressed)} ({ratio:.1f}%), CRC32: 0x{crc32_value:08X}")
+35-
+36:def decompress_file(input_path: Path, output_path: Path):
+37:    """Decompress a blob file for testing."""
+38-    data = input_path.read_bytes()
+39-
+40-    # Read header
+41-    magic, dec_size, comp_size, expected_crc32 = struct.unpack_from('<IIII', data, 0)
+42-
+43-    if magic != MAGIC:
+44-        raise ValueError(f"Invalid magic: expected 0x{MAGIC:08X}, got 0x{magic:08X}")
+45-
+46-    # Extract compressed data (skip 16-byte header)
+47-    compressed = data[16:16+comp_size]
+48-
+49:    # Decompress using zlib
+50:    decompressed = zlib.decompress(compressed)
+51-
+52:    if len(decompressed) != dec_size:
+53:        raise ValueError(f"Decompressed size mismatch: expected {dec_size}, got {len(decompressed)}")
+54-
+55-    # Verify CRC32 checksum
+56:    actual_crc32 = zlib.crc32(decompressed) & 0xFFFFFFFF
+57-    if actual_crc32 != expected_crc32:
+58-        raise ValueError(f"CRC32 mismatch: expected 0x{expected_crc32:08X}, got 0x{actual_crc32:08X}")
+59-
+60:    # Write decompressed data
+61:    output_path.write_bytes(decompressed)
+62:    print(f"Decompressed {input_path.name} -> {output_path.name} ({len(decompressed)} bytes, CRC32: 0x{actual_crc32:08X})")
+63-
+64-if __name__ == '__main__':
+65-    if len(sys.argv) < 3:
+66-        print(f"Usage: {sys.argv[0]} <input> <output>")
+67:        print(f"       {sys.argv[0]} -d <input> <output>  (decompress)")
+68-        sys.exit(1)
+69-
+70-    if sys.argv[1] == '-d':
+71-        if len(sys.argv) < 4:
+72-            print(f"Usage: {sys.argv[0]} -d <input> <output>")
+73-            sys.exit(1)
+74:        decompress_file(Path(sys.argv[2]), Path(sys.argv[3]))
+75-    else:
+76-        compress_file(Path(sys.argv[1]), Path(sys.argv[2]))

@@ -1,0 +1,19 @@
+aff12b6cddc352e598ea263e1f901cdc525da5e9c0b53467bf5768ec58032af4  research/webkit-1302/upstream/osm-provenance/binary-assets/fusion14.bin
+d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed  research/webkit-1302/upstream/osm-provenance/binary-assets/fusion-main.bin
+research/webkit-1302/upstream/osm-provenance/binary-assets/fusion14.bin:    DOS executable (COM), start instruction 0xe9eb4900 004831c0
+research/webkit-1302/upstream/osm-provenance/binary-assets/fusion-main.bin: ASCII text, with no line terminators
+=== research/webkit-1302/upstream/osm-provenance/binary-assets/fusion-main.bin ===
+=== research/webkit-1302/upstream/osm-provenance/binary-assets/fusion14.bin ===
+sceKernelOpen
+sceKernelClose
+sceKernelWrite
+sceKernelUnlink
+sceKernelMkdir
+sceKernelGetProcessTime
+Detected firmware: %s
+Installing Kernel ELF
+Contains trace amounts of awesome!
+// No comments needed, code is self-documenting
+[Fusion] libkernel (module 8193) resolved successfully
+Starting Kernel. (Entry: %llX, ELFBase: %llX, Size: %i)
+Failed to decompress Kernel.elf
