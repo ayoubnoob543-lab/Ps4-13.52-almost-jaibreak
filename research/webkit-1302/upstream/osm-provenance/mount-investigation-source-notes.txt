@@ -91,3 +91,11 @@ PS4Linux forum thread https://ps4linux.com/forums/d/206-offsets-for-kernels-abov
 ConsoleMods OpenOrbis SDK page https://consolemods.org/wiki/PS4:OpenOrbis_SDK (last edited Jan 2025) describes Mira's experimental system-level FUSE, mounting/decrypting gamesaves, and the open-source toolchain. It documents project capabilities but no 13.02 offsets, Orbis kernel bytes, or Celsius/FFS analysis. Classification: `VERIFIED` for project description; `INVALID` as 13.02 FFS evidence.
 
 The direct OpenOrbis README similarly describes experimental FUSE and mounting/decrypting gamesaves. This is context consistent with Fusion's generic mount patch, not proof of `ffs_mountfs`.
+
+## General reverse-engineering references
+
+Reversing.codes, “How to patch the running PlayStation 4 kernel” (30-May-2024): https://reversing.codes/posts/ps4-kernel-patching-guide/. States that the first step is acquiring a kernel image with Scene-Collective/ps4-kernel-dumper, then analyzing it or using known offsets. Explains offset calculation from kernel base and MSR_LSTAR, but the worked example is firmware 10.5 and does not publish a 13.02 image, FFS symbol, or Celsius artifact. Classification: `VERIFIED` for the general workflow; `INVALID` as direct 13.02 evidence.
+
+PSDevWiki Reverse Engineering: https://www.psdevwiki.com/ps4/Reverse_Engineering. Lists disassemblers, `ps4-re-utilities`, kernel patches, and general PS4 reverse-engineering resources, but no Orbis 13.02 kernel or FFS disassembly. Classification: `VERIFIED` as index; `INVALID` as 13.02 artifact.
+
+CTurt, “Hacking the PS4, part 3” (17-Dec-2015): https://cturt.github.io/ps4-3.html. Provides historical methods for kernel stack/sysctl analysis and older kernel exploitation, not 13.02 material and not Celsius. Classification: `VERIFIED` historical context; `INVALID` as 13.02 FFS evidence.
