@@ -103,3 +103,13 @@ CTurt, “Hacking the PS4, part 3” (17-Dec-2015): https://cturt.github.io/ps4-
 ## Exact build-string and provenance search
 
 Searches for `226094`, `13.02 Kernel offsets`, `0x001512A7` combined with `226094`, and distinctive header sequences produced no relevant public result preceding ArabPixel/Fusion PR #13. The only exact technical origin still observable is the ArabPixel commit itself; no older gist, release, dump, IDA/Ghidra project, or external offset table was located through these queries. Classification: absence of prior hit is `CORROBORATED` only within the searched public corpus; it cannot prove that no private or deleted artifact ever existed.
+
+## Kernel dumper artifact audit
+
+OBHQ kernel-dumper: https://github.com/obhq/kernel-dumper. README explicitly says `Only 11.00 is supported`; it can produce a `kernel.elf` on USB, loaded in Ghidra as raw binary with a base address, but publishes no 13.02/13.04 output. Classification: `VERIFIED` as an 11.00 dumper; `INVALID` as a 13.02 artifact.
+
+Scene-Collective ps4-kernel-dumper: https://github.com/Scene-Collective/ps4-kernel-dumper. README says it dumps the device kernel from memory and was originally created by eversion/PS4-Kernel-Dumper; it supports firmware versions supported by its SDK. The public repository does not publish a 13.02/13.04 dump or a firmware-specific 13.02 build. Classification: `VERIFIED` as generic dumper; `UNVERIFIED` for 13.02.
+
+Reddit thread https://www.reddit.com/r/PS4Mods/comments/1tvjftl/is_there_a_kernel_dumper_for_1300/ asks for a 13.00 dumper because the highest found was 11.00. It contains no kernel output, 13.02 artifact, or FFS evidence. Classification: `SOURCE_ONLY` for community state; `INVALID` as a 13.02 kernel source.
+
+Reversing.codes guide https://reversing.codes/posts/ps4-kernel-patching-guide/ explains that actual static analysis starts from a dumped kernel image and gives a 10.5 example. It does not provide 13.02 bytes.
