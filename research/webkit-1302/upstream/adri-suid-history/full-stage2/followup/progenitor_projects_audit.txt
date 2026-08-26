@@ -1,0 +1,963 @@
+===== /tmp/wobkot =====
+f8bf18e 2026-08-26 Record cross-repository Jordy searches
+2180348 2026-08-26 Compare Jordy with primary PS4 chain
+3e67db9 2026-08-26 Preserve primary PS4 Netctrl sources
+dd59814 2026-08-26 Record slopkit2 file provenance
+7e8971e 2026-08-26 Trace historical PS4 Lapse kernel path
+583af39 2026-08-26 Record zecoxao post-Jordy history
+fe51af3 2026-08-26 Trace zecoxao Jordy 11.60 bootstrap
+709a51c 2026-08-26 Record zecoxao Jordy audit
+74bdae6 2026-08-26 Audit zecoxao Jordy kernel-user commit
+03e70d0 2026-08-26 Record WebKit 13.04 artifact search
+730f895 2026-08-26 Close external stage2 reuse search
+26b008f 2026-08-26 Record Luac0re kernel driver audit
+57a8b63 2026-08-26 Compare P2JB kernel path with Jordy stage2
+639881a 2026-08-26 Record expanded Jordy search
+531aa6f 2026-08-26 Update stage2 gap analysis
+1a2b399 2026-08-26 Document scanner and external runtime dependencies
+c2a90c9 2026-08-26 Trace pre-stage2 scanner history
+f47c55a 2026-08-26 Record exact Celsius claim search
+3ef79f1 2026-08-26 Document related stage2 implementation sources
+4df055b 2026-08-26 Trace Luac0re ROP dependencies
+3eaa200 2026-08-26 Trace related WebKit driver templates
+2c9bcbb 2026-08-26 Extend stage2 lineage investigation
+febcec0 2026-08-26 Audit recovered full stage 2 commit
+3a7b473 2026-08-26 Rewrite final Celsius 13.02 evidence report
+44b0c70 2026-08-26 Classify loader support artifacts
+0f236b2 2026-08-26 Audit Pharaoh2k offset attribution
+820222d 2026-08-26 Classify Celsius secondary reporting
+417e702 2026-08-26 Classify Gezine 13.50 rumor
+1c79112 2026-08-26 Record Sony 13.50 documentation gap
+fe015b5 2026-08-26 Preserve audited Jordy stage2 source
+0504ef1 2026-08-26 Audit current Jordy stage2 source
+a6e8ef0 2026-08-26 Record vanished stage2 search
+ad16e4a 2026-08-26 Record unavailable stage2 commit
+3b4bd9d 2026-08-26 Preserve stage2 commit metadata
+e960321 2026-08-26 Audit Celsius stage2 skeleton
+aab7f0e 2026-08-26 Audit public Celsius claims
+158ca70 2026-08-26 Classify ConsoleMods chronology evidence
+5082faa 2026-08-26 Record exact-name artifact search
+bd89f75 2026-08-26 Record kernel reverse engineering lead
+e3107eb 2026-08-26 Record historical fail0verflow dump references
+./.git/modules/third_party/ps4-payload-sdk/description
+./.git/modules/third_party/ps4-payload-sdk/hooks/applypatch-msg.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/commit-msg.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/fsmonitor-watchman.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/post-update.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-applypatch.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-commit.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-merge-commit.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-push.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-rebase.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-receive.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/prepare-commit-msg.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/push-to-checkout.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/sendemail-validate.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/update.sample
+./.git/modules/third_party/ps4-payload-sdk/info/exclude
+./.git/modules/third_party/ps4-payload-sdk/refs/heads/main
+./.git/modules/third_party/ps4-payload-sdk/refs/remotes/origin/HEAD
+./.git/modules/third_party/ps4-payload-sdk/objects/pack/pack-be714cecedd892a7badec5469da26f1d74789b41.pack
+./.git/modules/third_party/ps4-payload-sdk/objects/pack/pack-be714cecedd892a7badec5469da26f1d74789b41.rev
+./.git/modules/third_party/ps4-payload-sdk/objects/pack/pack-be714cecedd892a7badec5469da26f1d74789b41.idx
+./.git/modules/third_party/ps4-payload-sdk/HEAD
+./.git/modules/third_party/ps4-payload-sdk/config
+./.git/modules/third_party/ps4-payload-sdk/logs/refs/remotes/origin/HEAD
+./.git/modules/third_party/ps4-payload-sdk/logs/refs/heads/main
+./.git/modules/third_party/ps4-payload-sdk/logs/HEAD
+./.git/modules/third_party/ps4-payload-sdk/index
+./.git/modules/third_party/ps4-payload-sdk/packed-refs
+./.vscode/c_cpp_properties.json
+./1352_offsets.txt
+./research/webkit-1302/upstream/psdevwiki-kernel-headings.txt
+./research/webkit-1302/upstream/riyon-kernel.ts
+./research/webkit-1302/upstream/riyon-kernel-comparison.txt
+./research/webkit-1302/upstream/riyon-kernel-history.tsv
+./research/webkit-1302/upstream/Vuemony_vue-after-free-src_download0_kernel.ts
+./research/webkit-1302/upstream/owendswang_vue-after-free-lite-src_download0_kernel.ts
+./research/webkit-1302/upstream/Vuemony_vue-after-free-src_download0_netctrl_c0w_twins.ts
+./research/webkit-1302/upstream/owendswang_vue-after-free-lite-src_download0_netctrl_c0w_twins.ts
+./research/webkit-1302/upstream/vue-netctrl-history.tsv
+./research/webkit-1302/upstream/vue-1302-offset-comparison.txt
+./research/webkit-1302/upstream/adri-1352_offsets.txt
+./research/webkit-1302/upstream/psdevwiki-kernel-section-2259-2690.txt
+./research/webkit-1302/upstream/orbis-1302-1304-offset-comparison.txt
+./research/webkit-1302/upstream/identical-kernel-phrase-search.txt
+./research/webkit-1302/upstream/github-exact-kernel-search.txt
+./research/webkit-1302/upstream/github-ps4-kernel-candidate-filter.txt
+./research/webkit-1302/upstream/artifact-inspection/sdk-crt-kernel.c
+./research/webkit-1302/upstream/artifact-inspection/loader-kernel-like-paths.txt
+./research/webkit-1302/upstream/scene-repo-kernel-artifact-audit.txt
+./research/webkit-1302/upstream/forks-kernel-artifact-scan.txt
+./research/webkit-1302/upstream/fusion-1302/Offsets-1302.h
+./research/webkit-1302/upstream/fusion-1302/offsets.tsv
+./research/webkit-1302/upstream/mount-offset-github-search.txt
+./research/webkit-1302/upstream/mount-offset-github-filtered.txt
+./research/webkit-1302/upstream/osm-kernel-sdk/audit.txt
+./research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml
+./research/webkit-1302/upstream/patch-mount-provenance-audit.txt
+./research/webkit-1302/upstream/vfs-offset-cross-source-comparison.txt
+./research/webkit-1302/upstream/patch-mount-history-kpayload-comparison.txt
+./research/webkit-1302/upstream/mount-vfs-1302-1304-cross-comparison.txt
+./research/webkit-1302/upstream/mount-investigation-source-notes.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-all-code-search.json
+./research/webkit-1302/upstream/osm-provenance/early-fusion-mount-commit.txt
+./research/webkit-1302/upstream/osm-provenance/fusionshared-offset-history.txt
+./research/webkit-1302/upstream/osm-provenance/arabpixel-Offsets-1302.h
+./research/webkit-1302/upstream/osm-provenance/aether-fusion-Offsets-1302.h
+./research/webkit-1302/upstream/osm-provenance/mount-investigation-source-notes.txt
+./research/webkit-1302/upstream/osm-provenance/exact-1302-sdk-offset-search.txt
+./research/webkit-1302/upstream/osm-provenance/arabpixel-sdk-vs-fusion-selected-offsets.txt
+./research/webkit-1302/upstream/osm-provenance/fusion-offset-validation-issues.txt
+./research/webkit-1302/upstream/osm-provenance/psfree-dumper-audit/kerneldumper.bin
+./research/webkit-1302/upstream/osm-provenance/scene-collective-payload-repo-dumper-audit.txt
+./research/webkit-1302/upstream/osm-provenance/scene-kernel-dumper-history-audit.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-code-audit.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-code-context.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-all-source-search.txt
+./research/webkit-1302/upstream/osm-provenance/mira-openorbis-mount-offset-history.txt
+./research/webkit-1302/upstream/osm-provenance/openorbis-patches672-mount-source.txt
+./research/webkit-1302/upstream/osm-provenance/mount-patch-lineage-comparison.tsv
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-1202-dumper-code-audit.txt
+./research/webkit-1302/upstream/osm-provenance/frame4-mount-ffs-source-search.txt
+./research/webkit-1302/upstream/osm-provenance/github-code-index-kernel-ffs-search.txt
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-history-1202-source-audit.txt
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-release-assets-audit.txt
+./research/webkit-1302/upstream/osm-provenance/remote-lua-loader-offset-dumper-crosscheck.txt
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-fork-output-audit.txt
+./research/webkit-1302/upstream/osm-provenance/gizz-lua-lapse-all-history-kernel-output-audit.txt
+./research/webkit-1302/upstream/osm-provenance/obhq-kernel-dumper-forks-audit.txt
+./research/webkit-1302/upstream/osm-provenance/fusion14-kernel-elf-source-audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/github_refs_and_commits.json
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/commit_metadata.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/jordy_stage2_1089382.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/stage2_jordy_96a7948.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/96a7948_vs_1089382.diff
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/jordy_stage2_1089382_excerpt.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/keyword_audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/ref_summary.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/tag_and_forks.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/fork_file_audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/adri22235_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ayoubnoob543-lab_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ke5adb_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/fork_history_and_hashes.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/wayback_cdx.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/github_code_search.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/all_commits.tsv
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/adjacent_commit_details.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/702_relevant_tree.tsv
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/midohar36_github_search.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/related_code_search.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/userland_only_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/p2jb_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/poops_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/comparison.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/shellcode_asset_audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/1630d79/p2jb_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/1630d79/poops_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/1630d79/userland_only_index.html
+./1304.c:6: * of the 13.04 table. The included source remains the sole value definition.
+./ARTIFACTS.md:13:| Historical BD-J ISO | `scanner_1304.iso` | See local file | See existing inventory | Historical 13.04 artifact; not a confirmed 13.52 entry path | Scanner documentation only |
+./ARTIFACTS.md:17:| GoldHEN PPPwn stage2 set v1.03 | `goldhen/pppnw_stage2/` | 8 × 2705 B bins + inner 7z | Per-file hashes in manifest | Included in the official asset; identical builds across minor FW revisions (see `docs/goldhen.md`) | `goldhen/MANIFEST.json` |
+./README.md:3:Laboratorio de investigación estática y de ingeniería de herramientas para artefactos de PS4, con foco actual en las familias 13.02 y 13.52. El repositorio conserva código, analizadores, fixtures, manifests, dumps y documentación de procedencia. **No es un jailbreak terminado ni una afirmación de compatibilidad funcional con una consola concreta.**
+./README.md:9:| PS4 13.02 — WebKit/Vue userland | `CORROBORATED` | La documentación pública cubre userland hasta 13.02; no demuestra kernel R/W. |
+./README.md:10:| PS4 13.02 — Netctrl/ucred | `UNVERIFIED_13_02` | El alcance funcional público localizado llega hasta 13.00. |
+./README.md:11:| PS4 13.02 — offsets | `SOURCE_ONLY` / `CORROBORATED_SOURCE_ONLY` | Existen tablas, pero no se han validado sobre bytes retail 13.02. |
+./README.md:12:| PS4 13.02 — kernel retail | `MISSING_DIRECT_BYTES` | No hay dump público verificado que permita validar toda la tabla. |
+./README.md:13:| PS4 13.02 — jailbreak completo | `NOT_REPRODUCIBLE` | Falta demostrar userland → kernel R/W → parcheo. |
+./README.md:17:| PS4 13.52 — kernel R/W | `UNVERIFIED` | Hay candidatos de investigación, no una cadena reproducible confirmada. |
+./README.md:30:Para 13.02, la cadena relevante es WebKit/Vue userland → candidato de kernel → kernel R/W → offsets validados → parcheo/kexec. Sólo la primera etapa está razonablemente cubierta. Para 13.52, el laboratorio dispone de evidencia estática de `libkernel_sys` y metadata PUP, pero no de WebKit retail legible ni de un jailbreak reproducible.
+./README.md:46:| `research/webkit-1302/` | Investigación específica de WebKit y disco/BD-J para 13.02. |
+./README.md:81:- [`research/webkit-1302/`](research/webkit-1302/): rama documental de 13.02.
+./AUDIT_REPORT.md:161:Faltan el eboot, exports, relocaciones, un log de captura, una lectura runtime de `kern.sdk_version`, imágenes comparativas de 9.00/11.02/12.52/13.04, y evidencia independiente de la semántica de cada syscall/wrapper. No se debe cubrir esa ausencia con nombres derivados del README.
+./AUDIT_REPORT.md:235:| WebKit/entry path | 25% | artefactos de 13.04/13.50, no cadena 13.52 |
+./AUDIT_REPORT.md:236:| Scanner BD-J | 35% | histórico 13.04 |
+./PS4_1352_LEGITIMATE_ARTIFACT_SOURCE_RESEARCH_2026-08-20.md:44:| `hen.bin` / `scanner_1304.iso` | Artefactos históricos del laboratorio | 13.04 | **DIRECT_BYTES**, no 13.52 y no fuente WebKit |
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:16:| `hen.bin` | 499.680 | `32570b6e54c9531dc8a7d75ef4da6557d440bf69c4b765a85a77d428db3a4b73` | DOS/COM según `file`; strings de payload y módulos genéricos | **DIRECT_BYTES**, pero procedencia confirmada 13.04; no evidencia 13.52 |
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:17:| `scanner_1304.iso` | 16.777.216 | `6ed15acd9cfb2539e034cde72a9003f52cf6338f04549670e1b8d515d948bd30` | ISO/UDF `scanner_1304`; contiene `GOLDHEN.BIN` y estructura BDMV | **DIRECT_BYTES**, pero scanner identificado como 13.04 |
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:21:No se encontró ningún blob con bytes de `libSceNKWebKit.sprx`, `libkernel_web.sprx`, `libSceLibcInternal.sprx`, `eboot.bin`, SELF WebKit, WebProcess WebKit, NXDP, ORBISDMP u `orbisstate`. Los strings de `hen.bin` mencionan `libkernel_web.sprx`, `libkernel_sys.sprx` y `libSceLibcInternal.sprx`, pero eso es una referencia textual dentro de un binario de 13.04; no contiene esos módulos como archivos separados ni demuestra su identidad 13.52.
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:27:El ISO local `scanner_1304.iso` fue listado mediante parser ISO9660 estático sin montaje. Tiene volumen `scanner_1304` y 35 entradas; incluye `/GOLDHEN.BIN;1` de 286.336 bytes y contenido BD-J/BDMV, pero su commit de introducción lo identifica como scanner PS4 13.04. Se descarta como evidencia de la build retail 13.52.
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:31:El historial Git identifica `hen.bin` como “compiled ps4-hen for FW 13.04” y `scanner_1304.iso` como “PS4 SUID Scanner for FW 13.04 - BD-JB based”. Por ello, ambos son **DIRECT_BYTES** de artefactos históricos, pero no pueden elevarse a evidencia PS4 13.52 ni a evidencia WebKit. Los dumps de kernel sí son bytes reales versionados; no tienen formato ELF/SELF, Build ID, imports/exports ni correlación con `libSceNKWebKit.sprx`.
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:44:Estos porcentajes no convierten el kernel ni los artefactos 13.04 en evidencia WebKit. WPE 2.52.6 continúa siendo exclusivamente **PORTABLE**/laboratorio.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:10:La comparación directa contra el árbol público `FreeBSDKernel9-0/PS4OSSCode`, que declara importar el código Sony `WebKit-601-1300` para PS4 13.00–13.04, aporta una evidencia nueva: ese árbol 601-1300 conserva las implementaciones anteriores y no contiene los patrones introducidos por los tres commits. Esto demuestra una diferencia entre la snapshot pública Sony 13.00–13.04 y upstream posterior, pero **no permite extrapolar el estado de PS4 13.50 o 13.52**.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:16:| `JSCell::toX` | `2a042fede0e705bae4b8ce039b18442696ebb5ce`, WebKit `275948@main`, 2024-03-11/12. En `JSCell.cpp`, `toPrimitive` y `toNumber` sustituyen `isString/isSymbol/isHeapBigInt` + `static_cast` por `jsDynamicCast`; `toObjectSlow` usa `jsDynamicCast` y `jsSecureCast`. El mensaje lo califica como mejora de calidad, con release assert, no como parche de CVE. | Commit upstream exacto; bug 270797. | No se encontró otro commit de WebKit main con el bug/hash que sea cherry-pick del mismo cambio. Posteriormente, `178cea00` (2026-04-18) reemplaza usos de `jsSecureCast` por `downcast`, y `1953979` adapta casts de subclases JSCell; son evoluciones posteriores, no backports a PS4. | En Sony 601-1300 `JSCell.cpp` sigue usando `isString/isSymbol` y `static_cast` en `toPrimitive`, `toNumber` y `toObject`; no aparecen `jsDynamicCast`/`jsSecureCast`. | La snapshot 13.00–13.04 no contiene la corrección. No hay evidencia pública para 13.50/13.52. | **DIRECT** para upstream y 601-1300; **UNVERIFIED** para 13.52. |
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:17:| `MarkedVector` / GC | `c9880de4a28b9a64a5e1d0513dc245d61a2e6ddb`, WebKit `263041@main`, 2023-04-17. Refactoriza `MarkedArgumentBuffer` en `MarkedVector`, cambia `Heap::m_markListSet` y el marking de listas, añade tipos de cell pointers y `CrashOnOverflow`, y sustituye Vectors sin raíz GC en `CloneDeserializer::deserialize`. | Commit upstream exacto y referencia `Originally-landed-as: 259548.530@safari-7615-branch` (`2c49ff7`). | La rama Safari interna está explícitamente documentada en el mensaje. No se encontró una referencia Sony ni un cherry-pick público posterior del mismo cambio. | Sony 601-1300 contiene `MarkedArgumentBuffer` en `ArgList.h/cpp`; `Heap` y `CloneDeserializer` usan el diseño anterior. No aparece `MarkedVector` en los archivos consultados. | Evidencia negativa para la snapshot 13.00–13.04; no prueba el estado 13.50/13.52. | **DIRECT** para diff upstream, Safari branch y 601-1300; **UNVERIFIED** para 13.52. |
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:18:| `CloneSerializer/objectPool` | `010c6bdfb0cde0485d31f0260ab9a046fa9b8567`, WebKit `273557@main`, 2024-01-26. Separa `m_gcBuffer` en `m_objectPool` y `m_keepAliveBuffer`, renombra métodos, añade `CloneDeserializer::addToObjectPool`, elimina inserciones erróneas BigInt/map/set, alinea tags/orden serializer-deserializer y añade validator debug `validateSerializedValue`. | Commit upstream exacto y referencia `Originally-landed-as: 267815.623@safari-7617-branch` (`430d474`). | La rama Safari interna está explícitamente documentada. Posteriores cambios en `SerializedScriptValue.cpp` —por ejemplo `3a900e1` y `cfe3893`— son cambios distintos sobre structured clone; no prueban backport Sony. | Sony 601-1300 conserva `CloneBase::m_gcBuffer`, un `ObjectPool m_objectPool` y llamadas directas `m_gcBuffer.append`; no aparecen `m_keepAliveBuffer`, `addToObjectPool` ni `validateSerializedValue`. | Evidencia negativa para 13.00–13.04; sin evidencia pública del backport a 13.52. | **DIRECT** para upstream, Safari branch y 601-1300; **UNVERIFIED** para 13.52. |
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:22:La fuente pública Sony OSS está enlazada en [Sony WebKit OSS](https://www.playstation.com/en-us/oss/ps4/webkit/). El espejo navegable utilizado es [FreeBSDKernel9-0/PS4OSSCode](https://github.com/FreeBSDKernel9-0/PS4OSSCode), cuyo commit de importación `d636699770323d7968a2c37955aa513bda5f8a37` se titula `Add WebKit WebKit-601-1300 (PS4 13.00-13.04)`.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:62:2. La snapshot pública Sony 601-1300, identificada como 13.00–13.04, es anterior a las tres correcciones y conserva los diseños antiguos.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:79:**Clasificación final:** evidencia upstream y Sony 601-1300 **DIRECT**; backport Sony a 13.52 **UNVERIFIED**; inferencia de 13.52 desde 13.00–13.04 **UNVERIFIED**.
+./PS4_1352_UPSTREAM_LINEAGE_BOUND_2026-08-20.md:7:Las tres correcciones tienen una línea de descendencia upstream visible, pero no existe una rama Sony pública posterior a `WebKit-601-1300` que permita decidir si el código de PS4 13.52 las contiene. La snapshot Sony 601-1300, cuyo import público se identifica como PS4 13.00–13.04, conserva las implementaciones anteriores. Por tanto, la evidencia permite acotar un límite inferior para Sony OSS público, pero no clasificar 13.52 como anterior o posterior a ninguna corrección.
+./PS4_1352_UPSTREAM_LINEAGE_BOUND_2026-08-20.md:17:El espejo [FreeBSDKernel9-0/PS4OSSCode](https://github.com/FreeBSDKernel9-0/PS4OSSCode) importa `WebKit-601-1300` mediante [`d636699`](https://github.com/FreeBSDKernel9-0/PS4OSSCode/commit/d636699770323d7968a2c37955aa513bda5f8a37), con mensaje `Add WebKit WebKit-601-1300 (PS4 13.00-13.04)`. En sus archivos raw se observan los diseños pre-corrección:
+./PS4_1352_UPSTREAM_LINEAGE_BOUND_2026-08-20.md:37:La inferencia temporal correcta es únicamente que el árbol Sony 13.00–13.04 disponible públicamente es anterior a estos cambios upstream. No es válido extender esa inferencia a 13.50/13.52, porque faltan una snapshot Sony posterior, un diff Sony, un manifest de revisiones o bytes de código correlacionados.
+./RESEARCH_STATUS.md:11:| **13.02** | Vue After Free/userland `CORROBORATED`; Netctrl/ucred `UNVERIFIED_13_02`; offsets SLOPOS `SOURCE_ONLY/CORROBORATED_SOURCE_ONLY`; kernel R/W `MISSING`; jailbreak completo `NOT_REPRODUCIBLE`. | Kernel exploit específico y demostración de R/W. |
+./RESEARCH_STATUS.md:22:| WebKit/Vue userland 13.02 | Alcance público documentado hasta 13.02; no implica kernel R/W. |
+./RESEARCH_STATUS.md:23:| Offsets 13.02 | `sysent=0x1102B70`, `prison0=0x111FA18` y otros valores aparecen en tablas; no son validación de bytes retail. |
+./RESEARCH_STATUS.md:34:Para 13.02, la prioridad es encontrar o validar una vulnerabilidad de kernel que proporcione R/W y asociarla con un artefacto de la misma build. A continuación deben validarse `sysent`, `prison0`, `rootvnode`, `kernel_map`, `pmap_protect` y los offsets de parcheo sobre bytes reales. Netctrl/ucred es el candidato público prioritario; Lapse/semctl permanece fuera de alcance demostrado para 13.02.
+./RESEARCH_STATUS.md:36:Para 13.52, la prioridad es obtener módulos WebKit retail o un artefacto legítimo equivalente, además de una prueba de kernel R/W. El blob libkernel y el PUP verificado no deben presentarse como sustitutos de esos artefactos.
+./RESEARCH_STATUS.md:44:- [`research/webkit-1302/`](research/webkit-1302/): línea específica de 13.02.
+./research/webkit-1302/README.md:1:# PS4 13.02 — WebKit y disco/artefactos
+./research/webkit-1302/README.md:3:Esta rama (`research/webkit-disk-1302`) concentra la investigación específica de **PS4 firmware 13.02**, separándola del foco principal del laboratorio en 13.52. Su objetivo es ordenar la evidencia y preparar un pipeline reproducible para WebKit, BD-J/disco, userland y la obtención/validación de artefactos del kernel.
+./research/webkit-1302/README.md:5:> Regla central: una tabla de offsets, un README de un repositorio o un payload para otra versión no se convierten automáticamente en evidencia verificada para 13.02.
+./research/webkit-1302/README.md:11:| WebKit CVE-2017-7117 / Vue After Free | `VERIFIED/CORROBORATED` para userland | El alcance público declara userland 5.05–13.02. |
+./research/webkit-1302/README.md:12:| Ejecución userland 13.02 | `CORROBORATED` | Primera etapa de la cadena; no implica privilegios de kernel. |
+./research/webkit-1302/README.md:13:| Netctrl/ucred triple-free | `UNVERIFIED_13_02` | El árbol público llega funcionalmente hasta 13.00; 13.02 requiere demostración independiente. |
+./research/webkit-1302/README.md:14:| Lapse/semctl | `UNVERIFIED_13_02` | El alcance público localizado no llega a 13.02. |
+./research/webkit-1302/README.md:15:| SLOPOS offsets 13.02 | `CORROBORATED_SOURCE_ONLY` | Existe `research/results/slopos/1302.h`; no hay segunda fuente completamente independiente para toda la tabla. |
+./research/webkit-1302/README.md:16:| `sysent` 13.02 | `CORROBORATED_SOURCE_ONLY` | `0x1102B70` aparece en SLOPOS y en `kpayload/source/offsets/1302.c`. |
+./research/webkit-1302/README.md:17:| `prison0` 13.02 | `CORROBORATED_SOURCE_ONLY` | SLOPOS documenta `0x111FA18`. |
+./research/webkit-1302/README.md:19:| Kernel retail 13.02 | `MISSING_DIRECT_BYTES` | No hay dump público verificado usado para validar la tabla completa. |
+./research/webkit-1302/README.md:20:| Kernel R/W 13.02 | `MISSING` | Es el cuello de botella principal. |
+./research/webkit-1302/README.md:21:| Jailbreak completo 13.02 | `NOT_REPRODUCIBLE` | No se ha demostrado el salto userland → kernel R/W. |
+./research/webkit-1302/README.md:28:Ejecución userland 13.02
+./research/webkit-1302/README.md:34:Validación de offsets 13.02
+./research/webkit-1302/README.md:41:La primera transición está cubierta de forma razonable. La investigación debe detenerse explícitamente en la transición a kernel R/W hasta que exista evidencia de 13.02 específica, reproducible y separada de la evidencia de 13.00 o 13.52.
+./research/webkit-1302/README.md:52:| `kernel-rw-1302-investigation.md` | Informe de candidatos de kernel R/W, alcance, procedencia y brechas específicas de 13.02. |
+./research/webkit-1302/README.md:64:## Informe de kernel R/W
+./research/webkit-1302/README.md:66:El análisis específico de Netctrl está en [`kernel-rw-1302-investigation.md`](kernel-rw-1302-investigation.md) y el catálogo amplio en [`kernel-candidates-1302-exhaustive.md`](kernel-candidates-1302-exhaustive.md). La conclusión actual es que Netctrl/ucred sigue siendo el candidato más cercano, pero permanece `UNVERIFIED_13_02`; no existe una ruta pública reproducible userland → kernel R/W para 13.02 con la evidencia consultada.
+./research/webkit-1302/README.md:70:La rama no se considerará completa por acumular más tablas. El siguiente hito verificable es obtener un artefacto 13.02 con procedencia clara —por ejemplo, bytes de kernel retail, un dump de consola o un log de ejecución firmado por hash— y usarlo para validar primero los offsets mmap, después los parches restantes y finalmente una primitiva de kernel R/W. Hasta entonces, las conclusiones deben permanecer en `UNVERIFIED_13_02` o `SOURCE_ONLY`.
+./research/webkit-1302/disk-artifacts.md:1:# WebKit y disco/artefactos 13.02
+./research/webkit-1302/disk-artifacts.md:5:Construir un corpus específico de 13.02 que permita responder, con evidencia, tres preguntas separadas:
+./research/webkit-1302/disk-artifacts.md:9:3. ¿Qué bytes del sistema 13.02 son necesarios para validar offsets y el salto a kernel R/W?
+./research/webkit-1302/disk-artifacts.md:41:Elevar a `VERIFIED` sólo tras una comprobación sobre bytes de 13.02 o una ejecución controlada con resultado observable. Mantener `SOURCE_ONLY` cuando sólo exista una tabla o afirmación pública.
+./research/webkit-1302/disk-artifacts.md:50:| ISO y scanners históricos | `scanner_1304.iso`, `goldhen/` | Comparación de pipeline; no asumir 13.02. |
+./research/webkit-1302/disk-artifacts.md:51:| PUP y manifests 13.52 | raíz y `analysis/` | Metodología de parsing; no evidencia 13.02. |
+./research/webkit-1302/disk-artifacts.md:57:| Kernel retail 13.02 o dump equivalente | P0 | Validar los diez parches restantes y las tablas kernel. |
+./research/webkit-1302/disk-artifacts.md:58:| `system_fs_image.img` 13.02 con procedencia | P0 | Candidata a contener módulos y kernel, aunque pueda estar cifrada. |
+./research/webkit-1302/disk-artifacts.md:59:| Logs de ejecución Netctrl/ucred en 13.02 | P0 | Confirmar o descartar el salto userland → kernel. |
+./research/webkit-1302/disk-artifacts.md:60:| Segunda fuente independiente de SLOPOS 13.02 | P1 | Resolver si la tabla es corroborada o sólo replicada. |
+./research/webkit-1302/disk-artifacts.md:61:| Build/manifest exacto de WebKit 13.02 | P1 | Vincular userland con una build concreta. |
+./research/webkit-1302/disk-artifacts.md:62:| ISO/BD-J 13.02 identificado y hasheado | P1 | Reproducir la vía de entrada disco sin mezclarla con el kernel. |
+./research/webkit-1302/evidence-matrix.md:1:# Matriz de evidencia PS4 13.02
+./research/webkit-1302/evidence-matrix.md:10:| `HISTORICAL_ONLY` | Válido para otra versión o para una cadena histórica; no se debe trasladar a 13.02. |
+./research/webkit-1302/evidence-matrix.md:11:| `UNVERIFIED_13_02` | Candidato plausible, pero sin prueba específica de 13.02. |
+./research/webkit-1302/evidence-matrix.md:18:| CVE-2017-7117 / Vue After Free | README público y árbol de `vue-after-free`; el userland se declara funcional de 5.05 a 13.02 | `CORROBORATED` | Log reproducible de ejecución sobre una consola 13.02 con hash de build y versión exacta. |
+./research/webkit-1302/evidence-matrix.md:20:| Netctrl/ucred triple-free | Código público y tablas que llegan hasta 13.00; commits recientes mejoran estabilidad | `UNVERIFIED_13_02` | PoC o log específico 13.02 que demuestre la primitiva y sus offsets/runtime assumptions. |
+./research/webkit-1302/evidence-matrix.md:21:| Lapse/semctl | Cadena histórica para firmwares inferiores; el alcance público revisado no cubre 13.02 | `HISTORICAL_ONLY` / `UNVERIFIED_13_02` | Fuente específica 13.02 o descarte formal basado en un análisis de parche/diff. |
+./research/webkit-1302/evidence-matrix.md:22:| Offsets mmap RWX | `docs/remaining-gaps.md` registra `0x1fa78a` y `0x1fa78d`; las fuentes comparten origen | `SOURCE_ONLY` | Segunda fuente verdaderamente independiente o validación sobre kernel 13.02. |
+./research/webkit-1302/evidence-matrix.md:23:| `sysent` | `research/results/slopos/1302.h` y `kpayload/source/offsets/1302.c` usan `0x1102B70` | `CORROBORATED_SOURCE_ONLY` | Bytes del kernel 13.02 y comprobación de referencias/estructura. |
+./research/webkit-1302/evidence-matrix.md:27:| `pmap_protect` | SLOPOS `0x58570`; otras ramas pueden usar valores distintos para otros firmwares | `SOURCE_ONLY` | Confirmar build exacta y función en kernel 13.02. |
+./research/webkit-1302/evidence-matrix.md:28:| Parches restantes del shellcode | Los 10 offsets no mmap no están publicados para 13.02 según la búsqueda local | `MISSING` | Kernel retail 13.02 o dump equivalente para calcularlos. |
+./research/webkit-1302/evidence-matrix.md:30:| Kernel R/W | No hay exploit público demostrado específicamente para 13.02 en el corpus revisado | `MISSING` | Vulnerabilidad, PoC controlada y log reproducible de lectura/escritura. |
+./research/webkit-1302/evidence-matrix.md:31:| Parcheo/kexec | El código de payload existe para otras versiones y hay infraestructura local | `HISTORICAL_ONLY` para 13.02 | Encadenar con R/W 13.02 y offsets validados. |
+./research/webkit-1302/evidence-matrix.md:38:Es el candidato con mayor prioridad porque la implementación pública cubre hasta 13.00 y el árbol contiene trabajo sobre estabilidad. Sin embargo, el salto de 13.00 a 13.02 no debe inferirse a partir de la mera presencia del código. La primera prueba debe ser una verificación aislada de la primitiva, sin encadenarla a parcheo persistente.
+./research/webkit-1302/evidence-matrix.md:42:Debe mantenerse como referencia histórica y como hipótesis de compatibilidad únicamente mientras aparezca una fuente que declare 13.02. El alcance público localizado no permite elevarlo a candidato confirmado.
+./research/webkit-1302/evidence-matrix.md:50:No es transferible automáticamente a 13.02. Debe conservarse en la rama 13.52 y sólo usarse aquí como metodología comparativa, nunca como evidencia de compatibilidad.
+./research/webkit-1302/public-source-notes.md:1:# Notas de fuentes públicas — Vue After Free / PS4 13.02
+./research/webkit-1302/public-source-notes.md:7:El README visible declara que el userland exploit funciona de 5.05 a 13.02 tal cual, pero que el repositorio ofrece jailbreak funcional sólo hasta 13.00. La propia FAQ responde que en 13.02 o superior sólo funciona el userland y que los archivos del repositorio no permiten jailbreak por encima de 13.00.
+./research/webkit-1302/public-source-notes.md:9:Clasificación local: `DIRECT_PUBLIC_DOCUMENTATION` para el alcance declarado; `USERLAND_CORROBORATED` para ejecución userland 13.02; `NOT_KERNEL_VERIFIED` para cualquier salto a kernel; `NO_FULL_JAILBREAK_13_02` para la cadena completa.
+./research/webkit-1302/public-source-notes.md:11:La página muestra además un commit reciente titulado “Improve NetCtrl stability and success rate...” y una estructura con `src`, `payloads`, `bd-j`, `requirements.txt` y `package.json`. Esto demuestra que NetCtrl forma parte del árbol público consultado, pero no demuestra por sí mismo compatibilidad funcional con 13.02.
+./research/webkit-1302/source-notes.md:1:# Registro de fuentes — PS4 13.02
+./research/webkit-1302/source-notes.md:8:| `research/results/slopos/1302.h` | Tabla 13.02 con `sysent`, `prison0`, `rootvnode`, `kernel_map`, `pmap_protect` y otros valores | `SOURCE_ONLY` |
+./research/webkit-1302/source-notes.md:19:El README visible declara dos cosas distintas: el userland funciona de 5.05 a 13.02, pero el repositorio ofrece jailbreak funcional sólo hasta 13.00. La FAQ afirma explícitamente que en 13.02 o superior sólo funciona el userland y que los archivos del repositorio no permiten jailbreak por encima de 13.00.
+./research/webkit-1302/source-notes.md:21:**Clasificación:** `DIRECT_PUBLIC_DOCUMENTATION` para el alcance declarado; `USERLAND_CORROBORATED` para 13.02; `NO_FULL_JAILBREAK_13_02` para la cadena completa.
+./research/webkit-1302/source-notes.md:23:El árbol también muestra código de NetCtrl, payloads, BD-J y `requirements.txt`. La presencia de código NetCtrl no prueba que la primitiva funcione en 13.02.
+./research/webkit-1302/source-notes.md:29:La fuente aparece como proyecto upstream de Vue After Free. Su documentación pública coincide con la frontera: userland extendido hasta 13.02, jailbreak funcional limitado a 13.00 en los archivos publicados.
+./research/webkit-1302/source-notes.md:31:**Clasificación:** `DIRECT_PUBLIC_DOCUMENTATION` para la declaración de alcance; no constituye evidencia de kernel R/W 13.02.
+./research/webkit-1302/source-notes.md:33:### SLOPOS / tabla 13.02
+./research/webkit-1302/source-notes.md:35:La tabla local `research/results/slopos/1302.h` atribuye valores a 13.02, incluidos `sysent=0x1102B70` y `prison0=0x111FA18`. Hasta encontrar una fuente independiente y bytes de la build, se conserva como `CORROBORATED_SOURCE_ONLY` o `SOURCE_ONLY`, no como `VERIFIED`.
+./research/webkit-1302/source-notes.md:41:| `RiyonAbib07/ps-vue-jb-2.5` | ¿Por qué se conocen offsets mmap 13.02 si no se publica el payload kernel completo? |
+./research/webkit-1302/source-notes.md:44:| psdevwiki/consolemods/PS4 exploit charts | ¿Qué alcance público se declara hoy para 13.02 y qué es sólo histórico? |
+./research/webkit-1302/source-notes.md:45:| Releases y assets GitHub | ¿Hay kernel, system image, ISO/BD-J o manifests específicos 13.02 con hashes? |
+./research/webkit-1302/source-notes.md:53:Se consultó mediante GitHub API el repositorio [RiyonAbib07/ps-vue-jb-2.5](https://github.com/RiyonAbib07/ps-vue-jb-2.5). Su metadata declara como descripción `PS4 PlayStation Vue Jailbreak exploit for firmware 7.00-13.00, with enhanced stability improvements for 12.50+ (Netctrl/Poopsploit)` y actualización `2026-08-17T02:51:54Z`. Esta descripción refuerza que el alcance de jailbreak publicado termina en 13.00, aunque el userland Vue cubra 13.02.
+./research/webkit-1302/source-notes.md:55:El archivo público `src/download0/kernel.ts` contiene `get_mmap_patch_offsets` con `13.02: [0x1fa78a, 0x1fa78d]`. El mismo archivo implementa rutas de lectura/escritura kernel y parcheo, pero la presencia del código y de los offsets no prueba que la primitiva kernel R/W o la cadena completa funcionen en 13.02. La clasificación se mantiene `DOCUMENTED_UNVERIFIED`.
+./research/webkit-1302/source-notes.md:57:Se recuperó directamente `research/results/slopos/1302.h` desde [alferdoss/SLOPOS-offsets](https://github.com/alferdoss/SLOPOS-offsets). La cabecera se identifica como `PS4 13.02 — kexec offsets: ArabPixel` y contiene, entre otros, `prison0=0x111FA18`, `rootvnode=0x2136E90`, `kernel_map=0x22D1D50`, `kernel_pmap_store=0x1B2C3A0`, `sysent=0x1102B70`, `pmap_extract=0x573D0` y `pmap_protect=0x58570`. También marca algunos campos como `TODO/help wanted`, lo que confirma que la tabla no es un conjunto completo de offsets verificados.
+./research/webkit-1302/source-notes.md:65:La tabla pública agrupa `13.02–13.04` y declara que no existe un kernel exploit público para el firmware reciente/latest; recomienda esperar o conservar la consola. Esto coincide con el estado local: puede existir userland Vue para 13.02, pero no hay una cadena kernel pública verificada para 13.02.
+./research/webkit-1302/source-notes.md:71:Fuente: [Vuemony/vue-after-free](https://github.com/Vuemony/vue-after-free), commit visible `6e37d51` (1 de junio de 2026). El repositorio se describe como un exploit de ejecución de código userland para PlayStation 4. La documentación y la estructura del proyecto deben interpretarse como userland; no se encontró en la página una demostración directa de kernel R/W 13.02.
+./research/webkit-1302/source-notes.md:75:Clasificación: `DIRECT_PUBLIC_DOCUMENTATION` para userland; `NOT_KERNEL_VERIFIED` para 13.02.
+./research/webkit-1302/source-notes.md:79:Las búsquedas públicas sobre `Netctrl/ucred`, `Lapse/semctl` y kernel exploit 13.02 devolvieron principalmente discusiones, vídeos y tablas de estado. La fuente secundaria más clara continúa siendo [ConsoleMods Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart), que agrupa 13.02–13.04 y declara que no existe kernel exploit público posterior a 13.00.
+./research/webkit-1302/source-notes.md:81:También apareció un repositorio de investigación [Feyzee61/psfree_lapse](https://github.com/Feyzee61/psfree_lapse), que debe auditarse por separado; el resultado de búsqueda no basta para atribuirle soporte 13.02. Los resultados de Reddit, YouTube y redes sociales se conservan como leads, no como evidencia técnica.
+./research/webkit-1302/source-notes.md:83:Conclusión de esta ronda: no se localizó una fuente pública primaria nueva que demuestre Netctrl/ucred o Lapse/semctl funcionando en PS4 13.02. Se mantiene `UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:87:La página de [RiyonAbib07/ps-vue-jb-2.5](https://github.com/RiyonAbib07/ps-vue-jb-2.5) declara explícitamente un alcance de jailbreak 7.00–13.00. Su README separa `vue-after-free` userland 5.05–13.04, Lapse 1.01–12.02 y Netctrl 1.01–13.00; la FAQ indica que en 13.02 o superior sólo funciona userland. El repositorio tiene 226 commits, una rama, ningún tag y su commit visible `1e8e2ad` es una corrección de estabilidad fechada 11 de marzo de 2026. La metadata consultada indica que no es fork, tiene dos forks y fue actualizado en GitHub el 17 de agosto de 2026.
+./research/webkit-1302/source-notes.md:89:El archivo público `src/download0/kernel.ts` contiene offsets mmap etiquetados para 13.02 (`0x1fa78a`, `0x1fa78d`) y una tabla que agrupa 12.50/12.52/13.00 para la parte Netctrl. Esto demuestra que el código contiene una entrada documental para 13.02, pero no demuestra una primitive kernel R/W en 13.02: la propia tabla de soporte funcional termina en 13.00.
+./research/webkit-1302/source-notes.md:91:La página de [iaceene/HENloader_Source](https://github.com/iaceene/HENloader_Source), commit `a42fef8` del 25 de noviembre de 2025, declara soporte de HENloader LP de 9.00 a 12.52 dependiendo de Lapse/Poopsploit. No aporta soporte 13.02, PoC 13.02 ni evidencia de hardware 13.02. Se clasifica `HISTORICAL_ONLY` para 13.02 y `SOURCE_ONLY` respecto a su propio alcance.
+./research/webkit-1302/source-notes.md:93:Conclusión: Netctrl sigue siendo el candidato público más cercano, con máximo funcional publicado 13.00; 13.02 sólo aparece como userland/offset mmap documental, no como kernel R/W probado.
+./research/webkit-1302/source-notes.md:97:La página [PS4 Developer wiki — Vulnerabilities](https://www.psdevwiki.com/ps4/Vulnerabilities) separa explícitamente los exploits usermode de los kernel exploits. Enumera `BD-JB-13.00` como exploit de usermode para PS4 13.00–13.02 y también lista vectores BD-JB con estados `untested`; esa entrada no es un kernel exploit ni proporciona por sí sola R/W.
+./research/webkit-1302/source-notes.md:99:La misma página identifica mast1c0re/Luac0re como vías de usermode/JIT y describe cadenas con exploits kernel sólo para rangos históricos o diferentes. La página no aporta una demostración pública de una primitive kernel R/W específica para 13.02.
+./research/webkit-1302/source-notes.md:101:La página [PS4 Developer wiki — Bugs](https://www.psdevwiki.com/ps4/Bugs) también distingue usermode, BD-J y kernel. Sus entradas de BD-JB 13.00–13.02 describen escape de sandbox; no deben contarse como kernel exploit. La existencia de una vulnerabilidad de usermode o de un escape de sandbox no prueba lectura/escritura arbitraria del kernel.
+./research/webkit-1302/source-notes.md:103:Clasificación: BD-JB 13.00–13.02 = `CORROBORATED` como usermode/entrada; kernel R/W 13.02 desde estas páginas = `UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:107:La sección Kernel de [PSDevWiki Bugs](https://www.psdevwiki.com/ps4/Bugs) se marca `Untested` y enumera los siguientes candidatos cercanos a 13.02:
+./research/webkit-1302/source-notes.md:109:| Candidato | Alcance que muestra la página | PoC/estado PS4 | Primitive descrita | Clasificación 13.02 |
+./research/webkit-1302/source-notes.md:115:| Overflow UFS/FFS al montar | `?<=13.04?` | Sin PoC; requiere partición FFS malformada y posiblemente otra vulnerabilidad para cifrarla | Overflow durante mount/reload; potencial impacto kernel | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:116:| CVE-2026-3038, routing sockets | `?<=13.04?` | PoC citado para panic PS4 13.52; la página dice que probablemente PS4 basado en FreeBSD 9 no es vulnerable al bug upstream | Stack overflow con canario; sólo DoS demostrado, escalada hipotética | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:117:| CVE-2026-5398, UAF `TIOCNOTTY` | `?<=13.02?` | PoC sólo para FreeBSD 15; PS4/PS5 “maybe not affected” | UAF de puntero de sesión, posible elevación | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:118:| CVE-2025-14558, ND6/rtsold | `?<=13.02?` | PoCs de FreeBSD/Linux; la página advierte que PS4/PS5 pueden no estar afectados | RCE remoto en rtsold/resolvconf, no kernel R/W PS4 demostrado | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:121:La página distingue explícitamente `Exploit Implementation` de la descripción del bug y deja vacíos varios campos. Por tanto, que una cabecera diga `?<=13.02?` o `?<=13.50?` no equivale a soporte PS4: en todos los casos anteriores falta una PoC PS4 13.02, log de hardware y demostración de R/W. La única excepción parcial es la entrada de routing sockets, que menciona un PoC de panic para PS4 13.52, pero no demuestra R/W ni aplicabilidad a 13.02.
+./research/webkit-1302/source-notes.md:125:La fuente [Feyzee61/psfree_lapse](https://github.com/Feyzee61/psfree_lapse) se describe como PSFree WebKit + Lapse Kernel Exploit para PS4 **7.00–9.60**. La página visible indica que integra shellcodes de parche kernel y AIO patch sets para 7.00–9.60; muestra 47 commits, tres tags, 19 forks y commit visible `ba736c0` de actualización del README. No hay declaración ni PoC para 13.02. Se clasifica `HISTORICAL_ONLY` para 13.02.
+./research/webkit-1302/source-notes.md:127:El nombre del repositorio y su presencia en muchos forks no constituyen una fuente independiente para 13.02; su propio README fija el límite en 9.60.
+./research/webkit-1302/source-notes.md:131:La tabla [ConsoleMods PS4 Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart) agrupa `13.02–13.04` y declara que no existe kernel exploit público para el firmware reciente/latest; la acción recomendada es conservar o vender la consola. La página es una tabla secundaria, no una PoC ni un log de hardware, por lo que se clasifica `CORROBORATED` sólo para el estado público, no como prueba de ausencia absoluta.
+./research/webkit-1302/source-notes.md:133:La discusión de [Reddit r/ps4homebrew](https://www.reddit.com/r/ps4homebrew/comments/1omgsul/new_kernel_exploit_up_to_1300_for_ps4_and_1200/) enlaza un gist de TheOfficialFloW y repite que el nuevo kernel exploit llega a PS4 13.00, no 13.02. Los comentarios indican que requiere BD-JB/WebKit/Mast1c0re y que no era utilizable en 12.50 en el momento de la discusión; también aparece un comentario de un usuario con 13.02 “hoping to release it someday”, que es una expectativa comunitaria, no una demostración. Se clasifica `CORROBORATED` para la frontera pública 13.00 y `UNVERIFIED_13_02` para cualquier extrapolación.
+./research/webkit-1302/source-notes.md:139:El mismo archivo contiene una tabla separada `kpatch_mmap_offsets` que sí incluye una entrada 13.02. El código posterior verifica bytes de parches mmap y prueba una asignación RWX, pero esas comprobaciones pertenecen a la fase de parcheo y no demuestran que Netctrl/ucred haya producido R/W en 13.02. Esta diferencia es evidencia directa de que 13.02 aparece en la tabla de mmap, pero no en la tabla de offsets de la primitive Netctrl completa.
+./research/webkit-1302/source-notes.md:141:## Afirmaciones de parche 13.02 — comprobación adicional 26 de agosto de 2026
+./research/webkit-1302/source-notes.md:143:El artículo de [XDG Mods sobre el release de TheFlow](https://xdgmods.com/news/theflow-kernel-exploit-ps4-ps5) afirma que el exploit afecta hasta PS4 13.00 y que Sony lo parcheó en 13.02. El artículo no adjunta diff de kernel, advisory de Sony, hashes de builds, PoC 13.02 fallida ni log de hardware; por ello la afirmación de parche se clasifica `SOURCE_ONLY`, no `VERIFIED`.
+./research/webkit-1302/source-notes.md:145:La discusión de [Reddit sobre 13.00/13.02/13.04](https://www.reddit.com/r/ps4piracy/comments/1qv6ohi/clearing_up_ps4_jailbreak_confusion_current/) repite “Poopsploit patched” para 13.02 y “userland only”, pero es una discusión comunitaria sin prueba técnica primaria. Se clasifica `CORROBORATED` sólo como consenso público de la frontera 13.00/13.02 y `UNVERIFIED_13_02` para la causalidad exacta del parche.
+./research/webkit-1302/source-notes.md:147:Conclusión de procedencia: existe evidencia pública repetida de que el soporte publicado termina en 13.00 y una afirmación secundaria de que Sony parcheó 13.02; no existe en el corpus revisado evidencia directa que demuestre qué función o condición de Netctrl cambió entre 13.00 y 13.02.
+./research/webkit-1302/source-notes.md:149:## SLOPOS y ps4-linux-loader — comparación de procedencia 13.00/13.02
+./research/webkit-1302/source-notes.md:151:`SLOPOS-offsets` declara en `README.md` y `CREDITS.md` que sus offsets kexec se copian de `ps4-linux/ps4-linux-loader` (`magic.h` y `fw_offsets.h`), y atribuye conjuntamente `12.50 / 13.00 / 13.02 / 13.50 / 13.52` a ArabPixel. El historial de SLOPOS muestra que `ps4/1300.h` y `ps4/1302.h` fueron introducidos juntos en `42273e2180ca` (2026-08-07).
+./research/webkit-1302/source-notes.md:153:En `ps4-linux-loader`, el header 13.02 aparece en `3d7a5456b75c` (2025-12-31). Las releases `v21`, `v21.5` y `v24b.1` anuncian payloads 13.02, pero escriben `13.02(?)`; el commit posterior `217e272eb099` (2026-05-11) añade 13.04/13.50 y mantiene 13.02 como payload de kexec/Linux. No se encontró en ese repositorio la implementación Netctrl/ucred ni una prueba de que los payloads de Linux demuestren la primitive Netctrl en 13.02.
+./research/webkit-1302/source-notes.md:155:La comparación local de `1300.h` y `1302.h` tiene SHA-256 `a95c48e23743e193f7d1b543dc35a817d68bb71f129476de03c3deff38b1e94b` y `34a206ffa48a406f6d15879b40e941de5e9d0db094bfd2d0932a6cf58961066a`. Muchos offsets 13.02 son exactamente 13.00 + 0x10, mientras otros son idénticos. Sin bytes de kernel, esto es una diferencia documentada de tablas, no una validación binaria ni una prueba de cambio de función.
+./research/webkit-1302/source-notes.md:167:- UFS/FFS mount overflow (“Celsius”): la wiki describe overflow al calcular buffers auxiliares en mount/reload y requiere imagen FFS malformada; para PS4 exige resolver además PFS/HDD y la entrada declara parche desde 13.50. Se conserva como `SOURCE_ONLY`/`UNVERIFIED_13_02`, no como R/W probado.
+./research/webkit-1302/source-notes.md:169:- `CVE-2026-5398` TIOCNOTTY: UAF por back-pointer de sesión/terminal no limpiado; PoC FreeBSD 15, no PS4. La wiki lo etiqueta `?<=13.02?` pero también dice que PS4/PS5 pueden no estar afectadas. `HYPOTHESIS`/`UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:170:- `CVE-2025-14558` ND6/rtsold: inyección de comandos mediante Router Advertisements y `resolvconf`, no kernel R/W directo; la entrada relaciona el código introductorio con FreeBSD 9.0, pero requiere rtsold/rtsol y aceptación de RA. No hay PoC PS4 ni prueba de que la ruta exista en Orbis. `SOURCE_ONLY`/`UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:171:- `aio_multi_delete()`: bug no identificado, con código parcheado observado en PS4 12.50; sin PoC y probablemente corregido alrededor de 12.00. No llega a 13.02 como candidato. `SOURCE_ONLY`/`DISPROVEN-PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:173:- `CVE-2022-23088` net80211 Mesh ID: heap overflow remoto en beacon durante escaneo; PoC FreeBSD 13, posible PS4 9.x según la wiki, pero no 13.02 y no hay prueba Orbis. `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:174:- Routing socket wrong dst/netmask: bug de validación/KPI en FreeBSD 13.0, corregido en 2021; la wiki lo limita tentativamente a PS4 <=9.x y no ofrece PoC PS4. `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:175:- `CVE-2013-5209` SCTP stack disclosure y `CVE-2013-3077` IP_MSFILTER integer overflow: la wiki los sitúa alrededor de PS4 1.01; no son candidatos 13.02. `DISPROVEN/PATCHED`.
+./research/webkit-1302/source-notes.md:176:- exFAThax `CVE-2022-3349`: heap overflow en `UVFAT_readupcasetable`; funcional PS4 9.00 y corregido en 9.03. La lógica de 9.03–13.50 contiene una comprobación de overflow que la wiki identifica como fix. `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:177:- `CVE-2020-9892` IP6_EXTHDR_CHECK double-free: PS4 7.50–7.55, parcheado en 8.00; `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:178:- `CVE-2020-7457` IPV6_2292PKTOPTIONS UAF: arbitrary kernel R/W en PS4 hasta 7.02, parcheado en 7.50 según la wiki; `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:179:- BPF race/double-free: PS4 <=5.07 o <=4.55 según variante, parcheado 5.50/4.70; `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:180:- `CVE-2018-17155` sys_getcontext leak: hasta ~6.00, parcheado entre 6.00 y 6.20; sólo leak/kASLR, no R/W directo. `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:181:- NamedObj type confusion: PS4 1.01–4.05, parcheado 4.06; `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:182:- `CVE-2016-1885` amd64_set_ldt: limitado a versiones antiguas y posiblemente no aplicable por falta de compatibilidad IA-32; `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:184:La página pública es colaborativa y varias entradas son tentativas; su contenido se usa como fuente secundaria, nunca como prueba de que Orbis 13.02 sea vulnerable.
+./research/webkit-1302/source-notes.md:186:## Reddit sobre Celsius — revisión 26 de agosto de 2026
+./research/webkit-1302/source-notes.md:190:La discusión y el post revisado son material secundario/comunitario. El contenido visible habla de avances generales y mantiene el límite público de jailbreak de PS4 en 13.00; no aporta el repositorio original de Celsius, una PoC, un log de PS4 13.02/13.04, un diff de kernel ni una explicación independiente del supuesto parche 13.50. Clasificación para Celsius en 13.02: `SOURCE_ONLY` como rumor/seguimiento de escena, no `VERIFIED` ni `CORROBORATED`.
+./research/webkit-1302/source-notes.md:192:La búsqueda pública de GitHub tampoco localizó un repositorio o commit bajo la cuenta `bollars` que contenga Celsius/ffs_mount: la cuenta pública tiene un único repositorio, `bollars/ddoslib`, no relacionado. El repositorio `adri22235/ps4-suid-scanner` es el principal artefacto público que atribuye Celsius a bollars, con commits entre 2026-07-18 y 2026-08-09; por tanto, documenta la atribución pero no constituye una fuente primaria independiente del descubrimiento.
+./research/webkit-1302/source-notes.md:194:## Fuentes secundarias adicionales sobre Celsius — 26 de agosto de 2026
+./research/webkit-1302/source-notes.md:196:[GameGaz, 19 de julio de 2026](https://gamegaz.com/2026071945823/) atribuye a bollars el hallazgo de Celsius en `ffs_mount`, afirma PS4 hasta 13.04 y PS5 hasta 12.70, y dice que PS4 13.50/PS5 13.00 ya lo corrigen. También afirma requisito de HDD USB 3.0 de 250 GB o más y una entrada userland Vue/BD-J, pero declara expresamente que aún no estaba en etapa práctica ni podía llamarse kernel exploit confirmado.
+./research/webkit-1302/source-notes.md:198:[Publicación de GAMERZ 56K en YouTube](https://www.youtube.com/post/UgkxE2BPYs9Rf7TJgKq8GqnZlTh-kOpDU15F) repite las mismas afirmaciones: `ffs_mount`, integer overflow/heap overflow, PS4 hasta 13.04 incluyendo 13.02, patch 13.50+, disco USB 3.0 recomendado de 320/500 GB y ausencia de garantía de estabilidad. No aporta código, commit, log de hardware ni fuente primaria independiente. Clasificación: `SOURCE_ONLY`.
+===== /tmp/ps3120-css =====
+f8bf18e 2026-08-26 Record cross-repository Jordy searches
+2180348 2026-08-26 Compare Jordy with primary PS4 chain
+3e67db9 2026-08-26 Preserve primary PS4 Netctrl sources
+dd59814 2026-08-26 Record slopkit2 file provenance
+7e8971e 2026-08-26 Trace historical PS4 Lapse kernel path
+583af39 2026-08-26 Record zecoxao post-Jordy history
+fe51af3 2026-08-26 Trace zecoxao Jordy 11.60 bootstrap
+709a51c 2026-08-26 Record zecoxao Jordy audit
+74bdae6 2026-08-26 Audit zecoxao Jordy kernel-user commit
+03e70d0 2026-08-26 Record WebKit 13.04 artifact search
+730f895 2026-08-26 Close external stage2 reuse search
+26b008f 2026-08-26 Record Luac0re kernel driver audit
+57a8b63 2026-08-26 Compare P2JB kernel path with Jordy stage2
+639881a 2026-08-26 Record expanded Jordy search
+531aa6f 2026-08-26 Update stage2 gap analysis
+1a2b399 2026-08-26 Document scanner and external runtime dependencies
+c2a90c9 2026-08-26 Trace pre-stage2 scanner history
+f47c55a 2026-08-26 Record exact Celsius claim search
+3ef79f1 2026-08-26 Document related stage2 implementation sources
+4df055b 2026-08-26 Trace Luac0re ROP dependencies
+3eaa200 2026-08-26 Trace related WebKit driver templates
+2c9bcbb 2026-08-26 Extend stage2 lineage investigation
+febcec0 2026-08-26 Audit recovered full stage 2 commit
+3a7b473 2026-08-26 Rewrite final Celsius 13.02 evidence report
+44b0c70 2026-08-26 Classify loader support artifacts
+0f236b2 2026-08-26 Audit Pharaoh2k offset attribution
+820222d 2026-08-26 Classify Celsius secondary reporting
+417e702 2026-08-26 Classify Gezine 13.50 rumor
+1c79112 2026-08-26 Record Sony 13.50 documentation gap
+fe015b5 2026-08-26 Preserve audited Jordy stage2 source
+0504ef1 2026-08-26 Audit current Jordy stage2 source
+a6e8ef0 2026-08-26 Record vanished stage2 search
+ad16e4a 2026-08-26 Record unavailable stage2 commit
+3b4bd9d 2026-08-26 Preserve stage2 commit metadata
+e960321 2026-08-26 Audit Celsius stage2 skeleton
+aab7f0e 2026-08-26 Audit public Celsius claims
+158ca70 2026-08-26 Classify ConsoleMods chronology evidence
+5082faa 2026-08-26 Record exact-name artifact search
+bd89f75 2026-08-26 Record kernel reverse engineering lead
+e3107eb 2026-08-26 Record historical fail0verflow dump references
+./.git/modules/third_party/ps4-payload-sdk/description
+./.git/modules/third_party/ps4-payload-sdk/hooks/applypatch-msg.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/commit-msg.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/fsmonitor-watchman.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/post-update.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-applypatch.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-commit.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-merge-commit.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-push.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-rebase.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-receive.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/prepare-commit-msg.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/push-to-checkout.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/sendemail-validate.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/update.sample
+./.git/modules/third_party/ps4-payload-sdk/info/exclude
+./.git/modules/third_party/ps4-payload-sdk/refs/heads/main
+./.git/modules/third_party/ps4-payload-sdk/refs/remotes/origin/HEAD
+./.git/modules/third_party/ps4-payload-sdk/objects/pack/pack-be714cecedd892a7badec5469da26f1d74789b41.pack
+./.git/modules/third_party/ps4-payload-sdk/objects/pack/pack-be714cecedd892a7badec5469da26f1d74789b41.rev
+./.git/modules/third_party/ps4-payload-sdk/objects/pack/pack-be714cecedd892a7badec5469da26f1d74789b41.idx
+./.git/modules/third_party/ps4-payload-sdk/HEAD
+./.git/modules/third_party/ps4-payload-sdk/config
+./.git/modules/third_party/ps4-payload-sdk/logs/refs/remotes/origin/HEAD
+./.git/modules/third_party/ps4-payload-sdk/logs/refs/heads/main
+./.git/modules/third_party/ps4-payload-sdk/logs/HEAD
+./.git/modules/third_party/ps4-payload-sdk/index
+./.git/modules/third_party/ps4-payload-sdk/packed-refs
+./.vscode/c_cpp_properties.json
+./1352_offsets.txt
+./research/webkit-1302/upstream/psdevwiki-kernel-headings.txt
+./research/webkit-1302/upstream/riyon-kernel.ts
+./research/webkit-1302/upstream/riyon-kernel-comparison.txt
+./research/webkit-1302/upstream/riyon-kernel-history.tsv
+./research/webkit-1302/upstream/Vuemony_vue-after-free-src_download0_kernel.ts
+./research/webkit-1302/upstream/owendswang_vue-after-free-lite-src_download0_kernel.ts
+./research/webkit-1302/upstream/Vuemony_vue-after-free-src_download0_netctrl_c0w_twins.ts
+./research/webkit-1302/upstream/owendswang_vue-after-free-lite-src_download0_netctrl_c0w_twins.ts
+./research/webkit-1302/upstream/vue-netctrl-history.tsv
+./research/webkit-1302/upstream/vue-1302-offset-comparison.txt
+./research/webkit-1302/upstream/adri-1352_offsets.txt
+./research/webkit-1302/upstream/psdevwiki-kernel-section-2259-2690.txt
+./research/webkit-1302/upstream/orbis-1302-1304-offset-comparison.txt
+./research/webkit-1302/upstream/identical-kernel-phrase-search.txt
+./research/webkit-1302/upstream/github-exact-kernel-search.txt
+./research/webkit-1302/upstream/github-ps4-kernel-candidate-filter.txt
+./research/webkit-1302/upstream/artifact-inspection/sdk-crt-kernel.c
+./research/webkit-1302/upstream/artifact-inspection/loader-kernel-like-paths.txt
+./research/webkit-1302/upstream/scene-repo-kernel-artifact-audit.txt
+./research/webkit-1302/upstream/forks-kernel-artifact-scan.txt
+./research/webkit-1302/upstream/fusion-1302/Offsets-1302.h
+./research/webkit-1302/upstream/fusion-1302/offsets.tsv
+./research/webkit-1302/upstream/mount-offset-github-search.txt
+./research/webkit-1302/upstream/mount-offset-github-filtered.txt
+./research/webkit-1302/upstream/osm-kernel-sdk/audit.txt
+./research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml
+./research/webkit-1302/upstream/patch-mount-provenance-audit.txt
+./research/webkit-1302/upstream/vfs-offset-cross-source-comparison.txt
+./research/webkit-1302/upstream/patch-mount-history-kpayload-comparison.txt
+./research/webkit-1302/upstream/mount-vfs-1302-1304-cross-comparison.txt
+./research/webkit-1302/upstream/mount-investigation-source-notes.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-all-code-search.json
+./research/webkit-1302/upstream/osm-provenance/early-fusion-mount-commit.txt
+./research/webkit-1302/upstream/osm-provenance/fusionshared-offset-history.txt
+./research/webkit-1302/upstream/osm-provenance/arabpixel-Offsets-1302.h
+./research/webkit-1302/upstream/osm-provenance/aether-fusion-Offsets-1302.h
+./research/webkit-1302/upstream/osm-provenance/mount-investigation-source-notes.txt
+./research/webkit-1302/upstream/osm-provenance/exact-1302-sdk-offset-search.txt
+./research/webkit-1302/upstream/osm-provenance/arabpixel-sdk-vs-fusion-selected-offsets.txt
+./research/webkit-1302/upstream/osm-provenance/fusion-offset-validation-issues.txt
+./research/webkit-1302/upstream/osm-provenance/psfree-dumper-audit/kerneldumper.bin
+./research/webkit-1302/upstream/osm-provenance/scene-collective-payload-repo-dumper-audit.txt
+./research/webkit-1302/upstream/osm-provenance/scene-kernel-dumper-history-audit.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-code-audit.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-code-context.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-all-source-search.txt
+./research/webkit-1302/upstream/osm-provenance/mira-openorbis-mount-offset-history.txt
+./research/webkit-1302/upstream/osm-provenance/openorbis-patches672-mount-source.txt
+./research/webkit-1302/upstream/osm-provenance/mount-patch-lineage-comparison.tsv
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-1202-dumper-code-audit.txt
+./research/webkit-1302/upstream/osm-provenance/frame4-mount-ffs-source-search.txt
+./research/webkit-1302/upstream/osm-provenance/github-code-index-kernel-ffs-search.txt
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-history-1202-source-audit.txt
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-release-assets-audit.txt
+./research/webkit-1302/upstream/osm-provenance/remote-lua-loader-offset-dumper-crosscheck.txt
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-fork-output-audit.txt
+./research/webkit-1302/upstream/osm-provenance/gizz-lua-lapse-all-history-kernel-output-audit.txt
+./research/webkit-1302/upstream/osm-provenance/obhq-kernel-dumper-forks-audit.txt
+./research/webkit-1302/upstream/osm-provenance/fusion14-kernel-elf-source-audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/github_refs_and_commits.json
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/commit_metadata.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/jordy_stage2_1089382.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/stage2_jordy_96a7948.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/96a7948_vs_1089382.diff
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/jordy_stage2_1089382_excerpt.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/keyword_audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/ref_summary.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/tag_and_forks.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/fork_file_audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/adri22235_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ayoubnoob543-lab_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ke5adb_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/fork_history_and_hashes.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/wayback_cdx.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/github_code_search.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/all_commits.tsv
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/adjacent_commit_details.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/702_relevant_tree.tsv
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/midohar36_github_search.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/related_code_search.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/userland_only_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/p2jb_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/poops_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/comparison.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/shellcode_asset_audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/1630d79/p2jb_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/1630d79/poops_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/1630d79/userland_only_index.html
+./1304.c:6: * of the 13.04 table. The included source remains the sole value definition.
+./ARTIFACTS.md:13:| Historical BD-J ISO | `scanner_1304.iso` | See local file | See existing inventory | Historical 13.04 artifact; not a confirmed 13.52 entry path | Scanner documentation only |
+./ARTIFACTS.md:17:| GoldHEN PPPwn stage2 set v1.03 | `goldhen/pppnw_stage2/` | 8 × 2705 B bins + inner 7z | Per-file hashes in manifest | Included in the official asset; identical builds across minor FW revisions (see `docs/goldhen.md`) | `goldhen/MANIFEST.json` |
+./README.md:3:Laboratorio de investigación estática y de ingeniería de herramientas para artefactos de PS4, con foco actual en las familias 13.02 y 13.52. El repositorio conserva código, analizadores, fixtures, manifests, dumps y documentación de procedencia. **No es un jailbreak terminado ni una afirmación de compatibilidad funcional con una consola concreta.**
+./README.md:9:| PS4 13.02 — WebKit/Vue userland | `CORROBORATED` | La documentación pública cubre userland hasta 13.02; no demuestra kernel R/W. |
+./README.md:10:| PS4 13.02 — Netctrl/ucred | `UNVERIFIED_13_02` | El alcance funcional público localizado llega hasta 13.00. |
+./README.md:11:| PS4 13.02 — offsets | `SOURCE_ONLY` / `CORROBORATED_SOURCE_ONLY` | Existen tablas, pero no se han validado sobre bytes retail 13.02. |
+./README.md:12:| PS4 13.02 — kernel retail | `MISSING_DIRECT_BYTES` | No hay dump público verificado que permita validar toda la tabla. |
+./README.md:13:| PS4 13.02 — jailbreak completo | `NOT_REPRODUCIBLE` | Falta demostrar userland → kernel R/W → parcheo. |
+./README.md:17:| PS4 13.52 — kernel R/W | `UNVERIFIED` | Hay candidatos de investigación, no una cadena reproducible confirmada. |
+./README.md:30:Para 13.02, la cadena relevante es WebKit/Vue userland → candidato de kernel → kernel R/W → offsets validados → parcheo/kexec. Sólo la primera etapa está razonablemente cubierta. Para 13.52, el laboratorio dispone de evidencia estática de `libkernel_sys` y metadata PUP, pero no de WebKit retail legible ni de un jailbreak reproducible.
+./README.md:46:| `research/webkit-1302/` | Investigación específica de WebKit y disco/BD-J para 13.02. |
+./README.md:81:- [`research/webkit-1302/`](research/webkit-1302/): rama documental de 13.02.
+./AUDIT_REPORT.md:161:Faltan el eboot, exports, relocaciones, un log de captura, una lectura runtime de `kern.sdk_version`, imágenes comparativas de 9.00/11.02/12.52/13.04, y evidencia independiente de la semántica de cada syscall/wrapper. No se debe cubrir esa ausencia con nombres derivados del README.
+./AUDIT_REPORT.md:235:| WebKit/entry path | 25% | artefactos de 13.04/13.50, no cadena 13.52 |
+./AUDIT_REPORT.md:236:| Scanner BD-J | 35% | histórico 13.04 |
+./PS4_1352_LEGITIMATE_ARTIFACT_SOURCE_RESEARCH_2026-08-20.md:44:| `hen.bin` / `scanner_1304.iso` | Artefactos históricos del laboratorio | 13.04 | **DIRECT_BYTES**, no 13.52 y no fuente WebKit |
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:16:| `hen.bin` | 499.680 | `32570b6e54c9531dc8a7d75ef4da6557d440bf69c4b765a85a77d428db3a4b73` | DOS/COM según `file`; strings de payload y módulos genéricos | **DIRECT_BYTES**, pero procedencia confirmada 13.04; no evidencia 13.52 |
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:17:| `scanner_1304.iso` | 16.777.216 | `6ed15acd9cfb2539e034cde72a9003f52cf6338f04549670e1b8d515d948bd30` | ISO/UDF `scanner_1304`; contiene `GOLDHEN.BIN` y estructura BDMV | **DIRECT_BYTES**, pero scanner identificado como 13.04 |
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:21:No se encontró ningún blob con bytes de `libSceNKWebKit.sprx`, `libkernel_web.sprx`, `libSceLibcInternal.sprx`, `eboot.bin`, SELF WebKit, WebProcess WebKit, NXDP, ORBISDMP u `orbisstate`. Los strings de `hen.bin` mencionan `libkernel_web.sprx`, `libkernel_sys.sprx` y `libSceLibcInternal.sprx`, pero eso es una referencia textual dentro de un binario de 13.04; no contiene esos módulos como archivos separados ni demuestra su identidad 13.52.
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:27:El ISO local `scanner_1304.iso` fue listado mediante parser ISO9660 estático sin montaje. Tiene volumen `scanner_1304` y 35 entradas; incluye `/GOLDHEN.BIN;1` de 286.336 bytes y contenido BD-J/BDMV, pero su commit de introducción lo identifica como scanner PS4 13.04. Se descarta como evidencia de la build retail 13.52.
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:31:El historial Git identifica `hen.bin` como “compiled ps4-hen for FW 13.04” y `scanner_1304.iso` como “PS4 SUID Scanner for FW 13.04 - BD-JB based”. Por ello, ambos son **DIRECT_BYTES** de artefactos históricos, pero no pueden elevarse a evidencia PS4 13.52 ni a evidencia WebKit. Los dumps de kernel sí son bytes reales versionados; no tienen formato ELF/SELF, Build ID, imports/exports ni correlación con `libSceNKWebKit.sprx`.
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:44:Estos porcentajes no convierten el kernel ni los artefactos 13.04 en evidencia WebKit. WPE 2.52.6 continúa siendo exclusivamente **PORTABLE**/laboratorio.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:10:La comparación directa contra el árbol público `FreeBSDKernel9-0/PS4OSSCode`, que declara importar el código Sony `WebKit-601-1300` para PS4 13.00–13.04, aporta una evidencia nueva: ese árbol 601-1300 conserva las implementaciones anteriores y no contiene los patrones introducidos por los tres commits. Esto demuestra una diferencia entre la snapshot pública Sony 13.00–13.04 y upstream posterior, pero **no permite extrapolar el estado de PS4 13.50 o 13.52**.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:16:| `JSCell::toX` | `2a042fede0e705bae4b8ce039b18442696ebb5ce`, WebKit `275948@main`, 2024-03-11/12. En `JSCell.cpp`, `toPrimitive` y `toNumber` sustituyen `isString/isSymbol/isHeapBigInt` + `static_cast` por `jsDynamicCast`; `toObjectSlow` usa `jsDynamicCast` y `jsSecureCast`. El mensaje lo califica como mejora de calidad, con release assert, no como parche de CVE. | Commit upstream exacto; bug 270797. | No se encontró otro commit de WebKit main con el bug/hash que sea cherry-pick del mismo cambio. Posteriormente, `178cea00` (2026-04-18) reemplaza usos de `jsSecureCast` por `downcast`, y `1953979` adapta casts de subclases JSCell; son evoluciones posteriores, no backports a PS4. | En Sony 601-1300 `JSCell.cpp` sigue usando `isString/isSymbol` y `static_cast` en `toPrimitive`, `toNumber` y `toObject`; no aparecen `jsDynamicCast`/`jsSecureCast`. | La snapshot 13.00–13.04 no contiene la corrección. No hay evidencia pública para 13.50/13.52. | **DIRECT** para upstream y 601-1300; **UNVERIFIED** para 13.52. |
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:17:| `MarkedVector` / GC | `c9880de4a28b9a64a5e1d0513dc245d61a2e6ddb`, WebKit `263041@main`, 2023-04-17. Refactoriza `MarkedArgumentBuffer` en `MarkedVector`, cambia `Heap::m_markListSet` y el marking de listas, añade tipos de cell pointers y `CrashOnOverflow`, y sustituye Vectors sin raíz GC en `CloneDeserializer::deserialize`. | Commit upstream exacto y referencia `Originally-landed-as: 259548.530@safari-7615-branch` (`2c49ff7`). | La rama Safari interna está explícitamente documentada en el mensaje. No se encontró una referencia Sony ni un cherry-pick público posterior del mismo cambio. | Sony 601-1300 contiene `MarkedArgumentBuffer` en `ArgList.h/cpp`; `Heap` y `CloneDeserializer` usan el diseño anterior. No aparece `MarkedVector` en los archivos consultados. | Evidencia negativa para la snapshot 13.00–13.04; no prueba el estado 13.50/13.52. | **DIRECT** para diff upstream, Safari branch y 601-1300; **UNVERIFIED** para 13.52. |
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:18:| `CloneSerializer/objectPool` | `010c6bdfb0cde0485d31f0260ab9a046fa9b8567`, WebKit `273557@main`, 2024-01-26. Separa `m_gcBuffer` en `m_objectPool` y `m_keepAliveBuffer`, renombra métodos, añade `CloneDeserializer::addToObjectPool`, elimina inserciones erróneas BigInt/map/set, alinea tags/orden serializer-deserializer y añade validator debug `validateSerializedValue`. | Commit upstream exacto y referencia `Originally-landed-as: 267815.623@safari-7617-branch` (`430d474`). | La rama Safari interna está explícitamente documentada. Posteriores cambios en `SerializedScriptValue.cpp` —por ejemplo `3a900e1` y `cfe3893`— son cambios distintos sobre structured clone; no prueban backport Sony. | Sony 601-1300 conserva `CloneBase::m_gcBuffer`, un `ObjectPool m_objectPool` y llamadas directas `m_gcBuffer.append`; no aparecen `m_keepAliveBuffer`, `addToObjectPool` ni `validateSerializedValue`. | Evidencia negativa para 13.00–13.04; sin evidencia pública del backport a 13.52. | **DIRECT** para upstream, Safari branch y 601-1300; **UNVERIFIED** para 13.52. |
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:22:La fuente pública Sony OSS está enlazada en [Sony WebKit OSS](https://www.playstation.com/en-us/oss/ps4/webkit/). El espejo navegable utilizado es [FreeBSDKernel9-0/PS4OSSCode](https://github.com/FreeBSDKernel9-0/PS4OSSCode), cuyo commit de importación `d636699770323d7968a2c37955aa513bda5f8a37` se titula `Add WebKit WebKit-601-1300 (PS4 13.00-13.04)`.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:62:2. La snapshot pública Sony 601-1300, identificada como 13.00–13.04, es anterior a las tres correcciones y conserva los diseños antiguos.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:79:**Clasificación final:** evidencia upstream y Sony 601-1300 **DIRECT**; backport Sony a 13.52 **UNVERIFIED**; inferencia de 13.52 desde 13.00–13.04 **UNVERIFIED**.
+./PS4_1352_UPSTREAM_LINEAGE_BOUND_2026-08-20.md:7:Las tres correcciones tienen una línea de descendencia upstream visible, pero no existe una rama Sony pública posterior a `WebKit-601-1300` que permita decidir si el código de PS4 13.52 las contiene. La snapshot Sony 601-1300, cuyo import público se identifica como PS4 13.00–13.04, conserva las implementaciones anteriores. Por tanto, la evidencia permite acotar un límite inferior para Sony OSS público, pero no clasificar 13.52 como anterior o posterior a ninguna corrección.
+./PS4_1352_UPSTREAM_LINEAGE_BOUND_2026-08-20.md:17:El espejo [FreeBSDKernel9-0/PS4OSSCode](https://github.com/FreeBSDKernel9-0/PS4OSSCode) importa `WebKit-601-1300` mediante [`d636699`](https://github.com/FreeBSDKernel9-0/PS4OSSCode/commit/d636699770323d7968a2c37955aa513bda5f8a37), con mensaje `Add WebKit WebKit-601-1300 (PS4 13.00-13.04)`. En sus archivos raw se observan los diseños pre-corrección:
+./PS4_1352_UPSTREAM_LINEAGE_BOUND_2026-08-20.md:37:La inferencia temporal correcta es únicamente que el árbol Sony 13.00–13.04 disponible públicamente es anterior a estos cambios upstream. No es válido extender esa inferencia a 13.50/13.52, porque faltan una snapshot Sony posterior, un diff Sony, un manifest de revisiones o bytes de código correlacionados.
+./RESEARCH_STATUS.md:11:| **13.02** | Vue After Free/userland `CORROBORATED`; Netctrl/ucred `UNVERIFIED_13_02`; offsets SLOPOS `SOURCE_ONLY/CORROBORATED_SOURCE_ONLY`; kernel R/W `MISSING`; jailbreak completo `NOT_REPRODUCIBLE`. | Kernel exploit específico y demostración de R/W. |
+./RESEARCH_STATUS.md:22:| WebKit/Vue userland 13.02 | Alcance público documentado hasta 13.02; no implica kernel R/W. |
+./RESEARCH_STATUS.md:23:| Offsets 13.02 | `sysent=0x1102B70`, `prison0=0x111FA18` y otros valores aparecen en tablas; no son validación de bytes retail. |
+./RESEARCH_STATUS.md:34:Para 13.02, la prioridad es encontrar o validar una vulnerabilidad de kernel que proporcione R/W y asociarla con un artefacto de la misma build. A continuación deben validarse `sysent`, `prison0`, `rootvnode`, `kernel_map`, `pmap_protect` y los offsets de parcheo sobre bytes reales. Netctrl/ucred es el candidato público prioritario; Lapse/semctl permanece fuera de alcance demostrado para 13.02.
+./RESEARCH_STATUS.md:36:Para 13.52, la prioridad es obtener módulos WebKit retail o un artefacto legítimo equivalente, además de una prueba de kernel R/W. El blob libkernel y el PUP verificado no deben presentarse como sustitutos de esos artefactos.
+./RESEARCH_STATUS.md:44:- [`research/webkit-1302/`](research/webkit-1302/): línea específica de 13.02.
+./research/webkit-1302/README.md:1:# PS4 13.02 — WebKit y disco/artefactos
+./research/webkit-1302/README.md:3:Esta rama (`research/webkit-disk-1302`) concentra la investigación específica de **PS4 firmware 13.02**, separándola del foco principal del laboratorio en 13.52. Su objetivo es ordenar la evidencia y preparar un pipeline reproducible para WebKit, BD-J/disco, userland y la obtención/validación de artefactos del kernel.
+./research/webkit-1302/README.md:5:> Regla central: una tabla de offsets, un README de un repositorio o un payload para otra versión no se convierten automáticamente en evidencia verificada para 13.02.
+./research/webkit-1302/README.md:11:| WebKit CVE-2017-7117 / Vue After Free | `VERIFIED/CORROBORATED` para userland | El alcance público declara userland 5.05–13.02. |
+./research/webkit-1302/README.md:12:| Ejecución userland 13.02 | `CORROBORATED` | Primera etapa de la cadena; no implica privilegios de kernel. |
+./research/webkit-1302/README.md:13:| Netctrl/ucred triple-free | `UNVERIFIED_13_02` | El árbol público llega funcionalmente hasta 13.00; 13.02 requiere demostración independiente. |
+./research/webkit-1302/README.md:14:| Lapse/semctl | `UNVERIFIED_13_02` | El alcance público localizado no llega a 13.02. |
+./research/webkit-1302/README.md:15:| SLOPOS offsets 13.02 | `CORROBORATED_SOURCE_ONLY` | Existe `research/results/slopos/1302.h`; no hay segunda fuente completamente independiente para toda la tabla. |
+./research/webkit-1302/README.md:16:| `sysent` 13.02 | `CORROBORATED_SOURCE_ONLY` | `0x1102B70` aparece en SLOPOS y en `kpayload/source/offsets/1302.c`. |
+./research/webkit-1302/README.md:17:| `prison0` 13.02 | `CORROBORATED_SOURCE_ONLY` | SLOPOS documenta `0x111FA18`. |
+./research/webkit-1302/README.md:19:| Kernel retail 13.02 | `MISSING_DIRECT_BYTES` | No hay dump público verificado usado para validar la tabla completa. |
+./research/webkit-1302/README.md:20:| Kernel R/W 13.02 | `MISSING` | Es el cuello de botella principal. |
+./research/webkit-1302/README.md:21:| Jailbreak completo 13.02 | `NOT_REPRODUCIBLE` | No se ha demostrado el salto userland → kernel R/W. |
+./research/webkit-1302/README.md:28:Ejecución userland 13.02
+./research/webkit-1302/README.md:34:Validación de offsets 13.02
+./research/webkit-1302/README.md:41:La primera transición está cubierta de forma razonable. La investigación debe detenerse explícitamente en la transición a kernel R/W hasta que exista evidencia de 13.02 específica, reproducible y separada de la evidencia de 13.00 o 13.52.
+./research/webkit-1302/README.md:52:| `kernel-rw-1302-investigation.md` | Informe de candidatos de kernel R/W, alcance, procedencia y brechas específicas de 13.02. |
+./research/webkit-1302/README.md:64:## Informe de kernel R/W
+./research/webkit-1302/README.md:66:El análisis específico de Netctrl está en [`kernel-rw-1302-investigation.md`](kernel-rw-1302-investigation.md) y el catálogo amplio en [`kernel-candidates-1302-exhaustive.md`](kernel-candidates-1302-exhaustive.md). La conclusión actual es que Netctrl/ucred sigue siendo el candidato más cercano, pero permanece `UNVERIFIED_13_02`; no existe una ruta pública reproducible userland → kernel R/W para 13.02 con la evidencia consultada.
+./research/webkit-1302/README.md:70:La rama no se considerará completa por acumular más tablas. El siguiente hito verificable es obtener un artefacto 13.02 con procedencia clara —por ejemplo, bytes de kernel retail, un dump de consola o un log de ejecución firmado por hash— y usarlo para validar primero los offsets mmap, después los parches restantes y finalmente una primitiva de kernel R/W. Hasta entonces, las conclusiones deben permanecer en `UNVERIFIED_13_02` o `SOURCE_ONLY`.
+./research/webkit-1302/disk-artifacts.md:1:# WebKit y disco/artefactos 13.02
+./research/webkit-1302/disk-artifacts.md:5:Construir un corpus específico de 13.02 que permita responder, con evidencia, tres preguntas separadas:
+./research/webkit-1302/disk-artifacts.md:9:3. ¿Qué bytes del sistema 13.02 son necesarios para validar offsets y el salto a kernel R/W?
+./research/webkit-1302/disk-artifacts.md:41:Elevar a `VERIFIED` sólo tras una comprobación sobre bytes de 13.02 o una ejecución controlada con resultado observable. Mantener `SOURCE_ONLY` cuando sólo exista una tabla o afirmación pública.
+./research/webkit-1302/disk-artifacts.md:50:| ISO y scanners históricos | `scanner_1304.iso`, `goldhen/` | Comparación de pipeline; no asumir 13.02. |
+./research/webkit-1302/disk-artifacts.md:51:| PUP y manifests 13.52 | raíz y `analysis/` | Metodología de parsing; no evidencia 13.02. |
+./research/webkit-1302/disk-artifacts.md:57:| Kernel retail 13.02 o dump equivalente | P0 | Validar los diez parches restantes y las tablas kernel. |
+./research/webkit-1302/disk-artifacts.md:58:| `system_fs_image.img` 13.02 con procedencia | P0 | Candidata a contener módulos y kernel, aunque pueda estar cifrada. |
+./research/webkit-1302/disk-artifacts.md:59:| Logs de ejecución Netctrl/ucred en 13.02 | P0 | Confirmar o descartar el salto userland → kernel. |
+./research/webkit-1302/disk-artifacts.md:60:| Segunda fuente independiente de SLOPOS 13.02 | P1 | Resolver si la tabla es corroborada o sólo replicada. |
+./research/webkit-1302/disk-artifacts.md:61:| Build/manifest exacto de WebKit 13.02 | P1 | Vincular userland con una build concreta. |
+./research/webkit-1302/disk-artifacts.md:62:| ISO/BD-J 13.02 identificado y hasheado | P1 | Reproducir la vía de entrada disco sin mezclarla con el kernel. |
+./research/webkit-1302/evidence-matrix.md:1:# Matriz de evidencia PS4 13.02
+./research/webkit-1302/evidence-matrix.md:10:| `HISTORICAL_ONLY` | Válido para otra versión o para una cadena histórica; no se debe trasladar a 13.02. |
+./research/webkit-1302/evidence-matrix.md:11:| `UNVERIFIED_13_02` | Candidato plausible, pero sin prueba específica de 13.02. |
+./research/webkit-1302/evidence-matrix.md:18:| CVE-2017-7117 / Vue After Free | README público y árbol de `vue-after-free`; el userland se declara funcional de 5.05 a 13.02 | `CORROBORATED` | Log reproducible de ejecución sobre una consola 13.02 con hash de build y versión exacta. |
+./research/webkit-1302/evidence-matrix.md:20:| Netctrl/ucred triple-free | Código público y tablas que llegan hasta 13.00; commits recientes mejoran estabilidad | `UNVERIFIED_13_02` | PoC o log específico 13.02 que demuestre la primitiva y sus offsets/runtime assumptions. |
+./research/webkit-1302/evidence-matrix.md:21:| Lapse/semctl | Cadena histórica para firmwares inferiores; el alcance público revisado no cubre 13.02 | `HISTORICAL_ONLY` / `UNVERIFIED_13_02` | Fuente específica 13.02 o descarte formal basado en un análisis de parche/diff. |
+./research/webkit-1302/evidence-matrix.md:22:| Offsets mmap RWX | `docs/remaining-gaps.md` registra `0x1fa78a` y `0x1fa78d`; las fuentes comparten origen | `SOURCE_ONLY` | Segunda fuente verdaderamente independiente o validación sobre kernel 13.02. |
+./research/webkit-1302/evidence-matrix.md:23:| `sysent` | `research/results/slopos/1302.h` y `kpayload/source/offsets/1302.c` usan `0x1102B70` | `CORROBORATED_SOURCE_ONLY` | Bytes del kernel 13.02 y comprobación de referencias/estructura. |
+./research/webkit-1302/evidence-matrix.md:27:| `pmap_protect` | SLOPOS `0x58570`; otras ramas pueden usar valores distintos para otros firmwares | `SOURCE_ONLY` | Confirmar build exacta y función en kernel 13.02. |
+./research/webkit-1302/evidence-matrix.md:28:| Parches restantes del shellcode | Los 10 offsets no mmap no están publicados para 13.02 según la búsqueda local | `MISSING` | Kernel retail 13.02 o dump equivalente para calcularlos. |
+./research/webkit-1302/evidence-matrix.md:30:| Kernel R/W | No hay exploit público demostrado específicamente para 13.02 en el corpus revisado | `MISSING` | Vulnerabilidad, PoC controlada y log reproducible de lectura/escritura. |
+./research/webkit-1302/evidence-matrix.md:31:| Parcheo/kexec | El código de payload existe para otras versiones y hay infraestructura local | `HISTORICAL_ONLY` para 13.02 | Encadenar con R/W 13.02 y offsets validados. |
+./research/webkit-1302/evidence-matrix.md:38:Es el candidato con mayor prioridad porque la implementación pública cubre hasta 13.00 y el árbol contiene trabajo sobre estabilidad. Sin embargo, el salto de 13.00 a 13.02 no debe inferirse a partir de la mera presencia del código. La primera prueba debe ser una verificación aislada de la primitiva, sin encadenarla a parcheo persistente.
+./research/webkit-1302/evidence-matrix.md:42:Debe mantenerse como referencia histórica y como hipótesis de compatibilidad únicamente mientras aparezca una fuente que declare 13.02. El alcance público localizado no permite elevarlo a candidato confirmado.
+./research/webkit-1302/evidence-matrix.md:50:No es transferible automáticamente a 13.02. Debe conservarse en la rama 13.52 y sólo usarse aquí como metodología comparativa, nunca como evidencia de compatibilidad.
+./research/webkit-1302/public-source-notes.md:1:# Notas de fuentes públicas — Vue After Free / PS4 13.02
+./research/webkit-1302/public-source-notes.md:7:El README visible declara que el userland exploit funciona de 5.05 a 13.02 tal cual, pero que el repositorio ofrece jailbreak funcional sólo hasta 13.00. La propia FAQ responde que en 13.02 o superior sólo funciona el userland y que los archivos del repositorio no permiten jailbreak por encima de 13.00.
+./research/webkit-1302/public-source-notes.md:9:Clasificación local: `DIRECT_PUBLIC_DOCUMENTATION` para el alcance declarado; `USERLAND_CORROBORATED` para ejecución userland 13.02; `NOT_KERNEL_VERIFIED` para cualquier salto a kernel; `NO_FULL_JAILBREAK_13_02` para la cadena completa.
+./research/webkit-1302/public-source-notes.md:11:La página muestra además un commit reciente titulado “Improve NetCtrl stability and success rate...” y una estructura con `src`, `payloads`, `bd-j`, `requirements.txt` y `package.json`. Esto demuestra que NetCtrl forma parte del árbol público consultado, pero no demuestra por sí mismo compatibilidad funcional con 13.02.
+./research/webkit-1302/source-notes.md:1:# Registro de fuentes — PS4 13.02
+./research/webkit-1302/source-notes.md:8:| `research/results/slopos/1302.h` | Tabla 13.02 con `sysent`, `prison0`, `rootvnode`, `kernel_map`, `pmap_protect` y otros valores | `SOURCE_ONLY` |
+./research/webkit-1302/source-notes.md:19:El README visible declara dos cosas distintas: el userland funciona de 5.05 a 13.02, pero el repositorio ofrece jailbreak funcional sólo hasta 13.00. La FAQ afirma explícitamente que en 13.02 o superior sólo funciona el userland y que los archivos del repositorio no permiten jailbreak por encima de 13.00.
+./research/webkit-1302/source-notes.md:21:**Clasificación:** `DIRECT_PUBLIC_DOCUMENTATION` para el alcance declarado; `USERLAND_CORROBORATED` para 13.02; `NO_FULL_JAILBREAK_13_02` para la cadena completa.
+./research/webkit-1302/source-notes.md:23:El árbol también muestra código de NetCtrl, payloads, BD-J y `requirements.txt`. La presencia de código NetCtrl no prueba que la primitiva funcione en 13.02.
+./research/webkit-1302/source-notes.md:29:La fuente aparece como proyecto upstream de Vue After Free. Su documentación pública coincide con la frontera: userland extendido hasta 13.02, jailbreak funcional limitado a 13.00 en los archivos publicados.
+./research/webkit-1302/source-notes.md:31:**Clasificación:** `DIRECT_PUBLIC_DOCUMENTATION` para la declaración de alcance; no constituye evidencia de kernel R/W 13.02.
+./research/webkit-1302/source-notes.md:33:### SLOPOS / tabla 13.02
+./research/webkit-1302/source-notes.md:35:La tabla local `research/results/slopos/1302.h` atribuye valores a 13.02, incluidos `sysent=0x1102B70` y `prison0=0x111FA18`. Hasta encontrar una fuente independiente y bytes de la build, se conserva como `CORROBORATED_SOURCE_ONLY` o `SOURCE_ONLY`, no como `VERIFIED`.
+./research/webkit-1302/source-notes.md:41:| `RiyonAbib07/ps-vue-jb-2.5` | ¿Por qué se conocen offsets mmap 13.02 si no se publica el payload kernel completo? |
+./research/webkit-1302/source-notes.md:44:| psdevwiki/consolemods/PS4 exploit charts | ¿Qué alcance público se declara hoy para 13.02 y qué es sólo histórico? |
+./research/webkit-1302/source-notes.md:45:| Releases y assets GitHub | ¿Hay kernel, system image, ISO/BD-J o manifests específicos 13.02 con hashes? |
+./research/webkit-1302/source-notes.md:53:Se consultó mediante GitHub API el repositorio [RiyonAbib07/ps-vue-jb-2.5](https://github.com/RiyonAbib07/ps-vue-jb-2.5). Su metadata declara como descripción `PS4 PlayStation Vue Jailbreak exploit for firmware 7.00-13.00, with enhanced stability improvements for 12.50+ (Netctrl/Poopsploit)` y actualización `2026-08-17T02:51:54Z`. Esta descripción refuerza que el alcance de jailbreak publicado termina en 13.00, aunque el userland Vue cubra 13.02.
+./research/webkit-1302/source-notes.md:55:El archivo público `src/download0/kernel.ts` contiene `get_mmap_patch_offsets` con `13.02: [0x1fa78a, 0x1fa78d]`. El mismo archivo implementa rutas de lectura/escritura kernel y parcheo, pero la presencia del código y de los offsets no prueba que la primitiva kernel R/W o la cadena completa funcionen en 13.02. La clasificación se mantiene `DOCUMENTED_UNVERIFIED`.
+./research/webkit-1302/source-notes.md:57:Se recuperó directamente `research/results/slopos/1302.h` desde [alferdoss/SLOPOS-offsets](https://github.com/alferdoss/SLOPOS-offsets). La cabecera se identifica como `PS4 13.02 — kexec offsets: ArabPixel` y contiene, entre otros, `prison0=0x111FA18`, `rootvnode=0x2136E90`, `kernel_map=0x22D1D50`, `kernel_pmap_store=0x1B2C3A0`, `sysent=0x1102B70`, `pmap_extract=0x573D0` y `pmap_protect=0x58570`. También marca algunos campos como `TODO/help wanted`, lo que confirma que la tabla no es un conjunto completo de offsets verificados.
+./research/webkit-1302/source-notes.md:65:La tabla pública agrupa `13.02–13.04` y declara que no existe un kernel exploit público para el firmware reciente/latest; recomienda esperar o conservar la consola. Esto coincide con el estado local: puede existir userland Vue para 13.02, pero no hay una cadena kernel pública verificada para 13.02.
+./research/webkit-1302/source-notes.md:71:Fuente: [Vuemony/vue-after-free](https://github.com/Vuemony/vue-after-free), commit visible `6e37d51` (1 de junio de 2026). El repositorio se describe como un exploit de ejecución de código userland para PlayStation 4. La documentación y la estructura del proyecto deben interpretarse como userland; no se encontró en la página una demostración directa de kernel R/W 13.02.
+./research/webkit-1302/source-notes.md:75:Clasificación: `DIRECT_PUBLIC_DOCUMENTATION` para userland; `NOT_KERNEL_VERIFIED` para 13.02.
+./research/webkit-1302/source-notes.md:79:Las búsquedas públicas sobre `Netctrl/ucred`, `Lapse/semctl` y kernel exploit 13.02 devolvieron principalmente discusiones, vídeos y tablas de estado. La fuente secundaria más clara continúa siendo [ConsoleMods Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart), que agrupa 13.02–13.04 y declara que no existe kernel exploit público posterior a 13.00.
+./research/webkit-1302/source-notes.md:81:También apareció un repositorio de investigación [Feyzee61/psfree_lapse](https://github.com/Feyzee61/psfree_lapse), que debe auditarse por separado; el resultado de búsqueda no basta para atribuirle soporte 13.02. Los resultados de Reddit, YouTube y redes sociales se conservan como leads, no como evidencia técnica.
+./research/webkit-1302/source-notes.md:83:Conclusión de esta ronda: no se localizó una fuente pública primaria nueva que demuestre Netctrl/ucred o Lapse/semctl funcionando en PS4 13.02. Se mantiene `UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:87:La página de [RiyonAbib07/ps-vue-jb-2.5](https://github.com/RiyonAbib07/ps-vue-jb-2.5) declara explícitamente un alcance de jailbreak 7.00–13.00. Su README separa `vue-after-free` userland 5.05–13.04, Lapse 1.01–12.02 y Netctrl 1.01–13.00; la FAQ indica que en 13.02 o superior sólo funciona userland. El repositorio tiene 226 commits, una rama, ningún tag y su commit visible `1e8e2ad` es una corrección de estabilidad fechada 11 de marzo de 2026. La metadata consultada indica que no es fork, tiene dos forks y fue actualizado en GitHub el 17 de agosto de 2026.
+./research/webkit-1302/source-notes.md:89:El archivo público `src/download0/kernel.ts` contiene offsets mmap etiquetados para 13.02 (`0x1fa78a`, `0x1fa78d`) y una tabla que agrupa 12.50/12.52/13.00 para la parte Netctrl. Esto demuestra que el código contiene una entrada documental para 13.02, pero no demuestra una primitive kernel R/W en 13.02: la propia tabla de soporte funcional termina en 13.00.
+./research/webkit-1302/source-notes.md:91:La página de [iaceene/HENloader_Source](https://github.com/iaceene/HENloader_Source), commit `a42fef8` del 25 de noviembre de 2025, declara soporte de HENloader LP de 9.00 a 12.52 dependiendo de Lapse/Poopsploit. No aporta soporte 13.02, PoC 13.02 ni evidencia de hardware 13.02. Se clasifica `HISTORICAL_ONLY` para 13.02 y `SOURCE_ONLY` respecto a su propio alcance.
+./research/webkit-1302/source-notes.md:93:Conclusión: Netctrl sigue siendo el candidato público más cercano, con máximo funcional publicado 13.00; 13.02 sólo aparece como userland/offset mmap documental, no como kernel R/W probado.
+./research/webkit-1302/source-notes.md:97:La página [PS4 Developer wiki — Vulnerabilities](https://www.psdevwiki.com/ps4/Vulnerabilities) separa explícitamente los exploits usermode de los kernel exploits. Enumera `BD-JB-13.00` como exploit de usermode para PS4 13.00–13.02 y también lista vectores BD-JB con estados `untested`; esa entrada no es un kernel exploit ni proporciona por sí sola R/W.
+./research/webkit-1302/source-notes.md:99:La misma página identifica mast1c0re/Luac0re como vías de usermode/JIT y describe cadenas con exploits kernel sólo para rangos históricos o diferentes. La página no aporta una demostración pública de una primitive kernel R/W específica para 13.02.
+./research/webkit-1302/source-notes.md:101:La página [PS4 Developer wiki — Bugs](https://www.psdevwiki.com/ps4/Bugs) también distingue usermode, BD-J y kernel. Sus entradas de BD-JB 13.00–13.02 describen escape de sandbox; no deben contarse como kernel exploit. La existencia de una vulnerabilidad de usermode o de un escape de sandbox no prueba lectura/escritura arbitraria del kernel.
+./research/webkit-1302/source-notes.md:103:Clasificación: BD-JB 13.00–13.02 = `CORROBORATED` como usermode/entrada; kernel R/W 13.02 desde estas páginas = `UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:107:La sección Kernel de [PSDevWiki Bugs](https://www.psdevwiki.com/ps4/Bugs) se marca `Untested` y enumera los siguientes candidatos cercanos a 13.02:
+./research/webkit-1302/source-notes.md:109:| Candidato | Alcance que muestra la página | PoC/estado PS4 | Primitive descrita | Clasificación 13.02 |
+./research/webkit-1302/source-notes.md:115:| Overflow UFS/FFS al montar | `?<=13.04?` | Sin PoC; requiere partición FFS malformada y posiblemente otra vulnerabilidad para cifrarla | Overflow durante mount/reload; potencial impacto kernel | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:116:| CVE-2026-3038, routing sockets | `?<=13.04?` | PoC citado para panic PS4 13.52; la página dice que probablemente PS4 basado en FreeBSD 9 no es vulnerable al bug upstream | Stack overflow con canario; sólo DoS demostrado, escalada hipotética | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:117:| CVE-2026-5398, UAF `TIOCNOTTY` | `?<=13.02?` | PoC sólo para FreeBSD 15; PS4/PS5 “maybe not affected” | UAF de puntero de sesión, posible elevación | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:118:| CVE-2025-14558, ND6/rtsold | `?<=13.02?` | PoCs de FreeBSD/Linux; la página advierte que PS4/PS5 pueden no estar afectados | RCE remoto en rtsold/resolvconf, no kernel R/W PS4 demostrado | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:121:La página distingue explícitamente `Exploit Implementation` de la descripción del bug y deja vacíos varios campos. Por tanto, que una cabecera diga `?<=13.02?` o `?<=13.50?` no equivale a soporte PS4: en todos los casos anteriores falta una PoC PS4 13.02, log de hardware y demostración de R/W. La única excepción parcial es la entrada de routing sockets, que menciona un PoC de panic para PS4 13.52, pero no demuestra R/W ni aplicabilidad a 13.02.
+./research/webkit-1302/source-notes.md:125:La fuente [Feyzee61/psfree_lapse](https://github.com/Feyzee61/psfree_lapse) se describe como PSFree WebKit + Lapse Kernel Exploit para PS4 **7.00–9.60**. La página visible indica que integra shellcodes de parche kernel y AIO patch sets para 7.00–9.60; muestra 47 commits, tres tags, 19 forks y commit visible `ba736c0` de actualización del README. No hay declaración ni PoC para 13.02. Se clasifica `HISTORICAL_ONLY` para 13.02.
+./research/webkit-1302/source-notes.md:127:El nombre del repositorio y su presencia en muchos forks no constituyen una fuente independiente para 13.02; su propio README fija el límite en 9.60.
+./research/webkit-1302/source-notes.md:131:La tabla [ConsoleMods PS4 Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart) agrupa `13.02–13.04` y declara que no existe kernel exploit público para el firmware reciente/latest; la acción recomendada es conservar o vender la consola. La página es una tabla secundaria, no una PoC ni un log de hardware, por lo que se clasifica `CORROBORATED` sólo para el estado público, no como prueba de ausencia absoluta.
+./research/webkit-1302/source-notes.md:133:La discusión de [Reddit r/ps4homebrew](https://www.reddit.com/r/ps4homebrew/comments/1omgsul/new_kernel_exploit_up_to_1300_for_ps4_and_1200/) enlaza un gist de TheOfficialFloW y repite que el nuevo kernel exploit llega a PS4 13.00, no 13.02. Los comentarios indican que requiere BD-JB/WebKit/Mast1c0re y que no era utilizable en 12.50 en el momento de la discusión; también aparece un comentario de un usuario con 13.02 “hoping to release it someday”, que es una expectativa comunitaria, no una demostración. Se clasifica `CORROBORATED` para la frontera pública 13.00 y `UNVERIFIED_13_02` para cualquier extrapolación.
+./research/webkit-1302/source-notes.md:139:El mismo archivo contiene una tabla separada `kpatch_mmap_offsets` que sí incluye una entrada 13.02. El código posterior verifica bytes de parches mmap y prueba una asignación RWX, pero esas comprobaciones pertenecen a la fase de parcheo y no demuestran que Netctrl/ucred haya producido R/W en 13.02. Esta diferencia es evidencia directa de que 13.02 aparece en la tabla de mmap, pero no en la tabla de offsets de la primitive Netctrl completa.
+./research/webkit-1302/source-notes.md:141:## Afirmaciones de parche 13.02 — comprobación adicional 26 de agosto de 2026
+./research/webkit-1302/source-notes.md:143:El artículo de [XDG Mods sobre el release de TheFlow](https://xdgmods.com/news/theflow-kernel-exploit-ps4-ps5) afirma que el exploit afecta hasta PS4 13.00 y que Sony lo parcheó en 13.02. El artículo no adjunta diff de kernel, advisory de Sony, hashes de builds, PoC 13.02 fallida ni log de hardware; por ello la afirmación de parche se clasifica `SOURCE_ONLY`, no `VERIFIED`.
+./research/webkit-1302/source-notes.md:145:La discusión de [Reddit sobre 13.00/13.02/13.04](https://www.reddit.com/r/ps4piracy/comments/1qv6ohi/clearing_up_ps4_jailbreak_confusion_current/) repite “Poopsploit patched” para 13.02 y “userland only”, pero es una discusión comunitaria sin prueba técnica primaria. Se clasifica `CORROBORATED` sólo como consenso público de la frontera 13.00/13.02 y `UNVERIFIED_13_02` para la causalidad exacta del parche.
+./research/webkit-1302/source-notes.md:147:Conclusión de procedencia: existe evidencia pública repetida de que el soporte publicado termina en 13.00 y una afirmación secundaria de que Sony parcheó 13.02; no existe en el corpus revisado evidencia directa que demuestre qué función o condición de Netctrl cambió entre 13.00 y 13.02.
+./research/webkit-1302/source-notes.md:149:## SLOPOS y ps4-linux-loader — comparación de procedencia 13.00/13.02
+./research/webkit-1302/source-notes.md:151:`SLOPOS-offsets` declara en `README.md` y `CREDITS.md` que sus offsets kexec se copian de `ps4-linux/ps4-linux-loader` (`magic.h` y `fw_offsets.h`), y atribuye conjuntamente `12.50 / 13.00 / 13.02 / 13.50 / 13.52` a ArabPixel. El historial de SLOPOS muestra que `ps4/1300.h` y `ps4/1302.h` fueron introducidos juntos en `42273e2180ca` (2026-08-07).
+./research/webkit-1302/source-notes.md:153:En `ps4-linux-loader`, el header 13.02 aparece en `3d7a5456b75c` (2025-12-31). Las releases `v21`, `v21.5` y `v24b.1` anuncian payloads 13.02, pero escriben `13.02(?)`; el commit posterior `217e272eb099` (2026-05-11) añade 13.04/13.50 y mantiene 13.02 como payload de kexec/Linux. No se encontró en ese repositorio la implementación Netctrl/ucred ni una prueba de que los payloads de Linux demuestren la primitive Netctrl en 13.02.
+./research/webkit-1302/source-notes.md:155:La comparación local de `1300.h` y `1302.h` tiene SHA-256 `a95c48e23743e193f7d1b543dc35a817d68bb71f129476de03c3deff38b1e94b` y `34a206ffa48a406f6d15879b40e941de5e9d0db094bfd2d0932a6cf58961066a`. Muchos offsets 13.02 son exactamente 13.00 + 0x10, mientras otros son idénticos. Sin bytes de kernel, esto es una diferencia documentada de tablas, no una validación binaria ni una prueba de cambio de función.
+./research/webkit-1302/source-notes.md:167:- UFS/FFS mount overflow (“Celsius”): la wiki describe overflow al calcular buffers auxiliares en mount/reload y requiere imagen FFS malformada; para PS4 exige resolver además PFS/HDD y la entrada declara parche desde 13.50. Se conserva como `SOURCE_ONLY`/`UNVERIFIED_13_02`, no como R/W probado.
+./research/webkit-1302/source-notes.md:169:- `CVE-2026-5398` TIOCNOTTY: UAF por back-pointer de sesión/terminal no limpiado; PoC FreeBSD 15, no PS4. La wiki lo etiqueta `?<=13.02?` pero también dice que PS4/PS5 pueden no estar afectadas. `HYPOTHESIS`/`UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:170:- `CVE-2025-14558` ND6/rtsold: inyección de comandos mediante Router Advertisements y `resolvconf`, no kernel R/W directo; la entrada relaciona el código introductorio con FreeBSD 9.0, pero requiere rtsold/rtsol y aceptación de RA. No hay PoC PS4 ni prueba de que la ruta exista en Orbis. `SOURCE_ONLY`/`UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:171:- `aio_multi_delete()`: bug no identificado, con código parcheado observado en PS4 12.50; sin PoC y probablemente corregido alrededor de 12.00. No llega a 13.02 como candidato. `SOURCE_ONLY`/`DISPROVEN-PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:173:- `CVE-2022-23088` net80211 Mesh ID: heap overflow remoto en beacon durante escaneo; PoC FreeBSD 13, posible PS4 9.x según la wiki, pero no 13.02 y no hay prueba Orbis. `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:174:- Routing socket wrong dst/netmask: bug de validación/KPI en FreeBSD 13.0, corregido en 2021; la wiki lo limita tentativamente a PS4 <=9.x y no ofrece PoC PS4. `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:175:- `CVE-2013-5209` SCTP stack disclosure y `CVE-2013-3077` IP_MSFILTER integer overflow: la wiki los sitúa alrededor de PS4 1.01; no son candidatos 13.02. `DISPROVEN/PATCHED`.
+./research/webkit-1302/source-notes.md:176:- exFAThax `CVE-2022-3349`: heap overflow en `UVFAT_readupcasetable`; funcional PS4 9.00 y corregido en 9.03. La lógica de 9.03–13.50 contiene una comprobación de overflow que la wiki identifica como fix. `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:177:- `CVE-2020-9892` IP6_EXTHDR_CHECK double-free: PS4 7.50–7.55, parcheado en 8.00; `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:178:- `CVE-2020-7457` IPV6_2292PKTOPTIONS UAF: arbitrary kernel R/W en PS4 hasta 7.02, parcheado en 7.50 según la wiki; `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:179:- BPF race/double-free: PS4 <=5.07 o <=4.55 según variante, parcheado 5.50/4.70; `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:180:- `CVE-2018-17155` sys_getcontext leak: hasta ~6.00, parcheado entre 6.00 y 6.20; sólo leak/kASLR, no R/W directo. `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:181:- NamedObj type confusion: PS4 1.01–4.05, parcheado 4.06; `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:182:- `CVE-2016-1885` amd64_set_ldt: limitado a versiones antiguas y posiblemente no aplicable por falta de compatibilidad IA-32; `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:184:La página pública es colaborativa y varias entradas son tentativas; su contenido se usa como fuente secundaria, nunca como prueba de que Orbis 13.02 sea vulnerable.
+./research/webkit-1302/source-notes.md:186:## Reddit sobre Celsius — revisión 26 de agosto de 2026
+./research/webkit-1302/source-notes.md:190:La discusión y el post revisado son material secundario/comunitario. El contenido visible habla de avances generales y mantiene el límite público de jailbreak de PS4 en 13.00; no aporta el repositorio original de Celsius, una PoC, un log de PS4 13.02/13.04, un diff de kernel ni una explicación independiente del supuesto parche 13.50. Clasificación para Celsius en 13.02: `SOURCE_ONLY` como rumor/seguimiento de escena, no `VERIFIED` ni `CORROBORATED`.
+./research/webkit-1302/source-notes.md:192:La búsqueda pública de GitHub tampoco localizó un repositorio o commit bajo la cuenta `bollars` que contenga Celsius/ffs_mount: la cuenta pública tiene un único repositorio, `bollars/ddoslib`, no relacionado. El repositorio `adri22235/ps4-suid-scanner` es el principal artefacto público que atribuye Celsius a bollars, con commits entre 2026-07-18 y 2026-08-09; por tanto, documenta la atribución pero no constituye una fuente primaria independiente del descubrimiento.
+./research/webkit-1302/source-notes.md:194:## Fuentes secundarias adicionales sobre Celsius — 26 de agosto de 2026
+./research/webkit-1302/source-notes.md:196:[GameGaz, 19 de julio de 2026](https://gamegaz.com/2026071945823/) atribuye a bollars el hallazgo de Celsius en `ffs_mount`, afirma PS4 hasta 13.04 y PS5 hasta 12.70, y dice que PS4 13.50/PS5 13.00 ya lo corrigen. También afirma requisito de HDD USB 3.0 de 250 GB o más y una entrada userland Vue/BD-J, pero declara expresamente que aún no estaba en etapa práctica ni podía llamarse kernel exploit confirmado.
+./research/webkit-1302/source-notes.md:198:[Publicación de GAMERZ 56K en YouTube](https://www.youtube.com/post/UgkxE2BPYs9Rf7TJgKq8GqnZlTh-kOpDU15F) repite las mismas afirmaciones: `ffs_mount`, integer overflow/heap overflow, PS4 hasta 13.04 incluyendo 13.02, patch 13.50+, disco USB 3.0 recomendado de 320/500 GB y ausencia de garantía de estabilidad. No aporta código, commit, log de hardware ni fuente primaria independiente. Clasificación: `SOURCE_ONLY`.
+===== /tmp/psfree-lapse =====
+f8bf18e 2026-08-26 Record cross-repository Jordy searches
+2180348 2026-08-26 Compare Jordy with primary PS4 chain
+3e67db9 2026-08-26 Preserve primary PS4 Netctrl sources
+dd59814 2026-08-26 Record slopkit2 file provenance
+7e8971e 2026-08-26 Trace historical PS4 Lapse kernel path
+583af39 2026-08-26 Record zecoxao post-Jordy history
+fe51af3 2026-08-26 Trace zecoxao Jordy 11.60 bootstrap
+709a51c 2026-08-26 Record zecoxao Jordy audit
+74bdae6 2026-08-26 Audit zecoxao Jordy kernel-user commit
+03e70d0 2026-08-26 Record WebKit 13.04 artifact search
+730f895 2026-08-26 Close external stage2 reuse search
+26b008f 2026-08-26 Record Luac0re kernel driver audit
+57a8b63 2026-08-26 Compare P2JB kernel path with Jordy stage2
+639881a 2026-08-26 Record expanded Jordy search
+531aa6f 2026-08-26 Update stage2 gap analysis
+1a2b399 2026-08-26 Document scanner and external runtime dependencies
+c2a90c9 2026-08-26 Trace pre-stage2 scanner history
+f47c55a 2026-08-26 Record exact Celsius claim search
+3ef79f1 2026-08-26 Document related stage2 implementation sources
+4df055b 2026-08-26 Trace Luac0re ROP dependencies
+3eaa200 2026-08-26 Trace related WebKit driver templates
+2c9bcbb 2026-08-26 Extend stage2 lineage investigation
+febcec0 2026-08-26 Audit recovered full stage 2 commit
+3a7b473 2026-08-26 Rewrite final Celsius 13.02 evidence report
+44b0c70 2026-08-26 Classify loader support artifacts
+0f236b2 2026-08-26 Audit Pharaoh2k offset attribution
+820222d 2026-08-26 Classify Celsius secondary reporting
+417e702 2026-08-26 Classify Gezine 13.50 rumor
+1c79112 2026-08-26 Record Sony 13.50 documentation gap
+fe015b5 2026-08-26 Preserve audited Jordy stage2 source
+0504ef1 2026-08-26 Audit current Jordy stage2 source
+a6e8ef0 2026-08-26 Record vanished stage2 search
+ad16e4a 2026-08-26 Record unavailable stage2 commit
+3b4bd9d 2026-08-26 Preserve stage2 commit metadata
+e960321 2026-08-26 Audit Celsius stage2 skeleton
+aab7f0e 2026-08-26 Audit public Celsius claims
+158ca70 2026-08-26 Classify ConsoleMods chronology evidence
+5082faa 2026-08-26 Record exact-name artifact search
+bd89f75 2026-08-26 Record kernel reverse engineering lead
+e3107eb 2026-08-26 Record historical fail0verflow dump references
+./.git/modules/third_party/ps4-payload-sdk/description
+./.git/modules/third_party/ps4-payload-sdk/hooks/applypatch-msg.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/commit-msg.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/fsmonitor-watchman.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/post-update.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-applypatch.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-commit.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-merge-commit.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-push.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-rebase.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/pre-receive.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/prepare-commit-msg.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/push-to-checkout.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/sendemail-validate.sample
+./.git/modules/third_party/ps4-payload-sdk/hooks/update.sample
+./.git/modules/third_party/ps4-payload-sdk/info/exclude
+./.git/modules/third_party/ps4-payload-sdk/refs/heads/main
+./.git/modules/third_party/ps4-payload-sdk/refs/remotes/origin/HEAD
+./.git/modules/third_party/ps4-payload-sdk/objects/pack/pack-be714cecedd892a7badec5469da26f1d74789b41.pack
+./.git/modules/third_party/ps4-payload-sdk/objects/pack/pack-be714cecedd892a7badec5469da26f1d74789b41.rev
+./.git/modules/third_party/ps4-payload-sdk/objects/pack/pack-be714cecedd892a7badec5469da26f1d74789b41.idx
+./.git/modules/third_party/ps4-payload-sdk/HEAD
+./.git/modules/third_party/ps4-payload-sdk/config
+./.git/modules/third_party/ps4-payload-sdk/logs/refs/remotes/origin/HEAD
+./.git/modules/third_party/ps4-payload-sdk/logs/refs/heads/main
+./.git/modules/third_party/ps4-payload-sdk/logs/HEAD
+./.git/modules/third_party/ps4-payload-sdk/index
+./.git/modules/third_party/ps4-payload-sdk/packed-refs
+./.vscode/c_cpp_properties.json
+./1352_offsets.txt
+./research/webkit-1302/upstream/psdevwiki-kernel-headings.txt
+./research/webkit-1302/upstream/riyon-kernel.ts
+./research/webkit-1302/upstream/riyon-kernel-comparison.txt
+./research/webkit-1302/upstream/riyon-kernel-history.tsv
+./research/webkit-1302/upstream/Vuemony_vue-after-free-src_download0_kernel.ts
+./research/webkit-1302/upstream/owendswang_vue-after-free-lite-src_download0_kernel.ts
+./research/webkit-1302/upstream/Vuemony_vue-after-free-src_download0_netctrl_c0w_twins.ts
+./research/webkit-1302/upstream/owendswang_vue-after-free-lite-src_download0_netctrl_c0w_twins.ts
+./research/webkit-1302/upstream/vue-netctrl-history.tsv
+./research/webkit-1302/upstream/vue-1302-offset-comparison.txt
+./research/webkit-1302/upstream/adri-1352_offsets.txt
+./research/webkit-1302/upstream/psdevwiki-kernel-section-2259-2690.txt
+./research/webkit-1302/upstream/orbis-1302-1304-offset-comparison.txt
+./research/webkit-1302/upstream/identical-kernel-phrase-search.txt
+./research/webkit-1302/upstream/github-exact-kernel-search.txt
+./research/webkit-1302/upstream/github-ps4-kernel-candidate-filter.txt
+./research/webkit-1302/upstream/artifact-inspection/sdk-crt-kernel.c
+./research/webkit-1302/upstream/artifact-inspection/loader-kernel-like-paths.txt
+./research/webkit-1302/upstream/scene-repo-kernel-artifact-audit.txt
+./research/webkit-1302/upstream/forks-kernel-artifact-scan.txt
+./research/webkit-1302/upstream/fusion-1302/Offsets-1302.h
+./research/webkit-1302/upstream/fusion-1302/offsets.tsv
+./research/webkit-1302/upstream/mount-offset-github-search.txt
+./research/webkit-1302/upstream/mount-offset-github-filtered.txt
+./research/webkit-1302/upstream/osm-kernel-sdk/audit.txt
+./research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml
+./research/webkit-1302/upstream/patch-mount-provenance-audit.txt
+./research/webkit-1302/upstream/vfs-offset-cross-source-comparison.txt
+./research/webkit-1302/upstream/patch-mount-history-kpayload-comparison.txt
+./research/webkit-1302/upstream/mount-vfs-1302-1304-cross-comparison.txt
+./research/webkit-1302/upstream/mount-investigation-source-notes.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-all-code-search.json
+./research/webkit-1302/upstream/osm-provenance/early-fusion-mount-commit.txt
+./research/webkit-1302/upstream/osm-provenance/fusionshared-offset-history.txt
+./research/webkit-1302/upstream/osm-provenance/arabpixel-Offsets-1302.h
+./research/webkit-1302/upstream/osm-provenance/aether-fusion-Offsets-1302.h
+./research/webkit-1302/upstream/osm-provenance/mount-investigation-source-notes.txt
+./research/webkit-1302/upstream/osm-provenance/exact-1302-sdk-offset-search.txt
+./research/webkit-1302/upstream/osm-provenance/arabpixel-sdk-vs-fusion-selected-offsets.txt
+./research/webkit-1302/upstream/osm-provenance/fusion-offset-validation-issues.txt
+./research/webkit-1302/upstream/osm-provenance/psfree-dumper-audit/kerneldumper.bin
+./research/webkit-1302/upstream/osm-provenance/scene-collective-payload-repo-dumper-audit.txt
+./research/webkit-1302/upstream/osm-provenance/scene-kernel-dumper-history-audit.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-code-audit.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-code-context.txt
+./research/webkit-1302/upstream/osm-provenance/patch-mount-all-source-search.txt
+./research/webkit-1302/upstream/osm-provenance/mira-openorbis-mount-offset-history.txt
+./research/webkit-1302/upstream/osm-provenance/openorbis-patches672-mount-source.txt
+./research/webkit-1302/upstream/osm-provenance/mount-patch-lineage-comparison.tsv
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-1202-dumper-code-audit.txt
+./research/webkit-1302/upstream/osm-provenance/frame4-mount-ffs-source-search.txt
+./research/webkit-1302/upstream/osm-provenance/github-code-index-kernel-ffs-search.txt
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-history-1202-source-audit.txt
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-release-assets-audit.txt
+./research/webkit-1302/upstream/osm-provenance/remote-lua-loader-offset-dumper-crosscheck.txt
+./research/webkit-1302/upstream/osm-provenance/lua-lapse-fork-output-audit.txt
+./research/webkit-1302/upstream/osm-provenance/gizz-lua-lapse-all-history-kernel-output-audit.txt
+./research/webkit-1302/upstream/osm-provenance/obhq-kernel-dumper-forks-audit.txt
+./research/webkit-1302/upstream/osm-provenance/fusion14-kernel-elf-source-audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/github_refs_and_commits.json
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/commit_metadata.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/jordy_stage2_1089382.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/stage2_jordy_96a7948.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/96a7948_vs_1089382.diff
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/jordy_stage2_1089382_excerpt.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/keyword_audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/ref_summary.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/tag_and_forks.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/fork_file_audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/adri22235_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ayoubnoob543-lab_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ke5adb_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/fork_history_and_hashes.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/wayback_cdx.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/github_code_search.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/all_commits.tsv
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/adjacent_commit_details.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/702_relevant_tree.tsv
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/midohar36_github_search.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/related_code_search.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/userland_only_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/p2jb_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/poops_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/comparison.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/shellcode_asset_audit.txt
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/1630d79/p2jb_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/1630d79/poops_index.html
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/1630d79/userland_only_index.html
+./1304.c:6: * of the 13.04 table. The included source remains the sole value definition.
+./ARTIFACTS.md:13:| Historical BD-J ISO | `scanner_1304.iso` | See local file | See existing inventory | Historical 13.04 artifact; not a confirmed 13.52 entry path | Scanner documentation only |
+./ARTIFACTS.md:17:| GoldHEN PPPwn stage2 set v1.03 | `goldhen/pppnw_stage2/` | 8 × 2705 B bins + inner 7z | Per-file hashes in manifest | Included in the official asset; identical builds across minor FW revisions (see `docs/goldhen.md`) | `goldhen/MANIFEST.json` |
+./README.md:3:Laboratorio de investigación estática y de ingeniería de herramientas para artefactos de PS4, con foco actual en las familias 13.02 y 13.52. El repositorio conserva código, analizadores, fixtures, manifests, dumps y documentación de procedencia. **No es un jailbreak terminado ni una afirmación de compatibilidad funcional con una consola concreta.**
+./README.md:9:| PS4 13.02 — WebKit/Vue userland | `CORROBORATED` | La documentación pública cubre userland hasta 13.02; no demuestra kernel R/W. |
+./README.md:10:| PS4 13.02 — Netctrl/ucred | `UNVERIFIED_13_02` | El alcance funcional público localizado llega hasta 13.00. |
+./README.md:11:| PS4 13.02 — offsets | `SOURCE_ONLY` / `CORROBORATED_SOURCE_ONLY` | Existen tablas, pero no se han validado sobre bytes retail 13.02. |
+./README.md:12:| PS4 13.02 — kernel retail | `MISSING_DIRECT_BYTES` | No hay dump público verificado que permita validar toda la tabla. |
+./README.md:13:| PS4 13.02 — jailbreak completo | `NOT_REPRODUCIBLE` | Falta demostrar userland → kernel R/W → parcheo. |
+./README.md:17:| PS4 13.52 — kernel R/W | `UNVERIFIED` | Hay candidatos de investigación, no una cadena reproducible confirmada. |
+./README.md:30:Para 13.02, la cadena relevante es WebKit/Vue userland → candidato de kernel → kernel R/W → offsets validados → parcheo/kexec. Sólo la primera etapa está razonablemente cubierta. Para 13.52, el laboratorio dispone de evidencia estática de `libkernel_sys` y metadata PUP, pero no de WebKit retail legible ni de un jailbreak reproducible.
+./README.md:46:| `research/webkit-1302/` | Investigación específica de WebKit y disco/BD-J para 13.02. |
+./README.md:81:- [`research/webkit-1302/`](research/webkit-1302/): rama documental de 13.02.
+./AUDIT_REPORT.md:161:Faltan el eboot, exports, relocaciones, un log de captura, una lectura runtime de `kern.sdk_version`, imágenes comparativas de 9.00/11.02/12.52/13.04, y evidencia independiente de la semántica de cada syscall/wrapper. No se debe cubrir esa ausencia con nombres derivados del README.
+./AUDIT_REPORT.md:235:| WebKit/entry path | 25% | artefactos de 13.04/13.50, no cadena 13.52 |
+./AUDIT_REPORT.md:236:| Scanner BD-J | 35% | histórico 13.04 |
+./PS4_1352_LEGITIMATE_ARTIFACT_SOURCE_RESEARCH_2026-08-20.md:44:| `hen.bin` / `scanner_1304.iso` | Artefactos históricos del laboratorio | 13.04 | **DIRECT_BYTES**, no 13.52 y no fuente WebKit |
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:16:| `hen.bin` | 499.680 | `32570b6e54c9531dc8a7d75ef4da6557d440bf69c4b765a85a77d428db3a4b73` | DOS/COM según `file`; strings de payload y módulos genéricos | **DIRECT_BYTES**, pero procedencia confirmada 13.04; no evidencia 13.52 |
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:17:| `scanner_1304.iso` | 16.777.216 | `6ed15acd9cfb2539e034cde72a9003f52cf6338f04549670e1b8d515d948bd30` | ISO/UDF `scanner_1304`; contiene `GOLDHEN.BIN` y estructura BDMV | **DIRECT_BYTES**, pero scanner identificado como 13.04 |
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:21:No se encontró ningún blob con bytes de `libSceNKWebKit.sprx`, `libkernel_web.sprx`, `libSceLibcInternal.sprx`, `eboot.bin`, SELF WebKit, WebProcess WebKit, NXDP, ORBISDMP u `orbisstate`. Los strings de `hen.bin` mencionan `libkernel_web.sprx`, `libkernel_sys.sprx` y `libSceLibcInternal.sprx`, pero eso es una referencia textual dentro de un binario de 13.04; no contiene esos módulos como archivos separados ni demuestra su identidad 13.52.
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:27:El ISO local `scanner_1304.iso` fue listado mediante parser ISO9660 estático sin montaje. Tiene volumen `scanner_1304` y 35 entradas; incluye `/GOLDHEN.BIN;1` de 286.336 bytes y contenido BD-J/BDMV, pero su commit de introducción lo identifica como scanner PS4 13.04. Se descarta como evidencia de la build retail 13.52.
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:31:El historial Git identifica `hen.bin` como “compiled ps4-hen for FW 13.04” y `scanner_1304.iso` como “PS4 SUID Scanner for FW 13.04 - BD-JB based”. Por ello, ambos son **DIRECT_BYTES** de artefactos históricos, pero no pueden elevarse a evidencia PS4 13.52 ni a evidencia WebKit. Los dumps de kernel sí son bytes reales versionados; no tienen formato ELF/SELF, Build ID, imports/exports ni correlación con `libSceNKWebKit.sprx`.
+./PS4_1352_LOCAL_ARTIFACT_AUDIT_2026-08-20.md:44:Estos porcentajes no convierten el kernel ni los artefactos 13.04 en evidencia WebKit. WPE 2.52.6 continúa siendo exclusivamente **PORTABLE**/laboratorio.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:10:La comparación directa contra el árbol público `FreeBSDKernel9-0/PS4OSSCode`, que declara importar el código Sony `WebKit-601-1300` para PS4 13.00–13.04, aporta una evidencia nueva: ese árbol 601-1300 conserva las implementaciones anteriores y no contiene los patrones introducidos por los tres commits. Esto demuestra una diferencia entre la snapshot pública Sony 13.00–13.04 y upstream posterior, pero **no permite extrapolar el estado de PS4 13.50 o 13.52**.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:16:| `JSCell::toX` | `2a042fede0e705bae4b8ce039b18442696ebb5ce`, WebKit `275948@main`, 2024-03-11/12. En `JSCell.cpp`, `toPrimitive` y `toNumber` sustituyen `isString/isSymbol/isHeapBigInt` + `static_cast` por `jsDynamicCast`; `toObjectSlow` usa `jsDynamicCast` y `jsSecureCast`. El mensaje lo califica como mejora de calidad, con release assert, no como parche de CVE. | Commit upstream exacto; bug 270797. | No se encontró otro commit de WebKit main con el bug/hash que sea cherry-pick del mismo cambio. Posteriormente, `178cea00` (2026-04-18) reemplaza usos de `jsSecureCast` por `downcast`, y `1953979` adapta casts de subclases JSCell; son evoluciones posteriores, no backports a PS4. | En Sony 601-1300 `JSCell.cpp` sigue usando `isString/isSymbol` y `static_cast` en `toPrimitive`, `toNumber` y `toObject`; no aparecen `jsDynamicCast`/`jsSecureCast`. | La snapshot 13.00–13.04 no contiene la corrección. No hay evidencia pública para 13.50/13.52. | **DIRECT** para upstream y 601-1300; **UNVERIFIED** para 13.52. |
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:17:| `MarkedVector` / GC | `c9880de4a28b9a64a5e1d0513dc245d61a2e6ddb`, WebKit `263041@main`, 2023-04-17. Refactoriza `MarkedArgumentBuffer` en `MarkedVector`, cambia `Heap::m_markListSet` y el marking de listas, añade tipos de cell pointers y `CrashOnOverflow`, y sustituye Vectors sin raíz GC en `CloneDeserializer::deserialize`. | Commit upstream exacto y referencia `Originally-landed-as: 259548.530@safari-7615-branch` (`2c49ff7`). | La rama Safari interna está explícitamente documentada en el mensaje. No se encontró una referencia Sony ni un cherry-pick público posterior del mismo cambio. | Sony 601-1300 contiene `MarkedArgumentBuffer` en `ArgList.h/cpp`; `Heap` y `CloneDeserializer` usan el diseño anterior. No aparece `MarkedVector` en los archivos consultados. | Evidencia negativa para la snapshot 13.00–13.04; no prueba el estado 13.50/13.52. | **DIRECT** para diff upstream, Safari branch y 601-1300; **UNVERIFIED** para 13.52. |
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:18:| `CloneSerializer/objectPool` | `010c6bdfb0cde0485d31f0260ab9a046fa9b8567`, WebKit `273557@main`, 2024-01-26. Separa `m_gcBuffer` en `m_objectPool` y `m_keepAliveBuffer`, renombra métodos, añade `CloneDeserializer::addToObjectPool`, elimina inserciones erróneas BigInt/map/set, alinea tags/orden serializer-deserializer y añade validator debug `validateSerializedValue`. | Commit upstream exacto y referencia `Originally-landed-as: 267815.623@safari-7617-branch` (`430d474`). | La rama Safari interna está explícitamente documentada. Posteriores cambios en `SerializedScriptValue.cpp` —por ejemplo `3a900e1` y `cfe3893`— son cambios distintos sobre structured clone; no prueban backport Sony. | Sony 601-1300 conserva `CloneBase::m_gcBuffer`, un `ObjectPool m_objectPool` y llamadas directas `m_gcBuffer.append`; no aparecen `m_keepAliveBuffer`, `addToObjectPool` ni `validateSerializedValue`. | Evidencia negativa para 13.00–13.04; sin evidencia pública del backport a 13.52. | **DIRECT** para upstream, Safari branch y 601-1300; **UNVERIFIED** para 13.52. |
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:22:La fuente pública Sony OSS está enlazada en [Sony WebKit OSS](https://www.playstation.com/en-us/oss/ps4/webkit/). El espejo navegable utilizado es [FreeBSDKernel9-0/PS4OSSCode](https://github.com/FreeBSDKernel9-0/PS4OSSCode), cuyo commit de importación `d636699770323d7968a2c37955aa513bda5f8a37` se titula `Add WebKit WebKit-601-1300 (PS4 13.00-13.04)`.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:62:2. La snapshot pública Sony 601-1300, identificada como 13.00–13.04, es anterior a las tres correcciones y conserva los diseños antiguos.
+./PS4_1352_UPSTREAM_JSC_BACKPORT_TRACE_2026-08-20.md:79:**Clasificación final:** evidencia upstream y Sony 601-1300 **DIRECT**; backport Sony a 13.52 **UNVERIFIED**; inferencia de 13.52 desde 13.00–13.04 **UNVERIFIED**.
+./PS4_1352_UPSTREAM_LINEAGE_BOUND_2026-08-20.md:7:Las tres correcciones tienen una línea de descendencia upstream visible, pero no existe una rama Sony pública posterior a `WebKit-601-1300` que permita decidir si el código de PS4 13.52 las contiene. La snapshot Sony 601-1300, cuyo import público se identifica como PS4 13.00–13.04, conserva las implementaciones anteriores. Por tanto, la evidencia permite acotar un límite inferior para Sony OSS público, pero no clasificar 13.52 como anterior o posterior a ninguna corrección.
+./PS4_1352_UPSTREAM_LINEAGE_BOUND_2026-08-20.md:17:El espejo [FreeBSDKernel9-0/PS4OSSCode](https://github.com/FreeBSDKernel9-0/PS4OSSCode) importa `WebKit-601-1300` mediante [`d636699`](https://github.com/FreeBSDKernel9-0/PS4OSSCode/commit/d636699770323d7968a2c37955aa513bda5f8a37), con mensaje `Add WebKit WebKit-601-1300 (PS4 13.00-13.04)`. En sus archivos raw se observan los diseños pre-corrección:
+./PS4_1352_UPSTREAM_LINEAGE_BOUND_2026-08-20.md:37:La inferencia temporal correcta es únicamente que el árbol Sony 13.00–13.04 disponible públicamente es anterior a estos cambios upstream. No es válido extender esa inferencia a 13.50/13.52, porque faltan una snapshot Sony posterior, un diff Sony, un manifest de revisiones o bytes de código correlacionados.
+./RESEARCH_STATUS.md:11:| **13.02** | Vue After Free/userland `CORROBORATED`; Netctrl/ucred `UNVERIFIED_13_02`; offsets SLOPOS `SOURCE_ONLY/CORROBORATED_SOURCE_ONLY`; kernel R/W `MISSING`; jailbreak completo `NOT_REPRODUCIBLE`. | Kernel exploit específico y demostración de R/W. |
+./RESEARCH_STATUS.md:22:| WebKit/Vue userland 13.02 | Alcance público documentado hasta 13.02; no implica kernel R/W. |
+./RESEARCH_STATUS.md:23:| Offsets 13.02 | `sysent=0x1102B70`, `prison0=0x111FA18` y otros valores aparecen en tablas; no son validación de bytes retail. |
+./RESEARCH_STATUS.md:34:Para 13.02, la prioridad es encontrar o validar una vulnerabilidad de kernel que proporcione R/W y asociarla con un artefacto de la misma build. A continuación deben validarse `sysent`, `prison0`, `rootvnode`, `kernel_map`, `pmap_protect` y los offsets de parcheo sobre bytes reales. Netctrl/ucred es el candidato público prioritario; Lapse/semctl permanece fuera de alcance demostrado para 13.02.
+./RESEARCH_STATUS.md:36:Para 13.52, la prioridad es obtener módulos WebKit retail o un artefacto legítimo equivalente, además de una prueba de kernel R/W. El blob libkernel y el PUP verificado no deben presentarse como sustitutos de esos artefactos.
+./RESEARCH_STATUS.md:44:- [`research/webkit-1302/`](research/webkit-1302/): línea específica de 13.02.
+./research/webkit-1302/README.md:1:# PS4 13.02 — WebKit y disco/artefactos
+./research/webkit-1302/README.md:3:Esta rama (`research/webkit-disk-1302`) concentra la investigación específica de **PS4 firmware 13.02**, separándola del foco principal del laboratorio en 13.52. Su objetivo es ordenar la evidencia y preparar un pipeline reproducible para WebKit, BD-J/disco, userland y la obtención/validación de artefactos del kernel.
+./research/webkit-1302/README.md:5:> Regla central: una tabla de offsets, un README de un repositorio o un payload para otra versión no se convierten automáticamente en evidencia verificada para 13.02.
+./research/webkit-1302/README.md:11:| WebKit CVE-2017-7117 / Vue After Free | `VERIFIED/CORROBORATED` para userland | El alcance público declara userland 5.05–13.02. |
+./research/webkit-1302/README.md:12:| Ejecución userland 13.02 | `CORROBORATED` | Primera etapa de la cadena; no implica privilegios de kernel. |
+./research/webkit-1302/README.md:13:| Netctrl/ucred triple-free | `UNVERIFIED_13_02` | El árbol público llega funcionalmente hasta 13.00; 13.02 requiere demostración independiente. |
+./research/webkit-1302/README.md:14:| Lapse/semctl | `UNVERIFIED_13_02` | El alcance público localizado no llega a 13.02. |
+./research/webkit-1302/README.md:15:| SLOPOS offsets 13.02 | `CORROBORATED_SOURCE_ONLY` | Existe `research/results/slopos/1302.h`; no hay segunda fuente completamente independiente para toda la tabla. |
+./research/webkit-1302/README.md:16:| `sysent` 13.02 | `CORROBORATED_SOURCE_ONLY` | `0x1102B70` aparece en SLOPOS y en `kpayload/source/offsets/1302.c`. |
+./research/webkit-1302/README.md:17:| `prison0` 13.02 | `CORROBORATED_SOURCE_ONLY` | SLOPOS documenta `0x111FA18`. |
+./research/webkit-1302/README.md:19:| Kernel retail 13.02 | `MISSING_DIRECT_BYTES` | No hay dump público verificado usado para validar la tabla completa. |
+./research/webkit-1302/README.md:20:| Kernel R/W 13.02 | `MISSING` | Es el cuello de botella principal. |
+./research/webkit-1302/README.md:21:| Jailbreak completo 13.02 | `NOT_REPRODUCIBLE` | No se ha demostrado el salto userland → kernel R/W. |
+./research/webkit-1302/README.md:28:Ejecución userland 13.02
+./research/webkit-1302/README.md:34:Validación de offsets 13.02
+./research/webkit-1302/README.md:41:La primera transición está cubierta de forma razonable. La investigación debe detenerse explícitamente en la transición a kernel R/W hasta que exista evidencia de 13.02 específica, reproducible y separada de la evidencia de 13.00 o 13.52.
+./research/webkit-1302/README.md:52:| `kernel-rw-1302-investigation.md` | Informe de candidatos de kernel R/W, alcance, procedencia y brechas específicas de 13.02. |
+./research/webkit-1302/README.md:64:## Informe de kernel R/W
+./research/webkit-1302/README.md:66:El análisis específico de Netctrl está en [`kernel-rw-1302-investigation.md`](kernel-rw-1302-investigation.md) y el catálogo amplio en [`kernel-candidates-1302-exhaustive.md`](kernel-candidates-1302-exhaustive.md). La conclusión actual es que Netctrl/ucred sigue siendo el candidato más cercano, pero permanece `UNVERIFIED_13_02`; no existe una ruta pública reproducible userland → kernel R/W para 13.02 con la evidencia consultada.
+./research/webkit-1302/README.md:70:La rama no se considerará completa por acumular más tablas. El siguiente hito verificable es obtener un artefacto 13.02 con procedencia clara —por ejemplo, bytes de kernel retail, un dump de consola o un log de ejecución firmado por hash— y usarlo para validar primero los offsets mmap, después los parches restantes y finalmente una primitiva de kernel R/W. Hasta entonces, las conclusiones deben permanecer en `UNVERIFIED_13_02` o `SOURCE_ONLY`.
+./research/webkit-1302/disk-artifacts.md:1:# WebKit y disco/artefactos 13.02
+./research/webkit-1302/disk-artifacts.md:5:Construir un corpus específico de 13.02 que permita responder, con evidencia, tres preguntas separadas:
+./research/webkit-1302/disk-artifacts.md:9:3. ¿Qué bytes del sistema 13.02 son necesarios para validar offsets y el salto a kernel R/W?
+./research/webkit-1302/disk-artifacts.md:41:Elevar a `VERIFIED` sólo tras una comprobación sobre bytes de 13.02 o una ejecución controlada con resultado observable. Mantener `SOURCE_ONLY` cuando sólo exista una tabla o afirmación pública.
+./research/webkit-1302/disk-artifacts.md:50:| ISO y scanners históricos | `scanner_1304.iso`, `goldhen/` | Comparación de pipeline; no asumir 13.02. |
+./research/webkit-1302/disk-artifacts.md:51:| PUP y manifests 13.52 | raíz y `analysis/` | Metodología de parsing; no evidencia 13.02. |
+./research/webkit-1302/disk-artifacts.md:57:| Kernel retail 13.02 o dump equivalente | P0 | Validar los diez parches restantes y las tablas kernel. |
+./research/webkit-1302/disk-artifacts.md:58:| `system_fs_image.img` 13.02 con procedencia | P0 | Candidata a contener módulos y kernel, aunque pueda estar cifrada. |
+./research/webkit-1302/disk-artifacts.md:59:| Logs de ejecución Netctrl/ucred en 13.02 | P0 | Confirmar o descartar el salto userland → kernel. |
+./research/webkit-1302/disk-artifacts.md:60:| Segunda fuente independiente de SLOPOS 13.02 | P1 | Resolver si la tabla es corroborada o sólo replicada. |
+./research/webkit-1302/disk-artifacts.md:61:| Build/manifest exacto de WebKit 13.02 | P1 | Vincular userland con una build concreta. |
+./research/webkit-1302/disk-artifacts.md:62:| ISO/BD-J 13.02 identificado y hasheado | P1 | Reproducir la vía de entrada disco sin mezclarla con el kernel. |
+./research/webkit-1302/evidence-matrix.md:1:# Matriz de evidencia PS4 13.02
+./research/webkit-1302/evidence-matrix.md:10:| `HISTORICAL_ONLY` | Válido para otra versión o para una cadena histórica; no se debe trasladar a 13.02. |
+./research/webkit-1302/evidence-matrix.md:11:| `UNVERIFIED_13_02` | Candidato plausible, pero sin prueba específica de 13.02. |
+./research/webkit-1302/evidence-matrix.md:18:| CVE-2017-7117 / Vue After Free | README público y árbol de `vue-after-free`; el userland se declara funcional de 5.05 a 13.02 | `CORROBORATED` | Log reproducible de ejecución sobre una consola 13.02 con hash de build y versión exacta. |
+./research/webkit-1302/evidence-matrix.md:20:| Netctrl/ucred triple-free | Código público y tablas que llegan hasta 13.00; commits recientes mejoran estabilidad | `UNVERIFIED_13_02` | PoC o log específico 13.02 que demuestre la primitiva y sus offsets/runtime assumptions. |
+./research/webkit-1302/evidence-matrix.md:21:| Lapse/semctl | Cadena histórica para firmwares inferiores; el alcance público revisado no cubre 13.02 | `HISTORICAL_ONLY` / `UNVERIFIED_13_02` | Fuente específica 13.02 o descarte formal basado en un análisis de parche/diff. |
+./research/webkit-1302/evidence-matrix.md:22:| Offsets mmap RWX | `docs/remaining-gaps.md` registra `0x1fa78a` y `0x1fa78d`; las fuentes comparten origen | `SOURCE_ONLY` | Segunda fuente verdaderamente independiente o validación sobre kernel 13.02. |
+./research/webkit-1302/evidence-matrix.md:23:| `sysent` | `research/results/slopos/1302.h` y `kpayload/source/offsets/1302.c` usan `0x1102B70` | `CORROBORATED_SOURCE_ONLY` | Bytes del kernel 13.02 y comprobación de referencias/estructura. |
+./research/webkit-1302/evidence-matrix.md:27:| `pmap_protect` | SLOPOS `0x58570`; otras ramas pueden usar valores distintos para otros firmwares | `SOURCE_ONLY` | Confirmar build exacta y función en kernel 13.02. |
+./research/webkit-1302/evidence-matrix.md:28:| Parches restantes del shellcode | Los 10 offsets no mmap no están publicados para 13.02 según la búsqueda local | `MISSING` | Kernel retail 13.02 o dump equivalente para calcularlos. |
+./research/webkit-1302/evidence-matrix.md:30:| Kernel R/W | No hay exploit público demostrado específicamente para 13.02 en el corpus revisado | `MISSING` | Vulnerabilidad, PoC controlada y log reproducible de lectura/escritura. |
+./research/webkit-1302/evidence-matrix.md:31:| Parcheo/kexec | El código de payload existe para otras versiones y hay infraestructura local | `HISTORICAL_ONLY` para 13.02 | Encadenar con R/W 13.02 y offsets validados. |
+./research/webkit-1302/evidence-matrix.md:38:Es el candidato con mayor prioridad porque la implementación pública cubre hasta 13.00 y el árbol contiene trabajo sobre estabilidad. Sin embargo, el salto de 13.00 a 13.02 no debe inferirse a partir de la mera presencia del código. La primera prueba debe ser una verificación aislada de la primitiva, sin encadenarla a parcheo persistente.
+./research/webkit-1302/evidence-matrix.md:42:Debe mantenerse como referencia histórica y como hipótesis de compatibilidad únicamente mientras aparezca una fuente que declare 13.02. El alcance público localizado no permite elevarlo a candidato confirmado.
+./research/webkit-1302/evidence-matrix.md:50:No es transferible automáticamente a 13.02. Debe conservarse en la rama 13.52 y sólo usarse aquí como metodología comparativa, nunca como evidencia de compatibilidad.
+./research/webkit-1302/public-source-notes.md:1:# Notas de fuentes públicas — Vue After Free / PS4 13.02
+./research/webkit-1302/public-source-notes.md:7:El README visible declara que el userland exploit funciona de 5.05 a 13.02 tal cual, pero que el repositorio ofrece jailbreak funcional sólo hasta 13.00. La propia FAQ responde que en 13.02 o superior sólo funciona el userland y que los archivos del repositorio no permiten jailbreak por encima de 13.00.
+./research/webkit-1302/public-source-notes.md:9:Clasificación local: `DIRECT_PUBLIC_DOCUMENTATION` para el alcance declarado; `USERLAND_CORROBORATED` para ejecución userland 13.02; `NOT_KERNEL_VERIFIED` para cualquier salto a kernel; `NO_FULL_JAILBREAK_13_02` para la cadena completa.
+./research/webkit-1302/public-source-notes.md:11:La página muestra además un commit reciente titulado “Improve NetCtrl stability and success rate...” y una estructura con `src`, `payloads`, `bd-j`, `requirements.txt` y `package.json`. Esto demuestra que NetCtrl forma parte del árbol público consultado, pero no demuestra por sí mismo compatibilidad funcional con 13.02.
+./research/webkit-1302/source-notes.md:1:# Registro de fuentes — PS4 13.02
+./research/webkit-1302/source-notes.md:8:| `research/results/slopos/1302.h` | Tabla 13.02 con `sysent`, `prison0`, `rootvnode`, `kernel_map`, `pmap_protect` y otros valores | `SOURCE_ONLY` |
+./research/webkit-1302/source-notes.md:19:El README visible declara dos cosas distintas: el userland funciona de 5.05 a 13.02, pero el repositorio ofrece jailbreak funcional sólo hasta 13.00. La FAQ afirma explícitamente que en 13.02 o superior sólo funciona el userland y que los archivos del repositorio no permiten jailbreak por encima de 13.00.
+./research/webkit-1302/source-notes.md:21:**Clasificación:** `DIRECT_PUBLIC_DOCUMENTATION` para el alcance declarado; `USERLAND_CORROBORATED` para 13.02; `NO_FULL_JAILBREAK_13_02` para la cadena completa.
+./research/webkit-1302/source-notes.md:23:El árbol también muestra código de NetCtrl, payloads, BD-J y `requirements.txt`. La presencia de código NetCtrl no prueba que la primitiva funcione en 13.02.
+./research/webkit-1302/source-notes.md:29:La fuente aparece como proyecto upstream de Vue After Free. Su documentación pública coincide con la frontera: userland extendido hasta 13.02, jailbreak funcional limitado a 13.00 en los archivos publicados.
+./research/webkit-1302/source-notes.md:31:**Clasificación:** `DIRECT_PUBLIC_DOCUMENTATION` para la declaración de alcance; no constituye evidencia de kernel R/W 13.02.
+./research/webkit-1302/source-notes.md:33:### SLOPOS / tabla 13.02
+./research/webkit-1302/source-notes.md:35:La tabla local `research/results/slopos/1302.h` atribuye valores a 13.02, incluidos `sysent=0x1102B70` y `prison0=0x111FA18`. Hasta encontrar una fuente independiente y bytes de la build, se conserva como `CORROBORATED_SOURCE_ONLY` o `SOURCE_ONLY`, no como `VERIFIED`.
+./research/webkit-1302/source-notes.md:41:| `RiyonAbib07/ps-vue-jb-2.5` | ¿Por qué se conocen offsets mmap 13.02 si no se publica el payload kernel completo? |
+./research/webkit-1302/source-notes.md:44:| psdevwiki/consolemods/PS4 exploit charts | ¿Qué alcance público se declara hoy para 13.02 y qué es sólo histórico? |
+./research/webkit-1302/source-notes.md:45:| Releases y assets GitHub | ¿Hay kernel, system image, ISO/BD-J o manifests específicos 13.02 con hashes? |
+./research/webkit-1302/source-notes.md:53:Se consultó mediante GitHub API el repositorio [RiyonAbib07/ps-vue-jb-2.5](https://github.com/RiyonAbib07/ps-vue-jb-2.5). Su metadata declara como descripción `PS4 PlayStation Vue Jailbreak exploit for firmware 7.00-13.00, with enhanced stability improvements for 12.50+ (Netctrl/Poopsploit)` y actualización `2026-08-17T02:51:54Z`. Esta descripción refuerza que el alcance de jailbreak publicado termina en 13.00, aunque el userland Vue cubra 13.02.
+./research/webkit-1302/source-notes.md:55:El archivo público `src/download0/kernel.ts` contiene `get_mmap_patch_offsets` con `13.02: [0x1fa78a, 0x1fa78d]`. El mismo archivo implementa rutas de lectura/escritura kernel y parcheo, pero la presencia del código y de los offsets no prueba que la primitiva kernel R/W o la cadena completa funcionen en 13.02. La clasificación se mantiene `DOCUMENTED_UNVERIFIED`.
+./research/webkit-1302/source-notes.md:57:Se recuperó directamente `research/results/slopos/1302.h` desde [alferdoss/SLOPOS-offsets](https://github.com/alferdoss/SLOPOS-offsets). La cabecera se identifica como `PS4 13.02 — kexec offsets: ArabPixel` y contiene, entre otros, `prison0=0x111FA18`, `rootvnode=0x2136E90`, `kernel_map=0x22D1D50`, `kernel_pmap_store=0x1B2C3A0`, `sysent=0x1102B70`, `pmap_extract=0x573D0` y `pmap_protect=0x58570`. También marca algunos campos como `TODO/help wanted`, lo que confirma que la tabla no es un conjunto completo de offsets verificados.
+./research/webkit-1302/source-notes.md:65:La tabla pública agrupa `13.02–13.04` y declara que no existe un kernel exploit público para el firmware reciente/latest; recomienda esperar o conservar la consola. Esto coincide con el estado local: puede existir userland Vue para 13.02, pero no hay una cadena kernel pública verificada para 13.02.
+./research/webkit-1302/source-notes.md:71:Fuente: [Vuemony/vue-after-free](https://github.com/Vuemony/vue-after-free), commit visible `6e37d51` (1 de junio de 2026). El repositorio se describe como un exploit de ejecución de código userland para PlayStation 4. La documentación y la estructura del proyecto deben interpretarse como userland; no se encontró en la página una demostración directa de kernel R/W 13.02.
+./research/webkit-1302/source-notes.md:75:Clasificación: `DIRECT_PUBLIC_DOCUMENTATION` para userland; `NOT_KERNEL_VERIFIED` para 13.02.
+./research/webkit-1302/source-notes.md:79:Las búsquedas públicas sobre `Netctrl/ucred`, `Lapse/semctl` y kernel exploit 13.02 devolvieron principalmente discusiones, vídeos y tablas de estado. La fuente secundaria más clara continúa siendo [ConsoleMods Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart), que agrupa 13.02–13.04 y declara que no existe kernel exploit público posterior a 13.00.
+./research/webkit-1302/source-notes.md:81:También apareció un repositorio de investigación [Feyzee61/psfree_lapse](https://github.com/Feyzee61/psfree_lapse), que debe auditarse por separado; el resultado de búsqueda no basta para atribuirle soporte 13.02. Los resultados de Reddit, YouTube y redes sociales se conservan como leads, no como evidencia técnica.
+./research/webkit-1302/source-notes.md:83:Conclusión de esta ronda: no se localizó una fuente pública primaria nueva que demuestre Netctrl/ucred o Lapse/semctl funcionando en PS4 13.02. Se mantiene `UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:87:La página de [RiyonAbib07/ps-vue-jb-2.5](https://github.com/RiyonAbib07/ps-vue-jb-2.5) declara explícitamente un alcance de jailbreak 7.00–13.00. Su README separa `vue-after-free` userland 5.05–13.04, Lapse 1.01–12.02 y Netctrl 1.01–13.00; la FAQ indica que en 13.02 o superior sólo funciona userland. El repositorio tiene 226 commits, una rama, ningún tag y su commit visible `1e8e2ad` es una corrección de estabilidad fechada 11 de marzo de 2026. La metadata consultada indica que no es fork, tiene dos forks y fue actualizado en GitHub el 17 de agosto de 2026.
+./research/webkit-1302/source-notes.md:89:El archivo público `src/download0/kernel.ts` contiene offsets mmap etiquetados para 13.02 (`0x1fa78a`, `0x1fa78d`) y una tabla que agrupa 12.50/12.52/13.00 para la parte Netctrl. Esto demuestra que el código contiene una entrada documental para 13.02, pero no demuestra una primitive kernel R/W en 13.02: la propia tabla de soporte funcional termina en 13.00.
+./research/webkit-1302/source-notes.md:91:La página de [iaceene/HENloader_Source](https://github.com/iaceene/HENloader_Source), commit `a42fef8` del 25 de noviembre de 2025, declara soporte de HENloader LP de 9.00 a 12.52 dependiendo de Lapse/Poopsploit. No aporta soporte 13.02, PoC 13.02 ni evidencia de hardware 13.02. Se clasifica `HISTORICAL_ONLY` para 13.02 y `SOURCE_ONLY` respecto a su propio alcance.
+./research/webkit-1302/source-notes.md:93:Conclusión: Netctrl sigue siendo el candidato público más cercano, con máximo funcional publicado 13.00; 13.02 sólo aparece como userland/offset mmap documental, no como kernel R/W probado.
+./research/webkit-1302/source-notes.md:97:La página [PS4 Developer wiki — Vulnerabilities](https://www.psdevwiki.com/ps4/Vulnerabilities) separa explícitamente los exploits usermode de los kernel exploits. Enumera `BD-JB-13.00` como exploit de usermode para PS4 13.00–13.02 y también lista vectores BD-JB con estados `untested`; esa entrada no es un kernel exploit ni proporciona por sí sola R/W.
+./research/webkit-1302/source-notes.md:99:La misma página identifica mast1c0re/Luac0re como vías de usermode/JIT y describe cadenas con exploits kernel sólo para rangos históricos o diferentes. La página no aporta una demostración pública de una primitive kernel R/W específica para 13.02.
+./research/webkit-1302/source-notes.md:101:La página [PS4 Developer wiki — Bugs](https://www.psdevwiki.com/ps4/Bugs) también distingue usermode, BD-J y kernel. Sus entradas de BD-JB 13.00–13.02 describen escape de sandbox; no deben contarse como kernel exploit. La existencia de una vulnerabilidad de usermode o de un escape de sandbox no prueba lectura/escritura arbitraria del kernel.
+./research/webkit-1302/source-notes.md:103:Clasificación: BD-JB 13.00–13.02 = `CORROBORATED` como usermode/entrada; kernel R/W 13.02 desde estas páginas = `UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:107:La sección Kernel de [PSDevWiki Bugs](https://www.psdevwiki.com/ps4/Bugs) se marca `Untested` y enumera los siguientes candidatos cercanos a 13.02:
+./research/webkit-1302/source-notes.md:109:| Candidato | Alcance que muestra la página | PoC/estado PS4 | Primitive descrita | Clasificación 13.02 |
+./research/webkit-1302/source-notes.md:115:| Overflow UFS/FFS al montar | `?<=13.04?` | Sin PoC; requiere partición FFS malformada y posiblemente otra vulnerabilidad para cifrarla | Overflow durante mount/reload; potencial impacto kernel | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:116:| CVE-2026-3038, routing sockets | `?<=13.04?` | PoC citado para panic PS4 13.52; la página dice que probablemente PS4 basado en FreeBSD 9 no es vulnerable al bug upstream | Stack overflow con canario; sólo DoS demostrado, escalada hipotética | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:117:| CVE-2026-5398, UAF `TIOCNOTTY` | `?<=13.02?` | PoC sólo para FreeBSD 15; PS4/PS5 “maybe not affected” | UAF de puntero de sesión, posible elevación | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:118:| CVE-2025-14558, ND6/rtsold | `?<=13.02?` | PoCs de FreeBSD/Linux; la página advierte que PS4/PS5 pueden no estar afectados | RCE remoto en rtsold/resolvconf, no kernel R/W PS4 demostrado | `UNVERIFIED_13_02` |
+./research/webkit-1302/source-notes.md:121:La página distingue explícitamente `Exploit Implementation` de la descripción del bug y deja vacíos varios campos. Por tanto, que una cabecera diga `?<=13.02?` o `?<=13.50?` no equivale a soporte PS4: en todos los casos anteriores falta una PoC PS4 13.02, log de hardware y demostración de R/W. La única excepción parcial es la entrada de routing sockets, que menciona un PoC de panic para PS4 13.52, pero no demuestra R/W ni aplicabilidad a 13.02.
+./research/webkit-1302/source-notes.md:125:La fuente [Feyzee61/psfree_lapse](https://github.com/Feyzee61/psfree_lapse) se describe como PSFree WebKit + Lapse Kernel Exploit para PS4 **7.00–9.60**. La página visible indica que integra shellcodes de parche kernel y AIO patch sets para 7.00–9.60; muestra 47 commits, tres tags, 19 forks y commit visible `ba736c0` de actualización del README. No hay declaración ni PoC para 13.02. Se clasifica `HISTORICAL_ONLY` para 13.02.
+./research/webkit-1302/source-notes.md:127:El nombre del repositorio y su presencia en muchos forks no constituyen una fuente independiente para 13.02; su propio README fija el límite en 9.60.
+./research/webkit-1302/source-notes.md:131:La tabla [ConsoleMods PS4 Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart) agrupa `13.02–13.04` y declara que no existe kernel exploit público para el firmware reciente/latest; la acción recomendada es conservar o vender la consola. La página es una tabla secundaria, no una PoC ni un log de hardware, por lo que se clasifica `CORROBORATED` sólo para el estado público, no como prueba de ausencia absoluta.
+./research/webkit-1302/source-notes.md:133:La discusión de [Reddit r/ps4homebrew](https://www.reddit.com/r/ps4homebrew/comments/1omgsul/new_kernel_exploit_up_to_1300_for_ps4_and_1200/) enlaza un gist de TheOfficialFloW y repite que el nuevo kernel exploit llega a PS4 13.00, no 13.02. Los comentarios indican que requiere BD-JB/WebKit/Mast1c0re y que no era utilizable en 12.50 en el momento de la discusión; también aparece un comentario de un usuario con 13.02 “hoping to release it someday”, que es una expectativa comunitaria, no una demostración. Se clasifica `CORROBORATED` para la frontera pública 13.00 y `UNVERIFIED_13_02` para cualquier extrapolación.
+./research/webkit-1302/source-notes.md:139:El mismo archivo contiene una tabla separada `kpatch_mmap_offsets` que sí incluye una entrada 13.02. El código posterior verifica bytes de parches mmap y prueba una asignación RWX, pero esas comprobaciones pertenecen a la fase de parcheo y no demuestran que Netctrl/ucred haya producido R/W en 13.02. Esta diferencia es evidencia directa de que 13.02 aparece en la tabla de mmap, pero no en la tabla de offsets de la primitive Netctrl completa.
+./research/webkit-1302/source-notes.md:141:## Afirmaciones de parche 13.02 — comprobación adicional 26 de agosto de 2026
+./research/webkit-1302/source-notes.md:143:El artículo de [XDG Mods sobre el release de TheFlow](https://xdgmods.com/news/theflow-kernel-exploit-ps4-ps5) afirma que el exploit afecta hasta PS4 13.00 y que Sony lo parcheó en 13.02. El artículo no adjunta diff de kernel, advisory de Sony, hashes de builds, PoC 13.02 fallida ni log de hardware; por ello la afirmación de parche se clasifica `SOURCE_ONLY`, no `VERIFIED`.
+./research/webkit-1302/source-notes.md:145:La discusión de [Reddit sobre 13.00/13.02/13.04](https://www.reddit.com/r/ps4piracy/comments/1qv6ohi/clearing_up_ps4_jailbreak_confusion_current/) repite “Poopsploit patched” para 13.02 y “userland only”, pero es una discusión comunitaria sin prueba técnica primaria. Se clasifica `CORROBORATED` sólo como consenso público de la frontera 13.00/13.02 y `UNVERIFIED_13_02` para la causalidad exacta del parche.
+./research/webkit-1302/source-notes.md:147:Conclusión de procedencia: existe evidencia pública repetida de que el soporte publicado termina en 13.00 y una afirmación secundaria de que Sony parcheó 13.02; no existe en el corpus revisado evidencia directa que demuestre qué función o condición de Netctrl cambió entre 13.00 y 13.02.
+./research/webkit-1302/source-notes.md:149:## SLOPOS y ps4-linux-loader — comparación de procedencia 13.00/13.02
+./research/webkit-1302/source-notes.md:151:`SLOPOS-offsets` declara en `README.md` y `CREDITS.md` que sus offsets kexec se copian de `ps4-linux/ps4-linux-loader` (`magic.h` y `fw_offsets.h`), y atribuye conjuntamente `12.50 / 13.00 / 13.02 / 13.50 / 13.52` a ArabPixel. El historial de SLOPOS muestra que `ps4/1300.h` y `ps4/1302.h` fueron introducidos juntos en `42273e2180ca` (2026-08-07).
+./research/webkit-1302/source-notes.md:153:En `ps4-linux-loader`, el header 13.02 aparece en `3d7a5456b75c` (2025-12-31). Las releases `v21`, `v21.5` y `v24b.1` anuncian payloads 13.02, pero escriben `13.02(?)`; el commit posterior `217e272eb099` (2026-05-11) añade 13.04/13.50 y mantiene 13.02 como payload de kexec/Linux. No se encontró en ese repositorio la implementación Netctrl/ucred ni una prueba de que los payloads de Linux demuestren la primitive Netctrl en 13.02.
+./research/webkit-1302/source-notes.md:155:La comparación local de `1300.h` y `1302.h` tiene SHA-256 `a95c48e23743e193f7d1b543dc35a817d68bb71f129476de03c3deff38b1e94b` y `34a206ffa48a406f6d15879b40e941de5e9d0db094bfd2d0932a6cf58961066a`. Muchos offsets 13.02 son exactamente 13.00 + 0x10, mientras otros son idénticos. Sin bytes de kernel, esto es una diferencia documentada de tablas, no una validación binaria ni una prueba de cambio de función.
+./research/webkit-1302/source-notes.md:167:- UFS/FFS mount overflow (“Celsius”): la wiki describe overflow al calcular buffers auxiliares en mount/reload y requiere imagen FFS malformada; para PS4 exige resolver además PFS/HDD y la entrada declara parche desde 13.50. Se conserva como `SOURCE_ONLY`/`UNVERIFIED_13_02`, no como R/W probado.
+./research/webkit-1302/source-notes.md:169:- `CVE-2026-5398` TIOCNOTTY: UAF por back-pointer de sesión/terminal no limpiado; PoC FreeBSD 15, no PS4. La wiki lo etiqueta `?<=13.02?` pero también dice que PS4/PS5 pueden no estar afectadas. `HYPOTHESIS`/`UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:170:- `CVE-2025-14558` ND6/rtsold: inyección de comandos mediante Router Advertisements y `resolvconf`, no kernel R/W directo; la entrada relaciona el código introductorio con FreeBSD 9.0, pero requiere rtsold/rtsol y aceptación de RA. No hay PoC PS4 ni prueba de que la ruta exista en Orbis. `SOURCE_ONLY`/`UNVERIFIED_13_02`.
+./research/webkit-1302/source-notes.md:171:- `aio_multi_delete()`: bug no identificado, con código parcheado observado en PS4 12.50; sin PoC y probablemente corregido alrededor de 12.00. No llega a 13.02 como candidato. `SOURCE_ONLY`/`DISPROVEN-PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:173:- `CVE-2022-23088` net80211 Mesh ID: heap overflow remoto en beacon durante escaneo; PoC FreeBSD 13, posible PS4 9.x según la wiki, pero no 13.02 y no hay prueba Orbis. `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:174:- Routing socket wrong dst/netmask: bug de validación/KPI en FreeBSD 13.0, corregido en 2021; la wiki lo limita tentativamente a PS4 <=9.x y no ofrece PoC PS4. `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:175:- `CVE-2013-5209` SCTP stack disclosure y `CVE-2013-3077` IP_MSFILTER integer overflow: la wiki los sitúa alrededor de PS4 1.01; no son candidatos 13.02. `DISPROVEN/PATCHED`.
+./research/webkit-1302/source-notes.md:176:- exFAThax `CVE-2022-3349`: heap overflow en `UVFAT_readupcasetable`; funcional PS4 9.00 y corregido en 9.03. La lógica de 9.03–13.50 contiene una comprobación de overflow que la wiki identifica como fix. `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:177:- `CVE-2020-9892` IP6_EXTHDR_CHECK double-free: PS4 7.50–7.55, parcheado en 8.00; `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:178:- `CVE-2020-7457` IPV6_2292PKTOPTIONS UAF: arbitrary kernel R/W en PS4 hasta 7.02, parcheado en 7.50 según la wiki; `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:179:- BPF race/double-free: PS4 <=5.07 o <=4.55 según variante, parcheado 5.50/4.70; `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:180:- `CVE-2018-17155` sys_getcontext leak: hasta ~6.00, parcheado entre 6.00 y 6.20; sólo leak/kASLR, no R/W directo. `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:181:- NamedObj type confusion: PS4 1.01–4.05, parcheado 4.06; `VERIFIED` histórico, `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:182:- `CVE-2016-1885` amd64_set_ldt: limitado a versiones antiguas y posiblemente no aplicable por falta de compatibilidad IA-32; `DISPROVEN/PATCHED` para 13.02.
+./research/webkit-1302/source-notes.md:184:La página pública es colaborativa y varias entradas son tentativas; su contenido se usa como fuente secundaria, nunca como prueba de que Orbis 13.02 sea vulnerable.
+./research/webkit-1302/source-notes.md:186:## Reddit sobre Celsius — revisión 26 de agosto de 2026
+./research/webkit-1302/source-notes.md:190:La discusión y el post revisado son material secundario/comunitario. El contenido visible habla de avances generales y mantiene el límite público de jailbreak de PS4 en 13.00; no aporta el repositorio original de Celsius, una PoC, un log de PS4 13.02/13.04, un diff de kernel ni una explicación independiente del supuesto parche 13.50. Clasificación para Celsius en 13.02: `SOURCE_ONLY` como rumor/seguimiento de escena, no `VERIFIED` ni `CORROBORATED`.
+./research/webkit-1302/source-notes.md:192:La búsqueda pública de GitHub tampoco localizó un repositorio o commit bajo la cuenta `bollars` que contenga Celsius/ffs_mount: la cuenta pública tiene un único repositorio, `bollars/ddoslib`, no relacionado. El repositorio `adri22235/ps4-suid-scanner` es el principal artefacto público que atribuye Celsius a bollars, con commits entre 2026-07-18 y 2026-08-09; por tanto, documenta la atribución pero no constituye una fuente primaria independiente del descubrimiento.
+./research/webkit-1302/source-notes.md:194:## Fuentes secundarias adicionales sobre Celsius — 26 de agosto de 2026
+./research/webkit-1302/source-notes.md:196:[GameGaz, 19 de julio de 2026](https://gamegaz.com/2026071945823/) atribuye a bollars el hallazgo de Celsius en `ffs_mount`, afirma PS4 hasta 13.04 y PS5 hasta 12.70, y dice que PS4 13.50/PS5 13.00 ya lo corrigen. También afirma requisito de HDD USB 3.0 de 250 GB o más y una entrada userland Vue/BD-J, pero declara expresamente que aún no estaba en etapa práctica ni podía llamarse kernel exploit confirmado.
+./research/webkit-1302/source-notes.md:198:[Publicación de GAMERZ 56K en YouTube](https://www.youtube.com/post/UgkxE2BPYs9Rf7TJgKq8GqnZlTh-kOpDU15F) repite las mismas afirmaciones: `ffs_mount`, integer overflow/heap overflow, PS4 hasta 13.04 incluyendo 13.02, patch 13.50+, disco USB 3.0 recomendado de 320/500 GB y ausencia de garantía de estabilidad. No aporta código, commit, log de hardware ni fuente primaria independiente. Clasificación: `SOURCE_ONLY`.
