@@ -1,0 +1,46 @@
+===== /tmp/ps4-suid-scanner-audit =====
+-- ffs_mountfs
+1089382ec1e0000e9557b7748d39b57952bbc4f3 2026-08-09 Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+96a79482d249fdbc6101bc641241488de66c313d 2026-08-09 Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+702fcc397d45546baab5311bc0a264870ae90042 2026-07-30 Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+615c637aaf2d75d6bbc3a935590dc1833a0e743f 2026-07-21 Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+-- Celsius
+1089382ec1e0000e9557b7748d39b57952bbc4f3 2026-08-09 Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+96a79482d249fdbc6101bc641241488de66c313d 2026-08-09 Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+702fcc397d45546baab5311bc0a264870ae90042 2026-07-30 Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+615c637aaf2d75d6bbc3a935590dc1833a0e743f 2026-07-21 Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+-- mount UFS
+-- kernel R/W
+-- stage2
+1089382ec1e0000e9557b7748d39b57952bbc4f3 2026-08-09 Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+96a79482d249fdbc6101bc641241488de66c313d 2026-08-09 Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+===== /tmp/hejran7-css =====
+-- ffs_mountfs
+-- Celsius
+-- mount UFS
+-- kernel R/W
+-- stage2
+===== /tmp/cssfontface-original =====
+-- ffs_mountfs
+-- Celsius
+-- mount UFS
+-- kernel R/W
+-- stage2
+===== /tmp/ps3120-css =====
+-- ffs_mountfs
+-- Celsius
+-- mount UFS
+-- kernel R/W
+-- stage2
+===== /tmp/wobkot =====
+-- ffs_mountfs
+-- Celsius
+-- mount UFS
+-- kernel R/W
+-- stage2
+===== /tmp/cssfontface-1302research =====
+-- ffs_mountfs
+-- Celsius
+-- mount UFS
+-- kernel R/W
+-- stage2

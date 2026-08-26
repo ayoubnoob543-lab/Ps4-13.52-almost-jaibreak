@@ -701,3 +701,8 @@ Path-specific history resolves the provenance of both binaries: commit `d29bd6c3
 ## Deleted/renamed file audit
 
 The history scan found one directly relevant deletion in `ps4-suid-scanner`: `stage2_jordy.js` is deleted in its Git history, which is already preserved through the recoverable parent/child analysis and does not reveal a more complete replacement. In `hejran7`, the later history deletes the entire older `public/` chain, including `public/src/ps4/kernel.js`, Netctrl, userland, historical patch blobs and offsets, before adding the `host/` payload layout. The ntfargo/ps3120 histories delete older 11.50-related Lapse and patch files, not a Celsius or Jordy implementation. No deleted path named `ffs_mountfs`, `Celsius`, `jordy_stage2` successor or 13.02 kernel artifact was found beyond the known incomplete stage2 deletion.
+
+
+## Git string-introduction history
+
+Git pickaxe history provides a clean provenance result. In `ps4-suid-scanner`, `ffs_mountfs` first appears in the 2026-08-09 stage2 skeleton commit `96a79482`, then in the 2026-08-09 replacement commit `1089382`; the 2026-07-30 WebKit 13.04 gadget commit `702fcc3` and the earlier research commit `615c637` also mention Celsius in documentation/context. The exact strings `mount UFS` and `kernel R/W` do not appear as committed additions. In `hejran7`, `ntfargo`, `ps3120` and `wobkot`, no history addition for `ffs_mountfs`, Celsius, `mount UFS`, `kernel R/W` or `stage2` was found. This supports the conclusion that the Celsius/FFS narrative is introduced by the scanner project itself, not inherited textually from the historical PS4 CSSFontFace/Netctrl chain.
