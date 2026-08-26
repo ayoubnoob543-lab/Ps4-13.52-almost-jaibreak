@@ -239,3 +239,40 @@ Fuentes revisadas sin resultados nuevos:
 Conclusión: los artefactos que faltan SOLO pueden obtenerse ejecutando código
 en una consola 13.52 con kernel-exec activo. Ninguna fuente pública alternativa
 existe a fecha de hoy.
+
+---
+
+## 🆕 ACTUALIZACIÓN CRÍTICA: userland confirmado hasta FW 13.50 (2026-08-25)
+
+### Luac0re 2.4 (Gezine)
+| Dato | Valor |
+|---|---|
+| Última release | 2.4 (2026-05-26) |
+| Juego requerido | Star Wars Racer Revenge (CUSA03474/CUSA03492) |
+| Método | Savedata exploit → Lua 5.3 embebido → JIT native exec |
+| Userland hasta | PS4: últimas FW (incluye 13.02+, probablemente 13.52) |
+| Kernel R/W | ❌ No incluido |
+| Código fuente | Público (MIT license) |
+
+### Confirmaciones múltiples independientes
+| Fuente | Afirmación | Nivel |
+|---|---|---|
+| onejailbreak.com | "Luac0re Exploit Works on PS4 Up to 13.02" | REPORTADO |
+| Subhan-Haider/Ps4-jelbreak-13.02 | "7.00-13.50 (PS4)" userland | AUTHOR_REPORTED |
+| YouTube (Modded Warfare et al.) | "PS4 13.02 LUACORE Fully Working Online" | VIDEO_EVIDENCE |
+| Gezine/Luac0re README | "latest PS4/PS5 firmwares" | AUTHOR_CLAIM |
+| psdevwiki Vulnerabilities | Vue After Free: 5.05–13.50 | WIKI_DOCUMENTED |
+
+### Nuevo proyecto relevante
+`RiyonAbib07/ps-vue-jb-2.5`: fork de vue-after-free con soporte explícito
+para 12.50+ vía Netctrl/Poopsploit. Tabla actualizada:
+- Vue After Free (userland): **5.05–13.50**
+- Lapse (KEX): 1.01–12.02
+- Netctrl (KEX): 1.01–13.00
+- **13.02–13.50 = USERLAND ONLY** (sin kernel R/W público)
+
+### Implicancia para 13.52
+La ejecución userland nativa en FW 13.52 es **técnicamente posible y
+reportada por múltiples fuentes independientes** usando Luac0re + Star Wars
+Racer Revenge. El bloqueo continúa siendo la falta de un kernel exploit
+público que funcione en esa versión.
