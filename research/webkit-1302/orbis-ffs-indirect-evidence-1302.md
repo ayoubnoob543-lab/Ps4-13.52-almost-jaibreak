@@ -242,3 +242,13 @@ El origen material más plausible ahora es un proceso privado que combinó una p
 [31]: https://github.com/AetherPS/Fusion/pull/13 "Fusion PR 13: 13.02 Kernel offsets"
 [32]: https://github.com/AetherPS/Fusion/issues/12 "Fusion offset initialization issue"
 [33]: https://github.com/AetherPS/Fusion/issues/11 "Fusion game compatibility issue"
+
+## 17. Resultado de la búsqueda ampliada de artefactos ocultos
+
+La búsqueda de releases, tags, issues y PRs no descubrió un dump oculto ni un artefacto FFS asociado a los offsets. El PR [AetherPS/Fusion #13](https://github.com/AetherPS/Fusion/pull/13) tiene como descripción “only kernel offsets and the implementation in Offsets.h”. Su diff no incluye código de extracción, hash de kernel, dump, proyecto de análisis, patrones de bytes ni referencias UFS/FFS. El comentario de ArabPixel sólo indica que podría añadir más offsets.
+
+La inspección de `ArabPixel/sdk` aporta la única pista técnica nueva: el soporte 13.02 se añadió el 5-oct-2025, antes de la publicación de Fusion 13.02, y el mismo fork ya disponía desde julio/agosto de 2025 de `kernel_find_pattern()` y `samples/kdump/main.c`. La combinación hace plausible que los offsets pudieran medirse con tooling de dump/pattern scan en un entorno privado. Sin embargo, no hay evidencia del archivo de salida, de quién lo produjo, de qué kernel se usó ni de que el proceso se aplicara a `patch_mount` o a Celsius.
+
+La release Fusion 1.4 es un asset compilado de 214672 bytes (`aff12b6cddc352e598ea263e1f901cdc525da5e9c0b53467bf5768ec58032af4`) con payload comprimido propio. Su descripción sólo anuncia 12.50/13.00. La presencia de cadenas `Kernel.elf` y `ELF` embebidas no convierte el asset en kernel Orbis; la extracción ingenua no produce un ELF válido y no aparecen FFS/UFS/13.02. Se clasifica como payload Fusion `VERIFIED` y como supuesto dump Orbis `INVALID`.
+
+La hipótesis más fuerte actual es, por tanto, **“offsets derivados de una sesión privada de kernel R/W y tooling de kdump/pattern scan, publicados después como tablas”**, pero sigue siendo `HYPOTHESIS`. La fuente material primaria, si existió, no está en las ramas, tags, releases, issues o PRs públicos auditados.

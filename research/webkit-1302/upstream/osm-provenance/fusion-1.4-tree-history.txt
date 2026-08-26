@@ -1,0 +1,171 @@
+=== tag tree ===
+Fusion/Daemon/Offsets.h	3764	bed5f50ea73a52817b2e5c6be10ac28c4155d5b7
+Fusion/Kernel/Kernel.vcxproj	7456	88429160a0adec210b7e52281de62d7c6442c68c
+Fusion/Kernel/Kernel.vcxproj.filters	6699	c3c4ed39f9702ef909d54d3ec3d6cf0dc4b65ac6
+Fusion/Kernel/Linker	538	8187031b96a81bd14c414da97161de39b04151da
+Fusion/Kernel/Makefile	1846	929db998ed963a02e787ce8abe378917a0312875
+Fusion/Kernel/crt0.s	466	4a8168b4fed4c6869b4d32d45b1d397b6dad3336
+Fusion/Kernel/include/Common.h	467	8cc7575c23a508dc5be4e218f27e2943cbc77243
+Fusion/Kernel/include/Driver/DriverKernel.h	277	5c7ff6304229cfe5d282be743c5968219c1dfa46
+Fusion/Kernel/include/Driver/DriverProc.h	571	8d217d3257702da28019141390ce67ca15eec3d6
+Fusion/Kernel/include/Driver/FusionDriver.h	1387	5dae65630d88f8a3cd2b1dd26ce3097d8c783b4d
+Fusion/Kernel/include/FeatureFlags.h	336	2a15aeb8f1cb835283f48c83edf7fa5e3c5baaf9
+Fusion/Kernel/include/Fusion.h	32	0636d089a6c2908ca83b0f34d8a3f3a94c0554d2
+Fusion/Kernel/include/Homebrew/FakePkgs.h	1752	679e220abc3a56db7f6dc310d84a4ef10410abd2
+Fusion/Kernel/include/Homebrew/FakeSelfs.h	1509	3f7a234c6694c315b213a22cb25c9db5d03c1d29
+Fusion/Kernel/include/Misc/DevActSpoofer.h	234	6ed61439c328ef07a034b5a2f7a1296018e10a25
+Fusion/Kernel/include/Misc/DipSwitchSpoofer.h	308	caec16d3bfc8368381497a3691d01b3549974289
+Fusion/Kernel/include/Misc/DirectMemory.h	245	d0932d45ccd90b3b109b438e800e0f785cdb2fdc
+Fusion/Kernel/include/Misc/FusionSysctl.h	760	7cbb383fe4f3e8cc87369ebcc182732f1ed26276
+Fusion/Kernel/include/Misc/LibraryReplacer.h	280	818ec6a149bf6155337512745cc9ce9ddb533895
+Fusion/Kernel/include/Misc/TTYRedirector.h	210	69a79c624791d825928ac2635157f8f328889dbe
+Fusion/Kernel/include/Utils/Asm.h	170	997f9e41e3a2bb8afb46ab8938046e93902f2789
+Fusion/Kernel/include/Utils/Detours/Detour.h	1283	78fee16e5f2a381a2b18198596507fa42fbcf74c
+Fusion/Kernel/include/Utils/Detours/DetourMemoryPool.h	373	66ac06b4fc7fad1cb18b7233b32e0e94ba5c226d
+Fusion/Kernel/include/Utils/Detours/hde64.h	2673	9aa6e848241de29458ff2f0a28f447299d39d9bc
+Fusion/Kernel/include/Utils/Detours/table64.h	3532	f4b8e677dd11f7375ad5a7bf7630e48018630b6e
+Fusion/Kernel/include/Utils/Heap.h	310	b426d0e21b72e33692dc17fd2b9ced29d0d14777
+Fusion/Kernel/include/Utils/Misc.h	560	85dfd83a5d1d7467fbf9d622977e5253f5d5508f
+Fusion/Kernel/include/Utils/ProcessUtils.h	649	a6fed584ebd7e444c702dfb2d2e8c80d95104cd9
+Fusion/Kernel/include/Utils/Resolver.h	7305	b34bec66917db957a2cadbab998b393e61081d22
+Fusion/Kernel/source/Driver/DriverKernel.cpp	1575	e8edf57d0a71d5ff7bc1be7918b243437f00871f
+Fusion/Kernel/source/Driver/DriverProc.cpp	6973	2b87bbf6d94ea2e86ffe3ece51a461c8eef93eef
+Fusion/Kernel/source/Driver/FusionDriver.cpp	2117	828f7bb171fb27a779b3a198e72526ec92d61f81
+Fusion/Kernel/source/FeatureFlags.cpp	309	6fedd8652b056f46d4b28d9249372e06f6e3478f
+Fusion/Kernel/source/Fusion.cpp	1492	1bf12c2c8f62c996cf1c5f5ac6ea14ec58454626
+Fusion/Kernel/source/Homebrew/FakePkgs.cpp	16197	ccf08fe6861208bb5ae443177a4abc4e18590cbc
+Fusion/Kernel/source/Homebrew/FakeSelfs.cpp	13856	80b4554b75bcc0e263cdc1cadc3bda1eb1577727
+Fusion/Kernel/source/Main.cpp	283	fcbb0ddf6a77625ab4c0b57e8b418c14e872d2ca
+Fusion/Kernel/source/Misc/DevActSpoofer.cpp	1176	a66738052884885b2f02f1acafae22663a98eea7
+Fusion/Kernel/source/Misc/DipSwitchSpoofer.cpp	789	c896e9030ca7c2417abd92de490dacaa9c593f54
+Fusion/Kernel/source/Misc/DirectMemory.cpp	1317	0504d228b45f3e425fc5be37ee2a58908f029e2a
+Fusion/Kernel/source/Misc/FusionSysctl.cpp	3824	a1b5ac1b2c4ba942b76b1141f04e9f1490f2c2c8
+Fusion/Kernel/source/Misc/LibraryReplacer.cpp	2446	5af2a7fb4c2db9b69ef51110b912902df3728df5
+Fusion/Kernel/source/Misc/TTYRedirector.cpp	1462	3c95333b60d257c500ee6cdb57547dafd074895e
+Fusion/Kernel/source/Utils/Detours/Detour.cpp	3256	e254c1de45eea21f80d85dd75eea388708430d15
+Fusion/Kernel/source/Utils/Detours/DetourMemoryPool.cpp	1875	f33a1cc629f0ecefd9ac2d2e75a018bdc9c28089
+Fusion/Kernel/source/Utils/Detours/hde64.cpp	6633	edc34e410e919c9a419e5fbe64fbf4db8d59eb07
+Fusion/Kernel/source/Utils/Heap.cpp	658	3adec77d0c9ac404e64a187880d9b2cb15fa1158
+Fusion/Kernel/source/Utils/Misc.cpp	1917	d3eddd0165dda3fbd94311793d333689d8ce70a9
+Fusion/Kernel/source/Utils/ProcessUtils.cpp	5332	ce5113fd54598e8cd3e7575c7d2639e481c8335f
+Fusion/Kernel/source/Utils/Resolver.cpp	9950	96e30d84aff87f78ad26cea94237b276b7c76202
+Fusion/Loader/include/compressedblob.c	0	e69de29bb2d1d6434b8b29ae775ad8c2e48c5391
+Fusion/Loader/include/compressedblob.h	322	d2d263d4663d64c6f9ab9fd9018e24545ab7fee1
+Fusion/Loader/include/elf.h	489	76ea16365b18be5e496f31508dd4465b98c1132f
+Fusion/Loader/include/kernel.h	281	9b8e3c0ad2aac5ae9914669557fcd929701defd0
+Fusion/Loader/resources/param.sfo	352	5fd81482d614c893f3a1ada2af88e7fe7363443c
+Fusion/Loader/source/compressedblob.c	1061	ad8367a051f7ffe076fa7c7cb8e54d6b3b821f95
+Fusion/Loader/source/elf.c	3935	939f3db2db83945e936586152a3d76ebe570dd83
+Fusion/Loader/source/kernel.c	2524	a0b79991df3c88019dec61eb31353a5fbf017453
+Fusion/Loader/source/tinfzlib.c	2405	2f8fecb3d59b29242bcb134a1dd89298b6fecd2f
+Fusion/Shell UI/ShellUIManaged/Properties/Resources.Designer.cs	2778	00a640ee55e1a52e1c7284459ba5abe9156240bf
+Fusion/Shell UI/ShellUIManaged/Properties/Resources.resx	4320	4fdb1b6aff69ba96d81420fab7a92b738c17f074
+Scripts/create_zlib_blob.py	2773	1e08fa2805d6905d583e2b1e279ddc8d76ee14cf
+Scripts/make_fself.py	33164	d4555855e9810ed8f289768fd03c25c48db59442
+Shared/Offsets-1202.h	10961	a91d81fb381fea652ce44fea5c7cf55c6c092c2e
+Shared/Offsets-1250.h	10962	d71d8053bc30511964bd14adff483c8c0e98b573
+Shared/Offsets-1300.h	10962	c1e9b310b06968fb472cea31ea97dc2397f2a5e0
+Shared/Offsets-900.h	10966	f3f0fadd6f9c9d9a0b2c58c4dd31bc9feaa7a1e9
+Shared/Offsets.h	6405	3c579655ae718a155150795fc5e4106755ff603a
+Shared/Types/ELF.h	47432	af3bf17e0aa7426ec0582bf8f36ad56802cf4439
+=== commits around 1.4 ===
+009efd3d9db27dd62d494b04ccdb416b70e49b98	2026-01-17T20:45:45Z	OSM-Made	add references back.	https://github.com/AetherPS/Fusion/commit/009efd3d9db27dd62d494b04ccdb416b70e49b98
+7b256e9cb0a118ef1b34b9c0f02e62c39207acbf	2026-01-17T20:43:36Z	OSM-Made	Fix build issues with loader and fix ascii art.	https://github.com/AetherPS/Fusion/commit/7b256e9cb0a118ef1b34b9c0f02e62c39207acbf
+3ccf81d82f54391432eb24648b8d00600d933686	2026-01-17T15:41:15Z	OSM-Made	New ascii art.	https://github.com/AetherPS/Fusion/commit/3ccf81d82f54391432eb24648b8d00600d933686
+b960c6c69f60dc11a44682037132eb1b731ddade	2026-01-17T06:56:49Z	OSM-Made	Add panic patches.	https://github.com/AetherPS/Fusion/commit/b960c6c69f60dc11a44682037132eb1b731ddade
+52a4e50a298a7407be4092db065280c8ae20dee7	2026-01-17T00:20:36Z	OSM-Made	Firmware agnostic first pass.	https://github.com/AetherPS/Fusion/commit/52a4e50a298a7407be4092db065280c8ae20dee7
+9fb086a69d9c27cab430e2bc48cc738ce5a2b10f	2026-01-16T04:46:26Z	OSM-Made	Add sysctl entries for managing fusion feature flags and settings.	https://github.com/AetherPS/Fusion/commit/9fb086a69d9c27cab430e2bc48cc738ce5a2b10f
+f9c2f618cedc26a848eb1aa7645eb3ba3a23140b	2026-01-16T02:14:42Z	OSM-Made	Convert to zlib compression.	https://github.com/AetherPS/Fusion/commit/f9c2f618cedc26a848eb1aa7645eb3ba3a23140b
+b111d9ed384fffe2b39580fbb14881bdafef8958	2026-01-15T23:46:49Z	OSM-Made	Add support for 13.00	https://github.com/AetherPS/Fusion/commit/b111d9ed384fffe2b39580fbb14881bdafef8958
+43c6da66bf3776d81556bb252b2a9dc1f507c238	2026-01-15T23:04:42Z	OSM-Made	Remove some old patches.	https://github.com/AetherPS/Fusion/commit/43c6da66bf3776d81556bb252b2a9dc1f507c238
+bcaf910220a417d4ba3909fa15f7553e993a8ec3	2026-01-15T23:02:25Z	OSM-Made	Remove shell ui offsets.	https://github.com/AetherPS/Fusion/commit/bcaf910220a417d4ba3909fa15f7553e993a8ec3
+a912dd69dafef8c4658ef7eb1f33ddd5079a1436	2026-01-15T23:01:49Z	OSM-Made	Fix patch for 13.00	https://github.com/AetherPS/Fusion/commit/a912dd69dafef8c4658ef7eb1f33ddd5079a1436
+a8b8c7e5f7b38ece5580b731b4aedb59e2cf69bb	2026-01-15T23:00:59Z	OSM-Made	Add the rest of the 12.50 support.	https://github.com/AetherPS/Fusion/commit/a8b8c7e5f7b38ece5580b731b4aedb59e2cf69bb
+e80308ee2458ba4dde0cae874cc9403e7069124a	2026-01-15T22:23:08Z	ArabPixel	12.50 Kernel offsets (#10)	https://github.com/AetherPS/Fusion/commit/e80308ee2458ba4dde0cae874cc9403e7069124a
+899ab07fae42b735acfde2a70e1fc6a69174e256	2026-01-15T18:24:17Z	OSM-Made	Add flag for some experimental JIT things.	https://github.com/AetherPS/Fusion/commit/899ab07fae42b735acfde2a70e1fc6a69174e256
+c2282c25ddeccf92b6bdf3f765bbd911e9db5935	2026-01-15T18:16:58Z	OSM-Made	Fix warnings.	https://github.com/AetherPS/Fusion/commit/c2282c25ddeccf92b6bdf3f765bbd911e9db5935
+91d01990fff1572cb1a3d15d0e9087169a5a2b44	2026-01-15T18:13:16Z	OSM-Made	Improve build system for smaller size & more simple build.	https://github.com/AetherPS/Fusion/commit/91d01990fff1572cb1a3d15d0e9087169a5a2b44
+1f3e87a639ce87dcf3296de87e371c3a1ba84a26	2026-01-15T05:37:09Z	OSM-Made	Add custom manifest URI (Thanks Jtag), System area icon that redirects to the fusion menu & pack all assets into the dll.	https://github.com/AetherPS/Fusion/commit/1f3e87a639ce87dcf3296de87e371c3a1ba84a26
+4fb3368fb019959853a27978ac7c73139b9e2d74	2026-01-14T15:43:03Z	OSM-Made	Improve method hooks for c#.	https://github.com/AetherPS/Fusion/commit/4fb3368fb019959853a27978ac7c73139b9e2d74
+4ac1d316f5e9ea938c037cb2a7f7350206edc02f	2026-01-14T15:37:39Z	OSM-Made	Bug fixes for 12.02.	https://github.com/AetherPS/Fusion/commit/4ac1d316f5e9ea938c037cb2a7f7350206edc02f
+5f8d2d761aa4387dba2066213ef939fb33f89e5f	2026-01-13T00:29:24Z	OSM-Made	fix typo.	https://github.com/AetherPS/Fusion/commit/5f8d2d761aa4387dba2066213ef939fb33f89e5f
+f8a4fa8635d1f01fb950ac53618407d51ae3f6d0	2026-01-13T00:27:40Z	OSM-Made	Fix DECI patch not patching the first isAssistMode check.	https://github.com/AetherPS/Fusion/commit/f8a4fa8635d1f01fb950ac53618407d51ae3f6d0
+9ae958bc733dda39fda71f529d30332e80b0135f	2026-01-12T04:24:43Z	OSM-Made	Clean up usings.	https://github.com/AetherPS/Fusion/commit/9ae958bc733dda39fda71f529d30332e80b0135f
+6ca35b5f8948e4a9332680e1b75809db8e398fc7	2026-01-12T03:49:02Z	OSM-Made	Add some initial ShellUI fun	https://github.com/AetherPS/Fusion/commit/6ca35b5f8948e4a9332680e1b75809db8e398fc7
+f8e879937b311327378fbcfb7b588d57abd853b1	2026-01-11T05:30:03Z	OSM-Made	Update stub maker.	https://github.com/AetherPS/Fusion/commit/f8e879937b311327378fbcfb7b588d57abd853b1
+e031606cec90a1b9e1dd0f6f9a0aa4e59618dea4	2026-01-11T04:10:23Z	OSM-Made	Migrate ShellUI patches to the qa flags from the kernel patches & add the intdev flags for ShellUI JIT mode.	https://github.com/AetherPS/Fusion/commit/e031606cec90a1b9e1dd0f6f9a0aa4e59618dea4
+cb5fce1cbbe62e6bf177d569e22329c33c1d2e6b	2026-01-10T15:31:35Z	OSM-Made	Change some order of operations and naming clashing.	https://github.com/AetherPS/Fusion/commit/cb5fce1cbbe62e6bf177d569e22329c33c1d2e6b
+9016665766b1f4d347eae6f9adfd5135acc02ccb	2026-01-04T22:26:29Z	OSM-Made	Fix build issue.	https://github.com/AetherPS/Fusion/commit/9016665766b1f4d347eae6f9adfd5135acc02ccb
+8b4cead419cb75c62778341d616e60bf596b8a6c	2026-01-04T02:19:35Z	OSM-Made	Update some sub modules.	https://github.com/AetherPS/Fusion/commit/8b4cead419cb75c62778341d616e60bf596b8a6c
+7e013020f49d34575bdd1ab60cd4012cb6d4b895	2026-01-03T15:32:27Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/AetherPS/Fusion/commit/7e013020f49d34575bdd1ab60cd4012cb6d4b895
+d8fde9cf7335f9a51729a3c514c3beeeaadc42b3	2026-01-03T15:32:23Z	OSM-Made	Improve plugin loaders ability to check if the process is ready.	https://github.com/AetherPS/Fusion/commit/d8fde9cf7335f9a51729a3c514c3beeeaadc42b3
+6b786db3e29fc14ece360894f940d2f0966ae38e	2026-01-03T08:56:33Z	Greg	Update README.md	https://github.com/AetherPS/Fusion/commit/6b786db3e29fc14ece360894f940d2f0966ae38e
+e205cc8019c95830210f86d589438786fccaa988	2026-01-03T08:22:32Z	OSM-Made	Update README & docs.	https://github.com/AetherPS/Fusion/commit/e205cc8019c95830210f86d589438786fccaa988
+b084ce547991e9c664d24261404af68fb82c8377	2026-01-03T07:41:26Z	OSM-Made	update libUtils version.	https://github.com/AetherPS/Fusion/commit/b084ce547991e9c664d24261404af68fb82c8377
+4029db7da77fd21ceb8b8fdeda06edeacf424b94	2026-01-03T05:38:07Z	OSM-Made	Add daemon system.	https://github.com/AetherPS/Fusion/commit/4029db7da77fd21ceb8b8fdeda06edeacf424b94
+97ace4304be650ea2d4ae459de760ba50c632570	2026-01-03T01:27:38Z	OSM-Made	Remove patches from the kernel since we patch from the userland now.	https://github.com/AetherPS/Fusion/commit/97ace4304be650ea2d4ae459de760ba50c632570
+6dd93e295d3c852d7429dd14fc173d029b1db78f	2026-01-02T16:56:59Z	OSM-Made	Add some additional docs.	https://github.com/AetherPS/Fusion/commit/6dd93e295d3c852d7429dd14fc173d029b1db78f
+c50690fb945c714c4aa9893144a74e426e4b228d	2026-01-02T16:47:21Z	OSM-Made	Add a simple plugin loader.	https://github.com/AetherPS/Fusion/commit/c50690fb945c714c4aa9893144a74e426e4b228d
+3ee632458a9eca984d66097cb6f0b4dfcbbdc342	2026-01-02T04:30:28Z	OSM-Made	update lib fusion version.	https://github.com/AetherPS/Fusion/commit/3ee632458a9eca984d66097cb6f0b4dfcbbdc342
+bf7c3d7b0bbb709f75a5e665362d8b5f617283fa	2026-01-02T03:38:37Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/AetherPS/Fusion/commit/bf7c3d7b0bbb709f75a5e665362d8b5f617283fa
+a3679cea2dda4218a685b19eb29cfd5214692cd3	2026-01-02T03:38:32Z	OSM-Made	Add some credits	https://github.com/AetherPS/Fusion/commit/a3679cea2dda4218a685b19eb29cfd5214692cd3
+4492d4968b917a08fb48d5e3df71e8a62c262797	2026-01-02T03:29:04Z	Greg	Create LICENSE	https://github.com/AetherPS/Fusion/commit/4492d4968b917a08fb48d5e3df71e8a62c262797
+1290801111703b4edeaf4bf13c6b5d4f6d025360	2026-01-02T03:25:17Z	OSM-Made	Fix the deci dev port thread hanging the fusion daemon, add the friendly name in proc list and add some comments in the main.	https://github.com/AetherPS/Fusion/commit/1290801111703b4edeaf4bf13c6b5d4f6d025360
+ce1dcd6da227447c7c2f4915c5e5fe4a1402b8e9	2026-01-01T22:35:22Z	OSM-Made	Add multi version support to deci launch.	https://github.com/AetherPS/Fusion/commit/ce1dcd6da227447c7c2f4915c5e5fe4a1402b8e9
+7e2dc2e3e250013a7475bc955107105c9df933af	2026-01-01T22:24:00Z	OSM-Made	Update readme.	https://github.com/AetherPS/Fusion/commit/7e2dc2e3e250013a7475bc955107105c9df933af
+4c996670d08c484d18c24669af75bb921fa82497	2026-01-01T22:22:41Z	OSM-Made	Update readme.	https://github.com/AetherPS/Fusion/commit/4c996670d08c484d18c24669af75bb921fa82497
+148a3c54eded20f8893df2c57f28e2be77776f1c	2026-01-01T22:10:15Z	OSM-Made	clean up daemon a bit.	https://github.com/AetherPS/Fusion/commit/148a3c54eded20f8893df2c57f28e2be77776f1c
+daee0e5a16ac277a137c24429f257990076aea21	2026-01-01T22:03:47Z	OSM-Made	Add ftp.	https://github.com/AetherPS/Fusion/commit/daee0e5a16ac277a137c24429f257990076aea21
+33c21fb5327c645c6e21841c839b92eaab3a67b1	2026-01-01T17:12:10Z	OSM-Made	fix comment.	https://github.com/AetherPS/Fusion/commit/33c21fb5327c645c6e21841c839b92eaab3a67b1
+369cae476b1c0ee89db7a72027643644839c42f7	2026-01-01T16:58:09Z	OSM-Made	update git ignore.	https://github.com/AetherPS/Fusion/commit/369cae476b1c0ee89db7a72027643644839c42f7
+80aa5b92a185dcbd9950f5bc71ebb0b1842a46d4	2026-01-01T16:57:35Z	OSM-Made	Clean up.	https://github.com/AetherPS/Fusion/commit/80aa5b92a185dcbd9950f5bc71ebb0b1842a46d4
+78a8afbb7ab7cd6a1b465b26b6f41c5f8cb8e8b7	2026-01-01T16:53:48Z	OSM-Made	Mount system as root for daemon creation.	https://github.com/AetherPS/Fusion/commit/78a8afbb7ab7cd6a1b465b26b6f41c5f8cb8e8b7
+89edd6225d05bbe3148990a1ce770e52e03f02f2	2026-01-01T16:45:56Z	OSM-Made	Unify type usage across the kernel/loader projects.	https://github.com/AetherPS/Fusion/commit/89edd6225d05bbe3148990a1ce770e52e03f02f2
+dc3bc52fd3f27c5a5f42f556a1cd10f832362cc4	2026-01-01T16:28:09Z	OSM-Made	Fix issues with kernel builds and jailbreaking.	https://github.com/AetherPS/Fusion/commit/dc3bc52fd3f27c5a5f42f556a1cd10f832362cc4
+1107ce12f94a24e92193c8b636ad449f88d6020d	2026-01-01T16:07:00Z	OSM-Made	Add daemon launching.	https://github.com/AetherPS/Fusion/commit/1107ce12f94a24e92193c8b636ad449f88d6020d
+7df8dd097d3c6b7e318ac6c3074f936bb21b0354	2025-12-31T20:11:04Z	OSM-Made	Big refactor for better organization.	https://github.com/AetherPS/Fusion/commit/7df8dd097d3c6b7e318ac6c3074f936bb21b0354
+837d6230156c926bf0c41487707d3e887c0193f3	2025-12-31T16:51:50Z	OSM-Made	Clean up loader and fix a bug.	https://github.com/AetherPS/Fusion/commit/837d6230156c926bf0c41487707d3e887c0193f3
+e97e62794c23b942921af3e055efacf5a445f6c2	2025-12-31T16:31:57Z	OSM-Made	Clean up for more consistent naming conventions.	https://github.com/AetherPS/Fusion/commit/e97e62794c23b942921af3e055efacf5a445f6c2
+c9ffff94d3c66bee5f5e8790f06b13cfe9eb9f05	2025-12-29T23:03:27Z	OSM-Made	Update driver version.	https://github.com/AetherPS/Fusion/commit/c9ffff94d3c66bee5f5e8790f06b13cfe9eb9f05
+c2828ef73ff62a3615e4195fda0a47278e457de5	2025-12-29T19:35:42Z	OSM-Made	update driver.	https://github.com/AetherPS/Fusion/commit/c2828ef73ff62a3615e4195fda0a47278e457de5
+cf73bfdae47411182d546eba7159f44b0b8cc8f8	2025-12-29T19:27:15Z	OSM-Made	Add some spacing.	https://github.com/AetherPS/Fusion/commit/cf73bfdae47411182d546eba7159f44b0b8cc8f8
+26ae2b7b257a0a097fe9345d978b24733f603435	2025-12-29T19:26:58Z	OSM-Made	Add kernel get base, kernel r/w & nvs r/w.	https://github.com/AetherPS/Fusion/commit/26ae2b7b257a0a097fe9345d978b24733f603435
+c7dfc6e40a72d9306c9e0e7d7e05c19b53f57a4e	2025-12-26T03:34:07Z	OSM-Made	Update libUtils.	https://github.com/AetherPS/Fusion/commit/c7dfc6e40a72d9306c9e0e7d7e05c19b53f57a4e
+3d7f90e67aef419d7d1234bff99eb7870b8e5c9e	2025-12-22T22:29:35Z	OSM-Made	FTP daemon starter place holder.	https://github.com/AetherPS/Fusion/commit/3d7f90e67aef419d7d1234bff99eb7870b8e5c9e
+4b4a2796f190264487674787339fe647fd4de0d8	2025-12-22T22:26:07Z	OSM-Made	Adjust config because read/write file return of 0 means success.	https://github.com/AetherPS/Fusion/commit/4b4a2796f190264487674787339fe647fd4de0d8
+0aa2eecab513704e0cd13e56cd90f2d3f71eb884	2025-12-22T21:47:04Z	OSM-Made	Add some coments to the deci starter.	https://github.com/AetherPS/Fusion/commit/0aa2eecab513704e0cd13e56cd90f2d3f71eb884
+34ad19535db2795e686d21f9a1929559fc73d1e4	2025-12-22T21:20:56Z	OSM-Made	Give fusion the ability to load deci.	https://github.com/AetherPS/Fusion/commit/34ad19535db2795e686d21f9a1929559fc73d1e4
+b3a965103b249fbecb00d5064911bdaeee481712	2025-12-22T19:37:47Z	OSM-Made	Create default config if one does not exist.	https://github.com/AetherPS/Fusion/commit/b3a965103b249fbecb00d5064911bdaeee481712
+33170cacc3878838cfaa599eed79b3b2c9d86da4	2025-12-22T19:27:52Z	OSM-Made	Update fusion driver lib.	https://github.com/AetherPS/Fusion/commit/33170cacc3878838cfaa599eed79b3b2c9d86da4
+3105097f7bf2c5c323e477bcc37be05ae49085eb	2025-12-22T19:23:34Z	OSM-Made	Add initial config setup.	https://github.com/AetherPS/Fusion/commit/3105097f7bf2c5c323e477bcc37be05ae49085eb
+4d7da1f0599dd5e1f9b8ace59e091df4ae7ef2f2	2025-12-01T01:35:44Z	OSM-Made	Update StubMaker	https://github.com/AetherPS/Fusion/commit/4d7da1f0599dd5e1f9b8ace59e091df4ae7ef2f2
+f402935e399f4badda5dfef56e2043af647436d9	2025-11-27T03:13:57Z	OSM-Made	Simplify the kernel more.	https://github.com/AetherPS/Fusion/commit/f402935e399f4badda5dfef56e2043af647436d9
+b08786c9c81ce05e88b0d906aea2e071815b05cf	2025-11-25T15:04:45Z	Greg	Do all Userland patches from the Daemon (#8)\n\n* Initial setup to make userland system patches from userland.\n\n* Remove userland patches from kernel.\n\n* Finished porting all patches to userland daemon.	https://github.com/AetherPS/Fusion/commit/b08786c9c81ce05e88b0d906aea2e071815b05cf
+e6f87829584987c03d4c83f9e311ec1a89716a47	2025-11-25T03:26:18Z	OSM-Made	Add initial cfg using more basic json.	https://github.com/AetherPS/Fusion/commit/e6f87829584987c03d4c83f9e311ec1a89716a47
+377d3a32e5479cb4842b50bc4c2c2b2f4ae8a2bc	2025-11-09T16:47:10Z	OSM-Made	Update shared module	https://github.com/AetherPS/Fusion/commit/377d3a32e5479cb4842b50bc4c2c2b2f4ae8a2bc
+326a779bee0fdfe4019ef37a3518f5c5cafa2036	2025-11-08T03:24:02Z	OSM-Made	fix mistake with lib info	https://github.com/AetherPS/Fusion/commit/326a779bee0fdfe4019ef37a3518f5c5cafa2036
+269ce2df8b2f754e2f7358238b07b577629d3b6f	2025-11-08T03:20:46Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/AetherPS/Fusion/commit/269ce2df8b2f754e2f7358238b07b577629d3b6f
+7bbeaa27fc49ff2b52b8a846a2d8a34197019f9f	2025-11-08T03:20:39Z	OSM-Made	fix blunder with mutex	https://github.com/AetherPS/Fusion/commit/7bbeaa27fc49ff2b52b8a846a2d8a34197019f9f
+b6557864f30eb3c3415c2d721b0d6a30c1cac8df	2025-11-07T00:46:46Z	Greg	Re organize project and support building with out side car. (#7)	https://github.com/AetherPS/Fusion/commit/b6557864f30eb3c3415c2d721b0d6a30c1cac8df
+e7db66132eb1b574b71c431467b7cb63f60db030	2025-11-06T16:16:30Z	Greg	Syscall cleanup (#6)\n\n* Remove the last of the system calls made in kernel land.\n\n* Remove the debug flag	https://github.com/AetherPS/Fusion/commit/e7db66132eb1b574b71c431467b7cb63f60db030
+de910f213a0ec69d915ad6154d9e51701300f373	2025-11-06T16:15:27Z	OSM-Made	Small clean up.	https://github.com/AetherPS/Fusion/commit/de910f213a0ec69d915ad6154d9e51701300f373
+2764fb93310878bf49f3dfe8b9fe92444d6ef7dd	2025-11-06T06:35:37Z	Greg	Detour cleanup (#4)\n\n* Initial conversion to Detours.\n\n* Switch to mono detour class\n\n* Fix minor mistake and simplify.\n\n* Clean up Detour memory pool.	https://github.com/AetherPS/Fusion/commit/2764fb93310878bf49f3dfe8b9fe92444d6ef7dd
+5fcee382ddab16343edcd9a1204a320fe9dfa8eb	2025-11-06T00:28:31Z	OSM-Made	Re-Organize Kernel to use folders in src/inc	https://github.com/AetherPS/Fusion/commit/5fcee382ddab16343edcd9a1204a320fe9dfa8eb
+4df83f4141c911d03aca204c451fc39aaa85ab42	2025-11-05T18:02:48Z	OSM-Made	Re-Organize the types instead of having monolithic types.h	https://github.com/AetherPS/Fusion/commit/4df83f4141c911d03aca204c451fc39aaa85ab42
+c3eac378fa8e51b3d21a3b5685e409c0791cf53d	2025-11-05T00:17:45Z	OSM-Made	fix mistake with lock.	https://github.com/AetherPS/Fusion/commit/c3eac378fa8e51b3d21a3b5685e409c0791cf53d
+156eb45b9a53c6b9b7095a716949a22bbf85fb0a	2025-11-04T23:57:30Z	OSM-Made	Make the find proc by name more correct, clean up un-needed syscalls & rmove old patches.	https://github.com/AetherPS/Fusion/commit/156eb45b9a53c6b9b7095a716949a22bbf85fb0a
+fd5bf6aaaad452001c05f69a6229d1fc5ca22d03	2025-11-04T06:06:27Z	OSM-Made	Rework the way we un hide the driver.	https://github.com/AetherPS/Fusion/commit/fd5bf6aaaad452001c05f69a6229d1fc5ca22d03
+725cb8c0e78864b6d145a0fb92c4d271f0adf286	2025-11-04T03:10:22Z	OSM-Made	Fix embed name	https://github.com/AetherPS/Fusion/commit/725cb8c0e78864b6d145a0fb92c4d271f0adf286
+274f2c7efe528c4b256fbe08df408c9e44e2f911	2025-11-04T03:04:51Z	OSM-Made	update driver module.	https://github.com/AetherPS/Fusion/commit/274f2c7efe528c4b256fbe08df408c9e44e2f911
+5f7dcdbba17fefe146d035ec59ee9ffb99fd4e68	2025-11-04T03:03:25Z	OSM-Made	fix proc locks, dlsym mistakes and update shared module.	https://github.com/AetherPS/Fusion/commit/5f7dcdbba17fefe146d035ec59ee9ffb99fd4e68
+de1124dbf03bf0db90cd23e8b7e2234dce509f10	2025-11-04T01:47:52Z	OSM-Made	Fix bug where no return was present for missing driver defs and extending fusion daemon some more.	https://github.com/AetherPS/Fusion/commit/de1124dbf03bf0db90cd23e8b7e2234dce509f10
+38949fa3f60b37d1d759809f631e2925f04e2231	2025-11-02T22:09:19Z	OSM-Made	Dont load kernel twice & Add Fusion Daemon.	https://github.com/AetherPS/Fusion/commit/38949fa3f60b37d1d759809f631e2925f04e2231
+bd32f7f3a21dbf0d1acde555cbbb1d63eedb7d41	2025-11-02T16:32:34Z	OSM-Made	Re-organize sidecar and fix the json settings.	https://github.com/AetherPS/Fusion/commit/bd32f7f3a21dbf0d1acde555cbbb1d63eedb7d41
+18dfb875f26583946ba772350df68b62ced28b5a	2025-11-02T16:00:11Z	OSM-Made	re-organize the loader.	https://github.com/AetherPS/Fusion/commit/18dfb875f26583946ba772350df68b62ced28b5a
+1ef510808958d263d42eb19d94a4459cb03dae1f	2025-11-02T15:52:44Z	OSM-Made	Update make file to clean up better.	https://github.com/AetherPS/Fusion/commit/1ef510808958d263d42eb19d94a4459cb03dae1f
+b35cf27cf0767a8fe4b3a1aa979759af83692533	2025-11-02T05:56:08Z	OSM-Made	Fix sidecar.	https://github.com/AetherPS/Fusion/commit/b35cf27cf0767a8fe4b3a1aa979759af83692533
+eb0a95cde362be3d7f304347d64449e04b875d51	2025-11-02T05:31:49Z	OSM-Made	Work on fixing sidecar & add a missing mutex unloack for pfind.	https://github.com/AetherPS/Fusion/commit/eb0a95cde362be3d7f304347d64449e04b875d51
+4595db9d4d29ace126b1b414f55d88de20a1a3a4	2025-11-01T04:59:56Z	OSM-Made	Clean up driver code more.	https://github.com/AetherPS/Fusion/commit/4595db9d4d29ace126b1b414f55d88de20a1a3a4
+7f5ff58e94ddd206844072d4968449c1a6338d88	2025-11-01T04:37:31Z	OSM-Made	Add bounds check for get libs.	https://github.com/AetherPS/Fusion/commit/7f5ff58e94ddd206844072d4968449c1a6338d88
+4f138d326400caf35e9717a6ff01ddeebe975f17	2025-11-01T04:33:00Z	OSM-Made	Update shared module version.	https://github.com/AetherPS/Fusion/commit/4f138d326400caf35e9717a6ff01ddeebe975f17
+1a7cd2ca016d3785079d06a16421ae2b66ff4505	2025-11-01T00:57:36Z	OSM-Made	Update shared module.	https://github.com/AetherPS/Fusion/commit/1a7cd2ca016d3785079d06a16421ae2b66ff4505
