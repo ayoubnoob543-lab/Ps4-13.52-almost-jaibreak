@@ -135,3 +135,7 @@ ConsoleMods Exploit Chart: https://consolemods.org/wiki/PS4:Exploit_Chart. The c
 ## Frame4 source-level mount audit
 
 Direct source inspection of DeathRGH/frame4 shows the installer comment `mount /user on any process sandbox with read/write perm`. The code uses a `mountPatchOffset`/`mountPatchOffset2` against `shellcore_base` and writes six NOP bytes with `proc_rw_mem`; for 12.02 the mount patch variables are unset/commented in the visible installer switch, while the generic patch framework remains. The same repository's public `ps4-payload-sdk/libPS4/include/file.h` exposes ordinary userland `mount()`/`nmount()` prototypes. No `ffs_mountfs`, `ffs_reload`, `struct fs`, UFS strings, or Celsius reference was found in the relevant source. This is `VERIFIED` as SceShellCore mount-permission patching and generic mount API context; `INVALID` as evidence that Fusion 13.02 `patch_mount` is an FFS function.
+
+## PSDevWiki Strings cross-check
+
+The public PSDevWiki Strings page lists broad PS4 kernel/VFS symbols such as `kernel_mount` and `mount_argf` in the searchable corpus, but the direct extraction performed here returned no exact `ffs_mountfs`, `ffs_reload`, `ffs_vget`, `ffs_alloc`, `struct fs`, `fs_ncg`, `fs_cssize`, `fs_contigsumsize`, `fs_bsize` or `fs_fsize` lines. The page has no firmware-13.02 attribution or binary provenance. It remains `SOURCE_ONLY` as a generic string index and `INVALID` as direct 13.02/Celsius evidence.
