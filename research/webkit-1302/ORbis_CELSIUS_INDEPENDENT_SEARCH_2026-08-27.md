@@ -179,3 +179,7 @@ La API del mirror sitúa la construcción de `netctrl_c0w` entre el 3 y el 5 de 
 ## Intento de verificación del origen GitHub de `vue-after-free`
 
 El intento de clonar `https://github.com/earthonion/vue-after-free.git` en la rama `netctrl_c0w` devolvió `Repository not found`. Esto no invalida el contenido visible del mirror `git.etawen.dev`, pero impide afirmar en esta sesión que la rama sea byte-a-byte idéntica a un repositorio GitHub accesible. La procedencia queda limitada a la API y los archivos raw del mirror; el error se clasifica como **origen GitHub no verificable**, no como ausencia del código.
+
+## Commit `found twins!` de `vue-after-free`
+
+La página pública del commit `2872f95651a99b5f3690b8e74a4f373645b19759` muestra fecha 2026-01-04 23:44:04 -05:00, autor `earthonion`, parent `6b7ae84b50a65a1d74c43e1904d93add87460d47` y 608 adiciones/200 eliminaciones en `src/netctrl.js`. El diff documenta workers ROP, spray de sockets IPv6, búsqueda de “twins”, buffers de leak, detección de objetos y recursos para adquirir R/W. No contiene Celsius, UFS, FFS, `ffs_mountfs` ni una operación de mount. Es evidencia primaria de la evolución histórica de Netctrl, no del bootstrap Celsius. Clasificación: **VERIFIED** como commit Netctrl/ROP; **INVALID** como PoC Celsius.

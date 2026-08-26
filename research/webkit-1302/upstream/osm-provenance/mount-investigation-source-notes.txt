@@ -955,3 +955,7 @@ The mirror API dates `netctrl_c0w` construction to January 3-5, 2026, with commi
 ## GitHub origin verification attempt
 
 Cloning `https://github.com/earthonion/vue-after-free.git` at branch `netctrl_c0w` returned `Repository not found`. This does not invalidate the mirror content, but prevents claiming byte-identical GitHub provenance. Provenance remains limited to mirror API/raw artifacts; classify the GitHub origin as not verifiable in this session.
+
+## `found twins!` commit
+
+Commit `2872f95651a99b5f3690b8e74a4f373645b19759` (earthonion, 2026-01-04 23:44:04 -05:00; parent `6b7ae84b50a65a1d74c43e1904d93add87460d47`) changes `src/netctrl.js` with ROP workers, IPv6 spray, twin detection, leak buffers and R/W acquisition resources. No Celsius, UFS, FFS, `ffs_mountfs` or mount operation appears. Verified Netctrl evolution; invalid as Celsius bootstrap.
