@@ -1,0 +1,24 @@
+jordy_stage2_1089382: 267 identifiers
+ntfargo_netctrl: 319 identifiers
+ntfargo_kernel: 291 identifiers
+feyzee_lapse: 38 identifiers
+
+PAIRWISE OVERLAP
+
+jordy_stage2_1089382 vs ntfargo_netctrl: 24
+Find Read TODO addr base buffer catch console data debug false find from function kernel leak length message read return true with write x100
+
+jordy_stage2_1089382 vs ntfargo_kernel: 27
+Kernel Math Patch access addr buffer data debug false flags floor from function kernel length memory only range read return this true value with write x100 x4000
+
+jordy_stage2_1089382 vs feyzee_lapse: 5
+chain known pointer replace that
+
+ntfargo_netctrl vs ntfargo_kernel: 99
+AF_INET6 AF_UNIX Achieved Array BInt Create Error FILEDESCENT_SIZE Functions Initiate KQUEUE_SIZE KernelView MAIN_CORE NativeFunction PAGE_SIZE SOCK_STREAM SOL_SOCKET SO_SNDBUF Struct Structs SyscallError UCRED_SIZE Uint32 Uint64 Unable addr after alloc break buffer build_rthdr close const constants continue create data debug endregion false fdt_ofiles fget fhold file fput free free_karw_pipe free_rthdr from function getBInt getInt32 get_rthdr info invoke ip6_rthdr0 ip6r0_reserved kernel kernel_base kread leak_rthdr0_addr length logger make_karw_pipe make_socket master_pipe name number option pair_addr pin_to_core pipe_buf pipebuf read region return rthdr0 sched_yield setInt32 set_rthdr set_rtprio setsockopt setuid size sizeof slave_pipe sock socket spray_rthdr0_addr spray_rthdr0_len throw true type typeof undefined view with write x100
+
+ntfargo_netctrl vs feyzee_lapse: 4
+Unsupported switch throw x1000
+
+ntfargo_kernel vs feyzee_lapse: 1
+throw
