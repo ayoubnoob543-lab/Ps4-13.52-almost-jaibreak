@@ -79,3 +79,9 @@ La segunda imagen adjunta al post de Dr.Yenyen muestra un mensaje suyo que afirm
 Esta imagen aporta el dato más explícito localizado sobre requisitos operativos declarados y sobre una prueba informal (“I've already tested it a bit”), pero no contiene código, imagen UFS, hash, argumentos de `mount`, dirección, primitive de corrupción ni log reproducible. Se clasifica como **SOURCE_ONLY** para la implementación y como **HYPOTHESIS** para los detalles operativos no acompañados de artefacto.
 
 Fuente de imagen: `https://pbs.twimg.com/media/HNh9_EUWEAA3fwf?format=webp&name=medium`; SHA-256 local del WebP: `cd6860811c80ab7c0f73a8c189ecad0c187eb41a751d4815fa6efba2e8f723b6`.
+
+### Transcripción de la imagen primaria 3
+
+La tercera imagen adjunta dice que los userlands esperados en PS4 son **Vue y BD-J**, y en PS5 **Y2JB y BD-J**. Añade que la ejecución no tarda 50 minutos, pero requiere conectar el USB en el momento correcto y que el éxito depende del timing. No proporciona nombres de archivos, código, parámetros de montaje, imagen UFS, dirección o primitive de kernel R/W. Clasificación: **SOURCE_ONLY** para la elección de entrypoints y **HYPOTHESIS** para el detalle del timing hasta que exista una PoC pública.
+
+Fuente de imagen: `https://pbs.twimg.com/media/HNh9_YGWgAANBEm?format=webp&name=medium`; SHA-256 local del WebP: `767f2ce350dc97ed90298cd3de70aa5effe521d399d959658be0442b9ed14187`.

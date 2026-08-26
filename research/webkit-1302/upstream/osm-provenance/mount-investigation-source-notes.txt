@@ -879,3 +879,7 @@ Global commit search for `ffs_mountfs` returned FreeBSD upstream history and num
 ## Primary image 2 transcription
 
 The second image attached to Dr.Yenyen's July 18 post explicitly says Celsius was tested “a bit”, targets PS4 up to 13.04 including 13.02, was patched on PS4 13.50, is not Gezine's exploit, and requires a USB 3.0 drive of 250 GB or larger through extended storage; it recommends 320/500 GB due to drive variation. The image still contains no code, UFS image, hash, mount arguments, address, corruption primitive or reproducible log. Classify implementation as `SOURCE_ONLY`; unbacked operational details as `HYPOTHESIS`. Source: https://pbs.twimg.com/media/HNh9_EUWEAA3fwf?format=webp&name=medium, local SHA-256 `cd6860811c80ab7c0f73a8c189ecad0c187eb41a751d4815fa6efba2e8f723b6`.
+
+## Primary image 3 transcription
+
+The third image states that the expected PS4 userlands are Vue and BD-J, while PS5 uses Y2JB and BD-J. It says execution does not take 50 minutes but requires plugging in USB at the correct time, so success depends on timing. No code, mount parameters, UFS image, address or kernel-R/W primitive is shown. Classification: `SOURCE_ONLY` for the claimed entrypoints and `HYPOTHESIS` for timing until a public PoC exists. Source: https://pbs.twimg.com/media/HNh9_YGWgAANBEm?format=webp&name=medium, local SHA-256 `767f2ce350dc97ed90298cd3de70aa5effe521d399d959658be0442b9ed14187`.
