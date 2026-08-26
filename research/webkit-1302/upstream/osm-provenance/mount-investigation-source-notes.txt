@@ -275,3 +275,7 @@ The commit listed in the public history as `1089382ec1e0000e9557b7748d39b57952bb
 ## Search for vanished stage2 commit
 
 Exact searches for SHA `1089382ec1e0000e9557b7748d39b57952bbc4f6` and the messages “Replace skeleton with full stage 2” / “persistent r/w + ROP for 13.04” returned no indexed copy. This does not exclude private, deleted, or unindexed material, but no public recovery artifact was located. Classification: `VERIFIED` as a negative indexed search; any inference about private material remains `UNVERIFIED`.
+
+## Official Sony 13.50 documentation check
+
+Sony's current PS4 system-software support page provides update/reinstallation instructions and a current update link, but no technical changelog identifying kernel diffs. The extracted page contains no references to UFS, FFS, `ffs_mountfs`, `ffs_reload`, Celsius, or a security patch. Therefore the public Sony documentation does not corroborate the claim that Celsius was patched in 13.50. Classification: `VERIFIED` for the page contents; `INVALID` as evidence of the specific patch; the patch claim remains `SOURCE_ONLY` based on scene reports.
