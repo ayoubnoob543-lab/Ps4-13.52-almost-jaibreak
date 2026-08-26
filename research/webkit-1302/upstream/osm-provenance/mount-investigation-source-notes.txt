@@ -247,3 +247,7 @@ Issue #22: https://github.com/sleirsgoevy/ps4-hamachi/issues/22. In May 2026, a 
 ## Exact-name search result
 
 Searches for `offsets_ps4_10-50.md`, `offsets_ps4_12-02.md`, and `offsets_ps4_13-02.md` found only the ps4-hamachi issue and no independently indexed copies. This is a negative search result, not proof that private/unindexed copies do not exist. Classification: `VERIFIED` for the search result; `UNVERIFIED` for any inference about non-indexed material.
+
+## ConsoleMods Scene History artifact search
+
+ConsoleMods `PS4:Scene_History` was checked for the 13.02/13.04 entries. The page is a scene chronology and records historical kernel ELF loading, exploit releases, and later firmware support claims, but the relevant support statements do not provide a downloadable Orbis 13.02 kernel image, disassembly, hash, `ffs_mountfs` symbol, or Celsius PoC. Classification: `VERIFIED` as a chronology; `SOURCE_ONLY` for third-party support claims; `INVALID` as primary 13.02 FFS evidence.
