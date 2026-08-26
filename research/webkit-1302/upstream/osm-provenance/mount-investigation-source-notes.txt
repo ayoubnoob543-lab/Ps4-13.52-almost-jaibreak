@@ -267,3 +267,7 @@ Commit `96a79482d249fdbc6101bc641241488de66c313d` (2026-08-09) adds `stage2_jord
 The subsequent commit `1089382...` is listed in the public commit history as “Replace skeleton with full stage 2: persistent r/w + ROP for 13.04”, but the exact SHA did not resolve through the GitHub commit endpoint at the time of checking and the file is not present on current `main`; this requires further provenance checking. Until its exact tree/content and hardware evidence are obtained, the title alone remains `SOURCE_ONLY`, not proof of Celsius or 13.04 R/W.
 
 Classification: commit/file existence `VERIFIED`; skeleton status `VERIFIED` from source inspection; Celsius trigger `HYPOTHESIS`; 13.04 kernel R/W `UNVERIFIED_13_02`/`SOURCE_ONLY`; hardware validation `UNVERIFIED`.
+
+## Stage2 “full” commit availability check
+
+The commit listed in the public history as `1089382ec1e0000e9557b7748d39b57952bbc4f6` (“Replace skeleton with full stage 2: persistent r/w + ROP for 13.04”) returned `No commit found` from the GitHub API and a GitHub 404 page at the direct commit URL. Its content, tree, parent, and any claimed hardware evidence therefore cannot be independently inspected from the currently public repository surface. Classification: commit-list title `VERIFIED`; commit content and “full stage2” claim `UNVERIFIED`; Celsius/RW capability `SOURCE_ONLY` at most.
