@@ -175,3 +175,7 @@ Archivo auditado: `src/netctrl_c0w_twins.js`, SHA-256 y coincidencias preservado
 ## Procedencia temporal de `netctrl_c0w`
 
 La API del mirror sitúa la construcción de `netctrl_c0w` entre el 3 y el 5 de enero de 2026. Entre sus commits aparecen `lapse kext complete`, `fix fw 12.xx error`, `found twins!`, `add missing mmap patches offsets`, `fix lapse with new BigInt class` y `add binloader_lapse.js`. La rama es una línea histórica de Lapse/Netctrl y su propio historial no contiene `Celsius`, `ffs_mountfs`, UFS ni mount. Esto confirma que el código R/W encontrado no es una copia oculta de la PoC Celsius, sino una cadena previa e independiente que sólo puede servir como referencia arquitectónica para la primitive posterior a una corrupción.
+
+## Intento de verificación del origen GitHub de `vue-after-free`
+
+El intento de clonar `https://github.com/earthonion/vue-after-free.git` en la rama `netctrl_c0w` devolvió `Repository not found`. Esto no invalida el contenido visible del mirror `git.etawen.dev`, pero impide afirmar en esta sesión que la rama sea byte-a-byte idéntica a un repositorio GitHub accesible. La procedencia queda limitada a la API y los archivos raw del mirror; el error se clasifica como **origen GitHub no verificable**, no como ausencia del código.
