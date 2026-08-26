@@ -740,3 +740,7 @@ A fresh clone of `zecoxao/zecoxao.github.io` contains no current matches for `13
 ## Independent web-search check for 702fcc3 / zecoxao claim
 
 Search variants for the exact commit, `1304_libSceNKWebKit.sprx.decrypted (68 MB)` and `ffs_mountfs 0x7d021f Celsius 13.04` returned the scanner context indirectly, zecoxao's public profile/site, a secondary YouTube result titled about a “potential” Celsius kernel exploit, and general PS4 13.04 discussion. No independent indexed result exposed the alleged SPRX, a SHA-256, kernel bytes, disassembly, a hardware log, or an original bollars publication. The search results are therefore `SOURCE_ONLY`/`SECONDARY`, not corroboration of the technical claim.
+
+## Provenance of scanner tag binaries
+
+Git path history shows `scanner_1304.iso` was first added in commit `9d0d8e1a509d358439891d1994f5e52e047fd7b0` on 2026-07-18 by Adrián García Casado, as a 16 MiB binary, with no source URL, hash or imported provenance in the commit. `hen.bin` was first added in `3fd35a4e475698b59dae40794901a56126a38c52` on 2026-07-30 by the same author, as a 500736-byte binary, again without a source URL or derivation metadata. README credit lines mention BD-JB-1250, ps4-hen, Pharaoh2k and bollars but do not identify a binary provenance chain. Classification: commit dates/sizes/authors `VERIFIED`; origin as independent PS4 13.04 artifacts `UNVERIFIED/SOURCE_ONLY`.

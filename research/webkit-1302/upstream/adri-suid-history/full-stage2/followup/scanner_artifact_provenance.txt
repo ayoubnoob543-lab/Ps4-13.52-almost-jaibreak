@@ -1,0 +1,50 @@
+## path histories
+## introduction commits
+-- scanner_1304.iso first-add=9d0d8e1a509d358439891d1994f5e52e047fd7b0
+[33mcommit 9d0d8e1a509d358439891d1994f5e52e047fd7b0[m
+Author:     Adrián García Casado <adriangarciacasado42@gmail.com>
+AuthorDate: Sat Jul 18 13:45:20 2026 +0200
+Commit:     Adrián García Casado <adriangarciacasado42@gmail.com>
+CommitDate: Sat Jul 18 13:45:20 2026 +0200
+
+    PS4 SUID Scanner for FW 13.04 - BD-JB based
+
+ scanner_1304.iso | Bin [31m0[m -> [32m16777216[m bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+-- hen.bin first-add=3fd35a4e475698b59dae40794901a56126a38c52
+[33mcommit 3fd35a4e475698b59dae40794901a56126a38c52[m
+Author:     Adrián García Casado <adriangarciacasado42@gmail.com>
+AuthorDate: Thu Jul 30 01:45:04 2026 +0200
+Commit:     Adrián García Casado <adriangarciacasado42@gmail.com>
+CommitDate: Thu Jul 30 01:45:04 2026 +0200
+
+    Add compiled ps4-hen for FW 13.04 with full offsets
+
+ hen.bin | Bin [31m0[m -> [32m500736[m bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+## source/path mentions
+17: - **Verified:** Searched FreeBSD 9.0, 10.0, and 11.0 source trees[m
+40:[31m-- [BD-JB-1250](https://github.com/ps3120/BD-JB-1250) by ps3120/Gezine[m
+47:[32m+[m[32m- `scanner_1304.iso` — Pre-built ISO for testing[m
+53:[32m+[m[32m- ✅ **BD-JB** — Sandbox escape working (ps3120/Gezine)[m
+60:[32m+[m[32m- 🔥 **Celsius (ffs_mount)** — Integer overflow in ffs_mountfs(), works up to 13.04, patched in 13.50. Discovered by bollars.[m
+70:[32m+[m[32m- **2026-07-18**: Celsius (ffs_mount KEX) announced by bollars[m
+81: 1. Burn `scanner_1304.iso` to BD-R at 4x speed[m
+87:[31m-Requires modified BD-JB-1250 with SuidScanner.java integrated into InitXlet.[m
+91:[32m+[m[32mFull offsets in `1304.c` — based on 13.02 (identical kernel) verified by Pharaoh2k's offset table.[m
+144:[32m+[m[32m- [BD-JB-1250](https://github.com/ps3120/BD-JB-1250) by ps3120/Gezine[m
+149: - ps3120 — BD-JB-1250 and bdj1304.iso[m
+151: - Scene-Collective — ps4-hen open source offsets[m
+152: - Pharaoh2k — 13.04 kernel offsets verification[m
+153:[32m+[m[32m- bollars — Celsius (ffs_mount) discovery[m
+174:[32m+[m[32m- **Verified:** Searched FreeBSD 9.0, 10.0, and 11.0 source trees[m
+198:[32m+[m[32m- **Discovered by:** bollars (via kernel diffing)[m
+270:    Add Pharaoh2k to credits
+277: - ps3120 — BD-JB-1250 and bdj1304.iso[m
+279: - Scene-Collective — ps4-hen open source offsets[m
+280:[32m+[m[32m- Pharaoh2k — 13.04 kernel offsets verification[m
+300:[32m+[m[32m- [BD-JB-1250](https://github.com/ps3120/BD-JB-1250) by ps3120/Gezine[m
+309:[32m+[m[32m1. Burn `scanner_1304.iso` to BD-R at 4x speed[m
+315:[32m+[m[32mRequires modified BD-JB-1250 with SuidScanner.java integrated into InitXlet.[m
+322:[32m+[m[32m- ps3120 — BD-JB-1250 and bdj1304.iso[m
+324:[32m+[m[32m- Scene-Collective — ps4-hen open source offsets[m
