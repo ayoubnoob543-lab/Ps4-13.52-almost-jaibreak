@@ -251,3 +251,11 @@ Searches for `offsets_ps4_10-50.md`, `offsets_ps4_12-02.md`, and `offsets_ps4_13
 ## ConsoleMods Scene History artifact search
 
 ConsoleMods `PS4:Scene_History` was checked for the 13.02/13.04 entries. The page is a scene chronology and records historical kernel ELF loading, exploit releases, and later firmware support claims, but the relevant support statements do not provide a downloadable Orbis 13.02 kernel image, disassembly, hash, `ffs_mountfs` symbol, or Celsius PoC. Classification: `VERIFIED` as a chronology; `SOURCE_ONLY` for third-party support claims; `INVALID` as primary 13.02 FFS evidence.
+
+## ps4-suid-scanner technical-claim audit
+
+The current README and `cve_analysis.md` of `adri22235/ps4-suid-scanner` provide the most explicit public Celsius narrative found so far: they repeat “up to 13.04”, “patched in 13.50”, attribute discovery to bollars, describe an integer-overflow path in upstream-style `ffs_mountfs()`, and list requirements such as a malformed UFS image and large HDD. They also claim “CONFIRMED” for 13.04 and describe converting the overflow to kernel R/W.
+
+However, the checked files do not publish Orbis 13.02/13.04 kernel bytes, an Orbis disassembly/pseudocode listing, a reproducible Celsius PoC, a hardware log, a crash dump, a kernel hash, a patch diff against 13.50, or a primary bollars artifact. Their quoted C is recognizably FreeBSD/upstream-style source and is not by itself proof that Orbis retained the same implementation. The README separately says 13.04 offsets are based on 13.02 “identical kernel” and verified by Pharaoh2k, but gives no bytes or independent verification artifact.
+
+Classification: README/cve_analysis existence and wording `VERIFIED`; Celsius compatibility and 13.04 confirmation `SOURCE_ONLY`; exact Orbis code correspondence `HYPOTHESIS`/`UNVERIFIED_13_02`; claim of kernel R/W `SOURCE_ONLY`; 13.50 patch claim `SOURCE_ONLY`; upstream FreeBSD code pattern `CORROBORATED` only as historical context, not Orbis proof.
