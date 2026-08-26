@@ -66,3 +66,9 @@ Por tanto, el trabajo público permite construir una **arquitectura de reconstru
 [7]: https://consolemods.org/wiki/PS4:Exploit_Chart — estado público de exploits por firmware.
 [8]: https://github.com/Scene-Collective/ps4-kernel-dumper — dumper histórico para PS4.
 [9]: https://github.com/obhq/kernel-dumper — dumper/documentación histórica con soporte declarado 11.00.
+
+## Nueva pieza parcial: `libufs` del SDK
+
+La auditoría del SDK público `ps4-payload-dev/sdk` añadió una pieza útil para la reconstrucción de la imagen: `libufs` contiene rutinas userland como `ufs_disk_fillout`, `ufs_disk_fillout_blank` y `sbread` para abrir dispositivos o imágenes y leer estructuras de superbloque. El release v0.4 también anuncia `nmount` y el release v0.8 una implementación inicial de `libufs`.
+
+Esta pieza permite estudiar o generar metadatos FFS fuera de la consola, pero no implementa el kernel `ffs_mountfs`, no aporta la imagen Celsius original, no define cómo llegar al dispositivo USB/HDD de Orbis y no convierte ninguna corrupción en kernel R/W. Se clasifica como **VERIFIED** para la herramienta userland FreeBSD, **SOURCE_ONLY** para su posible utilidad en la imagen Celsius y **NOT PROVIDED** para la transición kernel.
