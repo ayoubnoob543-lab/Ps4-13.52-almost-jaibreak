@@ -826,3 +826,7 @@ The presumed public repository `Scene-Collective/psfree` could not be resolved b
 ## Scene-Collective/psfree lookup
 
 The presumed public repository `Scene-Collective/psfree` could not be resolved by GitHub. A repository search and the failed exact lookup are recorded separately; no code from that URL was treated as evidence. This leaves the WebKit/Jordy bootstrap gap unchanged and avoids conflating similarly named scene projects.
+
+## Direct GitHub repository/user discovery
+
+Repository searches for the exact terms `Celsius PS4`, `ffs_mount PS4`, `bollars PS4`, `Pharaoh2k PS4` and `DrYenyen PS4` returned no new direct project. An initial `gh search users` attempt used an unsupported flag and was corrected with the GitHub API; the corrected output is recorded separately. No result was treated as a Celsius artifact without inspecting its repository contents.
