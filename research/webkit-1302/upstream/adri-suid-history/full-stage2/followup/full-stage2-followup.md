@@ -169,3 +169,8 @@ El fork `hejran7/CSSFontFace-Exploit` contiene dos binarios adicionales, `pl_Ker
 La búsqueda de archivos eliminados muestra que `ps4-suid-scanner` sí elimina `stage2_jordy.js`, pero no aparece un sucesor más completo en el historial recuperable. En los repositorios CSSFontFace relacionados se eliminan módulos y parches históricos, no una implementación Celsius/13.02. El pickaxe Git muestra que `ffs_mountfs` y Celsius aparecen como texto añadido en `ps4-suid-scanner` en `96a7948` y `1089382`, además de la documentación de gadgets; no aparecen en la genealogía textual de `ntfargo`, `ps3120`, `wobkot` o `hejran7`.
 
 **Clasificación:** red de forks históricos, **DERIVED/NO INDEPENDIENTE**; payloads `hejran7`, **VERIFIED como herramientas** pero **UNVERIFIED para 13.02**; archivos eliminados, **VERIFIED**; procedencia de la narrativa `ffs_mountfs`/Celsius desde el scanner, **CORROBORATED por historial Git**; existencia de una pieza externa que complete Jordy, **no encontrada / UNVERIFIED**.
+
+
+## Verificación directa del commit de gadgets 13.04
+
+La respuesta limpia de la API de GitHub para `702fcc397d45546baab5311bc0a264870ae90042` muestra que el commit añade exactamente un archivo: `webkit_gadgets_1304.js`. El patch introduce literalmente los claims `1304_libSceNKWebKit.sprx.decrypted (68 MB) from zecoxao`, `ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)` y `CONFIRMED: Celsius (ffs_mount) is present in 13.04 kernel`. No añade URL de descarga, hash, binario, bytes circundantes, disassembly, límites de función, log de prueba ni referencia cruzada. La clasificación correcta es: existencia del texto `VERIFIED`; existencia del SPRX y comparación de kernels `SOURCE_ONLY`; Celsius en 13.04/13.02 `UNVERIFIED`.
