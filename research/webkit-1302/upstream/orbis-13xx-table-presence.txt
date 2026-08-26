@@ -1,0 +1,12 @@
+kpayload/include/offsets/1300.h
+kpayload/include/offsets/1302.h
+kpayload/include/offsets/1304.h
+kpayload/include/offsets/1350.h
+kpayload/include/offsets/1352.h
+kpayload/source/offsets/1300.c
+kpayload/source/offsets/1302.c
+kpayload/source/offsets/1304.c
+kpayload/source/offsets/1350.c
+kpayload/source/offsets/1352.c
+11833f16fd9a3ff2299cce4507ebd5ff8c838a3deeedb5eba50041599c0f343e  kpayload/source/offsets/1350.c
+ce636258349fd4559b4dd5d4dbd045caae0b9cd0c001057af7cae320aa2f30dd  kpayload/source/offsets/1352.c

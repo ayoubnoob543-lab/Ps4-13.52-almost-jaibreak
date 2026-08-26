@@ -1,0 +1,54 @@
+1-=== https://raw.githubusercontent.com/adri22235/ps4-suid-scanner/main/README.md ===
+2-# PS4 Security Research — Firmware 13.04
+3-
+4:Research tools and kernel offsets for PS4 firmware 13.04 security research.
+5-
+6-## Contents
+7-
+8:- `1304.c` / `1304.h` — Complete kernel offsets for FW 13.04
+9-- `1352_offsets.txt` — Partial kernel offsets for FW 13.52
+10-- `src/org/bdj/SuidScanner.java` — SUID/SGID binary scanner via BD-JB
+11-- `scanner_1304.iso` — Pre-built ISO for testing
+12-- `cve_analysis.md` — CVE analysis for PS4 kernel
+--
+27-### Latest News
+28-- **2026-07-21**: MasterMaind confirms BD-J sandbox escape up to 13.50/13.52
+29-- **2026-07-21**: etaHEN updated for PS5 up to 12.70
+30-- **2026-07-18**: Celsius (ffs_mount KEX) announced by bollars
+31:- **2026-07-18**: 13.04 kernel offsets published
+32-
+33-## SUID Scanner
+34-
+35-Scans the PS4 filesystem for SUID/SGID binaries via BD-JB userland exploit.
+--
+44-
+45-## Kernel Offsets
+46-
+47-### 13.04 (Complete)
+48:Full offsets in `1304.c` — based on 13.02 (identical kernel) verified by Pharaoh2k's offset table.
+49-
+50-### 13.52 (Partial)
+51-```
+52-PRISON0    = 0x111FA18
+--
+102-## Credits
+103-- ps3120 — BD-JB-1250 and bdj1304.iso
+104-- Gezine — BD-JB vulnerability discovery
+105-- Scene-Collective — ps4-hen open source offsets
+106:- Pharaoh2k — 13.04 kernel offsets verification
+107-- bollars — Celsius (ffs_mount) discovery
+108-- MasterMaind (@ASaudidos) — BD-J escape confirmation up to 13.52
+109-- Shunsui — MP4 parser vulnerability discovery and analysis
+110-- Victor — Celsius confirmation and technical guidance
+--
+118-#include "offsets/1304.h"
+119-
+120-// clang-format off
+121-
+122:// PS4 Kernel Offsets - Firmware 13.04
+123:// Based on 13.02 offsets (identical kernel) + Pharaoh2k's verification table
+124:// Credits: Pharaoh2k, Adrián García Casado, Scene-Collective
+125-
+126-const struct kpayload_offsets offsets_1304 PAYLOAD_RDATA = {
+127-  // data
+128-  .XFAST_SYSCALL_addr              = 0x000001C0,

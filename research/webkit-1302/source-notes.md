@@ -220,3 +220,7 @@ La publicación contiene tres imágenes y no contiene código, PoC, commit, hash
 Fuente: https://consolemods.org/wiki/PS4:Exploit_Chart
 
 La tabla muestra para firmware 13.02–13.04: “No public kernel exploit exists for the recent/latest firmware” y explica que no hay exploits públicos posteriores a 13.00. No menciona Celsius como exploit funcional. Clasificación: `CORROBORATED` para el estado público de ausencia de kernel exploit reproducible; no prueba que Celsius no exista ni que esté parcheado.
+
+## Pharaoh2k — revisión directa del perfil público
+
+Fuente: https://github.com/Pharaoh2k. El perfil muestra 27 repositorios públicos y repositorios fijados como `PlayStation-Payload-Center`, `ps5debug-NG`, `ScriptSK/Reaper-Software-Suite` y un fork de FileZilla. La búsqueda local/GitHub no localizó en los repositorios visibles una tabla `1302.h`/`1304.h`, código FFS, kernel Orbis ni el artefacto original de Celsius. La atribución de `adri22235/ps4-suid-scanner` a una “Pharaoh2k offset table” queda por tanto sin artefacto primario identificado: `SOURCE_ONLY`.

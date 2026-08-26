@@ -1,0 +1,1162 @@
+=== users/repos ===
+[1;37m{[m
+  [1;34m"message"[m[1;37m:[m [32m"Not Found"[m[1;37m,[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/rest"[m[1;37m,[m
+  [1;34m"status"[m[1;37m:[m [32m"404"[m
+[1;37m}[m
+=== code/search web ===
+[1;37m[[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"ps4/includes.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4NDEzNTkyMzA="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"alferdoss/SLOPOS-offsets"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/alferdoss/SLOPOS-offsets"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/alferdoss/SLOPOS-offsets/blob/70ed72abb7392ea435f90617f597670c428c478e/ps4/includes.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"2017/12/31.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1OTgwODQ1OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kujian/frontendDaily"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kujian/frontendDaily"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kujian/frontendDaily/blob/c17dd4ffa6e35509690edb5d17ca25d3d460d322/2017/12/31.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"2018/07/29.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1OTgwODQ1OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kujian/frontendDaily"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kujian/frontendDaily"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kujian/frontendDaily/blob/c17dd4ffa6e35509690edb5d17ca25d3d460d322/2018/07/29.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"2019/05/16.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1OTgwODQ1OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kujian/frontendDaily"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kujian/frontendDaily"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kujian/frontendDaily/blob/c17dd4ffa6e35509690edb5d17ca25d3d460d322/2019/05/16.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"2019/08/14.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1OTgwODQ1OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kujian/frontendDaily"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kujian/frontendDaily"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kujian/frontendDaily/blob/c17dd4ffa6e35509690edb5d17ca25d3d460d322/2019/08/14.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"titled/电合成氨.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMjU4NjE2MTM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"itrewub/jh-notes"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/itrewub/jh-notes"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/itrewub/jh-notes/blob/2d3cd709f10855543071a85571310534337ff5fa/titled/电合成氨.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"Core/Inc/TCD1304.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDM1ODA1NDg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"vSLG/tcd1304-driver"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/vSLG/tcd1304-driver"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/vSLG/tcd1304-driver/blob/074398ac0ca084215d37cf283c8f5d3ec66902c7/Core/Inc/TCD1304.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"Bsp/tcd1304.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzkwODIwOTI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"wpmyj/TCD1304-CCD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/wpmyj/TCD1304-CCD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/wpmyj/TCD1304-CCD/blob/4c8eb4edb4cf427ea2bcf50a51dbd59f72987507/Bsp/tcd1304.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/chips/TCD1304.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMzc3MzkwMzc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ToolChainGang/AtmegaLib"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ToolChainGang/AtmegaLib"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ToolChainGang/AtmegaLib/blob/aff774eaaec6438462b3e426fcf9b126862bfa08/src/chips/TCD1304.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"dataset/train.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NzQ5ODI3Mjk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"iarai/Landslide4Sense-2022"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/iarai/Landslide4Sense-2022"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/iarai/Landslide4Sense-2022/blob/2df4c378cfc4a0feedf197826e769da520100d81/dataset/train.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"dataset/ICD/1304.hea.dvc"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0Nzc4MjQ2NzY="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"virati/tocophase"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/virati/tocophase"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/virati/tocophase/blob/d2b8ad8a15771b4eeaf4a86ef46415b8c1a28639/dataset/ICD/1304.hea.dvc"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"content/show/linux-unplugged/0610.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NzU2NzI4NjQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"JupiterBroadcasting/jupiterbroadcasting.com"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/JupiterBroadcasting/jupiterbroadcasting.com"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/JupiterBroadcasting/jupiterbroadcasting.com/blob/18a2a5e002c26f69dcb91dde5e635fa28ac9bc8b/content/show/linux-unplugged/0610.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"content/letter/1304.html.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0ODc2NjU5MDg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ccnmtl/epistolae-hugo"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ccnmtl/epistolae-hugo"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ccnmtl/epistolae-hugo/blob/f8f5e7ace0474e4b36ff05494dc3212365d2e369/content/letter/1304.html.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"README.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzOTgyMDEzNw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"SuooL/KungfuBoy"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/SuooL/KungfuBoy"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/SuooL/KungfuBoy/blob/5fe8a89fecbe4f4eb5e6e4bbcdbf4e47bfbcad8c/README.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"safe/README.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNjIyMTM1NTk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"mydnsvip/Public"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/mydnsvip/Public"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/mydnsvip/Public/blob/06d8a0f4f9267bd25ea3d9b09aa45aec6e33000e/safe/README.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/1300/README.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNTEzMDgzOTI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"potigol/beecrowd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/potigol/beecrowd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/potigol/beecrowd/blob/0e99fb167a5ddea76d6d07e5ff9d4b8152f4e324/src/1300/README.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"OldForum/1303.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzIwNDc4OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"FeynCalc/feyncalc.github.io"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/FeynCalc/feyncalc.github.io"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/FeynCalc/feyncalc.github.io/blob/a0807b1f85215497e8445ba4b2896c61b3f2ec50/OldForum/1303.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"OldForum/1301.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzIwNDc4OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"FeynCalc/feyncalc.github.io"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/FeynCalc/feyncalc.github.io"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/FeynCalc/feyncalc.github.io/blob/a0807b1f85215497e8445ba4b2896c61b3f2ec50/OldForum/1301.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"OldForum/1305.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzIwNDc4OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"FeynCalc/feyncalc.github.io"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/FeynCalc/feyncalc.github.io"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/FeynCalc/feyncalc.github.io/blob/a0807b1f85215497e8445ba4b2896c61b3f2ec50/OldForum/1305.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"adk/adk.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2MDUxNTEzMDk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"nordicsemi/npmx"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/nordicsemi/npmx"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/nordicsemi/npmx/blob/4da2753cf47b7fb2cd4443e518eb7b9aaca6fe2f/adk/adk.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"board/1303_1304.cpp"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNjQ4NTU5NTg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"hamayanShowa-ele/stm32fProjects"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/hamayanShowa-ele/stm32fProjects"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/hamayanShowa-ele/stm32fProjects/blob/ecdcf27410700952f2a181bf065cf116c1c8e17b/board/1303_1304.cpp"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"lists/DCPDNData/train_list.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNzk3Nzc1NTQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"liu-vis/DualResidualNetworks"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/liu-vis/DualResidualNetworks"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/liu-vis/DualResidualNetworks/blob/9e46eaa6a8676641dc42525c1bbd1f5178fce31b/lists/DCPDNData/train_list.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"docs/求生/drown.zh.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2ODg5NTQ0NDE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"orcas-lab/hope-you-never-need-it"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/orcas-lab/hope-you-never-need-it"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/orcas-lab/hope-you-never-need-it/blob/fa394ed8f4d5847e006b5f42833b20afd00949a1/docs/求生/drown.zh.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"app-scripts/FPMMM/readme.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM2MDI0NA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"marksugar/zabbix-complete-works"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/marksugar/zabbix-complete-works"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/marksugar/zabbix-complete-works/blob/7579b0f96e13095968e9521c744854d1f1a3928e/app-scripts/FPMMM/readme.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"content/cwes/cwe-1304.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4ODQzOTQ2NDE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"VulnerabilityHistoryProject/rust-are-we-secure-yet"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/VulnerabilityHistoryProject/rust-are-we-secure-yet"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/VulnerabilityHistoryProject/rust-are-we-secure-yet/blob/132ff4c9850c04716a86878efcce2a8cfe4ab1d9/content/cwes/cwe-1304.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"help/PBPFC110.hhp"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5NjE1MzI3OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"OpenSourcePFCLibraries/2017"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/OpenSourcePFCLibraries/2017"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/OpenSourcePFCLibraries/2017/blob/4c410a1631b8a54cf3f639c7914a8668c0419930/help/PBPFC110.hhp"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"templates/npmx_config.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2MDUxNTEzMDk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"nordicsemi/npmx"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/nordicsemi/npmx"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/nordicsemi/npmx/blob/4da2753cf47b7fb2cd4443e518eb7b9aaca6fe2f/templates/npmx_config.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"node/1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMTEwNDAzODk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"OSWINDS/oswinds.github.io"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/OSWINDS/oswinds.github.io"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/OSWINDS/oswinds.github.io/blob/0539fb453d5e7070413ca19802da124e36434970/node/1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"categorias/matemática.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNTEzMDgzOTI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"potigol/beecrowd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/potigol/beecrowd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/potigol/beecrowd/blob/0e99fb167a5ddea76d6d07e5ff9d4b8152f4e324/categorias/matemática.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"mul-1304.htm"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4NzU3Mzg3ODk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"free-worlds-tech/unit-digest"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/free-worlds-tech/unit-digest"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/free-worlds-tech/unit-digest/blob/12e56839be1e5764ffdc89d0c1e84f995a934007/mul-1304.htm"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"hotseat/598.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNDMzODA2MDE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Siri0n/tictactoe"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Siri0n/tictactoe"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Siri0n/tictactoe/blob/db8b247a5f0f20ce5352ddf64baf0d543aef2b8d/hotseat/598.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"hotseat/415.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNDMzODA2MDE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Siri0n/tictactoe"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Siri0n/tictactoe"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Siri0n/tictactoe/blob/db8b247a5f0f20ce5352ddf64baf0d543aef2b8d/hotseat/415.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/mightex1304.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzNzI3NDY5NTM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"pbosetti/mightex"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/pbosetti/mightex"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/pbosetti/mightex/blob/16a45d86ae1ffc2120344636b0f019e48bc45fca/src/mightex1304.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"archive/2022/2022-12-26.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0Nzg4MDk3MTM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Vu1nT0tal/yarb"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Vu1nT0tal/yarb"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Vu1nT0tal/yarb/blob/ca513d42c8fb350b4fa69e8069cebe5f569eebd7/archive/2022/2022-12-26.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"node/1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2OTg2OTY2"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"sundaysenergy/www.getoutzine.com"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/sundaysenergy/www.getoutzine.com"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/sundaysenergy/www.getoutzine.com/blob/d80acadb1055a743d4cb9f90186add5144177a9c/node/1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3NDY4MDU0Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"thingdom/thingdom-archive"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/thingdom/thingdom-archive"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/thingdom/thingdom-archive/blob/0e9dc39a9fcce69677227929a9590d88c8f1cdb6/1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"2015/ELSA-2012-1304.nasl"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4NjgzMjQwMQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"xqcyberscore/nvt"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/xqcyberscore/nvt"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/xqcyberscore/nvt/blob/978f6a9acb495d7d669239530ffe6da5d631f4da/2015/ELSA-2012-1304.nasl"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"Data/1303.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1MzA1NTgxNjQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"cf-convention/mailing-list-archive"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/cf-convention/mailing-list-archive"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/cf-convention/mailing-list-archive/blob/9ae5665931ebc6882510cf8c7056af3733b62605/Data/1303.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"htmljw/1304.htm"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxODc1NDY4MzM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lovebell/qldzj"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lovebell/qldzj"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lovebell/qldzj/blob/029cff59922012b5672761e38156bc8df2cf84b8/htmljw/1304.htm"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4MjA1ODY1MjM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"yarnetsky/ontheriversedge"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/yarnetsky/ontheriversedge"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/yarnetsky/ontheriversedge/blob/c4512e1a99be94d1788988c4e4697a6e1d9e0c04/1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"minutes/2023.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyODI5ODgyNzk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ossf/wg-best-practices-os-developers"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ossf/wg-best-practices-os-developers"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ossf/wg-best-practices-os-developers/blob/eb54fd9f4264bebab64586d92dffc914fbe8c896/minutes/2023.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"README.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNTQyNjAwNDE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"anjoy8/ChristDDD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/anjoy8/ChristDDD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/anjoy8/ChristDDD/blob/e45025425725e8e9b30f974211d4152314e81a1f/README.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"content/people/21506.html.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0ODc2NjU5MDg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ccnmtl/epistolae-hugo"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ccnmtl/epistolae-hugo"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ccnmtl/epistolae-hugo/blob/f8f5e7ace0474e4b36ff05494dc3212365d2e369/content/people/21506.html.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"game/1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNTg5MzQ2Mjk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"adminrt/xz59"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/adminrt/xz59"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/adminrt/xz59/blob/f637961c205d163832aee4f2b5e158a41586731a/game/1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"soft/1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNTg5MzQ2Mjk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"adminrt/xz59"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/adminrt/xz59"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/adminrt/xz59/blob/f637961c205d163832aee4f2b5e158a41586731a/soft/1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"job-1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5ODUwNjQ3OTg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Daisuke71/job-site"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Daisuke71/job-site"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Daisuke71/job-site/blob/44dbd9391a468ffea8dd57745dc3208fdcf2154b/job-1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"WebSpider/parco.py"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzNTI5MjgzNjY="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Honour-Van/CS50"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Honour-Van/CS50"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Honour-Van/CS50/blob/409b480eed517ac838a449fe3637d79c6b66628c/WebSpider/parco.py"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"09/1304.htm"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5ODM1NTE3NDE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"appcode1/bible"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/appcode1/bible"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/appcode1/bible/blob/d35ee82a37b75f852468a9ba8ac9d1c3038eed63/09/1304.htm"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"hU_urls.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzODkzMDcyODk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"tech234a/annotation-urls"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/tech234a/annotation-urls"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/tech234a/annotation-urls/blob/5c0300471b87c6a5f3dd8883484f8155b5ff33d7/hU_urls.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"Xf_urls.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzODkzMDcyODk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"tech234a/annotation-urls"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/tech234a/annotation-urls"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/tech234a/annotation-urls/blob/5c0300471b87c6a5f3dd8883484f8155b5ff33d7/Xf_urls.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"A5_urls.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzODkzMDcyODk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"tech234a/annotation-urls"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/tech234a/annotation-urls"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/tech234a/annotation-urls/blob/5c0300471b87c6a5f3dd8883484f8155b5ff33d7/A5_urls.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"Z8_urls.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzODkzMDcyODk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"tech234a/annotation-urls"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/tech234a/annotation-urls"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/tech234a/annotation-urls/blob/5c0300471b87c6a5f3dd8883484f8155b5ff33d7/Z8_urls.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"WF_urls.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzODkzMDcyODk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"tech234a/annotation-urls"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/tech234a/annotation-urls"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/tech234a/annotation-urls/blob/5c0300471b87c6a5f3dd8883484f8155b5ff33d7/WF_urls.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"待归档/电合成氨.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzOTY3ODU1Nzg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"AaNingNing/Sth-Matters"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/AaNingNing/Sth-Matters"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/AaNingNing/Sth-Matters/blob/7e3ec38c079a09d14e0fc292fd40a2e3df42eb7b/待归档/电合成氨.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sacred_obsidian_vault/aor/dv/1303.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1ODgzNDI2NTE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"jonnyg23/mahabrain"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/jonnyg23/mahabrain"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/jonnyg23/mahabrain/blob/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/aor/dv/1303.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"math/singular/pkg-plist"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5MDE5NDk4NA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"freenas/iocage-ports"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/freenas/iocage-ports"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/freenas/iocage-ports/blob/0491a2502fefc0b52a94b9080e86fe2f242c2942/math/singular/pkg-plist"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"Data/1305.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1MzA1NTgxNjQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"cf-convention/mailing-list-archive"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/cf-convention/mailing-list-archive"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/cf-convention/mailing-list-archive/blob/9ae5665931ebc6882510cf8c7056af3733b62605/Data/1305.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"2021/2021-08-01.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMjIxODIwODU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"plctlab/PLCT-Weekly"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/plctlab/PLCT-Weekly"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/plctlab/PLCT-Weekly/blob/7228c762e395514d6c7f1cfcb2e7d8f21c82a4fa/2021/2021-08-01.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"ticket/1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0Mzk0Njg5OQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"indico/legacy-docs"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/indico/legacy-docs"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/indico/legacy-docs/blob/ff2b04c6aa10f5d99c26664fda6697d14b86d185/ticket/1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"docs/dl-quick-ref/00.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNzg4MTk2MzU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"apachecn/apachecn-dl-zh"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/apachecn/apachecn-dl-zh"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/apachecn/apachecn-dl-zh/blob/22f39df4f9c3b79822e977c825d5d6005e73bbe7/docs/dl-quick-ref/00.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"data_split/One_train.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0OTk2OTI3NDc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"HauLiang/DAMAS-FISTA-Net"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/HauLiang/DAMAS-FISTA-Net"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/HauLiang/DAMAS-FISTA-Net/blob/bd74ab0e4fda2c37e3ef13fefd1fb0fbab1678c4/data_split/One_train.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"content/woman/156.html.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0ODc2NjU5MDg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ccnmtl/epistolae-hugo"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ccnmtl/epistolae-hugo"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ccnmtl/epistolae-hugo/blob/f8f5e7ace0474e4b36ff05494dc3212365d2e369/content/woman/156.html.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxOTc0Mjk3NzM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"imagej/tickets"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/imagej/tickets"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/imagej/tickets/blob/ef3de0e7a00132fd410f5042d546d1007ae7767c/1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/chips/CMakeLists.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMzc3MzkwMzc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ToolChainGang/AtmegaLib"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ToolChainGang/AtmegaLib"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ToolChainGang/AtmegaLib/blob/aff774eaaec6438462b3e426fcf9b126862bfa08/src/chips/CMakeLists.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"doc/month-1609.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4NzgwNzkxNQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"sm-fe/month"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/sm-fe/month"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/sm-fe/month/blob/ea5ad3ede5b6a983277f638f8a76dd8571762fda/doc/month-1609.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"1853_195849_直播20240417.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3NzMzNzY5ODQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"jjj999346/66636"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/jjj999346/66636"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/jjj999346/66636/blob/3537864d2c3c92923316c3fde329f100c9454775/1853_195849_直播20240417.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"pdf/baked.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1MjMxMjgzODc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"becarpenter/book6"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/becarpenter/book6"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/becarpenter/book6/blob/98c8577c1fd0d3773d98fd094777ca29e0d37d0b/pdf/baked.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"tmp/13.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNTE2OTkyNjA="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"foxiswho/area-go"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/foxiswho/area-go"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/foxiswho/area-go/blob/a2374867dfd685eada411e566888fa155c06aab8/tmp/13.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"drivers/npmx/npmx_config.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDI0MTkwODg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"nordicsemi/npmx-zephyr"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/nordicsemi/npmx-zephyr"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/nordicsemi/npmx-zephyr/blob/0428d4b92d4f2a603fce1d2805c2da938121fa7f/drivers/npmx/npmx_config.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"Data/1328.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1MzA1NTgxNjQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"cf-convention/mailing-list-archive"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/cf-convention/mailing-list-archive"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/cf-convention/mailing-list-archive/blob/9ae5665931ebc6882510cf8c7056af3733b62605/Data/1328.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"OldForum/thread.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzIwNDc4OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"FeynCalc/feyncalc.github.io"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/FeynCalc/feyncalc.github.io"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/FeynCalc/feyncalc.github.io/blob/a0807b1f85215497e8445ba4b2896c61b3f2ec50/OldForum/thread.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"node/1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyOTk0Mjc3NTQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"bensheldon/digitalartscorps.org-archive"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/bensheldon/digitalartscorps.org-archive"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/bensheldon/digitalartscorps.org-archive/blob/e0901bd8760e63756cf673416632279ce121289a/node/1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"docs/list/hmbxg.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1NjIwNTc2ODU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"wjfstruggle/it-resource"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/wjfstruggle/it-resource"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/wjfstruggle/it-resource/blob/c4cf40dc7f9a5d3f3ed6fa359d436e601bfcebd3/docs/list/hmbxg.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"monerodownloader/example_domains.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MTY2NjcyOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"baderj/domain_generation_algorithms"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/baderj/domain_generation_algorithms"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/baderj/domain_generation_algorithms/blob/0faef452d267a62a94124ef2806bc4a72e0913bd/monerodownloader/example_domains.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"docs/level/hmbxg.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1NjIwNTc2ODU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"wjfstruggle/it-resource"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/wjfstruggle/it-resource"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/wjfstruggle/it-resource/blob/c4cf40dc7f9a5d3f3ed6fa359d436e601bfcebd3/docs/level/hmbxg.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"data/wordlists/raft-small-files.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NzU0MTA5OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Averroes/raft"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Averroes/raft"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Averroes/raft/blob/486dd20ab042ccd01dcbe11d03b9275e8e596418/data/wordlists/raft-small-files.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"pdf/baked_epub.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1MjMxMjgzODc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"becarpenter/book6"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/becarpenter/book6"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/becarpenter/book6/blob/98c8577c1fd0d3773d98fd094777ca29e0d37d0b/pdf/baked_epub.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"docs/dl-quick-ref/04.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNzg4MTk2MzU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"apachecn/apachecn-dl-zh"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/apachecn/apachecn-dl-zh"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/apachecn/apachecn-dl-zh/blob/22f39df4f9c3b79822e977c825d5d6005e73bbe7/docs/dl-quick-ref/04.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"2002-05/1303.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNjEyNjQ0MA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"cc65/mailarchive"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/cc65/mailarchive"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/cc65/mailarchive/blob/24b71990dee0842a05f49301e5a1f199ff3b8bac/2002-05/1303.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"data/Two_train.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0ODA3MTI4MTk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"JoaquinChou/DAMAS_FISTA_Net"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/JoaquinChou/DAMAS_FISTA_Net"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/JoaquinChou/DAMAS_FISTA_Net/blob/c2d8380bb20e2e1e7d3e0560b460477556f9965b/data/Two_train.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"lang_model/ruwiki/text/7387"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjcxNzIzMQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"vinhqdang/wikipedia_analysis"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/vinhqdang/wikipedia_analysis"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/vinhqdang/wikipedia_analysis/blob/a8a849c8bd5dd6101ebbe8e204e8c7722e99527f/lang_model/ruwiki/text/7387"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"content/legal/reports.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNjg3NjA3MDE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"nulib/florence-kelley"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/nulib/florence-kelley"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/nulib/florence-kelley/blob/056d04cda5d9792936b1f4fef2788f5a1ab119f4/content/legal/reports.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"content/posts/2008-07-14.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzg5NzEwOTQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kkeisuke/hatebu-kkeisuke-client"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kkeisuke/hatebu-kkeisuke-client"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kkeisuke/hatebu-kkeisuke-client/blob/cee8b936213362c0b16b84dafbb57e802d3fe19c/content/posts/2008-07-14.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/chips/TCD1304.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMzc3MzkwMzc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ToolChainGang/AtmegaLib"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ToolChainGang/AtmegaLib"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ToolChainGang/AtmegaLib/blob/aff774eaaec6438462b3e426fcf9b126862bfa08/src/chips/TCD1304.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"crawlBaidubaike/start_urls.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4NTQ4MTAxOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NoTwice1/openkg-link"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NoTwice1/openkg-link"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NoTwice1/openkg-link/blob/f62b810e3a331e09dd6d61944b5a28e729e98a6d/crawlBaidubaike/start_urls.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"mm/g/1305.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMjU4NTM2MQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"evensandbox/blog"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/evensandbox/blog"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/evensandbox/blog/blob/be3026983c0539ea0eb7defa718d47f1a0911f5e/mm/g/1305.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"87/1304.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5NzU5Mzg2NjM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"pjlqwz/www.pj-hospital.com"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/pjlqwz/www.pj-hospital.com"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/pjlqwz/www.pj-hospital.com/blob/0ff547b17e996a16ff9f816713ec099345641b7a/87/1304.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"content/english/blog/source-1304.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzE2NDUyMDc3"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"imicjs/imicjs.github.io"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/imicjs/imicjs.github.io"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/imicjs/imicjs.github.io/blob/d2a0e3dc8937ef3b65736a123c851f12d434b26a/content/english/blog/source-1304.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"data/BugReports/DERBY-1304.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzc3MTQyNzg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"TruX-DTF/PatchParser"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/TruX-DTF/PatchParser"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/TruX-DTF/PatchParser/blob/dd4aaccb943301bb6a361e737eb5f93f8f73dae1/data/BugReports/DERBY-1304.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"live.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4OTM2NjY3MDM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"gengliye/TV"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/gengliye/TV"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gengliye/TV/blob/6890bc98dee5185320b7589317564a4cca6b8b97/live.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"20.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5ODU5MDk1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"openlawdc/simple-2012"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/openlawdc/simple-2012"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/openlawdc/simple-2012/blob/3e3001e077d12b1429aea6a010074549c502628c/20.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"docs/list/黑马博学谷.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1NjIwNTc2ODU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"wjfstruggle/it-resource"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/wjfstruggle/it-resource"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/wjfstruggle/it-resource/blob/c4cf40dc7f9a5d3f3ed6fa359d436e601bfcebd3/docs/list/黑马博学谷.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"23.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5ODU5MDk1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"openlawdc/simple-2012"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/openlawdc/simple-2012"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/openlawdc/simple-2012/blob/3e3001e077d12b1429aea6a010074549c502628c/23.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"data/BugReports/MAHOUT-1304.txt"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzc3MTQyNzg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"TruX-DTF/PatchParser"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/TruX-DTF/PatchParser"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/TruX-DTF/PatchParser/blob/dd4aaccb943301bb6a361e737eb5f93f8f73dae1/data/BugReports/MAHOUT-1304.txt"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"text_data/21290"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNjQ3Mjg1OTc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Mjidiba97/French-Web-Domain-Classification-Using-Text-and-Graph-Data"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Mjidiba97/French-Web-Domain-Classification-Using-Text-and-Graph-Data"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Mjidiba97/French-Web-Domain-Classification-Using-Text-and-Graph-Data/blob/4564d36254a46a21b4871caab7ff8d9ad2e493be/text_data/21290"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"Cocos.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzI3NzAyMzE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lihuilai/bookmarks"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lihuilai/bookmarks"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lihuilai/bookmarks/blob/de8fc00155f8733b0b9c5ea355c136cd89462a2e/Cocos.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"README.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NDI2NTAyNjY="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"VeeamHub/veeam-healthcheck"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/VeeamHub/veeam-healthcheck"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/VeeamHub/veeam-healthcheck/blob/06676833781052aec42331fa02f88ba4cfb17003/README.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"6.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5ODU5MDk1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"openlawdc/simple-2012"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/openlawdc/simple-2012"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/openlawdc/simple-2012/blob/3e3001e077d12b1429aea6a010074549c502628c/6.html"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"doc/singular.idx"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMTQ2MDQz"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Singular/spielwiese-ci"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Singular/spielwiese-ci"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Singular/spielwiese-ci/blob/1c1d660c7201e1779c8af50b3966da3a6e5cbe7c/doc/singular.idx"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"32.html"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5ODU5MDk1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"openlawdc/simple-2012"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/openlawdc/simple-2012"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/openlawdc/simple-2012/blob/3e3001e077d12b1429aea6a010074549c502628c/32.html"[m
+  [1;37m}[m
+[1;37m][m
+=== local refs ===
+./research/webkit-1302/source-notes.md:65:La tabla pública agrupa `13.02–13.04` y declara que no existe un kernel exploit público para el firmware reciente/latest; recomienda esperar o conservar la consola. Esto coincide con el estado local: puede existir userland Vue para 13.02, pero no hay una cadena kernel pública verificada para 13.02.
+./research/webkit-1302/source-notes.md:79:Las búsquedas públicas sobre `Netctrl/ucred`, `Lapse/semctl` y kernel exploit 13.02 devolvieron principalmente discusiones, vídeos y tablas de estado. La fuente secundaria más clara continúa siendo [ConsoleMods Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart), que agrupa 13.02–13.04 y declara que no existe kernel exploit público posterior a 13.00.
+./research/webkit-1302/source-notes.md:87:La página de [RiyonAbib07/ps-vue-jb-2.5](https://github.com/RiyonAbib07/ps-vue-jb-2.5) declara explícitamente un alcance de jailbreak 7.00–13.00. Su README separa `vue-after-free` userland 5.05–13.04, Lapse 1.01–12.02 y Netctrl 1.01–13.00; la FAQ indica que en 13.02 o superior sólo funciona userland. El repositorio tiene 226 commits, una rama, ningún tag y su commit visible `1e8e2ad` es una corrección de estabilidad fechada 11 de marzo de 2026. La metadata consultada indica que no es fork, tiene dos forks y fue actualizado en GitHub el 17 de agosto de 2026.
+./research/webkit-1302/source-notes.md:131:La tabla [ConsoleMods PS4 Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart) agrupa `13.02–13.04` y declara que no existe kernel exploit público para el firmware reciente/latest; la acción recomendada es conservar o vender la consola. La página es una tabla secundaria, no una PoC ni un log de hardware, por lo que se clasifica `CORROBORATED` sólo para el estado público, no como prueba de ausencia absoluta.
+./research/webkit-1302/source-notes.md:145:La discusión de [Reddit sobre 13.00/13.02/13.04](https://www.reddit.com/r/ps4piracy/comments/1qv6ohi/clearing_up_ps4_jailbreak_confusion_current/) repite “Poopsploit patched” para 13.02 y “userland only”, pero es una discusión comunitaria sin prueba técnica primaria. Se clasifica `CORROBORATED` sólo como consenso público de la frontera 13.00/13.02 y `UNVERIFIED_13_02` para la causalidad exacta del parche.
+./research/webkit-1302/source-notes.md:153:En `ps4-linux-loader`, el header 13.02 aparece en `3d7a5456b75c` (2025-12-31). Las releases `v21`, `v21.5` y `v24b.1` anuncian payloads 13.02, pero escriben `13.02(?)`; el commit posterior `217e272eb099` (2026-05-11) añade 13.04/13.50 y mantiene 13.02 como payload de kexec/Linux. No se encontró en ese repositorio la implementación Netctrl/ucred ni una prueba de que los payloads de Linux demuestren la primitive Netctrl en 13.02.
+./research/webkit-1302/source-notes.md:190:La discusión y el post revisado son material secundario/comunitario. El contenido visible habla de avances generales y mantiene el límite público de jailbreak de PS4 en 13.00; no aporta el repositorio original de Celsius, una PoC, un log de PS4 13.02/13.04, un diff de kernel ni una explicación independiente del supuesto parche 13.50. Clasificación para Celsius en 13.02: `SOURCE_ONLY` como rumor/seguimiento de escena, no `VERIFIED` ni `CORROBORATED`.
+./research/webkit-1302/source-notes.md:198:[Publicación de GAMERZ 56K en YouTube](https://www.youtube.com/post/UgkxE2BPYs9Rf7TJgKq8GqnZlTh-kOpDU15F) repite las mismas afirmaciones: `ffs_mount`, integer overflow/heap overflow, PS4 hasta 13.04 incluyendo 13.02, patch 13.50+, disco USB 3.0 recomendado de 320/500 GB y ausencia de garantía de estabilidad. No aporta código, commit, log de hardware ni fuente primaria independiente. Clasificación: `SOURCE_ONLY`.
+./research/webkit-1302/source-notes.md:222:La tabla muestra para firmware 13.02–13.04: “No public kernel exploit exists for the recent/latest firmware” y explica que no hay exploits públicos posteriores a 13.00. No menciona Celsius como exploit funcional. Clasificación: `CORROBORATED` para el estado público de ausencia de kernel exploit reproducible; no prueba que Celsius no exista ni que esté parcheado.
+./research/webkit-1302/upstream/riyon-history-check.txt:67:126:  else if (fw_version === '13.04') lookup = '13.02'
+./research/webkit-1302/upstream/riyon-kernel.ts:126:  else if (fw_version === '13.04') lookup = '13.02'
+./research/webkit-1302/upstream/riyon-kernel-comparison.txt:74:126:  else if (fw_version === '13.04') lookup = '13.02'
+./research/webkit-1302/upstream/Vuemony_vue-after-free-src_download0_kernel.ts:126:  else if (fw_version === '13.04') lookup = '13.02'
+./research/webkit-1302/upstream/owendswang_vue-after-free-lite-src_download0_kernel.ts:131:  else if (fw_version === '13.04') lookup = '13.02'
+./research/webkit-1302/upstream/vue-1302-offset-comparison.txt:63:126:  else if (fw_version === '13.04') lookup = '13.02'
+./research/webkit-1302/upstream/vue-1302-offset-comparison.txt:285:131:  else if (fw_version === '13.04') lookup = '13.02'
+./research/webkit-1302/upstream/slopos-public-artifacts-1300-1302.txt:48:13.04 -> 13.02, ...) and only need the kexec block copied across.
+./research/webkit-1302/upstream/ps4-linux-loader-README.md:31:*   FW 13.02(?) / FW 13.04(?)✅
+./research/webkit-1302/upstream/ps4-linux-loader-commit-217e-diff.json:43:[1;34m"patch"[m[1;38m:[m [32m"@@ -388,7 +388,7 @@\n #define kern_off_set_pstate 0x004dc040\n #define kern_off_update_vddnp 0x004d8a40\n #define kern_off_set_cu_power_gate 0x004d8e50\n-#define kern_off_pstate_before_shutdown 0x0045dcc0\n+#define kern_off_pstate_before_shutdown 0x45dcc0\n #define kern_off_set_nclk_mem_spd 0x18170\n \n #elif defined PS4_11_00 //EinTim23\n@@ -604,6 +604,7 @@\n #define kern_off_pstate_before_shutdown 0x3A23C0\n #define kern_off_set_nclk_mem_spd 0x4368F0\n \n+// 13.02 & 13.04\n #elif defined PS4_13_02 //ArabPixel\n #define kern_off_printf 0x2E0450\n #define kern_off_snprintf 0x2E0750\n@@ -639,4 +640,39 @@\n #define kern_off_pstate_before_shutdown 0x3A23D0\n #define kern_off_set_nclk_mem_spd 0x436900\n \n+#elif defined PS4_13_50 //ArabPixel\n+#define kern_off_printf 0x2E0460\n+#define kern_off_snprintf 0x2E0760\n+#define kern_off_copyin 0x2BD6F0\n+#define kern_off_copyout 0x2BD600\n+#define kern_off_copyinstr 0x2BDBA0\n+#define kern_off_kmem_alloc_contig 0x24D450\n+#define kern_off_kmem_free 0x466060\n+#define kern_off_pmap_extract 0x573D0\n+#define kern_off_pmap_protect 0x58570\n+#define kern_off_sched_pin 0x231680\n+#define kern_off_sched_unpin 0x2316A0\n+#define kern_off_smp_rendezvous 0x1AD540\n+#define kern_off_smp_no_rendevous_barrier 0x1AD350\n+#define kern_off_icc_query_nowait 0x447F80\n+#define kern_off_kernel_map 0x22D1D50\n+#define kern_off_sysent 0x1102B70\n+#define kern_off_kernel_pmap_store 0x1B2C3A0\n+#define kern_off_Starsha_UcodeInfo 0x0\n+#define kern_off_gpu_devid_is_9924 0x4AC9F0\n+#define kern_off_gc_get_fw_info 0x4BB3A0\n+#define kern_off_pml4pml4i 0x1B2C390\n+#define kern_off_dmpml4i 0x1b2c394\n+#define kern_off_dmpdpi 0x1B2C398\n+#define kern_off_eap_hdd_key 0x26C4CF0\n+#define kern_off_edid 0x275E148\n+#define kern_off_wlanbt 0x478EA0\n+#define kern_off_kern_reboot 0x3A21A0\n+#define kern_off_set_gpu_freq 0x4B9EE0\n+#define kern_off_set_pstate 0x4BC2B0\n+#define kern_off_update_vddnp 0x4BA480\n+#define kern_off_set_cu_power_gate 0x4BA890\n+#define kern_off_pstate_before_shutdown 0x3A2780\n+#define kern_off_set_nclk_mem_spd 0x436D40\n+\n #endif"[m[1;38m,[m
+./research/webkit-1302/upstream/adri-celsius-lineage.txt:12:13d44f233b4f	2026-07-18T15:05:00Z	Add Pharaoh2k to credits
+./research/webkit-1302/upstream/adri-celsius-lineage.txt:13:6cacb2432f99	2026-07-18T15:02:05Z	Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+./research/webkit-1302/upstream/pharaoh2k-lineage-search.txt:1111:./research/webkit-1302/source-notes.md:65:La tabla pública agrupa `13.02–13.04` y declara que no existe un kernel exploit público para el firmware reciente/latest; recomienda esperar o conservar la consola. Esto coincide con el estado local: puede existir userland Vue para 13.02, pero no hay una cadena kernel pública verificada para 13.02.
+./research/webkit-1302/upstream/pharaoh2k-lineage-search.txt:1112:./research/webkit-1302/source-notes.md:79:Las búsquedas públicas sobre `Netctrl/ucred`, `Lapse/semctl` y kernel exploit 13.02 devolvieron principalmente discusiones, vídeos y tablas de estado. La fuente secundaria más clara continúa siendo [ConsoleMods Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart), que agrupa 13.02–13.04 y declara que no existe kernel exploit público posterior a 13.00.
+./research/webkit-1302/upstream/pharaoh2k-lineage-search.txt:1113:./research/webkit-1302/source-notes.md:87:La página de [RiyonAbib07/ps-vue-jb-2.5](https://github.com/RiyonAbib07/ps-vue-jb-2.5) declara explícitamente un alcance de jailbreak 7.00–13.00. Su README separa `vue-after-free` userland 5.05–13.04, Lapse 1.01–12.02 y Netctrl 1.01–13.00; la FAQ indica que en 13.02 o superior sólo funciona userland. El repositorio tiene 226 commits, una rama, ningún tag y su commit visible `1e8e2ad` es una corrección de estabilidad fechada 11 de marzo de 2026. La metadata consultada indica que no es fork, tiene dos forks y fue actualizado en GitHub el 17 de agosto de 2026.
+./research/webkit-1302/upstream/pharaoh2k-lineage-search.txt:1114:./research/webkit-1302/source-notes.md:131:La tabla [ConsoleMods PS4 Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart) agrupa `13.02–13.04` y declara que no existe kernel exploit público para el firmware reciente/latest; la acción recomendada es conservar o vender la consola. La página es una tabla secundaria, no una PoC ni un log de hardware, por lo que se clasifica `CORROBORATED` sólo para el estado público, no como prueba de ausencia absoluta.
+./research/webkit-1302/upstream/pharaoh2k-lineage-search.txt:1115:./research/webkit-1302/source-notes.md:145:La discusión de [Reddit sobre 13.00/13.02/13.04](https://www.reddit.com/r/ps4piracy/comments/1qv6ohi/clearing_up_ps4_jailbreak_confusion_current/) repite “Poopsploit patched” para 13.02 y “userland only”, pero es una discusión comunitaria sin prueba técnica primaria. Se clasifica `CORROBORATED` sólo como consenso público de la frontera 13.00/13.02 y `UNVERIFIED_13_02` para la causalidad exacta del parche.
+./research/webkit-1302/upstream/pharaoh2k-lineage-search.txt:1116:./research/webkit-1302/source-notes.md:153:En `ps4-linux-loader`, el header 13.02 aparece en `3d7a5456b75c` (2025-12-31). Las releases `v21`, `v21.5` y `v24b.1` anuncian payloads 13.02, pero escriben `13.02(?)`; el commit posterior `217e272eb099` (2026-05-11) añade 13.04/13.50 y mantiene 13.02 como payload de kexec/Linux. No se encontró en ese repositorio la implementación Netctrl/ucred ni una prueba de que los payloads de Linux demuestren la primitive Netctrl en 13.02.
+./research/webkit-1302/upstream/pharaoh2k-lineage-search.txt:1117:./research/webkit-1302/source-notes.md:190:La discusión y el post revisado son material secundario/comunitario. El contenido visible habla de avances generales y mantiene el límite público de jailbreak de PS4 en 13.00; no aporta el repositorio original de Celsius, una PoC, un log de PS4 13.02/13.04, un diff de kernel ni una explicación independiente del supuesto parche 13.50. Clasificación para Celsius en 13.02: `SOURCE_ONLY` como rumor/seguimiento de escena, no `VERIFIED` ni `CORROBORATED`.
+./research/webkit-1302/upstream/pharaoh2k-lineage-search.txt:1118:./research/webkit-1302/source-notes.md:198:[Publicación de GAMERZ 56K en YouTube](https://www.youtube.com/post/UgkxE2BPYs9Rf7TJgKq8GqnZlTh-kOpDU15F) repite las mismas afirmaciones: `ffs_mount`, integer overflow/heap overflow, PS4 hasta 13.04 incluyendo 13.02, patch 13.50+, disco USB 3.0 recomendado de 320/500 GB y ausencia de garantía de estabilidad. No aporta código, commit, log de hardware ni fuente primaria independiente. Clasificación: `SOURCE_ONLY`.
+./research/webkit-1302/upstream/pharaoh2k-lineage-search.txt:1119:./research/webkit-1302/source-notes.md:222:La tabla muestra para firmware 13.02–13.04: “No public kernel exploit exists for the recent/latest firmware” y explica que no hay exploits públicos posteriores a 13.00. No menciona Celsius como exploit funcional. Clasificación: `CORROBORATED` para el estado público de ausencia de kern
+./research/webkit-1302/kernel-rw-1302-investigation.md:11:La investigación pública también muestra varios bugs de FreeBSD con etiquetas tentativas `?<=13.02?`, `?<=13.04?` o `?<=13.50?` en PSDevWiki. Esas etiquetas expresan una hipótesis de afectación o una comparación de código, no soporte PS4. En los casos revisados faltan PoC PS4 13.02, evidencia de hardware y demostración de R/W.
+./research/webkit-1302/kernel-rw-1302-investigation.md:22:| **Overflow UFS/FFS al montar** | PSDevWiki lo marca tentativamente `?<=13.04?` | PSDevWiki y fix histórico de FreeBSD | No hay PoC PS4 13.02 | No | La página sólo indica parche desde PS4 13.50; no valida la build 13.02 | Overflow durante mount/reload; requiere partición malformada y, según la página, posiblemente otra vía para cifrarla | **UNVERIFIED_13_02** |
+./research/webkit-1302/kernel-rw-1302-investigation.md:23:| **CVE-2026-3038 routing sockets** | `?<=13.04?` como hipótesis de la página | PSDevWiki; PoC citado para panic PS4 13.52 | Sí para provocar panic en PS4 13.52 según la página | No para 13.02; no hay R/W | La propia página dice que el PS4 basado en FreeBSD 9 probablemente no es vulnerable al bug upstream | Stack overflow con canario; sólo DoS citado, escalada hipotética | **UNVERIFIED_13_02** |
+./research/webkit-1302/kernel-rw-1302-investigation.md:34:El repositorio `RiyonAbib07/ps-vue-jb-2.5` no es un fork de GitHub y declara en su descripción `7.00-13.00`, con mejoras de estabilidad para 12.50+ mediante Netctrl/Poopsploit. Su README separa claramente `vue-after-free` userland hasta 13.04 de Netctrl hasta 13.00 y dice que en 13.02 o superior sólo funciona el userland. Su `kernel.ts` contiene entradas de mmap 13.02, pero la tabla de offsets de la cadena Netctrl agrupa 12.50/12.52/13.00 y no añade una cadena funcional 13.02. El historial específico de `kernel.ts` muestra una única incorporación principal (`a25b685`, 11 de marzo de 2026); no aparece un commit posterior que añada una tabla Netctrl 13.02.
+./research/webkit-1302/kernel-candidates-1302-exhaustive.md:11:La evidencia pública no demuestra actualmente una ruta reproducible de userland a kernel R/W en PS4 FW 13.02. El candidato directamente más cercano sigue siendo **Netctrl/ucred**, cuyo código público llega hasta 13.00. El nuevo candidato con mayor interés documental es **Celsius/ffs_mount**, porque fuentes de la escena le atribuyen alcance hasta 13.04; sin embargo, el material público revisado no contiene una PoC PS4 13.02 independiente con R/W observable, y parte de la evidencia procede de un repositorio reciente con offsets derivados de otras tablas.
+./research/webkit-1302/kernel-candidates-1302-exhaustive.md:20:| **Celsius / ffs_mount** | Reivindicado hasta PS4 13.04, parcheado según la escena en 13.50 | bollars, 18 jul. 2026 según repositorio `adri22235/ps4-suid-scanner` | Overflow de heap durante mount/reload UFS/FFS; R/W posterior sólo hipotético | El repositorio contiene análisis y artefactos 13.04; no hay prueba pública independiente de R/W en 13.02 | **HYPOTHESIS / UNVERIFIED_13_02** |
+./research/webkit-1302/kernel-candidates-1302-exhaustive.md:76:El repositorio `adri22235/ps4-suid-scanner` es una fuente reciente y útil para registrar las afirmaciones Celsius/13.04, pero tiene diez commits concentrados entre el 18 de julio y el 9 de agosto de 2026, y su propia documentación atribuye offsets 13.04 a una base 13.02 y a verificación de Pharaoh2k. Eso es procedencia trazable, no independencia completa ni prueba de R/W.
+./research/webkit-1302/kernel-candidates-1302-exhaustive.md:82:No hay actualmente un candidato que cumpla el estándar de **evidencia fuerte específica de PS4 13.02** para kernel R/W. Netctrl/ucred es el más cercano por código PS4 y primitive; Celsius es el más cercano por alcance nominal hasta 13.04. Ambos permanecen `UNVERIFIED_13_02`.
+./research/webkit-1302/celsius-vs-netctrl-1302.md:27:| GAMERZ 56K, 2026 | PS4 hasta 13.04 incluyendo 13.02; parche 13.50+; USB 3.0 de 320/500 GB recomendado | `SOURCE_ONLY` |
+./research/webkit-1302/celsius-vs-netctrl-1302.md:31:Por aritmética de rango, **13.02 está dentro de “hasta 13.04”**, pero eso sólo es una inclusión nominal. No demuestra que la implementación, la trigger o el post-exploitation funcionen en 13.02.
+./research/webkit-1302/celsius-vs-netctrl-1302.md:88:Si “prometedor” significa **alcance nominal**, Celsius es el candidato más cercano: las fuentes lo sitúan hasta 13.04, por lo que 13.02 queda dentro del rango afirmado. Pero si “prometedor” significa **evidencia técnica reutilizable**, Netctrl es superior: tiene código PS4, una primitive de R/W ya demostrada en firmwares cercanos y una ruta post-exploitation conocida.
+./research/webkit-1302/celsius-vs-netctrl-1302.md:94:Para Celsius, hace falta el anuncio o commit original de bollars, el artefacto exacto de la imagen FFS/USB, una PoC o pseudocódigo completo, un log de ejecución que demuestre el overflow en PS4 13.02 y un análisis del target de heap que convierta la corrupción en R/W. Para validar el parche 13.50, hacen falta dumps o funciones comparables de 13.04 y 13.50 con hashes y un diff que señale el cambio.
+./research/webkit-1302/celsius-vs-netctrl-1302.md:103:2. **Proveniencia de Celsius:** buscar mensajes originales de bollars, anuncios fechados del 18 de julio de 2026 y artefactos atribuidos a Pharaoh2k, separando archivos derivados de una tabla de offsets de una PoC independiente.
+./research/webkit-1302/celsius-provenance-deep-dive.md:9:No se localizó una publicación original de **bollars**, un repositorio de bollars con Celsius, un gist, una PoC, un commit original o un log de hardware. El perfil público de bollars en GitHub sólo contiene `ddoslib`, no relacionado con PS4. Por tanto, la atribución “descubierto por bollars” y el alcance “hasta 13.04” son **SOURCE_ONLY**. El hecho de que 13.02 esté incluido en el intervalo numérico 1–13.04 es una inclusión nominal, no una prueba de funcionamiento.
+./research/webkit-1302/celsius-provenance-deep-dive.md:17:| 3 | GAMERZ 56K en YouTube | julio 2026 | Repite integer overflow/heap overflow, hasta 13.04 incluyendo 13.02, parche 13.50 y USB | Derivada/recapitulación; no PoC | `SOURCE_ONLY` |
+./research/webkit-1302/celsius-provenance-deep-dive.md:59:## Evidencia de 13.02 y 13.04
+./research/webkit-1302/celsius-provenance-deep-dive.md:61:No hay evidencia real localizada de que Celsius haya sido ejecutado con éxito en PS4 13.02. El único argumento a favor es que 13.02 cae dentro de la frase “hasta 13.04”, pero esa frase procede de un anuncio con lenguaje tentativo y no va acompañada de PoC, log ni video técnico reproducible.
+./research/webkit-1302/celsius-provenance-deep-dive.md:89:No. Existe inclusión nominal de 13.02 dentro de “hasta 13.04”, pero no hay PoC, video técnico, log, hash de firmware, lectura/escritura observable ni prueba de hardware PS4 13.02 localizada.
+./research/webkit-1302/celsius-provenance-deep-dive.md:139:> **Conclusión:** la afirmación “hasta 13.04” nació públicamente como una afirmación de alcance teórico en una difusión de X, no como una PoC publicada por bollars. No existe actualmente evidencia pública suficiente de ejecución Celsius en 13.02 o 13.04 ni de kernel R/W reproducible. El origen primario real y el artefacto que demostraría el parche 13.50 siguen faltando.
+./goldhen/README.md:111:- [Pharaoh2k](https://github.com/Pharaoh2k)
+./webkit-kit/runtime/BDJ_CURRENT_RUNTIME_1352_EVIDENCE_SESSION16.md:15:La misma página describe 13.50 como una actualización de mensajes/usabilidad, y 13.02/13.04 como correcciones de seguridad, pero no identifica componentes Java, BD-J ni cambios de clases o métodos. Por tanto, la nota oficial confirma que hubo correcciones de seguridad, pero no permite atribuir ninguna a la JVM o al runtime BD-J.
+./webkit-kit/runtime/BDJ_PS4_1350_1352_DIFFERENTIAL_SESSION17.md:41:La página oficial de PlayStation identifica la versión 13.52 y declara que se realizaron correcciones de seguridad. También enumera 13.50 como una actualización de mensajes/usabilidad, y 13.04 y 13.02 como actualizaciones con correcciones de seguridad.[1]

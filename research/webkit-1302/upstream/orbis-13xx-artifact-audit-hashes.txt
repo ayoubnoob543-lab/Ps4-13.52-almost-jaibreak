@@ -1,0 +1,6 @@
+20be5b89035d055d1746af7a4ef9478e9aadfaa3c33ad24051a0aed04b0aa530  research/webkit-1302/orbis-1302-artifacts-and-equivalence.md
+cd38ea4ab100cd4c5719e20358d9a7af19b592b5dca6e292ba221353c0744abd  research/webkit-1302/upstream/orbis-13xx-artifact-inventory-v2.txt
+b372c63c7ab212776ea2c98b3a8ba4674c45bef7ec92afc10c3101cac6c0294b  research/webkit-1302/upstream/adri-source-1304-direct.txt
+62e3b8b98f6602cb63c935cc4acdb3c1550bd127b8b6ce6a879052dd6aeb022e  research/webkit-1302/upstream/adri-1304-claim-extract.txt
+e83a0b19578c85bebae3452498befc84861d86f008681069b5d28c6acd26e4be  research/webkit-1302/upstream/orbis-1302-1304-offset-comparison.txt
+cb7026e8193733aa0216128c0540835b7ec6467ab7788a0560fe660e0eedbb80  research/webkit-1302/upstream/orbis-13xx-table-presence.txt
