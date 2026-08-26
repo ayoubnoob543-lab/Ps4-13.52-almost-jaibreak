@@ -1,0 +1,35 @@
+## git
+6046f3b977ebc72e8515a4c9023c87017ca669d8 2026-07-01 Update README.md
+a366cb4093ed7db69cb75a63793d05ccdb054487 2026-07-01 Update README.md
+aceed220497f02cd13c57d9feb3848e83470b9f6 2026-07-01 upload
+db9642007bf20348ac71503522b8f85f99b4d9f2 2026-07-01 Update README.md
+e037e875625f1d5eba31b6577ea077815c6f5e66 2026-07-01 Initial commit
+## files
+./README.md
+./host.py
+./index.html
+./nonexistent-font.woff
+## symbols
+./README.md:4:IT IS NOT A JB. IT IS AN ATTEMPT to adapt ntfargo/CSSFontFace-exploit to 13.02
+./README.md:25:Conclusion: This specific UAF vector via the FontFaceSet::load thenable getter does not work on 13.02 for architectural reasons, not due to incorrect offsets or timing. To continue, you must either find another UAF vector in 13.02 WebKit (requires the libSceWebKit2.sprx binary from 13.02 for reversal) or wait for a public exploit.
+./README.md:29:- Confirmed that the FontFace.prototype.then getter is called on 13.02—this wasn't publicly documented.
+./README.md:30:- Documented behavior of matchingFaces on 13.02: B remains alive indefinitely, which differs from upstream WebKit before the Niwa fix.
+./README.md:32:- The code with diagnostics is a real starting point for anyone with a 13.02 binary.
+./index.html:125:  static get version() { return "13.02"; }
+./index.html:129:  // then disassemble libWebKit.so from 13.02.
+./index.html:197:let libkernel_base = undefined;
+./index.html:203:// 0x40 = 64 rules (32 before B, 32 after B) — a reasonable minimum for 13.02.
+./index.html:320:  pivot: undefined,
+./index.html:328:    this.pivot.prepare(this.stack.sp);
+./index.html:330:    const pivot_obj = {};
+./index.html:331:    const pivot_obj_addr = arw.addrof(pivot_obj);
+./index.html:333:    const empty_jscell = arw.view(pivot_obj_addr).getBigUint64(0, true);
+./index.html:335:    const pivot_addr = this.pivot.addr;
+./index.html:336:    arw.view(pivot_obj_addr).setBigUint64(0, pivot_addr, true);
+./index.html:338:    Math.expm1(pivot_obj);
+./index.html:340:    arw.view(pivot_obj_addr).setBigUint64(0, empty_jscell, true);
+./index.html:1691:  libkernel_base = _error_addr - Offsets.current.k__error;
+./index.html:1692:  logger.info(`libkernel base: ${libkernel_base.hex()}`);
+./index.html:1700:  rop.pivot = new Pivot();
+./index.html:1751:  scan_syscalls(libkernel_base);
+./index.html:1762:  fn.dlsym = new NativeFunction(0x24f, "number");

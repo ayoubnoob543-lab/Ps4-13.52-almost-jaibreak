@@ -610,3 +610,10 @@ The historical PS4 `userland.js` contains a concrete `Pivot` class with stored W
 ## Distinctive-symbol comparison
 
 The literal scan of `jordy_stage2_1089382.js` against the preserved primary PS4 sources finds no `KernelView`, `make_karw_pipe`, `scan_syscalls`, `sysent`, `NativeFunction`, `fn.dlsym`, `kread64`, `kwrite64`, `pktopts`, `p_ucred`, `allproc`, `KL_LOCK`, `EVF_OFFSET` or `KernelMemory` integration in the Jordy file. The primary `ntfargo` Netctrl source does contain the expected `KL_LOCK` kernel-base derivation and eventually constructs `KernelView`. This is strong negative evidence against direct inclusion of the primary PS4 Netctrl/Lapse kernel phase in commit 1089382; it does not exclude undocumented external code, but no such code has been found.
+
+
+## `ddaaccdd/CSSFontFace-Exploit-1302research`
+
+This public repository is a 13.02-specific research attempt, not a jailbreak. Its README says the `FontFaceSet::load` thenable-getter UAF vector does not work on 13.02 for architectural reasons, not because of offsets or timing. It records that the `FontFace.prototype.then` getter fires and that `matchingFaces` keeps object B alive indefinitely, differing from older upstream WebKit behavior. The README states that continuing requires another UAF vector or the `libSceWebKit2.sprx` binary from 13.02 for reversal.
+
+The included `index.html` contains diagnostic scaffolding with `version = "13.02"`, a userland pivot class, a libkernel base calculation, syscall scan and dlsym binding, but the repository’s own conclusion says the target UAF primitive is not achieved. It is therefore a valuable negative/diagnostic artifact explaining why a historical CSSFontFace chain cannot simply be ported to 13.02; it does not supply kernel R/W, Netctrl, Celsius, FFS mount or the missing full stage. Classification: 13.02 architectural observation `SOURCE_ONLY/CORROBORATED` depending on the exact claim; kernel-RW/Celsius `UNVERIFIED`.
