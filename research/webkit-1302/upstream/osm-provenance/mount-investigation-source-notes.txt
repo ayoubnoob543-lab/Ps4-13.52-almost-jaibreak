@@ -605,3 +605,8 @@ The historical PS4 `userland.js` contains a concrete `Pivot` class with stored W
 ## Historical PS4 syscall/dlsym resolver
 
 `wobkot/public/src/ps4/userland.js` implements `init_syscalls()` and `scan_syscalls(base)`: it scans a libkernel mapping for the syscall-stub byte pattern, extracts syscall IDs and stores callable addresses, then binds `read`, `write`, `open`, `close`, `fstat`, `sysctl`, `socket`, `dlsym`, `dup` and `getpid`. This is a concrete implementation of the syscall/dlsym layer that `jordy_stage2.js` leaves as a placeholder. It is tied to the historical PS4 WebKit/libkernel layout and has no 13.02/13.04 offsets or Celsius/FFS path; it is evidence of a reusable design pattern, not a compatible missing module.
+
+
+## Distinctive-symbol comparison
+
+The literal scan of `jordy_stage2_1089382.js` against the preserved primary PS4 sources finds no `KernelView`, `make_karw_pipe`, `scan_syscalls`, `sysent`, `NativeFunction`, `fn.dlsym`, `kread64`, `kwrite64`, `pktopts`, `p_ucred`, `allproc`, `KL_LOCK`, `EVF_OFFSET` or `KernelMemory` integration in the Jordy file. The primary `ntfargo` Netctrl source does contain the expected `KL_LOCK` kernel-base derivation and eventually constructs `KernelView`. This is strong negative evidence against direct inclusion of the primary PS4 Netctrl/Lapse kernel phase in commit 1089382; it does not exclude undocumented external code, but no such code has been found.

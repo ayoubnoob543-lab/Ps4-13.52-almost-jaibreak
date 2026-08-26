@@ -1,0 +1,133 @@
+## stage2 distinctive symbols
+40:    ALLPROC:         0x01B28538,
+41:    SYSENT:          0x01102B70,
+## primary symbols
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:57:let allproc = undefined;
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:61:fn.setuid = new NativeFunction(0x17, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:62:fn.pipe = new NativeFunction(0x2a, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:63:fn.ioctl = new NativeFunction(0x36, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:64:fn.fcntl = new NativeFunction(0x5c, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:65:fn.socket = new NativeFunction(0x61, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:66:fn.setsockopt = new NativeFunction(0x69, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:67:fn.getsockopt = new NativeFunction(0x76, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:68:fn.sched_yield = new NativeFunction(0x14b, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:69:fn.rtprio_thread = new NativeFunction(0x1d2, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:70:fn.cpuset_setaffinity = new NativeFunction(0x1e8, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:71:fn.kexec = new NativeFunction(0x295, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:74:class KernelView {
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:89:      throw new SyscallError(`Unable to fcntl fd ${this.master_pipe[0]}`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:93:      throw new SyscallError(`Unable to fcntl fd ${this.master_pipe[1]}`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:97:      throw new SyscallError(`Unable to fcntl fd ${this.slave_pipe[0]}`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:101:      throw new SyscallError(`Unable to fcntl fd ${this.slave_pipe[1]}`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:142:      throw new SyscallError(`Unable to write to fd ${this.master_pipe[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:146:      throw new SyscallError(`Unable to read from fd ${this.master_pipe[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:157:      throw new SyscallError(`Unable to read from fd ${this.slave_pipe[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:170:      throw new SyscallError(`Unable to write to fd ${this.slave_pipe[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:311:    throw new SyscallError(`Unable to setaffinity to core ${core}`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:324:    throw new SyscallError(`Unable to set priority to ${value}`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:347:    throw new SyscallError(`Unable to get socket option for fd ${sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:359:    throw new SyscallError(`Unable to set socket option for fd ${sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:365:    throw new SyscallError(`Unable to set socket option for fd ${sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:372:    throw new SyscallError("Unable to create socket !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:378:function make_karw_pipe() {
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:383:    throw new SyscallError("Unable to create pipe !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:390:    throw new SyscallError("Unable to create pipe !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:410:        throw new SyscallError(`Unable to close fd ${fd} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:420:        throw new SyscallError(`Unable to close fd ${fd} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:478:  let p = kview(allproc).getBInt(0, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:490:  logger.info("Finding allproc...");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:497:    throw new SyscallError("Unable to create pipe !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:511:      throw new SyscallError(`Unable to ioctl fd ${tmp_pipe[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:526:    allproc = p;
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:527:    logger.info(`allproc: ${allproc}`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:535:        throw new SyscallError(`Unable to close fd ${fd} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:548:  const p_ucred = kview(p).getBInt(0x40, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:549:  const kp_ucred = kview(kp).getBInt(0x40, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:551:  const prison0 = kview(kp_ucred).getBInt(0x30, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:553:  kview(p_ucred).setInt32(0x04, 0, true); // cr_uid
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:554:  kview(p_ucred).setInt32(0x08, 0, true); // cr_ruid
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:555:  kview(p_ucred).setInt32(0x0c, 0, true); // cr_svuid
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:556:  kview(p_ucred).setInt32(0x10, 1, true); // cr_ngroups
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:557:  kview(p_ucred).setInt32(0x14, 0, true); // cr_rgid
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:558:  kview(p_ucred).setInt32(0x18, 0, true); // cr_svgid
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:559:  kview(p_ucred).setBInt(0x30, prison0, true); // cr_prison
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:560:  kview(p_ucred).setBInt(0x58, SYSCORE_AUTHID, true); // cr_sceAuthId
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:561:  kview(p_ucred).setBInt(0x60, -1, true); // cr_sceCaps[1]
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:562:  kview(p_ucred).setBInt(0x68, -1, true); // cr_sceCaps[0]
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:563:  kview(p_ucred).setUint8(0x83, 0x80); // cr_sceAttr[0]
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:581:  const sysent_661_addr = kernel_base.add(constants.SYSENT_661);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:582:  logger.debug(`sysent_661_addr: ${sysent_661_addr}`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:587:  const sy_narg = kview(sysent_661_addr).getUint32(0, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:588:  const sy_call = kview(sysent_661_addr).getBInt(8, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:589:  const sy_thrcnt = kview(sysent_661_addr).getUint32(0x2c, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:595:  kview(sysent_661_addr).setUint32(0, 2, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:596:  kview(sysent_661_addr).setBInt(8, jmp_rsi_gadget_addr, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:597:  kview(sysent_661_addr).setUint32(0x2c, 1, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:606:    throw new SyscallError("Unablet to create JIT shared memory with rwx !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:612:    throw new SyscallError(`Unable to map memory with size ${size} with rwx !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:620:    throw new SyscallError(`Unable to kexec ${mapping_addr} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:623:  kview(sysent_661_addr).setUint32(0, sy_narg, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:624:  kview(sysent_661_addr).setBInt(8, sy_call, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_kernel.js:625:  kview(sysent_661_addr).setUint32(0x2c, sy_thrcnt, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:41:let kl_lock = undefined;
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:46:fn.netcontrol = new NativeFunction(0x63, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:47:fn.socketpair = new NativeFunction(0x87, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:48:fn.sendmsg = new NativeFunction(0x1c, "bint");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:49:fn.kqueue = new NativeFunction(0x16a, "number");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:58:    throw new SyscallError(`Unable to queue ${sock} in netevent !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:86:        fn.recvmsg = new NativeFunction(0x1B, "bint");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:134:        fn.readv = new NativeFunction(0x78, "bint");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:135:        fn.writev = new NativeFunction(0x79, "bint");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:147:          throw new SyscallError(\`Unable to write vector of size \${UIO_IOV_NUM} to fd \${uio_ss[1]} !!\`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:160:          throw new SyscallError(\`Unable to read vector of size \${UIO_IOV_NUM} to fd \${uio_ss[0]} !!\`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:296:  make_karw_pipe();
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:302:    throw new SyscallError("Unable to create socket pair !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:310:    throw new SyscallError("Unable to create socket pair !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:321:  // Setup sockets for spraying and initialize pktopts
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:337:      throw new SyscallError(`Unable to close fd ${uaf_sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:349:      throw new SyscallError(`Unable to close fd ${sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:359:      throw new SyscallError(`Unable to close fd ${sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:369:      throw new SyscallError(`Unable to close fd ${sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:415:        throw new SyscallError(`Unable to close fd ${dummy_sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:420:        throw new SyscallError("Unable to set uid to 1 !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:433:        throw new SyscallError("Unable to set uid to 1 !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:450:        throw new SyscallError(`Unable to duplicate fd ${uaf_sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:454:        throw new SyscallError(`Unable to close fd ${uaf_sock_dup} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:483:          throw new SyscallError("Unable to yield scheduler !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:497:          throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:503:          throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:518:        throw new SyscallError(`Unable to duplicate fd ${uaf_sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:522:        throw new SyscallError(`Unable to close fd ${uaf_sock_dup} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:532:        throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:540:        throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:549:      if (err.name === "SyscallError") {
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:563:          throw new SyscallError(`Unable to close fd ${uaf_sock} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:583:      throw new SyscallError("Unable to get kqueue !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:596:      throw new SyscallError(`Unable to close fd ${kq} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:606:  kl_lock = arw.view(leak_rthdr0_addr).getBInt(0x60, true);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:608:  kernel_base = kl_lock.sub(constants.KL_LOCK);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:611:  logger.debug(`kl_lock: ${kl_lock}`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:617:    throw new SyscallError(`Unable to close fd ${kq} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:640:    throw new SyscallError(`Unable to set socket option for fd ${uio_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:647:    throw new SyscallError(`Unable to write to fd ${uio_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:667:      throw new SyscallError("Unable to yield scheduler !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:682:      throw new SyscallError(`Unable to read from fd ${uio_ss[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:687:        throw new SyscallError(`Unable to read from fd ${uio_ss[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:695:      throw new SyscallError(`Unable to write to fd ${uio_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:734:      throw new SyscallError("Unable to yield scheduler !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:749:      throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:755:      throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:767:    throw new SyscallError(`Unable to read from fd ${uio_ss[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:777:      throw new SyscallError(`Unable to read from fd ${uio_ss[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:795:    throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:803:    throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:822:    throw new SyscallError(`Unable to set socket option for fd ${uio_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:844:      throw new SyscallError("Unable to yield scheduler !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:860:        throw new SyscallError(`Unable to read from fd ${uio_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:902:      throw new SyscallError("Unable to yield scheduler !!");
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:917:      throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:923:      throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:936:      throw new SyscallError(`Unable to read from fd ${uio_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:946:    throw new SyscallError(`Unable to write to fd ${iov_ss[1]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:954:    throw new SyscallError(`Unable to write to fd ${iov_ss[0]} !!`);
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_6f33986/ps4_netctrl.js:1023:  kv = new KernelView(master_pipe, slave_pipe);
