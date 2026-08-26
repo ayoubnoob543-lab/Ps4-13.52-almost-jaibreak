@@ -774,3 +774,11 @@ GitHub code-search queries for `patch_mount PS4`, `0x001512A7`, `ffs_mountfs PS4
 For this phase Celsius is treated as the working baseline, per user instruction. The public scanner documentation states a claimed path based on `ffs_mountfs`, a malformed UFS superblock, a BD-J or Vue entrypoint, and a 250GB+ HDD. It names `fs_ncg`, `fs_cssize`, `fs_contigsumsize`, `fs_bsize` and `fs_fsize` and describes integer arithmetic followed by a loop consuming `fs_ncg`.
 
 The code currently available in `ps4-suid-scanner` does not implement that path. `SuidScanner.java` resolves `open`, `close`, `getdents`, `stat` and `write` through an external BD-J API and scans SUID files. It does not construct a UFS image, invoke mount, reach `ffs_mountfs`, groom the kernel heap or expose kernel R/W. `jordy_stage2.js` similarly supplies helpers and comments but not the missing WebKit bootstrap, mount arguments or kernel-side conversion. These are reconstruction gaps, not a reason to revisit the baseline assumption.
+
+## Public secondary reconstruction sources read in this pass
+
+GameGaz article `https://gamegaz.com/2026071945823/` (2026-07-19) reproduces Dr.Yenyen's X post and states the claimed operational prerequisites: PS4 up to 13.04, PS5 up to 12.70, a USB 3.0 HDD of at least 250GB, and a BD-J or Vue userland entrypoint on PS4. It attributes the bug to a heap overflow in `ffs_mount`, but explicitly says it was not yet practically usable and that the release timing was unknown. The article also notes that no matching public HackerOne report could be identified. This is useful for reconstruction requirements and provenance, but remains `SECONDARY/SOURCE_ONLY`.
+
+The current public scanner page `https://github.com/adri22235/ps4-suid-scanner` supplies the same requirements and adds no implementation: `SuidScanner.java` resolves basic libc functions through an external BD-J API and scans SUID/SGID files. It does not implement the UFS image, mount invocation, heap grooming or R/W conversion. Classification: repository/documentation `VERIFIED`; Celsius chain implementation `SOURCE_ONLY/INCOMPLETE`.
+
+ConsoleMods `https://consolemods.org/wiki/PS4:Exploit_Chart` lists no public kernel exploit for 13.02–13.04. This is evidence about public reproducibility status, not a refutation of the working baseline.
