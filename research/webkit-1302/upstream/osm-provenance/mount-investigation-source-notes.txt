@@ -963,3 +963,7 @@ Commit `2872f95651a99b5f3690b8e74a4f373645b19759` (earthonion, 2026-01-04 23:44:
 ## vue-after-free tag 2.0
 
 Tag `2.0` retains `kernel.ts`, `lapse.ts`, and `netctrl_c0w_twins.ts`, with explicit `kread`/`kwrite`, KL_LOCK base derivation, allproc/ucred/rootvnode/sysent use, and Netctrl completion messages. No Celsius, Jordy, `ffs_mountfs`, `ffs_reload`, UFS, FFS, or mount parameters appear. Verified historical Netctrl/Lapse code; invalid as Celsius bootstrap.
+
+## vue-after-free release branch
+
+The `release` branch contains extensive AIO/Netctrl code with kernel address leaks, `kernel.read_*`/`kernel.write_*`, and an `ipv6_kernel_rw` helper that assumes pre-existing R/W callbacks. Its firmware table reaches 12.02 only; no 13.02/13.04, Celsius, `ffs_mountfs`, `ffs_reload`, UFS, FFS or mount material appears. Verified historical R/W artifact; invalid as Celsius.

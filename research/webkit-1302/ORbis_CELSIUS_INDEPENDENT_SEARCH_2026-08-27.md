@@ -187,3 +187,7 @@ La página pública del commit `2872f95651a99b5f3690b8e74a4f373645b19759` muestr
 ## Tag `2.0` de `vue-after-free`
 
 El tag público `2.0` conserva `kernel.ts`, `lapse.ts` y `netctrl_c0w_twins.ts`. El código incluye `kread`, `kwrite`, cálculo de base mediante `KL_LOCK`, `allproc`, `ucred`, `rootvnode`, `sysent` y mensajes de finalización de Netctrl. No aparecen `Celsius`, `Jordy`, `ffs_mountfs`, `ffs_reload`, UFS, FFS ni parámetros de montaje. La etiqueta `2.0` no añade soporte kernel 13.02/13.04: el material pertenece a Netctrl/Lapse histórico. El audit de hashes, tamaños y coincidencias se conserva en `earthonion_vue_tag20_audit.txt`. Clasificación: **VERIFIED** como código histórico Netctrl/Lapse; **INVALID** como bootstrap Celsius.
+
+## Rama `release` de `vue-after-free`
+
+La rama `release` contiene una implementación extensa de AIO/Netctrl con funciones de leak de direcciones, `kernel.read_*`/`kernel.write_*` y una auxiliar `ipv6_kernel_rw` que presupone callbacks R/W ya inicializados. Su tabla de offsets expone versiones hasta `12.02`; no hay entradas 13.02 ni 13.04. No aparecen Celsius, `ffs_mountfs`, `ffs_reload`, UFS, FFS ni mount. Aporta otro snapshot histórico de la primitive Netctrl/AIO, no el bootstrap Celsius ni una ruta 13.02. Clasificación: **VERIFIED** como artefacto histórico R/W dependiente de Netctrl; **INVALID** como Celsius.
