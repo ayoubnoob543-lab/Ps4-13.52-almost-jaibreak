@@ -1,0 +1,8 @@
+source	firmware	patch_mount	operation	ffs_evidence
+Mira Pastebin	7.02	0x0029636A	6x NOP; Enable mount for unprivileged user	none
+Fusion	12.02	0x00151267	6x NOP; Enable mount for unprivileged user	none
+Fusion	12.50	0x001512A7	6x NOP; Enable mount for unprivileged user	none
+Fusion	13.00	0x001512A7	6x NOP; Enable mount for unprivileged user	none
+Fusion/OSM	13.02	0x001512A7	6x NOP; Enable mount for unprivileged user	none
+--- interpretation ---
+The same label and six-NOP operation recur in historical Mira/Fusion mount patches; no source inspected names ffs_mountfs or exposes FFS structure/cross-reference.

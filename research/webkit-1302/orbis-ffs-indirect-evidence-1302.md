@@ -325,3 +325,9 @@ La fuente directa de OpenOrbis/Mira `kernel/src/Utils/Kdlsym/Orbis672.hpp` publi
 La existencia histórica de `kernel_mount`, `mount_argf` y `M_MOUNT` demuestra que Mira trabajaba con una capa de montaje/VFS de FreeBSD/Orbis. No permite deducir que el punto `patch_mount` de Fusion 13.02 sea `ffs_mountfs`; de hecho, el código de Fusion consume ese punto como un parche de autorización de montaje, mientras los símbolos de OpenOrbis son entradas de resolución separadas. Clasificación: símbolos VFS/MOUNT de 6.72 `VERIFIED`; extrapolación a 13.02 `HYPOTHESIS`; relación específica con Celsius `INVALID`.
 
 [40]: https://github.com/OpenOrbis/mira-project/blob/master/kernel/src/Utils/Kdlsym/Orbis672.hpp "OpenOrbis Orbis672 kernel symbols"
+
+## 25. Comparación de patch points de montaje
+
+La tabla `upstream/osm-provenance/mount-patch-lineage-comparison.tsv` resume los valores y operaciones observados en las fuentes públicas. Mira 7.02 usa `0x0029636A`; Fusion 12.02 usa `0x00151267`; Fusion 12.50, 13.00 y la tabla Fusion/OSM 13.02 usan `0x001512A7`. En todos los casos la operación documentada es escribir seis `NOP` bajo `Enable mount for unprivileged user`, y ninguna fuente aporta evidencia `ffs_mountfs`.
+
+La continuidad de etiqueta y operación es `CORROBORATED` como linaje de un parche genérico de autorización de montaje. No es evidencia de igualdad de código entre firmwares ni de una ruta UFS/FFS. La búsqueda externa adicional no encontró una referencia que reinterprete `patch_mount` como Celsius.
