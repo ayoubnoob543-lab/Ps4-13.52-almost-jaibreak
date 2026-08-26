@@ -221,3 +221,21 @@ La cadena 13.02 NO puede reconstruirse con material público porque
 faltan 10 offsets que solo existen dentro del kernel retail cifrado.
 El único camino es: consola-oracle → .dec → extraer kernel binario →
 calcular offsets → publicar. Un solo acceso resuelve el problema permanentemente.
+
+## BARRIDO FINAL DE ARTEFACTOS PÚBLICOS 13.02 (2026-08-25)
+
+Búsqueda exhaustiva en GitHub Code Search + repos + web: **NINGÚN artefacto
+público nuevo encontrado** para kernel retail 13.52, system_fs_image.img,
+libkernel_sys/libkernel_web 13.52, o WebKit 13.52.
+
+Fuentes revisadas sin resultados nuevos:
+- GitHub Code Search (system_fs_image, libkernel_sys 13.52, SYSENT 1352)
+- Todos los repos de ps4boot (releases v54/v19 solo contienen loaders Linux)
+- RPCSX/orbis-kernel (RE de FreeBSD port, no dump real)
+- jevinskie/ps4-kern-dump (herramienta, no dump)
+- JRRN/Pupx (parser Python de PUP, no descifrador)
+- ntfargo/CSSFontFace-Exploit (ya auditado previamente)
+
+Conclusión: los artefactos que faltan SOLO pueden obtenerse ejecutando código
+en una consola 13.52 con kernel-exec activo. Ninguna fuente pública alternativa
+existe a fecha de hoy.
