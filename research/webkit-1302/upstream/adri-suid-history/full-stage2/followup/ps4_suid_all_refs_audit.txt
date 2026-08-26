@@ -1,0 +1,33 @@
+## refs
+refs/heads/main 1089382ec1e0000e9557b7748d39b57952bbc4f3
+refs/remotes/origin/HEAD 1089382ec1e0000e9557b7748d39b57952bbc4f3
+refs/remotes/origin/main 1089382ec1e0000e9557b7748d39b57952bbc4f3
+refs/tags/v2.0 3fd35a4e475698b59dae40794901a56126a38c52
+## stage2-related paths across history
+COMMIT 1089382ec1e0000e9557b7748d39b57952bbc4f3 2026-08-09 02:35:29 +0200 Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+
+A	jordy_stage2.js
+D	stage2_jordy.js
+COMMIT 96a79482d249fdbc6101bc641241488de66c313d 2026-08-09 02:26:47 +0200 Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+
+A	stage2_jordy.js
+COMMIT 702fcc397d45546baab5311bc0a264870ae90042 2026-07-30 19:34:44 +0200 Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+
+A	webkit_gadgets_1304.js
+COMMIT b1570ef644991d6ffe41c459753c169017d28be6 2026-07-29 09:54:13 +0200 Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+
+A	webkit_gadgets_1350.js
+## commits mentioning target terms
+[33m1089382[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+[33m96a7948[m Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+[33m3fd35a4[m Add compiled ps4-hen for FW 13.04 with full offsets
+[33m615c637[m Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+[33m6cacb24[m Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+## files in each commit near 1089382
+[33m1089382[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+ jordy_stage2.js | 302 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ stage2_jordy.js | 194 [31m------------------------------------[m
+ 2 files changed, 302 insertions(+), 194 deletions(-)
+[33m702fcc3[m Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+ webkit_gadgets_1304.js | 33 [32m+++++++++++++++++++++++++++++++++[m
+ 1 file changed, 33 insertions(+)
