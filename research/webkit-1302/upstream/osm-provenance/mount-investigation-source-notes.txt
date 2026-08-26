@@ -629,3 +629,8 @@ The repository’s own README says the target CSSFontFace UAF does not work on 1
 ## Component presence matrix
 
 The static presence matrix compares Jordy 1089382, the 13.02 research artifact, ntfargo Netctrl/kernel sources and zecoxao’s Jordy PS5 bootstrap. Jordy and the 13.02 research artifact both expose nominal WebKit/libkernel base, dlsym, Pivot and ROP vocabulary, but neither contains `KernelView`, `kread`, `kwrite`, `p_ucred`, `pktopts`, Netctrl or ucred integration. The ntfargo sources contain the concrete kernel-side primitives and ucred/pktopts path. Jordy alone contains the strings `ffs_mountfs`, `Celsius` and `mount`, but in the reviewed file these occur as claims/placeholders rather than an implemented path. The matrix is evidence of a sharp userland-vs-kernel integration boundary, not evidence that Celsius works.
+
+
+## External search after progenitor audit
+
+A fresh public search for `jordy_stage2.js`, `KernelView` + `ffs_mountfs` and `Celsius` + `jordy` returned the original `adri22235/ps4-suid-scanner` repository as the only relevant result. No independent public adaptation or mirror was found that connects Jordy to the historical `KernelView`/Netctrl implementation, UFS/FFS code or Celsius. This is a negative search result, not proof that private or unindexed material does not exist.
