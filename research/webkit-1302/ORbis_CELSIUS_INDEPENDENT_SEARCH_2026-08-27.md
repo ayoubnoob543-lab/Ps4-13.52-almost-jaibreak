@@ -233,3 +233,7 @@ La página `PSDevWiki/Reverse_Engineering` enumera herramientas de análisis, `p
 ## Forks públicos de GhidraOrbis
 
 La API pública de GitHub devolvió 22 forks de `astrelsky/GhidraOrbis`. La inspección de los árboles por defecto no encontró rutas o nombres que indiquen dumps de kernel, proyectos 13.02/13.04, UFS/FFS, `ffs_mountfs` o bases de datos IDA/Ghidra asociadas con Orbis. Los forks son copias del plugin de tooling y no abren una nueva procedencia de Celsius. Clasificación: **VERIFIED** como inventario negativo de forks públicos; **INVALID** como fuente directa de análisis Celsius.
+
+## `SocraticBliss/ps4_kernel_loader` como candidato A
+
+El repositorio público `SocraticBliss/ps4_kernel_loader` fue creado el 2019-05-07, tiene 39 commits y contiene únicamente `ps4_kernel.py`, README y licencia. El README indica que el loader se usa cargando un kernel de PS4 ya “dumped or decrypted”; no incluye ningún dump, proyecto de IDA, pseudocódigo ni firmware 13.02/13.04. La publicación de PSXHAX del 2019-05-08 reproduce las instrucciones y el código del loader, pero tampoco enlaza un kernel concreto. Es infraestructura para analizar el artefacto que falta, no el artefacto. Clasificación: **VERIFIED** como loader; **INVALID** como evidencia directa de Celsius/Orbis 13.02.

@@ -999,3 +999,7 @@ Created 2026-07-08 with 3 commits. README claims a local MITM Vue chain for PS4 
 ## Public GhidraOrbis forks
 
 GitHub API returned 22 public forks of `astrelsky/GhidraOrbis`. Default-branch trees showed no kernel dumps, 13.02/13.04 projects, UFS/FFS, `ffs_mountfs`, or IDA/Ghidra databases tied to Orbis. Forks remain tooling copies and add no Celsius provenance.
+
+## SocraticBliss ps4_kernel_loader candidate
+
+Public repo created 2019-05-07 with 39 commits; tree contains only `ps4_kernel.py`, README and license. README requires a previously dumped/decrypted PS4 kernel and provides no dump, IDA project, pseudocode or 13.02/13.04 firmware. PSXHAX's 2019-05-08 post reproduces the loader instructions/code but no concrete kernel. Verified tooling, invalid as direct Celsius/Orbis 13.02 evidence.
