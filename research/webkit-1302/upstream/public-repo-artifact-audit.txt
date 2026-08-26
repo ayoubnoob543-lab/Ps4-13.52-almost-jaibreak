@@ -1,0 +1,107 @@
+=== alferdoss/SLOPOS-offsets ===
+master	2024-08-12T08:51:20Z	2026-08-24T17:15:40Z	2026-08-24T16:59:16Z
+ps4/1302.h	2823
+ps4/1304.h	744
+ps4/1350.h	2823
+=== ps4-payload-dev/sdk ===
+master	2025-07-06T18:04:44Z	2026-08-23T01:26:39Z	2026-05-12T18:06:55Z
+crt/kernel.c	46043
+crt/kernel.h	4500
+include/freebsd-9.3/libufs.h	4240
+include/freebsd-9.3/lwres/netdb.h	13044
+include/freebsd-9.3/machine/minidump.h	1765
+include/freebsd-9.3/protocols/dumprestore.h	5733
+include/freebsd-9.3/sys/kernel.h	14090
+include/freebsd-9.3/sys/kerneldump.h	3695
+include/freebsd-9.3/ufs/ffs/ffs_extern.h	8131
+include/freebsd-9.3/ufs/ffs/fs.h	31689
+include/freebsd-9.3/ufs/ffs/softdep.h	46254
+include/freebsd-9.3/ufs/ufs/acl.h	2170
+include/freebsd-9.3/ufs/ufs/dinode.h	8595
+include/freebsd-9.3/ufs/ufs/dir.h	5911
+include/freebsd-9.3/ufs/ufs/dirhash.h	5326
+include/freebsd-9.3/ufs/ufs/extattr.h	6135
+include/freebsd-9.3/ufs/ufs/gjournal.h	1697
+include/freebsd-9.3/ufs/ufs/inode.h	7359
+include/freebsd-9.3/ufs/ufs/quota.h	9598
+include/freebsd-9.3/ufs/ufs/ufs_extern.h	5514
+include/freebsd-9.3/ufs/ufs/ufsmount.h	6354
+include/ps4/kernel.h	4715
+libc/emutls.c	13503
+libufs/Makefile	1814
+libufs/block.c	4125
+libufs/cgroup.c	5653
+libufs/inode.c	3163
+libufs/libufs.h	4175
+libufs/sblock.c	4692
+libufs/type.c	5107
+samples/kdump/.gitignore	14
+samples/kdump/Makefile	1143
+samples/kdump/main.c	1179
+sce_stubs/libkernel.c	120012
+sce_stubs/libkernel_sys.c	130663
+sce_stubs/libkernel_web.c	120012
+=== ps4-linux/ps4-linux-loader ===
+master	2025-12-19T00:34:37Z	2026-08-15T22:35:13Z	2026-07-25T15:35:16Z
+freebsd-headers/libufs.h	4243
+freebsd-headers/lwres/netdb.h	13047
+freebsd-headers/machine/minidump.h	1768
+freebsd-headers/protocols/dumprestore.h	5736
+freebsd-headers/ps4-offsets/1000.h	518
+freebsd-headers/ps4-offsets/1050.h	535
+freebsd-headers/ps4-offsets/1100.h	519
+freebsd-headers/ps4-offsets/1102.h	519
+freebsd-headers/ps4-offsets/1150.h	519
+freebsd-headers/ps4-offsets/1200.h	519
+freebsd-headers/ps4-offsets/1250.h	519
+freebsd-headers/ps4-offsets/1300.h	519
+freebsd-headers/ps4-offsets/1302.h	519
+freebsd-headers/ps4-offsets/1350.h	518
+freebsd-headers/ps4-offsets/1352.h	519
+freebsd-headers/ps4-offsets/505.h	481
+freebsd-headers/ps4-offsets/672.h	481
+freebsd-headers/ps4-offsets/700.h	479
+freebsd-headers/ps4-offsets/750.h	481
+freebsd-headers/ps4-offsets/800.h	478
+freebsd-headers/ps4-offsets/850.h	519
+freebsd-headers/ps4-offsets/900.h	516
+freebsd-headers/ps4-offsets/903.h	516
+freebsd-headers/ps4-offsets/960.h	519
+freebsd-headers/ps4-offsets/kernel.h	964
+freebsd-headers/sys/kernel.h	14433
+freebsd-headers/sys/kerneldump.h	3698
+freebsd-headers/ufs/ffs/ffs_extern.h	7731
+freebsd-headers/ufs/ffs/fs.h	31255
+freebsd-headers/ufs/ffs/softdep.h	46258
+freebsd-headers/ufs/ufs/acl.h	2173
+freebsd-headers/ufs/ufs/dinode.h	8596
+freebsd-headers/ufs/ufs/dir.h	5916
+freebsd-headers/ufs/ufs/dirhash.h	5329
+freebsd-headers/ufs/ufs/extattr.h	6142
+freebsd-headers/ufs/ufs/gjournal.h	1700
+freebsd-headers/ufs/ufs/inode.h	7589
+freebsd-headers/ufs/ufs/quota.h	9579
+freebsd-headers/ufs/ufs/ufs_extern.h	5456
+freebsd-headers/ufs/ufs/ufsmount.h	6308
+linux/fw_offsets.h	3121
+linux/ps4-kexec-common/kernel.c	10366
+linux/ps4-kexec-common/kernel.h	3792
+=== OpenOrbis/OpenOrbis-PS4-Toolchain ===
+master	2020-05-11T15:01:42Z	2026-08-22T16:55:59Z	2026-02-27T10:58:14Z
+docs/MD/PS4 Libraries/Libkernel.md	7083
+include/orbis/_types/kernel.h	10226
+include/orbis/libkernel.h	24654
+=== OpenOrbis/OrbisDev ===
+[1;37m{[m
+  [1;34m"message"[m[1;37m:[m [32m"Not Found"[m[1;37m,[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/rest/repos/repos#get-a-repository"[m[1;37m,[m
+  [1;34m"status"[m[1;37m:[m [32m"404"[m
+[1;37m}[m
+repo-not-found
+=== MiraProject/Mira ===
+[1;37m{[m
+  [1;34m"message"[m[1;37m:[m [32m"Not Found"[m[1;37m,[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/rest/repos/repos#get-a-repository"[m[1;37m,[m
+  [1;34m"status"[m[1;37m:[m [32m"404"[m
+[1;37m}[m
+repo-not-found

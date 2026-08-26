@@ -1,0 +1,2212 @@
+=== QUERY ffs_mountfs ===
+[1;37m[[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMzI4MTgx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"freebsd/freebsd-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/freebsd/freebsd-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/freebsd/freebsd-src/blob/eeb02a9c24e9b59295b2cdf09bed955ccbf89a7e/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2Njk2NjIwOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"openbsd/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/openbsd/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/openbsd/src/blob/e0d65e2f59e8f16cab8fd7bc05731c2d04d065a3/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2Njk2NjIwOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"openbsd/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/openbsd/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/openbsd/src/blob/e0d65e2f59e8f16cab8fd7bc05731c2d04d065a3/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/vfs/ufs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3NTY4NTY="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"DragonFlyBSD/DragonFlyBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/DragonFlyBSD/DragonFlyBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/DragonFlyBSD/DragonFlyBSD/blob/22b0532048862576c5b86662d542247412372265/sys/vfs/ufs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"MacOSX10.4u.sdk/usr/include/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzU5NzIwMw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"phracker/MacOSX-SDKs"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/phracker/MacOSX-SDKs"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/phracker/MacOSX-SDKs/blob/041600eda65c6a668f66cb7d56b7d1da3e8bcc93/MacOSX10.4u.sdk/usr/include/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"MacOSX10.5.sdk/usr/include/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzU5NzIwMw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"phracker/MacOSX-SDKs"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/phracker/MacOSX-SDKs"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/phracker/MacOSX-SDKs/blob/041600eda65c6a668f66cb7d56b7d1da3e8bcc93/MacOSX10.5.sdk/usr/include/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"MacOSX10.6.sdk/usr/include/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzU5NzIwMw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"phracker/MacOSX-SDKs"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/phracker/MacOSX-SDKs"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/phracker/MacOSX-SDKs/blob/041600eda65c6a668f66cb7d56b7d1da3e8bcc93/MacOSX10.6.sdk/usr/include/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/vfs/ufs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3NTY4NTY="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"DragonFlyBSD/DragonFlyBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/DragonFlyBSD/DragonFlyBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/DragonFlyBSD/DragonFlyBSD/blob/22b0532048862576c5b86662d542247412372265/sys/vfs/ufs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4ODQzOTU0Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NetBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NetBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NetBSD/src/blob/5a7765109d6feb3a897b349b8d58572a0b7812f2/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4ODQzOTU0Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NetBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NetBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NetBSD/src/blob/5a7765109d6feb3a897b349b8d58572a0b7812f2/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxOTg3NzE5NQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"chenshuo/4.4BSD-Lite2"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/chenshuo/4.4BSD-Lite2"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/chenshuo/4.4BSD-Lite2/blob/875520b4cb8ae723490381b6afc90e60b6826fea/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxOTE2NzE3MQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"sergev/LiteBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/sergev/LiteBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/sergev/LiteBSD/blob/25b8a3ff7ad21b426214964eb91786f63e34e5a4/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNzk2NDk4Mg=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"opnsense/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/opnsense/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/opnsense/src/blob/10516aac41659315e7081ebdd34b24ec2b9dc953/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"usr/src/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxOTA1NTY4Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"sergev/4.4BSD-Lite2"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/sergev/4.4BSD-Lite2"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/sergev/4.4BSD-Lite2/blob/50587b00e922225c62f1706266587f435898126d/usr/src/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4NjE2Nzk5"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"truenas/os"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/truenas/os"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/truenas/os/blob/54a090f952b13bbda21f911385adcccc927baa6c/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjUyMDk3"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"bitrig/bitrig"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/bitrig/bitrig"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/bitrig/bitrig/blob/c22c5c6ebcc96092f69737815c84927b83e701be/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzgxMjIzMw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"CTSRD-CHERI/cheribsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/CTSRD-CHERI/cheribsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/CTSRD-CHERI/cheribsd/blob/88f39900c32928d807dba245fba138808c666f34/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjUyMDk3"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"bitrig/bitrig"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/bitrig/bitrig"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/bitrig/bitrig/blob/c22c5c6ebcc96092f69737815c84927b83e701be/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MDk4NDU2Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"pfsense/FreeBSD-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/pfsense/FreeBSD-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/pfsense/FreeBSD-src/blob/220e9a7e8d1f8d11dac87d7f1ffe1a1e10dade10/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMzgzOTU2Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"HardenedBSD/hardenedBSD-stable"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-stable"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-stable/blob/06cdabe1df9605942301fe5d6b8723265baa74ec/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2MzUxMDg0"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"weiss/original-bsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/weiss/original-bsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/weiss/original-bsd/blob/b44636d7febc9dcf553118bd320571864188351d/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"netbsd/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/netbsd/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd2/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/freebsd2/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMDY5Mzg3MjE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"TheSledgeHammer/2.11BSD_X44"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/TheSledgeHammer/2.11BSD_X44"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/TheSledgeHammer/2.11BSD_X44/blob/34f15cdca6c073c6506b2e3249a6f6648f1675e2/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"openbsd/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/openbsd/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd5/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/freebsd5/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd3/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/freebsd3/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd4/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/freebsd4/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMDY5Mzg3MjE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"TheSledgeHammer/2.11BSD_X44"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/TheSledgeHammer/2.11BSD_X44"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/TheSledgeHammer/2.11BSD_X44/blob/34f15cdca6c073c6506b2e3249a6f6648f1675e2/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyOTQxMjQx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lattera/freebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lattera/freebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lattera/freebsd/blob/401a161083850a9a4ce916f37520c084cff1543b/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMTA0MTc3Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"justincormack/frankenlibc"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/justincormack/frankenlibc"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/justincormack/frankenlibc/blob/afa7ee333589c31b26e92600c8ea964a5849ca57/src/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMDE4NTQ4OQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"neilss/4.4BSD-Lite"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/neilss/4.4BSD-Lite"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/neilss/4.4BSD-Lite/blob/a85f889a292965e1237884a164f3b894026763ad/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3Mzc3MDEx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"0xffea/MINIX3"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/0xffea/MINIX3"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/0xffea/MINIX3/blob/c25ee5d4eac28560ea0caff00451c622f2f9b154/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMTA0MTc3Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"justincormack/frankenlibc"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/justincormack/frankenlibc"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/justincormack/frankenlibc/blob/afa7ee333589c31b26e92600c8ea964a5849ca57/src/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzOTk1MjU1Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"cadets/freebsd-old"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd-old"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd-old/blob/74e4eb159ca9ff53b7e75adeb1c830a93c7131c3/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3Mzc3MDEx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"0xffea/MINIX3"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/0xffea/MINIX3"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/0xffea/MINIX3/blob/c25ee5d4eac28560ea0caff00451c622f2f9b154/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzNTA2MjU1OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"HardenedBSD/hardenedBSD-playground"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-playground"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-playground/blob/566353d884f2e53bf57d3eb7283b2150801f9cda/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0Mjg1Nzcx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lattera/bhyve"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lattera/bhyve"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lattera/bhyve/blob/5946a9115d2771a1d27f14a835c7fbc05b30f7f9/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"FreeBSD9/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMzM3NTk2Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"nestedkernel/PerspicuOS"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/nestedkernel/PerspicuOS"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/nestedkernel/PerspicuOS/blob/aae9a39b7e954c4ef6222af49e722aa5aa50f624/FreeBSD9/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"2007/CVE-2007-0229.md"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NTQwMTU0MTY="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"trickest/cve"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/trickest/cve"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/trickest/cve/blob/ca8ee0bb082b68407f87b660528f99e51d207a6b/2007/CVE-2007-0229.md"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"netbsdsrc/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMTM1OTE1NA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"sghiassy/Code-Reading-Book"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/sghiassy/Code-Reading-Book"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/sghiassy/Code-Reading-Book/blob/1b0172cdb78757fd17898503aaf6ce03d940ef28/netbsdsrc/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"FreeBSD9-orig/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMzM3NTk2Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"nestedkernel/PerspicuOS"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/nestedkernel/PerspicuOS"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/nestedkernel/PerspicuOS/blob/aae9a39b7e954c4ef6222af49e722aa5aa50f624/FreeBSD9-orig/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"netbsd/src/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5Mjg0MDA4OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"OSPreservProject/oskit"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/OSPreservProject/oskit"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/OSPreservProject/oskit/blob/c9e5fcde719a151a5f67b1f67e7186203c95b82f/netbsd/src/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNDc3NDIzNDA="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"MidnightBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/MidnightBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/MidnightBSD/src/blob/5656955eaec1121eda1d3c478922a77cd81f14f4/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxOTY2MDA5MA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"bradla/OpenBSD-Hammer2"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/bradla/OpenBSD-Hammer2"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/bradla/OpenBSD-Hammer2/blob/3cdc26721c09a4e3b6c18086d544a386330af59d/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0Mzg5NDYyNw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"pcbsd/NextBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/pcbsd/NextBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/pcbsd/NextBSD/blob/5e199472222f4fe1362ee2dd092b9cd8613a6929/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjYwNDU0NTI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"hselasky/usb4"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/hselasky/usb4"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/hselasky/usb4/blob/316c1eb93f219e569558c271115ef158ca0d8aab/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxOTY2MDA5MA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"bradla/OpenBSD-Hammer2"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/bradla/OpenBSD-Hammer2"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/bradla/OpenBSD-Hammer2/blob/3cdc26721c09a4e3b6c18086d544a386330af59d/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNjI5MjIwOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"jsonn/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/jsonn/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/jsonn/src/blob/be04bbea3f6e2175fa2fa3d599b440fab0b80eea/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"compat/sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMTc2Nzk2NTg1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"mr-foxxo/vibe-os"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/mr-foxxo/vibe-os"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/mr-foxxo/vibe-os/blob/c4d993d8d55f9775404ff2052063bb14d3ccb064/compat/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5NDg5MjY4"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"FreeBSDonHyper-V/freebsd-snapshot_obsolete"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/FreeBSDonHyper-V/freebsd-snapshot_obsolete"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/FreeBSDonHyper-V/freebsd-snapshot_obsolete/blob/d3334c59c742f5f6363fb946914d10743438284a/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"bsd/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNTE2NDgwMjc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"glem0/apple-xnu"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/glem0/apple-xnu"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/glem0/apple-xnu/blob/2ff7a7c687dc3ec830f9133cd595beeb3f8fc6bf/bsd/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNzA2NDkx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"chrissicool/l4openbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/chrissicool/l4openbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/chrissicool/l4openbsd/blob/077177814444e08500e47bc2488502f11469bc60/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNzA2NDkx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"chrissicool/l4openbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/chrissicool/l4openbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/chrissicool/l4openbsd/blob/077177814444e08500e47bc2488502f11469bc60/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNjI5MjIwOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"jsonn/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/jsonn/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/jsonn/src/blob/be04bbea3f6e2175fa2fa3d599b440fab0b80eea/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"compat/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMTc2Nzk2NTg1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"mr-foxxo/vibe-os"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/mr-foxxo/vibe-os"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/mr-foxxo/vibe-os/blob/c4d993d8d55f9775404ff2052063bb14d3ccb064/compat/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMjE3Mjk0Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Stichting-MINIX-Research-Foundation/netbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Stichting-MINIX-Research-Foundation/netbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Stichting-MINIX-Research-Foundation/netbsd/blob/db4f849365101385d6667256568616131bac8ee7/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDU3Mzg3MjQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"cadets/freebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd/blob/42466516653b1974ae8d8d3899e9d6972312322b/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"4.4BSD-Lite2/usr/src/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0Nzg3MjA3Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"zhuqiuzhi/4.4BSD-Lite"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/zhuqiuzhi/4.4BSD-Lite"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/zhuqiuzhi/4.4BSD-Lite/blob/d998997dff53cdb57ed0845c4e55239830fdf63e/4.4BSD-Lite2/usr/src/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4MTg3Njc2"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"fallen/NetBSD6"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/fallen/NetBSD6"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/fallen/NetBSD6/blob/44e0ac4ada812ace1f9ca8ce4792e287d83bd951/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjE4NTA5OQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NovaMinix3/rpi_b"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NovaMinix3/rpi_b"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NovaMinix3/rpi_b/blob/6ffa7b067ca60a689334f0af0b2aeaeae532e0f2/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMjIwMzIzNzg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"robohack/ucb-csrg-bsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/robohack/ucb-csrg-bsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/robohack/ucb-csrg-bsd/blob/b7ae355b6d9675a29a5f521ee3003f45c8dcb950/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"bsd/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNTE2NDgwMjc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"glem0/apple-xnu"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/glem0/apple-xnu"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/glem0/apple-xnu/blob/2ff7a7c687dc3ec830f9133cd595beeb3f8fc6bf/bsd/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMjE3Mjk0Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Stichting-MINIX-Research-Foundation/netbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Stichting-MINIX-Research-Foundation/netbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Stichting-MINIX-Research-Foundation/netbsd/blob/db4f849365101385d6667256568616131bac8ee7/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"bsd/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMDg5ODI2NDYx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"bryankeller/wii-xnu-124.13"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/bryankeller/wii-xnu-124.13"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/bryankeller/wii-xnu-124.13/blob/18afb1f93c01a2aa5e50c8dbc3386cfd2b58bd09/bsd/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"lites/server/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzNzQ4NzI2NDg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"neozeed/xMach"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/neozeed/xMach"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/neozeed/xMach/blob/be30518e5091cc2e28436d68b6214bc621837bba/lites/server/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4MTg3Njc2"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"fallen/NetBSD6"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/fallen/NetBSD6"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/fallen/NetBSD6/blob/44e0ac4ada812ace1f9ca8ce4792e287d83bd951/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMTEzMDA2Ng=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"rumpkernel-attic/rumpkernel-netbsd-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/rumpkernel-attic/rumpkernel-netbsd-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/rumpkernel-attic/rumpkernel-netbsd-src/blob/a0a89399ca91f3e1de4e953dfab19f2644df949f/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjE4NTA5OQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NovaMinix3/rpi_b"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NovaMinix3/rpi_b"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NovaMinix3/rpi_b/blob/6ffa7b067ca60a689334f0af0b2aeaeae532e0f2/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDk3ODkzNjM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"CobaltBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/CobaltBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/CobaltBSD/src/blob/b2044c92ad82f44165524fd727981f2bba23a63f/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMzA2NDg2NQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"jonathangray/csrg"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/jonathangray/csrg"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/jonathangray/csrg/blob/d8611391a8df93fcfd69590c8556464a021127b7/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5OTkzMzIx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"virtbsd/virtbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/virtbsd/virtbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/virtbsd/virtbsd/blob/d6036c834a035838f4b7b91f93189ab3363171a4/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDk3ODkzNjM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"CobaltBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/CobaltBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/CobaltBSD/src/blob/b2044c92ad82f44165524fd727981f2bba23a63f/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MDM5ODQ5NQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"yasuoka/openbsd-uefi"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/yasuoka/openbsd-uefi"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/yasuoka/openbsd-uefi/blob/f13ba9b892be0bf1b8e30bc87ef7c1c86a621618/src/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/vfs/ufs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MTk2Njc1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"thesjg/dflygsocdrm"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/thesjg/dflygsocdrm"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/thesjg/dflygsocdrm/blob/790c3a2eaaf24896f0461a5beadcc3a9ddc99706/sys/vfs/ufs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MDM5ODQ5NQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"yasuoka/openbsd-uefi"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/yasuoka/openbsd-uefi"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/yasuoka/openbsd-uefi/blob/f13ba9b892be0bf1b8e30bc87ef7c1c86a621618/src/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"dhyve/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMjYwNTQyNzc5"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"pgraug/dhyve-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/pgraug/dhyve-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/pgraug/dhyve-src/blob/55d90e06afefb158f68e6bbb6a7124f5f8c6af68/dhyve/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"bsd/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1NTg1NTAyMjU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"calmsacibis995/xnu-rhapsody-53"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/calmsacibis995/xnu-rhapsody-53"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/calmsacibis995/xnu-rhapsody-53/blob/b85927efaac6068d9f71bb46be824e2bcebd2865/bsd/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4NDExMjAzNA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"TrustedBSD/sebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/TrustedBSD/sebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/TrustedBSD/sebsd/blob/fd5de6f587183087cf930779701d5713e8ca64cc/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2MjY5OTM2Mjc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"KlaraSystems/freebsd-relayd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/KlaraSystems/freebsd-relayd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/KlaraSystems/freebsd-relayd/blob/ec690b778f49ea9ce9955b02f4d4d1337d51e822/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"FreeBSD/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDkxNDEwMw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"TigerBSD/TigerBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/TigerBSD/TigerBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/TigerBSD/TigerBSD/blob/3d092f261b362f73170871403397fc5d6b89d1dc/FreeBSD/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"bsd/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4ODk0OTMzNTU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"calmsacibis995/rhapsody-reloaded"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/calmsacibis995/rhapsody-reloaded"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/calmsacibis995/rhapsody-reloaded/blob/d0bf6800db15935bb65f959ea4f5e91c5530052a/bsd/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"darbat/bsd/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1OTEyOTcyMTY="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"calmsacibis995/darbat-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/calmsacibis995/darbat-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/calmsacibis995/darbat-src/blob/d537fa0ccf5d0da5d2ae58634255a38828950194/darbat/bsd/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2Mzc4MTE4MQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"musec/freebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/musec/freebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/musec/freebsd/blob/1a56caac40d17ff81aaae1969185517aa5d56736/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2ODU5NDYzOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NexBSD/NextBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NexBSD/NextBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NexBSD/NextBSD/blob/0feb83303465ce874a720ea97d408ff9f2be3300/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMDQxNTY3"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"glk/freebsd-head"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/glk/freebsd-head"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/glk/freebsd-head/blob/46559a7088dd10ecae748466f4023a9d6a61750d/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"oskit-20020317/netbsd/src/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1MjA4MjE0MA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"dzavalishin/oskit"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/dzavalishin/oskit"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/dzavalishin/oskit/blob/983f91f0dcd05e620ac2a833430abe6a4a5bb2f8/oskit-20020317/netbsd/src/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/vfs/ufs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MTk2Njc1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"thesjg/dflygsocdrm"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/thesjg/dflygsocdrm"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/thesjg/dflygsocdrm/blob/790c3a2eaaf24896f0461a5beadcc3a9ddc99706/sys/vfs/ufs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3OTg0Mzc1ODI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NCommander/openbsd-src-with-branches"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NCommander/openbsd-src-with-branches"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NCommander/openbsd-src-with-branches/blob/5282df1b337a8a24d613f96b9c49f10ab8c2d254/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzcwNDY3NjU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"JulNadeauCA/FabBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/JulNadeauCA/FabBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/JulNadeauCA/FabBSD/blob/19d390bc515cee0afb8ec27ee3e0f38d487b4f32/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNzYwNDY5OTk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"sunrash/freebsd_steroid"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/sunrash/freebsd_steroid"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/sunrash/freebsd_steroid/blob/9246be315fbf87be7a9bf8cc5f1e551bfddc1522/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzcwNDY3NjU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"JulNadeauCA/FabBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/JulNadeauCA/FabBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/JulNadeauCA/FabBSD/blob/19d390bc515cee0afb8ec27ee3e0f38d487b4f32/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1NzE3Nzc4MDc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"MPTCP-FreeBSD/FB13.1-ML-MPTCP-SRC"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/MPTCP-FreeBSD/FB13.1-ML-MPTCP-SRC"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/MPTCP-FreeBSD/FB13.1-ML-MPTCP-SRC/blob/807a63ffec51abbeb3f602b77344b3aaf4d647a6/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"i386/include/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MjUwNTQ0"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"fxtentacle/chameleon-chimera-hajo"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/fxtentacle/chameleon-chimera-hajo"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/fxtentacle/chameleon-chimera-hajo/blob/79a12d3a4ebcfff8e2a2115d988b5b0ae1e9a882/i386/include/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3OTg0Mzc1ODI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NCommander/openbsd-src-with-branches"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NCommander/openbsd-src-with-branches"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NCommander/openbsd-src-with-branches/blob/5282df1b337a8a24d613f96b9c49f10ab8c2d254/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"darbat/bsd/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1OTEyOTcyMTY="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"calmsacibis995/darbat-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/calmsacibis995/darbat-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/calmsacibis995/darbat-src/blob/d537fa0ccf5d0da5d2ae58634255a38828950194/darbat/bsd/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"lib/libc/include/generic-netbsd/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5MjI0MjAxNTA="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"llogick/zigscient-next"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/llogick/zigscient-next"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/llogick/zigscient-next/blob/c6a925d7382f474dc5b8665035e0a83117689a00/lib/libc/include/generic-netbsd/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1NzEzNzM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"oza/FreeBSD-8.0-dyntick"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/oza/FreeBSD-8.0-dyntick"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/oza/FreeBSD-8.0-dyntick/blob/cff798ab6107a9726ceff9219ac8c0272e7fe327/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/vfs/ufs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MzEzMTcx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"mihaicarabas/dragonfly"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/mihaicarabas/dragonfly"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/mihaicarabas/dragonfly/blob/24da862f13a89f853ba0298c291319a87ef4f4d5/sys/vfs/ufs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"kernel-7/bsd/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNzk2NzgyNTQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"evolver56k/Darwin-0.3"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/evolver56k/Darwin-0.3"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/evolver56k/Darwin-0.3/blob/745305afd074437bb660bcf02146a2754eeef5ae/kernel-7/bsd/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m
+[1;37m][m
+=== QUERY ffs_reload ===
+[1;37m[[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"lib/libc/include/generic-freebsd/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MDI3NjI3NA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ziglang/zig"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ziglang/zig"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ziglang/zig/blob/738d2be9d6b6ef3ff3559130c05159ef53336224/lib/libc/include/generic-freebsd/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMzI4MTgx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"freebsd/freebsd-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/freebsd/freebsd-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/freebsd/freebsd-src/blob/eeb02a9c24e9b59295b2cdf09bed955ccbf89a7e/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2Njk2NjIwOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"openbsd/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/openbsd/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/openbsd/src/blob/e0d65e2f59e8f16cab8fd7bc05731c2d04d065a3/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/vfs/ufs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3NTY4NTY="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"DragonFlyBSD/DragonFlyBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/DragonFlyBSD/DragonFlyBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/DragonFlyBSD/DragonFlyBSD/blob/22b0532048862576c5b86662d542247412372265/sys/vfs/ufs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2Njk2NjIwOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"openbsd/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/openbsd/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/openbsd/src/blob/e0d65e2f59e8f16cab8fd7bc05731c2d04d065a3/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNzk2NDk4Mg=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"opnsense/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/opnsense/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/opnsense/src/blob/10516aac41659315e7081ebdd34b24ec2b9dc953/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4ODQzOTU0Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NetBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NetBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NetBSD/src/blob/5a7765109d6feb3a897b349b8d58572a0b7812f2/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4NjE2Nzk5"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"truenas/os"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/truenas/os"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/truenas/os/blob/54a090f952b13bbda21f911385adcccc927baa6c/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxOTE2NzE3MQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"sergev/LiteBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/sergev/LiteBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/sergev/LiteBSD/blob/25b8a3ff7ad21b426214964eb91786f63e34e5a4/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4ODQzOTU0Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NetBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NetBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NetBSD/src/blob/5a7765109d6feb3a897b349b8d58572a0b7812f2/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNzk2NDk4Mg=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"opnsense/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/opnsense/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/opnsense/src/blob/10516aac41659315e7081ebdd34b24ec2b9dc953/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjUyMDk3"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"bitrig/bitrig"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/bitrig/bitrig"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/bitrig/bitrig/blob/c22c5c6ebcc96092f69737815c84927b83e701be/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMzgzOTU2Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"HardenedBSD/hardenedBSD-stable"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-stable"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-stable/blob/06cdabe1df9605942301fe5d6b8723265baa74ec/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4NjE2Nzk5"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"truenas/os"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/truenas/os"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/truenas/os/blob/54a090f952b13bbda21f911385adcccc927baa6c/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzgxMjIzMw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"CTSRD-CHERI/cheribsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/CTSRD-CHERI/cheribsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/CTSRD-CHERI/cheribsd/blob/88f39900c32928d807dba245fba138808c666f34/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjUyMDk3"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"bitrig/bitrig"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/bitrig/bitrig"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/bitrig/bitrig/blob/c22c5c6ebcc96092f69737815c84927b83e701be/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MDk4NDU2Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"pfsense/FreeBSD-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/pfsense/FreeBSD-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/pfsense/FreeBSD-src/blob/220e9a7e8d1f8d11dac87d7f1ffe1a1e10dade10/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMzgzOTU2Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"HardenedBSD/hardenedBSD-stable"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-stable"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-stable/blob/06cdabe1df9605942301fe5d6b8723265baa74ec/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd2/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/freebsd2/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"netbsd/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/netbsd/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd3/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/freebsd3/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd4/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/freebsd4/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"openbsd/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/openbsd/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd5/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NzM0Njg="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"kame/kame"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/kame/kame/blob/2ef74fe29e4cca9b4a87a1d5041191a9e2e8be30/freebsd5/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMDY5Mzg3MjE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"TheSledgeHammer/2.11BSD_X44"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/TheSledgeHammer/2.11BSD_X44"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/TheSledgeHammer/2.11BSD_X44/blob/34f15cdca6c073c6506b2e3249a6f6648f1675e2/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyOTQxMjQx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lattera/freebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lattera/freebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lattera/freebsd/blob/401a161083850a9a4ce916f37520c084cff1543b/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"include/freebsd/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3ODI4NzkyOTU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ps5-payload-dev/sdk"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ps5-payload-dev/sdk"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ps5-payload-dev/sdk/blob/4eb701204fc3f8d31e84cf8ca272974e2be9c867/include/freebsd/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzOTk1MjU1Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"cadets/freebsd-old"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd-old"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd-old/blob/74e4eb159ca9ff53b7e75adeb1c830a93c7131c3/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyOTQxMjQx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lattera/freebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lattera/freebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lattera/freebsd/blob/401a161083850a9a4ce916f37520c084cff1543b/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzNTA2MjU1OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"HardenedBSD/hardenedBSD-playground"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-playground"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-playground/blob/566353d884f2e53bf57d3eb7283b2150801f9cda/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMTA0MTc3Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"justincormack/frankenlibc"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/justincormack/frankenlibc"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/justincormack/frankenlibc/blob/afa7ee333589c31b26e92600c8ea964a5849ca57/src/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3Mzc3MDEx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"0xffea/MINIX3"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/0xffea/MINIX3"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/0xffea/MINIX3/blob/c25ee5d4eac28560ea0caff00451c622f2f9b154/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMTA0MTc3Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"justincormack/frankenlibc"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/justincormack/frankenlibc"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/justincormack/frankenlibc/blob/afa7ee333589c31b26e92600c8ea964a5849ca57/src/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNDc3NDIzNDA="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"MidnightBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/MidnightBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/MidnightBSD/src/blob/5656955eaec1121eda1d3c478922a77cd81f14f4/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzOTk1MjU1Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"cadets/freebsd-old"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd-old"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd-old/blob/74e4eb159ca9ff53b7e75adeb1c830a93c7131c3/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3Mzc3MDEx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"0xffea/MINIX3"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/0xffea/MINIX3"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/0xffea/MINIX3/blob/c25ee5d4eac28560ea0caff00451c622f2f9b154/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjYwNDU0NTI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"hselasky/usb4"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/hselasky/usb4"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/hselasky/usb4/blob/316c1eb93f219e569558c271115ef158ca0d8aab/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0Mjg1Nzcx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lattera/bhyve"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lattera/bhyve"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lattera/bhyve/blob/5946a9115d2771a1d27f14a835c7fbc05b30f7f9/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"FreeBSD9/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMzM3NTk2Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"nestedkernel/PerspicuOS"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/nestedkernel/PerspicuOS"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/nestedkernel/PerspicuOS/blob/aae9a39b7e954c4ef6222af49e722aa5aa50f624/FreeBSD9/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzNTA2MjU1OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"HardenedBSD/hardenedBSD-playground"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-playground"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/HardenedBSD/hardenedBSD-playground/blob/566353d884f2e53bf57d3eb7283b2150801f9cda/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxOTY2MDA5MA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"bradla/OpenBSD-Hammer2"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/bradla/OpenBSD-Hammer2"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/bradla/OpenBSD-Hammer2/blob/3cdc26721c09a4e3b6c18086d544a386330af59d/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"netbsdsrc/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMTM1OTE1NA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"sghiassy/Code-Reading-Book"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/sghiassy/Code-Reading-Book"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/sghiassy/Code-Reading-Book/blob/1b0172cdb78757fd17898503aaf6ce03d940ef28/netbsdsrc/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd-x86_64/usr/include/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MTU3NDE2NDI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ClickHouse/sysroot"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ClickHouse/sysroot"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ClickHouse/sysroot/blob/caf9c9f560e5a06295d961860ed717fe169e8cef/freebsd-x86_64/usr/include/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd-aarch64/usr/include/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MTU3NDE2NDI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ClickHouse/sysroot"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ClickHouse/sysroot"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ClickHouse/sysroot/blob/caf9c9f560e5a06295d961860ed717fe169e8cef/freebsd-aarch64/usr/include/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"FreeBSD9-orig/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMzM3NTk2Mw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"nestedkernel/PerspicuOS"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/nestedkernel/PerspicuOS"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/nestedkernel/PerspicuOS/blob/aae9a39b7e954c4ef6222af49e722aa5aa50f624/FreeBSD9-orig/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"compat/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMTc2Nzk2NTg1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"mr-foxxo/vibe-os"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/mr-foxxo/vibe-os"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/mr-foxxo/vibe-os/blob/c4d993d8d55f9775404ff2052063bb14d3ccb064/compat/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyNDc3NDIzNDA="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"MidnightBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/MidnightBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/MidnightBSD/src/blob/5656955eaec1121eda1d3c478922a77cd81f14f4/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"freebsd-powerpc64le/usr/include/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MTU3NDE2NDI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ClickHouse/sysroot"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ClickHouse/sysroot"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ClickHouse/sysroot/blob/caf9c9f560e5a06295d961860ed717fe169e8cef/freebsd-powerpc64le/usr/include/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDU3Mzg3MjQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"cadets/freebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd/blob/42466516653b1974ae8d8d3899e9d6972312322b/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNzA2NDkx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"chrissicool/l4openbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/chrissicool/l4openbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/chrissicool/l4openbsd/blob/077177814444e08500e47bc2488502f11469bc60/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"netbsd/src/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5Mjg0MDA4OA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"OSPreservProject/oskit"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/OSPreservProject/oskit"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/OSPreservProject/oskit/blob/c9e5fcde719a151a5f67b1f67e7186203c95b82f/netbsd/src/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0Mzg5NDYyNw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"pcbsd/NextBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/pcbsd/NextBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/pcbsd/NextBSD/blob/5e199472222f4fe1362ee2dd092b9cd8613a6929/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjYwNDU0NTI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"hselasky/usb4"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/hselasky/usb4"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/hselasky/usb4/blob/316c1eb93f219e569558c271115ef158ca0d8aab/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxOTY2MDA5MA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"bradla/OpenBSD-Hammer2"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/bradla/OpenBSD-Hammer2"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/bradla/OpenBSD-Hammer2/blob/3cdc26721c09a4e3b6c18086d544a386330af59d/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"ps5-payload-sdk/include/freebsd/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMjM4NDczNTY1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"OpenSourcereR-dev/ps5debug-NG"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/OpenSourcereR-dev/ps5debug-NG"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/OpenSourcereR-dev/ps5debug-NG/blob/d32d2d001dbbfd4cd2c0b7d6335b9a49d8a1cb86/ps5-payload-sdk/include/freebsd/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"include/freebsd-9.3/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMDE0OTQ2NjIx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"ps4-payload-dev/sdk"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/ps4-payload-dev/sdk"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ps4-payload-dev/sdk/blob/1a85cb5a8ea12dc2dcfbcc878700d0d097245de7/include/freebsd-9.3/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNjI5MjIwOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"jsonn/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/jsonn/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/jsonn/src/blob/be04bbea3f6e2175fa2fa3d599b440fab0b80eea/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5NDg5MjY4"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"FreeBSDonHyper-V/freebsd-snapshot_obsolete"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/FreeBSDonHyper-V/freebsd-snapshot_obsolete"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/FreeBSDonHyper-V/freebsd-snapshot_obsolete/blob/d3334c59c742f5f6363fb946914d10743438284a/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"compat/sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMTc2Nzk2NTg1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"mr-foxxo/vibe-os"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/mr-foxxo/vibe-os"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/mr-foxxo/vibe-os/blob/c4d993d8d55f9775404ff2052063bb14d3ccb064/compat/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDk3ODkzNjM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"CobaltBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/CobaltBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/CobaltBSD/src/blob/b2044c92ad82f44165524fd727981f2bba23a63f/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNzA2NDkx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"chrissicool/l4openbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/chrissicool/l4openbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/chrissicool/l4openbsd/blob/077177814444e08500e47bc2488502f11469bc60/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDU3Mzg3MjQ="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"cadets/freebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/cadets/freebsd/blob/42466516653b1974ae8d8d3899e9d6972312322b/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMjE3Mjk0Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Stichting-MINIX-Research-Foundation/netbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Stichting-MINIX-Research-Foundation/netbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Stichting-MINIX-Research-Foundation/netbsd/blob/db4f849365101385d6667256568616131bac8ee7/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNjI5MjIwOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"jsonn/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/jsonn/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/jsonn/src/blob/be04bbea3f6e2175fa2fa3d599b440fab0b80eea/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"dhyve/sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMjYwNTQyNzc5"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"pgraug/dhyve-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/pgraug/dhyve-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/pgraug/dhyve-src/blob/55d90e06afefb158f68e6bbb6a7124f5f8c6af68/dhyve/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MDM5ODQ5NQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"yasuoka/openbsd-uefi"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/yasuoka/openbsd-uefi"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/yasuoka/openbsd-uefi/blob/f13ba9b892be0bf1b8e30bc87ef7c1c86a621618/src/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2MjY5OTM2Mjc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"KlaraSystems/freebsd-relayd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/KlaraSystems/freebsd-relayd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/KlaraSystems/freebsd-relayd/blob/ec690b778f49ea9ce9955b02f4d4d1337d51e822/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4MTg3Njc2"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"fallen/NetBSD6"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/fallen/NetBSD6"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/fallen/NetBSD6/blob/44e0ac4ada812ace1f9ca8ce4792e287d83bd951/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjE4NTA5OQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NovaMinix3/rpi_b"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NovaMinix3/rpi_b"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NovaMinix3/rpi_b/blob/6ffa7b067ca60a689334f0af0b2aeaeae532e0f2/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5OTkzMzIx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"virtbsd/virtbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/virtbsd/virtbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/virtbsd/virtbsd/blob/d6036c834a035838f4b7b91f93189ab3363171a4/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/vfs/ufs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MTk2Njc1"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"thesjg/dflygsocdrm"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/thesjg/dflygsocdrm"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/thesjg/dflygsocdrm/blob/790c3a2eaaf24896f0461a5beadcc3a9ddc99706/sys/vfs/ufs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzMjE3Mjk0Nw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Stichting-MINIX-Research-Foundation/netbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Stichting-MINIX-Research-Foundation/netbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Stichting-MINIX-Research-Foundation/netbsd/blob/db4f849365101385d6667256568616131bac8ee7/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4MTg3Njc2"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"fallen/NetBSD6"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/fallen/NetBSD6"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/fallen/NetBSD6/blob/44e0ac4ada812ace1f9ca8ce4792e287d83bd951/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMTEzMDA2Ng=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"rumpkernel-attic/rumpkernel-netbsd-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/rumpkernel-attic/rumpkernel-netbsd-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/rumpkernel-attic/rumpkernel-netbsd-src/blob/a0a89399ca91f3e1de4e953dfab19f2644df949f/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0NjE4NTA5OQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NovaMinix3/rpi_b"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NovaMinix3/rpi_b"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NovaMinix3/rpi_b/blob/6ffa7b067ca60a689334f0af0b2aeaeae532e0f2/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDk3ODkzNjM="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"CobaltBSD/src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/CobaltBSD/src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/CobaltBSD/src/blob/b2044c92ad82f44165524fd727981f2bba23a63f/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk5OTkzMzIx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"virtbsd/virtbsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/virtbsd/virtbsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/virtbsd/virtbsd/blob/d6036c834a035838f4b7b91f93189ab3363171a4/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNzYwNDY5OTk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"sunrash/freebsd_steroid"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/sunrash/freebsd_steroid"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/sunrash/freebsd_steroid/blob/9246be315fbf87be7a9bf8cc5f1e551bfddc1522/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/vfs/ufs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MzEzMTcx"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"mihaicarabas/dragonfly"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/mihaicarabas/dragonfly"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/mihaicarabas/dragonfly/blob/24da862f13a89f853ba0298c291319a87ef4f4d5/sys/vfs/ufs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"FreeBSD/sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDkxNDEwMw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"TigerBSD/TigerBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/TigerBSD/TigerBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/TigerBSD/TigerBSD/blob/3d092f261b362f73170871403397fc5d6b89d1dc/FreeBSD/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1NzE3Nzc4MDc="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"MPTCP-FreeBSD/FB13.1-ML-MPTCP-SRC"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/MPTCP-FreeBSD/FB13.1-ML-MPTCP-SRC"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/MPTCP-FreeBSD/FB13.1-ML-MPTCP-SRC/blob/807a63ffec51abbeb3f602b77344b3aaf4d647a6/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3OTg0Mzc1ODI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NCommander/openbsd-src-with-branches"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NCommander/openbsd-src-with-branches"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NCommander/openbsd-src-with-branches/blob/5282df1b337a8a24d613f96b9c49f10ab8c2d254/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"darbat/bsd/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1OTEyOTcyMTY="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"calmsacibis995/darbat-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/calmsacibis995/darbat-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/calmsacibis995/darbat-src/blob/d537fa0ccf5d0da5d2ae58634255a38828950194/darbat/bsd/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk4NDExMjAzNA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"TrustedBSD/sebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/TrustedBSD/sebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/TrustedBSD/sebsd/blob/fd5de6f587183087cf930779701d5713e8ca64cc/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMzcwNDY3NjU="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"JulNadeauCA/FabBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/JulNadeauCA/FabBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/JulNadeauCA/FabBSD/blob/19d390bc515cee0afb8ec27ee3e0f38d487b4f32/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"dhyve/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMjYwNTQyNzc5"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"pgraug/dhyve-src"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/pgraug/dhyve-src"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/pgraug/dhyve-src/blob/55d90e06afefb158f68e6bbb6a7124f5f8c6af68/dhyve/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2Mzc4MTE4MQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"musec/freebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/musec/freebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/musec/freebsd/blob/1a56caac40d17ff81aaae1969185517aa5d56736/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2ODU5NDYzOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NexBSD/NextBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NexBSD/NextBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NexBSD/NextBSD/blob/0feb83303465ce874a720ea97d408ff9f2be3300/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"src/sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MDM5ODQ5NQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"yasuoka/openbsd-uefi"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/yasuoka/openbsd-uefi"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/yasuoka/openbsd-uefi/blob/f13ba9b892be0bf1b8e30bc87ef7c1c86a621618/src/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1MDkwNjc1MTA="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"inobulles/aquabsd-core"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/inobulles/aquabsd-core"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/inobulles/aquabsd-core/blob/e23cb88c2adb723d625d9684a6f52154921fcba3/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"FreeBSD/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2NDkxNDEwMw=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"TigerBSD/TigerBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/TigerBSD/TigerBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/TigerBSD/TigerBSD/blob/3d092f261b362f73170871403397fc5d6b89d1dc/FreeBSD/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk0MTAyNzIyMTA="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"DynFi/FreeBSD-base"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/DynFi/FreeBSD-base"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/DynFi/FreeBSD-base/blob/83372420ce382dae6255bd3121891a3306b99ca7/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2Mzc4MTE4MQ=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"musec/freebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/musec/freebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/musec/freebsd/blob/1a56caac40d17ff81aaae1969185517aa5d56736/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"ufsX/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1MjU3MDgxNDk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"johnothwolo/UFSonMacOS"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/johnothwolo/UFSonMacOS"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/johnothwolo/UFSonMacOS/blob/7f3e3863f7d5257d5a006b32d8b155adc64788aa/ufsX/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk2ODU5NDYzOA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NexBSD/NextBSD"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NexBSD/NextBSD"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NexBSD/NextBSD/blob/0feb83303465ce874a720ea97d408ff9f2be3300/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkyMDQxNTY3"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"glk/freebsd-head"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/glk/freebsd-head"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/glk/freebsd-head/blob/46559a7088dd10ecae748466f4023a9d6a61750d/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkzNDA2NTg5NjE="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"Cambridge-AdvancedOS/l41-freebsd"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/Cambridge-AdvancedOS/l41-freebsd"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/Cambridge-AdvancedOS/l41-freebsd/blob/504e64af32ba6c62fdcc894a3b1da76061c64796/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxNzYwNDY5OTk="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"sunrash/freebsd_steroid"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/sunrash/freebsd_steroid"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/sunrash/freebsd_steroid/blob/9246be315fbf87be7a9bf8cc5f1e551bfddc1522/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"oskit-20020317/netbsd/src/sys/ufs/ffs/ffs_vfsops.c"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk1MjA4MjE0MA=="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"dzavalishin/oskit"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/dzavalishin/oskit"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/dzavalishin/oskit/blob/983f91f0dcd05e620ac2a833430abe6a4a5bb2f8/oskit-20020317/netbsd/src/sys/ufs/ffs/ffs_vfsops.c"[m
+  [1;37m}[m[1;37m,[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"sys/ufs/ffs/ffs_extern.h"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnk3OTg0Mzc1ODI="[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"NCommander/openbsd-src-with-branches"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/NCommander/openbsd-src-with-branches"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/NCommander/openbsd-src-with-branches/blob/5282df1b337a8a24d613f96b9c49f10ab8c2d254/sys/ufs/ffs/ffs_extern.h"[m
+  [1;37m}[m
+[1;37m][m
+=== QUERY "system_fs_image" PS4 ===
+[1;37m[[m[1;37m][m
+=== QUERY "1302.bin" PS4 ===
+[1;37m[[m[1;37m][m
+=== QUERY "Orbis" "13.02" ===
+[1;37m[[m[1;37m][m

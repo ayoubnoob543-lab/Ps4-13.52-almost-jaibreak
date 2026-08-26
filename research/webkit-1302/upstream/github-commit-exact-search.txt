@@ -1,0 +1,30 @@
+=== COMMIT SEARCH "13.02 kernel" ===
+d238ec1e12ce87a6e621d709ef9ff7cefd4d5f59	ayoubnoob543-lab/firmware-lab	2026-08-26T15:07:52.000+02:00	https://github.com/ayoubnoob543-lab/firmware-lab/commit/d238ec1e12ce87a6e621d709ef9ff7cefd4d5f59	actualización crítica: userland confirmado multi-fuente hasta FW 13.50; Luac0re 2.4 funcional en 13.02+; kernel R/W sigue sin resolver
+1d7c0314ade52858496195e53bcc85de274def51	AetherPS/Fusion	2026-01-20T05:12:37.000+01:00	https://github.com/AetherPS/Fusion/commit/1d7c0314ade52858496195e53bcc85de274def51	13.02 Kernel offsets (#13)
+=== COMMIT SEARCH "1302 kernel" ===
+59b21148f31969d9909466f33ad1e63a59b8351d	PerceptiLabs/modeling_tool	2021-06-03T15:55:24.000Z	https://github.com/PerceptiLabs/modeling_tool/commit/59b21148f31969d9909466f33ad1e63a59b8351d	Merged PR 1302: Kernel No Longer Hangs at 0.0001 Learning Rate\n\n# Implementation Summary\n-------------------------------\nThe changes in this branch seek to address the issue presented by this bug:\n\n #2069  It was caused by the learning rate being read into the kernel as a string rather than a float, and calling the optimizer with that incorrectly set parameter. To fix it, I added logic to check the type of the parameters passed in.\n\n How to review\n-------------------------------\nCreate any arbitrary model with a learning rate of 0.001 in master, and you'll see a crash. Try it in this branch and it should work\n\nPlease review the following files\n-------------------------------\n*`/backend/perceptilabs/trainer/base.py`\n\n# What did you do to make the codebase a better place? How did you make the improvements durable\n-------------------------------\nI didn't make the codebase much better with this bug fix, but I took advantage of the good practices we've been employing (such as frequent refactors).\n\nRelated work items: #2069
+=== COMMIT SEARCH "kernel dump" PS4 ===
+[1;37m{[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits"[m[1;37m,[m
+  [1;34m"message"[m[1;37m:[m [32m"You have exceeded a secondary rate limit. Please wait a few minutes before you try again. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) If you reach out to GitHub Support for help, please include the request ID C582:189871:3F87259:D2AF66B:6A8F2599."[m
+[1;37m}[m
+=== COMMIT SEARCH "system_fs_image" ===
+[1;37m{[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits"[m[1;37m,[m
+  [1;34m"message"[m[1;37m:[m [32m"You have exceeded a secondary rate limit. Please wait a few minutes before you try again. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) If you reach out to GitHub Support for help, please include the request ID C58A:382853:42D6405:DF9D877:6A8F2599."[m
+[1;37m}[m
+=== COMMIT SEARCH "ffs_mountfs" ===
+[1;37m{[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits"[m[1;37m,[m
+  [1;34m"message"[m[1;37m:[m [32m"You have exceeded a secondary rate limit. Please wait a few minutes before you try again. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) If you reach out to GitHub Support for help, please include the request ID C590:1F0883:40947BC:D6EA2A4:6A8F2599."[m
+[1;37m}[m
+=== COMMIT SEARCH Celsius PS4 ===
+[1;37m{[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits"[m[1;37m,[m
+  [1;34m"message"[m[1;37m:[m [32m"You have exceeded a secondary rate limit. Please wait a few minutes before you try again. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) If you reach out to GitHub Support for help, please include the request ID AC64:3551A9:101D7EE:3651AA6:6A8F259A."[m
+[1;37m}[m
+=== COMMIT SEARCH Pharaoh2k ===
+[1;37m{[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits"[m[1;37m,[m
+  [1;34m"message"[m[1;37m:[m [32m"You have exceeded a secondary rate limit. Please wait a few minutes before you try again. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) If you reach out to GitHub Support for help, please include the request ID AC74:1DDDF5:1083F9C:37A7468:6A8F259A."[m
+[1;37m}[m

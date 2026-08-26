@@ -1,0 +1,107 @@
+=== REPO alferdoss/SLOPOS-offsets ===
+--- commits matching kernel/dump/1302/1304 ---
+70ed72abb7392ea435f90617f597670c428c478e	2026-08-24T16:47:04Z	feat(ps4): fill 11.02 allproc/vmspace_acquire_ref/vmspace_free/proc_rwmem offsets\n\nDerived from a PS4 Pro 11.02 kernel dump supplied by MSI_Ins_Dir\n(sdk_version 0x11020001, build J02660907, Nov 27 2023).\n\nvmspace_free: panic-string xref; the same method reproduces the known\n12.00 offset 0x2F6D50 exactly. vmspace_acquire_ref: byte-identical to\n12.00 0x2F6F20, and its internal call lands on our vmspace_free.\nproc_rwmem: masked signature port from 12.00 0x365FA0, unique hit,\ncaller count matches 12.00 (6 and 6; vmspace_free 18 and 18).\nallproc: signature-ported from both 11.00 and 12.00, 14 referencing\nfunctions, all converging on 0x22D0A98 (unchanged from 11.00).
+7ab6d40ca584b9c1473285f8730904d0571fe6a8	2026-08-18T17:28:06Z	feat(ps4): fill 10.50 vmspace_acquire_ref/vmspace_free/proc_rwmem offsets
+f0ac42c04ab3952253f07b118c54ef62bd939c4d	2026-08-15T15:23:26Z	feat(ps4): fill 12.00 allproc/vmspace_acquire_ref/vmspace_free/proc_rwmem offsets
+42273e2180cae9aa0c1a67332994d75e1baa713c	2026-08-07T20:28:42Z	restructure into ps4/ + ps5/, backfill 19 kexec-complete headers\n\n- move all per-fw headers under ps4/, add ps4/schema.h\n- backfill kexec offsets for 19 fw (magic.h) + kmem_alloc (fw_offsets.h)\n- add README coverage table + contribution guide, CREDITS.md\n- ps5/ placeholder
+43f365e7a672f9e756e415cd72aba1c9159d43e9	2026-07-20T11:53:07Z	feat: consolidate kernel offsets from all scene repos (FW 3.15-13.52)\n\nMerge offsets from ps4-kexec, PS4Linux-Payloads, ps4-payload-sdk,\nand PPPwn into a single source of truth. Coverage expanded from\n5 firmware versions (9 symbols) to 68 versions (up to 51 symbols).\n\nSources: magic.h (kexec/pmap/sched/gpu/eap), fw_defines.h\n(prison0/rootvnode/npdrm/aslr/mmap), PPPwn stage2 (allproc).
+c5f72a5be91a31ee9849ac4056e0adbd2ffa8ad0	2024-08-12T15:07:25Z	feat: Added offsets for 5.05, 6.72, 7.02, 7.55 & 9.00 (#1)\n\n* feat: Added offsets for 5.05, 6.72, 7.02, 7.55 & 9.00\r\n\r\n* Create README.md\r\n\r\n* feat: Added includes file for all firmwares\r\n\r\n* Rename fw_offsets_includes.h to includes.h\r\n\r\n---------\r\n\r\nCo-authored-by: Abdelkader Boudih <terminale@gmail.com>
+=== REPO ps4-linux/ps4-linux-loader ===
+v25	2026-07-25T15:35:16Z	https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v25	PS4-Linux-Loader-v25.zip
+v24b.1	2026-05-11T19:04:35Z	https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v24b.1	PS4-Linux-Payloads-v24b.1.zip
+v24b	2026-04-03T13:10:06Z	https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v24b	ps4-linux-payloads-v24b.zip
+v24	2026-04-02T17:45:23Z	https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v24	ps4-linux-payloads-v24.zip
+v23	2026-03-28T19:18:26Z	https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v23	ps4-linux-payloads-v23.zip
+v22	2026-03-23T11:24:41Z	https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v22	ps4-linux-payloads-v22.zip
+v21.5	2026-02-14T19:29:16Z	https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v21.5	PS4-Linux-Payloads-v21.5.zip
+v21	2025-12-31T20:46:16Z	https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v21	PS4-Linux-Payloads.zip
+v20	2025-12-24T13:34:11Z	https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v20	PS4-Linux-Payloads.zip
+--- commits matching kernel/dump/1302/1304 ---
+2469d8022d430a0a41b0c6374853d492c7b955dd	2026-04-07T22:12:53Z	Fix 10.50 offsets
+841cd7885f06ed10ebe600842d8cb6570de6beb1	2026-02-14T19:14:54Z	Merge pull request #1 from feeRnt/master\n\nmaster: Add fixed offset for gpu_devid_is_9924 for 12.5x FW
+46968b96ca2c621178170cc1b21afcfd5220cbf1	2026-02-14T19:05:06Z	Add fixed offset for gpu_devid_is_9924 for 12.50 FW\n\nCredits: https://github.com/ArabPixel,\ntesters, and others.
+=== REPO OpenOrbis/mira-project ===
+0.0.1	2020-11-11T21:47:59Z	https://github.com/OpenOrbis/mira-project/releases/tag/0.0.1	MiraLoader_Orbis_MIRA_PLATFORM_ORBIS_BSD_505.bin,MiraLoader_Orbis_MIRA_PLATFORM_ORBIS_BSD_672.bin,Mira_Orbis_MIRA_PLATFORM_ORBIS_BSD_505.elf,Mira_Orbis_MIRA_PLATFORM_ORBIS_BSD_672.elf
+--- commits matching kernel/dump/1302/1304 ---
+c76d117b74ca1d26606b7c574ad73da4a3d0cc83	2020-08-02T05:43:43Z	Fix daemon compiler errors\nFix memory leakage bug in Substitute\n\nRemove LM patch (proper workaround found)\nRemove unneeded kernel patches (from in-dev)\n\nImplement SetThreadCredentials IOCTL (untested)
+9ab5333d07ab9fc6c07b578ebb4000c263fc5188	2020-07-14T16:29:02Z	TTYRedirector: Add 6.72 Offset
+4d89bf6d55f02b7bb57d39cce56b9d8f44b833f4	2020-07-06T15:40:01Z	Removed kernel debugging component
+f95af5abc3232c4665e3315091ae33994a3aa2fa	2020-07-06T15:40:01Z	Removed kernel debugging component
+125ccc1ec88a6c8f0aba9f5af1211f7e63d32730	2020-05-27T20:25:46Z	Merge pull request #60 from OpenOrbis/Al-Azif-patch-1\n\nRemaining Kdlsym offsets for pull #58
+b4cbcadcaf6a7a278be33aadccd726bf75c7b621	2020-05-21T06:54:28Z	Add printf hook patches and offsets
+249fcf6a4d12c187da5ae900d167e8b95925436f	2020-05-19T21:42:01Z	Add the offsets for the FWs that matter for this
+2c9bb6d7853f009fabc8ce44faddeef769dfee75	2020-05-18T23:44:06Z	Merge pull request #57 from Cryptogenic/master\n\nAdd GPR dumping to trap_fatal hook
+6982b8ecd6c53738f4d0f2c65d6f940d9acc8443	2020-05-18T23:43:12Z	Add GPR dumping to trap_fatal hook
+5a740f008e55beeb88f4a39ae8c9928971497b90	2020-05-17T23:30:03Z	These where 5.01's offsets
+7c7ad96fd263699aef077e8bf88c8e54ae0e323e	2020-05-14T14:12:12Z	Merge pull request #50 from OpenOrbis/Al-Azif-SSC-Offsets\n\nAdd SceShell offsets for 4.05, 4.55, 4.74, 5.01, and 5.03
+6a605c925c6d23a19db1e5b7e30c21e2907ca5f7	2020-05-14T03:42:49Z	Update Orbis405.hpp with SSU offsets
+ade4d0bae726ac40380c1d84a8d7ee71ccfcfe27	2020-05-14T03:42:21Z	Update Orbis455.hpp with SSU offsets
+47fe0eb19f0e3f9eda1ba3837347df330a664ff7	2020-05-14T03:42:02Z	Update Orbis474.hpp with SSU offsets
+4c959c594708838a6a192f6c21d1c4175e479306	2020-05-14T03:35:21Z	Update Orbis501.hpp with SSU offsets
+b10ea0b8ae4989977c6ffdbba13c4c628578d9ca	2020-05-14T03:34:33Z	Update Orbis503.hpp with SSU offsets
+a05cd99bf45469504b58e23780375e96315627e0	2020-05-14T00:45:52Z	Update Orbis405.hpp with SSC offsets
+5add4c5857ad13184d85128364684ae0f33c4f9e	2020-05-14T00:45:43Z	Update Orbis455.hpp with SSC offsets
+0615509e4a7e082138d0167bfff105cd40af21a0	2020-05-14T00:01:16Z	Update Orbis501.hpp with SSC offsets\n\nI believe ssc_fake_to_free_patch was wrong as well
+9a237c2599b74dd7342d185febdf35fd56f8ad5a	2020-05-13T23:56:17Z	Update Orbis474.hpp with SSC offsets
+4da004d01c6478aa3fb9de086d92b64f0fdd05ce	2020-05-10T18:24:44Z	Add offsets that were missing but listed in 5.01\n\nAlso fixed **kdlsym_addr_sceSblRngGetRandomNumber** mentioned here https://github.com/kiwidoggie/miracpp/pull/29
+46e67b9fd9a8c258a710fc44c9c9b816982d42ce	2020-05-10T07:43:23Z	Update Orbis501.hpp\n\nAdd new/missing offsets and re-alphabetize
+906a52a60c12963df8955742e81813187eb40ead	2020-05-09T21:07:53Z	Merge pull request #34 from Al-Azif/master\n\nUpdate 4.55-5.03 for offsets added to 5.05 last night
+82d88a001fc4c3096b5ff5b27c1527bc93cd49da	2020-05-08T23:43:56Z	Merge pull request #4 from Al-Azif/Al-Azif-503\n\nAdd new kernel offsets for 5.03
+4662b52d9ada16ba61214b92c31c81980cf466b0	2020-05-08T23:43:27Z	Merge pull request #3 from Al-Azif/Al-Azif-501\n\nAdd new kernel offsets for 5.01
+0ace4d7d8970bbf173a7d392804d15f4ba954322	2020-05-08T23:42:38Z	Merge pull request #2 from Al-Azif/Al-Azif-474\n\nAdd new kernel offsets for 4.74
+236817c3746e45f9d89528f36cb75ce886f662eb	2020-05-08T23:42:09Z	Merge pull request #1 from Al-Azif/Al-Azif-455\n\nAdd new kernel offsets for 4.55
+20ed7b630db1565b992f1bcdd5d6cabbb1422a09	2020-05-08T23:38:28Z	Add new kernel offsets for 4.55
+d2f94f9298033359ad7f935369cd5ac1bea0c63e	2020-05-08T23:31:13Z	Add new kernel offsets for 4.74
+d4211731d0b2e7532b4fa01e133bad129a876f66	2020-05-08T23:20:11Z	Add new kernel offsets for 5.01
+6db8a73795deb5c13851e3e5928b1ec1ba55f639	2020-05-08T23:10:03Z	Add new kernel offsets for 5.03
+5a77757a3236bb754a52d586aed552ae29433895	2020-05-08T13:58:47Z	Fix socket() kernel panic on resume\n\nRe-enable LogServer instances
+aa52fc34a6a8c07b8906e5157a1ad62c1b0788f9	2020-05-08T05:33:11Z	Merge pull request #28 from Al-Azif/master\n\nUpdate 5.03 Offsets/Patches/Fixes
+0a3096bf9712e0c226d60734e6f05a159b57ae5a	2020-05-08T05:31:54Z	Fix potential suspend kernel panic with Substitute Plugin
+fddeca7c770a4e04307e04ddb77de34dc66afd05	2020-05-08T04:08:06Z	Merge pull request #33 from kiwidoggie/ethylamine-patch-2\n\nadded eap hdd key offset + dump
+1116c5476082c8e3a97dfcee41085320f26d1193	2020-05-08T03:59:39Z	add eap hdd key offset
+a7488f9b7640568f704820f4ae4484334a7d70be	2020-05-08T03:14:35Z	added eap hdd key offset + dump
+f4b0410ec628168681db9986fbc9ea4985880f84	2020-05-03T22:06:29Z	Prep Orbis474.hpp for new offsets
+2ef3237d77ca8e3cc4f9af18fff389bbffce243f	2020-04-21T01:29:36Z	Substitute: Add lock to dlsym obj + Find offset for 5.01
+654a4509a1d6f6fbcaadadbef6b827b17fb7981c	2020-04-05T09:42:36Z	Add Boot Options Block (external config)\nAdd SelfDecrypt framework\nAdd SyscallGuardPlugin (not implemented)\n\nUpdate protobuf files\nUpdate Mira to include RPC again\n\nIncrease max message size to 64MB\n\nFix ThreadManager issues\nFix bad iteration in OnGetProcList\nFix for kernel proc's VmEntries (there are none?)
+84c4d09487df4908a18a067d7c1d8d8ed1664266	2020-03-16T22:14:40Z	Increase the maximum listener count 10->64\n\nAdd WriteKernelFileLog macros to print to /mnt/usb0/panic.log
+99e48e5ae9936fb8746cac7ecbfc34db9627de52	2020-03-11T04:18:05Z	Merge pull request #14 from Cryptogenic/master\n\nRenamed Kernel.s to _Kernel.s to fix bug #13
+1ccc7bb22ad40012eb89dd0a84083b49ab0d1d5b	2020-03-11T01:49:46Z	Renamed Kernel.s to _Kernel.s to fix bug #13
+83f75bca9fe5757e853af0ab869800c9b690a5f9	2020-02-07T07:05:18Z	Double checked offsets
+d151e0473143edfff1e55ebba6e637319aa70bfd	2020-02-07T05:20:51Z	Shellcore offsets
+71d9779643fbc13e9ad1f7ceec4173c8134865ba	2020-01-11T01:35:19Z	Change ONI_PLATFORM to MIRA_PLATFORM\n\nAdd MIRA_UNSUPPORTED_PLATFORMS definition in order to enable:\nSL2,\nRaspiZero,\nOrbis176,\nOrbis501,\nOrbis620,\nOrbis650\n\nUnsupported platforms may have varying levels of support, including but not limited to:\nincorrect structures,\nincorrect or missing offsets,\n(that's pretty much it)\n\nif you have any other symptoms see your doctor for more information
+46e7425aeee86c9e5b8d78c2e215235397b7b800	2019-09-07T03:28:02Z	Fix proc.h (thx Fire30 for newer fws)\nFix output directories in makefile (now binaries are in the output directory)\nFix null pointer deref in Connection.cpp\n\nRemoval of Loader::Memset/Memcpy\nRemoval of mutex on Logger (yikes)\n\nAdd new fw offsets (thx Fire30 & znullptr)
+=== REPO ps4-payload-dev/sdk ===
+v0.9	2026-05-12T18:09:18Z	https://github.com/ps4-payload-dev/sdk/releases/tag/v0.9	ps4-payload-sdk.zip
+v0.8	2026-04-02T20:42:41Z	https://github.com/ps4-payload-dev/sdk/releases/tag/v0.8	ps4-payload-sdk.zip
+v0.7	2026-02-18T19:25:32Z	https://github.com/ps4-payload-dev/sdk/releases/tag/v0.7	ps4-payload-sdk.zip
+v0.6	2026-02-08T16:18:32Z	https://github.com/ps4-payload-dev/sdk/releases/tag/v0.6	ps4-payload-sdk.zip
+v0.5	2026-02-01T16:17:31Z	https://github.com/ps4-payload-dev/sdk/releases/tag/v0.5	ps4-payload-sdk.zip
+v0.4	2025-11-18T15:19:49Z	https://github.com/ps4-payload-dev/sdk/releases/tag/v0.4	ps4-payload-sdk.zip
+v0.3	2025-10-21T14:52:54Z	https://github.com/ps4-payload-dev/sdk/releases/tag/v0.3	ps4-payload-sdk.zip
+v0.2	2025-08-30T14:19:29Z	https://github.com/ps4-payload-dev/sdk/releases/tag/v0.2	ps4-payload-sdk.zip
+v0.1.1	2025-08-08T19:38:01Z	https://github.com/ps4-payload-dev/sdk/releases/tag/v0.1.1	ps4-payload-sdk.zip
+v0.1	2025-08-06T19:17:45Z	https://github.com/ps4-payload-dev/sdk/releases/tag/v0.1	ps4-payload-sdk.zip
+--- commits matching kernel/dump/1302/1304 ---
+464c2ca116a9b80a3cd6052f4ae9079543011142	2026-05-02T16:46:25Z	crt: Port kernel_mprotect
+98a660e2929f2ec153ccc971a1eeade9b53561b6	2026-03-18T08:50:31Z	crt: public `kernel_dynlib_obj`
+7b12d861c5f0cd1f947a1372307c1199cbe61117	2026-03-17T23:53:26Z	Add 13.50 offsets
+552e60cbdd8225178e946e81c936cff466380e22	2026-03-17T23:06:17Z	crt: apply kernel patches for mmap syscalls
+38e8f6f8d77093b5a1cd4ae0beca2539e6fc48c2	2026-03-13T21:22:32Z	crt: patch kernel to allow mmap for SELF decryption\n\nConfirmed working on fw 9.00 only
+4a2217c8e8a6e719c20dd34d82ce1a790b5e0db7	2026-03-13T21:15:43Z	crt: add some kernel patching infrastructure
+2d717e117a2496b8f5dea2fc92aae137b8ce06a5	2026-02-15T17:29:48Z	rtld: use sceKernelLoadStartModule instead of the the dynlib syscall directly
+1a3615e5620a6623869b089e325383b955ea088c	2026-02-08T15:53:24Z	rtld: try to resolve symbols using kernel_dynlib_dlsym when the dynlib syscall fails
+ec65a6cfefe1ac74aaa1ba1a6e043bc1fb536d10	2026-02-08T15:52:22Z	kernel: add some dynlib convenient functions
+761d68029c59d2fa931e4e14d3fcf6a363713e8e	2026-02-08T15:50:32Z	struct dynlib_obj: fix some member names and offsets
+1879b7bc3b1342bae21c6ea6274e5fe4e0045fe5	2026-02-02T19:20:43Z	readme: update list of confirmed offsets
+7ca86e9b871b60311c2ce87f4a6be06478751026	2025-08-30T13:50:51Z	fix kdump sample
+35f14520b737c3c31e7de1fa782ebf49c6b69d49	2025-07-11T12:35:14Z	crt: precompute size of kernel image
+4323a2d9d8e2646e7488c5c5147709b5824eef7d	2025-07-10T18:40:14Z	crt: add kernel_find_pattern() and kernel_get_image_size()
+=== REPO adri22235/ps4-suid-scanner ===
+v2.0	2026-07-29T23:52:36Z	https://github.com/adri22235/ps4-suid-scanner/releases/tag/v2.0
+--- commits matching kernel/dump/1302/1304 ---
+96a79482d249fdbc6101bc641241488de66c313d	2026-08-09T00:26:47Z	Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+702fcc397d45546baab5311bc0a264870ae90042	2026-07-30T17:34:44Z	Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+3fd35a4e475698b59dae40794901a56126a38c52	2026-07-29T23:45:04Z	Add compiled ps4-hen for FW 13.04 with full offsets
+615c637aaf2d75d6bbc3a935590dc1833a0e743f	2026-07-21T19:38:34Z	Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+13d44f233b4f693287739b6bb49806b8af058e15	2026-07-18T15:05:00Z	Add Pharaoh2k to credits
+6cacb2432f9940a5710a8d13895d4c799342cca6	2026-07-18T15:02:05Z	Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)

@@ -1,0 +1,64 @@
+=== adri22235/ps4-suid-scanner refs ===
+1089382ec1e0000e9557b7748d39b57952bbc4f3	refs/heads/main
+3fd35a4e475698b59dae40794901a56126a38c52	refs/tags/v2.0
+--- forks ---
+ayoubnoob543-lab/ps4-suid-scanner	main	2026-08-17T13:12:22Z	2026-08-22T14:55:39Z	https://github.com/ayoubnoob543-lab/ps4-suid-scanner
+ke5adb/ps4-suid-scanner	main	2026-08-09T02:48:14Z	2026-08-11T00:32:59Z	https://github.com/ke5adb/ps4-suid-scanner
+kishan9601743105-oss/ps4-suid-scanner	main	2026-08-03T07:01:58Z	2026-08-03T07:01:58Z	https://github.com/kishan9601743105-oss/ps4-suid-scanner
+OptiTronOffical/ps4-suid-scanner	main	2026-08-01T20:17:51Z	2026-08-01T20:17:52Z	https://github.com/OptiTronOffical/ps4-suid-scanner
+=== AetherPS/Fusion refs ===
+52deb2f23edaa5b2fff748d323b098c823698834	refs/heads/13.00-Support
+006ff75cf87544524a85e4f34ae22825c4dd4001	refs/heads/OOSDK
+6974c06f79b97b32961777c9e253a470fae2f484	refs/heads/master
+bf7c3d7b0bbb709f75a5e665362d8b5f617283fa	refs/tags/1.0
+6dd93e295d3c852d7429dd14fc173d029b1db78f	refs/tags/1.1
+e205cc8019c95830210f86d589438786fccaa988	refs/tags/1.2
+899ab07fae42b735acfde2a70e1fc6a69174e256	refs/tags/1.3
+009efd3d9db27dd62d494b04ccdb416b70e49b98	refs/tags/1.4
+--- forks ---
+ke5adb/Fusion	master	2026-08-07T18:40:28Z	2026-08-07T18:40:28Z	https://github.com/ke5adb/Fusion
+thehealingcenterllc4-lgtm/Fusion	master	2026-05-25T00:53:02Z	2026-06-03T06:46:27Z	https://github.com/thehealingcenterllc4-lgtm/Fusion
+kemalsanli/Fusion	master	2026-05-11T07:30:12Z	2026-05-11T07:30:12Z	https://github.com/kemalsanli/Fusion
+ArabPixel/Fusion	master	2026-01-18T08:01:15Z	2026-01-18T09:21:51Z	https://github.com/ArabPixel/Fusion
+RetroGenPS/Fusion	master	2026-01-12T07:31:25Z	2026-02-10T17:35:13Z	https://github.com/RetroGenPS/Fusion
+cualquiercosa327/Fusion	master	2026-01-04T17:22:12Z	2026-01-04T17:22:12Z	https://github.com/cualquiercosa327/Fusion
+=== Al-Azif/vue-after-free refs ===
+8ec24c6cf17cdcbb11f7afdfd20f71b5d78855dd	refs/heads/main
+--- forks ---
+=== Al-Azif/dumper-testing refs ===
+1195837e6ff97c080792a15bfca80ef0edd6e94b	refs/heads/main
+--- forks ---
+cualquiercosa327/dumper-testing	main	2023-07-06T21:57:28Z	2023-07-06T21:57:28Z	https://github.com/cualquiercosa327/dumper-testing
+xSpecialFoodx/dumper-testing	main	2021-04-06T17:41:52Z	2021-04-06T17:41:53Z	https://github.com/xSpecialFoodx/dumper-testing
+=== Al-Azif/ps4-re-utilities refs ===
+241782df7b3d72b762e5c4c324537d0c868eeb8d	refs/heads/main
+--- forks ---
+AbkarinoMHM/ps4-re-utilities	main	2026-04-02T18:51:17Z	2026-04-02T18:51:17Z	https://github.com/AbkarinoMHM/ps4-re-utilities
+earthonion/ps4-re-utilities	main	2026-04-01T22:37:56Z	2026-04-03T10:43:54Z	https://github.com/earthonion/ps4-re-utilities
+Phoenixx1202/ps4-re-utilities	main	2026-04-01T16:35:58Z	2026-04-01T16:35:58Z	https://github.com/Phoenixx1202/ps4-re-utilities
+=== ps4-linux/ps4-linux-loader refs ===
+142f55ff42eaa5a494c14d096ce35170c6edbbbc	refs/heads/Dev
+9acef9fbf79097a2bb39d6c9c17228198bc445cc	refs/heads/master
+c4856cd01773fbb97637fe9defe4a35f22a5fc7b	refs/tags/v20
+454680a478b9598456ad5e2342f98d11f70bfbee	refs/tags/v21
+841cd7885f06ed10ebe600842d8cb6570de6beb1	refs/tags/v21.5
+e5a721347b7123caba904c41c7dbf52f70cc3353	refs/tags/v22
+2769dd6ac43a7bef696fe5d168aaea78892e82a1	refs/tags/v23
+99e76181056cc026a04c866e4fa034db0618af8e	refs/tags/v24
+f688fba3240cc574ecf9a7fa226ae800e2f6c625	refs/tags/v24b
+142f55ff42eaa5a494c14d096ce35170c6edbbbc	refs/tags/v24b.1
+9acef9fbf79097a2bb39d6c9c17228198bc445cc	refs/tags/v25
+--- forks ---
+rm7bzz/ps4-linux-loader	master	2026-07-31T19:00:50Z	2026-08-21T21:27:32Z	https://github.com/rm7bzz/ps4-linux-loader
+ps4boot/ps4-linux-loader	master	2026-07-30T11:27:27Z	2026-07-30T11:27:27Z	https://github.com/ps4boot/ps4-linux-loader
+rmuxnet/ps4-linux-loader	master	2026-07-18T09:48:49Z	2026-07-30T06:09:32Z	https://github.com/rmuxnet/ps4-linux-loader
+WolfSc84/ps4-linux-loader	master	2026-05-17T17:34:21Z	2026-07-30T06:09:31Z	https://github.com/WolfSc84/ps4-linux-loader
+ahmadzaydanabla/ps4-linux-payloads	master	2026-04-24T08:50:58Z	2026-07-30T06:09:31Z	https://github.com/ahmadzaydanabla/ps4-linux-payloads
+KolliasG7/ps4-linux-payloads	master	2026-04-14T18:11:59Z	2026-07-30T06:09:31Z	https://github.com/KolliasG7/ps4-linux-payloads
+m2k7m/ps4-linux-payloads	master	2026-04-06T12:27:55Z	2026-08-09T23:59:39Z	https://github.com/m2k7m/ps4-linux-payloads
+h5d7r/ps4-linux-payloads	master	2026-04-03T12:31:41Z	2026-07-30T06:09:31Z	https://github.com/h5d7r/ps4-linux-payloads
+ayasns/ps4-linux-payloads	master	2026-03-23T16:23:04Z	2026-07-30T06:09:31Z	https://github.com/ayasns/ps4-linux-payloads
+PbtServers/ps4-linux-payloads	master	2026-03-09T08:32:00Z	2026-07-30T06:09:31Z	https://github.com/PbtServers/ps4-linux-payloads
+feeRnt/ps4-linux-payloads-pr	master	2026-02-14T18:59:00Z	2026-07-30T06:09:31Z	https://github.com/feeRnt/ps4-linux-payloads-pr
+JKeyRandom/ps4-linux-payloads	master	2026-02-01T14:19:32Z	2026-07-30T06:09:31Z	https://github.com/JKeyRandom/ps4-linux-payloads
+zraf0/ps4-linux-payloads	master	2025-12-23T05:19:32Z	2026-07-30T06:09:31Z	https://github.com/zraf0/ps4-linux-payloads

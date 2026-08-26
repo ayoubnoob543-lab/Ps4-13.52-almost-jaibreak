@@ -1,0 +1,80 @@
+1.4	2026-01-17T20:55:44Z	master	https://github.com/AetherPS/Fusion/releases/tag/1.4
+1.3	2026-01-15T18:29:46Z	master	https://github.com/AetherPS/Fusion/releases/tag/1.3
+1.2	2026-01-03T08:27:55Z	master	https://github.com/AetherPS/Fusion/releases/tag/1.2
+1.1	2026-01-02T17:02:50Z	master	https://github.com/AetherPS/Fusion/releases/tag/1.1
+1.0	2026-01-02T04:19:19Z	master	https://github.com/AetherPS/Fusion/releases/tag/1.0
+Fusion.bin	214672	https://github.com/AetherPS/Fusion/releases/download/1.4/Fusion.bin
+Fusion-1202.bin	260560	https://github.com/AetherPS/Fusion/releases/download/1.3/Fusion-1202.bin
+Fusion-900.bin	260560	https://github.com/AetherPS/Fusion/releases/download/1.3/Fusion-900.bin
+Fusion-1202.bin	338952	https://github.com/AetherPS/Fusion/releases/download/1.2/Fusion-1202.bin
+Fusion-900.bin	338984	https://github.com/AetherPS/Fusion/releases/download/1.2/Fusion-900.bin
+Fusion-1202.bin	326464	https://github.com/AetherPS/Fusion/releases/download/1.1/Fusion-1202.bin
+Fusion-900.bin	326528	https://github.com/AetherPS/Fusion/releases/download/1.1/Fusion-900.bin
+Fusion-1202.bin	303432	https://github.com/AetherPS/Fusion/releases/download/1.0/Fusion-1202.bin
+Fusion-900.bin	303424	https://github.com/AetherPS/Fusion/releases/download/1.0/Fusion-900.bin
+=== tree all binary-like ===
+.gitmodules	580	8aa0edc4dabd0c813931a3194877a7b41dbfacfe
+Assets/FusionFull-no-bg.png	121257	38628f65aba99d2b4705136f2446c1a3666d8599
+Fusion/Kernel/Kernel.vcxproj	7883	a8d3da45c40d72e859dc4d6c38a1ed0a53bb56ae
+Fusion/Kernel/Kernel.vcxproj.filters	7003	ce466e9b6c679d86368b69bf6f1a29803fce3a47
+Fusion/Kernel/Makefile	1094	3d840009e129cfdb8578c78f31dbb5dfd20c50cd
+Fusion/Kernel/include/Common.h	393	7addafbf74cb43897f0e5eaf79f1b000609d4eeb
+Fusion/Kernel/include/Driver/DriverKernel.h	277	5c7ff6304229cfe5d282be743c5968219c1dfa46
+Fusion/Kernel/include/Driver/DriverProc.h	571	8d217d3257702da28019141390ce67ca15eec3d6
+Fusion/Kernel/include/Driver/FusionDriver.h	1386	0075570eb286bb8bd76b72c6095d09d5ebd33689
+Fusion/Kernel/include/Fusion.h	32	0636d089a6c2908ca83b0f34d8a3f3a94c0554d2
+Fusion/Kernel/include/Homebrew/FakePkgs.h	1752	679e220abc3a56db7f6dc310d84a4ef10410abd2
+Fusion/Kernel/include/Homebrew/FakeSelfs.h	1509	3f7a234c6694c315b213a22cb25c9db5d03c1d29
+Fusion/Kernel/include/Misc/Bootstrapper.h	623	f2c418e3a13692f80b6dc8032b0649283ce70cf2
+Fusion/Kernel/include/Misc/DevActSpoofer.h	234	6ed61439c328ef07a034b5a2f7a1296018e10a25
+Fusion/Kernel/include/Misc/DipSwitchSpoofer.h	308	caec16d3bfc8368381497a3691d01b3549974289
+Fusion/Kernel/include/Misc/DirectMemory.h	245	d0932d45ccd90b3b109b438e800e0f785cdb2fdc
+Fusion/Kernel/include/Misc/ExtendedLogging.h	362	65d491d5cc1196a5851447bab43f73b46b92baa6
+Fusion/Kernel/include/Misc/FusionSysctl.h	1783	4e8badcf8b84a4e514b3916bf10597a55c4869a3
+Fusion/Kernel/include/Misc/LibraryReplacer.h	280	818ec6a149bf6155337512745cc9ce9ddb533895
+Fusion/Kernel/include/Misc/TTYRedirector.h	210	69a79c624791d825928ac2635157f8f328889dbe
+Fusion/Kernel/include/Misc/TrapFatalExtension.h	1625	06b0c5380b3dc635fd74a2ab37f314feab41e98b
+Fusion/Kernel/include/Utils/Detours/Detour.h	1283	78fee16e5f2a381a2b18198596507fa42fbcf74c
+Fusion/Kernel/include/Utils/Detours/DetourMemoryPool.h	373	66ac06b4fc7fad1cb18b7233b32e0e94ba5c226d
+Fusion/Kernel/include/Utils/Detours/hde64.h	2673	9aa6e848241de29458ff2f0a28f447299d39d9bc
+Fusion/Kernel/include/Utils/Detours/table64.h	3532	f4b8e677dd11f7375ad5a7bf7630e48018630b6e
+Fusion/Kernel/include/Utils/Heap.h	310	b426d0e21b72e33692dc17fd2b9ced29d0d14777
+Fusion/Kernel/include/Utils/Misc.h	560	85dfd83a5d1d7467fbf9d622977e5253f5d5508f
+Fusion/Kernel/include/Utils/Patches.h	36	be3b88eae46e6e417e430b9e20d1570c72f714c6
+Fusion/Kernel/include/Utils/ProcessUtils.h	747	de208f68c91e900d8b3865d15e6c4253d4fd172b
+Fusion/Kernel/source/Driver/DriverKernel.cpp	1576	332c13ad113a5a260e60aaea2502373916bc40e1
+Fusion/Kernel/source/Driver/DriverProc.cpp	6988	c8485da048453f7f9cb46646b78c4826ad1157f3
+Fusion/Kernel/source/Driver/FusionDriver.cpp	2117	828f7bb171fb27a779b3a198e72526ec92d61f81
+Fusion/Kernel/source/Fusion.cpp	404	3cd83357b228bb2232cfad6326ee4fc98ac2c12b
+Fusion/Kernel/source/Homebrew/FakePkgs.cpp	16197	ccf08fe6861208bb5ae443177a4abc4e18590cbc
+Fusion/Kernel/source/Homebrew/FakeSelfs.cpp	13856	80b4554b75bcc0e263cdc1cadc3bda1eb1577727
+Fusion/Kernel/source/Main.cpp	697	3172aaa17a2eef73a5ed89141b4ff04b25263e42
+Fusion/Kernel/source/Misc/Bootstrapper.cpp	3316	c071066499b7a72b1ce743d5a6b0713a946187e5
+Fusion/Kernel/source/Misc/DevActSpoofer.cpp	1175	ba73a929a29c46ee3ff2b863fa9075ba6fa9cd26
+Fusion/Kernel/source/Misc/DipSwitchSpoofer.cpp	789	e9c46be043f94e164c049623bfcbdcc151625c08
+Fusion/Kernel/source/Misc/DirectMemory.cpp	1317	0504d228b45f3e425fc5be37ee2a58908f029e2a
+Fusion/Kernel/source/Misc/ExtendedLogging.cpp	1380	76ea6753a77bc468d3dc56c3d9f427d492aac8aa
+Fusion/Kernel/source/Misc/FusionSysctl.cpp	17426	7828cec40464a470346348e0d33abc668203bc1c
+Fusion/Kernel/source/Misc/LibraryReplacer.cpp	2446	5af2a7fb4c2db9b69ef51110b912902df3728df5
+Fusion/Kernel/source/Misc/TTYRedirector.cpp	1462	3c95333b60d257c500ee6cdb57547dafd074895e
+Fusion/Kernel/source/Misc/TrapFatalExtension.cpp	5009	c9ba9a08130197a028031e6033a23e3ae1451f7b
+Fusion/Kernel/source/Utils/Detours/Detour.cpp	3255	982b8ddde586de929e76b1b55583d6eb154e1336
+Fusion/Kernel/source/Utils/Detours/DetourMemoryPool.cpp	1877	e7ea44e4a060c6c1e25f120165b3dd148c121534
+Fusion/Kernel/source/Utils/Detours/hde64.cpp	6633	edc34e410e919c9a419e5fbe64fbf4db8d59eb07
+Fusion/Kernel/source/Utils/Heap.cpp	658	3adec77d0c9ac404e64a187880d9b2cb15fa1158
+Fusion/Kernel/source/Utils/Misc.cpp	1918	690ae305ed2baaced47eb867de0c09b15ecc5153
+Fusion/Kernel/source/Utils/Patches.cpp	5934	16d8a2f3ad33b47874e8e86a1d792708166f2264
+Fusion/Kernel/source/Utils/ProcessUtils.cpp	6151	86082c5a1bab9018708556e6e49f8fcbcb956feb
+Fusion/Loader/include/daemon.h	730	0c15814e1bf8064d23b2131880fac3ddfed29615
+Fusion/Loader/include/kernel.h	159	eb0ac973e625119a0e51c92bb8309375c4d32c3d
+Fusion/Loader/include/libkernel.h	2839	50473b25718bae640336fa1c12a80621f8ca44ab
+Fusion/Loader/source/file.cpp	2519	42ec50b9f7647336722433be413d6536e06ecfd9
+Fusion/Loader/source/kernel.cpp	723	a85da850f7e1b26f28c64a198578db6c0de9a528
+Fusion/Loader/source/tinfgzip.cpp	3737	47610af3ceb85cd07670a20825d135ecf84728ed
+Fusion/Loader/source/tinfzlib.cpp	2405	2f8fecb3d59b29242bcb134a1dd89298b6fecd2f
+Fusion/Shellcode/Kernel/Bootstrapper.s	1085	2d5347c23bb0a6fc302708bc7becaf562772dbfa
+Fusion/Shellcode/Kernel/UIBootstrapper.s	992	43f11b7c78d494e5a35a085fe3b56aad7f144a22
+Fusion/Shellcode/Shellcode.vcxproj.filters	1212	6cd5294260791398b051424e0b1fcfa296a06cf1
+=== all commits touching 1302/offset ===
+0f95dc3045edda5b0dc22f41434fae34d8ffcca1	2026-01-22T03:06:13Z	Convert to using the PS4 Kernel SDK.
+1d7c0314ade52858496195e53bcc85de274def51	2026-01-20T04:12:37Z	13.02 Kernel offsets (#13)

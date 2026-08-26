@@ -1,0 +1,162 @@
+=== Pharaoh2k repos ===
+apollo-ps4	main	2025-01-29T15:20:29Z	2025-07-07T13:24:38Z	https://github.com/Pharaoh2k/apollo-ps4
+Aurora	main	2025-12-04T15:40:48Z	2025-12-04T15:40:49Z	https://github.com/Pharaoh2k/Aurora
+BDdocs	main	2025-12-19T10:17:50Z	2025-12-19T10:17:50Z	https://github.com/Pharaoh2k/BDdocs
+BDPlugins	main	2025-11-25T20:06:16Z	2025-11-25T20:07:02Z	https://github.com/Pharaoh2k/BDPlugins
+BetterDiscord	development	2025-08-05T08:41:48Z	2026-01-16T06:24:48Z	https://github.com/Pharaoh2k/BetterDiscord
+BetterDiscordAddons	master	2024-11-16T19:05:30Z	2025-12-12T11:22:06Z	https://github.com/Pharaoh2k/BetterDiscordAddons
+BetterDiscordAddons-DevilBro	master	2025-01-16T09:20:34Z	2025-01-16T09:20:34Z	https://github.com/Pharaoh2k/BetterDiscordAddons-DevilBro
+BetterDiscordPlugins	main	2024-11-12T10:33:02Z	2024-11-12T10:35:07Z	https://github.com/Pharaoh2k/BetterDiscordPlugins
+BetterDiscordStuff	main	2025-04-29T05:14:22Z	2026-07-26T17:58:39Z	https://github.com/Pharaoh2k/BetterDiscordStuff
+BetterDiscordStuffSamfundev	master	2025-05-14T09:39:19Z	2025-08-17T17:18:24Z	https://github.com/Pharaoh2k/BetterDiscordStuffSamfundev
+BetterEquicord	main	2025-10-13T15:20:07Z	2026-08-24T00:24:09Z	https://github.com/Pharaoh2k/BetterEquicord
+cronjobs	master	2018-08-27T17:57:21Z	2024-07-03T17:26:00Z	https://github.com/Pharaoh2k/cronjobs
+crossselling	master	2018-09-14T18:09:46Z	2018-09-14T18:11:48Z	https://github.com/Pharaoh2k/crossselling
+elasticsearch	master	2018-08-21T17:02:05Z	2024-07-03T17:26:02Z	https://github.com/Pharaoh2k/elasticsearch
+FileZilla-Themed-For-Windows	main	2026-06-06T12:50:36Z	2026-08-25T01:18:41Z	https://github.com/Pharaoh2k/FileZilla-Themed-For-Windows
+frame4	main	2026-04-14T08:21:25Z	2026-04-14T08:24:29Z	https://github.com/Pharaoh2k/frame4
+GoldHEN_Cheat_Repository	main	2023-12-12T15:28:19Z	2025-06-06T05:22:17Z	https://github.com/Pharaoh2k/GoldHEN_Cheat_Repository
+Itemzflow	main	2022-12-16T17:25:06Z	2022-12-14T04:25:35Z	https://github.com/Pharaoh2k/Itemzflow
+jquery-ajax-localstorage-cache	master	2016-02-06T10:05:39Z	2024-07-03T17:26:07Z	https://github.com/Pharaoh2k/jquery-ajax-localstorage-cache
+jquery.customSelect	master	2016-01-25T20:03:15Z	2024-07-03T17:26:08Z	https://github.com/Pharaoh2k/jquery.customSelect
+Pharaoh2k.github.io	main	2025-06-18T11:19:26Z	2026-01-16T11:02:29Z	https://github.com/Pharaoh2k/Pharaoh2k.github.io
+PlayStation-Payload-Center	main	2026-06-21T12:47:30Z	2026-08-23T00:32:41Z	https://github.com/Pharaoh2k/PlayStation-Payload-Center
+ps4_module_loader	master	2026-02-05T14:40:46Z	2026-02-05T14:49:57Z	https://github.com/Pharaoh2k/ps4_module_loader
+ps5debug-NG	master	2026-05-15T18:36:30Z	2026-07-17T23:51:26Z	https://github.com/Pharaoh2k/ps5debug-NG
+psonesixmigrator	master	2018-08-31T05:12:01Z	2024-07-03T17:26:05Z	https://github.com/Pharaoh2k/psonesixmigrator
+ReClass.NET	master	2025-01-12T20:18:49Z	2025-01-15T20:52:29Z	https://github.com/Pharaoh2k/ReClass.NET
+thirtybees	1.0.x	2018-09-01T18:11:16Z	2023-11-28T17:19:21Z	https://github.com/Pharaoh2k/thirtybees
+=== OpenOrbis Mira tree ===
+--- OpenOrbis/mira-project
+external/freebsd-headers/include/libufs.h	4243
+external/freebsd-headers/include/lwres/netdb.h	13047
+external/freebsd-headers/include/machine/minidump.h	1768
+external/freebsd-headers/include/protocols/dumprestore.h	5736
+external/freebsd-headers/include/sys/kernel.h	14433
+external/freebsd-headers/include/sys/kerneldump.h	3698
+external/freebsd-headers/include/ufs/ffs/ffs_extern.h	7731
+external/freebsd-headers/include/ufs/ffs/fs.h	31255
+external/freebsd-headers/include/ufs/ffs/softdep.h	46258
+external/freebsd-headers/include/ufs/ufs/acl.h	2173
+external/freebsd-headers/include/ufs/ufs/dinode.h	8596
+external/freebsd-headers/include/ufs/ufs/dir.h	5916
+external/freebsd-headers/include/ufs/ufs/dirhash.h	5329
+external/freebsd-headers/include/ufs/ufs/extattr.h	6142
+external/freebsd-headers/include/ufs/ufs/gjournal.h	1700
+external/freebsd-headers/include/ufs/ufs/inode.h	7589
+external/freebsd-headers/include/ufs/ufs/quota.h	9579
+external/freebsd-headers/include/ufs/ufs/ufs_extern.h	5456
+external/freebsd-headers/include/ufs/ufs/ufsmount.h	6308
+kernel/Makefile	4693
+kernel/src/Boot/Config.hpp	1709
+kernel/src/Boot/InitParams.hpp	865
+kernel/src/Boot/MiraLoader.hpp	4533
+kernel/src/Boot/OptionsBlock.cpp	610
+kernel/src/Boot/OptionsBlock.hpp	926
+kernel/src/Boot/Patches.cpp	1295
+kernel/src/Boot/Patches.hpp	923
+kernel/src/Boot/Patches/Patches176.cpp	2417
+kernel/src/Boot/Patches/Patches405.cpp	4357
+kernel/src/Boot/Patches/Patches455.cpp	4972
+kernel/src/Boot/Patches/Patches474.cpp	4561
+kernel/src/Boot/Patches/Patches501.cpp	4846
+kernel/src/Boot/Patches/Patches503.cpp	4826
+kernel/src/Boot/Patches/Patches505.cpp	4851
+kernel/src/Boot/Patches/Patches620.cpp	3266
+kernel/src/Boot/Patches/Patches650.cpp	480
+kernel/src/Boot/Patches/Patches672.cpp	3840
+kernel/src/Driver/CtrlDriver.cpp	31483
+kernel/src/Driver/CtrlDriver.hpp	5759
+kernel/src/External/hde64.cpp	6801
+kernel/src/External/protobuf-c.c	98214
+kernel/src/Messaging/MessageListener.hpp	2783
+kernel/src/Messaging/MessageManager.cpp	10222
+kernel/src/Messaging/MessageManager.hpp	1512
+kernel/src/Messaging/Rpc/Connection.cpp	8209
+kernel/src/Messaging/Rpc/Connection.hpp	1760
+kernel/src/Messaging/Rpc/Server.cpp	16369
+kernel/src/Messaging/Rpc/Server.hpp	2242
+kernel/src/Messaging/Rpc/rpc.pb-c.c	7651
+kernel/src/Messaging/Rpc/rpc.pb-c.h	3775
+kernel/src/Mira.cpp	13649
+kernel/src/Mira.hpp	2085
+kernel/src/OrbisOS/FakeStructs.hpp	19202
+kernel/src/OrbisOS/SelfDecrypt.cpp	22579
+kernel/src/OrbisOS/SelfDecrypt.hpp	5898
+kernel/src/OrbisOS/SelfStructs.hpp	0
+kernel/src/OrbisOS/Utilities.cpp	21100
+kernel/src/OrbisOS/Utilities.hpp	1816
+kernel/src/OrbisOS/asm/entrypoint_trigger	101
+kernel/src/OrbisOS/asm/entrypoint_trigger.asm	797
+kernel/src/OrbisOS/asm/prx.asm	419
+kernel/src/OrbisOS/asm/rpcldr.asm	1255
+kernel/src/Plugins/BrowserActivator/BrowserActivator.cpp	1271
+kernel/src/Plugins/BrowserActivator/BrowserActivator.hpp	496
+kernel/src/Plugins/Debugger/Debugger2.cpp	2343
+kernel/src/Plugins/Debugger/Debugger2.hpp	6070
+kernel/src/Plugins/Debugger/Debugger2_TrapFatal.cpp	8454
+kernel/src/Plugins/FakePkg/FakePkgManager.cpp	38708
+kernel/src/Plugins/FakePkg/FakePkgManager.hpp	3634
+kernel/src/Plugins/FakeSelf/FakeSelfManager.cpp	21986
+kernel/src/Plugins/FakeSelf/FakeSelfManager.hpp	5780
+kernel/src/Plugins/FileManager/FileManager.cpp	36772
+kernel/src/Plugins/FileManager/FileManager.hpp	2765
+kernel/src/Plugins/FileManager/FileManagerMessages.hpp	4299
+kernel/src/Plugins/FileManager/FileManagerSelf.hpp	1345
+kernel/src/Plugins/FileManager/filemanager.pb-c.c	55741
+kernel/src/Plugins/FileManager/filemanager.pb-c.h	24594
+kernel/src/Plugins/LogServer/LogManager.cpp	8495
+kernel/src/Plugins/LogServer/LogManager.hpp	1410
+kernel/src/Plugins/MorpheusEnabler/MorpheusEnabler.cpp	3792
+kernel/src/Plugins/MorpheusEnabler/MorpheusEnabler.hpp	824
+kernel/src/Plugins/PluginManager.cpp	16924
+kernel/src/Plugins/PluginManager.hpp	1902
+kernel/src/Plugins/RemotePlayEnabler/RemotePlayEnabler.cpp	6604
+kernel/src/Plugins/RemotePlayEnabler/RemotePlayEnabler.hpp	595
+kernel/src/Plugins/Substitute/Substitute.cpp	58322
+kernel/src/Plugins/Substitute/Substitute.hpp	6535
+kernel/src/Plugins/SyscallGuard/SyscallGuardPlugin.cpp	5320
+kernel/src/Plugins/SyscallGuard/SyscallGuardPlugin.hpp	1159
+kernel/src/Plugins/TTYRedirector/TTYRedirector.cpp	2030
+kernel/src/Plugins/TTYRedirector/TTYRedirector.hpp	849
+kernel/src/Trainers/TrainerHeader.hpp	2293
+kernel/src/Utils/Dynlib.cpp	762
+kernel/src/Utils/Dynlib.hpp	397
+kernel/src/Utils/Hook.cpp	7805
+kernel/src/Utils/Hook.hpp	1406
+kernel/src/Utils/IModule.hpp	520
+kernel/src/Utils/Kdlsym.hpp	1484
+kernel/src/Utils/Kdlsym/Default.hpp	14017
+kernel/src/Utils/Kdlsym/Orbis176.hpp	10258
+kernel/src/Utils/Kdlsym/Orbis405.hpp	15432
+kernel/src/Utils/Kdlsym/Orbis455.hpp	15446
+kernel/src/Utils/Kdlsym/Orbis474.hpp	15522
+kernel/src/Utils/Kdlsym/Orbis501.hpp	15448
+kernel/src/Utils/Kdlsym/Orbis503.hpp	15448
+kernel/src/Utils/Kdlsym/Orbis505.hpp	15899
+kernel/src/Utils/Kdlsym/Orbis620.hpp	17447
+kernel/src/Utils/Kdlsym/Orbis650.hpp	13189
+kernel/src/Utils/Kdlsym/Orbis672.hpp	21154
+kernel/src/Utils/Kernel.cpp	3571
+kernel/src/Utils/Kernel.hpp	2552
+kernel/src/Utils/Logger.cpp	1091
+kernel/src/Utils/Logger.hpp	2967
+kernel/src/Utils/New.cpp	1504
+kernel/src/Utils/New.hpp	310
+kernel/src/Utils/RingBuffer.hpp	2503
+kernel/src/Utils/SelfHeader.hpp	223
+kernel/src/Utils/Span.hpp	5344
+kernel/src/Utils/SysWrappers.cpp	41772
+kernel/src/Utils/SysWrappers.hpp	5733
+kernel/src/Utils/Types.hpp	316
+kernel/src/Utils/UniquePtr.hpp	6103
+kernel/src/Utils/Vector.hpp	5026
+kernel/src/Utils/_Kernel.s	3607
+kernel/src/Utils/_Syscall.hpp	11669
+kernel/src/Utils/_Syscall.s	807
+loader/src/Utils/Kernel.s	3393
+--- OpenOrbis/OpenOrbis-PS4-Toolchain
+docs/MD/PS4 Libraries/Libkernel.md	7083
+include/orbis/_types/kernel.h	10226
+include/orbis/libkernel.h	24654
+--- TeamFAPS/PS4-Offsets

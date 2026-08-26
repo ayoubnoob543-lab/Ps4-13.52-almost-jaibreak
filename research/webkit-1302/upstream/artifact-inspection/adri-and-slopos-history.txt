@@ -1,0 +1,127 @@
+FETCH hen.bin size=500736 sha=9f576bf8f0bdbd4d9943b7da5a7f097b3ef038a4
+FETCH scanner_1304.iso size=16777216 sha=0ba3ede262a91ebf4dceda2b33fb3ace205c1ec6
+=== downloaded metadata ===
+research/webkit-1302/upstream/artifact-inspection/adri/hen.bin:          DOS executable (COM), start instruction 0xe99e4900 00415741
+research/webkit-1302/upstream/artifact-inspection/adri/scanner_1304.iso: UDF filesystem data (version 1.5) 'scanner_1304'
+research/webkit-1302/upstream/artifact-inspection/adri/tree.tsv:         ASCII text
+f29bd1f0ac5cc1edef6ebccb735ef6c4dff702711cc3b9f465e66fd03dd707ce  research/webkit-1302/upstream/artifact-inspection/adri/hen.bin
+6ed15acd9cfb2539e034cde72a9003f52cf6338f04549670e1b8d515d948bd30  research/webkit-1302/upstream/artifact-inspection/adri/scanner_1304.iso
+e516eec41860151e4607e20ff819ecf125e82a97de32ddbbd340d2a6db5d21d5  research/webkit-1302/upstream/artifact-inspection/adri/tree.tsv
+=== strings relevant ===
+; stability after jailbreaking by ensuring the kernel is consistently patched
+source/kpayloads.c
+kpayload_exploit_fixes
+kpayload_install_payload
+kpayload_patches
+libkernel_sys.sprx
+Hello from KPayload: %i
+found data at 0x%lx 0x%lx chunk loc 0x%lx offset 0x%lx
+sceKernelUsleep
+sceKernelLoadStartModule
+sceKernelDlsym
+sceKernelGetModuleInfo
+sceKernelSendNotificationRequest
+libkernel.so
+offset: %lx
+found data at 0x%lx 0x%lx chunk loc 0x%lx offset 0x%lx
+sceKernelGetModuleInfoEx 0x%08x
+OPENORBIS-HOMEBREW
+libkernel.prx
+libkernel
+sceKernelGetFsSandboxRandomWord
+sceKernelDlsym
+sceKernelGetModuleInfo
+sceKernelUsleep
+sceKernelLoadStartModule
+sceKernelStopUnloadModule
+sceKernelSendNotificationRequest
+libkernel.so
+offset: %lx
+sceKernelLoadStartModuleInternalForMono
+found data at 0x%lx 0x%lx chunk loc 0x%lx offset 0x%lx
+Sce.Vsh.Orbis.Bgft.BgftWrapper::_DownloadRegisterTaskByStorageEx
+sceKernelLoadStartModuleInternalForMono_Hook
+sceKernelGetModuleInfoEx 0x%08x
+Demonstrate usage of CXX in module. Based from OpenOrbis `library_example`
+sceKernelGetHwSerialNumber
+sceKernelGetDebugMenuModeForRcmgr
+sceKernelGetUtokenStoreModeForRcmgr
+    <setting_list id="payload_options" title="
+ Payload Options (Restart Required)" initial_focus_to="settings_exploit_fixes">
+ HEN Settings Menu&#xa;FTP Server&#xa;Kernel Log Server&#xa;Plugins load for apps" confirm_phrase="Yes,No" value="0"/>
+OPENORBIS-HOMEBREW
+libkernel.prx
+libkernel
+sceKernelSendNotificationRequest
+libkernel.so
+501 Usage: REST <OFFSET>
+Demonstrate usage of CXX in module. Based from OpenOrbis `library_example`
+OPENORBIS-HOMEBREW
+libkernel.prx
+libkernel
+sceKernelSendNotificationRequest
+sceKernelLoadStartModule
+sceKernelDlsym
+sceKernelStopUnloadModule
+libkernel.so
+OPENORBIS-HOMEBREW
+libkernel.prx
+libkernel
+sceKernelLoadStartModule
+sceKernelDlsym
+sceKernelStopUnloadModule
+sceKernelSendNotificationRequest
+libkernel.so
+OPENORBIS-HOMEBREW
+libkernel.prx
+libkernel
+libkernel.sprx
+libkernel_web.sprx
+libkernel_sys.sprx
+sceKernelError
+sceKernelLoadStartModule
+sceKernelAllocateDirectMemory
+sceKernelMapDirectMemory
+sceKernelGetDirectMemorySize
+sceKernelStat
+sceKernelOpen
+sceKernelRead
+sceKernelLseek
+sceKernelClose
+sceKernelLwfsAllocateBlock
+sceKernelLwfsSetAttribute
+sceKernelLwfsTrimBlock
+sceKernelLwfsLseek
+sceKernelLwfsWrite
+sceKernelSleep
+sceKernelUsleep
+sceKernelGettimeofday
+sceKernelGetProcessTime
+sceKernelGetCurrentCpu
+sceKernelCreateEqueue
+sceKernelDeleteEqueue
+sceKernelAddUserEvent
+sceKernelAddReadEvent
+sceKernelSendNotificationRequest
+sceKernelGetFsSandboxRandomWord
+sceKernelGetSystemSwVersion
+sceKernelGetCpuTemperature
+sceKernelGetIdPs
+sceKernelGetOpenPsId
+sceKernelGetOpenPsIdForSystem
+source/payload_utils.c
+kpayload_no_bd
+kpayload_target_id
+kpayload_aslr
+kpayload_mmap
+kpayload_jailbreak
+[GoldHEN] Installing GoldHEN in Kernel...
+org/bdj/payload.jar
+org/bdj/sandbox/Payload.class
+org/bdj/payload.jarPK
+org/bdj/sandbox/Payload.classPK
+1352_offsets.txt	658	6a4e158c6e07f179d81e8857d8d0966ddb52312b
+=== SLOPOS 1302 history ===
+42273e2180cae9aa0c1a67332994d75e1baa713c	2026-08-07T20:28:42Z	restructure into ps4/ + ps5/, backfill 19 kexec-complete headers\n\n- move all per-fw headers under ps4/, add ps4/schema.h\n- backfill kexec offsets for 19 fw (magic.h) + kmem_alloc (fw_offsets.h)\n- add README coverage table + contribution guide, CREDITS.md\n- ps5/ placeholder
+=== SLOPOS 1302 blob commits ===
+238bc8086d6a7bd6c13397a6e8f68dd807b4a4d0	2823	https://raw.githubusercontent.com/alferdoss/SLOPOS-offsets/42273e2180cae9aa0c1a67332994d75e1baa713c/ps4/1302.h

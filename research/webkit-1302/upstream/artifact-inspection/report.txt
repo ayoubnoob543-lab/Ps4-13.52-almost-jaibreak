@@ -1,0 +1,277 @@
+=== file metadata ===
+research/webkit-1302/upstream/artifact-inspection/loader-kernel-like-paths.txt: ASCII text
+research/webkit-1302/upstream/artifact-inspection/ps4-linux-loader-1302.h:      C source, ASCII text
+research/webkit-1302/upstream/artifact-inspection/report.txt:                   ASCII text
+research/webkit-1302/upstream/artifact-inspection/sdk-crt-kernel.c:             C source, Unicode text, UTF-8 text
+research/webkit-1302/upstream/artifact-inspection/slopos-ps4-1302.h:            C source, Unicode text, UTF-8 text
+=== hashes ===
+6385e88e909f9051e0ad5c1d3ddf60858bea5eedb0872d206265e74c12fa7194  research/webkit-1302/upstream/artifact-inspection/loader-kernel-like-paths.txt
+99f31669ec1f576b1c10558e5642213faea25ab6173e72fade4373382e7d71cb  research/webkit-1302/upstream/artifact-inspection/ps4-linux-loader-1302.h
+82a4c536caafb088e17dd2191fbf648d2686fa17ee787cbbec2e5da4c50cea09  research/webkit-1302/upstream/artifact-inspection/report.txt
+d80175cad703f6e7249f4f35b50c0c60134acef9ea861bb1af2c6b3f271a42a3  research/webkit-1302/upstream/artifact-inspection/sdk-crt-kernel.c
+34a206ffa48a406f6d15879b40e941de5e9d0db094bfd2d0932a6cf58961066a  research/webkit-1302/upstream/artifact-inspection/slopos-ps4-1302.h
+=== SLOPOS content ===
+#pragma once
+/* PS4 13.02 — kexec offsets: ArabPixel */
+
+#define kern_off_xfast_syscall             0x1C0
+
+#define kern_off_prison0                   0x111FA18
+#define kern_off_rootvnode                 0x2136E90
+
+/* kern_off_vmspace_acquire_ref TODO — help wanted */
+/* kern_off_vmspace_free TODO — help wanted */
+/* kern_off_proc_rwmem TODO — help wanted */
+
+#define kern_off_printf                    0x2E0450
+#define kern_off_snprintf                  0x2E0750
+#define kern_off_copyin                    0x2BD6E0
+#define kern_off_copyout                   0x2BD5F0
+#define kern_off_copyinstr                 0x2BDB90
+
+#define kern_off_kmem_alloc                0x465A50
+#define kern_off_kmem_alloc_contig         0x24D440
+#define kern_off_kmem_free                 0x465C20
+
+#define kern_off_kernel_map                0x22D1D50
+#define kern_off_kernel_pmap_store         0x1B2C3A0
+#define kern_off_sysent                    0x1102B70
+
+#define kern_off_pmap_extract              0x573D0
+#define kern_off_pmap_protect              0x58570
+
+#define kern_off_pml4pml4i                 0x1B2C390
+#define kern_off_dmpml4i                   0x1B2C394
+#define kern_off_dmpdpi                    0x1B2C398
+
+#define kern_off_sched_pin                 0x231670
+#define kern_off_sched_unpin               0x231690
+#define kern_off_smp_rendezvous            0x1AD530
+#define kern_off_smp_no_rendevous_barrier  0x1AD340
+#define kern_off_icc_query_nowait          0x447B40
+
+#define kern_off_gpu_devid_is_9924         0x4AC5A0
+#define kern_off_gc_get_fw_info            0x4BAF60
+#define kern_off_set_gpu_freq              0x4B9AA0
+#define kern_off_set_pstate                0x4BBE70
+#define kern_off_update_vddnp              0x4BA040
+#define kern_off_set_cu_power_gate         0x4BA450
+#define kern_off_set_nclk_mem_spd          0x436900
+#define kern_off_Starsha_UcodeInfo         0x0
+
+#define kern_off_pstate_before_shutdown    0x3A23D0
+#define kern_off_kern_reboot               0x3A1DE0
+
+#define kern_off_eap_hdd_key               0x26C4CF0
+#define kern_off_edid                      0x275E148
+#define kern_off_wlanbt                    0x478A60
+
+#define kern_off_disable_aslr              0x477CC4
+#define kern_off_mmap_self_1               0x3B2DB0
+#define kern_off_mmap_self_2               0x3B2DD0
+#define kern_off_mmap_self_3               0x1FC4B1
+#define kern_off_reg_mgr_set_int           0x4E8480
+#define kern_off_set_time                  0x6349E0
+#define kern_off_clear_time_diff           0x633EC0
+#define kern_off_target_id                 0x21CC60D
+#define kern_off_icc_nvs_write             0xA5A10
+#define kern_off_npdrm_open                0x64D6C0
+#define kern_off_npdrm_close               0x64D6E0
+#define kern_off_npdrm_ioctl               0x64D737
+#define kern_off_no_bd_patch               0x1D5DF3
+=== loader path candidates ===
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/bin_search_tree_.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/cond_dtor_entry_dealtor.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/cond_key_dtor_entry_dealtor.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/constructors_destructor_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/debug_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/erase_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/find_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/info_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/insert_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/iterators_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/node_iterators.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/point_iterators.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/policy_access_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/r_erase_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/rotate_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/split_join_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/bin_search_tree_/traits.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/binary_heap_.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/const_iterator.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/const_point_iterator.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/constructors_destructor_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/debug_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/entry_cmp.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/entry_pred.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/erase_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/find_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/info_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/insert_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/iterators_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/policy_access_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/resize_policy.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/split_join_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binary_heap_/trace_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binomial_heap_/binomial_heap_.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binomial_heap_/constructors_destructor_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binomial_heap_/debug_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binomial_heap_base_/binomial_heap_base_.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binomial_heap_base_/constructors_destructor_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binomial_heap_base_/debug_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binomial_heap_base_/erase_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binomial_heap_base_/find_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binomial_heap_base_/insert_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/binomial_heap_base_/split_join_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/rc_binomial_heap_/constructors_destructor_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/rc_binomial_heap_/debug_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/rc_binomial_heap_/erase_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/rc_binomial_heap_/insert_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/rc_binomial_heap_/rc.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/rc_binomial_heap_/rc_binomial_heap_.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/rc_binomial_heap_/split_join_fn_imps.hpp
+freebsd-headers/c++/4.2/ext/pb_ds/detail/rc_binomial_heap_/trace_fn_imps.hpp
+freebsd-headers/c++/4.2/tr1/bind_iterate.h
+freebsd-headers/c++/4.2/tr1/bind_repeat.h
+freebsd-headers/elf-hints.h
+freebsd-headers/elf.h
+freebsd-headers/gelf.h
+freebsd-headers/geom/virstor/binstream.h
+freebsd-headers/libelf.h
+freebsd-headers/machine/elf.h
+freebsd-headers/ps4-offsets/1302.h
+freebsd-headers/ps4-offsets/1350.h
+freebsd-headers/ps4-offsets/kernel.h
+freebsd-headers/sys/elf.h
+freebsd-headers/sys/elf32.h
+freebsd-headers/sys/elf64.h
+freebsd-headers/sys/elf_common.h
+freebsd-headers/sys/elf_generic.h
+freebsd-headers/sys/imgact_elf.h
+freebsd-headers/sys/kernel.h
+freebsd-headers/sys/kerneldump.h
+freebsd-headers/sys/link_elf.h
+linux/ps4-kexec-common/elf.h
+linux/ps4-kexec-common/kernel.c
+linux/ps4-kexec-common/kernel.h
+=== kernel.c identifiers ===
+17:#include "kernel.h"
+36:#define PROT_READ  1
+37:#define PROT_WRITE 2
+42: * of kernel threads.
+44:struct thread;
+51:  int (*fn)(struct thread*, struct kexec_args*);
+98:  unsigned long p_offset;
+120:unsigned long KERNEL_IMAGE_SIZE = 0;
+122:unsigned long KERNEL_ADDRESS_IMAGE_BASE = 0;
+123:unsigned long KERNEL_ADDRESS_ALLPROC    = 0;
+124:unsigned long KERNEL_ADDRESS_ROOTVNODE  = 0;
+125:unsigned long KERNEL_ADDRESS_PRISON0    = 0;
+126:unsigned long KERNEL_ADDRESS_TARGETID   = 0;
+127:unsigned long KERNEL_ADDRESS_QA_FLAGS   = 0;
+128:unsigned long KERNEL_ADDRESS_COPYIN     = 0;
+129:unsigned long KERNEL_ADDRESS_COPYOUT    = 0;
+131:const unsigned long KERNEL_OFFSET_PROC_P_UCRED   = 0x40;
+132:const unsigned long KERNEL_OFFSET_PROC_P_FD      = 0x48;
+133:const unsigned long KERNEL_OFFSET_PROC_P_PID     = 0xB0;
+134:const unsigned long KERNEL_OFFSET_PROC_P_VMSPACE = 0x168;
+136:const unsigned long KERNEL_OFFSET_UCRED_CR_UID   = 0x04;
+137:const unsigned long KERNEL_OFFSET_UCRED_CR_RUID  = 0x08;
+138:const unsigned long KERNEL_OFFSET_UCRED_CR_SVUID = 0x0C;
+139:const unsigned long KERNEL_OFFSET_UCRED_CR_RGID  = 0x14;
+140:const unsigned long KERNEL_OFFSET_UCRED_CR_SVGID = 0x18;
+142:const unsigned long KERNEL_OFFSET_UCRED_CR_PRISON = 0x30;
+144:const unsigned long KERNEL_OFFSET_UCRED_CR_SCEAUTHID = 0x58;
+145:const unsigned long KERNEL_OFFSET_UCRED_CR_SCECAPS   = 0x60;
+146:const unsigned long KERNEL_OFFSET_UCRED_CR_SCEATTRS  = 0x83;
+148:const unsigned long KERNEL_OFFSET_FILEDESC_FD_CDIR = 0x10;
+149:const unsigned long KERNEL_OFFSET_FILEDESC_FD_RDIR = 0x18;
+150:const unsigned long KERNEL_OFFSET_FILEDESC_FD_JDIR = 0x20;
+152:unsigned long KERNEL_OFFSET_VMSPACE_P_ROOT = 0;
+304: * Invoke the given function from kernel space.
+307:kexec(int (*fn)(struct thread*, kexec_args_t*), ...) {
+329: * Get a model specific register value (must be invoked from kernel space).
+332:kexec_get_msr(struct thread *td, kexec_args_t* args) {
+352: * Scan for the kernel image base address. This approach works for firmwares
+353: * 5.00-12.52. Earlier versions store the image at the start of a different page
+359:kexec_find_image_base(struct thread *td, kexec_args_t* args) {
+382: * Get the size of the kernel image.
+385:kexec_get_image_size(struct thread *td, kexec_args_t* args) {
+419: * Search for the entry to the kernel copyin function.
+422:kexec_find_copyin(struct thread *td, kexec_args_t* args) {
+445: * Search for the entry to the kernel copyout function.
+448:kexec_find_copyout(struct thread *td, kexec_args_t* args) {
+470: * Search for the global kernel variable targetid.
+475:kexec_find_targetid(struct thread *td, kexec_args_t* args) {
+500: * Get the address of the invoking kernel thread (must be invoked from kernel space).
+503:kexec_get_thread(struct thread *td, kexec_args_t* args) {
+517: * Copy data from user space into kernel space (must be invoked from kernel space).
+520:kexec_copyin(struct thread *td, kexec_args_t* args) {
+528:  // read cr0
+532:  // clear cr0 write protection bits
+547: * Copy data from kernel space into user space (must be invoked from kernel space).
+550:kexec_copyout(struct thread *td, kexec_args_t* args) {
+561: * Find a pattern in kernel memory (must be invoked from kernel space).
+564:kexec_find_pattern(struct thread *td, kexec_args_t* args) {
+584:kernel_get_fw_version(void) {
+598:__kernel_init(void) {
+599:  unsigned int fw = kernel_get_fw_version();
+616:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003A1AD0;
+617:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x019A121D;
+618:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003B92A0;
+619:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003B9220;
+621:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+625:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003A1F10;
+626:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x019A121D;
+627:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003B96E0;
+628:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003B9660;
+630:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+634:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003A2000;
+635:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x019AD21D;
+636:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003B97D0;
+637:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003B9750;
+639:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+644:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EA00;
+645:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200151D;
+646:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286CC0;
+647:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286C40;
+649:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+653:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EB30;
+654:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200151D;
+655:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286DF0;
+656:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286D70;
+658:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+662:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EB40;
+663:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200151D;
+664:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286DF0;
+665:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286D70;
+667:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+671:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EB40;
+672:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200551D;
+673:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286DF0;
+674:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286D70;
+676:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+681:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003095D0;
+682:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B6D08D;
+683:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x0014A890;
+684:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x0014A7B0;
+686:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+690:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030B840;
+691:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B7D08D;
+692:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00149F20;
+693:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00149E40;
+695:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+702:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030B7D0;
+703:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B7D08D;
+704:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00149F20;
+705:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00149E40;
+707:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+712:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+713:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01CD068D;
+714:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA600;
+715:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA520;
+717:    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+723:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+724:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01CD068D;
+725:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA710;
+726:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA630;

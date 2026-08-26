@@ -1,0 +1,107 @@
+=== USER TheOfficialFloW ===
+TheOfficialFloW/Adrenaline	master	2026-08-25T16:13:29Z	https://github.com/TheOfficialFloW/Adrenaline
+TheOfficialFloW/armips	vita	2026-07-28T19:41:55Z	https://github.com/TheOfficialFloW/armips
+TheOfficialFloW/bc2_vita	master	2026-04-17T15:59:49Z	https://github.com/TheOfficialFloW/bc2_vita
+TheOfficialFloW/bd-jb	master	2026-08-25T22:45:29Z	https://github.com/TheOfficialFloW/bd-jb
+TheOfficialFloW/bully_vita	master	2026-08-16T03:47:13Z	https://github.com/TheOfficialFloW/bully_vita
+TheOfficialFloW/conduit_vita	master	2026-04-17T15:59:50Z	https://github.com/TheOfficialFloW/conduit_vita
+TheOfficialFloW/crazytaxi_vita	master	2026-08-13T07:31:13Z	https://github.com/TheOfficialFloW/crazytaxi_vita
+TheOfficialFloW/dejavu	master	2026-07-17T09:28:22Z	https://github.com/TheOfficialFloW/dejavu
+TheOfficialFloW/enso	master	2026-07-17T09:28:42Z	https://github.com/TheOfficialFloW/enso
+TheOfficialFloW/fahrenheit_vita	main	2026-04-17T15:59:49Z	https://github.com/TheOfficialFloW/fahrenheit_vita
+TheOfficialFloW/FdFix	master	2026-08-07T19:03:41Z	https://github.com/TheOfficialFloW/FdFix
+TheOfficialFloW/GePatch	master	2026-07-23T04:30:57Z	https://github.com/TheOfficialFloW/GePatch
+TheOfficialFloW/gtactw_vita	master	2026-08-24T17:10:01Z	https://github.com/TheOfficialFloW/gtactw_vita
+TheOfficialFloW/GTANativeRes	master	2026-07-28T19:40:47Z	https://github.com/TheOfficialFloW/GTANativeRes
+TheOfficialFloW/gtasa_vita	master	2026-08-25T00:43:17Z	https://github.com/TheOfficialFloW/gtasa_vita
+TheOfficialFloW/h-encore	master	2026-08-25T14:06:19Z	https://github.com/TheOfficialFloW/h-encore
+TheOfficialFloW/h-encore-2	master	2026-08-25T14:06:27Z	https://github.com/TheOfficialFloW/h-encore-2
+TheOfficialFloW/HENlo	master	2026-08-21T00:30:53Z	https://github.com/TheOfficialFloW/HENlo
+TheOfficialFloW/kubridge	master	2026-08-07T19:02:24Z	https://github.com/TheOfficialFloW/kubridge
+TheOfficialFloW/MiniVitaTV	master	2026-08-07T18:26:55Z	https://github.com/TheOfficialFloW/MiniVitaTV
+TheOfficialFloW/modoru	master	2026-04-17T16:54:45Z	https://github.com/TheOfficialFloW/modoru
+TheOfficialFloW/NoNpDrm	master	2026-08-25T12:08:59Z	https://github.com/TheOfficialFloW/NoNpDrm
+TheOfficialFloW/PPPwn	master	2026-08-26T05:05:28Z	https://github.com/TheOfficialFloW/PPPwn
+TheOfficialFloW/ppsspp	vita	2026-07-28T19:41:52Z	https://github.com/TheOfficialFloW/ppsspp
+TheOfficialFloW/ppsspp-ffmpeg	vita	2026-07-28T19:41:55Z	https://github.com/TheOfficialFloW/ppsspp-ffmpeg
+TheOfficialFloW/Presentations	master	2026-05-26T11:07:08Z	https://github.com/TheOfficialFloW/Presentations
+TheOfficialFloW/prxtool	master	2025-03-13T18:52:08Z	https://github.com/TheOfficialFloW/prxtool
+TheOfficialFloW/RemasteredControls	master	2026-08-22T00:00:54Z	https://github.com/TheOfficialFloW/RemasteredControls
+TheOfficialFloW/security-research	master	2026-07-28T19:43:44Z	https://github.com/TheOfficialFloW/security-research
+TheOfficialFloW/taiHEN	master	2026-07-17T09:28:04Z	https://github.com/TheOfficialFloW/taiHEN
+TheOfficialFloW/TheOfficialFloW.github.io	master	2026-08-05T23:09:30Z	https://github.com/TheOfficialFloW/TheOfficialFloW.github.io
+TheOfficialFloW/Trinity	master	2026-08-25T14:06:24Z	https://github.com/TheOfficialFloW/Trinity
+TheOfficialFloW/twom_vita	master	2026-05-12T20:41:12Z	https://github.com/TheOfficialFloW/twom_vita
+TheOfficialFloW/update365	master	2026-08-07T18:26:10Z	https://github.com/TheOfficialFloW/update365
+TheOfficialFloW/vitaGL	master	2026-07-17T09:26:20Z	https://github.com/TheOfficialFloW/vitaGL
+TheOfficialFloW/VitaMips	master	2026-08-13T02:08:51Z	https://github.com/TheOfficialFloW/VitaMips
+TheOfficialFloW/VitaShell	master	2026-08-25T11:32:26Z	https://github.com/TheOfficialFloW/VitaShell
+TheOfficialFloW/VitaTweaks	master	2026-08-13T19:07:10Z	https://github.com/TheOfficialFloW/VitaTweaks
+=== USER SpecterDev ===
+=== USER Al-Azif ===
+Al-Azif/.github	main	2023-11-19T04:40:40Z	https://github.com/Al-Azif/.github
+Al-Azif/1.00-13.20-webkit-exploit	main	2026-07-07T11:17:15Z	https://github.com/Al-Azif/1.00-13.20-webkit-exploit
+Al-Azif/Al-Azif	main	2026-06-21T14:51:52Z	https://github.com/Al-Azif/Al-Azif
+Al-Azif/Al-Azif.github.io	master	2026-08-06T07:40:04Z	https://github.com/Al-Azif/Al-Azif.github.io
+Al-Azif/autopackage-configs	master	2018-11-26T07:21:12Z	https://github.com/Al-Azif/autopackage-configs
+Al-Azif/chukei-dns	main	2026-07-05T19:57:27Z	https://github.com/Al-Azif/chukei-dns
+Al-Azif/dns-config-watchdog	main	2026-05-30T07:06:25Z	https://github.com/Al-Azif/dns-config-watchdog
+Al-Azif/dumper-testing	main	2026-03-29T14:12:12Z	https://github.com/Al-Azif/dumper-testing
+Al-Azif/elfldr	master	2026-06-25T08:14:01Z	https://github.com/Al-Azif/elfldr
+Al-Azif/entitlement-database-builder	master	2026-07-20T16:02:10Z	https://github.com/Al-Azif/entitlement-database-builder
+Al-Azif/etaHEN	main	2026-02-17T06:35:08Z	https://github.com/Al-Azif/etaHEN
+Al-Azif/exploit-host-cc	main	2025-03-05T09:54:53Z	https://github.com/Al-Azif/exploit-host-cc
+Al-Azif/exploit-host-dns	main	2026-08-06T07:40:23Z	https://github.com/Al-Azif/exploit-host-dns
+Al-Azif/exploit-host-http	main	2026-08-05T11:39:51Z	https://github.com/Al-Azif/exploit-host-http
+Al-Azif/FakeDns	main	2026-07-10T19:49:44Z	https://github.com/Al-Azif/FakeDns
+Al-Azif/file-magnet-index	main	2026-04-03T06:03:34Z	https://github.com/Al-Azif/file-magnet-index
+Al-Azif/ftpsrv	master	2026-04-14T17:48:05Z	https://github.com/Al-Azif/ftpsrv
+Al-Azif/gdbsrv	master	2026-04-14T17:48:09Z	https://github.com/Al-Azif/gdbsrv
+Al-Azif/ghidra	master	2020-03-01T21:04:47Z	https://github.com/Al-Azif/ghidra
+Al-Azif/hermes-link	main	2026-08-23T17:54:30Z	https://github.com/Al-Azif/hermes-link
+Al-Azif/jkpatch	master	2022-08-09T01:51:27Z	https://github.com/Al-Azif/jkpatch
+Al-Azif/klogsrv	master	2026-04-14T17:48:13Z	https://github.com/Al-Azif/klogsrv
+Al-Azif/mira-project	master	2022-08-09T01:51:51Z	https://github.com/Al-Azif/mira-project
+Al-Azif/OpenOrbis-PS4-Toolchain	master	2024-03-02T05:18:03Z	https://github.com/Al-Azif/OpenOrbis-PS4-Toolchain
+Al-Azif/payload-sender-languages	main	2025-05-29T12:05:03Z	https://github.com/Al-Azif/payload-sender-languages
+Al-Azif/pkg_pfs_tool	main	2025-10-30T23:07:48Z	https://github.com/Al-Azif/pkg_pfs_tool
+Al-Azif/PPPwn	master	2025-09-17T17:55:48Z	https://github.com/Al-Azif/PPPwn
+Al-Azif/ps4-cfw-toolkit	main	2026-07-28T19:37:52Z	https://github.com/Al-Azif/ps4-cfw-toolkit
+Al-Azif/ps4-exploit-host	master	2026-08-21T11:16:45Z	https://github.com/Al-Azif/ps4-exploit-host
+Al-Azif/ps4-file-templates	main	2026-04-29T10:35:43Z	https://github.com/Al-Azif/ps4-file-templates
+Al-Azif/ps4-hello-world	main	2026-05-26T09:50:04Z	https://github.com/Al-Azif/ps4-hello-world
+Al-Azif/ps4-hen	main	2026-05-12T19:13:12Z	https://github.com/Al-Azif/ps4-hen
+Al-Azif/ps4-ic-fw	main	2026-02-17T06:35:56Z	https://github.com/Al-Azif/ps4-ic-fw
+Al-Azif/ps4-libLog	main	2026-04-11T18:58:38Z	https://github.com/Al-Azif/ps4-libLog
+Al-Azif/ps4-notifi	main	2025-04-12T18:05:43Z	https://github.com/Al-Azif/ps4-notifi
+Al-Azif/ps4-payload-guest	main	2026-08-08T14:49:40Z	https://github.com/Al-Azif/ps4-payload-guest
+Al-Azif/ps4-payload-guest-languages	main	2026-07-07T13:12:28Z	https://github.com/Al-Azif/ps4-payload-guest-languages
+Al-Azif/ps4-payload-sdk	main	2026-01-28T09:07:50Z	https://github.com/Al-Azif/ps4-payload-sdk
+Al-Azif/ps4-re-utilities	main	2026-06-25T18:54:28Z	https://github.com/Al-Azif/ps4-re-utilities
+Al-Azif/ps4-skeleton	main	2026-05-12T17:48:58Z	https://github.com/Al-Azif/ps4-skeleton
+Al-Azif/ps4-vibe	main	2026-02-20T13:58:05Z	https://github.com/Al-Azif/ps4-vibe
+Al-Azif/ps4-wee-tools	master	2026-06-16T08:37:04Z	https://github.com/Al-Azif/ps4-wee-tools
+Al-Azif/ps4debug-NG	master	2026-08-24T13:13:47Z	https://github.com/Al-Azif/ps4debug-NG
+Al-Azif/ps4sdk	master	2023-09-17T06:24:00Z	https://github.com/Al-Azif/ps4sdk
+Al-Azif/ps4sh	master	2022-08-09T01:50:43Z	https://github.com/Al-Azif/ps4sh
+Al-Azif/ps4vibe	master	2024-12-26T11:56:26Z	https://github.com/Al-Azif/ps4vibe
+Al-Azif/psfree-lapse	main	2026-08-05T07:39:55Z	https://github.com/Al-Azif/psfree-lapse
+Al-Azif/remote_lua_loader	main	2026-05-23T13:31:05Z	https://github.com/Al-Azif/remote_lua_loader
+Al-Azif/save-tool	main	2026-04-13T01:48:41Z	https://github.com/Al-Azif/save-tool
+Al-Azif/sdk	master	2026-06-25T08:09:38Z	https://github.com/Al-Azif/sdk
+Al-Azif/toolchain-action	main	2020-10-11T07:14:41Z	https://github.com/Al-Azif/toolchain-action
+Al-Azif/tsv-backup	master	2023-10-13T14:17:40Z	https://github.com/Al-Azif/tsv-backup
+Al-Azif/usb-otg-webapi	master	2023-10-27T18:44:29Z	https://github.com/Al-Azif/usb-otg-webapi
+Al-Azif/vue-after-free	main	2026-02-17T06:10:06Z	https://github.com/Al-Azif/vue-after-free
+=== relevant repo tree scan ===
+--- TheOfficialFloW/PPPwn
+offsets.py	28849	277ea5560e41985272d0a96875cc11745b1b9733
+stage1/offsets.h	9827	d7f8627d9ec1142639f99101ab94122fb047265c
+stage2/offsets.h	8887	fa8703eb05826d11c7947f7d94e4d2ee6ea8a644
+--- TheOfficialFloW/PPPwn_cpp
+missing
+--- SpecterDev/PS4-6.72-Kernel-Exploit
+missing
+--- SpecterDev/PS4-9.00-Kernel-Exploit
+missing
+--- Al-Azif/ps4-exploit-host
