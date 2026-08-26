@@ -764,3 +764,7 @@ The existing cross-source comparison confirms that kpayload 13.02/13.04 share se
 ## Refined public search: Netctrl/Celsius/13.02
 
 The refined search returned ConsoleMods stating that no public kernel exploit exists for recent PS4 13.02–13.04, several YouTube reports describing a potential Celsius bug, a Reddit status discussion, CTurt's historical PS4 kernel-exploitation writeup, and the public SDK release page with 13.04 offset support. None of the newly returned results exposed Netctrl/ucred code surviving to 13.02, `patch_mount` cross-references, Orbis bytes, a Celsius PoC, a hash or a hardware transcript. The new web evidence is therefore `SECONDARY/SOURCE_ONLY`; ConsoleMods' negative status is useful corroboration of the absence of a public reproducible chain, not proof that the vulnerability is patched.
+
+## GitHub API exact-code search
+
+GitHub code-search queries for `patch_mount PS4`, `0x001512A7`, `ffs_mountfs PS4` and `Celsius PS4` produced no relevant external implementation. The only technically relevant hit was the laboratory's own mirrored `webkit_gadgets_1304.js`; other `Celsius` matches were unrelated projects or ordinary text. This adds no independent bytes, disassembly, hash, or cross-reference. Classification: no new corroboration; external exploit linkage remains `UNVERIFIED`.

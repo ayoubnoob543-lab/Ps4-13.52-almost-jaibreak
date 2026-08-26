@@ -1,0 +1,47 @@
+===== QUERY: patch_mount PS4 =====
+===== QUERY: 0x001512A7 =====
+OSM-Made/PS4-Kernel-SDK	offsets/firmware-1300.yaml	https://github.com/OSM-Made/PS4-Kernel-SDK/blob/e843f6fbd19f67d7e124426c61826d9925b94a55/offsets/firmware-1300.yaml
+OSM-Made/PS4-Kernel-SDK	offsets/firmware-1250.yaml	https://github.com/OSM-Made/PS4-Kernel-SDK/blob/e843f6fbd19f67d7e124426c61826d9925b94a55/offsets/firmware-1250.yaml
+OSM-Made/PS4-Kernel-SDK	offsets/firmware-1302.yaml	https://github.com/OSM-Made/PS4-Kernel-SDK/blob/e843f6fbd19f67d7e124426c61826d9925b94a55/offsets/firmware-1302.yaml
+===== QUERY: ffs_mountfs PS4 =====
+adri22235/ps4-suid-scanner	cve_analysis.md	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/cve_analysis.md
+adri22235/ps4-suid-scanner	README.md	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/README.md
+ayoubnoob543-lab/firmware-lab	cve_analysis.md	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/cve_analysis.md
+adri22235/ps4-suid-scanner	webkit_gadgets_1304.js	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/webkit_gadgets_1304.js
+adri22235/ps4-suid-scanner	jordy_stage2.js	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js
+ayoubnoob543-lab/firmware-lab	jordy_stage2.js	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/jordy_stage2.js
+pgadient/VulnerabilityDBInvestigations	data_analysis/DB_RAPID7/2011.12.csv	https://github.com/pgadient/VulnerabilityDBInvestigations/blob/b0e1bf77082be23202a5373bd94cd462d7edfd54/data_analysis/DB_RAPID7/2011.12.csv
+pgadient/VulnerabilityDBInvestigations	data_analysis/DB_RAPID7/2011.12.cleaned.csv	https://github.com/pgadient/VulnerabilityDBInvestigations/blob/b0e1bf77082be23202a5373bd94cd462d7edfd54/data_analysis/DB_RAPID7/2011.12.cleaned.csv
+OpenDarwin-CVS/SEDarwin	sedarwin7/src/darwin/xnu/config/System6.0.exports	https://github.com/OpenDarwin-CVS/SEDarwin/blob/b597bd6aafbb6519768083cd01bc0707c1eafdfb/sedarwin7/src/darwin/xnu/config/System6.0.exports
+ayoubnoob543-lab/firmware-lab	webkit_gadgets_1304.js	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/webkit_gadgets_1304.js
+===== QUERY: Celsius PS4 =====
+stryker000/oopstryker	1/ps4.java	https://github.com/stryker000/oopstryker/blob/6cceb4c26153becfb6830bb271b3bfb9e5f990ce/1/ps4.java
+upkie/upkie	docs/sensors.md	https://github.com/upkie/upkie/blob/0a82a89b011cd179b20f572c486787ffc0ea69d6/docs/sensors.md
+Mahanyuu/STAT-506	ps4/ps4.qmd	https://github.com/Mahanyuu/STAT-506/blob/31abe80becc7914aea9363edc9a89b803ef6f7d4/ps4/ps4.qmd
+tiffany-wu/Stats506	PS4/PS4.qmd	https://github.com/tiffany-wu/Stats506/blob/9d66d4bf36d92f087ed76a478f079562c45050d7/PS4/PS4.qmd
+thp/psmoveapi	src/psmove_private.h	https://github.com/thp/psmoveapi/blob/256b6299e6076fe7b113e7277ed67016903f067a/src/psmove_private.h
+nnd2016/phys-ga2000	ps-4/ps4-sol.log	https://github.com/nnd2016/phys-ga2000/blob/c6d6df3a79ecff70febdfd9001bbc96715f2a364/ps-4/ps4-sol.log
+danrubioej/STATS506	PS4/PS4.qmd	https://github.com/danrubioej/STATS506/blob/99a67a507503f7916edd219cc3c022e3b152cfef/PS4/PS4.qmd
+smartmontools/smartmontools	drivedb/drivedb.h	https://github.com/smartmontools/smartmontools/blob/618fcaede4478bc7d17fa2a8db5fd18af3744e20/drivedb/drivedb.h
+alyssawyang/stats506ps4	Stats 506 PS4.qmd	https://github.com/alyssawyang/stats506ps4/blob/f8c6b68e32276a84d30aba15e29e341d3b92eaf4/Stats 506 PS4.qmd
+Ps3itaTeam/ps4fancontrol	ps4fancontrol.c	https://github.com/Ps3itaTeam/ps4fancontrol/blob/14bfe8e3ad2ef989f2682fda59c021a6ce146d72/ps4fancontrol.c
+thp/psmoveapi	src/psmove.c	https://github.com/thp/psmoveapi/blob/256b6299e6076fe7b113e7277ed67016903f067a/src/psmove.c
+thp/psmoveapi	include/psmove.h	https://github.com/thp/psmoveapi/blob/256b6299e6076fe7b113e7277ed67016903f067a/include/psmove.h
+PSTools/ps4_unjail	ps4_unjail/prx.cpp	https://github.com/PSTools/ps4_unjail/blob/e1cb56b53fee67e274700ad7afb66e30945c0cea/ps4_unjail/prx.cpp
+PSTools/ps4_unjail	README.md	https://github.com/PSTools/ps4_unjail/blob/e1cb56b53fee67e274700ad7afb66e30945c0cea/README.md
+lcsm29/edx-mit-6.00.2x	ps4/README.md	https://github.com/lcsm29/edx-mit-6.00.2x/blob/4cf5bb30cf38a5769add780cae555f1ea6bbc664/ps4/README.md
+toxxic407/PS4-fan-control-payloads	README.md	https://github.com/toxxic407/PS4-fan-control-payloads/blob/0c0bb794a42aed998de04bd599b541edbbec0700/README.md
+intel/FSP	AmberLakeFspBinPkg/Fsp.bsf	https://github.com/intel/FSP/blob/5a2795469c47874ed956524b749d5666018d67cc/AmberLakeFspBinPkg/Fsp.bsf
+PSTools/ps4_unjail	ps4_unjail/pluginLib.cpp	https://github.com/PSTools/ps4_unjail/blob/e1cb56b53fee67e274700ad7afb66e30945c0cea/ps4_unjail/pluginLib.cpp
+mikaku/Monitorix	lib/disk.pm	https://github.com/mikaku/Monitorix/blob/40321a4e4a1989ac707ced5e890708ec549ac756/lib/disk.pm
+mrhappyasthma/Final-Fantasy-X-HD-Cross-platform-Save-Converter	README.md	https://github.com/mrhappyasthma/Final-Fantasy-X-HD-Cross-platform-Save-Converter/blob/10bf50ff9802ff080c17bdf3531c0d3031001753/README.md
+Athlon1600/SerpScraper	etc/terms.txt	https://github.com/Athlon1600/SerpScraper/blob/96af309bf76c1eeb59577dad27304614d7c2637e/etc/terms.txt
+mrbelowski/CrewChiefV4	CrewChiefV4/ui_text.txt	https://github.com/mrbelowski/CrewChiefV4/blob/84fe63b6e7d466022acd8bce3d00e044ded864a3/CrewChiefV4/ui_text.txt
+mirror/smartmontools	drivedb.h	https://github.com/mirror/smartmontools/blob/4cbc2fc9e68eaacd0cb432f2ca94c128cb598dc2/drivedb.h
+RetroGamer74/PS4_Fan_Booster	README.md	https://github.com/RetroGamer74/PS4_Fan_Booster/blob/45a1e4ad8a05ad762c92ab65f01f5890843a9035/README.md
+mrcodedev/f1-2021-telemetry-app	README.md	https://github.com/mrcodedev/f1-2021-telemetry-app/blob/e8aaa6a2eed60b569b0dbcd00c4ba34fb2c34cc4/README.md
+dsindex/syntaxnet	English/word-map	https://github.com/dsindex/syntaxnet/blob/29dd8171dc8fa4f90117503e11d825208be2ee74/English/word-map
+raweceek-temeletry/f1-22-udp	README.md	https://github.com/raweceek-temeletry/f1-22-udp/blob/e4bbe7f680dd5549f7e1771722e995b533053101/README.md
+gopala-kr/a-week-in-wild-ai	UToE/rs.md	https://github.com/gopala-kr/a-week-in-wild-ai/blob/f36d46602f4b344f4773ee8b1efe2bc6eb24557a/UToE/rs.md
+yuvalpinter/Mimick	vocabs/en-vocab.txt	https://github.com/yuvalpinter/Mimick/blob/8ad9dd8e957f92021526db4d2a639948a79c73f1/vocabs/en-vocab.txt
+ronghanghu/n2nmn	exp_vqa/data/vocabulary_vqa.txt	https://github.com/ronghanghu/n2nmn/blob/ccbca1c623f3e208e7cde8d57b00e32dfb7c3c14/exp_vqa/data/vocabulary_vqa.txt
