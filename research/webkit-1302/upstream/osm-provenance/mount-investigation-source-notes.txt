@@ -479,3 +479,41 @@ A full-file scan of `zecoxao_jordy_11_60.html` finds `targetAddress`, controlled
 ## Jordy 11.60 final-stage behavior
 
 The final section of `jordy/index.html` records `ARBITRARY-READ-PASS`, `ARBITRARY-WRITE-PASS` and `GENUINE-U8-RW-PASS` only after validating the forged carrier, target cell, observed read/write and restoration. `beginComposition()` derives `targetAddress` from captured pointers and sets the fake address at `hostAddress + 0x10`; `runGroomAndLoad()` performs the WebKit grooming/composition sequence. No kernel transition, syscall wrapper, dlsym, ROP pivot, mount or FFS operation follows these userland checks. This supports treating the file as a genuine-view userland R/W bootstrap, not as a hidden Celsius stage.
+
+
+## zecoxao post-Jordy slopkit/slopdev commits
+
+The first post-`1630d79` `slopkit2 poops` commit `3a049e0` adds `slopkit2/poops.html`, `slopkit2/offsets.js`, `slopkit2/rop.js` and `slopkit2/rop_slave.js`; commit `8354ec0` modifies `slopkit2/lapse-ps5.js`. The audited file list does not include the scanner’s `jordy_stage2.js`, a PS4 kernel module, UFS/FFS code, or a Celsius artifact. Later `slopdev` commits modify gadget/syscall self-test pages and offset profiles. Their commit messages make device-test claims and identify broken gadgets, but do not by themselves prove PS4 13.02/13.04 compatibility or Celsius. Classification: existence/files `VERIFIED`; relation to Jordy missing pieces `SOURCE_ONLY/UNVERIFIED` pending direct file comparison.
+
+
+## slopkit2 rop-worker.js static audit
+
+`slopkit2/rop-worker.js` is materially more concrete than the initial placeholder templates. Its header states that it addresses a Luac0re `runChain` failure on PS5 10.00 and that constants were reverse-engineered from devkit modules, with a live survey of thread stacks. It defines libkernel thread-list offsets, measured `setjmp`/`longjmp` layouts, a `pop rsp` gadget, worker stack size, a hijack slot and expected return RVA, then builds chains with `pop`, `call`, memory stores and a setjmp/longjmp epilogue.
+
+This is a real ROP-worker implementation for the PS5 10.00 runtime, not a hidden completion of the PS4 scanner. It supplies a concrete example of the missing pivot architecture, but its constants, module bases, worker model, ABI and exploit context are target-specific. No FFS, Celsius, PS4 13.02 or PS4 13.04 path appears in the reviewed section. Classification: implementation `VERIFIED` for stated PS5 10.00 context; relation to Jordy pivot `CORROBORATED` conceptually; PS4 13.02/Celsius compatibility `UNVERIFIED/INVALID`.
+
+
+## slopkit2 netctrl-ps5.js — provenance and scope
+
+The file explicitly cites three sources: `CSSFontFace-Exploit public/src/netctrl.js` (ntfargo/ufm42) for the PS4 JS chain, Luac0re `p2jb/poops.c` for PS5 semantics, and TheFlow’s `ExploitNetControlImpl`. It states that the runtime already supplies userland R/W, syscall/call, malloc and native threads. It documents explicit PS4→PS5 differences in `netcontrol` signature, RTHDR aliasing, kqueue/filedesc/ucred offsets, kernel-base derivation and threading.
+
+The comments claim some constants were RE’d from decrypted retail kernels and checked across PS5 09.00–12.00, while also stating the race was still not run on hardware. The code is therefore a substantial PS5 Netctrl/ucred port with provenance references, not a Celsius/FFS implementation and not evidence that the PS4 source survives on 13.02. Classification: implementation/source claims `SOURCE_ONLY` pending independent binary/log verification; platform scope PS5 `VERIFIED` as repository content; PS4 13.02/Celsius `UNVERIFIED`.
+
+
+## Related repository: Feyzee61/cssfontface_lapse
+
+`Feyzee61/cssfontface_lapse` identifies itself as a research/educational fork of `ufm42/wobkot` and `ps3120/CSSFontFace-Exploit`, targeting a full exploit from PS4 9.00 to 11.02. Its README states that 9.00 and 9.60 were fully tested, 11.02 worked at the entrypoint, and ROPs for 10.00–11.02 remained TODO. It merges a Lapse core from `Feyzee61/psfree_lapse`; firmware 7.00–9.60 are described as having integrated PSFree kernel patch shellcodes. All payload binaries (`*.bin`, `*.elf`) are intentionally excluded.
+
+This repository is therefore relevant as a source of a real historical PS4 CSSFontFace/Lapse kernel chain, but its declared firmware range stops at 11.02 and its own status says key ROP work remains incomplete. It provides no 13.02/13.04 code, no Celsius/FFS mount and no evidence that `jordy_stage2.js` was derived from it. Classification: repository scope/status `VERIFIED`; 13.02/Celsius compatibility `UNVERIFIED`.
+
+
+## Feyzee CSSFontFace/Lapse kernel path
+
+The static `public/lapse.js` audit finds a concrete PS4 kernel-R/W path based on corrupted IPv6 `pktopts`: `kread64()` uses `getsockopt`/`setsockopt`, derives a kernel base from a known kernel string, walks `pcpu → curthread → proc`, locates `p_ucred`, and creates a `KernelMemory` object with `copyin`, `copyout`, `read8/16/32/64` and `write8/16/32/64`. It then has `patch_kernel()` code that edits `sysent[661]`, sets ucred capability fields and embeds firmware-specific kernel patch blobs.
+
+The same function explicitly rejects non-PS4 and rejects `config_target < 0x600` or `config_target >= 0x1000`, so its supported kernel-patching range is 6.00 through 9.60/9.XX, not 13.02/13.04. The README separately says 9.00/9.60 tested, 11.02 only entrypoint and 10.00–11.02 ROP TODO. The file therefore proves that a historical PS4 CSSFontFace→Lapse chain can reach kernel R/W in its supported range, but it does not complete the 13.02 scanner chain or validate Celsius/FFS at 13.02. Classification: historical PS4 kernel-RW `VERIFIED` for declared scope; 13.02/13.04 `UNVERIFIED`.
+
+
+## Lapse firmware-target table
+
+`public/lapse.js` enumerates supported versions through `11.02` (`9.00`, `9.03`, `9.04`, `9.50`, `9.51`, `9.60`, `10.00`, `10.01`, `10.50`, `10.70`, `10.71`, `11.00`, `11.02`). It sets `config_target = parseInt(fwVersion.replace('.', ''), 16)` and labels the platform as PS4 `[7.00 - 11.02]`. Kernel patching rejects `config_target >= 0x1000`, which excludes 10.00? (the hexadecimal comparison is part of the source’s own target encoding and must be interpreted with its case labels), but in any event no 13.02 or 13.04 target entry exists. This is another historical chain, not evidence for the scanner’s 13.02 stage.

@@ -1,0 +1,20 @@
+15:var config_target;
+365:    if (config_target >= 0x700) {
+872:  // Firmware specific method to launch a ROP chain
+898:  // note that later firmwares (starting around > 5.00?), the browser doesn't
+1066:// the ps4 firmware is compiled to use rbp as a frame pointer
+1231:    if ((config_target >= 0x900) && (config_target < 0x950)) {
+1387:  if ((config_target >= 0x700) && (config_target < 0x900)) {
+1460:  // workaround for known affected versions: ps4 [6.00, 10.00)
+1935:  switch (config_target) {
+2158:      throw "Unsupported firmware";
+2161:  switch (config_target) {
+2442:      throw "Unsupported firmware";
+3710:  if ((config_target < 0x600) || (config_target >= 0x1000)) {
+3739:  switch (config_target) {
+4179:  config_target = parseInt(fwVersion.replace('.', ''), 16);
+4186:          "9.00", "9.03", "9.04", "9.50", "9.51", "9.60",
+4187:          "10.00", "10.01", "10.50", "10.70", "10.71",
+4188:          "11.00", "11.02"],
+4200:      window.log("Unsupported platform detected! Designed for PS4 [7.00 - 11.02]", "red");
+4229:    if ((config_target >= 0x700) && (config_target < 0x1150)) { // 7.00 to 11.02

@@ -115,6 +115,20 @@ La recuperación exacta del commit confirma que no es una cadena operativa ocult
 | fcall/dlsym/pivot completo | **INVALID** |
 | Celsius/FFS | **UNVERIFIED; no código presente** |
 
+## Nuevo candidato relacionado: CSSFontFace/Lapse PS4 histórico
+
+La búsqueda de proyectos citados por `netctrl-ps5.js` localizó [`Feyzee61/cssfontface_lapse`][8], un fork declarado de `wobkot` y `CSSFontFace-Exploit`. Su `public/lapse.js` contiene una fase PS4 real de kernel R/W basada en `pktopts`: valida una lectura de una cadena del kernel, deriva `kbase`, recorre `pcpu → curthread → proc`, obtiene `p_ucred`, y construye `KernelMemory` con `copyin`, `copyout`, `read64` y `write64`. También contiene blobs de parche kernel por firmware y modificación de `sysent[661]`.
+
+La procedencia y el alcance deben limitarse cuidadosamente. El README declara pruebas completas sólo en 9.00 y 9.60, 11.02 funcionando en el entrypoint y ROP 10.00–11.02 todavía pendiente. La tabla de firmware no contiene 13.02 ni 13.04. Los binarios payload se excluyen del repositorio. Por ello, este proyecto demuestra que existió una cadena pública PS4 WebKit → kernel R/W en una generación anterior, pero no completa `jordy_stage2.js`, no contiene Celsius/FFS y no demuestra supervivencia de Netctrl/Lapse en 13.02.
+
+| Evidencia de CSSFontFace/Lapse | Clasificación |
+|---|---|
+| Código estático de kernel R/W PS4 histórico | **VERIFIED** dentro de su alcance declarado |
+| Prueba de 9.00/9.60 según README | **SOURCE_ONLY** hasta recuperar logs independientes |
+| 11.02 completo | **SOURCE_ONLY / INCOMPLETE** |
+| 13.02/13.04 | **UNVERIFIED** |
+| Relación directa con Celsius o `jordy_stage2.js` | **INVALID / no demostrada** |
+
 ## Referencias
 
 [1]: https://github.com/Cryptogenic/PS4-4.0x-Code-Execution-PoC/blob/master/index.html "Cryptogenic PS4 4.0x Code Execution PoC"
@@ -130,3 +144,5 @@ La recuperación exacta del commit confirma que no es una cadena operativa ocult
 [6]: https://github.com/zecoxao/zecoxao.github.io "Páginas relacionadas zecoxao"
 
 [7]: https://github.com/zecoxao/zecoxao.github.io/commit/1630d79d2a7146a65436e5f2fc0ff5dc6d9ba07b "Commit zecoxao: kern and user jordy"
+
+[8]: https://github.com/Feyzee61/cssfontface_lapse "Feyzee61 CSSFontFace Lapse"

