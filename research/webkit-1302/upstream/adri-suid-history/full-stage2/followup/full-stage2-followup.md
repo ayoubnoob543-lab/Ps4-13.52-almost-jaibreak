@@ -158,3 +158,14 @@ La procedencia y el alcance deben limitarse cuidadosamente. El README declara pr
 [9]: https://github.com/zecoxao/zecoxao.github.io/commit/c6b52aea9e212427aa54b12b35557877363f1940 "Commit zecoxao: jordy 11.60"
 
 [10]: https://github.com/ntfargo/CSSFontFace-Exploit/commit/6f3398616ac0e3a0a7b45bf33730529a75578db7 "Commit ntfargo/ufm42: full chain exploit with lapse and netctrl"
+
+
+## Seguimiento adicional: forks, archivos eliminados y origen de las referencias FFS
+
+La enumeración limpia de 80 forks públicos de `ntfargo/CSSFontFace-Exploit` encontró repetidamente la familia histórica `lapse.js`/`netctrl.js`/`ps4/kernel.js`, y en algunos casos `offsets.mjs`. No se encontró ningún `jordy_stage2.js`, archivo dedicado de Celsius, `ffs_mountfs` ni extensión 13.02/13.04. El resultado es propagación de la cadena histórica, no corroboración independiente.
+
+El fork `hejran7/CSSFontFace-Exploit` contiene dos binarios adicionales, `pl_KernelDumper.bin` y `pl_KernelClock.bin`, introducidos exactamente por `d29bd6c` el 4 de agosto de 2026. El análisis estático da tamaños de 17.832 y 13.184 bytes, prólogos x86-64 y strings de APIs PS4/libkernel. `menu.js` los registra como payloads de dumper. No son imágenes de kernel, no tienen marcador 13.02 y no contienen UFS/FFS/Celsius. Además, `host/src/ps4/kernel.js` comenta que `kernel_patches()` está destinada a usarse “only after kernel arw”, confirmando que es infraestructura consumidora de una primitive ya obtenida.
+
+La búsqueda de archivos eliminados muestra que `ps4-suid-scanner` sí elimina `stage2_jordy.js`, pero no aparece un sucesor más completo en el historial recuperable. En los repositorios CSSFontFace relacionados se eliminan módulos y parches históricos, no una implementación Celsius/13.02. El pickaxe Git muestra que `ffs_mountfs` y Celsius aparecen como texto añadido en `ps4-suid-scanner` en `96a7948` y `1089382`, además de la documentación de gadgets; no aparecen en la genealogía textual de `ntfargo`, `ps3120`, `wobkot` o `hejran7`.
+
+**Clasificación:** red de forks históricos, **DERIVED/NO INDEPENDIENTE**; payloads `hejran7`, **VERIFIED como herramientas** pero **UNVERIFIED para 13.02**; archivos eliminados, **VERIFIED**; procedencia de la narrativa `ffs_mountfs`/Celsius desde el scanner, **CORROBORATED por historial Git**; existencia de una pieza externa que complete Jordy, **no encontrada / UNVERIFIED**.
