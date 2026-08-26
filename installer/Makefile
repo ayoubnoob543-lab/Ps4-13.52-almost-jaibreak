@@ -15,7 +15,7 @@ TARGET  := $(shell basename $(CURDIR)).bin
 # Compiler flags
 OPTIMIZATION := -Os
 STANDARDS    := -std=c11 -fno-builtin -nostartfiles -nostdlib
-WARNINGS     := -Wno-unused-const-variable -Wall -Wextra -Wno-error=implicit-int -Wno-error=int-conversion -Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration -Wno-error=return-mismatch # -Werror
+WARNINGS     := -Wno-unused-const-variable -Wall -Wextra -Wno-error=implicit-int -Wno-error=int-conversion -Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration # -Werror
 
 # PS4 payloads are x86_64 (BTVER2). Detect how to invoke the compiler:
 # 1) native x86_64 toolchain, or 2) clang-style driver with an explicit target.
@@ -68,7 +68,7 @@ SDK_COPY   := build/sdk-libps4
 SDKLIB     := $(ODIR)/libPS4.a
 
 # The SDK's own inline asm is Intel syntax in every mode; kpayload's is AT&T.
-SDK_CFLAGS := -I$(CURDIR)/$(SDK_COPY)/include -Os -std=c11 -ffunction-sections -fdata-sections -fno-builtin -nostartfiles -nostdlib -Wall -Wextra -Wno-error=implicit-int -Wno-error=int-conversion -Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration -Wno-error=return-mismatch -march=btver2 -mtune=btver2 -m64 -mabi=sysv -mcmodel=small -fpie -fPIC $(XARCH)
+SDK_CFLAGS := -I$(CURDIR)/$(SDK_COPY)/include -Os -std=c11 -ffunction-sections -fdata-sections -fno-builtin -nostartfiles -nostdlib -Wall -Wextra -Wno-error=implicit-int -Wno-error=int-conversion -Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration -march=btver2 -mtune=btver2 -m64 -mabi=sysv -mcmodel=small -fpie -fPIC $(XARCH)
 
 .PHONY: $(SDKLIB)
 $(SDKLIB):
