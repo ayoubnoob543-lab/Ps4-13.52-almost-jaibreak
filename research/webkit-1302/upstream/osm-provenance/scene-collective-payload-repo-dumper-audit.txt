@@ -1,0 +1,12 @@
+=== repo metadata ===
+Scene-Collective/ps4-payload-repo	2020-01-02T06:11:33Z	2026-07-27T17:06:17Z	master	Auto generates payloads and packages when they're updated
+=== tree dumper paths ===
+=== releases ===
+1.0.5	2020-12-14T06:06:11Z	payloads_1.0.5.zip	https://github.com/Scene-Collective/ps4-payload-repo/releases/tag/1.0.5
+1.0.4	2020-07-17T06:57:51Z	payloads_1.0.4.zip	https://github.com/Scene-Collective/ps4-payload-repo/releases/tag/1.0.4
+1.0.2	2020-07-10T21:08:58Z	payloads_1.0.2.zip	https://github.com/Scene-Collective/ps4-payload-repo/releases/tag/1.0.2
+1.0.1	2020-02-06T23:21:31Z	payloads_1.0.1.zip	https://github.com/Scene-Collective/ps4-payload-repo/releases/tag/1.0.1
+1.0.0	2020-01-05T08:42:29Z	payloads_1.0.0.zip	https://github.com/Scene-Collective/ps4-payload-repo/releases/tag/1.0.0
+=== commits ===
+6c855efd904367e637076fa8e9ebfe3a2b4f5173	2020-07-10T20:53:29Z	Al Azif	Update for 6.72 ("ps4-kernel-clock" is still WIP)	https://github.com/Scene-Collective/ps4-payload-repo/commit/6c855efd904367e637076fa8e9ebfe3a2b4f5173
+b098ed0d7d0a63e64b2553c2f957e68fe3db7966	2020-01-05T08:34:46Z	Al Azif	Added Fan Threshold & Kernel Clock Payloads	https://github.com/Scene-Collective/ps4-payload-repo/commit/b098ed0d7d0a63e64b2553c2f957e68fe3db7966

@@ -264,3 +264,15 @@ No aparecen strings `13.02`, `1302`, `13.04`, `ffs_mountfs`, `ffs_reload`, `UFS`
 El dato eleva la plausibilidad de que investigadores con kernel R/W pudieran obtener imágenes de kernel, pero no establece que el dumper de PSFree Enhanced haya sido ejecutado en 13.02 ni que generase la tabla de ArabPixel/Fusion. Tampoco proporciona una dirección o patrón para `patch_mount`/`ffs_mountfs`.
 
 La guía pública de [reversing.codes](https://reversing.codes/posts/ps4-kernel-patching-guide/) confirma conceptualmente que el dumper de Scene-Collective se usa para adquirir un kernel y que los offsets se obtienen restando la base KASLR a direcciones observadas en el dump. Es evidencia metodológica general, no evidencia específica de Orbis 13.02 ni de Celsius.
+
+## 19. Scene-Collective kernel dumper y soporte de firmware
+
+`Scene-Collective/ps4-kernel-dumper` es un proyecto público de 2019 cuyo README dice que descarga el kernel a un dispositivo USB y que soporta cualquier firmware admitido por su SDK. Su historial visible llega hasta revisiones de 7.0X; el CHANGELOG documenta el traslado de offsets específicos al SDK, pero no aparece una revisión 13.02/13.04 ni un dump producido para esas versiones.
+
+El repositorio `Scene-Collective/ps4-payload-repo` es un generador de payloads y sus commits relevantes visibles son antiguos (5.03/6.72); su árbol actual no ofrece una variante identificable `kernel-dumper-1302` o `kernel-dumper-1304`. El resultado de Reddit que recomienda compilar este dumper no constituye evidencia de ejecución 13.02.
+
+El payload `ArabPixel/old-PSFree-Enhanced/payloads/Bins/Dumper/kerneldumper.bin` sí es un binario dumper real y guarda `kernel.bin` en USB, pero no contiene marcador de firmware 13.02/13.04, FFS, Celsius ni output de dump. Clasificación: `VERIFIED` como dumper; `UNVERIFIED` para 13.02; `INVALID` como evidencia de `ffs_mountfs`.
+
+[34]: https://github.com/Scene-Collective/ps4-kernel-dumper "Scene-Collective PS4 Kernel Dumper"
+[35]: https://github.com/Scene-Collective/ps4-payload-repo "Scene-Collective payload repository"
+[36]: https://github.com/ArabPixel/old-PSFree-Enhanced "ArabPixel PSFree Enhanced"

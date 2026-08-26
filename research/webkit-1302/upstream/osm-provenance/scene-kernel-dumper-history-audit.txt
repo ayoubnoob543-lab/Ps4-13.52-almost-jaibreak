@@ -1,0 +1,65 @@
+=== repo tree ===
+.clang-format	3261	97726dbca25188b57890867d15e3d9816ea5f3c3
+.github/workflows/sanity-check.yml	889	bfe880ba48c5df01b5edd60cb8aec94789042aa7
+.gitignore	21	6e7979c163acda321c77f844d3e80d4b888b87c7
+CHANGELOG.md	828	3381d99cfed59c27daf2a8e26129790812f9ec2d
+Makefile	1091	99a4c5f4a99b6a9b37db1b78d65919a4be1c43cd
+README.md	748	ba6bf6ef42219a81bd81223bc0c8e15122165769
+meta.json	466	856fe2175eef039698870f900833f40c9ae6abec
+source/main.c	5003	0cdfbe0f5303b1ce7e92fdc97f10ed247c113efa
+=== commits ===
+42fce7e6f2cf65b25e39a38373ab697593a19f12	2021-12-18T02:14:16Z	Al-Azif	Another @ChendoChap fix	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/42fce7e6f2cf65b25e39a38373ab697593a19f12
+2dc4a20e8d3c4f23e8283ad50403c3833573fc6b	2021-12-13T03:35:04Z	Al-Azif	Fix by @ChendoChap	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/2dc4a20e8d3c4f23e8283ad50403c3833573fc6b
+eeb1a760aa329f27ada81030b5ddbb6ed1f52bfd	2021-11-27T09:52:15Z	Al-Azif	Fix sanity-check.xml	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/eeb1a760aa329f27ada81030b5ddbb6ed1f52bfd
+181bb7adfcf26cdc7711070f8b9b775820d66582	2021-02-23T01:58:39Z	Al-Azif	Use new wait_for_usb	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/181bb7adfcf26cdc7711070f8b9b775820d66582
+c070ffe96f3cf9d97b9578074e8d9783d8218cdb	2021-01-28T01:49:38Z	Al-Azif	Change "socket" to "debug"	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/c070ffe96f3cf9d97b9578074e8d9783d8218cdb
+014530aef1f5bebd879f2b8e6a9edeb5ee8a09da	2021-01-24T08:53:13Z	Al-Azif	Get kernel size from ELF headers	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/014530aef1f5bebd879f2b8e6a9edeb5ee8a09da
+6474fa8cf8fc550233cf4bf55e4640d21037b618	2021-01-24T00:16:46Z	Al-Azif	Add debug socket	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/6474fa8cf8fc550233cf4bf55e4640d21037b618
+89cf974259c451efc76f4e128de45a66dbebe1b1	2021-01-03T11:07:56Z	Al-Azif	Update main.c	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/89cf974259c451efc76f4e128de45a66dbebe1b1
+dd20ff1637ff888b3058b237b55d5ecc45c61c1b	2021-01-03T07:46:02Z	Al-Azif	Update main.c	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/dd20ff1637ff888b3058b237b55d5ecc45c61c1b
+81aefc312339adb4a780d864e76317d852bba494	2020-12-31T12:23:56Z	Al-Azif	Update main.c	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/81aefc312339adb4a780d864e76317d852bba494
+54046e803c277291af0d8d14f12fcd080e3401b4	2020-12-31T10:50:48Z	Al-Azif	Update main.c	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/54046e803c277291af0d8d14f12fcd080e3401b4
+c0c2901cfd867094c70dfaa9916e2b77ac95760d	2020-12-30T20:30:55Z	Al-Azif	Code lint	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/c0c2901cfd867094c70dfaa9916e2b77ac95760d
+34c52d4129d7204f08f2ba1d12f1670d14698ce8	2020-12-30T18:48:04Z	Al-Azif	Better output display	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/34c52d4129d7204f08f2ba1d12f1670d14698ce8
+f8d96f3ae4ac8a03178aee080a32084c09fc095f	2020-12-30T12:39:10Z	Al-Azif	Standardized payload initialization formatting	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/f8d96f3ae4ac8a03178aee080a32084c09fc095f
+92ae80ee11da78498bbd6e12eaa651d3b1c44055	2020-12-30T11:01:47Z	Al-Azif	Works on 7.0X now	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/92ae80ee11da78498bbd6e12eaa651d3b1c44055
+d5f4bf87ad8cec4f60520d96b9982c2c5b4ed634	2020-12-29T18:35:08Z	Al-Azif	Add .clang-format	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/d5f4bf87ad8cec4f60520d96b9982c2c5b4ed634
+3e227e1a99f57495a264b1b7741f8bf1496b700d	2020-12-29T18:31:06Z	Al-Azif	Clang-format	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/3e227e1a99f57495a264b1b7741f8bf1496b700d
+b7603c12fef5b1be718979be993840b51e1be739	2020-12-29T17:59:10Z	Al Azif	Meta-tweak	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/b7603c12fef5b1be718979be993840b51e1be739
+cde7aeb076853ad2dba4234c3836c21d4d5b488b	2020-12-29T08:48:19Z	Al-Azif	Update for new SDK	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/cde7aeb076853ad2dba4234c3836c21d4d5b488b
+14ab1af79b4603273aa64c05d9b65ff12e6f414c	2020-12-14T05:50:27Z	Al Azif	Update kernel_utils.c	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/14ab1af79b4603273aa64c05d9b65ff12e6f414c
+9e7803d89bf427ac72175faffd6a05a2bb927c1a	2020-12-14T05:24:11Z	Al Azif	Update kernel_utils.c	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/9e7803d89bf427ac72175faffd6a05a2bb927c1a
+a38290aaaa7ad19fbf024f27a2fc1d5d5976f993	2020-12-14T05:17:02Z	Al Azif	Update kernel_utils.c	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/a38290aaaa7ad19fbf024f27a2fc1d5d5976f993
+f26f9865e4a77ea8e8c2da8463ee11d415fec9a2	2020-12-13T23:47:31Z	Al Azif	Update kernel_utils.c	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/f26f9865e4a77ea8e8c2da8463ee11d415fec9a2
+544942ff7476e0113b9492b7f6afc1d4e6a54056	2020-12-13T23:43:31Z	Al Azif	Update kernel_utils.c	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/544942ff7476e0113b9492b7f6afc1d4e6a54056
+dba77643b5844787cc5ea7cb35c45753dae58789	2020-12-13T22:54:29Z	Al Azif	Update fw_defines.h	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/dba77643b5844787cc5ea7cb35c45753dae58789
+b1e839f62d7b4f95cf24c3506d09c09028b10a5f	2020-07-10T02:59:31Z	Al Azif	6.72	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/b1e839f62d7b4f95cf24c3506d09c09028b10a5f
+d7e59eb4d17a2538cc178e91d832b64df957e440	2020-07-10T01:57:43Z	Al Azif	Add 6.72 Offsets	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/d7e59eb4d17a2538cc178e91d832b64df957e440
+51afda17562ba153f80e14d04a78bbed91f47ea7	2020-02-06T22:59:06Z	Al Azif	Add 5.03 Support	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/51afda17562ba153f80e14d04a78bbed91f47ea7
+6d547eceebda091278b1741ad5c4f3736abed02f	2019-03-11T22:50:17Z	Al Azif	Fix	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/6d547eceebda091278b1741ad5c4f3736abed02f
+5b2264c60f53d78f770ec230be937cf5b44b87a5	2019-03-06T17:35:57Z	Al Azif	Add files via upload	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/5b2264c60f53d78f770ec230be937cf5b44b87a5
+8dbfbe637fa7d010382768b5d29052645ce1784e	2019-03-05T23:47:26Z	Al Azif	Add files via upload	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/8dbfbe637fa7d010382768b5d29052645ce1784e
+75fd1b1c95c1a8b9f72431ab666fce5b0ba0fd74	2019-03-05T23:26:11Z	Al Azif	Add files via upload	https://github.com/Scene-Collective/ps4-kernel-dumper/commit/75fd1b1c95c1a8b9f72431ab666fce5b0ba0fd74
+=== firmware markers in source/history ===
+--- source ---
+--- Makefile ---
+1:LIBPS4	:= $(PS4SDK)/libPS4
+--- CHANGELOG.md ---
+18:- Initial commit to support offloading all firmware specific offsets to the SDK
+23:[unreleased]: https://github.com/Scene-Collective/ps4-kernel-dumper/compare/v1.0.0...HEAD
+24:[1.0.0]: https://github.com/Scene-Collective/ps4-kernel-dumper/releases/tag/v1.0.0
+--- meta.json ---
+2:  "title": "Kernel Dumper",
+6:  "firmware": "",
+8:    "default": "Dumps your device's kernel from memory to a USB device",
+9:    "en": "Dumps your device's kernel from memory to a USB device"
+12:  "url": "https://github.com/Scene-Collective/ps4-kernel-dumper",
+--- README.md ---
+1:Kernel Dumper
+3:[![Codacy Badge](https://app.codacy.com/project/badge/Grade/)](https://www.codacy.com/gh/Scene-Collective/ps4-kernel-dumper/dashboard)
+6:Dumps your device's kernel from memory to a USB device.
+8:For the payloads built with the most recent firmware supported visit [this repo].
+12:- Requires being built with the [Scene Collective Payload SDK]
+13:- Supports any firmware that the SDK supports
+17:  [Scene Collective Payload SDK]: <https://github.com/Scene-Collective/ps4-payload-sdk>
+19:  [eversion]: <https://github.com/eversion/PS4-Kernel-Dumper>
