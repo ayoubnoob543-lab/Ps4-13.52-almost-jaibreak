@@ -423,3 +423,7 @@ The commits before the stage2 chain show no hidden implementation file. Initial 
 ## BD-J API dependency check
 
 The scanner repository contains no `org.bdj.api.API` implementation or declaration. `SuidScanner.java` imports it externally and only calls its methods (`dlsym`, `call`, `malloc`, `read*`, `free`, `strcpy`). Therefore even the scanner’s userland function-call layer is an external BD-J runtime dependency, not a hidden implementation of the WebKit/Jordy stage2 chain. Classification: repository absence `VERIFIED`; reuse as missing stage2 code `INVALID`.
+
+## Expanded Jordy identifier search
+
+Web searches combining `Jordy` with `m_vector`, `targetAddress`, `Celsius`, and `ffs_mountfs` produced no relevant public technical source beyond the audited scanner and derived local artifacts. The result is a negative indexed-search finding only; it does not exclude private scene material. Classification: `CORROBORATED` for the search result; no new implementation found.
