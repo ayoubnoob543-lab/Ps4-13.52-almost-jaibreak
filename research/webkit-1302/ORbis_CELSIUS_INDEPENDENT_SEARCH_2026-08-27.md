@@ -123,3 +123,7 @@ Hashes del estado auditado: `mkufs2.sh` SHA-256 `ba00e63f7f286925641070b5cd214dd
 El script calcula `OVERHEAD=20%`, pero el valor no se suma a `TOTAL`; por tanto, la receta es una herramienta simple de construcción y no una prueba de que reproduzca la imagen usada por Celsius. No incluye nombre Celsius, `ffs_mountfs`, campos de superbloque manipulados, dispositivo original, tamaño de 250/320/500 GB, hash de imagen ni parámetros de corrupción. Aporta una **pieza parcial**: permite modelar una imagen UFS2 candidata offline. Clasificación: **VERIFIED** como receta pública de UFS2 PS4/PS5; **SOURCE_ONLY / HYPOTHESIS** como posible relación con Celsius; **NO EVIDENCIA** de que sea la imagen original.
 
 Fuente: [earthonion/mkufs2](https://git.etawen.dev/earthonion/mkufs2).
+
+### Auditoría completa de `mkufs2`
+
+La revisión de todas las refs disponibles sólo muestra `main` y su HEAD remoto; la página del mirror indica una segunda rama, pero no aparece como ref alcanzable en el clone auditado. Hay 8 commits y 0 tags. Cada commit contiene únicamente `README.md` y `mkufs2.sh`. La búsqueda en todos los blobs alcanzables sólo encuentra la frase genérica de imagen UFS montable en PS4/PS5; no aparecen `Celsius`, `ffs_mountfs`, `13.02`, `13.04`, parámetros de corrupción, una imagen binaria ni una referencia a bollars/Jordy. Esto fortalece la clasificación de `mkufs2` como receta UFS independiente o derivada, no como PoC Celsius.

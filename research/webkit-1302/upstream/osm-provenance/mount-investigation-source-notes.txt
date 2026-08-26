@@ -907,3 +907,7 @@ The public mirror's `vue-after-free` tree contains `kernel.ts` labeled “PS4 Ke
 ## New UFS artifact: earthonion/mkufs2
 
 `https://git.etawen.dev/earthonion/mkufs2` is an 8-commit, 2-branch repository containing `mkufs2.sh` and `README.md`. The README explicitly describes creating a UFS2 image mountable by PS4/PS5. The script uses FreeBSD `mdconfig`, `newfs -O 2 -b 32768 -f 4096`, mounts the vnode device, copies a directory, and unmounts. `mkufs2.sh` SHA-256: `ba00e63f7f286925641070b5cd214dd05a48262951499c824b87ccb418399d64`; first script commit `ae8cd6b293c27d0cfa8e357547fdf657f5f0f26a` dated 2026-02-02; latest audited `b3b5637c8f36c8076aef3dba7a7f3610d88df040` dated 2026-02-06. It is a concrete public UFS image recipe, not the Celsius image: no Celsius name, ffs_mountfs, original device, corruption fields, or image hash. The script computes but fails to add its 20% overhead variable to TOTAL. Classify recipe as `VERIFIED`; Celsius relation as `SOURCE_ONLY/HYPOTHESIS`.
+
+## Full mkufs2 refs audit
+
+All reachable refs in the clone expose only `main`/remote HEAD, 8 commits, and no tags; every commit contains only `README.md` and `mkufs2.sh`. All-blob grep finds only the generic PS4/PS5 mountable-UFS wording, with no Celsius, `ffs_mountfs`, 13.02/13.04, corruption parameters, binary image, bollars or Jordy references. This supports classifying `mkufs2` as a public UFS recipe, not a Celsius PoC.
