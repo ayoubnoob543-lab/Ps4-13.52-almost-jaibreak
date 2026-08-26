@@ -1,0 +1,57 @@
+
+## New provenance findings — 26 Aug 2026
+
+### First public 13.02 table observed
+
+ArabPixel/Fusion commit `77a16b7f236df46f14bb2c744a24540e57245214`, 2026-01-18 09:21:42Z, message “13.02 Kernel offsets”: https://github.com/ArabPixel/Fusion/commit/77a16b7f236df46f14bb2c744a24540e57245214
+It added `Shared/Offsets-1302.h` (203 lines) and modified `Shared/Offsets.h`. GitHub reports blob SHA `594a8fe5c7bcf3a4390e4b4a21aabc0c0deb099e`; downloaded content SHA-256 is `7b034c3b933ddbee560ae9dc18cf02cbcd7aa4d8cef6e5ab48154cd972268f7d`.
+PR #13: https://github.com/AetherPS/Fusion/pull/13 — created by ArabPixel, branch `ArabPixel:master`, title “13.02 Kernel offsets”, description “only kernel offsets and the implementation in Offsets.h :)”; one comment only says more may be added later. No dump, tool, build number, IDA/Ghidra project, kernel hash, FFS reference, or hardware evidence is disclosed.
+AetherPS/Fusion commit `1d7c0314ade52858496195e53bcc85de274def51` is byte-identical to ArabPixel’s header (same downloaded SHA-256). This is the first public artifact found that actually contains the complete 13.02 table, but it is still only an offsets header.
+
+### OSM YAML relationship
+
+OSM-Made/PS4-Kernel-SDK repo: https://github.com/OSM-Made/PS4-Kernel-SDK
+Initial YAML commit `093808ee1563dfdb735b69ba2bfc925a9439ff54`, 2026-01-22 02:59:58Z, author/committer OSM-Made, email oldskoolmodz@gmail.com, parent `21cb26df6984139116167371eb689e46c7559d0d`: https://github.com/OSM-Made/PS4-Kernel-SDK/commit/093808ee1563dfdb735b69ba2bfc925a9439ff54
+It adds exactly one file, `offsets/firmware-1302.yaml`, 853 lines, blob SHA `a3e4575ae81611ad052ee9c99174652c4a187981`; downloaded current YAML SHA-256 recorded locally is `2774f464e642b2419ddb7939707f262c87b268a5794c291d79a2edcc9eefe769`.
+The commit does not mention source, dump, kernel, IDA, Ghidra, Pharaoh2k, ArabPixel, FFS, Celsius, LSTAR, build number, or hardware test.
+
+### Earlier OSM/Fusion history
+
+Repository `cualquiercosa327/Fusion` is an OSM-Made historical Fusion repository. Its public history reaches 2025-01-09 and includes commits before the 13.02 table. Metadata identifies it as a fork of AetherPS/Fusion. Relevant commits:
+- `137d24c` (2025-01-09): “Fully add elf loader and kernel elf”; adds a `Kernel.elf` build target and loader infrastructure, not an Orbis kernel dump.
+- `a486e87` (2025-02-04): “Add fuse root mount”; modifies only `Kernel/source/Patches.cpp`.
+- `26ae2b7` (2025-12-29): “Add kernel get base, kernel r/w & nvs r/w”; adds generic kernel base/RW/NVS driver code, not a 13.02 table.
+- `0001a78` (2025-09-20): “Add credits for TTY redirect and offsets proper”; credits TTY redirect to OpenOrbis/Mira, not 13.02. It updates a FusionShared submodule.
+The `a486e87` `Patches.cpp` code contains older firmware patch comments “Enable mount for unprivileged user” and “Mount Fuse filesystem as root”, with explicit older offsets under `SOFTWARE_VERSION_900` and `SOFTWARE_VERSION_1100`. These are FUSE/root and privilege patches, not `ffs_mountfs` and not 13.02 evidence.
+
+### FusionShared
+
+AetherPS/FusionShared: https://github.com/AetherPS/FusionShared
+Created 2025-01-09; public history has offsets for 900, 1100 and 1202, but no 1302/1304 file. Relevant commits:
+- `6e351d8` (2025-01-10): “Add Offsets & remove kernel preprocessor block.”
+- `0fc5b2b` (2025-09-18): “Add 12.00 support.”
+- `f233cd0` (2025-10-24): “Update offsets and remove settings.” modifies only `Offsets-1100.h`, `Offsets-1202.h`, `Offsets-900.h`.
+No FFS/UFS/Celsius source or 13.02 table was found in FusionShared.
+
+### External scene references
+
+GBAtemp PS4 Exploit Guide page 1416: https://gbatemp.net/threads/ps4-exploit-guide.497858/page-1416
+This is a secondary guide. It states Vue userland 5.05–13.02 and describes 12.50–13.00 Netctrl/Poopsploit; it does not identify the origin of the 13.02 offsets or a kernel dump.
+
+Reddit/scene article for PS4 Linux to 13.02: https://www.reddit.com/r/BiteYourConsole/comments/1r705b7/ps4_linux_fino_a_firmware_1302_risolto_il_black/
+This describes ArabPixel’s ps4-linux-payloads v21.5 and 13.02 payload support, but discusses Linux payload/GPU offsets and does not disclose the source of the OSM YAML or an Orbis kernel dump.
+
+### Current provenance graph
+
+`Unknown private/static analysis or undocumented source` → `ArabPixel/Fusion commit 77a16b7` (first public complete 13.02 offsets observed) → `AetherPS/Fusion commit 1d7c031` (byte-identical merge) → `OSM-Made/PS4-Kernel-SDK commit 093808e` (transformed YAML, post-dated, 162/163 common values identical) → later OSM forks and generated headers → SLOPOS/kpayload/other tables where values are reused.
+
+The first node remains unknown. The public evidence does not identify a dump or accompanying artifact. Pharaoh2k is not present in the ArabPixel commit, PR description, OSM initial commit, or FusionShared offset history checked here.
+
+### Classification update
+
+- ArabPixel `77a16b7` header: `VERIFIED` as a public offsets file and first observed public source; `INVALID` as a kernel dump.
+- AetherPS Fusion `1d7c031`: `VERIFIED` as byte-identical propagation of ArabPixel’s header; not independent.
+- OSM YAML `093808e`: `VERIFIED` as a public transformed table; `DERIVED` relative to the ArabPixel/Fusion line; not an identified primary kernel artifact.
+- OSM README “update from known-good kernel dump / test hardware”: `SOURCE_ONLY` as generic project guidance, not proof of this YAML’s source.
+- Earlier FUSE-root mount code: `VERIFIED` as public Fusion source for older firmware FUSE/privilege patches; `INVALID` as Orbis 13.02 FFS evidence.
+- `patch_mount` relation to `ffs_mountfs`: still `HYPOTHESIS` at most; no bytes, symbol, cross-reference, or FFS-specific artifact.

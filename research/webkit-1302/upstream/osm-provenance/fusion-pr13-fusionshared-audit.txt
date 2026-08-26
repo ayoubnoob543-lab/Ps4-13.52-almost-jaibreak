@@ -1,0 +1,39 @@
+=== Fusion PR 13 ===
+13	13.02 Kernel offsets	ArabPixel	2026-01-18T09:28:21Z	2026-01-20T04:12:37Z	2026-01-20T04:12:37Z	1d7c0314ade52858496195e53bcc85de274def51	ArabPixel:master	AetherPS:master	only kernel offsets and the implementation in Offsets.h :)	https://github.com/AetherPS/Fusion/pull/13
+77a16b7f236df46f14bb2c744a24540e57245214	ArabPixel	2026-01-18T09:21:42Z	13.02 Kernel offsets	https://github.com/AetherPS/Fusion/commit/77a16b7f236df46f14bb2c744a24540e57245214
+Shared/Offsets-1302.h	added	203	0	203	https://github.com/AetherPS/Fusion/blob/77a16b7f236df46f14bb2c744a24540e57245214/Shared%2FOffsets-1302.h	https://github.com/AetherPS/Fusion/raw/77a16b7f236df46f14bb2c744a24540e57245214/Shared%2FOffsets-1302.h
+Shared/Offsets.h	modified	6	0	6	https://github.com/AetherPS/Fusion/blob/77a16b7f236df46f14bb2c744a24540e57245214/Shared%2FOffsets.h	https://github.com/AetherPS/Fusion/raw/77a16b7f236df46f14bb2c744a24540e57245214/Shared%2FOffsets.h
+=== AetherPS FusionShared ===
+AetherPS/FusionShared	2025-01-09T05:19:06Z	2026-05-11T07:35:45Z	main	false
+main	49cc543a4a2584d73213732b77af7f0357647237
+49cc543a4a2584d73213732b77af7f0357647237	OSM-Made	2026-01-25T16:43:43Z	Fix typo.	https://github.com/AetherPS/FusionShared/commit/49cc543a4a2584d73213732b77af7f0357647237
+47e03228aac00cb29bf15dee1d85f143270845b1	OSM-Made	2026-01-25T16:41:01Z	Remove depricated arg	https://github.com/AetherPS/FusionShared/commit/47e03228aac00cb29bf15dee1d85f143270845b1
+f37eafc4fa5dbb6020aaecb546eeed641d3881fe	OSM-Made	2026-01-25T15:51:09Z	Remove un used commnads.	https://github.com/AetherPS/FusionShared/commit/f37eafc4fa5dbb6020aaecb546eeed641d3881fe
+f72842ea7a196be6292ff4b7b3ce7b11d266e74e	OSM-Made	2026-01-25T01:23:14Z	Yeet the shell code because it does not work.	https://github.com/AetherPS/FusionShared/commit/f72842ea7a196be6292ff4b7b3ce7b11d266e74e
+16759bdc53a01d98decf11cef47df0503bb96fa7	OSM-Made	2026-01-24T19:42:23Z	Update include pre processor blocks.	https://github.com/AetherPS/FusionShared/commit/16759bdc53a01d98decf11cef47df0503bb96fa7
+44aded8ec68665c689bc55da00e8d0775a78a034	OSM-Made	2026-01-24T19:29:49Z	Fix up defs for c.	https://github.com/AetherPS/FusionShared/commit/44aded8ec68665c689bc55da00e8d0775a78a034
+7043a528476370045e0018f5b05fa5488a98ab88	OSM-Made	2026-01-24T19:08:33Z	Add ShellCode commands.	https://github.com/AetherPS/FusionShared/commit/7043a528476370045e0018f5b05fa5488a98ab88
+5a79197f76de6e541e1b8679c8c7505fd683a7f8	OSM-Made	2026-01-04T00:49:25Z	Hacky fix for now.	https://github.com/AetherPS/FusionShared/commit/5a79197f76de6e541e1b8679c8c7505fd683a7f8
+034c2aecc6c3c3eb14276c97aa098cface4378a3	OSM-Made	2026-01-03T18:36:20Z	Fix mistake.	https://github.com/AetherPS/FusionShared/commit/034c2aecc6c3c3eb14276c97aa098cface4378a3
+825a1fdfd976c610dee17de1974271d3a09308a3	OSM-Made	2026-01-03T18:33:49Z	Update to support OOSDK.	https://github.com/AetherPS/FusionShared/commit/825a1fdfd976c610dee17de1974271d3a09308a3
+77efd8fff41f7582ff7c1cc62f0d91fe289fe027	OSM-Made	2025-12-29T19:24:11Z	Fix typo part 2.	https://github.com/AetherPS/FusionShared/commit/77efd8fff41f7582ff7c1cc62f0d91fe289fe027
+01da3a53088059dd21f028e984f356d0f7e68963	OSM-Made	2025-12-29T19:22:10Z	Fix typo.	https://github.com/AetherPS/FusionShared/commit/01da3a53088059dd21f028e984f356d0f7e68963
+d0265d38f842d77fbd9f4f2a21f62704982a4905	OSM-Made	2025-12-29T19:19:09Z	Merge branch 'main' of https://github.com/AetherPS/FusionShared	https://github.com/AetherPS/FusionShared/commit/d0265d38f842d77fbd9f4f2a21f62704982a4905
+99baa695deaf566b634aeb9ac0b6e77005666eec	OSM-Made	2025-12-29T19:18:58Z	Add Kernel API's.	https://github.com/AetherPS/FusionShared/commit/99baa695deaf566b634aeb9ac0b6e77005666eec
+798a6d0225ac16c0ebaa4c5b37190a52c7b8a763	Greg	2025-11-09T16:53:06Z	Add GNU GPL v3 license\n\nAdded the GNU General Public License version 3 to the project.	https://github.com/AetherPS/FusionShared/commit/798a6d0225ac16c0ebaa4c5b37190a52c7b8a763
+1cb66a79fa1c677122603732d34c33f8670faac1	OSM-Made	2025-11-09T16:46:06Z	clean up driver defs.	https://github.com/AetherPS/FusionShared/commit/1cb66a79fa1c677122603732d34c33f8670faac1
+fd82396da764e71d032e4c4680aba1c45469d045	OSM-Made	2025-11-04T02:06:52Z	Change Resolve def	https://github.com/AetherPS/FusionShared/commit/fd82396da764e71d032e4c4680aba1c45469d045
+476343149bdd3ff9668f531bc0762c79142b6c29	OSM-Made	2025-11-01T04:36:45Z	Add bounds check for get libs.	https://github.com/AetherPS/FusionShared/commit/476343149bdd3ff9668f531bc0762c79142b6c29
+b6f6b02d63fa5a46a6870c79df1c772b4a2bd9ec	OSM-Made	2025-11-01T04:32:35Z	Add missing IOCTL def for lib list.	https://github.com/AetherPS/FusionShared/commit/b6f6b02d63fa5a46a6870c79df1c772b4a2bd9ec
+2cc5b701f4572f977834a21665ae423059a0bd2d	OSM-Made	2025-11-01T00:57:16Z	Add back some driver defs.	https://github.com/AetherPS/FusionShared/commit/2cc5b701f4572f977834a21665ae423059a0bd2d
+3afffb53532bf9c5a44d542f23e90563489e243a	OSM-Made	2025-10-31T19:23:29Z	Update/Organize driver defs.	https://github.com/AetherPS/FusionShared/commit/3afffb53532bf9c5a44d542f23e90563489e243a
+7a33386e504a509a39dbe3d55566dbad266f563f	OSM-Made	2025-10-28T04:32:05Z	Breaking Changes: Update Driver Defs.	https://github.com/AetherPS/FusionShared/commit/7a33386e504a509a39dbe3d55566dbad266f563f
+a3d0049bbf4d567641a28e116d48dc74962c23ad	OSM-Made	2025-10-25T15:31:05Z	Remove headers that don't need to be shared anymore.	https://github.com/AetherPS/FusionShared/commit/a3d0049bbf4d567641a28e116d48dc74962c23ad
+119ffc9810a6c80653321baa2dd0a3d1eea98293	OSM-Made	2025-10-24T22:29:38Z	Update version checking.	https://github.com/AetherPS/FusionShared/commit/119ffc9810a6c80653321baa2dd0a3d1eea98293
+f233cd0c9bcb768528d2c45c5fdd180ac4fc53c2	OSM-Made	2025-10-24T21:54:01Z	Update offsets and remove settings.	https://github.com/AetherPS/FusionShared/commit/f233cd0c9bcb768528d2c45c5fdd180ac4fc53c2
+7b5f81c478768281e847e29324be76f2aa7c8121	OSM-Made	2025-10-13T16:10:49Z	Update address defs.	https://github.com/AetherPS/FusionShared/commit/7b5f81c478768281e847e29324be76f2aa7c8121
+545a7d1a377dacd624def049160b8c7f59fcf8a5	OSM-Made	2025-09-20T17:56:19Z	Add offsets for tty redirect	https://github.com/AetherPS/FusionShared/commit/545a7d1a377dacd624def049160b8c7f59fcf8a5
+0fc5b2bc5397f1b0cbf58f59034073b73cdaa36f	OSM-Made	2025-09-18T03:46:27Z	Add 12.00 support	https://github.com/AetherPS/FusionShared/commit/0fc5b2bc5397f1b0cbf58f59034073b73cdaa36f
+6e351d89c7877c6bb9e933e800e011c5789e8707	OSM-Made	2025-01-10T13:31:24Z	 Add Offsets & remove kernel preprocessor block.	https://github.com/AetherPS/FusionShared/commit/6e351d89c7877c6bb9e933e800e011c5789e8707
+e12577458dad5c345679f819bd1f03b0834b3c2c	OSM-Made	2025-01-09T05:21:38Z	Initial commit.	https://github.com/AetherPS/FusionShared/commit/e12577458dad5c345679f819bd1f03b0834b3c2c
+18fa1a684b1f644ee7aed266754d4d23d3fe9aee	OSM-Made	2025-01-09T05:19:06Z	Initial commit	https://github.com/AetherPS/FusionShared/commit/18fa1a684b1f644ee7aed266754d4d23d3fe9aee

@@ -1,0 +1,20 @@
+=== repository ===
+OSM-Made/PS4-Kernel-SDK	2026-01-20T03:57:23Z	2026-06-03T06:45:00Z	Fury	2
+=== branches ===
+Fury	e843f6fbd19f67d7e124426c61826d9925b94a55	false
+=== tags ===
+=== yaml history ===
+e843f6fbd19f67d7e124426c61826d9925b94a55	OSM-Made	2026-01-25T21:01:49Z	OSM-Made	2026-01-25T21:01:49Z	Add patch for prx path check.	https://github.com/OSM-Made/PS4-Kernel-SDK/commit/e843f6fbd19f67d7e124426c61826d9925b94a55
+ef940ec489943d8269c0724577e34fe67e19cdad	OSM-Made	2026-01-25T01:34:51Z	OSM-Made	2026-01-25T01:34:51Z	Add delay properly.	https://github.com/OSM-Made/PS4-Kernel-SDK/commit/ef940ec489943d8269c0724577e34fe67e19cdad
+8ba5391c551815a9d0ab5eeb9ae41aecb20e406f	OSM-Made	2026-01-24T06:47:29Z	OSM-Made	2026-01-24T06:47:29Z	convert generic types and add DelayMilliseconds.	https://github.com/OSM-Made/PS4-Kernel-SDK/commit/8ba5391c551815a9d0ab5eeb9ae41aecb20e406f
+226486fdd161af552fd5a460b64afacd7bd9ff48	OSM-Made	2026-01-24T04:48:01Z	OSM-Made	2026-01-24T04:48:01Z	Add defs for fatal traps.	https://github.com/OSM-Made/PS4-Kernel-SDK/commit/226486fdd161af552fd5a460b64afacd7bd9ff48
+36009880a0639c624c5b25f467d2993ac349f6c0	OSM-Made	2026-01-24T02:29:33Z	OSM-Made	2026-01-24T02:29:33Z	Add some more functions.	https://github.com/OSM-Made/PS4-Kernel-SDK/commit/36009880a0639c624c5b25f467d2993ac349f6c0
+4130494b05264e7cf4cda82d5f07ab7271f734cb	OSM-Made	2026-01-24T01:41:51Z	OSM-Made	2026-01-24T01:41:51Z	Add some more functions defs & add resources.	https://github.com/OSM-Made/PS4-Kernel-SDK/commit/4130494b05264e7cf4cda82d5f07ab7271f734cb
+14084d7c4ca562df96048b5a93e942f505f5128f	OSM-Made	2026-01-23T05:54:28Z	OSM-Made	2026-01-23T05:54:28Z	Add some extra hooks for fusion.	https://github.com/OSM-Made/PS4-Kernel-SDK/commit/14084d7c4ca562df96048b5a93e942f505f5128f
+093808ee1563dfdb735b69ba2bfc925a9439ff54	OSM-Made	2026-01-22T02:59:58Z	OSM-Made	2026-01-22T02:59:58Z	Add 13.02 offsets.	https://github.com/OSM-Made/PS4-Kernel-SDK/commit/093808ee1563dfdb735b69ba2bfc925a9439ff54
+=== initial commit ===
+093808ee1563dfdb735b69ba2bfc925a9439ff54	OSM-Made	oldskoolmodz@gmail.com	2026-01-22T02:59:58Z	OSM-Made	oldskoolmodz@gmail.com	2026-01-22T02:59:58Z	Add 13.02 offsets.	21cb26df6984139116167371eb689e46c7559d0d	https://github.com/OSM-Made/PS4-Kernel-SDK/commit/093808ee1563dfdb735b69ba2bfc925a9439ff54
+=== initial commit files ===
+offsets/firmware-1302.yaml	added	853	0	853	https://github.com/OSM-Made/PS4-Kernel-SDK/blob/093808ee1563dfdb735b69ba2bfc925a9439ff54/offsets%2Ffirmware-1302.yaml	https://github.com/OSM-Made/PS4-Kernel-SDK/raw/093808ee1563dfdb735b69ba2bfc925a9439ff54/offsets%2Ffirmware-1302.yaml	a3e4575ae81611ad052ee9c99174652c4a187981
+=== pull requests ===
+=== issues ===

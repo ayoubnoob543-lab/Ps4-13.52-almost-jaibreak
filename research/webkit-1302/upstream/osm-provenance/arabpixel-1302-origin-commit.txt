@@ -1,0 +1,8 @@
+=== ArabPixel commit ===
+77a16b7f236df46f14bb2c744a24540e57245214	ArabPixel	yamanosman1st@gmail.com	2026-01-18T09:21:42Z	ArabPixel	2026-01-18T09:21:42Z	13.02 Kernel offsets	a1b05d4a22d951c1603c06c49b1b869653ce5c6f	https://github.com/ArabPixel/Fusion/commit/77a16b7f236df46f14bb2c744a24540e57245214
+=== files ===
+Shared/Offsets-1302.h	added	203	0	203	https://github.com/ArabPixel/Fusion/blob/77a16b7f236df46f14bb2c744a24540e57245214/Shared%2FOffsets-1302.h	https://github.com/ArabPixel/Fusion/raw/77a16b7f236df46f14bb2c744a24540e57245214/Shared%2FOffsets-1302.h	594a8fe5c7bcf3a4390e4b4a21aabc0c0deb099e
+Shared/Offsets.h	modified	6	0	6	https://github.com/ArabPixel/Fusion/blob/77a16b7f236df46f14bb2c744a24540e57245214/Shared%2FOffsets.h	https://github.com/ArabPixel/Fusion/raw/77a16b7f236df46f14bb2c744a24540e57245214/Shared%2FOffsets.h	1da2d8760f6a1a545ee23cece42c7f2590f312a8
+=== PR 13 timeline/comments ===
+13.02 Kernel offsets	only kernel offsets and the implementation in Offsets.h :)	ArabPixel	2026-01-18T09:28:21Z	2026-01-20T04:12:37Z	2026-01-20T04:12:37Z	1d7c0314ade52858496195e53bcc85de274def51	77a16b7f236df46f14bb2c744a24540e57245214	ArabPixel:master	a1b05d4a22d951c1603c06c49b1b869653ce5c6f	https://github.com/AetherPS/Fusion/pull/13
+ArabPixel	2026-01-18T12:07:16Z	Possibly going to add more whenever i find free time.	https://github.com/AetherPS/Fusion/pull/13#issuecomment-3765222865

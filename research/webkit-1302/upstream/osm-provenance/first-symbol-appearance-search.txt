@@ -1,0 +1,97 @@
+=== clones/AetherPS_Fusion ===
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33m52a4e50[m Firmware agnostic first pass.
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m97ace43[m Remove patches from the kernel since we patch from the userland now.
+[33m86cd5a7[m Add structure for 13.00 support.
+[33m837d623[m Clean up loader and fix a bug.
+[33mae2752c[m Over hauling Driver, removing the need for Sidecar & Drop support for 11.00
+[33m9e7921b[m Migrate offsets to main repo and clean up patches for DECI.
+[33mb645908[m Add dipsw spoofer, better patches and 12.00 support.
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m9e7921b[m Migrate offsets to main repo and clean up patches for DECI.
+=== clones/ArabPixel_Fusion ===
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33m77a16b7[m 13.02 Kernel offsets
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33m77a16b7[m 13.02 Kernel offsets
+[33m52a4e50[m Firmware agnostic first pass.
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m97ace43[m Remove patches from the kernel since we patch from the userland now.
+[33m86cd5a7[m Add structure for 13.00 support.
+[33m837d623[m Clean up loader and fix a bug.
+[33mae2752c[m Over hauling Driver, removing the need for Sidecar & Drop support for 11.00
+[33m9e7921b[m Migrate offsets to main repo and clean up patches for DECI.
+[33mb645908[m Add dipsw spoofer, better patches and 12.00 support.
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33m77a16b7[m 13.02 Kernel offsets
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m9e7921b[m Migrate offsets to main repo and clean up patches for DECI.
+=== clones/RetroGenPS_Fusion ===
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33m52a4e50[m Firmware agnostic first pass.
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m97ace43[m Remove patches from the kernel since we patch from the userland now.
+[33m86cd5a7[m Add structure for 13.00 support.
+[33m837d623[m Clean up loader and fix a bug.
+[33mae2752c[m Over hauling Driver, removing the need for Sidecar & Drop support for 11.00
+[33m9e7921b[m Migrate offsets to main repo and clean up patches for DECI.
+[33mb645908[m Add dipsw spoofer, better patches and 12.00 support.
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m9e7921b[m Migrate offsets to main repo and clean up patches for DECI.
+=== clones/cualquiercosa327_Fusion ===
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33m52a4e50[m Firmware agnostic first pass.
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m97ace43[m Remove patches from the kernel since we patch from the userland now.
+[33m86cd5a7[m Add structure for 13.00 support.
+[33m837d623[m Clean up loader and fix a bug.
+[33mae2752c[m Over hauling Driver, removing the need for Sidecar & Drop support for 11.00
+[33m9e7921b[m Migrate offsets to main repo and clean up patches for DECI.
+[33mb645908[m Add dipsw spoofer, better patches and 12.00 support.
+[33m0f95dc3[m Convert to using the PS4 Kernel SDK.
+[33m1d7c031[m 13.02 Kernel offsets (#13)
+[33mb111d9e[m Add support for 13.00
+[33me80308e[m 12.50 Kernel offsets (#10)
+[33m9e7921b[m Migrate offsets to main repo and clean up patches for DECI.
+=== clones/OSM-Made_PS4-Kernel-SDK ===
+[33m093808e[m Add 13.02 offsets.
+[33m750b392[m Add source generator to make offsets from yaml definitions.
+[33m3e7886b[m first commit
+[33m093808e[m Add 13.02 offsets.
+[33m750b392[m Add source generator to make offsets from yaml definitions.
+[33m3e7886b[m first commit
+[33m093808e[m Add 13.02 offsets.
+[33m750b392[m Add source generator to make offsets from yaml definitions.
+[33m3e7886b[m first commit

@@ -129,3 +129,54 @@ No de forma razonable y verificable. La asociación más cercana sería:
 [14]: https://github.com/TheOfficialFloW/PPPwn "PPPwn"
 [15]: https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain "OpenOrbis PS4 Toolchain"
 [16]: https://github.com/OpenOrbis/mira-project "OpenOrbis Mira project"
+
+## 8. Actualización de procedencia: ArabPixel → Fusion → OSM
+
+La auditoría histórica localiza una primera aparición pública concreta de la tabla completa 13.02 en el commit de ArabPixel [`77a16b7f236df46f14bb2c744a24540e57245214`](https://github.com/ArabPixel/Fusion/commit/77a16b7f236df46f14bb2c744a24540e57245214), fechado el 18 de enero de 2026. El commit añade únicamente `Shared/Offsets-1302.h` (203 líneas) y modifica `Shared/Offsets.h`; no añade dump, ELF, kernel hash, proyecto IDA/Ghidra, strings FFS, comentarios sobre Celsius ni herramienta de extracción. Clasificación: **VERIFIED** como primera fuente pública observada del header; **INVALID** como dump o evidencia de FFS.
+
+El PR [`AetherPS/Fusion#13`](https://github.com/AetherPS/Fusion/pull/13) fue abierto por ArabPixel el mismo día y describe el cambio como “only kernel offsets and the implementation in Offsets.h :)”. Su único comentario público conservado no identifica un dump ni un método de obtención. La copia fusionada en `AetherPS/Fusion` (`1d7c031`) es byte a byte idéntica al archivo de ArabPixel; ambas descargas tienen SHA-256 `7b034c3b933ddbee560ae9dc18cf02cbcd7aa4d8cef6e5ab48154cd972268f7d`. Clasificación: **VERIFIED** como copia, **DERIVED** como procedencia, no independiente.
+
+El commit inicial de OSM [`093808ee1563dfdb735b69ba2bfc925a9439ff54`](https://github.com/OSM-Made/PS4-Kernel-SDK/commit/093808ee1563dfdb735b69ba2bfc925a9439ff54), del 21 de enero de 2026, añade sólo `offsets/firmware-1302.yaml` con 853 líneas. No menciona la fuente, un dump, LSTAR, IDA/Ghidra, una build de Orbis o pruebas en hardware. El YAML tiene SHA-256 `2774f464e642b2419ddb7939707f262c87b268a5794c291d79a2edcc9eefe769`. Su relación pública con Fusion es **DERIVED/same-lineage**: 162 de 163 offsets comunes coinciden; la excepción comparada es `trap_fatalHook` (`0` frente a `0x0014AA90`).
+
+El submódulo [`AetherPS/FusionShared`](https://github.com/AetherPS/FusionShared) fue creado el 9 de enero de 2025 y su historial público contiene tablas 9.00, 11.00 y 12.02, pero ninguna 13.02 o 13.04. Sus commits de actualización de offsets (`6e351d8`, `0fc5b2b`, `f233cd0`) no contienen `patch_mount` 13.02 ni FFS. Por tanto, no es la fuente anterior identificable de la tabla 13.02.
+
+## 9. Evidencia histórica relacionada con mount
+
+El commit [`a486e87`](https://github.com/cualquiercosa327/Fusion/commit/a486e87fb6026d8b64178ee27f00a3558fc9b2ac), “Add fuse root mount”, modifica sólo `Kernel/source/Patches.cpp` y contiene parches antiguos de Fusion para `SOFTWARE_VERSION_900` y `SOFTWARE_VERSION_1100`. Los comentarios distinguen “Enable mount for unprivileged user” y “Mount Fuse filesystem as root”; el código parchea comprobaciones de privilegios y una ruta FUSE. No contiene `ffs_mountfs`, UFS, `struct fs` ni Celsius y no es evidencia 13.02. Clasificación: **VERIFIED** como código histórico FUSE/privilegios; **INVALID** como identificación de FFS.
+
+La búsqueda `git log -S` en los historiales de AetherPS/Fusion, ArabPixel/Fusion, RetroGenPS/Fusion y cualquiercosa327/Fusion muestra que `patch_mount` y el valor `0x001512A7` aparecen por primera vez en la línea del commit de ArabPixel `77a16b7`/PR #13. No se encontró una aparición anterior pública en esos historiales. Esto fija el primer origen público observable, pero no demuestra que ArabPixel sea la fuente primaria material de los offsets: el origen de sus mediciones sigue sin estar documentado.
+
+## 10. Grafo de procedencia actualizado
+
+```text
+[Origen material no identificado: posible análisis privado o fuente no publicada]
+                  |
+                  v
+ArabPixel/Fusion 77a16b7 (18-ene-2026)
+                  |
+                  v
+AetherPS/Fusion PR #13 / 1d7c031 (20-ene-2026; copia byte-identica)
+                  |
+                  v
+OSM-Made/PS4-Kernel-SDK 093808e (21-ene-2026; YAML transformado)
+                  |
+          +-------+--------+
+          v                v
+   OSM forks/SDKs      tablas derivadas de escena
+```
+
+El README de OSM que recomienda partir de un “known-good kernel dump” es **SOURCE_ONLY** como orientación general. No identifica el dump utilizado para `firmware-1302.yaml`, no aporta hash ni enlaza un artefacto acompañante. Por tanto, el “dump conocido” no ha sido localizado y no puede darse por existente para esta tabla.
+
+## 11. Respuesta a los objetivos de procedencia
+
+La primera fuente pública observable de los offsets 13.02 es el commit de ArabPixel en Fusion, no OSM. El primer artefacto público acompañante es un header C de offsets; no aparece un dump, ELF, disassembly o pseudocódigo asociado. `patch_mount` ya está presente en ese header, pero sólo como asignación `kernelBase + 0x001512A7`, sin bytes o cross-reference. No aparece evidencia adicional de que corresponda a UFS/FFS ni una ruta reproducible desde esos offsets hasta Celsius.
+
+La conclusión probatoria permanece: **VERIFIED** para la existencia y propagación pública de la tabla; **DERIVED** para OSM respecto de Fusion; **SOURCE_ONLY** para cualquier afirmación sobre un dump de origen; **HYPOTHESIS/UNVERIFIED** para `patch_mount → ffs_mountfs → Celsius`; e **INVALID** para tratar la tabla como evidencia de una vulnerabilidad funcional.
+
+## Referencias adicionales
+
+[16]: https://github.com/ArabPixel/Fusion/commit/77a16b7f236df46f14bb2c744a24540e57245214 "ArabPixel: first observed public 13.02 offsets commit"
+[17]: https://github.com/AetherPS/Fusion/pull/13 "Fusion PR #13"
+[18]: https://github.com/OSM-Made/PS4-Kernel-SDK/commit/093808ee1563dfdb735b69ba2bfc925a9439ff54 "OSM initial 13.02 YAML commit"
+[19]: https://github.com/AetherPS/FusionShared "FusionShared repository"
+[20]: https://github.com/cualquiercosa327/Fusion/commit/a486e87fb6026d8b64178ee27f00a3558fc9b2ac "Historical Fuse root mount commit"

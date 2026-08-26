@@ -1,0 +1,664 @@
+=== RetroGenPS/Fusion metadata ===
+RetroGenPS/Fusion	2026-01-12T07:31:25Z	2026-02-10T17:35:13Z	master	true	AetherPS/Fusion	AetherPS/Fusion	2026-02-10T17:35:09Z
+=== tree ===
+=== commits relevant ===
+aad829cea19eba643a8ccde5eef690ac7a1c0af9	2026-02-06T23:48:27Z	OSM-Made	Fix a stack alignment issue.	https://github.com/RetroGenPS/Fusion/commit/aad829cea19eba643a8ccde5eef690ac7a1c0af9
+f2f4caf45cb4394a4a3d216b1106973f246082b7	2026-02-06T06:17:29Z	OSM-Made	make boot strapper not do system.	https://github.com/RetroGenPS/Fusion/commit/f2f4caf45cb4394a4a3d216b1106973f246082b7
+30bf8ec89464233a8c5268e1b3027fd4f6362568	2026-02-06T06:17:05Z	OSM-Made	add base address to extended call stack	https://github.com/RetroGenPS/Fusion/commit/30bf8ec89464233a8c5268e1b3027fd4f6362568
+0b0e8bb4cf6e62cce5c5dcb0040d4a88d3b359b7	2026-02-06T06:16:51Z	OSM-Made	update plugins	https://github.com/RetroGenPS/Fusion/commit/0b0e8bb4cf6e62cce5c5dcb0040d4a88d3b359b7
+b57cf20c990354131c175e0483ec26f79039a9ba	2026-01-31T17:24:38Z	OSM-Made	Converting loader to cpp	https://github.com/RetroGenPS/Fusion/commit/b57cf20c990354131c175e0483ec26f79039a9ba
+8abe9ad89e4ae67edcf047cb348e6f7c7660cafc	2026-01-30T05:18:58Z	OSM-Made	Ground work porting to ps4-payload-dev/sdk for the loader.	https://github.com/RetroGenPS/Fusion/commit/8abe9ad89e4ae67edcf047cb348e6f7c7660cafc
+ee93505e3c98dab713825ebe94f176cb8cb68aea	2026-01-30T04:35:50Z	OSM-Made	add settings ini and update submodule.	https://github.com/RetroGenPS/Fusion/commit/ee93505e3c98dab713825ebe94f176cb8cb68aea
+362af36ce120872dbdcb0af45d472da6e46ba8f2	2026-01-30T01:19:07Z	OSM-Made	Fix the bootstrapper by having it called after the original call.	https://github.com/RetroGenPS/Fusion/commit/362af36ce120872dbdcb0af45d472da6e46ba8f2
+de90821a7f58cef49636d96aac69f88f5ca5d4e8	2026-01-30T01:18:22Z	OSM-Made	add the auto build increment back.	https://github.com/RetroGenPS/Fusion/commit/de90821a7f58cef49636d96aac69f88f5ca5d4e8
+07b807e743aca94a2784c98147635f53ff00ef60	2026-01-29T06:23:29Z	OSM-Made	add plugin stuff and fix a mistake with deci	https://github.com/RetroGenPS/Fusion/commit/07b807e743aca94a2784c98147635f53ff00ef60
+2f05dcb95651b0e41fbe533f54687ea31379fb3d	2026-01-25T23:04:09Z	OSM-Made	update resources	https://github.com/RetroGenPS/Fusion/commit/2f05dcb95651b0e41fbe533f54687ea31379fb3d
+5c9ce97c275fbe0f845f3ad745f20a1075b0ebd2	2026-01-25T21:35:44Z	OSM-Made	add plugins setup.	https://github.com/RetroGenPS/Fusion/commit/5c9ce97c275fbe0f845f3ad745f20a1075b0ebd2
+e731fac6715941cfc05e966ae0f0aa1f78bc5c4c	2026-01-25T21:27:37Z	OSM-Made	Remove redundant submodules.	https://github.com/RetroGenPS/Fusion/commit/e731fac6715941cfc05e966ae0f0aa1f78bc5c4c
+f5e8cae017db16b89dcec8b6764dfa30dbd026b7	2026-01-25T21:13:33Z	OSM-Made	Remove daemon in and prep for plugin system replacement.	https://github.com/RetroGenPS/Fusion/commit/f5e8cae017db16b89dcec8b6764dfa30dbd026b7
+3b05a1a8de127d9aacd408204ad77015474f1b45	2026-01-25T21:04:19Z	OSM-Made	update libfusion driver sub module.	https://github.com/RetroGenPS/Fusion/commit/3b05a1a8de127d9aacd408204ad77015474f1b45
+5f8d6479a5b94b7fdcad7f76742bb8baf92d58f3	2026-01-25T21:04:03Z	OSM-Made	Update shared sub module.	https://github.com/RetroGenPS/Fusion/commit/5f8d6479a5b94b7fdcad7f76742bb8baf92d58f3
+21d9e0c204d28734d275b87d102ef05d737194da	2026-01-25T21:03:45Z	OSM-Made	Add a patch for prx load path checks.	https://github.com/RetroGenPS/Fusion/commit/21d9e0c204d28734d275b87d102ef05d737194da
+840f5f33c3530c285e800ec5b9040076e52e209a	2026-01-25T16:23:08Z	OSM-Made	Clean up shellcode.	https://github.com/RetroGenPS/Fusion/commit/840f5f33c3530c285e800ec5b9040076e52e209a
+8a283ff4f63f8a5e445004a35154d7a1e9d3612d	2026-01-25T06:20:54Z	OSM-Made	Add bootstrapper for plugins now.	https://github.com/RetroGenPS/Fusion/commit/8a283ff4f63f8a5e445004a35154d7a1e9d3612d
+99dd572c473b7a86f5f57eae4a169dfee8f973a7	2026-01-25T01:36:36Z	OSM-Made	Yeet garbage and update submodules.	https://github.com/RetroGenPS/Fusion/commit/99dd572c473b7a86f5f57eae4a169dfee8f973a7
+de5dcd230b9b8020672292b4c9b0eefaa5f015aa	2026-01-24T05:15:22Z	OSM-Made	add p_lock to rw mem too.	https://github.com/RetroGenPS/Fusion/commit/de5dcd230b9b8020672292b4c9b0eefaa5f015aa
+da4877eecf34c27cc9af01376ff595b34c8424c8	2026-01-24T05:13:27Z	OSM-Made	add p_lock for free too.	https://github.com/RetroGenPS/Fusion/commit/da4877eecf34c27cc9af01376ff595b34c8424c8
+509a14945aeaf7447ccdce0035a82e8558487168	2026-01-24T05:05:11Z	OSM-Made	Add debugging for the kernel, improve vm mapping and add some shellcode.	https://github.com/RetroGenPS/Fusion/commit/509a14945aeaf7447ccdce0035a82e8558487168
+4fa50a1a691e08e20f587f5a92626016b8f7dfbd	2026-01-23T05:56:09Z	OSM-Made	Add extended logging for fault prints to give module info for address.	https://github.com/RetroGenPS/Fusion/commit/4fa50a1a691e08e20f587f5a92626016b8f7dfbd
+f62dba92b571283f0efa195bdf72be3cc88dd95e	2026-01-23T04:16:06Z	OSM-Made	Add bootstrapper setup.	https://github.com/RetroGenPS/Fusion/commit/f62dba92b571283f0efa195bdf72be3cc88dd95e
+0f95dc3045edda5b0dc22f41434fae34d8ffcca1	2026-01-22T03:06:13Z	OSM-Made	Convert to using the PS4 Kernel SDK.	https://github.com/RetroGenPS/Fusion/commit/0f95dc3045edda5b0dc22f41434fae34d8ffcca1
+2a42043d004b72370145ff14b3361d1125ac3003	2026-01-21T23:57:02Z	OSM-Made	Pull out plugins from main repo.	https://github.com/RetroGenPS/Fusion/commit/2a42043d004b72370145ff14b3361d1125ac3003
+01b087141eca41336df0fbda319fff0572346815	2026-01-21T19:52:57Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/RetroGenPS/Fusion/commit/01b087141eca41336df0fbda319fff0572346815
+1bd9a9b4180ea1a50ec06d16deb9c5154348d7d4	2026-01-21T19:52:51Z	OSM-Made	Add bypass for sony sysctl limits and add cpu usage func to shell ui.	https://github.com/RetroGenPS/Fusion/commit/1bd9a9b4180ea1a50ec06d16deb9c5154348d7d4
+1d7c0314ade52858496195e53bcc85de274def51	2026-01-20T04:12:37Z	ArabPixel	13.02 Kernel offsets (#13)	https://github.com/RetroGenPS/Fusion/commit/1d7c0314ade52858496195e53bcc85de274def51
+a0f1d75e5baa6d7b59a57f83ff64f52b43823274	2026-01-19T04:03:23Z	OSM-Made	Refactor Hooking & Reflect, Add devkit content and a notify.	https://github.com/RetroGenPS/Fusion/commit/a0f1d75e5baa6d7b59a57f83ff64f52b43823274
+a1b05d4a22d951c1603c06c49b1b869653ce5c6f	2026-01-18T06:11:49Z	OSM-Made	Add devkit panel.	https://github.com/RetroGenPS/Fusion/commit/a1b05d4a22d951c1603c06c49b1b869653ce5c6f
+72ab0f822ea2740022f7eb9d8a53ccdc0e29cd47	2026-01-18T05:33:22Z	OSM-Made	Add new icons & welcome message for the future.	https://github.com/RetroGenPS/Fusion/commit/72ab0f822ea2740022f7eb9d8a53ccdc0e29cd47
+557d4746098d39e8297da343b0898b88f156313b	2026-01-18T02:22:44Z	OSM-Made	Update logos.	https://github.com/RetroGenPS/Fusion/commit/557d4746098d39e8297da343b0898b88f156313b
+441ce2365d61bcc029732d11bebc2e3691b9aedc	2026-01-17T22:00:59Z	OSM-Made	fix log.	https://github.com/RetroGenPS/Fusion/commit/441ce2365d61bcc029732d11bebc2e3691b9aedc
+a45f303ffd2cc0f169a34b30c63a54583dd73b71	2026-01-17T21:58:44Z	OSM-Made	Add better thread fix for C# & fix bug in method override.	https://github.com/RetroGenPS/Fusion/commit/a45f303ffd2cc0f169a34b30c63a54583dd73b71
+d87a03763d91182d3905b96c64784326c27d4c3c	2026-01-17T21:19:49Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/RetroGenPS/Fusion/commit/d87a03763d91182d3905b96c64784326c27d4c3c
+ce5eeae89b91fa8b74d292e4b392fef7e796561b	2026-01-17T21:19:21Z	OSM-Made	move increment_version.py to the scripts folder.	https://github.com/RetroGenPS/Fusion/commit/ce5eeae89b91fa8b74d292e4b392fef7e796561b
+5ade31daf3634e9cf6d4f276e97c291f4e527bee	2026-01-17T21:19:21Z	OSM-Made	move increment_version.py to the scripts folder.	https://github.com/RetroGenPS/Fusion/commit/5ade31daf3634e9cf6d4f276e97c291f4e527bee
+009efd3d9db27dd62d494b04ccdb416b70e49b98	2026-01-17T20:45:45Z	OSM-Made	add references back.	https://github.com/RetroGenPS/Fusion/commit/009efd3d9db27dd62d494b04ccdb416b70e49b98
+7b256e9cb0a118ef1b34b9c0f02e62c39207acbf	2026-01-17T20:43:36Z	OSM-Made	Fix build issues with loader and fix ascii art.	https://github.com/RetroGenPS/Fusion/commit/7b256e9cb0a118ef1b34b9c0f02e62c39207acbf
+3ccf81d82f54391432eb24648b8d00600d933686	2026-01-17T15:41:15Z	OSM-Made	New ascii art.	https://github.com/RetroGenPS/Fusion/commit/3ccf81d82f54391432eb24648b8d00600d933686
+b960c6c69f60dc11a44682037132eb1b731ddade	2026-01-17T06:56:49Z	OSM-Made	Add panic patches.	https://github.com/RetroGenPS/Fusion/commit/b960c6c69f60dc11a44682037132eb1b731ddade
+52a4e50a298a7407be4092db065280c8ae20dee7	2026-01-17T00:20:36Z	OSM-Made	Firmware agnostic first pass.	https://github.com/RetroGenPS/Fusion/commit/52a4e50a298a7407be4092db065280c8ae20dee7
+9fb086a69d9c27cab430e2bc48cc738ce5a2b10f	2026-01-16T04:46:26Z	OSM-Made	Add sysctl entries for managing fusion feature flags and settings.	https://github.com/RetroGenPS/Fusion/commit/9fb086a69d9c27cab430e2bc48cc738ce5a2b10f
+f9c2f618cedc26a848eb1aa7645eb3ba3a23140b	2026-01-16T02:14:42Z	OSM-Made	Convert to zlib compression.	https://github.com/RetroGenPS/Fusion/commit/f9c2f618cedc26a848eb1aa7645eb3ba3a23140b
+b111d9ed384fffe2b39580fbb14881bdafef8958	2026-01-15T23:46:49Z	OSM-Made	Add support for 13.00	https://github.com/RetroGenPS/Fusion/commit/b111d9ed384fffe2b39580fbb14881bdafef8958
+43c6da66bf3776d81556bb252b2a9dc1f507c238	2026-01-15T23:04:42Z	OSM-Made	Remove some old patches.	https://github.com/RetroGenPS/Fusion/commit/43c6da66bf3776d81556bb252b2a9dc1f507c238
+bcaf910220a417d4ba3909fa15f7553e993a8ec3	2026-01-15T23:02:25Z	OSM-Made	Remove shell ui offsets.	https://github.com/RetroGenPS/Fusion/commit/bcaf910220a417d4ba3909fa15f7553e993a8ec3
+a912dd69dafef8c4658ef7eb1f33ddd5079a1436	2026-01-15T23:01:49Z	OSM-Made	Fix patch for 13.00	https://github.com/RetroGenPS/Fusion/commit/a912dd69dafef8c4658ef7eb1f33ddd5079a1436
+a8b8c7e5f7b38ece5580b731b4aedb59e2cf69bb	2026-01-15T23:00:59Z	OSM-Made	Add the rest of the 12.50 support.	https://github.com/RetroGenPS/Fusion/commit/a8b8c7e5f7b38ece5580b731b4aedb59e2cf69bb
+e80308ee2458ba4dde0cae874cc9403e7069124a	2026-01-15T22:23:08Z	ArabPixel	12.50 Kernel offsets (#10)	https://github.com/RetroGenPS/Fusion/commit/e80308ee2458ba4dde0cae874cc9403e7069124a
+899ab07fae42b735acfde2a70e1fc6a69174e256	2026-01-15T18:24:17Z	OSM-Made	Add flag for some experimental JIT things.	https://github.com/RetroGenPS/Fusion/commit/899ab07fae42b735acfde2a70e1fc6a69174e256
+c2282c25ddeccf92b6bdf3f765bbd911e9db5935	2026-01-15T18:16:58Z	OSM-Made	Fix warnings.	https://github.com/RetroGenPS/Fusion/commit/c2282c25ddeccf92b6bdf3f765bbd911e9db5935
+91d01990fff1572cb1a3d15d0e9087169a5a2b44	2026-01-15T18:13:16Z	OSM-Made	Improve build system for smaller size & more simple build.	https://github.com/RetroGenPS/Fusion/commit/91d01990fff1572cb1a3d15d0e9087169a5a2b44
+1f3e87a639ce87dcf3296de87e371c3a1ba84a26	2026-01-15T05:37:09Z	OSM-Made	Add custom manifest URI (Thanks Jtag), System area icon that redirects to the fusion menu & pack all assets into the dll.	https://github.com/RetroGenPS/Fusion/commit/1f3e87a639ce87dcf3296de87e371c3a1ba84a26
+4fb3368fb019959853a27978ac7c73139b9e2d74	2026-01-14T15:43:03Z	OSM-Made	Improve method hooks for c#.	https://github.com/RetroGenPS/Fusion/commit/4fb3368fb019959853a27978ac7c73139b9e2d74
+4ac1d316f5e9ea938c037cb2a7f7350206edc02f	2026-01-14T15:37:39Z	OSM-Made	Bug fixes for 12.02.	https://github.com/RetroGenPS/Fusion/commit/4ac1d316f5e9ea938c037cb2a7f7350206edc02f
+5f8d2d761aa4387dba2066213ef939fb33f89e5f	2026-01-13T00:29:24Z	OSM-Made	fix typo.	https://github.com/RetroGenPS/Fusion/commit/5f8d2d761aa4387dba2066213ef939fb33f89e5f
+f8a4fa8635d1f01fb950ac53618407d51ae3f6d0	2026-01-13T00:27:40Z	OSM-Made	Fix DECI patch not patching the first isAssistMode check.	https://github.com/RetroGenPS/Fusion/commit/f8a4fa8635d1f01fb950ac53618407d51ae3f6d0
+9ae958bc733dda39fda71f529d30332e80b0135f	2026-01-12T04:24:43Z	OSM-Made	Clean up usings.	https://github.com/RetroGenPS/Fusion/commit/9ae958bc733dda39fda71f529d30332e80b0135f
+6ca35b5f8948e4a9332680e1b75809db8e398fc7	2026-01-12T03:49:02Z	OSM-Made	Add some initial ShellUI fun	https://github.com/RetroGenPS/Fusion/commit/6ca35b5f8948e4a9332680e1b75809db8e398fc7
+f8e879937b311327378fbcfb7b588d57abd853b1	2026-01-11T05:30:03Z	OSM-Made	Update stub maker.	https://github.com/RetroGenPS/Fusion/commit/f8e879937b311327378fbcfb7b588d57abd853b1
+e031606cec90a1b9e1dd0f6f9a0aa4e59618dea4	2026-01-11T04:10:23Z	OSM-Made	Migrate ShellUI patches to the qa flags from the kernel patches & add the intdev flags for ShellUI JIT mode.	https://github.com/RetroGenPS/Fusion/commit/e031606cec90a1b9e1dd0f6f9a0aa4e59618dea4
+cb5fce1cbbe62e6bf177d569e22329c33c1d2e6b	2026-01-10T15:31:35Z	OSM-Made	Change some order of operations and naming clashing.	https://github.com/RetroGenPS/Fusion/commit/cb5fce1cbbe62e6bf177d569e22329c33c1d2e6b
+9016665766b1f4d347eae6f9adfd5135acc02ccb	2026-01-04T22:26:29Z	OSM-Made	Fix build issue.	https://github.com/RetroGenPS/Fusion/commit/9016665766b1f4d347eae6f9adfd5135acc02ccb
+8b4cead419cb75c62778341d616e60bf596b8a6c	2026-01-04T02:19:35Z	OSM-Made	Update some sub modules.	https://github.com/RetroGenPS/Fusion/commit/8b4cead419cb75c62778341d616e60bf596b8a6c
+7e013020f49d34575bdd1ab60cd4012cb6d4b895	2026-01-03T15:32:27Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/RetroGenPS/Fusion/commit/7e013020f49d34575bdd1ab60cd4012cb6d4b895
+d8fde9cf7335f9a51729a3c514c3beeeaadc42b3	2026-01-03T15:32:23Z	OSM-Made	Improve plugin loaders ability to check if the process is ready.	https://github.com/RetroGenPS/Fusion/commit/d8fde9cf7335f9a51729a3c514c3beeeaadc42b3
+6b786db3e29fc14ece360894f940d2f0966ae38e	2026-01-03T08:56:33Z	Greg	Update README.md	https://github.com/RetroGenPS/Fusion/commit/6b786db3e29fc14ece360894f940d2f0966ae38e
+e205cc8019c95830210f86d589438786fccaa988	2026-01-03T08:22:32Z	OSM-Made	Update README & docs.	https://github.com/RetroGenPS/Fusion/commit/e205cc8019c95830210f86d589438786fccaa988
+b084ce547991e9c664d24261404af68fb82c8377	2026-01-03T07:41:26Z	OSM-Made	update libUtils version.	https://github.com/RetroGenPS/Fusion/commit/b084ce547991e9c664d24261404af68fb82c8377
+4029db7da77fd21ceb8b8fdeda06edeacf424b94	2026-01-03T05:38:07Z	OSM-Made	Add daemon system.	https://github.com/RetroGenPS/Fusion/commit/4029db7da77fd21ceb8b8fdeda06edeacf424b94
+97ace4304be650ea2d4ae459de760ba50c632570	2026-01-03T01:27:38Z	OSM-Made	Remove patches from the kernel since we patch from the userland now.	https://github.com/RetroGenPS/Fusion/commit/97ace4304be650ea2d4ae459de760ba50c632570
+6dd93e295d3c852d7429dd14fc173d029b1db78f	2026-01-02T16:56:59Z	OSM-Made	Add some additional docs.	https://github.com/RetroGenPS/Fusion/commit/6dd93e295d3c852d7429dd14fc173d029b1db78f
+c50690fb945c714c4aa9893144a74e426e4b228d	2026-01-02T16:47:21Z	OSM-Made	Add a simple plugin loader.	https://github.com/RetroGenPS/Fusion/commit/c50690fb945c714c4aa9893144a74e426e4b228d
+3ee632458a9eca984d66097cb6f0b4dfcbbdc342	2026-01-02T04:30:28Z	OSM-Made	update lib fusion version.	https://github.com/RetroGenPS/Fusion/commit/3ee632458a9eca984d66097cb6f0b4dfcbbdc342
+bf7c3d7b0bbb709f75a5e665362d8b5f617283fa	2026-01-02T03:38:37Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/RetroGenPS/Fusion/commit/bf7c3d7b0bbb709f75a5e665362d8b5f617283fa
+a3679cea2dda4218a685b19eb29cfd5214692cd3	2026-01-02T03:38:32Z	OSM-Made	Add some credits	https://github.com/RetroGenPS/Fusion/commit/a3679cea2dda4218a685b19eb29cfd5214692cd3
+4492d4968b917a08fb48d5e3df71e8a62c262797	2026-01-02T03:29:04Z	Greg	Create LICENSE	https://github.com/RetroGenPS/Fusion/commit/4492d4968b917a08fb48d5e3df71e8a62c262797
+1290801111703b4edeaf4bf13c6b5d4f6d025360	2026-01-02T03:25:17Z	OSM-Made	Fix the deci dev port thread hanging the fusion daemon, add the friendly name in proc list and add some comments in the main.	https://github.com/RetroGenPS/Fusion/commit/1290801111703b4edeaf4bf13c6b5d4f6d025360
+ce1dcd6da227447c7c2f4915c5e5fe4a1402b8e9	2026-01-01T22:35:22Z	OSM-Made	Add multi version support to deci launch.	https://github.com/RetroGenPS/Fusion/commit/ce1dcd6da227447c7c2f4915c5e5fe4a1402b8e9
+7e2dc2e3e250013a7475bc955107105c9df933af	2026-01-01T22:24:00Z	OSM-Made	Update readme.	https://github.com/RetroGenPS/Fusion/commit/7e2dc2e3e250013a7475bc955107105c9df933af
+4c996670d08c484d18c24669af75bb921fa82497	2026-01-01T22:22:41Z	OSM-Made	Update readme.	https://github.com/RetroGenPS/Fusion/commit/4c996670d08c484d18c24669af75bb921fa82497
+148a3c54eded20f8893df2c57f28e2be77776f1c	2026-01-01T22:10:15Z	OSM-Made	clean up daemon a bit.	https://github.com/RetroGenPS/Fusion/commit/148a3c54eded20f8893df2c57f28e2be77776f1c
+daee0e5a16ac277a137c24429f257990076aea21	2026-01-01T22:03:47Z	OSM-Made	Add ftp.	https://github.com/RetroGenPS/Fusion/commit/daee0e5a16ac277a137c24429f257990076aea21
+33c21fb5327c645c6e21841c839b92eaab3a67b1	2026-01-01T17:12:10Z	OSM-Made	fix comment.	https://github.com/RetroGenPS/Fusion/commit/33c21fb5327c645c6e21841c839b92eaab3a67b1
+369cae476b1c0ee89db7a72027643644839c42f7	2026-01-01T16:58:09Z	OSM-Made	update git ignore.	https://github.com/RetroGenPS/Fusion/commit/369cae476b1c0ee89db7a72027643644839c42f7
+80aa5b92a185dcbd9950f5bc71ebb0b1842a46d4	2026-01-01T16:57:35Z	OSM-Made	Clean up.	https://github.com/RetroGenPS/Fusion/commit/80aa5b92a185dcbd9950f5bc71ebb0b1842a46d4
+78a8afbb7ab7cd6a1b465b26b6f41c5f8cb8e8b7	2026-01-01T16:53:48Z	OSM-Made	Mount system as root for daemon creation.	https://github.com/RetroGenPS/Fusion/commit/78a8afbb7ab7cd6a1b465b26b6f41c5f8cb8e8b7
+89edd6225d05bbe3148990a1ce770e52e03f02f2	2026-01-01T16:45:56Z	OSM-Made	Unify type usage across the kernel/loader projects.	https://github.com/RetroGenPS/Fusion/commit/89edd6225d05bbe3148990a1ce770e52e03f02f2
+dc3bc52fd3f27c5a5f42f556a1cd10f832362cc4	2026-01-01T16:28:09Z	OSM-Made	Fix issues with kernel builds and jailbreaking.	https://github.com/RetroGenPS/Fusion/commit/dc3bc52fd3f27c5a5f42f556a1cd10f832362cc4
+1107ce12f94a24e92193c8b636ad449f88d6020d	2026-01-01T16:07:00Z	OSM-Made	Add daemon launching.	https://github.com/RetroGenPS/Fusion/commit/1107ce12f94a24e92193c8b636ad449f88d6020d
+7df8dd097d3c6b7e318ac6c3074f936bb21b0354	2025-12-31T20:11:04Z	OSM-Made	Big refactor for better organization.	https://github.com/RetroGenPS/Fusion/commit/7df8dd097d3c6b7e318ac6c3074f936bb21b0354
+837d6230156c926bf0c41487707d3e887c0193f3	2025-12-31T16:51:50Z	OSM-Made	Clean up loader and fix a bug.	https://github.com/RetroGenPS/Fusion/commit/837d6230156c926bf0c41487707d3e887c0193f3
+e97e62794c23b942921af3e055efacf5a445f6c2	2025-12-31T16:31:57Z	OSM-Made	Clean up for more consistent naming conventions.	https://github.com/RetroGenPS/Fusion/commit/e97e62794c23b942921af3e055efacf5a445f6c2
+c9ffff94d3c66bee5f5e8790f06b13cfe9eb9f05	2025-12-29T23:03:27Z	OSM-Made	Update driver version.	https://github.com/RetroGenPS/Fusion/commit/c9ffff94d3c66bee5f5e8790f06b13cfe9eb9f05
+c2828ef73ff62a3615e4195fda0a47278e457de5	2025-12-29T19:35:42Z	OSM-Made	update driver.	https://github.com/RetroGenPS/Fusion/commit/c2828ef73ff62a3615e4195fda0a47278e457de5
+cf73bfdae47411182d546eba7159f44b0b8cc8f8	2025-12-29T19:27:15Z	OSM-Made	Add some spacing.	https://github.com/RetroGenPS/Fusion/commit/cf73bfdae47411182d546eba7159f44b0b8cc8f8
+26ae2b7b257a0a097fe9345d978b24733f603435	2025-12-29T19:26:58Z	OSM-Made	Add kernel get base, kernel r/w & nvs r/w.	https://github.com/RetroGenPS/Fusion/commit/26ae2b7b257a0a097fe9345d978b24733f603435
+c7dfc6e40a72d9306c9e0e7d7e05c19b53f57a4e	2025-12-26T03:34:07Z	OSM-Made	Update libUtils.	https://github.com/RetroGenPS/Fusion/commit/c7dfc6e40a72d9306c9e0e7d7e05c19b53f57a4e
+3d7f90e67aef419d7d1234bff99eb7870b8e5c9e	2025-12-22T22:29:35Z	OSM-Made	FTP daemon starter place holder.	https://github.com/RetroGenPS/Fusion/commit/3d7f90e67aef419d7d1234bff99eb7870b8e5c9e
+4b4a2796f190264487674787339fe647fd4de0d8	2025-12-22T22:26:07Z	OSM-Made	Adjust config because read/write file return of 0 means success.	https://github.com/RetroGenPS/Fusion/commit/4b4a2796f190264487674787339fe647fd4de0d8
+0aa2eecab513704e0cd13e56cd90f2d3f71eb884	2025-12-22T21:47:04Z	OSM-Made	Add some coments to the deci starter.	https://github.com/RetroGenPS/Fusion/commit/0aa2eecab513704e0cd13e56cd90f2d3f71eb884
+34ad19535db2795e686d21f9a1929559fc73d1e4	2025-12-22T21:20:56Z	OSM-Made	Give fusion the ability to load deci.	https://github.com/RetroGenPS/Fusion/commit/34ad19535db2795e686d21f9a1929559fc73d1e4
+b3a965103b249fbecb00d5064911bdaeee481712	2025-12-22T19:37:47Z	OSM-Made	Create default config if one does not exist.	https://github.com/RetroGenPS/Fusion/commit/b3a965103b249fbecb00d5064911bdaeee481712
+33170cacc3878838cfaa599eed79b3b2c9d86da4	2025-12-22T19:27:52Z	OSM-Made	Update fusion driver lib.	https://github.com/RetroGenPS/Fusion/commit/33170cacc3878838cfaa599eed79b3b2c9d86da4
+3105097f7bf2c5c323e477bcc37be05ae49085eb	2025-12-22T19:23:34Z	OSM-Made	Add initial config setup.	https://github.com/RetroGenPS/Fusion/commit/3105097f7bf2c5c323e477bcc37be05ae49085eb
+4d7da1f0599dd5e1f9b8ace59e091df4ae7ef2f2	2025-12-01T01:35:44Z	OSM-Made	Update StubMaker	https://github.com/RetroGenPS/Fusion/commit/4d7da1f0599dd5e1f9b8ace59e091df4ae7ef2f2
+f402935e399f4badda5dfef56e2043af647436d9	2025-11-27T03:13:57Z	OSM-Made	Simplify the kernel more.	https://github.com/RetroGenPS/Fusion/commit/f402935e399f4badda5dfef56e2043af647436d9
+b08786c9c81ce05e88b0d906aea2e071815b05cf	2025-11-25T15:04:45Z	Greg	Do all Userland patches from the Daemon (#8)\n\n* Initial setup to make userland system patches from userland.\n\n* Remove userland patches from kernel.\n\n* Finished porting all patches to userland daemon.	https://github.com/RetroGenPS/Fusion/commit/b08786c9c81ce05e88b0d906aea2e071815b05cf
+e6f87829584987c03d4c83f9e311ec1a89716a47	2025-11-25T03:26:18Z	OSM-Made	Add initial cfg using more basic json.	https://github.com/RetroGenPS/Fusion/commit/e6f87829584987c03d4c83f9e311ec1a89716a47
+377d3a32e5479cb4842b50bc4c2c2b2f4ae8a2bc	2025-11-09T16:47:10Z	OSM-Made	Update shared module	https://github.com/RetroGenPS/Fusion/commit/377d3a32e5479cb4842b50bc4c2c2b2f4ae8a2bc
+326a779bee0fdfe4019ef37a3518f5c5cafa2036	2025-11-08T03:24:02Z	OSM-Made	fix mistake with lib info	https://github.com/RetroGenPS/Fusion/commit/326a779bee0fdfe4019ef37a3518f5c5cafa2036
+269ce2df8b2f754e2f7358238b07b577629d3b6f	2025-11-08T03:20:46Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/RetroGenPS/Fusion/commit/269ce2df8b2f754e2f7358238b07b577629d3b6f
+7bbeaa27fc49ff2b52b8a846a2d8a34197019f9f	2025-11-08T03:20:39Z	OSM-Made	fix blunder with mutex	https://github.com/RetroGenPS/Fusion/commit/7bbeaa27fc49ff2b52b8a846a2d8a34197019f9f
+b6557864f30eb3c3415c2d721b0d6a30c1cac8df	2025-11-07T00:46:46Z	Greg	Re organize project and support building with out side car. (#7)	https://github.com/RetroGenPS/Fusion/commit/b6557864f30eb3c3415c2d721b0d6a30c1cac8df
+e7db66132eb1b574b71c431467b7cb63f60db030	2025-11-06T16:16:30Z	Greg	Syscall cleanup (#6)\n\n* Remove the last of the system calls made in kernel land.\n\n* Remove the debug flag	https://github.com/RetroGenPS/Fusion/commit/e7db66132eb1b574b71c431467b7cb63f60db030
+de910f213a0ec69d915ad6154d9e51701300f373	2025-11-06T16:15:27Z	OSM-Made	Small clean up.	https://github.com/RetroGenPS/Fusion/commit/de910f213a0ec69d915ad6154d9e51701300f373
+2764fb93310878bf49f3dfe8b9fe92444d6ef7dd	2025-11-06T06:35:37Z	Greg	Detour cleanup (#4)\n\n* Initial conversion to Detours.\n\n* Switch to mono detour class\n\n* Fix minor mistake and simplify.\n\n* Clean up Detour memory pool.	https://github.com/RetroGenPS/Fusion/commit/2764fb93310878bf49f3dfe8b9fe92444d6ef7dd
+5fcee382ddab16343edcd9a1204a320fe9dfa8eb	2025-11-06T00:28:31Z	OSM-Made	Re-Organize Kernel to use folders in src/inc	https://github.com/RetroGenPS/Fusion/commit/5fcee382ddab16343edcd9a1204a320fe9dfa8eb
+4df83f4141c911d03aca204c451fc39aaa85ab42	2025-11-05T18:02:48Z	OSM-Made	Re-Organize the types instead of having monolithic types.h	https://github.com/RetroGenPS/Fusion/commit/4df83f4141c911d03aca204c451fc39aaa85ab42
+c3eac378fa8e51b3d21a3b5685e409c0791cf53d	2025-11-05T00:17:45Z	OSM-Made	fix mistake with lock.	https://github.com/RetroGenPS/Fusion/commit/c3eac378fa8e51b3d21a3b5685e409c0791cf53d
+156eb45b9a53c6b9b7095a716949a22bbf85fb0a	2025-11-04T23:57:30Z	OSM-Made	Make the find proc by name more correct, clean up un-needed syscalls & rmove old patches.	https://github.com/RetroGenPS/Fusion/commit/156eb45b9a53c6b9b7095a716949a22bbf85fb0a
+fd5bf6aaaad452001c05f69a6229d1fc5ca22d03	2025-11-04T06:06:27Z	OSM-Made	Rework the way we un hide the driver.	https://github.com/RetroGenPS/Fusion/commit/fd5bf6aaaad452001c05f69a6229d1fc5ca22d03
+725cb8c0e78864b6d145a0fb92c4d271f0adf286	2025-11-04T03:10:22Z	OSM-Made	Fix embed name	https://github.com/RetroGenPS/Fusion/commit/725cb8c0e78864b6d145a0fb92c4d271f0adf286
+274f2c7efe528c4b256fbe08df408c9e44e2f911	2025-11-04T03:04:51Z	OSM-Made	update driver module.	https://github.com/RetroGenPS/Fusion/commit/274f2c7efe528c4b256fbe08df408c9e44e2f911
+5f7dcdbba17fefe146d035ec59ee9ffb99fd4e68	2025-11-04T03:03:25Z	OSM-Made	fix proc locks, dlsym mistakes and update shared module.	https://github.com/RetroGenPS/Fusion/commit/5f7dcdbba17fefe146d035ec59ee9ffb99fd4e68
+de1124dbf03bf0db90cd23e8b7e2234dce509f10	2025-11-04T01:47:52Z	OSM-Made	Fix bug where no return was present for missing driver defs and extending fusion daemon some more.	https://github.com/RetroGenPS/Fusion/commit/de1124dbf03bf0db90cd23e8b7e2234dce509f10
+38949fa3f60b37d1d759809f631e2925f04e2231	2025-11-02T22:09:19Z	OSM-Made	Dont load kernel twice & Add Fusion Daemon.	https://github.com/RetroGenPS/Fusion/commit/38949fa3f60b37d1d759809f631e2925f04e2231
+bd32f7f3a21dbf0d1acde555cbbb1d63eedb7d41	2025-11-02T16:32:34Z	OSM-Made	Re-organize sidecar and fix the json settings.	https://github.com/RetroGenPS/Fusion/commit/bd32f7f3a21dbf0d1acde555cbbb1d63eedb7d41
+18dfb875f26583946ba772350df68b62ced28b5a	2025-11-02T16:00:11Z	OSM-Made	re-organize the loader.	https://github.com/RetroGenPS/Fusion/commit/18dfb875f26583946ba772350df68b62ced28b5a
+1ef510808958d263d42eb19d94a4459cb03dae1f	2025-11-02T15:52:44Z	OSM-Made	Update make file to clean up better.	https://github.com/RetroGenPS/Fusion/commit/1ef510808958d263d42eb19d94a4459cb03dae1f
+b35cf27cf0767a8fe4b3a1aa979759af83692533	2025-11-02T05:56:08Z	OSM-Made	Fix sidecar.	https://github.com/RetroGenPS/Fusion/commit/b35cf27cf0767a8fe4b3a1aa979759af83692533
+eb0a95cde362be3d7f304347d64449e04b875d51	2025-11-02T05:31:49Z	OSM-Made	Work on fixing sidecar & add a missing mutex unloack for pfind.	https://github.com/RetroGenPS/Fusion/commit/eb0a95cde362be3d7f304347d64449e04b875d51
+4595db9d4d29ace126b1b414f55d88de20a1a3a4	2025-11-01T04:59:56Z	OSM-Made	Clean up driver code more.	https://github.com/RetroGenPS/Fusion/commit/4595db9d4d29ace126b1b414f55d88de20a1a3a4
+7f5ff58e94ddd206844072d4968449c1a6338d88	2025-11-01T04:37:31Z	OSM-Made	Add bounds check for get libs.	https://github.com/RetroGenPS/Fusion/commit/7f5ff58e94ddd206844072d4968449c1a6338d88
+4f138d326400caf35e9717a6ff01ddeebe975f17	2025-11-01T04:33:00Z	OSM-Made	Update shared module version.	https://github.com/RetroGenPS/Fusion/commit/4f138d326400caf35e9717a6ff01ddeebe975f17
+1a7cd2ca016d3785079d06a16421ae2b66ff4505	2025-11-01T00:57:36Z	OSM-Made	Update shared module.	https://github.com/RetroGenPS/Fusion/commit/1a7cd2ca016d3785079d06a16421ae2b66ff4505
+43d58b025281b8d151f0869555b3caa8e631e6b0	2025-11-01T00:56:33Z	OSM-Made	Tidy up, use pfind & use proper copyin.	https://github.com/RetroGenPS/Fusion/commit/43d58b025281b8d151f0869555b3caa8e631e6b0
+cd7ace65db88f1fb15a274412855fa1326eb2899	2025-10-31T19:23:58Z	OSM-Made	Make an attempt to keep some backwards compat for Driver.	https://github.com/RetroGenPS/Fusion/commit/cd7ace65db88f1fb15a274412855fa1326eb2899
+ae2752c10132c1f7595cdb724a3a1249c06f5924	2025-10-28T04:33:18Z	OSM-Made	Over hauling Driver, removing the need for Sidecar & Drop support for 11.00	https://github.com/RetroGenPS/Fusion/commit/ae2752c10132c1f7595cdb724a3a1249c06f5924
+658c9303fd55bd532508259072c0c76948b1f0d1	2025-10-26T19:36:50Z	OSM-Made	Tidy up code & make dipswitches patched for kernel too.	https://github.com/RetroGenPS/Fusion/commit/658c9303fd55bd532508259072c0c76948b1f0d1
+9e7921bd2d44fd6d59f88fb4204c3e4ab07d98dc	2025-10-25T15:32:20Z	OSM-Made	Migrate offsets to main repo and clean up patches for DECI.	https://github.com/RetroGenPS/Fusion/commit/9e7921bd2d44fd6d59f88fb4204c3e4ab07d98dc
+55987664fd9a2ecd6baf2405ff772dacc7ffed28	2025-10-24T23:03:05Z	OSM-Made	only make the test cfg once.	https://github.com/RetroGenPS/Fusion/commit/55987664fd9a2ecd6baf2405ff772dacc7ffed28
+70daef1d5fca2e87cbe3a2008bdfed9d6ff3f09e	2025-10-24T22:38:29Z	OSM-Made	Ensure the stubmaker is built for side car.	https://github.com/RetroGenPS/Fusion/commit/70daef1d5fca2e87cbe3a2008bdfed9d6ff3f09e
+5c62dd6cbf3a04edbfbc132afc3d8a8a2115040f	2025-10-24T22:30:41Z	OSM-Made	Update builds so version checks work correctly.	https://github.com/RetroGenPS/Fusion/commit/5c62dd6cbf3a04edbfbc132afc3d8a8a2115040f
+7d62ad5ad54ab5d15b4c9f42fb35d3dd9df59824	2025-10-24T22:05:14Z	OSM-Made	Make builds more standard and include build instructions.	https://github.com/RetroGenPS/Fusion/commit/7d62ad5ad54ab5d15b4c9f42fb35d3dd9df59824
+480c2d4bf7731ec61ce4fe315322c1f40f8d1de9	2025-10-20T02:57:24Z	OSM-Made	Add Dmem config file	https://github.com/RetroGenPS/Fusion/commit/480c2d4bf7731ec61ce4fe315322c1f40f8d1de9
+7253de107fb57ef727b2c049b7f89df161287681	2025-10-20T00:48:57Z	OSM-Made	Update build configs	https://github.com/RetroGenPS/Fusion/commit/7253de107fb57ef727b2c049b7f89df161287681
+4824a9ea1ea116a8758c4a188ae34ca4cf6ec647	2025-10-20T00:43:06Z	OSM-Made	Switch Utils lib, Re-Organize Kernel & Userland, Add beta features & Make sidecar build deps when needed.	https://github.com/RetroGenPS/Fusion/commit/4824a9ea1ea116a8758c4a188ae34ca4cf6ec647
+67811a04c75df427aa86b4b6427a1f46b59bd932	2025-10-13T20:28:55Z	OSM-Made	Add Sidecar project.	https://github.com/RetroGenPS/Fusion/commit/67811a04c75df427aa86b4b6427a1f46b59bd932
+0001a7870973bc65c2e2eb1a91ec7cbd22fcacf1	2025-09-20T17:56:53Z	OSM-Made	Add credits for TTY redirect and offsets proper	https://github.com/RetroGenPS/Fusion/commit/0001a7870973bc65c2e2eb1a91ec7cbd22fcacf1
+3110dabeb8e7e71a4479e4d3de51a43deed02037	2025-09-20T04:23:07Z	OSM-Made	Add TTY Redirector, Dip switches for DECI & fix bug for fpkgs.	https://github.com/RetroGenPS/Fusion/commit/3110dabeb8e7e71a4479e4d3de51a43deed02037
+cc7be84ca33e206aca5e8942572f16d3ed931d73	2025-09-18T22:29:32Z	OSM-Made	Remove tests	https://github.com/RetroGenPS/Fusion/commit/cc7be84ca33e206aca5e8942572f16d3ed931d73
+0e6b824e76d3976bcba39dd0a9d7cfb1598c2531	2025-09-18T22:25:49Z	OSM-Made	Fix lib replacer	https://github.com/RetroGenPS/Fusion/commit/0e6b824e76d3976bcba39dd0a9d7cfb1598c2531
+b64590855cb6232c20fc5115c49015bcd30f54d7	2025-09-18T03:46:45Z	OSM-Made	Add dipsw spoofer, better patches and 12.00 support.	https://github.com/RetroGenPS/Fusion/commit/b64590855cb6232c20fc5115c49015bcd30f54d7
+a486e87fb6026d8b64178ee27f00a3558fc9b2ac	2025-02-04T16:40:47Z	OSM-Made	Add fuse root mount.	https://github.com/RetroGenPS/Fusion/commit/a486e87fb6026d8b64178ee27f00a3558fc9b2ac
+746db9d127392f1b98eb8ef554584b740a1e8642	2025-01-18T23:26:30Z	OSM-Made	Fix direct memory exlusion, patch dev_flag & remove reg spoofer entry not needed anymore.	https://github.com/RetroGenPS/Fusion/commit/746db9d127392f1b98eb8ef554584b740a1e8642
+72b65aa9b37b3108c8675b6a5750d5b359cc0d83	2025-01-17T03:59:05Z	OSM-Made	Add logs for devkit checks	https://github.com/RetroGenPS/Fusion/commit/72b65aa9b37b3108c8675b6a5750d5b359cc0d83
+c7536ab1abb78917de850fde179526af608f5b46	2025-01-17T03:35:24Z	OSM-Made	Add Registry Emulation test & devkit shellcore fpkg support.	https://github.com/RetroGenPS/Fusion/commit/c7536ab1abb78917de850fde179526af608f5b46
+91586ec44f6e4536855b3a051c84b4bf1c05b8e5	2025-01-11T00:56:39Z	OSM-Made	Fix system calls & add safety.	https://github.com/RetroGenPS/Fusion/commit/91586ec44f6e4536855b3a051c84b4bf1c05b8e5
+364a161786f266622fade9ba331493d633a1b07a	2025-01-10T13:31:39Z	OSM-Made	Update shared submodule.	https://github.com/RetroGenPS/Fusion/commit/364a161786f266622fade9ba331493d633a1b07a
+db19cee7fa40a61a4a3f7f2a75e61404e4a09311	2025-01-10T13:29:28Z	OSM-Made	Add DevAct Spoofer & Add Library Replacer (Needs Fixing).	https://github.com/RetroGenPS/Fusion/commit/db19cee7fa40a61a4a3f7f2a75e61404e4a09311
+fca0dc8e3521a2ced4f6614253a6ca0c5ce889a3	2025-01-10T05:32:32Z	OSM-Made	Add Driver, Dmem reservation & Feature Flags.	https://github.com/RetroGenPS/Fusion/commit/fca0dc8e3521a2ced4f6614253a6ca0c5ce889a3
+ab460dccec3a13135b4ac2e744fb529cfa4a9fe6	2025-01-10T04:18:42Z	OSM-Made	Add Watcher.	https://github.com/RetroGenPS/Fusion/commit/ab460dccec3a13135b4ac2e744fb529cfa4a9fe6
+48ab760bc2ce29e936ee2e14fe0dadf4f1930403	2025-01-10T04:08:04Z	OSM-Made	Clean up dbg prints, Add more patches & add fuse.	https://github.com/RetroGenPS/Fusion/commit/48ab760bc2ce29e936ee2e14fe0dadf4f1930403
+21e46796c1589a095b5d76a1da087b4c313f2432	2025-01-10T03:48:33Z	OSM-Made	Add Working Hombrew.	https://github.com/RetroGenPS/Fusion/commit/21e46796c1589a095b5d76a1da087b4c313f2432
+137d24caefa82ccbf640e1c627da57cb742f4aa1	2025-01-09T06:14:41Z	OSM-Made	Fully add elf loader and kernel elf.	https://github.com/RetroGenPS/Fusion/commit/137d24caefa82ccbf640e1c627da57cb742f4aa1
+aa3783bf6f26a3659a53b175c2ecc21e8dbac670	2025-01-09T05:22:39Z	OSM-Made	Add Shared submodule.	https://github.com/RetroGenPS/Fusion/commit/aa3783bf6f26a3659a53b175c2ecc21e8dbac670
+02fbd1250af78ce6eb7b9ff9de6fc2d04e5f66ce	2025-01-09T05:17:59Z	OSM-Made	Update gitignore	https://github.com/RetroGenPS/Fusion/commit/02fbd1250af78ce6eb7b9ff9de6fc2d04e5f66ce
+a5a1aac71f7d036d5cc7d4f16389ce71c8c9d390	2025-01-09T05:16:33Z	OSM-Made	Add project files.	https://github.com/RetroGenPS/Fusion/commit/a5a1aac71f7d036d5cc7d4f16389ce71c8c9d390
+f6bcb854dc40cec84c8e0e6a7796b4a85f5e5fd5	2025-01-09T05:16:31Z	OSM-Made	Add .gitattributes, .gitignore, and README.md.	https://github.com/RetroGenPS/Fusion/commit/f6bcb854dc40cec84c8e0e6a7796b4a85f5e5fd5
+=== ArabPixel/Fusion metadata ===
+ArabPixel/Fusion	2026-01-18T08:01:15Z	2026-01-18T09:21:51Z	master	true	AetherPS/Fusion	AetherPS/Fusion	2026-01-18T09:21:47Z
+=== tree ===
+=== commits relevant ===
+77a16b7f236df46f14bb2c744a24540e57245214	2026-01-18T09:21:42Z	ArabPixel	13.02 Kernel offsets	https://github.com/ArabPixel/Fusion/commit/77a16b7f236df46f14bb2c744a24540e57245214
+a1b05d4a22d951c1603c06c49b1b869653ce5c6f	2026-01-18T06:11:49Z	OSM-Made	Add devkit panel.	https://github.com/ArabPixel/Fusion/commit/a1b05d4a22d951c1603c06c49b1b869653ce5c6f
+72ab0f822ea2740022f7eb9d8a53ccdc0e29cd47	2026-01-18T05:33:22Z	OSM-Made	Add new icons & welcome message for the future.	https://github.com/ArabPixel/Fusion/commit/72ab0f822ea2740022f7eb9d8a53ccdc0e29cd47
+557d4746098d39e8297da343b0898b88f156313b	2026-01-18T02:22:44Z	OSM-Made	Update logos.	https://github.com/ArabPixel/Fusion/commit/557d4746098d39e8297da343b0898b88f156313b
+441ce2365d61bcc029732d11bebc2e3691b9aedc	2026-01-17T22:00:59Z	OSM-Made	fix log.	https://github.com/ArabPixel/Fusion/commit/441ce2365d61bcc029732d11bebc2e3691b9aedc
+a45f303ffd2cc0f169a34b30c63a54583dd73b71	2026-01-17T21:58:44Z	OSM-Made	Add better thread fix for C# & fix bug in method override.	https://github.com/ArabPixel/Fusion/commit/a45f303ffd2cc0f169a34b30c63a54583dd73b71
+d87a03763d91182d3905b96c64784326c27d4c3c	2026-01-17T21:19:49Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/ArabPixel/Fusion/commit/d87a03763d91182d3905b96c64784326c27d4c3c
+ce5eeae89b91fa8b74d292e4b392fef7e796561b	2026-01-17T21:19:21Z	OSM-Made	move increment_version.py to the scripts folder.	https://github.com/ArabPixel/Fusion/commit/ce5eeae89b91fa8b74d292e4b392fef7e796561b
+5ade31daf3634e9cf6d4f276e97c291f4e527bee	2026-01-17T21:19:21Z	OSM-Made	move increment_version.py to the scripts folder.	https://github.com/ArabPixel/Fusion/commit/5ade31daf3634e9cf6d4f276e97c291f4e527bee
+009efd3d9db27dd62d494b04ccdb416b70e49b98	2026-01-17T20:45:45Z	OSM-Made	add references back.	https://github.com/ArabPixel/Fusion/commit/009efd3d9db27dd62d494b04ccdb416b70e49b98
+7b256e9cb0a118ef1b34b9c0f02e62c39207acbf	2026-01-17T20:43:36Z	OSM-Made	Fix build issues with loader and fix ascii art.	https://github.com/ArabPixel/Fusion/commit/7b256e9cb0a118ef1b34b9c0f02e62c39207acbf
+3ccf81d82f54391432eb24648b8d00600d933686	2026-01-17T15:41:15Z	OSM-Made	New ascii art.	https://github.com/ArabPixel/Fusion/commit/3ccf81d82f54391432eb24648b8d00600d933686
+b960c6c69f60dc11a44682037132eb1b731ddade	2026-01-17T06:56:49Z	OSM-Made	Add panic patches.	https://github.com/ArabPixel/Fusion/commit/b960c6c69f60dc11a44682037132eb1b731ddade
+52a4e50a298a7407be4092db065280c8ae20dee7	2026-01-17T00:20:36Z	OSM-Made	Firmware agnostic first pass.	https://github.com/ArabPixel/Fusion/commit/52a4e50a298a7407be4092db065280c8ae20dee7
+9fb086a69d9c27cab430e2bc48cc738ce5a2b10f	2026-01-16T04:46:26Z	OSM-Made	Add sysctl entries for managing fusion feature flags and settings.	https://github.com/ArabPixel/Fusion/commit/9fb086a69d9c27cab430e2bc48cc738ce5a2b10f
+f9c2f618cedc26a848eb1aa7645eb3ba3a23140b	2026-01-16T02:14:42Z	OSM-Made	Convert to zlib compression.	https://github.com/ArabPixel/Fusion/commit/f9c2f618cedc26a848eb1aa7645eb3ba3a23140b
+b111d9ed384fffe2b39580fbb14881bdafef8958	2026-01-15T23:46:49Z	OSM-Made	Add support for 13.00	https://github.com/ArabPixel/Fusion/commit/b111d9ed384fffe2b39580fbb14881bdafef8958
+43c6da66bf3776d81556bb252b2a9dc1f507c238	2026-01-15T23:04:42Z	OSM-Made	Remove some old patches.	https://github.com/ArabPixel/Fusion/commit/43c6da66bf3776d81556bb252b2a9dc1f507c238
+bcaf910220a417d4ba3909fa15f7553e993a8ec3	2026-01-15T23:02:25Z	OSM-Made	Remove shell ui offsets.	https://github.com/ArabPixel/Fusion/commit/bcaf910220a417d4ba3909fa15f7553e993a8ec3
+a912dd69dafef8c4658ef7eb1f33ddd5079a1436	2026-01-15T23:01:49Z	OSM-Made	Fix patch for 13.00	https://github.com/ArabPixel/Fusion/commit/a912dd69dafef8c4658ef7eb1f33ddd5079a1436
+a8b8c7e5f7b38ece5580b731b4aedb59e2cf69bb	2026-01-15T23:00:59Z	OSM-Made	Add the rest of the 12.50 support.	https://github.com/ArabPixel/Fusion/commit/a8b8c7e5f7b38ece5580b731b4aedb59e2cf69bb
+e80308ee2458ba4dde0cae874cc9403e7069124a	2026-01-15T22:23:08Z	ArabPixel	12.50 Kernel offsets (#10)	https://github.com/ArabPixel/Fusion/commit/e80308ee2458ba4dde0cae874cc9403e7069124a
+899ab07fae42b735acfde2a70e1fc6a69174e256	2026-01-15T18:24:17Z	OSM-Made	Add flag for some experimental JIT things.	https://github.com/ArabPixel/Fusion/commit/899ab07fae42b735acfde2a70e1fc6a69174e256
+c2282c25ddeccf92b6bdf3f765bbd911e9db5935	2026-01-15T18:16:58Z	OSM-Made	Fix warnings.	https://github.com/ArabPixel/Fusion/commit/c2282c25ddeccf92b6bdf3f765bbd911e9db5935
+91d01990fff1572cb1a3d15d0e9087169a5a2b44	2026-01-15T18:13:16Z	OSM-Made	Improve build system for smaller size & more simple build.	https://github.com/ArabPixel/Fusion/commit/91d01990fff1572cb1a3d15d0e9087169a5a2b44
+1f3e87a639ce87dcf3296de87e371c3a1ba84a26	2026-01-15T05:37:09Z	OSM-Made	Add custom manifest URI (Thanks Jtag), System area icon that redirects to the fusion menu & pack all assets into the dll.	https://github.com/ArabPixel/Fusion/commit/1f3e87a639ce87dcf3296de87e371c3a1ba84a26
+4fb3368fb019959853a27978ac7c73139b9e2d74	2026-01-14T15:43:03Z	OSM-Made	Improve method hooks for c#.	https://github.com/ArabPixel/Fusion/commit/4fb3368fb019959853a27978ac7c73139b9e2d74
+4ac1d316f5e9ea938c037cb2a7f7350206edc02f	2026-01-14T15:37:39Z	OSM-Made	Bug fixes for 12.02.	https://github.com/ArabPixel/Fusion/commit/4ac1d316f5e9ea938c037cb2a7f7350206edc02f
+5f8d2d761aa4387dba2066213ef939fb33f89e5f	2026-01-13T00:29:24Z	OSM-Made	fix typo.	https://github.com/ArabPixel/Fusion/commit/5f8d2d761aa4387dba2066213ef939fb33f89e5f
+f8a4fa8635d1f01fb950ac53618407d51ae3f6d0	2026-01-13T00:27:40Z	OSM-Made	Fix DECI patch not patching the first isAssistMode check.	https://github.com/ArabPixel/Fusion/commit/f8a4fa8635d1f01fb950ac53618407d51ae3f6d0
+9ae958bc733dda39fda71f529d30332e80b0135f	2026-01-12T04:24:43Z	OSM-Made	Clean up usings.	https://github.com/ArabPixel/Fusion/commit/9ae958bc733dda39fda71f529d30332e80b0135f
+6ca35b5f8948e4a9332680e1b75809db8e398fc7	2026-01-12T03:49:02Z	OSM-Made	Add some initial ShellUI fun	https://github.com/ArabPixel/Fusion/commit/6ca35b5f8948e4a9332680e1b75809db8e398fc7
+f8e879937b311327378fbcfb7b588d57abd853b1	2026-01-11T05:30:03Z	OSM-Made	Update stub maker.	https://github.com/ArabPixel/Fusion/commit/f8e879937b311327378fbcfb7b588d57abd853b1
+e031606cec90a1b9e1dd0f6f9a0aa4e59618dea4	2026-01-11T04:10:23Z	OSM-Made	Migrate ShellUI patches to the qa flags from the kernel patches & add the intdev flags for ShellUI JIT mode.	https://github.com/ArabPixel/Fusion/commit/e031606cec90a1b9e1dd0f6f9a0aa4e59618dea4
+cb5fce1cbbe62e6bf177d569e22329c33c1d2e6b	2026-01-10T15:31:35Z	OSM-Made	Change some order of operations and naming clashing.	https://github.com/ArabPixel/Fusion/commit/cb5fce1cbbe62e6bf177d569e22329c33c1d2e6b
+9016665766b1f4d347eae6f9adfd5135acc02ccb	2026-01-04T22:26:29Z	OSM-Made	Fix build issue.	https://github.com/ArabPixel/Fusion/commit/9016665766b1f4d347eae6f9adfd5135acc02ccb
+8b4cead419cb75c62778341d616e60bf596b8a6c	2026-01-04T02:19:35Z	OSM-Made	Update some sub modules.	https://github.com/ArabPixel/Fusion/commit/8b4cead419cb75c62778341d616e60bf596b8a6c
+7e013020f49d34575bdd1ab60cd4012cb6d4b895	2026-01-03T15:32:27Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/ArabPixel/Fusion/commit/7e013020f49d34575bdd1ab60cd4012cb6d4b895
+d8fde9cf7335f9a51729a3c514c3beeeaadc42b3	2026-01-03T15:32:23Z	OSM-Made	Improve plugin loaders ability to check if the process is ready.	https://github.com/ArabPixel/Fusion/commit/d8fde9cf7335f9a51729a3c514c3beeeaadc42b3
+6b786db3e29fc14ece360894f940d2f0966ae38e	2026-01-03T08:56:33Z	Greg	Update README.md	https://github.com/ArabPixel/Fusion/commit/6b786db3e29fc14ece360894f940d2f0966ae38e
+e205cc8019c95830210f86d589438786fccaa988	2026-01-03T08:22:32Z	OSM-Made	Update README & docs.	https://github.com/ArabPixel/Fusion/commit/e205cc8019c95830210f86d589438786fccaa988
+b084ce547991e9c664d24261404af68fb82c8377	2026-01-03T07:41:26Z	OSM-Made	update libUtils version.	https://github.com/ArabPixel/Fusion/commit/b084ce547991e9c664d24261404af68fb82c8377
+4029db7da77fd21ceb8b8fdeda06edeacf424b94	2026-01-03T05:38:07Z	OSM-Made	Add daemon system.	https://github.com/ArabPixel/Fusion/commit/4029db7da77fd21ceb8b8fdeda06edeacf424b94
+97ace4304be650ea2d4ae459de760ba50c632570	2026-01-03T01:27:38Z	OSM-Made	Remove patches from the kernel since we patch from the userland now.	https://github.com/ArabPixel/Fusion/commit/97ace4304be650ea2d4ae459de760ba50c632570
+6dd93e295d3c852d7429dd14fc173d029b1db78f	2026-01-02T16:56:59Z	OSM-Made	Add some additional docs.	https://github.com/ArabPixel/Fusion/commit/6dd93e295d3c852d7429dd14fc173d029b1db78f
+c50690fb945c714c4aa9893144a74e426e4b228d	2026-01-02T16:47:21Z	OSM-Made	Add a simple plugin loader.	https://github.com/ArabPixel/Fusion/commit/c50690fb945c714c4aa9893144a74e426e4b228d
+3ee632458a9eca984d66097cb6f0b4dfcbbdc342	2026-01-02T04:30:28Z	OSM-Made	update lib fusion version.	https://github.com/ArabPixel/Fusion/commit/3ee632458a9eca984d66097cb6f0b4dfcbbdc342
+bf7c3d7b0bbb709f75a5e665362d8b5f617283fa	2026-01-02T03:38:37Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/ArabPixel/Fusion/commit/bf7c3d7b0bbb709f75a5e665362d8b5f617283fa
+a3679cea2dda4218a685b19eb29cfd5214692cd3	2026-01-02T03:38:32Z	OSM-Made	Add some credits	https://github.com/ArabPixel/Fusion/commit/a3679cea2dda4218a685b19eb29cfd5214692cd3
+4492d4968b917a08fb48d5e3df71e8a62c262797	2026-01-02T03:29:04Z	Greg	Create LICENSE	https://github.com/ArabPixel/Fusion/commit/4492d4968b917a08fb48d5e3df71e8a62c262797
+1290801111703b4edeaf4bf13c6b5d4f6d025360	2026-01-02T03:25:17Z	OSM-Made	Fix the deci dev port thread hanging the fusion daemon, add the friendly name in proc list and add some comments in the main.	https://github.com/ArabPixel/Fusion/commit/1290801111703b4edeaf4bf13c6b5d4f6d025360
+ce1dcd6da227447c7c2f4915c5e5fe4a1402b8e9	2026-01-01T22:35:22Z	OSM-Made	Add multi version support to deci launch.	https://github.com/ArabPixel/Fusion/commit/ce1dcd6da227447c7c2f4915c5e5fe4a1402b8e9
+7e2dc2e3e250013a7475bc955107105c9df933af	2026-01-01T22:24:00Z	OSM-Made	Update readme.	https://github.com/ArabPixel/Fusion/commit/7e2dc2e3e250013a7475bc955107105c9df933af
+4c996670d08c484d18c24669af75bb921fa82497	2026-01-01T22:22:41Z	OSM-Made	Update readme.	https://github.com/ArabPixel/Fusion/commit/4c996670d08c484d18c24669af75bb921fa82497
+148a3c54eded20f8893df2c57f28e2be77776f1c	2026-01-01T22:10:15Z	OSM-Made	clean up daemon a bit.	https://github.com/ArabPixel/Fusion/commit/148a3c54eded20f8893df2c57f28e2be77776f1c
+daee0e5a16ac277a137c24429f257990076aea21	2026-01-01T22:03:47Z	OSM-Made	Add ftp.	https://github.com/ArabPixel/Fusion/commit/daee0e5a16ac277a137c24429f257990076aea21
+33c21fb5327c645c6e21841c839b92eaab3a67b1	2026-01-01T17:12:10Z	OSM-Made	fix comment.	https://github.com/ArabPixel/Fusion/commit/33c21fb5327c645c6e21841c839b92eaab3a67b1
+369cae476b1c0ee89db7a72027643644839c42f7	2026-01-01T16:58:09Z	OSM-Made	update git ignore.	https://github.com/ArabPixel/Fusion/commit/369cae476b1c0ee89db7a72027643644839c42f7
+80aa5b92a185dcbd9950f5bc71ebb0b1842a46d4	2026-01-01T16:57:35Z	OSM-Made	Clean up.	https://github.com/ArabPixel/Fusion/commit/80aa5b92a185dcbd9950f5bc71ebb0b1842a46d4
+78a8afbb7ab7cd6a1b465b26b6f41c5f8cb8e8b7	2026-01-01T16:53:48Z	OSM-Made	Mount system as root for daemon creation.	https://github.com/ArabPixel/Fusion/commit/78a8afbb7ab7cd6a1b465b26b6f41c5f8cb8e8b7
+89edd6225d05bbe3148990a1ce770e52e03f02f2	2026-01-01T16:45:56Z	OSM-Made	Unify type usage across the kernel/loader projects.	https://github.com/ArabPixel/Fusion/commit/89edd6225d05bbe3148990a1ce770e52e03f02f2
+dc3bc52fd3f27c5a5f42f556a1cd10f832362cc4	2026-01-01T16:28:09Z	OSM-Made	Fix issues with kernel builds and jailbreaking.	https://github.com/ArabPixel/Fusion/commit/dc3bc52fd3f27c5a5f42f556a1cd10f832362cc4
+1107ce12f94a24e92193c8b636ad449f88d6020d	2026-01-01T16:07:00Z	OSM-Made	Add daemon launching.	https://github.com/ArabPixel/Fusion/commit/1107ce12f94a24e92193c8b636ad449f88d6020d
+7df8dd097d3c6b7e318ac6c3074f936bb21b0354	2025-12-31T20:11:04Z	OSM-Made	Big refactor for better organization.	https://github.com/ArabPixel/Fusion/commit/7df8dd097d3c6b7e318ac6c3074f936bb21b0354
+837d6230156c926bf0c41487707d3e887c0193f3	2025-12-31T16:51:50Z	OSM-Made	Clean up loader and fix a bug.	https://github.com/ArabPixel/Fusion/commit/837d6230156c926bf0c41487707d3e887c0193f3
+e97e62794c23b942921af3e055efacf5a445f6c2	2025-12-31T16:31:57Z	OSM-Made	Clean up for more consistent naming conventions.	https://github.com/ArabPixel/Fusion/commit/e97e62794c23b942921af3e055efacf5a445f6c2
+c9ffff94d3c66bee5f5e8790f06b13cfe9eb9f05	2025-12-29T23:03:27Z	OSM-Made	Update driver version.	https://github.com/ArabPixel/Fusion/commit/c9ffff94d3c66bee5f5e8790f06b13cfe9eb9f05
+c2828ef73ff62a3615e4195fda0a47278e457de5	2025-12-29T19:35:42Z	OSM-Made	update driver.	https://github.com/ArabPixel/Fusion/commit/c2828ef73ff62a3615e4195fda0a47278e457de5
+cf73bfdae47411182d546eba7159f44b0b8cc8f8	2025-12-29T19:27:15Z	OSM-Made	Add some spacing.	https://github.com/ArabPixel/Fusion/commit/cf73bfdae47411182d546eba7159f44b0b8cc8f8
+26ae2b7b257a0a097fe9345d978b24733f603435	2025-12-29T19:26:58Z	OSM-Made	Add kernel get base, kernel r/w & nvs r/w.	https://github.com/ArabPixel/Fusion/commit/26ae2b7b257a0a097fe9345d978b24733f603435
+c7dfc6e40a72d9306c9e0e7d7e05c19b53f57a4e	2025-12-26T03:34:07Z	OSM-Made	Update libUtils.	https://github.com/ArabPixel/Fusion/commit/c7dfc6e40a72d9306c9e0e7d7e05c19b53f57a4e
+3d7f90e67aef419d7d1234bff99eb7870b8e5c9e	2025-12-22T22:29:35Z	OSM-Made	FTP daemon starter place holder.	https://github.com/ArabPixel/Fusion/commit/3d7f90e67aef419d7d1234bff99eb7870b8e5c9e
+4b4a2796f190264487674787339fe647fd4de0d8	2025-12-22T22:26:07Z	OSM-Made	Adjust config because read/write file return of 0 means success.	https://github.com/ArabPixel/Fusion/commit/4b4a2796f190264487674787339fe647fd4de0d8
+0aa2eecab513704e0cd13e56cd90f2d3f71eb884	2025-12-22T21:47:04Z	OSM-Made	Add some coments to the deci starter.	https://github.com/ArabPixel/Fusion/commit/0aa2eecab513704e0cd13e56cd90f2d3f71eb884
+34ad19535db2795e686d21f9a1929559fc73d1e4	2025-12-22T21:20:56Z	OSM-Made	Give fusion the ability to load deci.	https://github.com/ArabPixel/Fusion/commit/34ad19535db2795e686d21f9a1929559fc73d1e4
+b3a965103b249fbecb00d5064911bdaeee481712	2025-12-22T19:37:47Z	OSM-Made	Create default config if one does not exist.	https://github.com/ArabPixel/Fusion/commit/b3a965103b249fbecb00d5064911bdaeee481712
+33170cacc3878838cfaa599eed79b3b2c9d86da4	2025-12-22T19:27:52Z	OSM-Made	Update fusion driver lib.	https://github.com/ArabPixel/Fusion/commit/33170cacc3878838cfaa599eed79b3b2c9d86da4
+3105097f7bf2c5c323e477bcc37be05ae49085eb	2025-12-22T19:23:34Z	OSM-Made	Add initial config setup.	https://github.com/ArabPixel/Fusion/commit/3105097f7bf2c5c323e477bcc37be05ae49085eb
+4d7da1f0599dd5e1f9b8ace59e091df4ae7ef2f2	2025-12-01T01:35:44Z	OSM-Made	Update StubMaker	https://github.com/ArabPixel/Fusion/commit/4d7da1f0599dd5e1f9b8ace59e091df4ae7ef2f2
+f402935e399f4badda5dfef56e2043af647436d9	2025-11-27T03:13:57Z	OSM-Made	Simplify the kernel more.	https://github.com/ArabPixel/Fusion/commit/f402935e399f4badda5dfef56e2043af647436d9
+b08786c9c81ce05e88b0d906aea2e071815b05cf	2025-11-25T15:04:45Z	Greg	Do all Userland patches from the Daemon (#8)\n\n* Initial setup to make userland system patches from userland.\n\n* Remove userland patches from kernel.\n\n* Finished porting all patches to userland daemon.	https://github.com/ArabPixel/Fusion/commit/b08786c9c81ce05e88b0d906aea2e071815b05cf
+e6f87829584987c03d4c83f9e311ec1a89716a47	2025-11-25T03:26:18Z	OSM-Made	Add initial cfg using more basic json.	https://github.com/ArabPixel/Fusion/commit/e6f87829584987c03d4c83f9e311ec1a89716a47
+377d3a32e5479cb4842b50bc4c2c2b2f4ae8a2bc	2025-11-09T16:47:10Z	OSM-Made	Update shared module	https://github.com/ArabPixel/Fusion/commit/377d3a32e5479cb4842b50bc4c2c2b2f4ae8a2bc
+326a779bee0fdfe4019ef37a3518f5c5cafa2036	2025-11-08T03:24:02Z	OSM-Made	fix mistake with lib info	https://github.com/ArabPixel/Fusion/commit/326a779bee0fdfe4019ef37a3518f5c5cafa2036
+269ce2df8b2f754e2f7358238b07b577629d3b6f	2025-11-08T03:20:46Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/ArabPixel/Fusion/commit/269ce2df8b2f754e2f7358238b07b577629d3b6f
+7bbeaa27fc49ff2b52b8a846a2d8a34197019f9f	2025-11-08T03:20:39Z	OSM-Made	fix blunder with mutex	https://github.com/ArabPixel/Fusion/commit/7bbeaa27fc49ff2b52b8a846a2d8a34197019f9f
+b6557864f30eb3c3415c2d721b0d6a30c1cac8df	2025-11-07T00:46:46Z	Greg	Re organize project and support building with out side car. (#7)	https://github.com/ArabPixel/Fusion/commit/b6557864f30eb3c3415c2d721b0d6a30c1cac8df
+e7db66132eb1b574b71c431467b7cb63f60db030	2025-11-06T16:16:30Z	Greg	Syscall cleanup (#6)\n\n* Remove the last of the system calls made in kernel land.\n\n* Remove the debug flag	https://github.com/ArabPixel/Fusion/commit/e7db66132eb1b574b71c431467b7cb63f60db030
+de910f213a0ec69d915ad6154d9e51701300f373	2025-11-06T16:15:27Z	OSM-Made	Small clean up.	https://github.com/ArabPixel/Fusion/commit/de910f213a0ec69d915ad6154d9e51701300f373
+2764fb93310878bf49f3dfe8b9fe92444d6ef7dd	2025-11-06T06:35:37Z	Greg	Detour cleanup (#4)\n\n* Initial conversion to Detours.\n\n* Switch to mono detour class\n\n* Fix minor mistake and simplify.\n\n* Clean up Detour memory pool.	https://github.com/ArabPixel/Fusion/commit/2764fb93310878bf49f3dfe8b9fe92444d6ef7dd
+5fcee382ddab16343edcd9a1204a320fe9dfa8eb	2025-11-06T00:28:31Z	OSM-Made	Re-Organize Kernel to use folders in src/inc	https://github.com/ArabPixel/Fusion/commit/5fcee382ddab16343edcd9a1204a320fe9dfa8eb
+4df83f4141c911d03aca204c451fc39aaa85ab42	2025-11-05T18:02:48Z	OSM-Made	Re-Organize the types instead of having monolithic types.h	https://github.com/ArabPixel/Fusion/commit/4df83f4141c911d03aca204c451fc39aaa85ab42
+c3eac378fa8e51b3d21a3b5685e409c0791cf53d	2025-11-05T00:17:45Z	OSM-Made	fix mistake with lock.	https://github.com/ArabPixel/Fusion/commit/c3eac378fa8e51b3d21a3b5685e409c0791cf53d
+156eb45b9a53c6b9b7095a716949a22bbf85fb0a	2025-11-04T23:57:30Z	OSM-Made	Make the find proc by name more correct, clean up un-needed syscalls & rmove old patches.	https://github.com/ArabPixel/Fusion/commit/156eb45b9a53c6b9b7095a716949a22bbf85fb0a
+fd5bf6aaaad452001c05f69a6229d1fc5ca22d03	2025-11-04T06:06:27Z	OSM-Made	Rework the way we un hide the driver.	https://github.com/ArabPixel/Fusion/commit/fd5bf6aaaad452001c05f69a6229d1fc5ca22d03
+725cb8c0e78864b6d145a0fb92c4d271f0adf286	2025-11-04T03:10:22Z	OSM-Made	Fix embed name	https://github.com/ArabPixel/Fusion/commit/725cb8c0e78864b6d145a0fb92c4d271f0adf286
+274f2c7efe528c4b256fbe08df408c9e44e2f911	2025-11-04T03:04:51Z	OSM-Made	update driver module.	https://github.com/ArabPixel/Fusion/commit/274f2c7efe528c4b256fbe08df408c9e44e2f911
+5f7dcdbba17fefe146d035ec59ee9ffb99fd4e68	2025-11-04T03:03:25Z	OSM-Made	fix proc locks, dlsym mistakes and update shared module.	https://github.com/ArabPixel/Fusion/commit/5f7dcdbba17fefe146d035ec59ee9ffb99fd4e68
+de1124dbf03bf0db90cd23e8b7e2234dce509f10	2025-11-04T01:47:52Z	OSM-Made	Fix bug where no return was present for missing driver defs and extending fusion daemon some more.	https://github.com/ArabPixel/Fusion/commit/de1124dbf03bf0db90cd23e8b7e2234dce509f10
+38949fa3f60b37d1d759809f631e2925f04e2231	2025-11-02T22:09:19Z	OSM-Made	Dont load kernel twice & Add Fusion Daemon.	https://github.com/ArabPixel/Fusion/commit/38949fa3f60b37d1d759809f631e2925f04e2231
+bd32f7f3a21dbf0d1acde555cbbb1d63eedb7d41	2025-11-02T16:32:34Z	OSM-Made	Re-organize sidecar and fix the json settings.	https://github.com/ArabPixel/Fusion/commit/bd32f7f3a21dbf0d1acde555cbbb1d63eedb7d41
+18dfb875f26583946ba772350df68b62ced28b5a	2025-11-02T16:00:11Z	OSM-Made	re-organize the loader.	https://github.com/ArabPixel/Fusion/commit/18dfb875f26583946ba772350df68b62ced28b5a
+1ef510808958d263d42eb19d94a4459cb03dae1f	2025-11-02T15:52:44Z	OSM-Made	Update make file to clean up better.	https://github.com/ArabPixel/Fusion/commit/1ef510808958d263d42eb19d94a4459cb03dae1f
+b35cf27cf0767a8fe4b3a1aa979759af83692533	2025-11-02T05:56:08Z	OSM-Made	Fix sidecar.	https://github.com/ArabPixel/Fusion/commit/b35cf27cf0767a8fe4b3a1aa979759af83692533
+eb0a95cde362be3d7f304347d64449e04b875d51	2025-11-02T05:31:49Z	OSM-Made	Work on fixing sidecar & add a missing mutex unloack for pfind.	https://github.com/ArabPixel/Fusion/commit/eb0a95cde362be3d7f304347d64449e04b875d51
+4595db9d4d29ace126b1b414f55d88de20a1a3a4	2025-11-01T04:59:56Z	OSM-Made	Clean up driver code more.	https://github.com/ArabPixel/Fusion/commit/4595db9d4d29ace126b1b414f55d88de20a1a3a4
+7f5ff58e94ddd206844072d4968449c1a6338d88	2025-11-01T04:37:31Z	OSM-Made	Add bounds check for get libs.	https://github.com/ArabPixel/Fusion/commit/7f5ff58e94ddd206844072d4968449c1a6338d88
+4f138d326400caf35e9717a6ff01ddeebe975f17	2025-11-01T04:33:00Z	OSM-Made	Update shared module version.	https://github.com/ArabPixel/Fusion/commit/4f138d326400caf35e9717a6ff01ddeebe975f17
+1a7cd2ca016d3785079d06a16421ae2b66ff4505	2025-11-01T00:57:36Z	OSM-Made	Update shared module.	https://github.com/ArabPixel/Fusion/commit/1a7cd2ca016d3785079d06a16421ae2b66ff4505
+43d58b025281b8d151f0869555b3caa8e631e6b0	2025-11-01T00:56:33Z	OSM-Made	Tidy up, use pfind & use proper copyin.	https://github.com/ArabPixel/Fusion/commit/43d58b025281b8d151f0869555b3caa8e631e6b0
+cd7ace65db88f1fb15a274412855fa1326eb2899	2025-10-31T19:23:58Z	OSM-Made	Make an attempt to keep some backwards compat for Driver.	https://github.com/ArabPixel/Fusion/commit/cd7ace65db88f1fb15a274412855fa1326eb2899
+ae2752c10132c1f7595cdb724a3a1249c06f5924	2025-10-28T04:33:18Z	OSM-Made	Over hauling Driver, removing the need for Sidecar & Drop support for 11.00	https://github.com/ArabPixel/Fusion/commit/ae2752c10132c1f7595cdb724a3a1249c06f5924
+658c9303fd55bd532508259072c0c76948b1f0d1	2025-10-26T19:36:50Z	OSM-Made	Tidy up code & make dipswitches patched for kernel too.	https://github.com/ArabPixel/Fusion/commit/658c9303fd55bd532508259072c0c76948b1f0d1
+9e7921bd2d44fd6d59f88fb4204c3e4ab07d98dc	2025-10-25T15:32:20Z	OSM-Made	Migrate offsets to main repo and clean up patches for DECI.	https://github.com/ArabPixel/Fusion/commit/9e7921bd2d44fd6d59f88fb4204c3e4ab07d98dc
+55987664fd9a2ecd6baf2405ff772dacc7ffed28	2025-10-24T23:03:05Z	OSM-Made	only make the test cfg once.	https://github.com/ArabPixel/Fusion/commit/55987664fd9a2ecd6baf2405ff772dacc7ffed28
+70daef1d5fca2e87cbe3a2008bdfed9d6ff3f09e	2025-10-24T22:38:29Z	OSM-Made	Ensure the stubmaker is built for side car.	https://github.com/ArabPixel/Fusion/commit/70daef1d5fca2e87cbe3a2008bdfed9d6ff3f09e
+5c62dd6cbf3a04edbfbc132afc3d8a8a2115040f	2025-10-24T22:30:41Z	OSM-Made	Update builds so version checks work correctly.	https://github.com/ArabPixel/Fusion/commit/5c62dd6cbf3a04edbfbc132afc3d8a8a2115040f
+7d62ad5ad54ab5d15b4c9f42fb35d3dd9df59824	2025-10-24T22:05:14Z	OSM-Made	Make builds more standard and include build instructions.	https://github.com/ArabPixel/Fusion/commit/7d62ad5ad54ab5d15b4c9f42fb35d3dd9df59824
+480c2d4bf7731ec61ce4fe315322c1f40f8d1de9	2025-10-20T02:57:24Z	OSM-Made	Add Dmem config file	https://github.com/ArabPixel/Fusion/commit/480c2d4bf7731ec61ce4fe315322c1f40f8d1de9
+7253de107fb57ef727b2c049b7f89df161287681	2025-10-20T00:48:57Z	OSM-Made	Update build configs	https://github.com/ArabPixel/Fusion/commit/7253de107fb57ef727b2c049b7f89df161287681
+4824a9ea1ea116a8758c4a188ae34ca4cf6ec647	2025-10-20T00:43:06Z	OSM-Made	Switch Utils lib, Re-Organize Kernel & Userland, Add beta features & Make sidecar build deps when needed.	https://github.com/ArabPixel/Fusion/commit/4824a9ea1ea116a8758c4a188ae34ca4cf6ec647
+67811a04c75df427aa86b4b6427a1f46b59bd932	2025-10-13T20:28:55Z	OSM-Made	Add Sidecar project.	https://github.com/ArabPixel/Fusion/commit/67811a04c75df427aa86b4b6427a1f46b59bd932
+0001a7870973bc65c2e2eb1a91ec7cbd22fcacf1	2025-09-20T17:56:53Z	OSM-Made	Add credits for TTY redirect and offsets proper	https://github.com/ArabPixel/Fusion/commit/0001a7870973bc65c2e2eb1a91ec7cbd22fcacf1
+3110dabeb8e7e71a4479e4d3de51a43deed02037	2025-09-20T04:23:07Z	OSM-Made	Add TTY Redirector, Dip switches for DECI & fix bug for fpkgs.	https://github.com/ArabPixel/Fusion/commit/3110dabeb8e7e71a4479e4d3de51a43deed02037
+cc7be84ca33e206aca5e8942572f16d3ed931d73	2025-09-18T22:29:32Z	OSM-Made	Remove tests	https://github.com/ArabPixel/Fusion/commit/cc7be84ca33e206aca5e8942572f16d3ed931d73
+0e6b824e76d3976bcba39dd0a9d7cfb1598c2531	2025-09-18T22:25:49Z	OSM-Made	Fix lib replacer	https://github.com/ArabPixel/Fusion/commit/0e6b824e76d3976bcba39dd0a9d7cfb1598c2531
+b64590855cb6232c20fc5115c49015bcd30f54d7	2025-09-18T03:46:45Z	OSM-Made	Add dipsw spoofer, better patches and 12.00 support.	https://github.com/ArabPixel/Fusion/commit/b64590855cb6232c20fc5115c49015bcd30f54d7
+a486e87fb6026d8b64178ee27f00a3558fc9b2ac	2025-02-04T16:40:47Z	OSM-Made	Add fuse root mount.	https://github.com/ArabPixel/Fusion/commit/a486e87fb6026d8b64178ee27f00a3558fc9b2ac
+746db9d127392f1b98eb8ef554584b740a1e8642	2025-01-18T23:26:30Z	OSM-Made	Fix direct memory exlusion, patch dev_flag & remove reg spoofer entry not needed anymore.	https://github.com/ArabPixel/Fusion/commit/746db9d127392f1b98eb8ef554584b740a1e8642
+72b65aa9b37b3108c8675b6a5750d5b359cc0d83	2025-01-17T03:59:05Z	OSM-Made	Add logs for devkit checks	https://github.com/ArabPixel/Fusion/commit/72b65aa9b37b3108c8675b6a5750d5b359cc0d83
+c7536ab1abb78917de850fde179526af608f5b46	2025-01-17T03:35:24Z	OSM-Made	Add Registry Emulation test & devkit shellcore fpkg support.	https://github.com/ArabPixel/Fusion/commit/c7536ab1abb78917de850fde179526af608f5b46
+91586ec44f6e4536855b3a051c84b4bf1c05b8e5	2025-01-11T00:56:39Z	OSM-Made	Fix system calls & add safety.	https://github.com/ArabPixel/Fusion/commit/91586ec44f6e4536855b3a051c84b4bf1c05b8e5
+364a161786f266622fade9ba331493d633a1b07a	2025-01-10T13:31:39Z	OSM-Made	Update shared submodule.	https://github.com/ArabPixel/Fusion/commit/364a161786f266622fade9ba331493d633a1b07a
+db19cee7fa40a61a4a3f7f2a75e61404e4a09311	2025-01-10T13:29:28Z	OSM-Made	Add DevAct Spoofer & Add Library Replacer (Needs Fixing).	https://github.com/ArabPixel/Fusion/commit/db19cee7fa40a61a4a3f7f2a75e61404e4a09311
+fca0dc8e3521a2ced4f6614253a6ca0c5ce889a3	2025-01-10T05:32:32Z	OSM-Made	Add Driver, Dmem reservation & Feature Flags.	https://github.com/ArabPixel/Fusion/commit/fca0dc8e3521a2ced4f6614253a6ca0c5ce889a3
+ab460dccec3a13135b4ac2e744fb529cfa4a9fe6	2025-01-10T04:18:42Z	OSM-Made	Add Watcher.	https://github.com/ArabPixel/Fusion/commit/ab460dccec3a13135b4ac2e744fb529cfa4a9fe6
+48ab760bc2ce29e936ee2e14fe0dadf4f1930403	2025-01-10T04:08:04Z	OSM-Made	Clean up dbg prints, Add more patches & add fuse.	https://github.com/ArabPixel/Fusion/commit/48ab760bc2ce29e936ee2e14fe0dadf4f1930403
+21e46796c1589a095b5d76a1da087b4c313f2432	2025-01-10T03:48:33Z	OSM-Made	Add Working Hombrew.	https://github.com/ArabPixel/Fusion/commit/21e46796c1589a095b5d76a1da087b4c313f2432
+137d24caefa82ccbf640e1c627da57cb742f4aa1	2025-01-09T06:14:41Z	OSM-Made	Fully add elf loader and kernel elf.	https://github.com/ArabPixel/Fusion/commit/137d24caefa82ccbf640e1c627da57cb742f4aa1
+aa3783bf6f26a3659a53b175c2ecc21e8dbac670	2025-01-09T05:22:39Z	OSM-Made	Add Shared submodule.	https://github.com/ArabPixel/Fusion/commit/aa3783bf6f26a3659a53b175c2ecc21e8dbac670
+02fbd1250af78ce6eb7b9ff9de6fc2d04e5f66ce	2025-01-09T05:17:59Z	OSM-Made	Update gitignore	https://github.com/ArabPixel/Fusion/commit/02fbd1250af78ce6eb7b9ff9de6fc2d04e5f66ce
+a5a1aac71f7d036d5cc7d4f16389ce71c8c9d390	2025-01-09T05:16:33Z	OSM-Made	Add project files.	https://github.com/ArabPixel/Fusion/commit/a5a1aac71f7d036d5cc7d4f16389ce71c8c9d390
+f6bcb854dc40cec84c8e0e6a7796b4a85f5e5fd5	2025-01-09T05:16:31Z	OSM-Made	Add .gitattributes, .gitignore, and README.md.	https://github.com/ArabPixel/Fusion/commit/f6bcb854dc40cec84c8e0e6a7796b4a85f5e5fd5
+=== cualquiercosa327/Fusion metadata ===
+cualquiercosa327/Fusion	2026-01-04T17:22:12Z	2026-01-04T17:22:12Z	master	true	AetherPS/Fusion	AetherPS/Fusion	2026-01-04T02:19:39Z
+=== tree ===
+=== commits relevant ===
+8b4cead419cb75c62778341d616e60bf596b8a6c	2026-01-04T02:19:35Z	OSM-Made	Update some sub modules.	https://github.com/cualquiercosa327/Fusion/commit/8b4cead419cb75c62778341d616e60bf596b8a6c
+7e013020f49d34575bdd1ab60cd4012cb6d4b895	2026-01-03T15:32:27Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/cualquiercosa327/Fusion/commit/7e013020f49d34575bdd1ab60cd4012cb6d4b895
+d8fde9cf7335f9a51729a3c514c3beeeaadc42b3	2026-01-03T15:32:23Z	OSM-Made	Improve plugin loaders ability to check if the process is ready.	https://github.com/cualquiercosa327/Fusion/commit/d8fde9cf7335f9a51729a3c514c3beeeaadc42b3
+6b786db3e29fc14ece360894f940d2f0966ae38e	2026-01-03T08:56:33Z	Greg	Update README.md	https://github.com/cualquiercosa327/Fusion/commit/6b786db3e29fc14ece360894f940d2f0966ae38e
+e205cc8019c95830210f86d589438786fccaa988	2026-01-03T08:22:32Z	OSM-Made	Update README & docs.	https://github.com/cualquiercosa327/Fusion/commit/e205cc8019c95830210f86d589438786fccaa988
+b084ce547991e9c664d24261404af68fb82c8377	2026-01-03T07:41:26Z	OSM-Made	update libUtils version.	https://github.com/cualquiercosa327/Fusion/commit/b084ce547991e9c664d24261404af68fb82c8377
+4029db7da77fd21ceb8b8fdeda06edeacf424b94	2026-01-03T05:38:07Z	OSM-Made	Add daemon system.	https://github.com/cualquiercosa327/Fusion/commit/4029db7da77fd21ceb8b8fdeda06edeacf424b94
+97ace4304be650ea2d4ae459de760ba50c632570	2026-01-03T01:27:38Z	OSM-Made	Remove patches from the kernel since we patch from the userland now.	https://github.com/cualquiercosa327/Fusion/commit/97ace4304be650ea2d4ae459de760ba50c632570
+6dd93e295d3c852d7429dd14fc173d029b1db78f	2026-01-02T16:56:59Z	OSM-Made	Add some additional docs.	https://github.com/cualquiercosa327/Fusion/commit/6dd93e295d3c852d7429dd14fc173d029b1db78f
+c50690fb945c714c4aa9893144a74e426e4b228d	2026-01-02T16:47:21Z	OSM-Made	Add a simple plugin loader.	https://github.com/cualquiercosa327/Fusion/commit/c50690fb945c714c4aa9893144a74e426e4b228d
+3ee632458a9eca984d66097cb6f0b4dfcbbdc342	2026-01-02T04:30:28Z	OSM-Made	update lib fusion version.	https://github.com/cualquiercosa327/Fusion/commit/3ee632458a9eca984d66097cb6f0b4dfcbbdc342
+bf7c3d7b0bbb709f75a5e665362d8b5f617283fa	2026-01-02T03:38:37Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/cualquiercosa327/Fusion/commit/bf7c3d7b0bbb709f75a5e665362d8b5f617283fa
+a3679cea2dda4218a685b19eb29cfd5214692cd3	2026-01-02T03:38:32Z	OSM-Made	Add some credits	https://github.com/cualquiercosa327/Fusion/commit/a3679cea2dda4218a685b19eb29cfd5214692cd3
+4492d4968b917a08fb48d5e3df71e8a62c262797	2026-01-02T03:29:04Z	Greg	Create LICENSE	https://github.com/cualquiercosa327/Fusion/commit/4492d4968b917a08fb48d5e3df71e8a62c262797
+1290801111703b4edeaf4bf13c6b5d4f6d025360	2026-01-02T03:25:17Z	OSM-Made	Fix the deci dev port thread hanging the fusion daemon, add the friendly name in proc list and add some comments in the main.	https://github.com/cualquiercosa327/Fusion/commit/1290801111703b4edeaf4bf13c6b5d4f6d025360
+ce1dcd6da227447c7c2f4915c5e5fe4a1402b8e9	2026-01-01T22:35:22Z	OSM-Made	Add multi version support to deci launch.	https://github.com/cualquiercosa327/Fusion/commit/ce1dcd6da227447c7c2f4915c5e5fe4a1402b8e9
+7e2dc2e3e250013a7475bc955107105c9df933af	2026-01-01T22:24:00Z	OSM-Made	Update readme.	https://github.com/cualquiercosa327/Fusion/commit/7e2dc2e3e250013a7475bc955107105c9df933af
+4c996670d08c484d18c24669af75bb921fa82497	2026-01-01T22:22:41Z	OSM-Made	Update readme.	https://github.com/cualquiercosa327/Fusion/commit/4c996670d08c484d18c24669af75bb921fa82497
+148a3c54eded20f8893df2c57f28e2be77776f1c	2026-01-01T22:10:15Z	OSM-Made	clean up daemon a bit.	https://github.com/cualquiercosa327/Fusion/commit/148a3c54eded20f8893df2c57f28e2be77776f1c
+daee0e5a16ac277a137c24429f257990076aea21	2026-01-01T22:03:47Z	OSM-Made	Add ftp.	https://github.com/cualquiercosa327/Fusion/commit/daee0e5a16ac277a137c24429f257990076aea21
+33c21fb5327c645c6e21841c839b92eaab3a67b1	2026-01-01T17:12:10Z	OSM-Made	fix comment.	https://github.com/cualquiercosa327/Fusion/commit/33c21fb5327c645c6e21841c839b92eaab3a67b1
+369cae476b1c0ee89db7a72027643644839c42f7	2026-01-01T16:58:09Z	OSM-Made	update git ignore.	https://github.com/cualquiercosa327/Fusion/commit/369cae476b1c0ee89db7a72027643644839c42f7
+80aa5b92a185dcbd9950f5bc71ebb0b1842a46d4	2026-01-01T16:57:35Z	OSM-Made	Clean up.	https://github.com/cualquiercosa327/Fusion/commit/80aa5b92a185dcbd9950f5bc71ebb0b1842a46d4
+78a8afbb7ab7cd6a1b465b26b6f41c5f8cb8e8b7	2026-01-01T16:53:48Z	OSM-Made	Mount system as root for daemon creation.	https://github.com/cualquiercosa327/Fusion/commit/78a8afbb7ab7cd6a1b465b26b6f41c5f8cb8e8b7
+89edd6225d05bbe3148990a1ce770e52e03f02f2	2026-01-01T16:45:56Z	OSM-Made	Unify type usage across the kernel/loader projects.	https://github.com/cualquiercosa327/Fusion/commit/89edd6225d05bbe3148990a1ce770e52e03f02f2
+dc3bc52fd3f27c5a5f42f556a1cd10f832362cc4	2026-01-01T16:28:09Z	OSM-Made	Fix issues with kernel builds and jailbreaking.	https://github.com/cualquiercosa327/Fusion/commit/dc3bc52fd3f27c5a5f42f556a1cd10f832362cc4
+1107ce12f94a24e92193c8b636ad449f88d6020d	2026-01-01T16:07:00Z	OSM-Made	Add daemon launching.	https://github.com/cualquiercosa327/Fusion/commit/1107ce12f94a24e92193c8b636ad449f88d6020d
+7df8dd097d3c6b7e318ac6c3074f936bb21b0354	2025-12-31T20:11:04Z	OSM-Made	Big refactor for better organization.	https://github.com/cualquiercosa327/Fusion/commit/7df8dd097d3c6b7e318ac6c3074f936bb21b0354
+837d6230156c926bf0c41487707d3e887c0193f3	2025-12-31T16:51:50Z	OSM-Made	Clean up loader and fix a bug.	https://github.com/cualquiercosa327/Fusion/commit/837d6230156c926bf0c41487707d3e887c0193f3
+e97e62794c23b942921af3e055efacf5a445f6c2	2025-12-31T16:31:57Z	OSM-Made	Clean up for more consistent naming conventions.	https://github.com/cualquiercosa327/Fusion/commit/e97e62794c23b942921af3e055efacf5a445f6c2
+c9ffff94d3c66bee5f5e8790f06b13cfe9eb9f05	2025-12-29T23:03:27Z	OSM-Made	Update driver version.	https://github.com/cualquiercosa327/Fusion/commit/c9ffff94d3c66bee5f5e8790f06b13cfe9eb9f05
+c2828ef73ff62a3615e4195fda0a47278e457de5	2025-12-29T19:35:42Z	OSM-Made	update driver.	https://github.com/cualquiercosa327/Fusion/commit/c2828ef73ff62a3615e4195fda0a47278e457de5
+cf73bfdae47411182d546eba7159f44b0b8cc8f8	2025-12-29T19:27:15Z	OSM-Made	Add some spacing.	https://github.com/cualquiercosa327/Fusion/commit/cf73bfdae47411182d546eba7159f44b0b8cc8f8
+26ae2b7b257a0a097fe9345d978b24733f603435	2025-12-29T19:26:58Z	OSM-Made	Add kernel get base, kernel r/w & nvs r/w.	https://github.com/cualquiercosa327/Fusion/commit/26ae2b7b257a0a097fe9345d978b24733f603435
+c7dfc6e40a72d9306c9e0e7d7e05c19b53f57a4e	2025-12-26T03:34:07Z	OSM-Made	Update libUtils.	https://github.com/cualquiercosa327/Fusion/commit/c7dfc6e40a72d9306c9e0e7d7e05c19b53f57a4e
+3d7f90e67aef419d7d1234bff99eb7870b8e5c9e	2025-12-22T22:29:35Z	OSM-Made	FTP daemon starter place holder.	https://github.com/cualquiercosa327/Fusion/commit/3d7f90e67aef419d7d1234bff99eb7870b8e5c9e
+4b4a2796f190264487674787339fe647fd4de0d8	2025-12-22T22:26:07Z	OSM-Made	Adjust config because read/write file return of 0 means success.	https://github.com/cualquiercosa327/Fusion/commit/4b4a2796f190264487674787339fe647fd4de0d8
+0aa2eecab513704e0cd13e56cd90f2d3f71eb884	2025-12-22T21:47:04Z	OSM-Made	Add some coments to the deci starter.	https://github.com/cualquiercosa327/Fusion/commit/0aa2eecab513704e0cd13e56cd90f2d3f71eb884
+34ad19535db2795e686d21f9a1929559fc73d1e4	2025-12-22T21:20:56Z	OSM-Made	Give fusion the ability to load deci.	https://github.com/cualquiercosa327/Fusion/commit/34ad19535db2795e686d21f9a1929559fc73d1e4
+b3a965103b249fbecb00d5064911bdaeee481712	2025-12-22T19:37:47Z	OSM-Made	Create default config if one does not exist.	https://github.com/cualquiercosa327/Fusion/commit/b3a965103b249fbecb00d5064911bdaeee481712
+33170cacc3878838cfaa599eed79b3b2c9d86da4	2025-12-22T19:27:52Z	OSM-Made	Update fusion driver lib.	https://github.com/cualquiercosa327/Fusion/commit/33170cacc3878838cfaa599eed79b3b2c9d86da4
+3105097f7bf2c5c323e477bcc37be05ae49085eb	2025-12-22T19:23:34Z	OSM-Made	Add initial config setup.	https://github.com/cualquiercosa327/Fusion/commit/3105097f7bf2c5c323e477bcc37be05ae49085eb
+4d7da1f0599dd5e1f9b8ace59e091df4ae7ef2f2	2025-12-01T01:35:44Z	OSM-Made	Update StubMaker	https://github.com/cualquiercosa327/Fusion/commit/4d7da1f0599dd5e1f9b8ace59e091df4ae7ef2f2
+f402935e399f4badda5dfef56e2043af647436d9	2025-11-27T03:13:57Z	OSM-Made	Simplify the kernel more.	https://github.com/cualquiercosa327/Fusion/commit/f402935e399f4badda5dfef56e2043af647436d9
+b08786c9c81ce05e88b0d906aea2e071815b05cf	2025-11-25T15:04:45Z	Greg	Do all Userland patches from the Daemon (#8)\n\n* Initial setup to make userland system patches from userland.\n\n* Remove userland patches from kernel.\n\n* Finished porting all patches to userland daemon.	https://github.com/cualquiercosa327/Fusion/commit/b08786c9c81ce05e88b0d906aea2e071815b05cf
+e6f87829584987c03d4c83f9e311ec1a89716a47	2025-11-25T03:26:18Z	OSM-Made	Add initial cfg using more basic json.	https://github.com/cualquiercosa327/Fusion/commit/e6f87829584987c03d4c83f9e311ec1a89716a47
+377d3a32e5479cb4842b50bc4c2c2b2f4ae8a2bc	2025-11-09T16:47:10Z	OSM-Made	Update shared module	https://github.com/cualquiercosa327/Fusion/commit/377d3a32e5479cb4842b50bc4c2c2b2f4ae8a2bc
+326a779bee0fdfe4019ef37a3518f5c5cafa2036	2025-11-08T03:24:02Z	OSM-Made	fix mistake with lib info	https://github.com/cualquiercosa327/Fusion/commit/326a779bee0fdfe4019ef37a3518f5c5cafa2036
+269ce2df8b2f754e2f7358238b07b577629d3b6f	2025-11-08T03:20:46Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/cualquiercosa327/Fusion/commit/269ce2df8b2f754e2f7358238b07b577629d3b6f
+7bbeaa27fc49ff2b52b8a846a2d8a34197019f9f	2025-11-08T03:20:39Z	OSM-Made	fix blunder with mutex	https://github.com/cualquiercosa327/Fusion/commit/7bbeaa27fc49ff2b52b8a846a2d8a34197019f9f
+b6557864f30eb3c3415c2d721b0d6a30c1cac8df	2025-11-07T00:46:46Z	Greg	Re organize project and support building with out side car. (#7)	https://github.com/cualquiercosa327/Fusion/commit/b6557864f30eb3c3415c2d721b0d6a30c1cac8df
+e7db66132eb1b574b71c431467b7cb63f60db030	2025-11-06T16:16:30Z	Greg	Syscall cleanup (#6)\n\n* Remove the last of the system calls made in kernel land.\n\n* Remove the debug flag	https://github.com/cualquiercosa327/Fusion/commit/e7db66132eb1b574b71c431467b7cb63f60db030
+de910f213a0ec69d915ad6154d9e51701300f373	2025-11-06T16:15:27Z	OSM-Made	Small clean up.	https://github.com/cualquiercosa327/Fusion/commit/de910f213a0ec69d915ad6154d9e51701300f373
+2764fb93310878bf49f3dfe8b9fe92444d6ef7dd	2025-11-06T06:35:37Z	Greg	Detour cleanup (#4)\n\n* Initial conversion to Detours.\n\n* Switch to mono detour class\n\n* Fix minor mistake and simplify.\n\n* Clean up Detour memory pool.	https://github.com/cualquiercosa327/Fusion/commit/2764fb93310878bf49f3dfe8b9fe92444d6ef7dd
+5fcee382ddab16343edcd9a1204a320fe9dfa8eb	2025-11-06T00:28:31Z	OSM-Made	Re-Organize Kernel to use folders in src/inc	https://github.com/cualquiercosa327/Fusion/commit/5fcee382ddab16343edcd9a1204a320fe9dfa8eb
+4df83f4141c911d03aca204c451fc39aaa85ab42	2025-11-05T18:02:48Z	OSM-Made	Re-Organize the types instead of having monolithic types.h	https://github.com/cualquiercosa327/Fusion/commit/4df83f4141c911d03aca204c451fc39aaa85ab42
+c3eac378fa8e51b3d21a3b5685e409c0791cf53d	2025-11-05T00:17:45Z	OSM-Made	fix mistake with lock.	https://github.com/cualquiercosa327/Fusion/commit/c3eac378fa8e51b3d21a3b5685e409c0791cf53d
+156eb45b9a53c6b9b7095a716949a22bbf85fb0a	2025-11-04T23:57:30Z	OSM-Made	Make the find proc by name more correct, clean up un-needed syscalls & rmove old patches.	https://github.com/cualquiercosa327/Fusion/commit/156eb45b9a53c6b9b7095a716949a22bbf85fb0a
+fd5bf6aaaad452001c05f69a6229d1fc5ca22d03	2025-11-04T06:06:27Z	OSM-Made	Rework the way we un hide the driver.	https://github.com/cualquiercosa327/Fusion/commit/fd5bf6aaaad452001c05f69a6229d1fc5ca22d03
+725cb8c0e78864b6d145a0fb92c4d271f0adf286	2025-11-04T03:10:22Z	OSM-Made	Fix embed name	https://github.com/cualquiercosa327/Fusion/commit/725cb8c0e78864b6d145a0fb92c4d271f0adf286
+274f2c7efe528c4b256fbe08df408c9e44e2f911	2025-11-04T03:04:51Z	OSM-Made	update driver module.	https://github.com/cualquiercosa327/Fusion/commit/274f2c7efe528c4b256fbe08df408c9e44e2f911
+5f7dcdbba17fefe146d035ec59ee9ffb99fd4e68	2025-11-04T03:03:25Z	OSM-Made	fix proc locks, dlsym mistakes and update shared module.	https://github.com/cualquiercosa327/Fusion/commit/5f7dcdbba17fefe146d035ec59ee9ffb99fd4e68
+de1124dbf03bf0db90cd23e8b7e2234dce509f10	2025-11-04T01:47:52Z	OSM-Made	Fix bug where no return was present for missing driver defs and extending fusion daemon some more.	https://github.com/cualquiercosa327/Fusion/commit/de1124dbf03bf0db90cd23e8b7e2234dce509f10
+38949fa3f60b37d1d759809f631e2925f04e2231	2025-11-02T22:09:19Z	OSM-Made	Dont load kernel twice & Add Fusion Daemon.	https://github.com/cualquiercosa327/Fusion/commit/38949fa3f60b37d1d759809f631e2925f04e2231
+bd32f7f3a21dbf0d1acde555cbbb1d63eedb7d41	2025-11-02T16:32:34Z	OSM-Made	Re-organize sidecar and fix the json settings.	https://github.com/cualquiercosa327/Fusion/commit/bd32f7f3a21dbf0d1acde555cbbb1d63eedb7d41
+18dfb875f26583946ba772350df68b62ced28b5a	2025-11-02T16:00:11Z	OSM-Made	re-organize the loader.	https://github.com/cualquiercosa327/Fusion/commit/18dfb875f26583946ba772350df68b62ced28b5a
+1ef510808958d263d42eb19d94a4459cb03dae1f	2025-11-02T15:52:44Z	OSM-Made	Update make file to clean up better.	https://github.com/cualquiercosa327/Fusion/commit/1ef510808958d263d42eb19d94a4459cb03dae1f
+b35cf27cf0767a8fe4b3a1aa979759af83692533	2025-11-02T05:56:08Z	OSM-Made	Fix sidecar.	https://github.com/cualquiercosa327/Fusion/commit/b35cf27cf0767a8fe4b3a1aa979759af83692533
+eb0a95cde362be3d7f304347d64449e04b875d51	2025-11-02T05:31:49Z	OSM-Made	Work on fixing sidecar & add a missing mutex unloack for pfind.	https://github.com/cualquiercosa327/Fusion/commit/eb0a95cde362be3d7f304347d64449e04b875d51
+4595db9d4d29ace126b1b414f55d88de20a1a3a4	2025-11-01T04:59:56Z	OSM-Made	Clean up driver code more.	https://github.com/cualquiercosa327/Fusion/commit/4595db9d4d29ace126b1b414f55d88de20a1a3a4
+7f5ff58e94ddd206844072d4968449c1a6338d88	2025-11-01T04:37:31Z	OSM-Made	Add bounds check for get libs.	https://github.com/cualquiercosa327/Fusion/commit/7f5ff58e94ddd206844072d4968449c1a6338d88
+4f138d326400caf35e9717a6ff01ddeebe975f17	2025-11-01T04:33:00Z	OSM-Made	Update shared module version.	https://github.com/cualquiercosa327/Fusion/commit/4f138d326400caf35e9717a6ff01ddeebe975f17
+1a7cd2ca016d3785079d06a16421ae2b66ff4505	2025-11-01T00:57:36Z	OSM-Made	Update shared module.	https://github.com/cualquiercosa327/Fusion/commit/1a7cd2ca016d3785079d06a16421ae2b66ff4505
+43d58b025281b8d151f0869555b3caa8e631e6b0	2025-11-01T00:56:33Z	OSM-Made	Tidy up, use pfind & use proper copyin.	https://github.com/cualquiercosa327/Fusion/commit/43d58b025281b8d151f0869555b3caa8e631e6b0
+cd7ace65db88f1fb15a274412855fa1326eb2899	2025-10-31T19:23:58Z	OSM-Made	Make an attempt to keep some backwards compat for Driver.	https://github.com/cualquiercosa327/Fusion/commit/cd7ace65db88f1fb15a274412855fa1326eb2899
+ae2752c10132c1f7595cdb724a3a1249c06f5924	2025-10-28T04:33:18Z	OSM-Made	Over hauling Driver, removing the need for Sidecar & Drop support for 11.00	https://github.com/cualquiercosa327/Fusion/commit/ae2752c10132c1f7595cdb724a3a1249c06f5924
+658c9303fd55bd532508259072c0c76948b1f0d1	2025-10-26T19:36:50Z	OSM-Made	Tidy up code & make dipswitches patched for kernel too.	https://github.com/cualquiercosa327/Fusion/commit/658c9303fd55bd532508259072c0c76948b1f0d1
+9e7921bd2d44fd6d59f88fb4204c3e4ab07d98dc	2025-10-25T15:32:20Z	OSM-Made	Migrate offsets to main repo and clean up patches for DECI.	https://github.com/cualquiercosa327/Fusion/commit/9e7921bd2d44fd6d59f88fb4204c3e4ab07d98dc
+55987664fd9a2ecd6baf2405ff772dacc7ffed28	2025-10-24T23:03:05Z	OSM-Made	only make the test cfg once.	https://github.com/cualquiercosa327/Fusion/commit/55987664fd9a2ecd6baf2405ff772dacc7ffed28
+70daef1d5fca2e87cbe3a2008bdfed9d6ff3f09e	2025-10-24T22:38:29Z	OSM-Made	Ensure the stubmaker is built for side car.	https://github.com/cualquiercosa327/Fusion/commit/70daef1d5fca2e87cbe3a2008bdfed9d6ff3f09e
+5c62dd6cbf3a04edbfbc132afc3d8a8a2115040f	2025-10-24T22:30:41Z	OSM-Made	Update builds so version checks work correctly.	https://github.com/cualquiercosa327/Fusion/commit/5c62dd6cbf3a04edbfbc132afc3d8a8a2115040f
+7d62ad5ad54ab5d15b4c9f42fb35d3dd9df59824	2025-10-24T22:05:14Z	OSM-Made	Make builds more standard and include build instructions.	https://github.com/cualquiercosa327/Fusion/commit/7d62ad5ad54ab5d15b4c9f42fb35d3dd9df59824
+480c2d4bf7731ec61ce4fe315322c1f40f8d1de9	2025-10-20T02:57:24Z	OSM-Made	Add Dmem config file	https://github.com/cualquiercosa327/Fusion/commit/480c2d4bf7731ec61ce4fe315322c1f40f8d1de9
+7253de107fb57ef727b2c049b7f89df161287681	2025-10-20T00:48:57Z	OSM-Made	Update build configs	https://github.com/cualquiercosa327/Fusion/commit/7253de107fb57ef727b2c049b7f89df161287681
+4824a9ea1ea116a8758c4a188ae34ca4cf6ec647	2025-10-20T00:43:06Z	OSM-Made	Switch Utils lib, Re-Organize Kernel & Userland, Add beta features & Make sidecar build deps when needed.	https://github.com/cualquiercosa327/Fusion/commit/4824a9ea1ea116a8758c4a188ae34ca4cf6ec647
+67811a04c75df427aa86b4b6427a1f46b59bd932	2025-10-13T20:28:55Z	OSM-Made	Add Sidecar project.	https://github.com/cualquiercosa327/Fusion/commit/67811a04c75df427aa86b4b6427a1f46b59bd932
+0001a7870973bc65c2e2eb1a91ec7cbd22fcacf1	2025-09-20T17:56:53Z	OSM-Made	Add credits for TTY redirect and offsets proper	https://github.com/cualquiercosa327/Fusion/commit/0001a7870973bc65c2e2eb1a91ec7cbd22fcacf1
+3110dabeb8e7e71a4479e4d3de51a43deed02037	2025-09-20T04:23:07Z	OSM-Made	Add TTY Redirector, Dip switches for DECI & fix bug for fpkgs.	https://github.com/cualquiercosa327/Fusion/commit/3110dabeb8e7e71a4479e4d3de51a43deed02037
+cc7be84ca33e206aca5e8942572f16d3ed931d73	2025-09-18T22:29:32Z	OSM-Made	Remove tests	https://github.com/cualquiercosa327/Fusion/commit/cc7be84ca33e206aca5e8942572f16d3ed931d73
+0e6b824e76d3976bcba39dd0a9d7cfb1598c2531	2025-09-18T22:25:49Z	OSM-Made	Fix lib replacer	https://github.com/cualquiercosa327/Fusion/commit/0e6b824e76d3976bcba39dd0a9d7cfb1598c2531
+b64590855cb6232c20fc5115c49015bcd30f54d7	2025-09-18T03:46:45Z	OSM-Made	Add dipsw spoofer, better patches and 12.00 support.	https://github.com/cualquiercosa327/Fusion/commit/b64590855cb6232c20fc5115c49015bcd30f54d7
+a486e87fb6026d8b64178ee27f00a3558fc9b2ac	2025-02-04T16:40:47Z	OSM-Made	Add fuse root mount.	https://github.com/cualquiercosa327/Fusion/commit/a486e87fb6026d8b64178ee27f00a3558fc9b2ac
+746db9d127392f1b98eb8ef554584b740a1e8642	2025-01-18T23:26:30Z	OSM-Made	Fix direct memory exlusion, patch dev_flag & remove reg spoofer entry not needed anymore.	https://github.com/cualquiercosa327/Fusion/commit/746db9d127392f1b98eb8ef554584b740a1e8642
+72b65aa9b37b3108c8675b6a5750d5b359cc0d83	2025-01-17T03:59:05Z	OSM-Made	Add logs for devkit checks	https://github.com/cualquiercosa327/Fusion/commit/72b65aa9b37b3108c8675b6a5750d5b359cc0d83
+c7536ab1abb78917de850fde179526af608f5b46	2025-01-17T03:35:24Z	OSM-Made	Add Registry Emulation test & devkit shellcore fpkg support.	https://github.com/cualquiercosa327/Fusion/commit/c7536ab1abb78917de850fde179526af608f5b46
+91586ec44f6e4536855b3a051c84b4bf1c05b8e5	2025-01-11T00:56:39Z	OSM-Made	Fix system calls & add safety.	https://github.com/cualquiercosa327/Fusion/commit/91586ec44f6e4536855b3a051c84b4bf1c05b8e5
+364a161786f266622fade9ba331493d633a1b07a	2025-01-10T13:31:39Z	OSM-Made	Update shared submodule.	https://github.com/cualquiercosa327/Fusion/commit/364a161786f266622fade9ba331493d633a1b07a
+db19cee7fa40a61a4a3f7f2a75e61404e4a09311	2025-01-10T13:29:28Z	OSM-Made	Add DevAct Spoofer & Add Library Replacer (Needs Fixing).	https://github.com/cualquiercosa327/Fusion/commit/db19cee7fa40a61a4a3f7f2a75e61404e4a09311
+fca0dc8e3521a2ced4f6614253a6ca0c5ce889a3	2025-01-10T05:32:32Z	OSM-Made	Add Driver, Dmem reservation & Feature Flags.	https://github.com/cualquiercosa327/Fusion/commit/fca0dc8e3521a2ced4f6614253a6ca0c5ce889a3
+ab460dccec3a13135b4ac2e744fb529cfa4a9fe6	2025-01-10T04:18:42Z	OSM-Made	Add Watcher.	https://github.com/cualquiercosa327/Fusion/commit/ab460dccec3a13135b4ac2e744fb529cfa4a9fe6
+48ab760bc2ce29e936ee2e14fe0dadf4f1930403	2025-01-10T04:08:04Z	OSM-Made	Clean up dbg prints, Add more patches & add fuse.	https://github.com/cualquiercosa327/Fusion/commit/48ab760bc2ce29e936ee2e14fe0dadf4f1930403
+21e46796c1589a095b5d76a1da087b4c313f2432	2025-01-10T03:48:33Z	OSM-Made	Add Working Hombrew.	https://github.com/cualquiercosa327/Fusion/commit/21e46796c1589a095b5d76a1da087b4c313f2432
+137d24caefa82ccbf640e1c627da57cb742f4aa1	2025-01-09T06:14:41Z	OSM-Made	Fully add elf loader and kernel elf.	https://github.com/cualquiercosa327/Fusion/commit/137d24caefa82ccbf640e1c627da57cb742f4aa1
+aa3783bf6f26a3659a53b175c2ecc21e8dbac670	2025-01-09T05:22:39Z	OSM-Made	Add Shared submodule.	https://github.com/cualquiercosa327/Fusion/commit/aa3783bf6f26a3659a53b175c2ecc21e8dbac670
+02fbd1250af78ce6eb7b9ff9de6fc2d04e5f66ce	2025-01-09T05:17:59Z	OSM-Made	Update gitignore	https://github.com/cualquiercosa327/Fusion/commit/02fbd1250af78ce6eb7b9ff9de6fc2d04e5f66ce
+a5a1aac71f7d036d5cc7d4f16389ce71c8c9d390	2025-01-09T05:16:33Z	OSM-Made	Add project files.	https://github.com/cualquiercosa327/Fusion/commit/a5a1aac71f7d036d5cc7d4f16389ce71c8c9d390
+f6bcb854dc40cec84c8e0e6a7796b4a85f5e5fd5	2025-01-09T05:16:31Z	OSM-Made	Add .gitattributes, .gitignore, and README.md.	https://github.com/cualquiercosa327/Fusion/commit/f6bcb854dc40cec84c8e0e6a7796b4a85f5e5fd5
+=== ke5adb/Fusion metadata ===
+ke5adb/Fusion	2026-08-07T18:40:28Z	2026-08-07T18:40:28Z	master	true	AetherPS/Fusion	AetherPS/Fusion	2026-02-13T06:14:27Z
+=== tree ===
+=== commits relevant ===
+6974c06f79b97b32961777c9e253a470fae2f484	2026-02-13T06:14:23Z	OSM-Made	update plugins.	https://github.com/ke5adb/Fusion/commit/6974c06f79b97b32961777c9e253a470fae2f484
+349755f7bc231cb6902ef073bd6e790be45803ef	2026-02-13T05:22:14Z	OSM-Made	Fix debug builds, prevent loading twice and add config for dmem.	https://github.com/ke5adb/Fusion/commit/349755f7bc231cb6902ef073bd6e790be45803ef
+b2252498bbd38be9d764d45c0957f85f32c34305	2026-02-13T04:54:01Z	OSM-Made	First pass of config loading feature flags.	https://github.com/ke5adb/Fusion/commit/b2252498bbd38be9d764d45c0957f85f32c34305
+aad829cea19eba643a8ccde5eef690ac7a1c0af9	2026-02-06T23:48:27Z	OSM-Made	Fix a stack alignment issue.	https://github.com/ke5adb/Fusion/commit/aad829cea19eba643a8ccde5eef690ac7a1c0af9
+f2f4caf45cb4394a4a3d216b1106973f246082b7	2026-02-06T06:17:29Z	OSM-Made	make boot strapper not do system.	https://github.com/ke5adb/Fusion/commit/f2f4caf45cb4394a4a3d216b1106973f246082b7
+30bf8ec89464233a8c5268e1b3027fd4f6362568	2026-02-06T06:17:05Z	OSM-Made	add base address to extended call stack	https://github.com/ke5adb/Fusion/commit/30bf8ec89464233a8c5268e1b3027fd4f6362568
+0b0e8bb4cf6e62cce5c5dcb0040d4a88d3b359b7	2026-02-06T06:16:51Z	OSM-Made	update plugins	https://github.com/ke5adb/Fusion/commit/0b0e8bb4cf6e62cce5c5dcb0040d4a88d3b359b7
+b57cf20c990354131c175e0483ec26f79039a9ba	2026-01-31T17:24:38Z	OSM-Made	Converting loader to cpp	https://github.com/ke5adb/Fusion/commit/b57cf20c990354131c175e0483ec26f79039a9ba
+8abe9ad89e4ae67edcf047cb348e6f7c7660cafc	2026-01-30T05:18:58Z	OSM-Made	Ground work porting to ps4-payload-dev/sdk for the loader.	https://github.com/ke5adb/Fusion/commit/8abe9ad89e4ae67edcf047cb348e6f7c7660cafc
+ee93505e3c98dab713825ebe94f176cb8cb68aea	2026-01-30T04:35:50Z	OSM-Made	add settings ini and update submodule.	https://github.com/ke5adb/Fusion/commit/ee93505e3c98dab713825ebe94f176cb8cb68aea
+362af36ce120872dbdcb0af45d472da6e46ba8f2	2026-01-30T01:19:07Z	OSM-Made	Fix the bootstrapper by having it called after the original call.	https://github.com/ke5adb/Fusion/commit/362af36ce120872dbdcb0af45d472da6e46ba8f2
+de90821a7f58cef49636d96aac69f88f5ca5d4e8	2026-01-30T01:18:22Z	OSM-Made	add the auto build increment back.	https://github.com/ke5adb/Fusion/commit/de90821a7f58cef49636d96aac69f88f5ca5d4e8
+07b807e743aca94a2784c98147635f53ff00ef60	2026-01-29T06:23:29Z	OSM-Made	add plugin stuff and fix a mistake with deci	https://github.com/ke5adb/Fusion/commit/07b807e743aca94a2784c98147635f53ff00ef60
+2f05dcb95651b0e41fbe533f54687ea31379fb3d	2026-01-25T23:04:09Z	OSM-Made	update resources	https://github.com/ke5adb/Fusion/commit/2f05dcb95651b0e41fbe533f54687ea31379fb3d
+5c9ce97c275fbe0f845f3ad745f20a1075b0ebd2	2026-01-25T21:35:44Z	OSM-Made	add plugins setup.	https://github.com/ke5adb/Fusion/commit/5c9ce97c275fbe0f845f3ad745f20a1075b0ebd2
+e731fac6715941cfc05e966ae0f0aa1f78bc5c4c	2026-01-25T21:27:37Z	OSM-Made	Remove redundant submodules.	https://github.com/ke5adb/Fusion/commit/e731fac6715941cfc05e966ae0f0aa1f78bc5c4c
+f5e8cae017db16b89dcec8b6764dfa30dbd026b7	2026-01-25T21:13:33Z	OSM-Made	Remove daemon in and prep for plugin system replacement.	https://github.com/ke5adb/Fusion/commit/f5e8cae017db16b89dcec8b6764dfa30dbd026b7
+3b05a1a8de127d9aacd408204ad77015474f1b45	2026-01-25T21:04:19Z	OSM-Made	update libfusion driver sub module.	https://github.com/ke5adb/Fusion/commit/3b05a1a8de127d9aacd408204ad77015474f1b45
+5f8d6479a5b94b7fdcad7f76742bb8baf92d58f3	2026-01-25T21:04:03Z	OSM-Made	Update shared sub module.	https://github.com/ke5adb/Fusion/commit/5f8d6479a5b94b7fdcad7f76742bb8baf92d58f3
+21d9e0c204d28734d275b87d102ef05d737194da	2026-01-25T21:03:45Z	OSM-Made	Add a patch for prx load path checks.	https://github.com/ke5adb/Fusion/commit/21d9e0c204d28734d275b87d102ef05d737194da
+840f5f33c3530c285e800ec5b9040076e52e209a	2026-01-25T16:23:08Z	OSM-Made	Clean up shellcode.	https://github.com/ke5adb/Fusion/commit/840f5f33c3530c285e800ec5b9040076e52e209a
+8a283ff4f63f8a5e445004a35154d7a1e9d3612d	2026-01-25T06:20:54Z	OSM-Made	Add bootstrapper for plugins now.	https://github.com/ke5adb/Fusion/commit/8a283ff4f63f8a5e445004a35154d7a1e9d3612d
+99dd572c473b7a86f5f57eae4a169dfee8f973a7	2026-01-25T01:36:36Z	OSM-Made	Yeet garbage and update submodules.	https://github.com/ke5adb/Fusion/commit/99dd572c473b7a86f5f57eae4a169dfee8f973a7
+de5dcd230b9b8020672292b4c9b0eefaa5f015aa	2026-01-24T05:15:22Z	OSM-Made	add p_lock to rw mem too.	https://github.com/ke5adb/Fusion/commit/de5dcd230b9b8020672292b4c9b0eefaa5f015aa
+da4877eecf34c27cc9af01376ff595b34c8424c8	2026-01-24T05:13:27Z	OSM-Made	add p_lock for free too.	https://github.com/ke5adb/Fusion/commit/da4877eecf34c27cc9af01376ff595b34c8424c8
+509a14945aeaf7447ccdce0035a82e8558487168	2026-01-24T05:05:11Z	OSM-Made	Add debugging for the kernel, improve vm mapping and add some shellcode.	https://github.com/ke5adb/Fusion/commit/509a14945aeaf7447ccdce0035a82e8558487168
+4fa50a1a691e08e20f587f5a92626016b8f7dfbd	2026-01-23T05:56:09Z	OSM-Made	Add extended logging for fault prints to give module info for address.	https://github.com/ke5adb/Fusion/commit/4fa50a1a691e08e20f587f5a92626016b8f7dfbd
+f62dba92b571283f0efa195bdf72be3cc88dd95e	2026-01-23T04:16:06Z	OSM-Made	Add bootstrapper setup.	https://github.com/ke5adb/Fusion/commit/f62dba92b571283f0efa195bdf72be3cc88dd95e
+0f95dc3045edda5b0dc22f41434fae34d8ffcca1	2026-01-22T03:06:13Z	OSM-Made	Convert to using the PS4 Kernel SDK.	https://github.com/ke5adb/Fusion/commit/0f95dc3045edda5b0dc22f41434fae34d8ffcca1
+2a42043d004b72370145ff14b3361d1125ac3003	2026-01-21T23:57:02Z	OSM-Made	Pull out plugins from main repo.	https://github.com/ke5adb/Fusion/commit/2a42043d004b72370145ff14b3361d1125ac3003
+01b087141eca41336df0fbda319fff0572346815	2026-01-21T19:52:57Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/ke5adb/Fusion/commit/01b087141eca41336df0fbda319fff0572346815
+1bd9a9b4180ea1a50ec06d16deb9c5154348d7d4	2026-01-21T19:52:51Z	OSM-Made	Add bypass for sony sysctl limits and add cpu usage func to shell ui.	https://github.com/ke5adb/Fusion/commit/1bd9a9b4180ea1a50ec06d16deb9c5154348d7d4
+1d7c0314ade52858496195e53bcc85de274def51	2026-01-20T04:12:37Z	ArabPixel	13.02 Kernel offsets (#13)	https://github.com/ke5adb/Fusion/commit/1d7c0314ade52858496195e53bcc85de274def51
+a0f1d75e5baa6d7b59a57f83ff64f52b43823274	2026-01-19T04:03:23Z	OSM-Made	Refactor Hooking & Reflect, Add devkit content and a notify.	https://github.com/ke5adb/Fusion/commit/a0f1d75e5baa6d7b59a57f83ff64f52b43823274
+a1b05d4a22d951c1603c06c49b1b869653ce5c6f	2026-01-18T06:11:49Z	OSM-Made	Add devkit panel.	https://github.com/ke5adb/Fusion/commit/a1b05d4a22d951c1603c06c49b1b869653ce5c6f
+72ab0f822ea2740022f7eb9d8a53ccdc0e29cd47	2026-01-18T05:33:22Z	OSM-Made	Add new icons & welcome message for the future.	https://github.com/ke5adb/Fusion/commit/72ab0f822ea2740022f7eb9d8a53ccdc0e29cd47
+557d4746098d39e8297da343b0898b88f156313b	2026-01-18T02:22:44Z	OSM-Made	Update logos.	https://github.com/ke5adb/Fusion/commit/557d4746098d39e8297da343b0898b88f156313b
+441ce2365d61bcc029732d11bebc2e3691b9aedc	2026-01-17T22:00:59Z	OSM-Made	fix log.	https://github.com/ke5adb/Fusion/commit/441ce2365d61bcc029732d11bebc2e3691b9aedc
+a45f303ffd2cc0f169a34b30c63a54583dd73b71	2026-01-17T21:58:44Z	OSM-Made	Add better thread fix for C# & fix bug in method override.	https://github.com/ke5adb/Fusion/commit/a45f303ffd2cc0f169a34b30c63a54583dd73b71
+d87a03763d91182d3905b96c64784326c27d4c3c	2026-01-17T21:19:49Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/ke5adb/Fusion/commit/d87a03763d91182d3905b96c64784326c27d4c3c
+ce5eeae89b91fa8b74d292e4b392fef7e796561b	2026-01-17T21:19:21Z	OSM-Made	move increment_version.py to the scripts folder.	https://github.com/ke5adb/Fusion/commit/ce5eeae89b91fa8b74d292e4b392fef7e796561b
+5ade31daf3634e9cf6d4f276e97c291f4e527bee	2026-01-17T21:19:21Z	OSM-Made	move increment_version.py to the scripts folder.	https://github.com/ke5adb/Fusion/commit/5ade31daf3634e9cf6d4f276e97c291f4e527bee
+009efd3d9db27dd62d494b04ccdb416b70e49b98	2026-01-17T20:45:45Z	OSM-Made	add references back.	https://github.com/ke5adb/Fusion/commit/009efd3d9db27dd62d494b04ccdb416b70e49b98
+7b256e9cb0a118ef1b34b9c0f02e62c39207acbf	2026-01-17T20:43:36Z	OSM-Made	Fix build issues with loader and fix ascii art.	https://github.com/ke5adb/Fusion/commit/7b256e9cb0a118ef1b34b9c0f02e62c39207acbf
+3ccf81d82f54391432eb24648b8d00600d933686	2026-01-17T15:41:15Z	OSM-Made	New ascii art.	https://github.com/ke5adb/Fusion/commit/3ccf81d82f54391432eb24648b8d00600d933686
+b960c6c69f60dc11a44682037132eb1b731ddade	2026-01-17T06:56:49Z	OSM-Made	Add panic patches.	https://github.com/ke5adb/Fusion/commit/b960c6c69f60dc11a44682037132eb1b731ddade
+52a4e50a298a7407be4092db065280c8ae20dee7	2026-01-17T00:20:36Z	OSM-Made	Firmware agnostic first pass.	https://github.com/ke5adb/Fusion/commit/52a4e50a298a7407be4092db065280c8ae20dee7
+9fb086a69d9c27cab430e2bc48cc738ce5a2b10f	2026-01-16T04:46:26Z	OSM-Made	Add sysctl entries for managing fusion feature flags and settings.	https://github.com/ke5adb/Fusion/commit/9fb086a69d9c27cab430e2bc48cc738ce5a2b10f
+f9c2f618cedc26a848eb1aa7645eb3ba3a23140b	2026-01-16T02:14:42Z	OSM-Made	Convert to zlib compression.	https://github.com/ke5adb/Fusion/commit/f9c2f618cedc26a848eb1aa7645eb3ba3a23140b
+b111d9ed384fffe2b39580fbb14881bdafef8958	2026-01-15T23:46:49Z	OSM-Made	Add support for 13.00	https://github.com/ke5adb/Fusion/commit/b111d9ed384fffe2b39580fbb14881bdafef8958
+43c6da66bf3776d81556bb252b2a9dc1f507c238	2026-01-15T23:04:42Z	OSM-Made	Remove some old patches.	https://github.com/ke5adb/Fusion/commit/43c6da66bf3776d81556bb252b2a9dc1f507c238
+bcaf910220a417d4ba3909fa15f7553e993a8ec3	2026-01-15T23:02:25Z	OSM-Made	Remove shell ui offsets.	https://github.com/ke5adb/Fusion/commit/bcaf910220a417d4ba3909fa15f7553e993a8ec3
+a912dd69dafef8c4658ef7eb1f33ddd5079a1436	2026-01-15T23:01:49Z	OSM-Made	Fix patch for 13.00	https://github.com/ke5adb/Fusion/commit/a912dd69dafef8c4658ef7eb1f33ddd5079a1436
+a8b8c7e5f7b38ece5580b731b4aedb59e2cf69bb	2026-01-15T23:00:59Z	OSM-Made	Add the rest of the 12.50 support.	https://github.com/ke5adb/Fusion/commit/a8b8c7e5f7b38ece5580b731b4aedb59e2cf69bb
+e80308ee2458ba4dde0cae874cc9403e7069124a	2026-01-15T22:23:08Z	ArabPixel	12.50 Kernel offsets (#10)	https://github.com/ke5adb/Fusion/commit/e80308ee2458ba4dde0cae874cc9403e7069124a
+899ab07fae42b735acfde2a70e1fc6a69174e256	2026-01-15T18:24:17Z	OSM-Made	Add flag for some experimental JIT things.	https://github.com/ke5adb/Fusion/commit/899ab07fae42b735acfde2a70e1fc6a69174e256
+c2282c25ddeccf92b6bdf3f765bbd911e9db5935	2026-01-15T18:16:58Z	OSM-Made	Fix warnings.	https://github.com/ke5adb/Fusion/commit/c2282c25ddeccf92b6bdf3f765bbd911e9db5935
+91d01990fff1572cb1a3d15d0e9087169a5a2b44	2026-01-15T18:13:16Z	OSM-Made	Improve build system for smaller size & more simple build.	https://github.com/ke5adb/Fusion/commit/91d01990fff1572cb1a3d15d0e9087169a5a2b44
+1f3e87a639ce87dcf3296de87e371c3a1ba84a26	2026-01-15T05:37:09Z	OSM-Made	Add custom manifest URI (Thanks Jtag), System area icon that redirects to the fusion menu & pack all assets into the dll.	https://github.com/ke5adb/Fusion/commit/1f3e87a639ce87dcf3296de87e371c3a1ba84a26
+4fb3368fb019959853a27978ac7c73139b9e2d74	2026-01-14T15:43:03Z	OSM-Made	Improve method hooks for c#.	https://github.com/ke5adb/Fusion/commit/4fb3368fb019959853a27978ac7c73139b9e2d74
+4ac1d316f5e9ea938c037cb2a7f7350206edc02f	2026-01-14T15:37:39Z	OSM-Made	Bug fixes for 12.02.	https://github.com/ke5adb/Fusion/commit/4ac1d316f5e9ea938c037cb2a7f7350206edc02f
+5f8d2d761aa4387dba2066213ef939fb33f89e5f	2026-01-13T00:29:24Z	OSM-Made	fix typo.	https://github.com/ke5adb/Fusion/commit/5f8d2d761aa4387dba2066213ef939fb33f89e5f
+f8a4fa8635d1f01fb950ac53618407d51ae3f6d0	2026-01-13T00:27:40Z	OSM-Made	Fix DECI patch not patching the first isAssistMode check.	https://github.com/ke5adb/Fusion/commit/f8a4fa8635d1f01fb950ac53618407d51ae3f6d0
+9ae958bc733dda39fda71f529d30332e80b0135f	2026-01-12T04:24:43Z	OSM-Made	Clean up usings.	https://github.com/ke5adb/Fusion/commit/9ae958bc733dda39fda71f529d30332e80b0135f
+6ca35b5f8948e4a9332680e1b75809db8e398fc7	2026-01-12T03:49:02Z	OSM-Made	Add some initial ShellUI fun	https://github.com/ke5adb/Fusion/commit/6ca35b5f8948e4a9332680e1b75809db8e398fc7
+f8e879937b311327378fbcfb7b588d57abd853b1	2026-01-11T05:30:03Z	OSM-Made	Update stub maker.	https://github.com/ke5adb/Fusion/commit/f8e879937b311327378fbcfb7b588d57abd853b1
+e031606cec90a1b9e1dd0f6f9a0aa4e59618dea4	2026-01-11T04:10:23Z	OSM-Made	Migrate ShellUI patches to the qa flags from the kernel patches & add the intdev flags for ShellUI JIT mode.	https://github.com/ke5adb/Fusion/commit/e031606cec90a1b9e1dd0f6f9a0aa4e59618dea4
+cb5fce1cbbe62e6bf177d569e22329c33c1d2e6b	2026-01-10T15:31:35Z	OSM-Made	Change some order of operations and naming clashing.	https://github.com/ke5adb/Fusion/commit/cb5fce1cbbe62e6bf177d569e22329c33c1d2e6b
+9016665766b1f4d347eae6f9adfd5135acc02ccb	2026-01-04T22:26:29Z	OSM-Made	Fix build issue.	https://github.com/ke5adb/Fusion/commit/9016665766b1f4d347eae6f9adfd5135acc02ccb
+8b4cead419cb75c62778341d616e60bf596b8a6c	2026-01-04T02:19:35Z	OSM-Made	Update some sub modules.	https://github.com/ke5adb/Fusion/commit/8b4cead419cb75c62778341d616e60bf596b8a6c
+7e013020f49d34575bdd1ab60cd4012cb6d4b895	2026-01-03T15:32:27Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/ke5adb/Fusion/commit/7e013020f49d34575bdd1ab60cd4012cb6d4b895
+d8fde9cf7335f9a51729a3c514c3beeeaadc42b3	2026-01-03T15:32:23Z	OSM-Made	Improve plugin loaders ability to check if the process is ready.	https://github.com/ke5adb/Fusion/commit/d8fde9cf7335f9a51729a3c514c3beeeaadc42b3
+6b786db3e29fc14ece360894f940d2f0966ae38e	2026-01-03T08:56:33Z	Greg	Update README.md	https://github.com/ke5adb/Fusion/commit/6b786db3e29fc14ece360894f940d2f0966ae38e
+e205cc8019c95830210f86d589438786fccaa988	2026-01-03T08:22:32Z	OSM-Made	Update README & docs.	https://github.com/ke5adb/Fusion/commit/e205cc8019c95830210f86d589438786fccaa988
+b084ce547991e9c664d24261404af68fb82c8377	2026-01-03T07:41:26Z	OSM-Made	update libUtils version.	https://github.com/ke5adb/Fusion/commit/b084ce547991e9c664d24261404af68fb82c8377
+4029db7da77fd21ceb8b8fdeda06edeacf424b94	2026-01-03T05:38:07Z	OSM-Made	Add daemon system.	https://github.com/ke5adb/Fusion/commit/4029db7da77fd21ceb8b8fdeda06edeacf424b94
+97ace4304be650ea2d4ae459de760ba50c632570	2026-01-03T01:27:38Z	OSM-Made	Remove patches from the kernel since we patch from the userland now.	https://github.com/ke5adb/Fusion/commit/97ace4304be650ea2d4ae459de760ba50c632570
+6dd93e295d3c852d7429dd14fc173d029b1db78f	2026-01-02T16:56:59Z	OSM-Made	Add some additional docs.	https://github.com/ke5adb/Fusion/commit/6dd93e295d3c852d7429dd14fc173d029b1db78f
+c50690fb945c714c4aa9893144a74e426e4b228d	2026-01-02T16:47:21Z	OSM-Made	Add a simple plugin loader.	https://github.com/ke5adb/Fusion/commit/c50690fb945c714c4aa9893144a74e426e4b228d
+3ee632458a9eca984d66097cb6f0b4dfcbbdc342	2026-01-02T04:30:28Z	OSM-Made	update lib fusion version.	https://github.com/ke5adb/Fusion/commit/3ee632458a9eca984d66097cb6f0b4dfcbbdc342
+bf7c3d7b0bbb709f75a5e665362d8b5f617283fa	2026-01-02T03:38:37Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/ke5adb/Fusion/commit/bf7c3d7b0bbb709f75a5e665362d8b5f617283fa
+a3679cea2dda4218a685b19eb29cfd5214692cd3	2026-01-02T03:38:32Z	OSM-Made	Add some credits	https://github.com/ke5adb/Fusion/commit/a3679cea2dda4218a685b19eb29cfd5214692cd3
+4492d4968b917a08fb48d5e3df71e8a62c262797	2026-01-02T03:29:04Z	Greg	Create LICENSE	https://github.com/ke5adb/Fusion/commit/4492d4968b917a08fb48d5e3df71e8a62c262797
+1290801111703b4edeaf4bf13c6b5d4f6d025360	2026-01-02T03:25:17Z	OSM-Made	Fix the deci dev port thread hanging the fusion daemon, add the friendly name in proc list and add some comments in the main.	https://github.com/ke5adb/Fusion/commit/1290801111703b4edeaf4bf13c6b5d4f6d025360
+ce1dcd6da227447c7c2f4915c5e5fe4a1402b8e9	2026-01-01T22:35:22Z	OSM-Made	Add multi version support to deci launch.	https://github.com/ke5adb/Fusion/commit/ce1dcd6da227447c7c2f4915c5e5fe4a1402b8e9
+7e2dc2e3e250013a7475bc955107105c9df933af	2026-01-01T22:24:00Z	OSM-Made	Update readme.	https://github.com/ke5adb/Fusion/commit/7e2dc2e3e250013a7475bc955107105c9df933af
+4c996670d08c484d18c24669af75bb921fa82497	2026-01-01T22:22:41Z	OSM-Made	Update readme.	https://github.com/ke5adb/Fusion/commit/4c996670d08c484d18c24669af75bb921fa82497
+148a3c54eded20f8893df2c57f28e2be77776f1c	2026-01-01T22:10:15Z	OSM-Made	clean up daemon a bit.	https://github.com/ke5adb/Fusion/commit/148a3c54eded20f8893df2c57f28e2be77776f1c
+daee0e5a16ac277a137c24429f257990076aea21	2026-01-01T22:03:47Z	OSM-Made	Add ftp.	https://github.com/ke5adb/Fusion/commit/daee0e5a16ac277a137c24429f257990076aea21
+33c21fb5327c645c6e21841c839b92eaab3a67b1	2026-01-01T17:12:10Z	OSM-Made	fix comment.	https://github.com/ke5adb/Fusion/commit/33c21fb5327c645c6e21841c839b92eaab3a67b1
+369cae476b1c0ee89db7a72027643644839c42f7	2026-01-01T16:58:09Z	OSM-Made	update git ignore.	https://github.com/ke5adb/Fusion/commit/369cae476b1c0ee89db7a72027643644839c42f7
+80aa5b92a185dcbd9950f5bc71ebb0b1842a46d4	2026-01-01T16:57:35Z	OSM-Made	Clean up.	https://github.com/ke5adb/Fusion/commit/80aa5b92a185dcbd9950f5bc71ebb0b1842a46d4
+78a8afbb7ab7cd6a1b465b26b6f41c5f8cb8e8b7	2026-01-01T16:53:48Z	OSM-Made	Mount system as root for daemon creation.	https://github.com/ke5adb/Fusion/commit/78a8afbb7ab7cd6a1b465b26b6f41c5f8cb8e8b7
+89edd6225d05bbe3148990a1ce770e52e03f02f2	2026-01-01T16:45:56Z	OSM-Made	Unify type usage across the kernel/loader projects.	https://github.com/ke5adb/Fusion/commit/89edd6225d05bbe3148990a1ce770e52e03f02f2
+dc3bc52fd3f27c5a5f42f556a1cd10f832362cc4	2026-01-01T16:28:09Z	OSM-Made	Fix issues with kernel builds and jailbreaking.	https://github.com/ke5adb/Fusion/commit/dc3bc52fd3f27c5a5f42f556a1cd10f832362cc4
+1107ce12f94a24e92193c8b636ad449f88d6020d	2026-01-01T16:07:00Z	OSM-Made	Add daemon launching.	https://github.com/ke5adb/Fusion/commit/1107ce12f94a24e92193c8b636ad449f88d6020d
+7df8dd097d3c6b7e318ac6c3074f936bb21b0354	2025-12-31T20:11:04Z	OSM-Made	Big refactor for better organization.	https://github.com/ke5adb/Fusion/commit/7df8dd097d3c6b7e318ac6c3074f936bb21b0354
+837d6230156c926bf0c41487707d3e887c0193f3	2025-12-31T16:51:50Z	OSM-Made	Clean up loader and fix a bug.	https://github.com/ke5adb/Fusion/commit/837d6230156c926bf0c41487707d3e887c0193f3
+e97e62794c23b942921af3e055efacf5a445f6c2	2025-12-31T16:31:57Z	OSM-Made	Clean up for more consistent naming conventions.	https://github.com/ke5adb/Fusion/commit/e97e62794c23b942921af3e055efacf5a445f6c2
+c9ffff94d3c66bee5f5e8790f06b13cfe9eb9f05	2025-12-29T23:03:27Z	OSM-Made	Update driver version.	https://github.com/ke5adb/Fusion/commit/c9ffff94d3c66bee5f5e8790f06b13cfe9eb9f05
+c2828ef73ff62a3615e4195fda0a47278e457de5	2025-12-29T19:35:42Z	OSM-Made	update driver.	https://github.com/ke5adb/Fusion/commit/c2828ef73ff62a3615e4195fda0a47278e457de5
+cf73bfdae47411182d546eba7159f44b0b8cc8f8	2025-12-29T19:27:15Z	OSM-Made	Add some spacing.	https://github.com/ke5adb/Fusion/commit/cf73bfdae47411182d546eba7159f44b0b8cc8f8
+26ae2b7b257a0a097fe9345d978b24733f603435	2025-12-29T19:26:58Z	OSM-Made	Add kernel get base, kernel r/w & nvs r/w.	https://github.com/ke5adb/Fusion/commit/26ae2b7b257a0a097fe9345d978b24733f603435
+c7dfc6e40a72d9306c9e0e7d7e05c19b53f57a4e	2025-12-26T03:34:07Z	OSM-Made	Update libUtils.	https://github.com/ke5adb/Fusion/commit/c7dfc6e40a72d9306c9e0e7d7e05c19b53f57a4e
+3d7f90e67aef419d7d1234bff99eb7870b8e5c9e	2025-12-22T22:29:35Z	OSM-Made	FTP daemon starter place holder.	https://github.com/ke5adb/Fusion/commit/3d7f90e67aef419d7d1234bff99eb7870b8e5c9e
+4b4a2796f190264487674787339fe647fd4de0d8	2025-12-22T22:26:07Z	OSM-Made	Adjust config because read/write file return of 0 means success.	https://github.com/ke5adb/Fusion/commit/4b4a2796f190264487674787339fe647fd4de0d8
+0aa2eecab513704e0cd13e56cd90f2d3f71eb884	2025-12-22T21:47:04Z	OSM-Made	Add some coments to the deci starter.	https://github.com/ke5adb/Fusion/commit/0aa2eecab513704e0cd13e56cd90f2d3f71eb884
+34ad19535db2795e686d21f9a1929559fc73d1e4	2025-12-22T21:20:56Z	OSM-Made	Give fusion the ability to load deci.	https://github.com/ke5adb/Fusion/commit/34ad19535db2795e686d21f9a1929559fc73d1e4
+b3a965103b249fbecb00d5064911bdaeee481712	2025-12-22T19:37:47Z	OSM-Made	Create default config if one does not exist.	https://github.com/ke5adb/Fusion/commit/b3a965103b249fbecb00d5064911bdaeee481712
+33170cacc3878838cfaa599eed79b3b2c9d86da4	2025-12-22T19:27:52Z	OSM-Made	Update fusion driver lib.	https://github.com/ke5adb/Fusion/commit/33170cacc3878838cfaa599eed79b3b2c9d86da4
+3105097f7bf2c5c323e477bcc37be05ae49085eb	2025-12-22T19:23:34Z	OSM-Made	Add initial config setup.	https://github.com/ke5adb/Fusion/commit/3105097f7bf2c5c323e477bcc37be05ae49085eb
+4d7da1f0599dd5e1f9b8ace59e091df4ae7ef2f2	2025-12-01T01:35:44Z	OSM-Made	Update StubMaker	https://github.com/ke5adb/Fusion/commit/4d7da1f0599dd5e1f9b8ace59e091df4ae7ef2f2
+f402935e399f4badda5dfef56e2043af647436d9	2025-11-27T03:13:57Z	OSM-Made	Simplify the kernel more.	https://github.com/ke5adb/Fusion/commit/f402935e399f4badda5dfef56e2043af647436d9
+b08786c9c81ce05e88b0d906aea2e071815b05cf	2025-11-25T15:04:45Z	Greg	Do all Userland patches from the Daemon (#8)\n\n* Initial setup to make userland system patches from userland.\n\n* Remove userland patches from kernel.\n\n* Finished porting all patches to userland daemon.	https://github.com/ke5adb/Fusion/commit/b08786c9c81ce05e88b0d906aea2e071815b05cf
+e6f87829584987c03d4c83f9e311ec1a89716a47	2025-11-25T03:26:18Z	OSM-Made	Add initial cfg using more basic json.	https://github.com/ke5adb/Fusion/commit/e6f87829584987c03d4c83f9e311ec1a89716a47
+377d3a32e5479cb4842b50bc4c2c2b2f4ae8a2bc	2025-11-09T16:47:10Z	OSM-Made	Update shared module	https://github.com/ke5adb/Fusion/commit/377d3a32e5479cb4842b50bc4c2c2b2f4ae8a2bc
+326a779bee0fdfe4019ef37a3518f5c5cafa2036	2025-11-08T03:24:02Z	OSM-Made	fix mistake with lib info	https://github.com/ke5adb/Fusion/commit/326a779bee0fdfe4019ef37a3518f5c5cafa2036
+269ce2df8b2f754e2f7358238b07b577629d3b6f	2025-11-08T03:20:46Z	OSM-Made	Merge branch 'master' of https://github.com/AetherPS/Fusion	https://github.com/ke5adb/Fusion/commit/269ce2df8b2f754e2f7358238b07b577629d3b6f
+7bbeaa27fc49ff2b52b8a846a2d8a34197019f9f	2025-11-08T03:20:39Z	OSM-Made	fix blunder with mutex	https://github.com/ke5adb/Fusion/commit/7bbeaa27fc49ff2b52b8a846a2d8a34197019f9f
+b6557864f30eb3c3415c2d721b0d6a30c1cac8df	2025-11-07T00:46:46Z	Greg	Re organize project and support building with out side car. (#7)	https://github.com/ke5adb/Fusion/commit/b6557864f30eb3c3415c2d721b0d6a30c1cac8df
+e7db66132eb1b574b71c431467b7cb63f60db030	2025-11-06T16:16:30Z	Greg	Syscall cleanup (#6)\n\n* Remove the last of the system calls made in kernel land.\n\n* Remove the debug flag	https://github.com/ke5adb/Fusion/commit/e7db66132eb1b574b71c431467b7cb63f60db030
+de910f213a0ec69d915ad6154d9e51701300f373	2025-11-06T16:15:27Z	OSM-Made	Small clean up.	https://github.com/ke5adb/Fusion/commit/de910f213a0ec69d915ad6154d9e51701300f373
+2764fb93310878bf49f3dfe8b9fe92444d6ef7dd	2025-11-06T06:35:37Z	Greg	Detour cleanup (#4)\n\n* Initial conversion to Detours.\n\n* Switch to mono detour class\n\n* Fix minor mistake and simplify.\n\n* Clean up Detour memory pool.	https://github.com/ke5adb/Fusion/commit/2764fb93310878bf49f3dfe8b9fe92444d6ef7dd
+5fcee382ddab16343edcd9a1204a320fe9dfa8eb	2025-11-06T00:28:31Z	OSM-Made	Re-Organize Kernel to use folders in src/inc	https://github.com/ke5adb/Fusion/commit/5fcee382ddab16343edcd9a1204a320fe9dfa8eb
+4df83f4141c911d03aca204c451fc39aaa85ab42	2025-11-05T18:02:48Z	OSM-Made	Re-Organize the types instead of having monolithic types.h	https://github.com/ke5adb/Fusion/commit/4df83f4141c911d03aca204c451fc39aaa85ab42
+c3eac378fa8e51b3d21a3b5685e409c0791cf53d	2025-11-05T00:17:45Z	OSM-Made	fix mistake with lock.	https://github.com/ke5adb/Fusion/commit/c3eac378fa8e51b3d21a3b5685e409c0791cf53d
+156eb45b9a53c6b9b7095a716949a22bbf85fb0a	2025-11-04T23:57:30Z	OSM-Made	Make the find proc by name more correct, clean up un-needed syscalls & rmove old patches.	https://github.com/ke5adb/Fusion/commit/156eb45b9a53c6b9b7095a716949a22bbf85fb0a
+fd5bf6aaaad452001c05f69a6229d1fc5ca22d03	2025-11-04T06:06:27Z	OSM-Made	Rework the way we un hide the driver.	https://github.com/ke5adb/Fusion/commit/fd5bf6aaaad452001c05f69a6229d1fc5ca22d03
+725cb8c0e78864b6d145a0fb92c4d271f0adf286	2025-11-04T03:10:22Z	OSM-Made	Fix embed name	https://github.com/ke5adb/Fusion/commit/725cb8c0e78864b6d145a0fb92c4d271f0adf286
+274f2c7efe528c4b256fbe08df408c9e44e2f911	2025-11-04T03:04:51Z	OSM-Made	update driver module.	https://github.com/ke5adb/Fusion/commit/274f2c7efe528c4b256fbe08df408c9e44e2f911
+5f7dcdbba17fefe146d035ec59ee9ffb99fd4e68	2025-11-04T03:03:25Z	OSM-Made	fix proc locks, dlsym mistakes and update shared module.	https://github.com/ke5adb/Fusion/commit/5f7dcdbba17fefe146d035ec59ee9ffb99fd4e68
+de1124dbf03bf0db90cd23e8b7e2234dce509f10	2025-11-04T01:47:52Z	OSM-Made	Fix bug where no return was present for missing driver defs and extending fusion daemon some more.	https://github.com/ke5adb/Fusion/commit/de1124dbf03bf0db90cd23e8b7e2234dce509f10
+38949fa3f60b37d1d759809f631e2925f04e2231	2025-11-02T22:09:19Z	OSM-Made	Dont load kernel twice & Add Fusion Daemon.	https://github.com/ke5adb/Fusion/commit/38949fa3f60b37d1d759809f631e2925f04e2231
+bd32f7f3a21dbf0d1acde555cbbb1d63eedb7d41	2025-11-02T16:32:34Z	OSM-Made	Re-organize sidecar and fix the json settings.	https://github.com/ke5adb/Fusion/commit/bd32f7f3a21dbf0d1acde555cbbb1d63eedb7d41
+18dfb875f26583946ba772350df68b62ced28b5a	2025-11-02T16:00:11Z	OSM-Made	re-organize the loader.	https://github.com/ke5adb/Fusion/commit/18dfb875f26583946ba772350df68b62ced28b5a
+1ef510808958d263d42eb19d94a4459cb03dae1f	2025-11-02T15:52:44Z	OSM-Made	Update make file to clean up better.	https://github.com/ke5adb/Fusion/commit/1ef510808958d263d42eb19d94a4459cb03dae1f
+b35cf27cf0767a8fe4b3a1aa979759af83692533	2025-11-02T05:56:08Z	OSM-Made	Fix sidecar.	https://github.com/ke5adb/Fusion/commit/b35cf27cf0767a8fe4b3a1aa979759af83692533
+eb0a95cde362be3d7f304347d64449e04b875d51	2025-11-02T05:31:49Z	OSM-Made	Work on fixing sidecar & add a missing mutex unloack for pfind.	https://github.com/ke5adb/Fusion/commit/eb0a95cde362be3d7f304347d64449e04b875d51
+4595db9d4d29ace126b1b414f55d88de20a1a3a4	2025-11-01T04:59:56Z	OSM-Made	Clean up driver code more.	https://github.com/ke5adb/Fusion/commit/4595db9d4d29ace126b1b414f55d88de20a1a3a4
+7f5ff58e94ddd206844072d4968449c1a6338d88	2025-11-01T04:37:31Z	OSM-Made	Add bounds check for get libs.	https://github.com/ke5adb/Fusion/commit/7f5ff58e94ddd206844072d4968449c1a6338d88
+4f138d326400caf35e9717a6ff01ddeebe975f17	2025-11-01T04:33:00Z	OSM-Made	Update shared module version.	https://github.com/ke5adb/Fusion/commit/4f138d326400caf35e9717a6ff01ddeebe975f17
+1a7cd2ca016d3785079d06a16421ae2b66ff4505	2025-11-01T00:57:36Z	OSM-Made	Update shared module.	https://github.com/ke5adb/Fusion/commit/1a7cd2ca016d3785079d06a16421ae2b66ff4505
+43d58b025281b8d151f0869555b3caa8e631e6b0	2025-11-01T00:56:33Z	OSM-Made	Tidy up, use pfind & use proper copyin.	https://github.com/ke5adb/Fusion/commit/43d58b025281b8d151f0869555b3caa8e631e6b0
+cd7ace65db88f1fb15a274412855fa1326eb2899	2025-10-31T19:23:58Z	OSM-Made	Make an attempt to keep some backwards compat for Driver.	https://github.com/ke5adb/Fusion/commit/cd7ace65db88f1fb15a274412855fa1326eb2899
+ae2752c10132c1f7595cdb724a3a1249c06f5924	2025-10-28T04:33:18Z	OSM-Made	Over hauling Driver, removing the need for Sidecar & Drop support for 11.00	https://github.com/ke5adb/Fusion/commit/ae2752c10132c1f7595cdb724a3a1249c06f5924
+658c9303fd55bd532508259072c0c76948b1f0d1	2025-10-26T19:36:50Z	OSM-Made	Tidy up code & make dipswitches patched for kernel too.	https://github.com/ke5adb/Fusion/commit/658c9303fd55bd532508259072c0c76948b1f0d1
+9e7921bd2d44fd6d59f88fb4204c3e4ab07d98dc	2025-10-25T15:32:20Z	OSM-Made	Migrate offsets to main repo and clean up patches for DECI.	https://github.com/ke5adb/Fusion/commit/9e7921bd2d44fd6d59f88fb4204c3e4ab07d98dc
+55987664fd9a2ecd6baf2405ff772dacc7ffed28	2025-10-24T23:03:05Z	OSM-Made	only make the test cfg once.	https://github.com/ke5adb/Fusion/commit/55987664fd9a2ecd6baf2405ff772dacc7ffed28
+70daef1d5fca2e87cbe3a2008bdfed9d6ff3f09e	2025-10-24T22:38:29Z	OSM-Made	Ensure the stubmaker is built for side car.	https://github.com/ke5adb/Fusion/commit/70daef1d5fca2e87cbe3a2008bdfed9d6ff3f09e
+5c62dd6cbf3a04edbfbc132afc3d8a8a2115040f	2025-10-24T22:30:41Z	OSM-Made	Update builds so version checks work correctly.	https://github.com/ke5adb/Fusion/commit/5c62dd6cbf3a04edbfbc132afc3d8a8a2115040f
+7d62ad5ad54ab5d15b4c9f42fb35d3dd9df59824	2025-10-24T22:05:14Z	OSM-Made	Make builds more standard and include build instructions.	https://github.com/ke5adb/Fusion/commit/7d62ad5ad54ab5d15b4c9f42fb35d3dd9df59824
+480c2d4bf7731ec61ce4fe315322c1f40f8d1de9	2025-10-20T02:57:24Z	OSM-Made	Add Dmem config file	https://github.com/ke5adb/Fusion/commit/480c2d4bf7731ec61ce4fe315322c1f40f8d1de9
+7253de107fb57ef727b2c049b7f89df161287681	2025-10-20T00:48:57Z	OSM-Made	Update build configs	https://github.com/ke5adb/Fusion/commit/7253de107fb57ef727b2c049b7f89df161287681
+4824a9ea1ea116a8758c4a188ae34ca4cf6ec647	2025-10-20T00:43:06Z	OSM-Made	Switch Utils lib, Re-Organize Kernel & Userland, Add beta features & Make sidecar build deps when needed.	https://github.com/ke5adb/Fusion/commit/4824a9ea1ea116a8758c4a188ae34ca4cf6ec647
+67811a04c75df427aa86b4b6427a1f46b59bd932	2025-10-13T20:28:55Z	OSM-Made	Add Sidecar project.	https://github.com/ke5adb/Fusion/commit/67811a04c75df427aa86b4b6427a1f46b59bd932
+0001a7870973bc65c2e2eb1a91ec7cbd22fcacf1	2025-09-20T17:56:53Z	OSM-Made	Add credits for TTY redirect and offsets proper	https://github.com/ke5adb/Fusion/commit/0001a7870973bc65c2e2eb1a91ec7cbd22fcacf1
+3110dabeb8e7e71a4479e4d3de51a43deed02037	2025-09-20T04:23:07Z	OSM-Made	Add TTY Redirector, Dip switches for DECI & fix bug for fpkgs.	https://github.com/ke5adb/Fusion/commit/3110dabeb8e7e71a4479e4d3de51a43deed02037
+cc7be84ca33e206aca5e8942572f16d3ed931d73	2025-09-18T22:29:32Z	OSM-Made	Remove tests	https://github.com/ke5adb/Fusion/commit/cc7be84ca33e206aca5e8942572f16d3ed931d73
+0e6b824e76d3976bcba39dd0a9d7cfb1598c2531	2025-09-18T22:25:49Z	OSM-Made	Fix lib replacer	https://github.com/ke5adb/Fusion/commit/0e6b824e76d3976bcba39dd0a9d7cfb1598c2531
+b64590855cb6232c20fc5115c49015bcd30f54d7	2025-09-18T03:46:45Z	OSM-Made	Add dipsw spoofer, better patches and 12.00 support.	https://github.com/ke5adb/Fusion/commit/b64590855cb6232c20fc5115c49015bcd30f54d7
+a486e87fb6026d8b64178ee27f00a3558fc9b2ac	2025-02-04T16:40:47Z	OSM-Made	Add fuse root mount.	https://github.com/ke5adb/Fusion/commit/a486e87fb6026d8b64178ee27f00a3558fc9b2ac
+746db9d127392f1b98eb8ef554584b740a1e8642	2025-01-18T23:26:30Z	OSM-Made	Fix direct memory exlusion, patch dev_flag & remove reg spoofer entry not needed anymore.	https://github.com/ke5adb/Fusion/commit/746db9d127392f1b98eb8ef554584b740a1e8642
+72b65aa9b37b3108c8675b6a5750d5b359cc0d83	2025-01-17T03:59:05Z	OSM-Made	Add logs for devkit checks	https://github.com/ke5adb/Fusion/commit/72b65aa9b37b3108c8675b6a5750d5b359cc0d83
+c7536ab1abb78917de850fde179526af608f5b46	2025-01-17T03:35:24Z	OSM-Made	Add Registry Emulation test & devkit shellcore fpkg support.	https://github.com/ke5adb/Fusion/commit/c7536ab1abb78917de850fde179526af608f5b46
+91586ec44f6e4536855b3a051c84b4bf1c05b8e5	2025-01-11T00:56:39Z	OSM-Made	Fix system calls & add safety.	https://github.com/ke5adb/Fusion/commit/91586ec44f6e4536855b3a051c84b4bf1c05b8e5
+364a161786f266622fade9ba331493d633a1b07a	2025-01-10T13:31:39Z	OSM-Made	Update shared submodule.	https://github.com/ke5adb/Fusion/commit/364a161786f266622fade9ba331493d633a1b07a
+db19cee7fa40a61a4a3f7f2a75e61404e4a09311	2025-01-10T13:29:28Z	OSM-Made	Add DevAct Spoofer & Add Library Replacer (Needs Fixing).	https://github.com/ke5adb/Fusion/commit/db19cee7fa40a61a4a3f7f2a75e61404e4a09311
+fca0dc8e3521a2ced4f6614253a6ca0c5ce889a3	2025-01-10T05:32:32Z	OSM-Made	Add Driver, Dmem reservation & Feature Flags.	https://github.com/ke5adb/Fusion/commit/fca0dc8e3521a2ced4f6614253a6ca0c5ce889a3
+ab460dccec3a13135b4ac2e744fb529cfa4a9fe6	2025-01-10T04:18:42Z	OSM-Made	Add Watcher.	https://github.com/ke5adb/Fusion/commit/ab460dccec3a13135b4ac2e744fb529cfa4a9fe6
+48ab760bc2ce29e936ee2e14fe0dadf4f1930403	2025-01-10T04:08:04Z	OSM-Made	Clean up dbg prints, Add more patches & add fuse.	https://github.com/ke5adb/Fusion/commit/48ab760bc2ce29e936ee2e14fe0dadf4f1930403
+21e46796c1589a095b5d76a1da087b4c313f2432	2025-01-10T03:48:33Z	OSM-Made	Add Working Hombrew.	https://github.com/ke5adb/Fusion/commit/21e46796c1589a095b5d76a1da087b4c313f2432
+137d24caefa82ccbf640e1c627da57cb742f4aa1	2025-01-09T06:14:41Z	OSM-Made	Fully add elf loader and kernel elf.	https://github.com/ke5adb/Fusion/commit/137d24caefa82ccbf640e1c627da57cb742f4aa1
+aa3783bf6f26a3659a53b175c2ecc21e8dbac670	2025-01-09T05:22:39Z	OSM-Made	Add Shared submodule.	https://github.com/ke5adb/Fusion/commit/aa3783bf6f26a3659a53b175c2ecc21e8dbac670
+02fbd1250af78ce6eb7b9ff9de6fc2d04e5f66ce	2025-01-09T05:17:59Z	OSM-Made	Update gitignore	https://github.com/ke5adb/Fusion/commit/02fbd1250af78ce6eb7b9ff9de6fc2d04e5f66ce
+a5a1aac71f7d036d5cc7d4f16389ce71c8c9d390	2025-01-09T05:16:33Z	OSM-Made	Add project files.	https://github.com/ke5adb/Fusion/commit/a5a1aac71f7d036d5cc7d4f16389ce71c8c9d390
+f6bcb854dc40cec84c8e0e6a7796b4a85f5e5fd5	2025-01-09T05:16:31Z	OSM-Made	Add .gitattributes, .gitignore, and README.md.	https://github.com/ke5adb/Fusion/commit/f6bcb854dc40cec84c8e0e6a7796b4a85f5e5fd5
+=== Prefixmodz/PS4-Kernel-SDK metadata ===
+Prefixmodz/PS4-Kernel-SDK	2026-05-31T21:57:27Z	2026-06-06T17:47:09Z	Fury	true	OSM-Made/PS4-Kernel-SDK	OSM-Made/PS4-Kernel-SDK	2026-06-06T17:47:05Z
+=== tree ===
+=== commits relevant ===
+3a1d12a192fd068207dead3fcb97224241d94afb	2026-06-06T17:46:40Z	Prefixmodz	Remove Syscall\n\nDidn't know we use sysent in kernel	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/3a1d12a192fd068207dead3fcb97224241d94afb
+f704f7e8556e763351e4cbbd82a8228d27a30190	2026-05-31T23:37:48Z	Prefixmodz	Update crt0.s	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/f704f7e8556e763351e4cbbd82a8228d27a30190
+2433c61ab71d597a8d3c217fd774f101456df240	2026-05-31T23:34:28Z	Prefixmodz	Correct the offset type for notification_write_from_kernel, add Syscall\n\ni mistook this for the function type lol	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/2433c61ab71d597a8d3c217fd774f101456df240
+5e38e43412ee0de0cb0b0852c8b4bf554a66c4f8	2026-05-31T23:12:52Z	Prefixmodz	Update crt1.cpp	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/5e38e43412ee0de0cb0b0852c8b4bf554a66c4f8
+885e8fdd79efcb4f3fab5e348fbdb0f34f15bf35	2026-05-31T22:12:58Z	Prefixmodz	Add notification_write_from_kernel to Util symbols	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/885e8fdd79efcb4f3fab5e348fbdb0f34f15bf35
+e843f6fbd19f67d7e124426c61826d9925b94a55	2026-01-25T21:01:49Z	OSM-Made	Add patch for prx path check.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/e843f6fbd19f67d7e124426c61826d9925b94a55
+ef940ec489943d8269c0724577e34fe67e19cdad	2026-01-25T01:34:51Z	OSM-Made	Add delay properly.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/ef940ec489943d8269c0724577e34fe67e19cdad
+8ba5391c551815a9d0ab5eeb9ae41aecb20e406f	2026-01-24T06:47:29Z	OSM-Made	convert generic types and add DelayMilliseconds.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/8ba5391c551815a9d0ab5eeb9ae41aecb20e406f
+226486fdd161af552fd5a460b64afacd7bd9ff48	2026-01-24T04:48:01Z	OSM-Made	Add defs for fatal traps.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/226486fdd161af552fd5a460b64afacd7bd9ff48
+1a7d3adb8b55b74028bca71ce4bc2d06f765e84c	2026-01-24T04:24:46Z	OSM-Made	Add some more type defs.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/1a7d3adb8b55b74028bca71ce4bc2d06f765e84c
+36009880a0639c624c5b25f467d2993ac349f6c0	2026-01-24T02:29:33Z	OSM-Made	Add some more functions.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/36009880a0639c624c5b25f467d2993ac349f6c0
+4130494b05264e7cf4cda82d5f07ab7271f734cb	2026-01-24T01:41:51Z	OSM-Made	Add some more functions defs & add resources.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/4130494b05264e7cf4cda82d5f07ab7271f734cb
+14084d7c4ca562df96048b5a93e942f505f5128f	2026-01-23T05:54:28Z	OSM-Made	Add some extra hooks for fusion.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/14084d7c4ca562df96048b5a93e942f505f5128f
+093808ee1563dfdb735b69ba2bfc925a9439ff54	2026-01-22T02:59:58Z	OSM-Made	Add 13.02 offsets.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/093808ee1563dfdb735b69ba2bfc925a9439ff54
+21cb26df6984139116167371eb689e46c7559d0d	2026-01-22T02:55:09Z	OSM-Made	Improve build system for exensibility.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/21cb26df6984139116167371eb689e46c7559d0d
+8939fdf5ce785a4ba8cfe599534b8a9f4b912604	2026-01-21T00:57:24Z	OSM-Made	Fix formatting.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/8939fdf5ce785a4ba8cfe599534b8a9f4b912604
+750b392d8620c594514978092b6dc3db67ac8940	2026-01-21T00:51:04Z	OSM-Made	Add source generator to make offsets from yaml definitions.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/750b392d8620c594514978092b6dc3db67ac8940
+64e380366089961717613fd522a99e761c965012	2026-01-21T00:15:30Z	OSM-Made	Merge branch 'Fury' of https://github.com/OSM-Made/PS4-Kernel-SDK into Fury	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/64e380366089961717613fd522a99e761c965012
+d2881d45d92ce0b8cf29046eed75f1dde9503969	2026-01-21T00:15:27Z	OSM-Made	clean up defs	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/d2881d45d92ce0b8cf29046eed75f1dde9503969
+67b9ffaaa218cc7a82e129402de40953573c109c	2026-01-20T06:47:27Z	Greg	Create LICENSE	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/67b9ffaaa218cc7a82e129402de40953573c109c
+e1592361726d7cafa39aca6eed54f654d2aa4d54	2026-01-20T04:05:46Z	OSM-Made	fix include dir.	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/e1592361726d7cafa39aca6eed54f654d2aa4d54
+98e60b0a4fbc031edeaa802b90cda9cc5acbfb55	2026-01-20T03:58:33Z	OSM-Made	update readme	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/98e60b0a4fbc031edeaa802b90cda9cc5acbfb55
+3e7886b4723b8b1d9bdb2f97cc3fbdb59f9b3639	2026-01-20T03:57:22Z	OSM-Made	first commit	https://github.com/Prefixmodz/PS4-Kernel-SDK/commit/3e7886b4723b8b1d9bdb2f97cc3fbdb59f9b3639
+=== kemalsanli/PS4-Kernel-SDK metadata ===
+kemalsanli/PS4-Kernel-SDK	2026-05-11T07:44:56Z	2026-05-11T07:44:56Z	Fury	true	OSM-Made/PS4-Kernel-SDK	OSM-Made/PS4-Kernel-SDK	2026-01-25T21:02:01Z
+=== tree ===
+=== commits relevant ===
+e843f6fbd19f67d7e124426c61826d9925b94a55	2026-01-25T21:01:49Z	OSM-Made	Add patch for prx path check.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/e843f6fbd19f67d7e124426c61826d9925b94a55
+ef940ec489943d8269c0724577e34fe67e19cdad	2026-01-25T01:34:51Z	OSM-Made	Add delay properly.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/ef940ec489943d8269c0724577e34fe67e19cdad
+8ba5391c551815a9d0ab5eeb9ae41aecb20e406f	2026-01-24T06:47:29Z	OSM-Made	convert generic types and add DelayMilliseconds.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/8ba5391c551815a9d0ab5eeb9ae41aecb20e406f
+226486fdd161af552fd5a460b64afacd7bd9ff48	2026-01-24T04:48:01Z	OSM-Made	Add defs for fatal traps.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/226486fdd161af552fd5a460b64afacd7bd9ff48
+1a7d3adb8b55b74028bca71ce4bc2d06f765e84c	2026-01-24T04:24:46Z	OSM-Made	Add some more type defs.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/1a7d3adb8b55b74028bca71ce4bc2d06f765e84c
+36009880a0639c624c5b25f467d2993ac349f6c0	2026-01-24T02:29:33Z	OSM-Made	Add some more functions.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/36009880a0639c624c5b25f467d2993ac349f6c0
+4130494b05264e7cf4cda82d5f07ab7271f734cb	2026-01-24T01:41:51Z	OSM-Made	Add some more functions defs & add resources.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/4130494b05264e7cf4cda82d5f07ab7271f734cb
+14084d7c4ca562df96048b5a93e942f505f5128f	2026-01-23T05:54:28Z	OSM-Made	Add some extra hooks for fusion.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/14084d7c4ca562df96048b5a93e942f505f5128f
+093808ee1563dfdb735b69ba2bfc925a9439ff54	2026-01-22T02:59:58Z	OSM-Made	Add 13.02 offsets.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/093808ee1563dfdb735b69ba2bfc925a9439ff54
+21cb26df6984139116167371eb689e46c7559d0d	2026-01-22T02:55:09Z	OSM-Made	Improve build system for exensibility.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/21cb26df6984139116167371eb689e46c7559d0d
+8939fdf5ce785a4ba8cfe599534b8a9f4b912604	2026-01-21T00:57:24Z	OSM-Made	Fix formatting.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/8939fdf5ce785a4ba8cfe599534b8a9f4b912604
+750b392d8620c594514978092b6dc3db67ac8940	2026-01-21T00:51:04Z	OSM-Made	Add source generator to make offsets from yaml definitions.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/750b392d8620c594514978092b6dc3db67ac8940
+64e380366089961717613fd522a99e761c965012	2026-01-21T00:15:30Z	OSM-Made	Merge branch 'Fury' of https://github.com/OSM-Made/PS4-Kernel-SDK into Fury	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/64e380366089961717613fd522a99e761c965012
+d2881d45d92ce0b8cf29046eed75f1dde9503969	2026-01-21T00:15:27Z	OSM-Made	clean up defs	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/d2881d45d92ce0b8cf29046eed75f1dde9503969
+67b9ffaaa218cc7a82e129402de40953573c109c	2026-01-20T06:47:27Z	Greg	Create LICENSE	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/67b9ffaaa218cc7a82e129402de40953573c109c
+e1592361726d7cafa39aca6eed54f654d2aa4d54	2026-01-20T04:05:46Z	OSM-Made	fix include dir.	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/e1592361726d7cafa39aca6eed54f654d2aa4d54
+98e60b0a4fbc031edeaa802b90cda9cc5acbfb55	2026-01-20T03:58:33Z	OSM-Made	update readme	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/98e60b0a4fbc031edeaa802b90cda9cc5acbfb55
+3e7886b4723b8b1d9bdb2f97cc3fbdb59f9b3639	2026-01-20T03:57:22Z	OSM-Made	first commit	https://github.com/kemalsanli/PS4-Kernel-SDK/commit/3e7886b4723b8b1d9bdb2f97cc3fbdb59f9b3639

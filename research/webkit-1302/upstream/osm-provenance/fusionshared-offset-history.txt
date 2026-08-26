@@ -1,0 +1,14 @@
+=== FusionShared metadata ===
+AetherPS/FusionShared	2025-01-09T05:19:06Z	main	false
+=== tree current ===
+=== commit f233 files ===
+f233cd0c9bcb768528d2c45c5fdd180ac4fc53c2	OSM-Made	2025-10-24T21:54:01Z	Update offsets and remove settings.	https://github.com/AetherPS/FusionShared/commit/f233cd0c9bcb768528d2c45c5fdd180ac4fc53c2
+Offsets-1100.h	modified	3	0	3	https://github.com/AetherPS/FusionShared/blob/f233cd0c9bcb768528d2c45c5fdd180ac4fc53c2/Offsets-1100.h	https://github.com/AetherPS/FusionShared/raw/f233cd0c9bcb768528d2c45c5fdd180ac4fc53c2/Offsets-1100.h
+Offsets-1202.h	modified	3	0	3	https://github.com/AetherPS/FusionShared/blob/f233cd0c9bcb768528d2c45c5fdd180ac4fc53c2/Offsets-1202.h	https://github.com/AetherPS/FusionShared/raw/f233cd0c9bcb768528d2c45c5fdd180ac4fc53c2/Offsets-1202.h
+Offsets-900.h	modified	3	0	3	https://github.com/AetherPS/FusionShared/blob/f233cd0c9bcb768528d2c45c5fdd180ac4fc53c2/Offsets-900.h	https://github.com/AetherPS/FusionShared/raw/f233cd0c9bcb768528d2c45c5fdd180ac4fc53c2/Offsets-900.h
+Settings.h	removed	0	16	16	https://github.com/AetherPS/FusionShared/blob/7b5f81c478768281e847e29324be76f2aa7c8121/Settings.h	https://github.com/AetherPS/FusionShared/raw/7b5f81c478768281e847e29324be76f2aa7c8121/Settings.h
+=== commit 7b5 files ===
+7b5f81c478768281e847e29324be76f2aa7c8121	OSM-Made	2025-10-13T16:10:49Z	Update address defs.	https://github.com/AetherPS/FusionShared/commit/7b5f81c478768281e847e29324be76f2aa7c8121
+Offsets-1100.h	modified	1	0	1	https://github.com/AetherPS/FusionShared/blob/7b5f81c478768281e847e29324be76f2aa7c8121/Offsets-1100.h	https://github.com/AetherPS/FusionShared/raw/7b5f81c478768281e847e29324be76f2aa7c8121/Offsets-1100.h
+Offsets-1202.h	modified	8	7	15	https://github.com/AetherPS/FusionShared/blob/7b5f81c478768281e847e29324be76f2aa7c8121/Offsets-1202.h	https://github.com/AetherPS/FusionShared/raw/7b5f81c478768281e847e29324be76f2aa7c8121/Offsets-1202.h
+Offsets-900.h	modified	1	0	1	https://github.com/AetherPS/FusionShared/blob/7b5f81c478768281e847e29324be76f2aa7c8121/Offsets-900.h	https://github.com/AetherPS/FusionShared/raw/7b5f81c478768281e847e29324be76f2aa7c8121/Offsets-900.h

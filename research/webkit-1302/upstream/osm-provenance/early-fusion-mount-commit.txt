@@ -1,0 +1,2 @@
+a486e87fb6026d8b64178ee27f00a3558fc9b2ac	OSM-Made	2025-02-04T16:40:47Z	Add fuse root mount.	746db9d127392f1b98eb8ef554584b740a1e8642	https://github.com/cualquiercosa327/Fusion/commit/a486e87fb6026d8b64178ee27f00a3558fc9b2ac
+Kernel/source/Patches.cpp	modified	10	1	11	https://github.com/cualquiercosa327/Fusion/blob/a486e87fb6026d8b64178ee27f00a3558fc9b2ac/Kernel%2Fsource%2FPatches.cpp	https://github.com/cualquiercosa327/Fusion/raw/a486e87fb6026d8b64178ee27f00a3558fc9b2ac/Kernel%2Fsource%2FPatches.cpp

@@ -1,0 +1,305 @@
+=== AetherPS_Fusion/ ===
+origin	https://github.com/AetherPS/Fusion.git (fetch) [blob:none]
+origin	https://github.com/AetherPS/Fusion.git (push)
+0f95dc3045edda5b0dc22f41434fae34d8ffcca1	2026-01-21 20:06:13 -0700	OSM-Made	Convert to using the PS4 Kernel SDK.
+1d7c0314ade52858496195e53bcc85de274def51	2026-01-20 05:12:37 +0100	ArabPixel	13.02 Kernel offsets (#13)
+External/PS4-Kernel-SDK
+Fusion/Kernel/Kernel.vcxproj
+Fusion/Kernel/Kernel.vcxproj.filters
+Fusion/Kernel/Makefile
+Fusion/Kernel/include/Common.h
+Fusion/Kernel/include/Driver/DriverKernel.h
+Fusion/Kernel/include/Driver/DriverProc.h
+Fusion/Kernel/include/Driver/FusionDriver.h
+Fusion/Kernel/include/Fusion.h
+Fusion/Kernel/include/Homebrew/FakePkgs.h
+Fusion/Kernel/include/Homebrew/FakeSelfs.h
+Fusion/Kernel/include/Misc/Bootstrapper.h
+Fusion/Kernel/include/Misc/DevActSpoofer.h
+Fusion/Kernel/include/Misc/DipSwitchSpoofer.h
+Fusion/Kernel/include/Misc/DirectMemory.h
+Fusion/Kernel/include/Misc/ExtendedLogging.h
+Fusion/Kernel/include/Misc/FusionSysctl.h
+Fusion/Kernel/include/Misc/LibraryReplacer.h
+Fusion/Kernel/include/Misc/TTYRedirector.h
+Fusion/Kernel/include/Misc/TrapFatalExtension.h
+Fusion/Kernel/include/Utils/Detours/Detour.h
+Fusion/Kernel/include/Utils/Detours/DetourMemoryPool.h
+Fusion/Kernel/include/Utils/Detours/hde64.h
+Fusion/Kernel/include/Utils/Detours/table64.h
+Fusion/Kernel/include/Utils/Heap.h
+Fusion/Kernel/include/Utils/Misc.h
+Fusion/Kernel/include/Utils/Patches.h
+Fusion/Kernel/include/Utils/ProcessUtils.h
+Fusion/Kernel/source/Driver/DriverKernel.cpp
+Fusion/Kernel/source/Driver/DriverProc.cpp
+Fusion/Kernel/source/Driver/FusionDriver.cpp
+Fusion/Kernel/source/Fusion.cpp
+Fusion/Kernel/source/Homebrew/FakePkgs.cpp
+Fusion/Kernel/source/Homebrew/FakeSelfs.cpp
+Fusion/Kernel/source/Main.cpp
+Fusion/Kernel/source/Misc/Bootstrapper.cpp
+Fusion/Kernel/source/Misc/DevActSpoofer.cpp
+Fusion/Kernel/source/Misc/DipSwitchSpoofer.cpp
+Fusion/Kernel/source/Misc/DirectMemory.cpp
+Fusion/Kernel/source/Misc/ExtendedLogging.cpp
+Fusion/Kernel/source/Misc/FusionSysctl.cpp
+Fusion/Kernel/source/Misc/LibraryReplacer.cpp
+Fusion/Kernel/source/Misc/TTYRedirector.cpp
+Fusion/Kernel/source/Misc/TrapFatalExtension.cpp
+Fusion/Kernel/source/Utils/Detours/Detour.cpp
+Fusion/Kernel/source/Utils/Detours/DetourMemoryPool.cpp
+Fusion/Kernel/source/Utils/Detours/hde64.cpp
+Fusion/Kernel/source/Utils/Heap.cpp
+Fusion/Kernel/source/Utils/Misc.cpp
+Fusion/Kernel/source/Utils/Patches.cpp
+Fusion/Kernel/source/Utils/ProcessUtils.cpp
+Fusion/Loader/include/kernel.h
+Fusion/Loader/include/libkernel.h
+Fusion/Loader/source/kernel.cpp
+Fusion/Shellcode/Kernel/Bootstrapper.s
+Fusion/Shellcode/Kernel/UIBootstrapper.s
+=== ArabPixel_Fusion/ ===
+origin	https://github.com/ArabPixel/Fusion.git (fetch) [blob:none]
+origin	https://github.com/ArabPixel/Fusion.git (push)
+0f95dc3045edda5b0dc22f41434fae34d8ffcca1	2026-01-21 20:06:13 -0700	OSM-Made	Convert to using the PS4 Kernel SDK.
+1d7c0314ade52858496195e53bcc85de274def51	2026-01-20 05:12:37 +0100	ArabPixel	13.02 Kernel offsets (#13)
+77a16b7f236df46f14bb2c744a24540e57245214	2026-01-18 10:21:42 +0100	ArabPixel	13.02 Kernel offsets
+Fusion/Daemon/Offsets.h
+Fusion/Kernel/Kernel.vcxproj
+Fusion/Kernel/Kernel.vcxproj.filters
+Fusion/Kernel/Linker
+Fusion/Kernel/Makefile
+Fusion/Kernel/crt0.s
+Fusion/Kernel/include/Common.h
+Fusion/Kernel/include/Driver/DriverKernel.h
+Fusion/Kernel/include/Driver/DriverProc.h
+Fusion/Kernel/include/Driver/FusionDriver.h
+Fusion/Kernel/include/FeatureFlags.h
+Fusion/Kernel/include/Fusion.h
+Fusion/Kernel/include/Homebrew/FakePkgs.h
+Fusion/Kernel/include/Homebrew/FakeSelfs.h
+Fusion/Kernel/include/Misc/DevActSpoofer.h
+Fusion/Kernel/include/Misc/DipSwitchSpoofer.h
+Fusion/Kernel/include/Misc/DirectMemory.h
+Fusion/Kernel/include/Misc/FusionSysctl.h
+Fusion/Kernel/include/Misc/LibraryReplacer.h
+Fusion/Kernel/include/Misc/TTYRedirector.h
+Fusion/Kernel/include/Utils/Asm.h
+Fusion/Kernel/include/Utils/Detours/Detour.h
+Fusion/Kernel/include/Utils/Detours/DetourMemoryPool.h
+Fusion/Kernel/include/Utils/Detours/hde64.h
+Fusion/Kernel/include/Utils/Detours/table64.h
+Fusion/Kernel/include/Utils/Heap.h
+Fusion/Kernel/include/Utils/Misc.h
+Fusion/Kernel/include/Utils/ProcessUtils.h
+Fusion/Kernel/include/Utils/Resolver.h
+Fusion/Kernel/source/Driver/DriverKernel.cpp
+Fusion/Kernel/source/Driver/DriverProc.cpp
+Fusion/Kernel/source/Driver/FusionDriver.cpp
+Fusion/Kernel/source/FeatureFlags.cpp
+Fusion/Kernel/source/Fusion.cpp
+Fusion/Kernel/source/Homebrew/FakePkgs.cpp
+Fusion/Kernel/source/Homebrew/FakeSelfs.cpp
+Fusion/Kernel/source/Main.cpp
+Fusion/Kernel/source/Misc/DevActSpoofer.cpp
+Fusion/Kernel/source/Misc/DipSwitchSpoofer.cpp
+Fusion/Kernel/source/Misc/DirectMemory.cpp
+Fusion/Kernel/source/Misc/FusionSysctl.cpp
+Fusion/Kernel/source/Misc/LibraryReplacer.cpp
+Fusion/Kernel/source/Misc/TTYRedirector.cpp
+Fusion/Kernel/source/Utils/Detours/Detour.cpp
+Fusion/Kernel/source/Utils/Detours/DetourMemoryPool.cpp
+Fusion/Kernel/source/Utils/Detours/hde64.cpp
+Fusion/Kernel/source/Utils/Heap.cpp
+Fusion/Kernel/source/Utils/Misc.cpp
+Fusion/Kernel/source/Utils/ProcessUtils.cpp
+Fusion/Kernel/source/Utils/Resolver.cpp
+Fusion/Loader/include/kernel.h
+Fusion/Loader/source/kernel.c
+Shared/Offsets-1202.h
+Shared/Offsets-1250.h
+Shared/Offsets-1300.h
+Shared/Offsets-1302.h
+Shared/Offsets-900.h
+Shared/Offsets.h
+=== OSM-Made_PS4-Kernel-SDK/ ===
+origin	https://github.com/OSM-Made/PS4-Kernel-SDK.git (fetch) [blob:none]
+origin	https://github.com/OSM-Made/PS4-Kernel-SDK.git (push)
+e843f6fbd19f67d7e124426c61826d9925b94a55	2026-01-25 14:01:49 -0700	OSM-Made	Add patch for prx path check.
+ef940ec489943d8269c0724577e34fe67e19cdad	2026-01-24 18:34:51 -0700	OSM-Made	Add delay properly.
+8ba5391c551815a9d0ab5eeb9ae41aecb20e406f	2026-01-23 23:47:29 -0700	OSM-Made	convert generic types and add DelayMilliseconds.
+226486fdd161af552fd5a460b64afacd7bd9ff48	2026-01-23 21:48:01 -0700	OSM-Made	Add defs for fatal traps.
+36009880a0639c624c5b25f467d2993ac349f6c0	2026-01-23 19:29:33 -0700	OSM-Made	Add some more functions.
+4130494b05264e7cf4cda82d5f07ab7271f734cb	2026-01-23 18:41:51 -0700	OSM-Made	Add some more functions defs & add resources.
+14084d7c4ca562df96048b5a93e942f505f5128f	2026-01-22 22:54:28 -0700	OSM-Made	Add some extra hooks for fusion.
+093808ee1563dfdb735b69ba2bfc925a9439ff54	2026-01-21 19:59:58 -0700	OSM-Made	Add 13.02 offsets.
+offsets/README.md
+offsets/firmware-1202.yaml
+offsets/firmware-1250.yaml
+offsets/firmware-1300.yaml
+offsets/firmware-1302.yaml
+offsets/firmware-900.yaml
+tools/generate_offsets.py
+=== Prefixmodz_PS4-Kernel-SDK/ ===
+origin	https://github.com/Prefixmodz/PS4-Kernel-SDK.git (fetch) [blob:none]
+origin	https://github.com/Prefixmodz/PS4-Kernel-SDK.git (push)
+2433c61ab71d597a8d3c217fd774f101456df240	2026-06-01 00:34:28 +0100	Prefixmodz	Correct the offset type for notification_write_from_kernel, add Syscall
+885e8fdd79efcb4f3fab5e348fbdb0f34f15bf35	2026-05-31 23:12:58 +0100	Prefixmodz	Add notification_write_from_kernel to Util symbols
+e843f6fbd19f67d7e124426c61826d9925b94a55	2026-01-25 14:01:49 -0700	OSM-Made	Add patch for prx path check.
+ef940ec489943d8269c0724577e34fe67e19cdad	2026-01-24 18:34:51 -0700	OSM-Made	Add delay properly.
+8ba5391c551815a9d0ab5eeb9ae41aecb20e406f	2026-01-23 23:47:29 -0700	OSM-Made	convert generic types and add DelayMilliseconds.
+226486fdd161af552fd5a460b64afacd7bd9ff48	2026-01-23 21:48:01 -0700	OSM-Made	Add defs for fatal traps.
+36009880a0639c624c5b25f467d2993ac349f6c0	2026-01-23 19:29:33 -0700	OSM-Made	Add some more functions.
+4130494b05264e7cf4cda82d5f07ab7271f734cb	2026-01-23 18:41:51 -0700	OSM-Made	Add some more functions defs & add resources.
+14084d7c4ca562df96048b5a93e942f505f5128f	2026-01-22 22:54:28 -0700	OSM-Made	Add some extra hooks for fusion.
+093808ee1563dfdb735b69ba2bfc925a9439ff54	2026-01-21 19:59:58 -0700	OSM-Made	Add 13.02 offsets.
+offsets/README.md
+offsets/firmware-1202.yaml
+offsets/firmware-1250.yaml
+offsets/firmware-1300.yaml
+offsets/firmware-1302.yaml
+offsets/firmware-900.yaml
+tools/generate_offsets.py
+=== RetroGenPS_Fusion/ ===
+origin	https://github.com/RetroGenPS/Fusion.git (fetch) [blob:none]
+origin	https://github.com/RetroGenPS/Fusion.git (push)
+0f95dc3045edda5b0dc22f41434fae34d8ffcca1	2026-01-21 20:06:13 -0700	OSM-Made	Convert to using the PS4 Kernel SDK.
+1d7c0314ade52858496195e53bcc85de274def51	2026-01-20 05:12:37 +0100	ArabPixel	13.02 Kernel offsets (#13)
+External/PS4-Kernel-SDK
+Fusion/Kernel/Kernel.vcxproj
+Fusion/Kernel/Kernel.vcxproj.filters
+Fusion/Kernel/Makefile
+Fusion/Kernel/include/Common.h
+Fusion/Kernel/include/Driver/DriverKernel.h
+Fusion/Kernel/include/Driver/DriverProc.h
+Fusion/Kernel/include/Driver/FusionDriver.h
+Fusion/Kernel/include/FeatureFlags.h
+Fusion/Kernel/include/Fusion.h
+Fusion/Kernel/include/Homebrew/FakePkgs.h
+Fusion/Kernel/include/Homebrew/FakeSelfs.h
+Fusion/Kernel/include/Misc/Bootstrapper.h
+Fusion/Kernel/include/Misc/DevActSpoofer.h
+Fusion/Kernel/include/Misc/DipSwitchSpoofer.h
+Fusion/Kernel/include/Misc/DirectMemory.h
+Fusion/Kernel/include/Misc/ExtendedLogging.h
+Fusion/Kernel/include/Misc/FusionSysctl.h
+Fusion/Kernel/include/Misc/LibraryReplacer.h
+Fusion/Kernel/include/Misc/TTYRedirector.h
+Fusion/Kernel/include/Misc/TrapFatalExtension.h
+Fusion/Kernel/include/Utils/Detours/Detour.h
+Fusion/Kernel/include/Utils/Detours/DetourMemoryPool.h
+Fusion/Kernel/include/Utils/Detours/hde64.h
+Fusion/Kernel/include/Utils/Detours/table64.h
+Fusion/Kernel/include/Utils/Heap.h
+Fusion/Kernel/include/Utils/Misc.h
+Fusion/Kernel/include/Utils/Patches.h
+Fusion/Kernel/include/Utils/ProcessUtils.h
+Fusion/Kernel/source/Driver/DriverKernel.cpp
+Fusion/Kernel/source/Driver/DriverProc.cpp
+Fusion/Kernel/source/Driver/FusionDriver.cpp
+Fusion/Kernel/source/FeatureFlags.cpp
+Fusion/Kernel/source/Fusion.cpp
+Fusion/Kernel/source/Homebrew/FakePkgs.cpp
+Fusion/Kernel/source/Homebrew/FakeSelfs.cpp
+Fusion/Kernel/source/Main.cpp
+Fusion/Kernel/source/Misc/Bootstrapper.cpp
+Fusion/Kernel/source/Misc/DevActSpoofer.cpp
+Fusion/Kernel/source/Misc/DipSwitchSpoofer.cpp
+Fusion/Kernel/source/Misc/DirectMemory.cpp
+Fusion/Kernel/source/Misc/ExtendedLogging.cpp
+Fusion/Kernel/source/Misc/FusionSysctl.cpp
+Fusion/Kernel/source/Misc/LibraryReplacer.cpp
+Fusion/Kernel/source/Misc/TTYRedirector.cpp
+Fusion/Kernel/source/Misc/TrapFatalExtension.cpp
+Fusion/Kernel/source/Utils/Detours/Detour.cpp
+Fusion/Kernel/source/Utils/Detours/DetourMemoryPool.cpp
+Fusion/Kernel/source/Utils/Detours/hde64.cpp
+Fusion/Kernel/source/Utils/Heap.cpp
+Fusion/Kernel/source/Utils/Misc.cpp
+Fusion/Kernel/source/Utils/Patches.cpp
+Fusion/Kernel/source/Utils/ProcessUtils.cpp
+Fusion/Loader/include/kernel.h
+Fusion/Loader/include/libkernel.h
+Fusion/Loader/source/kernel.cpp
+Fusion/Shellcode/Kernel/Bootstrapper.s
+Fusion/Shellcode/Kernel/UIBootstrapper.s
+=== cualquiercosa327_Fusion/ ===
+origin	https://github.com/cualquiercosa327/Fusion.git (fetch) [blob:none]
+origin	https://github.com/cualquiercosa327/Fusion.git (push)
+0f95dc3045edda5b0dc22f41434fae34d8ffcca1	2026-01-21 20:06:13 -0700	OSM-Made	Convert to using the PS4 Kernel SDK.
+1d7c0314ade52858496195e53bcc85de274def51	2026-01-20 05:12:37 +0100	ArabPixel	13.02 Kernel offsets (#13)
+Fusion/Daemon/Offsets.h
+Fusion/Kernel/Kernel.vcxproj
+Fusion/Kernel/Kernel.vcxproj.filters
+Fusion/Kernel/Linker
+Fusion/Kernel/Makefile
+Fusion/Kernel/crt0.s
+Fusion/Kernel/include/Common.h
+Fusion/Kernel/include/Driver/DriverKernel.h
+Fusion/Kernel/include/Driver/DriverProc.h
+Fusion/Kernel/include/Driver/FusionDriver.h
+Fusion/Kernel/include/FeatureFlags.h
+Fusion/Kernel/include/Fusion.h
+Fusion/Kernel/include/Homebrew/FakePkgTypes.h
+Fusion/Kernel/include/Homebrew/FakePkgs.h
+Fusion/Kernel/include/Homebrew/FakeSelfTypes.h
+Fusion/Kernel/include/Homebrew/FakeSelfs.h
+Fusion/Kernel/include/Misc/DevActSpoofer.h
+Fusion/Kernel/include/Misc/DipSwitchSpoofer.h
+Fusion/Kernel/include/Misc/DirectMemory.h
+Fusion/Kernel/include/Misc/LibraryReplacer.h
+Fusion/Kernel/include/Misc/TTYRedirector.h
+Fusion/Kernel/include/Utils/Asm.h
+Fusion/Kernel/include/Utils/Detours/Detour.h
+Fusion/Kernel/include/Utils/Detours/DetourMemoryPool.h
+Fusion/Kernel/include/Utils/Detours/hde64.h
+Fusion/Kernel/include/Utils/Detours/table64.h
+Fusion/Kernel/include/Utils/Heap.h
+Fusion/Kernel/include/Utils/Misc.h
+Fusion/Kernel/include/Utils/ProcessUtils.h
+Fusion/Kernel/include/Utils/Resolver.h
+Fusion/Kernel/source/Driver/DriverKernel.cpp
+Fusion/Kernel/source/Driver/DriverProc.cpp
+Fusion/Kernel/source/Driver/FusionDriver.cpp
+Fusion/Kernel/source/FeatureFlags.cpp
+Fusion/Kernel/source/Fusion.cpp
+Fusion/Kernel/source/Homebrew/FakePkgs.cpp
+Fusion/Kernel/source/Homebrew/FakeSelfs.cpp
+Fusion/Kernel/source/Main.cpp
+Fusion/Kernel/source/Misc/DevActSpoofer.cpp
+Fusion/Kernel/source/Misc/DipSwitchSpoofer.cpp
+Fusion/Kernel/source/Misc/DirectMemory.cpp
+Fusion/Kernel/source/Misc/LibraryReplacer.cpp
+Fusion/Kernel/source/Misc/TTYRedirector.cpp
+Fusion/Kernel/source/Utils/Asm.s
+Fusion/Kernel/source/Utils/Detours/Detour.cpp
+Fusion/Kernel/source/Utils/Detours/DetourMemoryPool.cpp
+Fusion/Kernel/source/Utils/Detours/hde64.cpp
+Fusion/Kernel/source/Utils/Heap.cpp
+Fusion/Kernel/source/Utils/Misc.cpp
+Fusion/Kernel/source/Utils/ProcessUtils.cpp
+Fusion/Kernel/source/Utils/Resolver.cpp
+Fusion/Loader/include/kernel.h
+Fusion/Loader/source/kernel.c
+Shared/Offsets-1202.h
+Shared/Offsets-900.h
+Shared/Offsets.h
+=== kemalsanli_PS4-Kernel-SDK/ ===
+origin	https://github.com/kemalsanli/PS4-Kernel-SDK.git (fetch) [blob:none]
+origin	https://github.com/kemalsanli/PS4-Kernel-SDK.git (push)
+e843f6fbd19f67d7e124426c61826d9925b94a55	2026-01-25 14:01:49 -0700	OSM-Made	Add patch for prx path check.
+ef940ec489943d8269c0724577e34fe67e19cdad	2026-01-24 18:34:51 -0700	OSM-Made	Add delay properly.
+8ba5391c551815a9d0ab5eeb9ae41aecb20e406f	2026-01-23 23:47:29 -0700	OSM-Made	convert generic types and add DelayMilliseconds.
+226486fdd161af552fd5a460b64afacd7bd9ff48	2026-01-23 21:48:01 -0700	OSM-Made	Add defs for fatal traps.
+36009880a0639c624c5b25f467d2993ac349f6c0	2026-01-23 19:29:33 -0700	OSM-Made	Add some more functions.
+4130494b05264e7cf4cda82d5f07ab7271f734cb	2026-01-23 18:41:51 -0700	OSM-Made	Add some more functions defs & add resources.
+14084d7c4ca562df96048b5a93e942f505f5128f	2026-01-22 22:54:28 -0700	OSM-Made	Add some extra hooks for fusion.
+093808ee1563dfdb735b69ba2bfc925a9439ff54	2026-01-21 19:59:58 -0700	OSM-Made	Add 13.02 offsets.
+offsets/README.md
+offsets/firmware-1202.yaml
+offsets/firmware-1250.yaml
+offsets/firmware-1300.yaml
+offsets/firmware-1302.yaml
+offsets/firmware-900.yaml
+tools/generate_offsets.py

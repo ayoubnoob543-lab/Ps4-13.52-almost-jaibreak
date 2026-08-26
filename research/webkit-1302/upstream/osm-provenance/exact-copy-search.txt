@@ -1,0 +1,20 @@
+=== patch_mount M_MOUNT getnewvnode ===
+[1;37m[[m[1;37m][m
+=== 0x001512A7 0x01A40250 ===
+[1;37m[[m[1;37m][m
+=== firmware-1302.yaml ===
+[1;37m[[m[1;37m][m
+=== InitKernel1302 ===
+[1;37m[[m
+  [1;37m{[m
+    [1;34m"path"[m[1;37m:[m [32m"offsets/firmware-1302.yaml"[m[1;37m,[m
+    [1;34m"repository"[m[1;37m:[m [1;37m{[m
+      [1;34m"id"[m[1;37m:[m [32m"MDEwOlJlcG9zaXRvcnkxMTM3OTUyMzY0"[m[1;37m,[m
+      [1;34m"isFork"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"isPrivate"[m[1;37m:[m [33mfalse[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"OSM-Made/PS4-Kernel-SDK"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/OSM-Made/PS4-Kernel-SDK"[m
+    [1;37m}[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/OSM-Made/PS4-Kernel-SDK/blob/e843f6fbd19f67d7e124426c61826d9925b94a55/offsets/firmware-1302.yaml"[m
+  [1;37m}[m
+[1;37m][m
