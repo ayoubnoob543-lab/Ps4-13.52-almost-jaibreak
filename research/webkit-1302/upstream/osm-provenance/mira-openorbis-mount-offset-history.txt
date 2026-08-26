@@ -1,0 +1,249 @@
+=== Mira history mount terms ===
+11523f7b0f8cf1c3d78ca9d2b17f3e6d226a224e	2020-08-09T02:58:32Z	kiwipuppeh	Merge pull request #106 from OpenOrbis/fix/dynlib-dlsym-patch\n\nFix dynlib_dlsym patch for 6.72	https://github.com/OpenOrbis/mira-project/commit/11523f7b0f8cf1c3d78ca9d2b17f3e6d226a224e
+091f7ad9079959f17938943e92793b62c482908d	2020-08-09T01:40:51Z	Al Azif	Fix dynlib_dlsym patch for 6.72	https://github.com/OpenOrbis/mira-project/commit/091f7ad9079959f17938943e92793b62c482908d
+7f75abf144f7e658ae1e8d6c37d77bda2178337a	2020-08-06T09:10:14Z	LightningMods	Update Patches620.cpp	https://github.com/OpenOrbis/mira-project/commit/7f75abf144f7e658ae1e8d6c37d77bda2178337a
+4595e24b2de12acee73cfa178a3dd39beecfe746	2020-08-03T22:39:45Z	kuser	Cleanup Loader Patches	https://github.com/OpenOrbis/mira-project/commit/4595e24b2de12acee73cfa178a3dd39beecfe746
+deac3b86587e4258da6183625054e5ae92024e68	2020-08-02T20:20:21Z	theorywrong	Merge pull request #92 from theorywrong/master\n\nSubstitute: Relaunch the ShellUI Process and keeps patch alive when ShellUI Start	https://github.com/OpenOrbis/mira-project/commit/deac3b86587e4258da6183625054e5ae92024e68
+abb88b88921d476b27c90a5f5afa9ad8f4977203	2020-08-02T17:29:10Z	TheoryWrong	Reload ShellUI Patch if process is relaunched	https://github.com/OpenOrbis/mira-project/commit/abb88b88921d476b27c90a5f5afa9ad8f4977203
+c76d117b74ca1d26606b7c574ad73da4a3d0cc83	2020-08-02T05:43:43Z	kuser	Fix daemon compiler errors\nFix memory leakage bug in Substitute\n\nRemove LM patch (proper workaround found)\nRemove unneeded kernel patches (from in-dev)\n\nImplement SetThreadCredentials IOCTL (untested)	https://github.com/OpenOrbis/mira-project/commit/c76d117b74ca1d26606b7c574ad73da4a3d0cc83
+9ab5333d07ab9fc6c07b578ebb4000c263fc5188	2020-07-14T16:29:02Z	TheoryWrong	TTYRedirector: Add 6.72 Offset	https://github.com/OpenOrbis/mira-project/commit/9ab5333d07ab9fc6c07b578ebb4000c263fc5188
+dcb1531b204eb09362295c4b4baecf320af1dcef	2020-07-08T18:17:17Z	kuser	Add untested mounting a path within the sandbox	https://github.com/OpenOrbis/mira-project/commit/dcb1531b204eb09362295c4b4baecf320af1dcef
+4d89bf6d55f02b7bb57d39cce56b9d8f44b833f4	2020-07-06T15:40:01Z	kuser	Removed kernel debugging component	https://github.com/OpenOrbis/mira-project/commit/4d89bf6d55f02b7bb57d39cce56b9d8f44b833f4
+357f4f81a700da792690ea92c8d213ba06513ff8	2020-07-08T18:17:17Z	kuser	Add untested mounting a path within the sandbox	https://github.com/OpenOrbis/mira-project/commit/357f4f81a700da792690ea92c8d213ba06513ff8
+f95af5abc3232c4665e3315091ae33994a3aa2fa	2020-07-06T15:40:01Z	kuser	Removed kernel debugging component	https://github.com/OpenOrbis/mira-project/commit/f95af5abc3232c4665e3315091ae33994a3aa2fa
+21841d377027f1c32af774a63e740c83a34b7be9	2020-06-20T13:11:34Z	kuser	Pointers, pointers, pointers	https://github.com/OpenOrbis/mira-project/commit/21841d377027f1c32af774a63e740c83a34b7be9
+125ccc1ec88a6c8f0aba9f5af1211f7e63d32730	2020-05-27T20:25:46Z	kiwipuppeh	Merge pull request #60 from OpenOrbis/Al-Azif-patch-1\n\nRemaining Kdlsym offsets for pull #58	https://github.com/OpenOrbis/mira-project/commit/125ccc1ec88a6c8f0aba9f5af1211f7e63d32730
+c9c827f56dcf72e0de1012632634118d0fac2f1b	2020-05-27T20:25:16Z	kiwipuppeh	Merge pull request #55 from Al-Azif/master\n\nMore patch tweaks and fixes	https://github.com/OpenOrbis/mira-project/commit/c9c827f56dcf72e0de1012632634118d0fac2f1b
+90ca642c35bc47b2de9fa87f67a6d5f2c8bf31b5	2020-05-25T19:19:23Z	kiwipuppeh	Merge pull request #71 from OpenOrbis/kiwidoggie-patch-1\n\nUpdate CI for MIRA_CHECKS	https://github.com/OpenOrbis/mira-project/commit/90ca642c35bc47b2de9fa87f67a6d5f2c8bf31b5
+b4cbcadcaf6a7a278be33aadccd726bf75c7b621	2020-05-21T06:54:28Z	Al Azif	Add printf hook patches and offsets	https://github.com/OpenOrbis/mira-project/commit/b4cbcadcaf6a7a278be33aadccd726bf75c7b621
+249fcf6a4d12c187da5ae900d167e8b95925436f	2020-05-19T21:42:01Z	Al Azif	Add the offsets for the FWs that matter for this	https://github.com/OpenOrbis/mira-project/commit/249fcf6a4d12c187da5ae900d167e8b95925436f
+5a740f008e55beeb88f4a39ae8c9928971497b90	2020-05-17T23:30:03Z	Al Azif	These where 5.01's offsets	https://github.com/OpenOrbis/mira-project/commit/5a740f008e55beeb88f4a39ae8c9928971497b90
+65434a71ccc27ecf5e5d5c61e9aa61fe28d1c1c8	2020-05-17T23:29:37Z	Al Azif	Remove unecessary patched bytes	https://github.com/OpenOrbis/mira-project/commit/65434a71ccc27ecf5e5d5c61e9aa61fe28d1c1c8
+fa9214258a12bcbe2eb1e6818cb5f9bcfe07d3c6	2020-05-17T21:33:10Z	kiwipuppeh	Merge pull request #52 from Al-Azif/master\n\nPatch debug setting errors	https://github.com/OpenOrbis/mira-project/commit/fa9214258a12bcbe2eb1e6818cb5f9bcfe07d3c6
+b092695e8018320bef7a5e4628863b3e792de7b5	2020-05-17T04:48:43Z	Al Azif	Patch debug setting errors	https://github.com/OpenOrbis/mira-project/commit/b092695e8018320bef7a5e4628863b3e792de7b5
+7c7ad96fd263699aef077e8bf88c8e54ae0e323e	2020-05-14T14:12:12Z	kiwipuppeh	Merge pull request #50 from OpenOrbis/Al-Azif-SSC-Offsets\n\nAdd SceShell offsets for 4.05, 4.55, 4.74, 5.01, and 5.03	https://github.com/OpenOrbis/mira-project/commit/7c7ad96fd263699aef077e8bf88c8e54ae0e323e
+f89a0599469c6d60b64e1400e8f088b813edd6ef	2020-05-14T14:11:42Z	kiwipuppeh	Merge pull request #45 from OpenOrbis/Al-Azif-patch-1\n\nUpdate Orbis505.hpp	https://github.com/OpenOrbis/mira-project/commit/f89a0599469c6d60b64e1400e8f088b813edd6ef
+6a605c925c6d23a19db1e5b7e30c21e2907ca5f7	2020-05-14T03:42:49Z	Al Azif	Update Orbis405.hpp with SSU offsets	https://github.com/OpenOrbis/mira-project/commit/6a605c925c6d23a19db1e5b7e30c21e2907ca5f7
+ade4d0bae726ac40380c1d84a8d7ee71ccfcfe27	2020-05-14T03:42:21Z	Al Azif	Update Orbis455.hpp with SSU offsets	https://github.com/OpenOrbis/mira-project/commit/ade4d0bae726ac40380c1d84a8d7ee71ccfcfe27
+47fe0eb19f0e3f9eda1ba3837347df330a664ff7	2020-05-14T03:42:02Z	Al Azif	Update Orbis474.hpp with SSU offsets	https://github.com/OpenOrbis/mira-project/commit/47fe0eb19f0e3f9eda1ba3837347df330a664ff7
+4c959c594708838a6a192f6c21d1c4175e479306	2020-05-14T03:35:21Z	Al Azif	Update Orbis501.hpp with SSU offsets	https://github.com/OpenOrbis/mira-project/commit/4c959c594708838a6a192f6c21d1c4175e479306
+b10ea0b8ae4989977c6ffdbba13c4c628578d9ca	2020-05-14T03:34:33Z	Al Azif	Update Orbis503.hpp with SSU offsets	https://github.com/OpenOrbis/mira-project/commit/b10ea0b8ae4989977c6ffdbba13c4c628578d9ca
+a05cd99bf45469504b58e23780375e96315627e0	2020-05-14T00:45:52Z	Al Azif	Update Orbis405.hpp with SSC offsets	https://github.com/OpenOrbis/mira-project/commit/a05cd99bf45469504b58e23780375e96315627e0
+5add4c5857ad13184d85128364684ae0f33c4f9e	2020-05-14T00:45:43Z	Al Azif	Update Orbis455.hpp with SSC offsets	https://github.com/OpenOrbis/mira-project/commit/5add4c5857ad13184d85128364684ae0f33c4f9e
+0615509e4a7e082138d0167bfff105cd40af21a0	2020-05-14T00:01:16Z	Al Azif	Update Orbis501.hpp with SSC offsets\n\nI believe ssc_fake_to_free_patch was wrong as well	https://github.com/OpenOrbis/mira-project/commit/0615509e4a7e082138d0167bfff105cd40af21a0
+9a237c2599b74dd7342d185febdf35fd56f8ad5a	2020-05-13T23:56:17Z	Al Azif	Update Orbis474.hpp with SSC offsets	https://github.com/OpenOrbis/mira-project/commit/9a237c2599b74dd7342d185febdf35fd56f8ad5a
+9eec7727496efeef4ad484498902a9dd54d9a50b	2020-05-12T02:09:17Z	kuser	Add the one and only wonderful SpecterDev to credits\n\nAdd LM's system-libc/fios patch	https://github.com/OpenOrbis/mira-project/commit/9eec7727496efeef4ad484498902a9dd54d9a50b
+9d18f6d2079265f1999be1ed10b6f05eaa14c0e9	2020-05-11T05:01:35Z	kiwipuppeh	Merge pull request #40 from OpenOrbis/Al-Azif-4.55-patch\n\nUpdate Patches405.cpp	https://github.com/OpenOrbis/mira-project/commit/9d18f6d2079265f1999be1ed10b6f05eaa14c0e9
+c5a1f735cf8c32f2f188e38023c596128aba0919	2020-05-11T05:01:02Z	Al Azif	Update Patches405.cpp	https://github.com/OpenOrbis/mira-project/commit/c5a1f735cf8c32f2f188e38023c596128aba0919
+49e9ba629664c44c3f9d665ee8ca785ac32e6629	2020-05-11T04:43:14Z	kiwipuppeh	Merge pull request #37 from kiwidoggie/ethylamine-patch-3\n\nAdd extra patches	https://github.com/OpenOrbis/mira-project/commit/49e9ba629664c44c3f9d665ee8ca785ac32e6629
+92328f3930ce91bdbce7bb361157f76b20bd9047	2020-05-11T04:43:08Z	kiwipuppeh	Merge branch 'master' into ethylamine-patch-3	https://github.com/OpenOrbis/mira-project/commit/92328f3930ce91bdbce7bb361157f76b20bd9047
+1ae2cafe573713b909891aee9b94a87a9fe8628d	2020-05-11T04:41:42Z	kiwipuppeh	Merge pull request #39 from kiwidoggie/Al-Azif-patches\n\nPatches Update	https://github.com/OpenOrbis/mira-project/commit/1ae2cafe573713b909891aee9b94a87a9fe8628d
+6d10b5ba1d9ca4b32cd929f9f04b6417038a6b75	2020-05-11T03:38:05Z	kuser	Pre LM Patches	https://github.com/OpenOrbis/mira-project/commit/6d10b5ba1d9ca4b32cd929f9f04b6417038a6b75
+f1043183c89eb6cf6ffcdcee9545a2197fec5a83	2020-05-11T03:06:25Z	Al Azif	Update Patches505.cpp	https://github.com/OpenOrbis/mira-project/commit/f1043183c89eb6cf6ffcdcee9545a2197fec5a83
+ceac4282a853f0d5090890de16071473f00730d4	2020-05-11T03:06:03Z	Al Azif	Update Patches503.cpp	https://github.com/OpenOrbis/mira-project/commit/ceac4282a853f0d5090890de16071473f00730d4
+92c966808196467087ef5037a4666ae778533187	2020-05-11T03:05:45Z	Al Azif	Update Patches501.cpp	https://github.com/OpenOrbis/mira-project/commit/92c966808196467087ef5037a4666ae778533187
+8ea4fc0016d4a048d8b826205587961986491c36	2020-05-11T03:05:06Z	Al Azif	Update Patches474.cpp	https://github.com/OpenOrbis/mira-project/commit/8ea4fc0016d4a048d8b826205587961986491c36
+91e1836869926d0314ad81af1b408a46094bfd71	2020-05-11T03:04:41Z	Al Azif	Update Patches474.cpp	https://github.com/OpenOrbis/mira-project/commit/91e1836869926d0314ad81af1b408a46094bfd71
+a69a0ff0424bb0c1df30e30f1c61d57612221df1	2020-05-11T03:04:23Z	Al Azif	Update Patches455.cpp	https://github.com/OpenOrbis/mira-project/commit/a69a0ff0424bb0c1df30e30f1c61d57612221df1
+1fcf1d9f63177dd2d1da9d430669edf3e8572084	2020-05-11T02:55:59Z	Al Azif	Update Patches405.cpp	https://github.com/OpenOrbis/mira-project/commit/1fcf1d9f63177dd2d1da9d430669edf3e8572084
+55e645b09bdd1292be969584efa81ae6a8e53b16	2020-05-11T02:55:06Z	Al Azif	Update Patches405.cpp	https://github.com/OpenOrbis/mira-project/commit/55e645b09bdd1292be969584efa81ae6a8e53b16
+4da004d01c6478aa3fb9de086d92b64f0fdd05ce	2020-05-10T18:24:44Z	Al Azif	Add offsets that were missing but listed in 5.01\n\nAlso fixed **kdlsym_addr_sceSblRngGetRandomNumber** mentioned here https://github.com/kiwidoggie/miracpp/pull/29	https://github.com/OpenOrbis/mira-project/commit/4da004d01c6478aa3fb9de086d92b64f0fdd05ce
+20c6fa6640f52aaf7fe596975efc142b04adf6db	2020-05-10T08:18:09Z	ethylamine	Add extra patches	https://github.com/OpenOrbis/mira-project/commit/20c6fa6640f52aaf7fe596975efc142b04adf6db
+46e67b9fd9a8c258a710fc44c9c9b816982d42ce	2020-05-10T07:43:23Z	Al Azif	Update Orbis501.hpp\n\nAdd new/missing offsets and re-alphabetize	https://github.com/OpenOrbis/mira-project/commit/46e67b9fd9a8c258a710fc44c9c9b816982d42ce
+906a52a60c12963df8955742e81813187eb40ead	2020-05-09T21:07:53Z	kiwipuppeh	Merge pull request #34 from Al-Azif/master\n\nUpdate 4.55-5.03 for offsets added to 5.05 last night	https://github.com/OpenOrbis/mira-project/commit/906a52a60c12963df8955742e81813187eb40ead
+82d88a001fc4c3096b5ff5b27c1527bc93cd49da	2020-05-08T23:43:56Z	Al Azif	Merge pull request #4 from Al-Azif/Al-Azif-503\n\nAdd new kernel offsets for 5.03	https://github.com/OpenOrbis/mira-project/commit/82d88a001fc4c3096b5ff5b27c1527bc93cd49da
+4662b52d9ada16ba61214b92c31c81980cf466b0	2020-05-08T23:43:27Z	Al Azif	Merge pull request #3 from Al-Azif/Al-Azif-501\n\nAdd new kernel offsets for 5.01	https://github.com/OpenOrbis/mira-project/commit/4662b52d9ada16ba61214b92c31c81980cf466b0
+0ace4d7d8970bbf173a7d392804d15f4ba954322	2020-05-08T23:42:38Z	Al Azif	Merge pull request #2 from Al-Azif/Al-Azif-474\n\nAdd new kernel offsets for 4.74	https://github.com/OpenOrbis/mira-project/commit/0ace4d7d8970bbf173a7d392804d15f4ba954322
+236817c3746e45f9d89528f36cb75ce886f662eb	2020-05-08T23:42:09Z	Al Azif	Merge pull request #1 from Al-Azif/Al-Azif-455\n\nAdd new kernel offsets for 4.55	https://github.com/OpenOrbis/mira-project/commit/236817c3746e45f9d89528f36cb75ce886f662eb
+20ed7b630db1565b992f1bcdd5d6cabbb1422a09	2020-05-08T23:38:28Z	Al Azif	Add new kernel offsets for 4.55	https://github.com/OpenOrbis/mira-project/commit/20ed7b630db1565b992f1bcdd5d6cabbb1422a09
+d2f94f9298033359ad7f935369cd5ac1bea0c63e	2020-05-08T23:31:13Z	Al Azif	Add new kernel offsets for 4.74	https://github.com/OpenOrbis/mira-project/commit/d2f94f9298033359ad7f935369cd5ac1bea0c63e
+d4211731d0b2e7532b4fa01e133bad129a876f66	2020-05-08T23:20:11Z	Al Azif	Add new kernel offsets for 5.01	https://github.com/OpenOrbis/mira-project/commit/d4211731d0b2e7532b4fa01e133bad129a876f66
+6db8a73795deb5c13851e3e5928b1ec1ba55f639	2020-05-08T23:10:03Z	Al Azif	Add new kernel offsets for 5.03	https://github.com/OpenOrbis/mira-project/commit/6db8a73795deb5c13851e3e5928b1ec1ba55f639
+89479d5ada45570266335a80f24477f39d24008f	2020-05-08T14:08:15Z	kiwipuppeh	Update mira-build-all.yml	https://github.com/OpenOrbis/mira-project/commit/89479d5ada45570266335a80f24477f39d24008f
+5a77757a3236bb754a52d586aed552ae29433895	2020-05-08T13:58:47Z	kuser	Fix socket() kernel panic on resume\n\nRe-enable LogServer instances	https://github.com/OpenOrbis/mira-project/commit/5a77757a3236bb754a52d586aed552ae29433895
+aa52fc34a6a8c07b8906e5157a1ad62c1b0788f9	2020-05-08T05:33:11Z	kiwipuppeh	Merge pull request #28 from Al-Azif/master\n\nUpdate 5.03 Offsets/Patches/Fixes	https://github.com/OpenOrbis/mira-project/commit/aa52fc34a6a8c07b8906e5157a1ad62c1b0788f9
+0a3096bf9712e0c226d60734e6f05a159b57ae5a	2020-05-08T05:31:54Z	kuser	Fix potential suspend kernel panic with Substitute Plugin	https://github.com/OpenOrbis/mira-project/commit/0a3096bf9712e0c226d60734e6f05a159b57ae5a
+fddeca7c770a4e04307e04ddb77de34dc66afd05	2020-05-08T04:08:06Z	kiwipuppeh	Merge pull request #33 from kiwidoggie/ethylamine-patch-2\n\nadded eap hdd key offset + dump	https://github.com/OpenOrbis/mira-project/commit/fddeca7c770a4e04307e04ddb77de34dc66afd05
+1116c5476082c8e3a97dfcee41085320f26d1193	2020-05-08T03:59:39Z	ethylamine	add eap hdd key offset	https://github.com/OpenOrbis/mira-project/commit/1116c5476082c8e3a97dfcee41085320f26d1193
+00f48468f95aa3d0d5205b8f6f347b5ddb407486	2020-05-08T03:37:57Z	kuser	Add locking to Debugger/Io threads\nAdd locking to TrapFatal (bad idea?)\nAdd ability to get logger mutex (use with trap fatal)\n\nRemove uneeded thread fetch in FakePkgManager::OnUnload\n\nChange mtx_lock macro\nChange Debugger2 to use the ThreadManager's threads\nChange FileManager to use ThreadManager's threads\n\nFix ThreadManager not being loaded\nFix 5.05 ptrace patches\nFix ThreadManager compiler weirdness	https://github.com/OpenOrbis/mira-project/commit/00f48468f95aa3d0d5205b8f6f347b5ddb407486
+c2c76926d8fcb49e3a9f82dab1ee0b9aadd09a48	2020-05-08T03:24:29Z	ethylamine	Update Patches505.cpp	https://github.com/OpenOrbis/mira-project/commit/c2c76926d8fcb49e3a9f82dab1ee0b9aadd09a48
+a7488f9b7640568f704820f4ae4484334a7d70be	2020-05-08T03:14:35Z	ethylamine	added eap hdd key offset + dump	https://github.com/OpenOrbis/mira-project/commit/a7488f9b7640568f704820f4ae4484334a7d70be
+518f6d6477ec26a971e2a49f4b89958332ae745b	2020-05-04T04:58:55Z	Al Azif	Update Patches455.cpp	https://github.com/OpenOrbis/mira-project/commit/518f6d6477ec26a971e2a49f4b89958332ae745b
+1ece16148f361ef7e41fa6fedb858528e7a0649c	2020-05-04T04:57:35Z	Al Azif	Revert "Update Patches455.cpp"\n\nThis reverts commit 128d5d83d65ec651e04a3f754896fdae58463efb.	https://github.com/OpenOrbis/mira-project/commit/1ece16148f361ef7e41fa6fedb858528e7a0649c
+128d5d83d65ec651e04a3f754896fdae58463efb	2020-05-04T04:49:55Z	Al Azif	Update Patches455.cpp	https://github.com/OpenOrbis/mira-project/commit/128d5d83d65ec651e04a3f754896fdae58463efb
+6a4ce066d84d1b39ef1ed1f892714d410f651ea8	2020-05-04T04:08:58Z	Al Azif	Update Patches455.cpp	https://github.com/OpenOrbis/mira-project/commit/6a4ce066d84d1b39ef1ed1f892714d410f651ea8
+6b5b1b636f6dfdd994f79cedc43d9c6b1e67b266	2020-05-04T04:07:34Z	Al Azif	Update Patches455.cpp	https://github.com/OpenOrbis/mira-project/commit/6b5b1b636f6dfdd994f79cedc43d9c6b1e67b266
+1520517ff356ce2571e2d31614065baf51a57ff5	2020-05-04T04:03:09Z	Al Azif	Update Patches474.cpp\n\nFat fingered that	https://github.com/OpenOrbis/mira-project/commit/1520517ff356ce2571e2d31614065baf51a57ff5
+f4b0410ec628168681db9986fbc9ea4985880f84	2020-05-03T22:06:29Z	Al Azif	Prep Orbis474.hpp for new offsets	https://github.com/OpenOrbis/mira-project/commit/f4b0410ec628168681db9986fbc9ea4985880f84
+97186d97878eef8f9e44699836c05db2883cdb64	2020-05-03T21:33:59Z	Al Azif	Update Patches474.cpp	https://github.com/OpenOrbis/mira-project/commit/97186d97878eef8f9e44699836c05db2883cdb64
+6feb290ac5348662ddb10414916febd20f53ee89	2020-05-03T07:38:58Z	theorywrong	Merge pull request #27 from kiwidoggie/ethylamine-patch-1\n\nPort mount patch	https://github.com/OpenOrbis/mira-project/commit/6feb290ac5348662ddb10414916febd20f53ee89
+df569c422b462740ac5ab48bbe4e37dffa58106e	2020-05-03T05:56:23Z	kuser	Fix 5.03 patches\nFix potential trap_fatal issues\nFix LogManager initialization\n\nChange resume handler to system_resume_phase4\n\nDisable self decryption for now	https://github.com/OpenOrbis/mira-project/commit/df569c422b462740ac5ab48bbe4e37dffa58106e
+a4851ae1fddea10788cccc976a7478940a4825d2	2020-05-03T04:34:52Z	ethylamine	Port mount patch	https://github.com/OpenOrbis/mira-project/commit/a4851ae1fddea10788cccc976a7478940a4825d2
+30abec104161e99358dcab7c25bd911962a40f92	2020-05-03T04:09:06Z	Al Azif	Update Patches503.cpp\n\nSame as 5.05... again	https://github.com/OpenOrbis/mira-project/commit/30abec104161e99358dcab7c25bd911962a40f92
+094fde5942bf38a3424ac56b0c24be15306d6faa	2020-05-03T04:02:05Z	Al Azif	Update Patches503.cpp\n\nAlso the same as 5.05	https://github.com/OpenOrbis/mira-project/commit/094fde5942bf38a3424ac56b0c24be15306d6faa
+3b43f74ae3e7f37829bb63754dc53a6e97c29e7a	2020-05-03T03:47:46Z	Al Azif	Update Patches503.cpp\n\nSame as 5.05	https://github.com/OpenOrbis/mira-project/commit/3b43f74ae3e7f37829bb63754dc53a6e97c29e7a
+281edee0d96cfeb2d48cf99d7749c6ee86e4b01b	2020-05-02T17:07:45Z	kiwipuppeh	Merge pull request #15 from kiwidoggie/Al-Azif-patch-2\n\nAdd SiSTRo's debug log patches for 5.03	https://github.com/OpenOrbis/mira-project/commit/281edee0d96cfeb2d48cf99d7749c6ee86e4b01b
+82c5923112d185ee71bc357ff15a400590bb1550	2020-05-02T17:07:09Z	kiwipuppeh	Merge branch 'master' into Al-Azif-patch-2	https://github.com/OpenOrbis/mira-project/commit/82c5923112d185ee71bc357ff15a400590bb1550
+2ef3237d77ca8e3cc4f9af18fff389bbffce243f	2020-04-21T01:29:36Z	TheoryWrong	Substitute: Add lock to dlsym obj + Find offset for 5.01	https://github.com/OpenOrbis/mira-project/commit/2ef3237d77ca8e3cc4f9af18fff389bbffce243f
+4537e664c3595cab3d6b74d85c196d043fe9aced	2020-04-10T18:29:12Z	TheoryWrong	Substitute : Fix mount error	https://github.com/OpenOrbis/mira-project/commit/4537e664c3595cab3d6b74d85c196d043fe9aced
+654a4509a1d6f6fbcaadadbef6b827b17fb7981c	2020-04-05T09:42:36Z	kuser	Add Boot Options Block (external config)\nAdd SelfDecrypt framework\nAdd SyscallGuardPlugin (not implemented)\n\nUpdate protobuf files\nUpdate Mira to include RPC again\n\nIncrease max message size to 64MB\n\nFix ThreadManager issues\nFix bad iteration in OnGetProcList\nFix for kernel proc's VmEntries (there are none?)	https://github.com/OpenOrbis/mira-project/commit/654a4509a1d6f6fbcaadadbef6b827b17fb7981c
+84c4d09487df4908a18a067d7c1d8d8ed1664266	2020-03-16T22:14:40Z	kuser	Increase the maximum listener count 10->64\n\nAdd WriteKernelFileLog macros to print to /mnt/usb0/panic.log	https://github.com/OpenOrbis/mira-project/commit/84c4d09487df4908a18a067d7c1d8d8ed1664266
+e9520686f01960dcc394727fc042f4bf52b4da56	2020-03-14T18:05:19Z	Al Azif	Add SiSTRo's debug log patches for 5.03	https://github.com/OpenOrbis/mira-project/commit/e9520686f01960dcc394727fc042f4bf52b4da56
+5a4989e9e7923e16c92380d8bfd514b76fcb02c6	2020-03-14T16:21:56Z	kuser	Add SiSTRo's debug log patches	https://github.com/OpenOrbis/mira-project/commit/5a4989e9e7923e16c92380d8bfd514b76fcb02c6
+99e48e5ae9936fb8746cac7ecbfc34db9627de52	2020-03-11T04:18:05Z	kiwipuppeh	Merge pull request #14 from Cryptogenic/master\n\nRenamed Kernel.s to _Kernel.s to fix bug #13	https://github.com/OpenOrbis/mira-project/commit/99e48e5ae9936fb8746cac7ecbfc34db9627de52
+13f66d7472fd77e13f7f508100d361160fe347de	2020-03-11T04:17:10Z	kiwipuppeh	Merge pull request #9 from kiwidoggie/Al-Azif-patch-1\n\nMissing break;	https://github.com/OpenOrbis/mira-project/commit/13f66d7472fd77e13f7f508100d361160fe347de
+1ccc7bb22ad40012eb89dd0a84083b49ab0d1d5b	2020-03-11T01:49:46Z	Specter	Renamed Kernel.s to _Kernel.s to fix bug #13	https://github.com/OpenOrbis/mira-project/commit/1ccc7bb22ad40012eb89dd0a84083b49ab0d1d5b
+83f75bca9fe5757e853af0ab869800c9b690a5f9	2020-02-07T07:05:18Z	Al Azif	Double checked offsets	https://github.com/OpenOrbis/mira-project/commit/83f75bca9fe5757e853af0ab869800c9b690a5f9
+6a9ec375bd929f1a198c5981a44c9810e282fe54	2020-02-07T06:35:56Z	Al Azif	Add patches	https://github.com/OpenOrbis/mira-project/commit/6a9ec375bd929f1a198c5981a44c9810e282fe54
+d151e0473143edfff1e55ebba6e637319aa70bfd	2020-02-07T05:20:51Z	Al Azif	Shellcore offsets	https://github.com/OpenOrbis/mira-project/commit/d151e0473143edfff1e55ebba6e637319aa70bfd
+39ceed0095b06ebafa4faedd969d9a429f7bb310	2020-01-30T00:39:38Z	kuser	Move SceShellCore patches to kdlsym to reduce files	https://github.com/OpenOrbis/mira-project/commit/39ceed0095b06ebafa4faedd969d9a429f7bb310
+4d81c34ace21511771b35c0578ac9e03280e10d5	2020-01-28T03:45:23Z	kuser	HEN WORKS!\n\nAdd shellcore patches on FakePkgManager load	https://github.com/OpenOrbis/mira-project/commit/4d81c34ace21511771b35c0578ac9e03280e10d5
+0b55745c02eeca9b639702680e3ce188b4bc9479	2020-01-27T06:49:38Z	kuser	Attempt implement Fake Pkg Manager	https://github.com/OpenOrbis/mira-project/commit/0b55745c02eeca9b639702680e3ce188b4bc9479
+dd11cb8ff1202dd7a5fa810da458ad200ff9260a	2020-01-16T13:25:34Z	kuser	Why does the PS4 scene have to be so ghetto with their patches/hooks, makes this shit unmaintainable	https://github.com/OpenOrbis/mira-project/commit/dd11cb8ff1202dd7a5fa810da458ad200ff9260a
+71d9779643fbc13e9ad1f7ceec4173c8134865ba	2020-01-11T01:35:19Z	kuser	Change ONI_PLATFORM to MIRA_PLATFORM\n\nAdd MIRA_UNSUPPORTED_PLATFORMS definition in order to enable:\nSL2,\nRaspiZero,\nOrbis176,\nOrbis501,\nOrbis620,\nOrbis650\n\nUnsupported platforms may have varying levels of support, including but not limited to:\nincorrect structures,\nincorrect or missing offsets,\n(that's pretty much it)\n\nif you have any other symptoms see your doctor for more information	https://github.com/OpenOrbis/mira-project/commit/71d9779643fbc13e9ad1f7ceec4173c8134865ba
+e7b4284328372a0f0ddca132e0076bdd02fcce7e	2019-12-21T14:19:10Z	kuser	Add __BSD_VISIBLE define (was missing before).\nAdd FuseManager for fuse-related patches/hooks\n\nFix 5.05 build\nFix Debugger::IsProcessAlive	https://github.com/OpenOrbis/mira-project/commit/e7b4284328372a0f0ddca132e0076bdd02fcce7e
+6446c65d0851db92cd09be534c279254351174f5	2019-12-15T18:13:37Z	kuser	Start re-writing FuseManager to make less jank	https://github.com/OpenOrbis/mira-project/commit/6446c65d0851db92cd09be534c279254351174f5
+d47e4ce6638eac523b629e9918c25f64a98be0fc	2019-12-15T16:59:11Z	kuser	Re-enable device driver\n\nLower the total amount of rpc connections to 8 (previous 256)\n\nChange messages to allow dynamically allocated data (smaller stack size)\n\nAdd Debugger check to see if we need to hook trap fatal (1.76 etc)\nAdd Gdb Debugging stub to replace original debugger	https://github.com/OpenOrbis/mira-project/commit/d47e4ce6638eac523b629e9918c25f64a98be0fc
+46e7425aeee86c9e5b8d78c2e215235397b7b800	2019-09-07T03:28:02Z	kuser	Fix proc.h (thx Fire30 for newer fws)\nFix output directories in makefile (now binaries are in the output directory)\nFix null pointer deref in Connection.cpp\n\nRemoval of Loader::Memset/Memcpy\nRemoval of mutex on Logger (yikes)\n\nAdd new fw offsets (thx Fire30 & znullptr)	https://github.com/OpenOrbis/mira-project/commit/46e7425aeee86c9e5b8d78c2e215235397b7b800
+=== Mira tree paths ===
+external/freebsd-headers/include/c++/4.2/ext/pb_ds/detail/container_base_dispatch.hpp
+external/freebsd-headers/include/c++/4.2/ext/pb_ds/detail/priority_queue_base_dispatch.hpp
+external/freebsd-headers/include/fs/msdosfs/msdosfsmount.h
+external/freebsd-headers/include/fs/ntfs/ntfsmount.h
+external/freebsd-headers/include/fs/nwfs/nwfs_mount.h
+external/freebsd-headers/include/fs/udf/udf_mount.h
+external/freebsd-headers/include/geom/mountver/g_mountver.h
+external/freebsd-headers/include/isofs/cd9660/cd9660_mount.h
+external/freebsd-headers/include/netgraph/ng_patch.h
+external/freebsd-headers/include/nfs/nfs_mountcommon.h
+external/freebsd-headers/include/nfsclient/nfsmount.h
+external/freebsd-headers/include/rpcsvc/mount.h
+external/freebsd-headers/include/rpcsvc/mount.x
+external/freebsd-headers/include/sys/kernel.h
+external/freebsd-headers/include/sys/kerneldump.h
+external/freebsd-headers/include/sys/mount.h
+external/freebsd-headers/include/ufs/ufs/ufsmount.h
+kernel/Makefile
+kernel/src/Boot/Config.hpp
+kernel/src/Boot/InitParams.hpp
+kernel/src/Boot/MiraLoader.hpp
+kernel/src/Boot/OptionsBlock.cpp
+kernel/src/Boot/OptionsBlock.hpp
+kernel/src/Boot/Patches.cpp
+kernel/src/Boot/Patches.hpp
+kernel/src/Boot/Patches/Patches176.cpp
+kernel/src/Boot/Patches/Patches405.cpp
+kernel/src/Boot/Patches/Patches455.cpp
+kernel/src/Boot/Patches/Patches474.cpp
+kernel/src/Boot/Patches/Patches501.cpp
+kernel/src/Boot/Patches/Patches503.cpp
+kernel/src/Boot/Patches/Patches505.cpp
+kernel/src/Boot/Patches/Patches620.cpp
+kernel/src/Boot/Patches/Patches650.cpp
+kernel/src/Boot/Patches/Patches672.cpp
+kernel/src/Driver/CtrlDriver.cpp
+kernel/src/Driver/CtrlDriver.hpp
+kernel/src/External/hde64.cpp
+kernel/src/External/protobuf-c.c
+kernel/src/Messaging/MessageListener.hpp
+kernel/src/Messaging/MessageManager.cpp
+kernel/src/Messaging/MessageManager.hpp
+kernel/src/Messaging/Rpc/Connection.cpp
+kernel/src/Messaging/Rpc/Connection.hpp
+kernel/src/Messaging/Rpc/Server.cpp
+kernel/src/Messaging/Rpc/Server.hpp
+kernel/src/Messaging/Rpc/rpc.pb-c.c
+kernel/src/Messaging/Rpc/rpc.pb-c.h
+kernel/src/Mira.cpp
+kernel/src/Mira.hpp
+kernel/src/OrbisOS/FakeStructs.hpp
+kernel/src/OrbisOS/SelfDecrypt.cpp
+kernel/src/OrbisOS/SelfDecrypt.hpp
+kernel/src/OrbisOS/SelfStructs.hpp
+kernel/src/OrbisOS/Utilities.cpp
+kernel/src/OrbisOS/Utilities.hpp
+kernel/src/OrbisOS/asm/entrypoint_trigger
+kernel/src/OrbisOS/asm/entrypoint_trigger.asm
+kernel/src/OrbisOS/asm/prx.asm
+kernel/src/OrbisOS/asm/rpcldr.asm
+kernel/src/Plugins/BrowserActivator/BrowserActivator.cpp
+kernel/src/Plugins/BrowserActivator/BrowserActivator.hpp
+kernel/src/Plugins/Debugger/Debugger2.cpp
+kernel/src/Plugins/Debugger/Debugger2.hpp
+kernel/src/Plugins/Debugger/Debugger2_TrapFatal.cpp
+kernel/src/Plugins/FakePkg/FakePkgManager.cpp
+kernel/src/Plugins/FakePkg/FakePkgManager.hpp
+kernel/src/Plugins/FakeSelf/FakeSelfManager.cpp
+kernel/src/Plugins/FakeSelf/FakeSelfManager.hpp
+kernel/src/Plugins/FileManager/FileManager.cpp
+kernel/src/Plugins/FileManager/FileManager.hpp
+kernel/src/Plugins/FileManager/FileManagerMessages.hpp
+kernel/src/Plugins/FileManager/FileManagerSelf.hpp
+kernel/src/Plugins/FileManager/filemanager.pb-c.c
+kernel/src/Plugins/FileManager/filemanager.pb-c.h
+kernel/src/Plugins/LogServer/LogManager.cpp
+kernel/src/Plugins/LogServer/LogManager.hpp
+kernel/src/Plugins/MorpheusEnabler/MorpheusEnabler.cpp
+kernel/src/Plugins/MorpheusEnabler/MorpheusEnabler.hpp
+kernel/src/Plugins/PluginManager.cpp
+kernel/src/Plugins/PluginManager.hpp
+kernel/src/Plugins/RemotePlayEnabler/RemotePlayEnabler.cpp
+kernel/src/Plugins/RemotePlayEnabler/RemotePlayEnabler.hpp
+kernel/src/Plugins/Substitute/Substitute.cpp
+kernel/src/Plugins/Substitute/Substitute.hpp
+kernel/src/Plugins/SyscallGuard/SyscallGuardPlugin.cpp
+kernel/src/Plugins/SyscallGuard/SyscallGuardPlugin.hpp
+kernel/src/Plugins/TTYRedirector/TTYRedirector.cpp
+kernel/src/Plugins/TTYRedirector/TTYRedirector.hpp
+kernel/src/Trainers/TrainerHeader.hpp
+kernel/src/Utils/Dynlib.cpp
+kernel/src/Utils/Dynlib.hpp
+kernel/src/Utils/Hook.cpp
+kernel/src/Utils/Hook.hpp
+kernel/src/Utils/IModule.hpp
+kernel/src/Utils/Kdlsym.hpp
+kernel/src/Utils/Kdlsym/Default.hpp
+kernel/src/Utils/Kdlsym/Orbis176.hpp
+kernel/src/Utils/Kdlsym/Orbis405.hpp
+kernel/src/Utils/Kdlsym/Orbis455.hpp
+kernel/src/Utils/Kdlsym/Orbis474.hpp
+kernel/src/Utils/Kdlsym/Orbis501.hpp
+kernel/src/Utils/Kdlsym/Orbis503.hpp
+kernel/src/Utils/Kdlsym/Orbis505.hpp
+kernel/src/Utils/Kdlsym/Orbis620.hpp
+kernel/src/Utils/Kdlsym/Orbis650.hpp
+kernel/src/Utils/Kdlsym/Orbis672.hpp
+kernel/src/Utils/Kernel.cpp
+kernel/src/Utils/Kernel.hpp
+kernel/src/Utils/Logger.cpp
+kernel/src/Utils/Logger.hpp
+kernel/src/Utils/New.cpp
+kernel/src/Utils/New.hpp
+kernel/src/Utils/RingBuffer.hpp
+kernel/src/Utils/SelfHeader.hpp
+kernel/src/Utils/Span.hpp
+kernel/src/Utils/SysWrappers.cpp
+kernel/src/Utils/SysWrappers.hpp
+kernel/src/Utils/Types.hpp
+kernel/src/Utils/UniquePtr.hpp
+kernel/src/Utils/Vector.hpp
+kernel/src/Utils/_Kernel.s
+kernel/src/Utils/_Syscall.hpp
+kernel/src/Utils/_Syscall.s
+loader/src/Boot/Patches.cpp
+loader/src/Boot/Patches/Patches176.cpp
+loader/src/Boot/Patches/Patches405.cpp
+loader/src/Boot/Patches/Patches455.cpp
+loader/src/Boot/Patches/Patches474.cpp
+loader/src/Boot/Patches/Patches501.cpp
+loader/src/Boot/Patches/Patches503.cpp
+loader/src/Boot/Patches/Patches505.cpp
+loader/src/Boot/Patches/Patches620.cpp
+loader/src/Boot/Patches/Patches650.cpp
+loader/src/Boot/Patches/Patches672.cpp
+loader/src/Utils/Kernel.s
+=== direct code term search via raw candidates ===
+--- kernel/src/Boot/Patches.cpp ---
+--- kernel/src/Boot/Patches.hpp ---
+--- kernel/src/Boot/OrbisOS.cpp ---
+--- kernel/src/Boot/OrbisOS.hpp ---

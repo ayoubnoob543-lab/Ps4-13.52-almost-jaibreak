@@ -317,3 +317,11 @@ La fuente primaria pública de los parches Mira 7.02 es el Pastebin de Al-Azif [
 El Pastebin de `Patches702-Loader.cpp` [`hBWgZjKA`](https://pastebin.com/hBWgZjKA) contiene sólo los parches necesarios para que el loader arranque y no incluye el parche de montaje. Esto refuerza que el patch point de montaje pertenece a la capa de funcionalidad del framework, no a la rutina vulnerable de FFS.
 
 La documentación de [OpenOrbis/mira-project](https://github.com/OpenOrbis/mira-project) describe explícitamente una “System-level FUSE implementation (Experimental, WIP)” y operaciones para montar juegos guardados y PFS. Ese contexto es compatible con que el nombre `patch_mount` de Fusion/Mira se refiera a habilitar una ruta de montaje/FUSE no privilegiada. No constituye evidencia de que el punto sea una función FFS ni de que esté relacionado con Celsius. Clasificación: Pastebins de parches `VERIFIED`; descripción FUSE/Mira `VERIFIED`; relación con Celsius `INVALID`.
+
+## 24. OpenOrbis: símbolos de montaje genéricos, no FFS
+
+La fuente directa de OpenOrbis/Mira `kernel/src/Utils/Kdlsym/Orbis672.hpp` publica los símbolos `rootvnode`, `kernel_mount`, `mount_argf`, `M_MOUNT` y hooks PFS para Orbis 6.72. El archivo declara que los offsets esperan prototipos estándar de FreeBSD 9, pero no define `ffs_mountfs`, `ffs_reload`, `ffs_vget` ni `ffs_alloc`, ni aporta sus cuerpos o referencias cruzadas.
+
+La existencia histórica de `kernel_mount`, `mount_argf` y `M_MOUNT` demuestra que Mira trabajaba con una capa de montaje/VFS de FreeBSD/Orbis. No permite deducir que el punto `patch_mount` de Fusion 13.02 sea `ffs_mountfs`; de hecho, el código de Fusion consume ese punto como un parche de autorización de montaje, mientras los símbolos de OpenOrbis son entradas de resolución separadas. Clasificación: símbolos VFS/MOUNT de 6.72 `VERIFIED`; extrapolación a 13.02 `HYPOTHESIS`; relación específica con Celsius `INVALID`.
+
+[40]: https://github.com/OpenOrbis/mira-project/blob/master/kernel/src/Utils/Kdlsym/Orbis672.hpp "OpenOrbis Orbis672 kernel symbols"
