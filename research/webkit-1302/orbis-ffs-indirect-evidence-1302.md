@@ -180,3 +180,65 @@ La conclusión probatoria permanece: **VERIFIED** para la existencia y propagaci
 [18]: https://github.com/OSM-Made/PS4-Kernel-SDK/commit/093808ee1563dfdb735b69ba2bfc925a9439ff54 "OSM initial 13.02 YAML commit"
 [19]: https://github.com/AetherPS/FusionShared "FusionShared repository"
 [20]: https://github.com/cualquiercosa327/Fusion/commit/a486e87fb6026d8b64178ee27f00a3558fc9b2ac "Historical Fuse root mount commit"
+
+## 12. Hallazgo nuevo: el SDK de ArabPixel ya tenía infraestructura de kdump antes de Fusion
+
+La auditoría de `ArabPixel/sdk` descubre un antecedente técnicamente relevante, aunque insuficiente para identificar el origen material de la tabla. El repositorio es un fork de [`ps4-payload-dev/sdk`](https://github.com/ps4-payload-dev/sdk). Antes de la publicación de `Shared/Offsets-1302.h`, su historial ya contenía un sample `samples/kdump/main.c`, una función `kernel_find_pattern()` y una función `kernel_get_image_size()`.
+
+El commit [`4323a2d`](https://github.com/ArabPixel/sdk/commit/4323a2d9d8e2646e7488c5c5147709b5824eef7d), del 10 de julio de 2025, añade búsqueda de patrones en memoria del kernel y cálculo del tamaño de la imagen. El sample `kdump` copia rangos desde `KERNEL_ADDRESS_IMAGE_BASE` mediante `kernel_copyout()` y los escribe por stdout. El commit [`7ca86e9`](https://github.com/ArabPixel/sdk/commit/7ca86e9b871b60311c2ce87f4a6be06478751026), del 30 de agosto de 2025, corrige el sample para usar `KERNEL_IMAGE_SIZE`. El commit [`546bb1c`](https://github.com/ArabPixel/sdk/commit/546bb1c513a75885def8ba2598b58fb69a44226b), del 5 de octubre de 2025, añade el caso `0x13020000` a `crt/kernel.c`, con `KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x1C0`, `KERNEL_ADDRESS_COPYIN = base + 0x2BD6E0` y `KERNEL_ADDRESS_COPYOUT = base + 0x2BD5F0`. Fue authored por Al-Azif y committed por John Törnblom.
+
+Esto establece una **capacidad pública de obtener un kdump del kernel** si el entorno ya dispone de una primitiva funcional de kernel R/W. No demuestra que ArabPixel utilizase el sample para generar los offsets de Fusion. El commit del 13.02 sólo añade cuatro constantes de inicialización y no contiene la tabla completa, `patch_mount`, `M_MOUNT`, funciones FFS, hashes de kernel, archivos dump ni logs de ejecución.
+
+| Hallazgo | Clasificación | Alcance real |
+|---|---|---|
+| `kernel_find_pattern()` en SDK | `VERIFIED` | Puede escanear un rango de memoria accesible; no incluye patrones FFS ni offsets 13.02 completos |
+| `samples/kdump/main.c` | `VERIFIED` | Puede volcar la imagen cuyo tamaño se calcula; no es un dump publicado |
+| Caso de firmware `0x13020000` | `VERIFIED` | Permite inicializar base/copyin/copyout para 13.02; no demuestra origen de la tabla Fusion |
+| SDK fork de ArabPixel antes de Fusion | `VERIFIED` | Proximidad técnica y temporal, no prueba causalidad |
+| ArabPixel usó `kdump` para obtener `77a16b7` | `HYPOTHESIS` | No hay commit, log, hash ni archivo que lo confirme |
+| `kdump` contiene o localiza `ffs_mountfs()` | `INVALID` | El sample sólo copia memoria; no aporta una dirección FFS concreta |
+
+La hipótesis material mejorada es que los offsets de ArabPixel pudieron haberse obtenido mediante un flujo privado o local basado en kernel R/W, `kernel_copyout`, `kdump` y/o pattern scanning, antes de ser publicados como header. La evidencia pública sólo demuestra que esas herramientas estaban disponibles, no que fueran utilizadas para esos valores ni que el dump resultante exista.
+
+## 13. Actualización sobre Celsius y `patch_mount`
+
+El nuevo linaje del SDK no introduce ninguna conexión con Celsius. Las únicas constantes 13.02 que expone son base derivada de `LSTAR`, `targetid`, `copyin` y `copyout`; no aparece `patch_mount` ni ninguna rutina `ffs_*`. El sample podría producir un archivo de bytes si se ejecutara en un sistema con R/W, pero no hay un archivo resultante, hash, salida, patrón de `ffs_mountfs()` o análisis de IDA/Ghidra publicado.
+
+En consecuencia, `patch_mount = 0x001512A7` permanece **SOURCE_ONLY** como offset etiquetado y **HYPOTHESIS/UNVERIFIED** respecto de `ffs_mountfs()`. La disponibilidad previa de `kdump` eleva la plausibilidad de un origen privado basado en un volcado, pero no eleva la identificación de Celsius a `CORROBORATED`.
+
+## Referencias del SDK de kdump
+
+[21]: https://github.com/ArabPixel/sdk "ArabPixel SDK fork"
+[22]: https://github.com/ArabPixel/sdk/commit/4323a2d9d8e2646e7488c5c5147709b5824eef7d "kernel_find_pattern and kernel_get_image_size"
+[23]: https://github.com/ArabPixel/sdk/commit/7ca86e9b871b60311c2ce87f4a6be06478751026 "kdump sample fix"
+[24]: https://github.com/ArabPixel/sdk/commit/546bb1c513a75885def8ba2598b58fb69a44226b "ArabPixel SDK: add 13.02 support"
+[25]: https://github.com/ps4-payload-dev/sdk "Upstream payload SDK"
+
+## 14. Pista material anterior a Fusion: ArabPixel/sdk y kdump
+
+La revisión ampliada encontró que `ArabPixel/sdk` contiene una infraestructura pública de extracción de memoria anterior a la tabla `Shared/Offsets-1302.h`. El fork procede de `ps4-payload-dev/sdk`. El 10-jul-2025, `4323a2d` añadió `kernel_find_pattern()` y `kernel_get_image_size()`; el 30-ago-2025, `7ca86e9` corrigió `samples/kdump/main.c`; el 5-oct-2025, `546bb1c` añadió el caso `0x13020000` en `crt/kernel.c`. En este último commit, Al-Azif fue el autor y John Törnblom el committer.
+
+El caso 13.02 configura `KERNEL_ADDRESS_IMAGE_BASE` desde `LSTAR` y fija `copyin`, `copyout` y `targetid`; el sample `kdump` copia `KERNEL_IMAGE_SIZE` desde `KERNEL_ADDRESS_IMAGE_BASE` con `kernel_copyout()` y lo emite por stdout. Esto demuestra una ruta pública de tooling que podría producir un dump si ya existe una primitive de kernel R/W. No se encontró el output de esa herramienta, un hash de dump, un patrón FFS, un registro de ejecución ni una declaración de que ArabPixel la usara para producir la tabla de Fusion. Clasificación: tooling `VERIFIED`; uso causal para los offsets `HYPOTHESIS`.
+
+La coincidencia entre los offsets de Fusion y las constantes del SDK es parcial y esperable: `copyin` y `copyout` 13.02 aparecen como `0x2BD6E0` y `0x2BD5F0` en ambos contextos. Esto demuestra coherencia de la inicialización publicada, no el origen independiente de `patch_mount` ni de los demás símbolos.
+
+## 15. Asset de Fusion 1.4 anterior a la tabla 13.02
+
+La release pública [Fusion 1.4](https://github.com/AetherPS/Fusion/releases/tag/1.4), publicada el 17-ene-2026, contiene `Fusion.bin` de 214672 bytes, SHA-256 `aff12b6cddc352e598ea263e1f901cdc525da5e9c0b53467bf5768ec58032af4`. Su descripción anuncia soporte para 12.50 y 13.00, no 13.02. La inspección pasiva muestra un payload raw con strings `Installing Kernel ELF`, `Failed to decompress Kernel.elf` y `Starting Kernel. (Entry: %llX, ELFBase: %llX, Size: %i)`.
+
+El asset contiene varias secuencias `ELF`, pero la secuencia localizada al offset 213555 no forma un ELF válido al extraerse hasta el final: la cabecera tiene clase y campos corruptos. Esto es compatible con datos comprimidos/embebidos del propio payload de Fusion, no con un kernel Orbis retail. No aparecen strings `patch_mount`, `ffs`, `ufs`, `1302` o `1304`. Clasificación: `VERIFIED` como payload compilado de Fusion; `INVALID` como dump Orbis o artefacto Celsius.
+
+## 16. Issues y validación pública
+
+El PR de Fusion [#13](https://github.com/AetherPS/Fusion/pull/13) se describe literalmente como “only kernel offsets and the implementation in Offsets.h”; no menciona dump, kernel, IDA/Ghidra, FFS o Celsius. Su único comentario del autor indica que quizá añadiría más offsets. Los issues #11 y #12 documentan problemas de módulos, firmware, filesystem dumps y offsets al ejecutar Fusion, pero no identifican el origen de `patch_mount` ni aportan un disassembly FFS. La frase “filesystem dump” en comentarios de soporte es contexto operativo del testkit/retail y no un dump de kernel 13.02 publicado.
+
+El origen material más plausible ahora es un proceso privado que combinó una primitive previa de kernel R/W con el SDK `kdump`/pattern scan y produjo una tabla manual. La evidencia disponible no permite atribuir ese proceso a ArabPixel, Pharaoh2k, bollars o Dr.Yenyen. El primer archivo público de offsets sigue siendo el header de ArabPixel/Fusion del 18-ene-2026, pero el mecanismo de medición continúa sin documentarse.
+
+[26]: https://github.com/ArabPixel/sdk "ArabPixel SDK fork"
+[27]: https://github.com/ArabPixel/sdk/commit/4323a2d9d8e2646e7488c5c5147709b5824eef7d "kernel_find_pattern and kernel_get_image_size"
+[28]: https://github.com/ArabPixel/sdk/commit/7ca86e9b871b60311c2ce87f4a6be06478751026 "kdump sample fix"
+[29]: https://github.com/ArabPixel/sdk/commit/546bb1c513a75885def8ba2598b58fb69a44226b "ArabPixel SDK 13.02 support"
+[30]: https://github.com/AetherPS/Fusion/releases/tag/1.4 "Fusion 1.4 release"
+[31]: https://github.com/AetherPS/Fusion/pull/13 "Fusion PR 13: 13.02 Kernel offsets"
+[32]: https://github.com/AetherPS/Fusion/issues/12 "Fusion offset initialization issue"
+[33]: https://github.com/AetherPS/Fusion/issues/11 "Fusion game compatibility issue"

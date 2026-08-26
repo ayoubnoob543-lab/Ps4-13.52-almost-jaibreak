@@ -1,0 +1,531 @@
+=== crt/kernel.c @ 546bb1c ===
+/* Copyright (C) 2025 John Törnblom
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 3, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; see the file COPYING. If not, see
+<http://www.gnu.org/licenses/>.  */
+
+#include "kernel.h"
+#include "syscall.h"
+
+
+/**
+ * Private constants.
+ **/
+#define X86_CR0_WP (1 << 16)
+#define MSR_LSTAR  0xC0000082
+#define EFAULT     14
+#define EINVAL     22
+#define ENOSYS     78
+
+
+/**
+ * Forward declaration of the data structure used by FreeBSD to capture the state
+ * of kernel threads.
+ **/
+struct thread;
+
+
+/**
+ * Arguments passed to the kexec syscall.
+ **/
+typedef struct kexec_args {
+  int (*fn)(struct thread*, struct kexec_args*);
+  long arg1;
+  long arg2;
+  long arg3;
+  long arg4;
+  long arg5;
+} kexec_args_t;
+
+
+/**
+ * Context used by kexec_find_pattern().
+ **/
+typedef struct {
+  unsigned long kaddr;
+  unsigned int kaddr_len;
+  char pattern[0x100];
+  unsigned long *res;
+} kexec_find_pattern_ctx_t;
+
+
+/**
+ * Data structure for the ELF header.
+ **/
+typedef struct {
+  unsigned char e_ident[16];
+  unsigned short e_type;
+  unsigned short e_machine;
+  unsigned int e_version;
+  unsigned long e_entry;
+  unsigned long e_phoff;
+  unsigned long e_shoff;
+  unsigned int e_flags;
+  unsigned short e_ehsize;
+  unsigned short e_phentsize;
+  unsigned short e_phnum;
+  unsigned short e_shentsize;
+  unsigned short e_shnum;
+  unsigned short e_shstrndx;
+} Elf64_Ehdr;
+
+
+/**
+ * Data structure for the ELF program header.
+ **/
+typedef struct {
+  unsigned int p_type;
+  unsigned int p_flags;
+  unsigned long p_offset;
+  unsigned long p_vaddr;
+  unsigned long p_paddr;
+  unsigned long p_filesz;
+  unsigned long p_memsz;
+  unsigned long p_align;
+} Elf64_Phdr;
+
+
+/**
+ * Public constants.
+ **/
+unsigned long KERNEL_IMAGE_SIZE = 0;
+
+unsigned long KERNEL_ADDRESS_IMAGE_BASE = 0;
+unsigned long KERNEL_ADDRESS_ALLPROC    = 0;
+unsigned long KERNEL_ADDRESS_ROOTVNODE  = 0;
+unsigned long KERNEL_ADDRESS_PRISON0    = 0;
+unsigned long KERNEL_ADDRESS_TARGETID   = 0;
+unsigned long KERNEL_ADDRESS_QA_FLAGS   = 0;
+unsigned long KERNEL_ADDRESS_COPYIN     = 0;
+unsigned long KERNEL_ADDRESS_COPYOUT    = 0;
+
+const unsigned long KERNEL_OFFSET_PROC_P_UCRED   = 0x40;
+const unsigned long KERNEL_OFFSET_PROC_P_FD      = 0x48;
+const unsigned long KERNEL_OFFSET_PROC_P_PID     = 0xB0;
+
+const unsigned long KERNEL_OFFSET_UCRED_CR_UID   = 0x04;
+const unsigned long KERNEL_OFFSET_UCRED_CR_RUID  = 0x08;
+const unsigned long KERNEL_OFFSET_UCRED_CR_SVUID = 0x0C;
+const unsigned long KERNEL_OFFSET_UCRED_CR_RGID  = 0x14;
+const unsigned long KERNEL_OFFSET_UCRED_CR_SVGID = 0x18;
+
+const unsigned long KERNEL_OFFSET_UCRED_CR_PRISON = 0x30;
+
+const unsigned long KERNEL_OFFSET_UCRED_CR_SCEAUTHID = 0x58;
+const unsigned long KERNEL_OFFSET_UCRED_CR_SCECAPS   = 0x60;
+const unsigned long KERNEL_OFFSET_UCRED_CR_SCEATTRS  = 0x83;
+
+const unsigned long KERNEL_OFFSET_FILEDESC_FD_CDIR = 0x10;
+const unsigned long KERNEL_OFFSET_FILEDESC_FD_RDIR = 0x18;
+const unsigned long KERNEL_OFFSET_FILEDESC_FD_JDIR = 0x20;
+
+
+/**
+ * Compare memory areas.
+ **/
+static int
+memcmp(const unsigned char* dst, const unsigned char* src, unsigned long len) {
+  for(unsigned long i=0; i<len; i++) {
+    if(dst[i] != src[i]) {
+      return src[i] - dst[i];
+    }
+  }
+  return 0;
+}
+
+
+/**
+ * Convert a hexchar to a nibble (half byte).
+ **/
+static inline __attribute__((always_inline)) short
+hex2nib(char hexchar) {
+  if(hexchar >= '0' && hexchar <= '9') {
+    return hexchar - '0';
+  }
+
+  if(hexchar >= 'A' && hexchar <= 'F') {
+    return hexchar - 'A' + 10;
+  }
+
+  if(hexchar >= 'a' && hexchar <= 'f') {
+    return hexchar - 'a' + 10;
+  }
+
+  return -1;
+}
+
+
+/**
+ * Check if a byte value matches a hexstring.
+ **/
+static inline __attribute__((always_inline)) short
+byte_match(unsigned char bval, const char* hexstr) {
+  short nib;
+
+  if(!hexstr[0] || hexstr[0] == '?') {
+    return 1;
+  }
+
+  if((nib=hex2nib(hexstr[0])) < 0) {
+    return -1;
+  }
+
+  if(nib != (bval >> 4)) {
+    return -1;
+  }
+
+  if(!hexstr[1] || hexstr[1] == '?') {
+    return 1;
+  }
+
+  if((nib=hex2nib(hexstr[1])) < 0) {
+    return -1;
+  }
+
+  if(nib != (bval & 0xf)) {
+    return -1;
+  }
+
+  return 1;
+}
+
+
+/**
+ * Check if a memory region matches a hexstring.
+ **/
+static inline __attribute__((always_inline)) int
+pattern_match(const unsigned char* addr, unsigned int len, const char* hexstr) {
+  while(len && *hexstr) {
+    if(byte_match(*addr, hexstr) < 0) {
+      return -1;
+    }
+
+    hexstr++;
+    addr++;
+    len--;
+
+    if(*hexstr) {
+      hexstr++;
+    }
+  }
+
+  return 1;
+}
+
+
+/**
+ * Scan a memory region for a pattern encoded by the given hexstring.
+ **/
+static inline __attribute__((always_inline)) const unsigned char*
+pattern_scan(const unsigned char* addr, unsigned int len, const char* hexstr) {
+  for(unsigned int i=0; i<len; i++) {
+    if(pattern_match(addr+i, len-i, hexstr) < 0) {
+      continue;
+    }
+
+    return addr+i;
+  }
+
+  return 0;
+}
+
+
+/**
+ * Invoke the given function from kernel space.
+ **/
+int
+kexec(int (*fn)(struct thread*, kexec_args_t*), ...) {
+  long a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0;
+  __builtin_va_list ap;
+  int err;
+
+  __builtin_va_start(ap, fn);
+  a1 = __builtin_va_arg(ap, long);
+  a2 = __builtin_va_arg(ap, long);
+  a3 = __builtin_va_arg(ap, long);
+  a4 = __builtin_va_arg(ap, long);
+  a5 = __builtin_va_arg(ap, long);
+  __builtin_va_end(ap);
+
+  if((err=__syscall(SYS_kexec, (long)fn, a1, a2, a3, a4, a5)) < 0) {
+=== include/ps4/kernel.h @ 546bb1c ===
+/* Copyright (C) 2025 John Törnblom
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 3, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; see the file COPYING. If not, see
+<http://www.gnu.org/licenses/>.  */
+
+#pragma once
+
+#include <sys/cdefs.h>
+#include <sys/types.h>
+
+__BEGIN_DECLS
+
+extern const size_t KERNEL_IMAGE_SIZE;
+
+extern const intptr_t KERNEL_ADDRESS_IMAGE_BASE;
+extern const intptr_t KERNEL_ADDRESS_ALLPROC;
+extern const intptr_t KERNEL_ADDRESS_PRISON0;
+extern const intptr_t KERNEL_ADDRESS_ROOTVNODE;
+extern const intptr_t KERNEL_ADDRESS_TARGETID;
+extern const intptr_t KERNEL_ADDRESS_QA_FLAGS;
+
+uint32_t kernel_get_fw_version(void);
+
+int32_t  kernel_copyin(const void *udaddr, intptr_t kaddr, size_t len);
+int32_t  kernel_copyout(intptr_t kaddr, void *udaddr, size_t  len);
+
+int32_t kernel_setlong(intptr_t addr, uint64_t val);
+int32_t kernel_setint(intptr_t addr, uint32_t val);
+int32_t kernel_setshort(intptr_t addr, uint16_t val);
+int32_t kernel_setchar(intptr_t addr, uint8_t val);
+
+uint64_t kernel_getlong(intptr_t addr);
+uint32_t kernel_getint(intptr_t addr);
+uint16_t kernel_getshort(intptr_t addr);
+uint8_t  kernel_getchar(intptr_t addr);
+
+intptr_t kernel_find_pattern(intptr_t addr, uint32_t len, const char* pattern);
+int kernel_patch(intptr_t addr, const void* before, const void* after,
+		 uint16_t size);
+
+intptr_t kernel_get_proc(pid_t pid);
+intptr_t kernel_get_proc_ucred(pid_t pid);
+intptr_t kernel_get_proc_filedesc(pid_t pid);
+
+intptr_t kernel_dynlib_mapbase_addr(pid_t pid, uint32_t handle);
+intptr_t kernel_dynlib_entry_addr(pid_t pid, uint32_t handle);
+
+int32_t kernel_set_ucred_uid(pid_t pid, uid_t uid);
+int32_t kernel_set_ucred_ruid(pid_t pid, uid_t ruid);
+int32_t kernel_set_ucred_svuid(pid_t pid, uid_t svuid);
+
+int32_t kernel_set_ucred_rgid(pid_t pid, gid_t rgid);
+int32_t kernel_set_ucred_svgid(pid_t pid, gid_t svgid);
+
+intptr_t kernel_get_ucred_prison(int pid);
+int32_t  kernel_set_ucred_prison(int pid, intptr_t prison);
+
+uint64_t kernel_get_ucred_authid(pid_t pid);
+int32_t  kernel_set_ucred_authid(pid_t pid, uint64_t authid);
+
+int32_t kernel_get_ucred_caps(pid_t pid, uint8_t caps[16]);
+int32_t kernel_set_ucred_caps(pid_t pid, const uint8_t caps[16]);
+
+uint64_t kernel_get_ucred_attrs(pid_t pid);
+int32_t  kernel_set_ucred_attrs(pid_t pid, uint64_t attr);
+
+intptr_t kernel_get_proc_rootdir(pid_t pid);
+int32_t  kernel_set_proc_rootdir(pid_t pid, intptr_t vnode);
+
+intptr_t kernel_get_proc_jaildir(pid_t pid);
+int32_t  kernel_set_proc_jaildir(pid_t pid, intptr_t vnode);
+
+intptr_t kernel_get_proc_currdir(pid_t pid);
+int32_t  kernel_set_proc_currdir(pid_t pid, intptr_t vnode);
+
+int32_t kernel_get_qaflags(uint8_t qaflags[16]);
+int32_t kernel_set_qaflags(uint8_t const qaflags[16]);
+
+__END_DECLS
+
+=== samples/kdump/main.c @ 546bb1c ===
+/* Copyright (C) 2025 John Törnblom
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 3, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; see the file COPYING. If not, see
+<http://www.gnu.org/licenses/>.  */
+
+#include <elf.h>
+#include <stdio.h>
+#include <unistd.h>
+
+#include <ps4/kernel.h>
+
+
+int
+main() {
+  uint8_t buf[0x4000];
+  size_t len;
+
+  for(size_t i=0; i<KERNEL_IMAGE_SIZE; i+=sizeof(buf)) {
+    len = KERNEL_IMAGE_SIZE - i;
+    if(len > sizeof(buf)) {
+      len = sizeof(buf);
+    }
+
+    if(kernel_copyout(KERNEL_ADDRESS_IMAGE_BASE+i, buf, len)) {
+      perror("kernel_copyout");
+      return -1;
+    }
+
+    if(write(STDOUT_FILENO, buf, len) != len) {
+      perror("write");
+      return -1;
+    }
+  }
+
+  return 0;
+}
+
+=== README.md @ 546bb1c ===
+# ps4-payload-sdk
+This is an SDK for developing payloads targeted at exploited PS4s. ELF loaders
+known to work include:
+- https://github.com/shahrilnet/remote_lua_loader
+- https://github.com/ps4-payload-dev/elfldr
+
+## Prerequisites
+On Debian-flavored operating systems, you can invoke the following command to
+install dependencies used by the SDK.
+```console
+john@localhost:ps4-payload-dev/sdk$ sudo apt-get update && sudo apt-get upgrade # optional
+john@localhost:ps4-payload-dev/sdk$ sudo apt-get install bash clang-18 lld-18 # required
+john@localhost:ps4-payload-dev/sdk$ sudo apt-get install socat cmake meson pkg-config # optional
+```
+
+If you are using Fedora, you can install dependencies as follows (tested with version 41):
+```console
+john@localhost:ps4-payload-dev/sdk$ sudo dnf install bash llvm-devel clang lld # required
+john@localhost:ps4-payload-dev/sdk$ sudo dnf install socat cmake meson pkg-config # optional
+```
+
+If you are using macOS, you can install them using the [Homebrew Package Manager][macos-brew] (tested with macOS Sequoia):
+```console
+john@localhost:ps4-payload-dev/sdk$ brew install llvm@18 # required
+john@localhost:ps4-payload-dev/sdk$ export LLVM_CONFIG=/opt/homebrew/opt/llvm@18/bin/llvm-config # required
+john@localhost:ps4-payload-dev/sdk$ brew install socat cmake meson # optional
+```
+
+## Quick-start
+You can download a binary distribution of the SDK from [the latest release page][latest-rel],
+then install it to your local storage, e.g,
+```console
+john@localhost:tmp$ wget https://github.com/ps4-payload-dev/sdk/releases/latest/download/ps4-payload-sdk.zip
+john@localhost:tmp$ sudo unzip -d /opt ps4-payload-sdk.zip
+```
+Assuming you have all the prerequisites and you are on a POSIX system,
+the binary distribution should work regardless of CPU architecture, e.g., x86_64, aarch64.
+
+
+## Usage
+```console
+john@localhost:ps4-payload-dev/sdk$ export PS4_PAYLOAD_SDK=/opt/ps4-payload-sdk
+john@localhost:ps4-payload-dev/sdk$ make -C samples/hello_stdio
+john@localhost:ps4-payload-dev/sdk$ export PS4_HOST=ps4; export PS4_PORT=9021
+john@localhost:ps4-payload-dev/sdk$ make -C samples/hello_stdio test
+```
+
+## Building the SDK
+```console
+john@localhost:ps4-payload-dev/sdk$ make DESTDIR=/opt/ps4-payload-sdk install
+```
+
+## Adding new SCE Libs
+If you have decrypted sprx files that you would like to interact with, you can
+build stubs for them as follows:
+```console
+john@localhost:ps4-payload-dev/sdk$ sudo apt-get install wget python3 python3-pyelftools
+john@localhost:ps4-payload-dev/sdk$ ln -s /path/to/sprx/libSceXYZ.sprx sce_stubs/libSceXYZ.sprx
+john@localhost:ps4-payload-dev/sdk$ make -C sce_stubs stubs
+john@localhost:ps4-payload-dev/sdk$ make DESTDIR=/opt/ps4-payload-sdk install
+```
+
+## Working firmwares
+The SDK relies on a couple of kernel offsets that are typically unique for a given
+firmware version. Currently, offsets for the following versions are included
+(check marked are confirmed working):
+- [ ] 3.50
+- [ ] 3.55
+- [ ] 3.70
+- [ ] 4.00 and 4.01
+- [ ] 4.05
+- [ ] 4.06
+- [ ] 4.07
+- [ ] 4.50 and 4.55
+- [ ] 4.70
+- [ ] 4.71 to 4.74
+- [ ] 5.00 and 5.01
+- [x] 5.03 to 5.07
+- [ ] 5.50
+- [ ] 5.53
+- [ ] 5.55 and 5.56
+- [ ] 6.00 and 6.02
+- [ ] 6.20
+- [ ] 6.50 and 6.51
+- [ ] 6.70 to 6.72
+- [x] 7.00
+- [x] 7.01
+- [x] 7.02
+- [x] 7.50, 7.51, and 7.55
+- [x] 8.00 to 8.03
+- [x] 8.50 and 8.52
+- [x] 9.00
+- [x] 9.03 and 9.04
+- [x] 9.50, 9.51, and 9.60
+- [x] 10.00 and 10.01
+- [x] 10.50, 10.70 and 10.71
+- [x] 11.00
+- [x] 11.02
+- [x] 11.50 and 11.52
+- [x] 12.00 and 12.02
+- [ ] 12.50
+
+Please help confirming untested versions by sending a pull request that updates README.md
+accordingly.
+
+## Reporting Bugs
+If you encounter problems with the SDK, please [file a github issue][issues].
+If you plan on sending pull requests which affect more than a few lines of code,
+please file an issue before you start to work on you changes. This will allow us
+to discuss the solution properly before you commit time and effort.
+
+## License
+Files in the folder include/freebsd-9.0 are licenced under BSD licences.
+Unless otherwhise explicitly stated inside a file, the rest are licensed under
+the GPLv3+.
+
+[issues]: https://github.com/ps4-payload-dev/sdk/issues/new
+[latest-rel]: https://github.com/ps4-payload-dev/sdk/releases/latest
+[macos-brew]: https://brew.sh
+=== key commit metadata ===
+4323a2d9d8e2646e7488c5c5147709b5824eef7d	John Törnblom	2025-07-10T18:40:14Z	crt: add kernel_find_pattern() and kernel_get_image_size()	5c4e004533cd6649d1ef9b10ed5d4c27c6073238	https://github.com/ArabPixel/sdk/commit/4323a2d9d8e2646e7488c5c5147709b5824eef7d
+crt/kernel.c	modified	237	6	243	eb1fde303e78be252faf87b09f18f36213436e1c	https://github.com/ArabPixel/sdk/raw/4323a2d9d8e2646e7488c5c5147709b5824eef7d/crt%2Fkernel.c
+include/ps4/kernel.h	modified	2	0	2	cf6008db554aa265ace69f9fa1f8b1f50e6543d4	https://github.com/ArabPixel/sdk/raw/4323a2d9d8e2646e7488c5c5147709b5824eef7d/include%2Fps4%2Fkernel.h
+samples/kdump/main.c	modified	0	40	40	eb43938af145f1cff58bf5acdc5f809f27ed8709	https://github.com/ArabPixel/sdk/raw/4323a2d9d8e2646e7488c5c5147709b5824eef7d/samples%2Fkdump%2Fmain.c
+7ca86e9b871b60311c2ce87f4a6be06478751026	John Törnblom	2025-08-30T13:50:51Z	fix kdump sample	f0e9a998ec56c018d6ca2b4df6a6e9fb14c12c7c	https://github.com/ArabPixel/sdk/commit/7ca86e9b871b60311c2ce87f4a6be06478751026
+samples/kdump/main.c	modified	2	7	9	57a5218c7a7ce7910be09a5ada23d49be525dc07	https://github.com/ArabPixel/sdk/raw/7ca86e9b871b60311c2ce87f4a6be06478751026/samples%2Fkdump%2Fmain.c
+546bb1c513a75885def8ba2598b58fb69a44226b	Al Azif	2025-10-05T03:17:32Z	Add 13.02 support	5d020f956c624a65c3c0c9b6a01a6622e641b3c0	https://github.com/ArabPixel/sdk/commit/546bb1c513a75885def8ba2598b58fb69a44226b
+crt/kernel.c	modified	8	1	9	3d440a606180e628ef2132359fbc793f22b07a33	https://github.com/ArabPixel/sdk/raw/546bb1c513a75885def8ba2598b58fb69a44226b/crt%2Fkernel.c

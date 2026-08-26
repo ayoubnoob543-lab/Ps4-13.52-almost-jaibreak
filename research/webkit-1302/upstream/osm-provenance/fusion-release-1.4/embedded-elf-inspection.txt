@@ -1,0 +1,46 @@
+=== extracted ===
+embedded-from-elf.bin: ELF invalid class, unknown class 0
+1b5c9288d2d11615710ee442997a20cef56eb1f3741737fd089d9932296ed1d0  embedded-from-elf.bin
+ELF Header:
+  Magic:   7f 45 4c 46 00 20 01 fd ff d8 00 fd ff 70 00 fd
+  Class:                             none
+  Data:                              <unknown: 20>
+  Version:                           1 (current)
+  OS/ABI:                            <unknown: fd>
+  ABI Version:                       255
+  Type:                              <unknown>: 70ff
+  Machine:                           <unknown>: 0xfd00
+  Version:                           0xfd0070ff
+  Entry point address:               0xfd0070ff
+  Start of program headers:          4244691199 (bytes into file)
+  Start of section headers:          4244664575 (bytes into file)
+  Flags:                             0xfd0070ff
+  Size of this header:               55551 (bytes)
+  Size of program headers:           64769 (bytes)
+  Number of program headers:         28927
+  Size of section headers:           64768 (bytes)
+  Number of section headers:         28927
+  Section header string table index: 64768 <corrupt: out of range>
+readelf: Warning: The e_shentsize field in the ELF header is larger than the size of an ELF section header
+readelf: Error: Reading 1873543936 bytes extends past end of file for section headers
+readelf: Error: Too many program headers - 0x70ff - the file is not that big
+There are 28927 section headers, starting at offset 0xfd0070ff:
+readelf: Warning: The e_shentsize field in the ELF header is larger than the size of an ELF section header
+readelf: Error: Reading 1873543936 bytes extends past end of file for section headers
+readelf: Error: Too many program headers - 0x70ff - the file is not that big
+=== nearby bytes ===
+000341c0: fd39 95a7 6b2b afcf 5239 5f1a efd2 7b99  .9..k+..R9_...{.
+000341d0: bfe6 ffe0 c759 f8e2 38e5 3deb 7ffb 66ae  .....Y..8.=...f.
+000341e0: e6b9 9555 ed5d cd85 67b4 c57f 854b ffba  ...U.]..g....K..
+000341f0: b2f0 afd9 c042 3856 2a5d 5128 0562 f395  .....B8V*]Q(.b..
+00034200: 3a65 6dad 7c23 d983 c9d5 d4ec 8399 807f  :em.|#..........
+00034210: a9b4 e19a e217 9431 132b df00 5f33 c636  .......1.+.._3.6
+00034220: ddcc be91 ecd7 4dfe bac9 ff07 4dfe 17a1  ......M.....M...
+00034230: 6c51 467f 454c 4600 2001 fdff d800 fdff  lQF.ELF. .......
+00034240: 7000 fdff 7000 fdff 7000 fdff 7000 fdff  p...p...p...p...
+00034250: d800 fdff 7000 fdff 7000 fdff d801 fdff  ....p...p.......
+00034260: 7000 fdff 7000 fdff 7000 fdff 5801 fdff  p...p...p...X...
+00034270: 7000 fdff 7000 fdff 7002 fdff 7000 fdff  p...p...p...p...
+00034280: 3002 fdff 7000 fdff 7000 fdff 0802 fdff  0...p...p.......
+00034290: 0050 5346 0101 0000 a400 0000 0001 0000  .PSF............
+000342a0: 0900 0000 0000 0404 0400 0000 0400 0000  ................

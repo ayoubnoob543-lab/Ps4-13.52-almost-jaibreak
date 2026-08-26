@@ -1,0 +1,15 @@
+=== ArabPixel sdk metadata ===
+ArabPixel/sdk	2025-12-22T01:02:42Z	2025-12-22T01:02:42Z	master	true	ps4-payload-dev/sdk	ps4-payload-dev/sdk
+=== parent commit chain ===
+546bb1c513a75885def8ba2598b58fb69a44226b	Al Azif	2025-10-05T03:17:32Z	John Törnblom	2025-10-21T14:54:44Z	Add 13.02 support	5d020f956c624a65c3c0c9b6a01a6622e641b3c0
+=== original SDK matching commits ===
+4323a2d9d8e2646e7488c5c5147709b5824eef7d	John Törnblom	2025-07-10T18:40:14Z	crt: add kernel_find_pattern() and kernel_get_image_size()	https://github.com/ps4-payload-dev/sdk/commit/4323a2d9d8e2646e7488c5c5147709b5824eef7d
+7ca86e9b871b60311c2ce87f4a6be06478751026	John Törnblom	2025-08-30T13:50:51Z	fix kdump sample	https://github.com/ps4-payload-dev/sdk/commit/7ca86e9b871b60311c2ce87f4a6be06478751026
+=== ArabPixel sdk refs ===
+master	c6ef2b3e0782270408ca19865b603cb107bd00a9
+=== likely 13.02 mentions in all commit messages ===
+546bb1c513a75885def8ba2598b58fb69a44226b	Al Azif	2025-10-05T03:17:32Z	Add 13.02 support	https://github.com/ArabPixel/sdk/commit/546bb1c513a75885def8ba2598b58fb69a44226b
+7ca86e9b871b60311c2ce87f4a6be06478751026	John Törnblom	2025-08-30T13:50:51Z	fix kdump sample	https://github.com/ArabPixel/sdk/commit/7ca86e9b871b60311c2ce87f4a6be06478751026
+c421830fba482300013fa4ff99096af7c599d0ea	John Törnblom	2025-07-11T14:11:07Z	crt: add pattern scanning for initializing under unknown firmware versions	https://github.com/ArabPixel/sdk/commit/c421830fba482300013fa4ff99096af7c599d0ea
+35f14520b737c3c31e7de1fa782ebf49c6b69d49	John Törnblom	2025-07-11T12:35:14Z	crt: precompute size of kernel image	https://github.com/ArabPixel/sdk/commit/35f14520b737c3c31e7de1fa782ebf49c6b69d49
+4323a2d9d8e2646e7488c5c5147709b5824eef7d	John Törnblom	2025-07-10T18:40:14Z	crt: add kernel_find_pattern() and kernel_get_image_size()	https://github.com/ArabPixel/sdk/commit/4323a2d9d8e2646e7488c5c5147709b5824eef7d

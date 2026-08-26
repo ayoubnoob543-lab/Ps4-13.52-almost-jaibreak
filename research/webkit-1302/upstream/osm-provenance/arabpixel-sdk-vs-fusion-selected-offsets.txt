@@ -1,0 +1,75 @@
+=== Fusion 1302 selected ===
+10:    addrs->prison0 = (void*)(kernelBase + 0x0111FA18);
+11:    addrs->rootvnode = (void*)(kernelBase + 0x02136E90);
+12:    addrs->copyout = (void*)(kernelBase + 0x002BD5F0);
+13:    addrs->copyin = (void*)(kernelBase + 0x002BD6E0);
+14:    addrs->copyout_nofault = (void*)(kernelBase + 0x0036C6D0);
+15:    addrs->copyin_nofault = (void*)(kernelBase + 0x0036C690);
+16:    addrs->copyinstr = (void*)(kernelBase + 0x002BDB90);
+17:    addrs->kern_open = (void*)(kernelBase + 0x003435E0);
+18:    addrs->kern_mkdir = (void*)(kernelBase + 0x00348720);
+19:    addrs->kernel_map = (void*)(kernelBase + 0x022D1D60);
+20:    addrs->kmem_alloc = (void*)(kernelBase + 0x00465A50);
+21:    addrs->kmem_free = (void*)(kernelBase + 0x00465C20);
+22:    addrs->vn_fullpath = (void*)(kernelBase + 0x00308CE0);
+32:    addrs->getnewvnode = (void*)(kernelBase + 0x0036E2F0);
+36:    addrs->M_MOUNT = (void*)(kernelBase + 0x01A40250);
+37:    addrs->malloc = (void*)(kernelBase + 0x00009520);
+38:    addrs->free = (void*)(kernelBase + 0x000096E0);
+70:    addrs->proc_rwmem = (void*)(kernelBase + 0x00366010);
+103:    addrs->sysctl_ctx_free = (void*)(kernelBase + 0x003F95E0);
+159:    addrs->patch_kmem_alloc1 = (void*)(kernelBase + 0x00465B1C);
+160:    addrs->patch_kmem_alloc2 = (void*)(kernelBase + 0x00465B03);
+162:    addrs->patch_copyin1 = (void*)(kernelBase + 0x002BD737);
+163:    addrs->patch_copyin2 = (void*)(kernelBase + 0x002BD743);
+164:    addrs->patch_copyout1 = (void*)(kernelBase + 0x002BD642);
+165:    addrs->patch_copyout2 = (void*)(kernelBase + 0x002BD64E);
+166:    addrs->patch_copyinstr1 = (void*)(kernelBase + 0x002BDBE3);
+167:    addrs->patch_copyinstr2 = (void*)(kernelBase + 0x002BDBEF);
+168:    addrs->patch_copyinstr3 = (void*)(kernelBase + 0x002BDC20);
+180:    addrs->patch_mount = (void*)(kernelBase + 0x001512A7);
+=== SDK 13.02 case ===
+  case 0x12020000:
+    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD670;
+    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD580;
+    break;
+
+  case 0x12500000:
+  case 0x12520000:
+    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6B0;
+    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5C0;
+    break;
+
+  case 0x13000000:
+    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6D0;
+    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5E0;
+    break;
+
+  case 0x13020000:
+    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6E0;
+    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5F0;
+    break;
+
+  default:
+    if(fw < 0x13020000) {
+      return -ENOSYS;
+    }
+
+    if((err=kexec(kexec_find_image_base, &KERNEL_ADDRESS_IMAGE_BASE))) {
+      return err;
+    }
+    if((err=kexec(kexec_get_image_size, KERNEL_ADDRESS_IMAGE_BASE,
+		  &KERNEL_IMAGE_SIZE))) {
+      return err;
+    }
+=== SHA files ===
+7b034c3b933ddbee560ae9dc18cf02cbcd7aa4d8cef6e5ab48154cd972268f7d  research/webkit-1302/upstream/osm-provenance/arabpixel-Offsets-1302.h
+c253e4826132b6401382786fe6efd35ca5a79f64dd0da1866d3a4ab03eef8adf  research/webkit-1302/upstream/osm-provenance/arabpixel-sdk-kdump-inspection.txt

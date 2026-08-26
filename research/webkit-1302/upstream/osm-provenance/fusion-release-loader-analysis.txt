@@ -1,0 +1,5 @@
+=== Loader/source/kernel.c ===
+=== Loader/source/main.c ===
+=== Loader/include/kernel.h ===
+=== release metadata ===
+1.4	Fusion 1.4	2026-01-17T20:45:45Z	2026-01-17T20:55:44Z	Firmware Support:\r\n  - Added support for firmware 12.50 and 13.00\r\n  - Implemented firmware agnostic single payload\r\n\r\n  Features & Improvements:\r\n  - Added sysctl entries for managing Fusion feature flags and settings\r\n  - Converted to zlib compression\r\n  - Added panic patches\r\n  - Updated ASCII art\r\n\r\n  Bug Fixes & Cleanup:\r\n  - Fixed build issues with loader for 12.XX+\r\n  - Removed obsolete patches and shell UI offsets	Fusion.bin\t214672\thttps://github.com/AetherPS/Fusion/releases/download/1.4/Fusion.bin

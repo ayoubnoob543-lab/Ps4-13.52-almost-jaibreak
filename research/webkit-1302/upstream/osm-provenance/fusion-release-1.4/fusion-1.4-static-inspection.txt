@@ -1,0 +1,37 @@
+=== header ===
+00000000: e9eb 4900 0048 31c0 4989 ca0f 05c3 6548  ..I..H1.I.....eH
+00000010: 8b04 2500 0000 00c3 89f9 0f32 48c1 e220  ..%........2H..
+00000020: 4809 d0c3 0f20 c048 0d00 0001 000f 22c0  H.... .H......".
+00000030: c30f 20c0 4825 ffff feff 0f22 c0c3 6690  .. .H%....."..f.
+00000040: f30f 1efa 85f6 0f84 be01 0000 4157 4156  ............AWAV
+00000050: 4155 4154 5553 c744 24f0 0000 0000 41bf  AUATUS.D$.....A.
+00000060: 0100 0000 4889 fa66 0f1f 8400 0000 0000  ....H..f........
+00000070: b8b0 1500 0039 c60f 46c6 89c7 89c1 83e7  .....9..F.......
+=== ELF signatures ===
+38748:ELF
+41455:ELF
+213556:ELF
+=== compression/file signatures ===
+23664:xÚ
+32500:xœ
+41904:xÚ
+64970:xÚ
+65277:xœ
+65712:xœ
+90773:xÚ
+158654:xœ
+201019:xÚ
+213555:ELF
+=== strings ===
+sceKernelOpen
+sceKernelClose
+sceKernelWrite
+sceKernelUnlink
+sceKernelMkdir
+sceKernelGetProcessTime
+Installing Kernel ELF
+Contains trace amounts of awesome!
+// No comments needed, code is self-documenting
+[Fusion] libkernel (module 8193) resolved successfully
+Starting Kernel. (Entry: %llX, ELFBase: %llX, Size: %i)
+Failed to decompress Kernel.elf

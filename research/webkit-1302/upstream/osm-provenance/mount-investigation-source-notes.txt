@@ -55,3 +55,19 @@ The first node remains unknown. The public evidence does not identify a dump or 
 - OSM README “update from known-good kernel dump / test hardware”: `SOURCE_ONLY` as generic project guidance, not proof of this YAML’s source.
 - Earlier FUSE-root mount code: `VERIFIED` as public Fusion source for older firmware FUSE/privilege patches; `INVALID` as Orbis 13.02 FFS evidence.
 - `patch_mount` relation to `ffs_mountfs`: still `HYPOTHESIS` at most; no bytes, symbol, cross-reference, or FFS-specific artifact.
+
+## Additional artifacts: ArabPixel SDK and Fusion release 1.4
+
+`ArabPixel/sdk` is a fork of `ps4-payload-dev/sdk`: https://github.com/ArabPixel/sdk
+Its public history predates Fusion 13.02 offsets. Commit `4323a2d9d8e2646e7488c5c5147709b5824eef7d` (2025-07-10) adds `kernel_find_pattern()` and `kernel_get_image_size()`; commit `7ca86e9b871b60311c2ce87f4a6be06478751026` (2025-08-30) fixes the `samples/kdump/main.c` sample; commit `546bb1c513a75885def8ba2598b58fb69a44226b` (2025-10-05, authored by Al Azif and committed by John Törnblom) adds firmware 13.02 initialization (`base = lstar - 0x1c0`, copyin `base+0x2bd6e0`, copyout `base+0x2bd5f0`, targetid `base+0x21cc60d`).
+The kdump sample loops over `KERNEL_IMAGE_SIZE`, reads `KERNEL_ADDRESS_IMAGE_BASE+i` through `kernel_copyout()`, and writes bytes to stdout. The pattern-scanning function can scan a supplied kernel range. This demonstrates a public mechanism capable of producing a kernel image when kernel R/W already exists, but no 13.02 dump output, hash, ffs pattern, or use by ArabPixel to derive `Shared/Offsets-1302.h` is published. Classification: tooling `VERIFIED`; causal link to Fusion offsets `HYPOTHESIS`.
+
+Fusion release 1.4 metadata: https://github.com/AetherPS/Fusion/releases/tag/1.4
+Published 2026-01-17, one day before ArabPixel's 13.02 header commit. The release body says support was added for firmware 12.50 and 13.00, implemented a firmware-agnostic payload, converted to zlib compression, and added panic patches. Asset `Fusion.bin` is 214,672 bytes, SHA-256 `aff12b6cddc352e598ea263e1f901cdc525da5e9c0b53467bf5768ec58032af4`.
+Static inspection: `file` identifies it as a DOS/COM-style raw payload; strings include “Installing Kernel ELF”, “Failed to decompress Kernel.elf”, and “Starting Kernel. (Entry: %llX, ELFBase: %llX, Size: %i)”. Three `ELF` signatures exist; the one at byte offset 213555 is not a valid standalone ELF when cut to EOF (header bytes are invalid), consistent with a compressed/packed embedded Fusion kernel payload rather than an Orbis retail kernel. No strings for 13.02, 13.04, `patch_mount`, `ffs`, or `ufs` were found. Release 1.4 therefore is a public compiled Fusion payload, not an Orbis kernel dump and not evidence of Celsius. Classification: `VERIFIED` as payload asset; `INVALID` as Orbis kernel/dump.
+
+External scene sources:
+- Dr.Yenyen X post: https://x.com/calmboy2019/status/2078549759460094065 (2026-07-18) says Celsius is “Up to 13.04 PS4 and 12.70 PS5” and asks users to wait; no code or dump.
+- GameGaz: https://gamegaz.com/2026071945823/ (2026-07-19) repeats bollars attribution, ffs_mount heap-overflow claim, USB 3.0 250GB requirement, and says exploit was not yet practical; explicitly notes no matching public HackerOne report was found. Secondary/source-only.
+- Instagram GamerZ56K: https://www.instagram.com/p/DbATUEYDH9y/ (2026-07-19) says bollars found the issue by diffing PS4 kernels in the ffs_mount function and labels compatibility theoretical; no artifact. Secondary/source-only.
+- adri22235/ps4-suid-scanner: https://github.com/adri22235/ps4-suid-scanner (created 2026-07-18) repeats “works up to 13.04” and “patched in 13.50”; no primary Celsius code or kernel bytes.

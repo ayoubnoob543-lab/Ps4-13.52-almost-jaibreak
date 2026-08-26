@@ -1,0 +1,25 @@
+=== ArabPixel/sdk ===
+ArabPixel/sdk	2025-12-22T01:02:42Z	2025-12-22T01:02:42Z	master
+8bad681d7c10db5f5976b991048a5f40fef1979c	2025-10-28T17:50:24Z	John Törnblom	libc: add nmount et al.	https://github.com/ArabPixel/sdk/commit/8bad681d7c10db5f5976b991048a5f40fef1979c
+546bb1c513a75885def8ba2598b58fb69a44226b	2025-10-05T03:17:32Z	Al Azif	Add 13.02 support	https://github.com/ArabPixel/sdk/commit/546bb1c513a75885def8ba2598b58fb69a44226b
+7ca86e9b871b60311c2ce87f4a6be06478751026	2025-08-30T13:50:51Z	John Törnblom	fix kdump sample	https://github.com/ArabPixel/sdk/commit/7ca86e9b871b60311c2ce87f4a6be06478751026
+35f14520b737c3c31e7de1fa782ebf49c6b69d49	2025-07-11T12:35:14Z	John Törnblom	crt: precompute size of kernel image	https://github.com/ArabPixel/sdk/commit/35f14520b737c3c31e7de1fa782ebf49c6b69d49
+4323a2d9d8e2646e7488c5c5147709b5824eef7d	2025-07-10T18:40:14Z	John Törnblom	crt: add kernel_find_pattern() and kernel_get_image_size()	https://github.com/ArabPixel/sdk/commit/4323a2d9d8e2646e7488c5c5147709b5824eef7d
+=== ArabPixel/old-PSFree-Enhanced ===
+ArabPixel/old-PSFree-Enhanced	2025-06-16T12:40:53Z	2025-10-21T05:44:24Z	main	Jailbreak your PS4 using PSFree
+payloads/Bins/Dumper/appdumper.bin	22992	3405167e619b814c7044aba5e21ba3182c159c72
+payloads/Bins/Dumper/kerneldumper.bin	15380	9e2d17c4025a51d4b4a5118e1823d27528c9cef0
+payloads/Bins/Dumper/moduledumper.bin	15180	669b44f1c69fa4b26871f8f464b78b4c7f89294c
+payloads/Bins/Dumper/ps4-dumper-vtx-900.bin	14296	4ad6248e2143b3025138a225d3fb191e38fc16e6
+payloads/Bins/Tools/kernel-clock.bin	12228	383814e10c13b5fb4773c50833d5c5847459a644
+psfree/module/offset.mjs	1931	74c9dc007199714c263a1440393d8e00fe33a485
+4f26ed718a116ac14cec18af37cef839ea809a34	2025-05-24T19:58:17Z	Nazky	little update + payloads\n\n- added support to load payloads on https sites (WIP !)\n- delete hash check when updating exploit (need to be fixed)\n- autogoldhen should work better (i hope)\n- Delete "kernel exploit succeeded" alert	https://github.com/ArabPixel/old-PSFree-Enhanced/commit/4f26ed718a116ac14cec18af37cef839ea809a34
+=== ArabPixel/Vue-mitm-poc ===
+ArabPixel/Vue-mitm-poc	2026-01-14T18:40:48Z	2026-01-14T18:40:48Z	main
+=== ArabPixel/elfldr ===
+ArabPixel/elfldr	2026-02-02T17:43:05Z	2026-02-03T09:41:43Z	master
+18aacbe2bf3e72ba1681610745e34ef8e9ba98b4	2026-01-28T08:48:03Z	Al Azif	Add 13.04 support	https://github.com/ArabPixel/elfldr/commit/18aacbe2bf3e72ba1681610745e34ef8e9ba98b4
+70c36d7663184ada3a35fba5811039cc7e4718e2	2025-10-21T14:19:42Z	John Törnblom	combat potential race condition in elfldr_spawn() caused by broken kernel support for PT_TRACE_ME	https://github.com/ArabPixel/elfldr/commit/70c36d7663184ada3a35fba5811039cc7e4718e2
+479260d9365c188319149675f25058bdc51cb7d3	2025-07-14T10:42:33Z	John Törnblom	allow payloads to allocate arbitrary amount of heap memory	https://github.com/ArabPixel/elfldr/commit/479260d9365c188319149675f25058bdc51cb7d3
+427eed64c2ed1d92adb17e5c0457737391946322	2025-07-11T14:17:32Z	John Törnblom	use KERNEL_IMAGE_SIZE instead of kernel_get_image_size()	https://github.com/ArabPixel/elfldr/commit/427eed64c2ed1d92adb17e5c0457737391946322
+91616ecd92c59f257035af5b4070f89baec6561d	2025-07-10T18:50:17Z	John Törnblom	bootstrap: use kernel_find_pattern() from sdk to find offsets	https://github.com/ArabPixel/elfldr/commit/91616ecd92c59f257035af5b4070f89baec6561d
