@@ -830,3 +830,7 @@ The presumed public repository `Scene-Collective/psfree` could not be resolved b
 ## Direct GitHub repository/user discovery
 
 Repository searches for the exact terms `Celsius PS4`, `ffs_mount PS4`, `bollars PS4`, `Pharaoh2k PS4` and `DrYenyen PS4` returned no new direct project. An initial `gh search users` attempt used an unsupported flag and was corrected with the GitHub API; the corrected output is recorded separately. No result was treated as a Celsius artifact without inspecting its repository contents.
+
+## Wayback/CDX forensic pass
+
+The CDX lookup covered the scanner repository, its likely raw files (`jordy_stage2.js`, `webkit_gadgets_1304.js`, `scanner_1304.iso`) and candidate author paths. It returned no useful snapshots for the scanner or stage files, no capture for `bollars`, no useful `Pharaoh2k` capture, and only an unrelated 2025 `DrYenyen` GitHub page. No historical Celsius PoC, UFS image, or bootstrap was recovered. Raw CDX output is stored in `celsius_wayback_cdx_results.txt`. Classification: negative historical search; no new artifact.
