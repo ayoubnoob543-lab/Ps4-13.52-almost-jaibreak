@@ -167,3 +167,9 @@ GitHub API audit of `egycnq/LUA-Lapse` shows one public branch (`main`), no GitH
 ## remote_lua_loader cross-check
 
 `n0llptr/remote_lua_loader` exposes `savedata/kernel_offset.lua`, `savedata/kernel.lua`, `payloads/kernel_dumper.lua`, and `payloads/kdata_dumper.lua`; `ctn123/remote_lua_loader` is a fork with branches including `feature/umtx_curthr`. The public tree contains Lua kernel memory/dumping infrastructure and an `elfldr.elf`, but no public `kernel.elf` output, no 13.02-specific table, and no `patch_mount`, `ffs_mountfs`, `ffs_reload`, UFS, or `struct fs` references in the searched paths. The parent repository is the source lineage for LUA-Lapse, not evidence that Fusion's 13.02 table was generated there. Classification: `VERIFIED` for repository contents; `DERIVED` for fork relationship; `INVALID` as 13.02 FFS/Celsius evidence.
+
+## External Remote Lua Loader coverage
+
+BiteYourConsole article (14-May-2026): https://www.biteyourconsole.net/2026/05/14/remote-lua-loader-ps4-e-ps5-arriva-il-porting-di-p2jb-con-script-lua-save-mounter-e-supporto-ps5-pro-10-40/. Describes a P2JB port for Remote Lua Loader, thanks Gezine and contributors, and lists Lua/ELF-loader/FTP functionality. It does not publish a kernel image, hash, disassembly or FFS artifact; it is a secondary distribution/news article. Classification: `SOURCE_ONLY` for reported project scope; `INVALID` as 13.02 kernel evidence.
+
+Studocu page https://www.studocu.com/it/document/politecnico-di-torino/informatica/lapse-exploit-in-lua-a-comprehensive-analysis-and-code-review/135247371 was access-gated and yielded no technical content beyond login/registration. Search snippets are not treated as evidence. Classification: `INVALID` for this audit.
