@@ -101,6 +101,20 @@ Esto permite separar dos conceptos que el repositorio mezcla en sus comentarios.
 | P2JB demuestra Celsius | No contiene FFS/mount ni `ffs_mountfs`. | **INVALID** |
 | `jordy_stage2.js` era sólo una interfaz a una pieza C externa | No se encontró ninguna referencia a `p2jb.c`/Luac0re en su árbol Git. | **HYPOTHESIS**, no demostrada |
 
+## Nuevo hallazgo: commit zecoxao “kern and user jordy”
+
+El rastreo de la referencia `p2jb/index.html` descubrió el commit [`1630d79d2a7146a65436e5f2fc0ff5dc6d9ba07b`][7], cuyo mensaje es `kern and user jordy`. El commit añade tres páginas de 1110/1111 líneas (`p2jb`, `poops` y `userland_only`) y tiene metadatos de autoría genéricos (`Your Name`, `you@example.com`).
+
+La recuperación exacta del commit confirma que no es una cadena operativa oculta. `FW_OFFSETS` contiene cero para dlsym, JIT, gadgets y pivots; `make_fcall`, `alloc_rwx_and_write` y `create_sockets` siguen siendo TODOs; `libkernel_base` y `eboot_base` se dejan como cero; `SHELLCODE_HEX` está vacío en userland mode; y no hay imagen UFS, mount, `ffs_mountfs` ni código Celsius. El commit es una pista de procedencia conceptual —el nombre “kern and user jordy”—, pero no una pieza que complete el stage 2.
+
+| Hallazgo del commit 1630d79 | Estado |
+|---|---|
+| Commit y tres páginas existen | **VERIFIED** |
+| “kern and user” como implementación completa | **SOURCE_ONLY / misleading title** |
+| Valores 13.02/13.04 utilizables | **INVALID** |
+| fcall/dlsym/pivot completo | **INVALID** |
+| Celsius/FFS | **UNVERIFIED; no código presente** |
+
 ## Referencias
 
 [1]: https://github.com/Cryptogenic/PS4-4.0x-Code-Execution-PoC/blob/master/index.html "Cryptogenic PS4 4.0x Code Execution PoC"
@@ -114,3 +128,5 @@ Esto permite separar dos conceptos que el repositorio mezcla en sus comentarios.
 [5]: https://github.com/Gezine/Luac0re/blob/main/lua/rop.lua "Luac0re rop.lua"
 
 [6]: https://github.com/zecoxao/zecoxao.github.io "Páginas relacionadas zecoxao"
+
+[7]: https://github.com/zecoxao/zecoxao.github.io/commit/1630d79d2a7146a65436e5f2fc0ff5dc6d9ba07b "Commit zecoxao: kern and user jordy"

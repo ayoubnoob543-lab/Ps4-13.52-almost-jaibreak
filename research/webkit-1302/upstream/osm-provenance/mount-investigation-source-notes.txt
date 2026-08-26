@@ -445,3 +445,10 @@ GitHub code searches for the approximate GOT offset `0x3ce1000`, `stage2_init` +
 ## zecoxao 13.04 SPRX artifact search
 
 Exact searches for `1304_libSceNKWebKit.sprx.decrypted`, `libSceNKWebKit.sprx.decrypted` + zecoxao, and `1304_libSceNKWebKit` + PS4 produced no additional indexed public source. The alleged 68 MB SPRX remains absent from the audited repository and is still `SOURCE_ONLY`; no hash, download, or independent mirror was found.
+
+
+## zecoxao commit “kern and user jordy”
+
+Commit `1630d79d2a7146a65436e5f2fc0ff5dc6d9ba07b` in `zecoxao/zecoxao.github.io` is titled `kern and user jordy` and was created on 2026-08-04 with placeholder author metadata (`Your Name`, `you@example.com`). It adds three large HTML pages (`p2jb/index.html`, `poops/index.html`, `userland_only/index.html`) of 1110/1111 lines. Static recovery of the exact commit confirms the same Luac0re/WebKit driver template previously audited: `SHELLCODE_HEX` is empty in userland mode; `FW_OFFSETS` values for dlsym/JIT/gadgets/JOP are zero; fcall, RWX allocation, socket creation, libkernel/eboot base leaks and driver execution remain TODOs or throw errors.
+
+The title is therefore a strong provenance lead for conceptual “user/kern Jordy” work, but the commit does not contain a completed kernel path or any 13.02/13.04 artifact. Classification: commit existence and placeholder content `VERIFIED`; authorship/claim of “kern and user” `SOURCE_ONLY`; completed exploit, Celsius and PS4 13.02 compatibility `INVALID/UNVERIFIED`.
