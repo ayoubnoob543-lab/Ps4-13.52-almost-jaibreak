@@ -1,0 +1,302 @@
+=== local kpayload ===
+3:#include "offsets/1302.h"
+7:const struct kpayload_offsets offsets_1302 PAYLOAD_RDATA = {
+28:  .malloc_addr                     = 0x00009520,
+29:  .free_addr                       = 0x000096E0,
+61:  .vmspace_free_addr               = 0x002F6DC0,
+80:  .mountpfs__sceSblPfsSetKeys_hook1                          = 0x006A2EF9,
+81:  .mountpfs__sceSblPfsSetKeys_hook2                          = 0x006A312A,
+114:  .enable_data_mount_patch         = 0x00323380,
+122:  // SceShellCore patches - use `free` prefix instead `fake`
+123:  .fake_free_patch                 = 0x00FD0E59,
+135:  // Process structure offsets
+136:  .proc_p_comm_offset = 0x454,
+137:  .proc_path_offset   = 0x474,
+=== local known artifacts ===
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:78:static int	ffs_reload(struct mount *, struct thread *);
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:79:static int	ffs_mountfs(struct vnode *, struct mount *, struct thread *);
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:336:		    (error = ffs_reload(mp, td)) != 0)
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:537:		if ((error = ffs_mountfs(devvp, mp, td)) != 0) {
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:610:ffs_reload(struct mount *mp, struct thread *td)
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:631:		panic("ffs_reload: dirty1");
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:652:	 * Note that important parameters (eg fs_ncg) are unchanged.
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:678:	size = fs->fs_cssize;
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:680:	if (fs->fs_contigsumsize > 0)
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:681:		size += fs->fs_ncg * sizeof(int32_t);
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:682:	size += fs->fs_ncg * sizeof(u_int8_t);
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:701:	if (fs->fs_contigsumsize > 0) {
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:703:		for (i = 0; i < fs->fs_ncg; i++)
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:704:			*lp++ = fs->fs_contigsumsize;
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:707:	size = fs->fs_ncg * sizeof(u_int8_t);
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:721:			panic("ffs_reload: dirty2");
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:753:ffs_mountfs(devvp, mp, td)
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:914:	size = fs->fs_cssize;
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:916:	if (fs->fs_contigsumsize > 0)
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:917:		size += fs->fs_ncg * sizeof(int32_t);
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:918:	size += fs->fs_ncg * sizeof(u_int8_t);
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:935:	if (fs->fs_contigsumsize > 0) {
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:937:		for (i = 0; i < fs->fs_ncg; i++)
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:938:			*lp++ = fs->fs_contigsumsize;
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:941:	size = fs->fs_ncg * sizeof(u_int8_t);
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1413:	sbp->f_files =  fs->fs_ncg * fs->fs_ipg - ROOTINO;
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1669:	 * If this malloc() is performed after the getnewvnode()
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1679:		error = getnewvnode("ufs", mp, &ffs_vnodeops1, &vp);
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1681:		error = getnewvnode("ufs", mp, &ffs_vnodeops2, &vp);
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1824:	    ufhp->ufid_ino >= fs->fs_ncg * fs->fs_ipg)
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1883:	blks = howmany(fs->fs_cssize, fs->fs_fsize);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:17:    addrs->kern_open = (void*)(kernelBase + 0x003435E0);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:22:    addrs->vn_fullpath = (void*)(kernelBase + 0x00308CE0);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:32:    addrs->getnewvnode = (void*)(kernelBase + 0x0036E2F0);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:36:    addrs->M_MOUNT = (void*)(kernelBase + 0x01A40250);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:180:    addrs->patch_mount = (void*)(kernelBase + 0x001512A7);
+research/webkit-1302/upstream/fusion-1302/offsets.tsv:10:kern_open	0x003435E0
+research/webkit-1302/upstream/fusion-1302/offsets.tsv:15:vn_fullpath	0x00308CE0
+research/webkit-1302/upstream/fusion-1302/offsets.tsv:25:getnewvnode	0x0036E2F0
+research/webkit-1302/upstream/fusion-1302/offsets.tsv:27:M_MOUNT	0x01A40250
+research/webkit-1302/upstream/fusion-1302/offsets.tsv:147:patch_mount	0x001512A7
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:53:  - name: kern_open
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:78:  - name: vn_fullpath
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:128:  - name: getnewvnode
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:155:  - name: M_MOUNT
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:811:  - name: patch_mount
+=== OSM/Fusion/SLOPOS exact values ===
+--- research/webkit-1302/upstream/fusion-1302/Offsets-1302.h
+17:    addrs->kern_open = (void*)(kernelBase + 0x003435E0);
+20:    addrs->kmem_alloc = (void*)(kernelBase + 0x00465A50);
+21:    addrs->kmem_free = (void*)(kernelBase + 0x00465C20);
+22:    addrs->vn_fullpath = (void*)(kernelBase + 0x00308CE0);
+32:    addrs->getnewvnode = (void*)(kernelBase + 0x0036E2F0);
+36:    addrs->M_MOUNT = (void*)(kernelBase + 0x01A40250);
+37:    addrs->malloc = (void*)(kernelBase + 0x00009520);
+38:    addrs->free = (void*)(kernelBase + 0x000096E0);
+103:    addrs->sysctl_ctx_free = (void*)(kernelBase + 0x003F95E0);
+159:    addrs->patch_kmem_alloc1 = (void*)(kernelBase + 0x00465B1C);
+160:    addrs->patch_kmem_alloc2 = (void*)(kernelBase + 0x00465B03);
+180:    addrs->patch_mount = (void*)(kernelBase + 0x001512A7);
+198:    /* mdbg Assist Mode offsets */
+199:    uint64_t mdbg_offsets[] = { 0x54, 0x238, 0x1416, 0x2120, 0x2146, 0x216C, 0x2192, 0x21B8, 0x21DE, 0x2204, 0x222A, 0x2250, 0x2276, 0x229C, 0x22C2, 0x22E8, 0x230E, 0x2334, 0x236A, 0x2390, 0x23B6, 0x23DC };
+201:        addrs->mdbgAssistMode[i] = addrs->patch_mdbg_basic + mdbg_offsets[i];
+--- research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml
+6:offsets:
+9:    offset: 0x000001C0
+14:    offset: 0x01A7CFE8
+19:    offset: 0x0111FA18
+24:    offset: 0x02136E90
+29:    offset: 0x002BD5F0
+34:    offset: 0x002BD6E0
+39:    offset: 0x0036C6D0
+44:    offset: 0x0036C690
+49:    offset: 0x002BDB90
+53:  - name: kern_open
+54:    offset: 0x003435E0
+59:    offset: 0x00348720
+64:    offset: 0x022D1D60
+68:  - name: kmem_alloc
+69:    offset: 0x00465A50
+73:  - name: kmem_free
+74:    offset: 0x00465C20
+78:  - name: vn_fullpath
+79:    offset: 0x00308CE0
+84:    offset: 0x004953D0
+89:    offset: 0x00283D50
+94:    offset: 0x00638980
+99:    offset: 0x00655A30
+104:    offset: 0x00655120
+109:    offset: 0x005C9710
+114:    offset: 0x0
+119:    offset: 0x0014AA90
+124:    offset: 0x021CC5D0
+128:  - name: getnewvnode
+129:    offset: 0x0036E2F0
+134:    offset: 0x003D480
+139:    offset: 0x001402B0
+144:    offset: 0x0015FB10
+151:    offset: 0x01520D00
+155:  - name: M_MOUNT
+156:    offset: 0x01A40250
+160:  - name: malloc
+161:    offset: 0x00009520
+165:  - name: free
+166:    offset: 0x000096E0
+171:    offset: 0x002BD4D0
+176:    offset: 0x001FA1B0
+181:    offset: 0x00394310
+186:    offset: 0x0036ABA0
+191:    offset: 0x004176F0
+196:    offset: 0x003A82C0
+201:    offset: 0x000B2940
+206:    offset: 0x003C6380
+211:    offset: 0x0021CCC0
+216:    offset: 0x002E0690
+221:    offset: 0x002E0750
+226:    offset: 0x002E0720
+231:    offset: 0x002E04C0
+236:    offset: 0x0043E180
+241:    offset: 0x00407860
+246:    offset: 0x000097E0
+251:    offset: 0x002E0450
+256:    offset: 0x002E1D80
+261:    offset: 0x001B86A0
+266:    offset: 0x001B8730
+271:    offset: 0x001B8700
+278:    offset: 0x00224180
+283:    offset: 0x00224510
+288:    offset: 0x00224700
+295:    offset: 0x01B28538
+300:    offset: 0x01B284D8
+305:    offset: 0x0000EA40
+310:    offset: 0x00366010
+315:    offset: 0x0004C6C0
+320:    offset: 0x003BAF70
+325:    offset: 0x003BC0F0
+332:    offset: 0x002F6FD0
+337:    offset: 0x002F7040
+342:    offset: 0x002FA1E0
+347:    offset: 0x002F9C20
+352:    offset: 0x002F8320
+357:    offset: 0x002FBF80
+362:    offset: 0x002FA5A0
+367:    offset: 0x003027D0
+372:    offset: 0x001E6490
+377:    offset: 0x001E64C0
+384:    offset: 0x00378330
+389:    offset: 0x003785E0
+394:    offset: 0x000A3840
+399:    offset: 0x000A3A00
+404:    offset: 0x000A3660
+409:    offset: 0x000A3950
+416:    offset: 0x0038A980
+421:    offset: 0x0038AEA0
+426:    offset: 0x002DEB70
+433:    offset: 0x000A5BD0
+438:    offset: 0x000A5A10
+445:    offset: 0x022CC600
+450:    offset: 0x003F95C0
+454:  - name: sysctl_ctx_free
+455:    offset: 0x003F95E0
+460:    offset: 0x003F9C20
+465:    offset: 0x003FA0A0
+470:    offset: 0x003FA340
+477:    offset: 0x0063D0A0
+482:    offset: 0x0063DC30
+487:    offset: 0x0063C8C0
+492:    offset: 0x02647358
+497:    offset: 0x02647350
+502:    offset: 0x0153D6C8
+507:    offset: 0x00642966
+512:    offset: 0x00643649
+517:    offset: 0x006421CE
+522:    offset: 0x00640094
+527:    offset: 0x00640CB8
+532:    offset: 0x0064207C
+539:    offset: 0x0266C808
+544:    offset: 0x0266C000
+549:    offset: 0x02668040
+554:    offset: 0x02668050
+559:    offset: 0x0265C080
+564:    offset: 0x026542C0
+569:    offset: 0x001E0050
+574:    offset: 0x001E0110
+579:    offset: 0x001F8DB0
+584:    offset: 0x0061C030
+589:    offset: 0x00626770
+594:    offset: 0x0021BC70
+599:    offset: 0x00340EA0
+604:    offset: 0x003410D0
+609:    offset: 0x0062B0C0
+614:    offset: 0x0062B400
+619:    offset: 0x006247D0
+624:    offset: 0x00624875
+629:    offset: 0x006A2EF9
+634:    offset: 0x0064C5D0
+639:    offset: 0x0064D39E
+644:    offset: 0x0062C27D
+651:    offset: 0x003B9CF0
+658:    offset: 0x0036CCF0
+663:    offset: 0x0046FA00
+668:    offset: 0x0048C550
+673:    offset: 0x01A4A230
+678:    offset: 0x022D1F30
+683:    offset: 0x01A7EDD8
+690:    offset: 0x016F7CE
+695:    offset: 0x016F5FC
+702:    offset: 0x002BD4FD
+706:  - name: patch_kmem_alloc1
+707:    offset: 0x00465B1C
+711:  - name: patch_kmem_alloc2
+712:    offset: 0x00465B03
+717:    offset: 0x00465B24
+722:    offset: 0x002BD737
+727:    offset: 0x002BD743
+732:    offset: 0x002BD642
+737:    offset: 0x002BD64E
+742:    offset: 0x002BDBE3
+747:    offset: 0x002BDBEF
+752:    offset: 0x002BDC20
+757:    offset: 0x002BDA72
+762:    offset: 0x002BDA85
+767:    offset: 0x00366A0D
+772:    offset: 0x00366EE1
+777:    offset: 0x001B843F
+782:    offset: 0x001B8447
+787:    offset: 0x0069DB00
+792:    offset: 0x0064EC20
+797:    offset: 0x0064EC50
+802:    offset: 0x004E87B8
+807:    offset: 0x004E987E
+811:  - name: patch_mount
+812:    offset: 0x001512A7
+817:    offset: 0x0039154F
+822:    offset: 0x001FA78A
+827:    offset: 0x001B7768
+832:    offset: 0x003BD8D0
+837:    offset: 0x001BF215
+842:    offset: 0x002E0537
+847:    offset: 0x004953FE
+852:    offset: 0x0010D066
+857:    offset: 0x0010D07E
+862:    offset: 0x002FC15C
+867:    offset: 0x005C972B
+872:    offset: 0x005C972F
+877:    offset: 0x0075CD90
+882:    offset: 0x00303BBE
+887:    offset: 0x003707E2
+892:    offset: 0x001E2116
+897:    offset: 0x00474C25
+902:    offset: 0x00474C2E
+907:    offset: 0x00474C37
+914:    base_offset: patch_mdbg_basic
+915:    relative_offsets: [0x54, 0x238, 0x1416, 0x2120, 0x2146, 0x216C, 0x2192, 0x21B8, 0x21DE, 0x2204, 0x222A, 0x2250, 0x2276, 0x229C, 0x22C2, 0x22E8, 0x230E, 0x2334, 0x236A, 0x2390, 0x23B6, 0x23DC]
+--- research/webkit-1302/upstream/artifact-inspection/slopos-ps4-1302.h
+2:/* PS4 13.02 — kexec offsets: ArabPixel */
+10:/* kern_off_vmspace_free TODO — help wanted */
+19:#define kern_off_kmem_alloc                0x465A50
+20:#define kern_off_kmem_alloc_contig         0x24D440
+21:#define kern_off_kmem_free                 0x465C20
+--- research/webkit-1302/upstream/artifact-inspection/ps4-linux-loader-1302.h
+2:#define kernel_offset_xfast_syscall 0x1c0
+3:#define kernel_offset_allproc 0x1b28538
+4:#define kernel_offset_vmspace_acquire_ref 0x2F6F90
+5:#define kernel_offset_vmspace_free 0x2F6DC0
+6:#define kernel_offset_printf 0x2E0450
+7:#define kernel_offset_kmem_alloc 0x465A50
+8:#define kernel_offset_kernel_map 0x22D1D50
+9:#define kernel_offset_sysent 0x1102B70
+10:#define kernel_offset_proc_rwmem 0x366010
+11:#define kernel_offset_copyin 0x2BD6E0
+13:#define kernel_patch_kmem_alloc_1 0x465B1C
+14:#define kernel_patch_kmem_alloc_2 0x465B24
+--- kpayload/source/offsets/1302.c
+3:#include "offsets/1302.h"
+7:const struct kpayload_offsets offsets_1302 PAYLOAD_RDATA = {
+28:  .malloc_addr                     = 0x00009520,
+29:  .free_addr                       = 0x000096E0,
+61:  .vmspace_free_addr               = 0x002F6DC0,
+80:  .mountpfs__sceSblPfsSetKeys_hook1                          = 0x006A2EF9,
+81:  .mountpfs__sceSblPfsSetKeys_hook2                          = 0x006A312A,
+114:  .enable_data_mount_patch         = 0x00323380,
+122:  // SceShellCore patches - use `free` prefix instead `fake`
+123:  .fake_free_patch                 = 0x00FD0E59,
+135:  // Process structure offsets
+136:  .proc_p_comm_offset = 0x454,
+137:  .proc_path_offset   = 0x474,

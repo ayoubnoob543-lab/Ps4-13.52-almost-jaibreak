@@ -1,0 +1,47 @@
+=== kpayload 1302/1304 mount-related diff ===
+--- /dev/fd/63	2026-08-26 18:10:57.670682673 +0000
++++ /dev/fd/62	2026-08-26 18:10:57.670682673 +0000
+@@ -1,5 +1,5 @@
+-#include "offsets/1302.h"
+-const struct kpayload_offsets offsets_1302 PAYLOAD_RDATA = {
++#include "offsets/1304.h"
++const struct kpayload_offsets offsets_1304 PAYLOAD_RDATA = {
+   .malloc_addr                     = 0x00009520,
+   .free_addr                       = 0x000096E0,
+   .vmspace_free_addr               = 0x002F6DC0,
+=== identical selected values ===
+ROOTVNODE_addr	13.02=  .ROOTVNODE_addr                  = 0x02136E90,	13.04=  .ROOTVNODE_addr                  = 0x02136E90,
+SBL_PFS_SX_addr	13.02=  .SBL_PFS_SX_addr                 = 0x0265C080,	13.04=  .SBL_PFS_SX_addr                 = 0x0265C080,
+malloc_addr	13.02=  .malloc_addr                     = 0x00009520,	13.04=  .malloc_addr                     = 0x00009520,
+free_addr	13.02=  .free_addr                       = 0x000096E0,	13.04=  .free_addr                       = 0x000096E0,
+sceSblPfsSetKeys_addr	13.02=  .sceSblPfsSetKeys_addr           = 0x00626770,	13.04=  .sceSblPfsSetKeys_addr           = 0x00626770,
+sceSblKeymgrSetKeyForPfs_addr	13.02=  .sceSblKeymgrSetKeyForPfs_addr   = 0x0062B0C0,	13.04=  .sceSblKeymgrSetKeyForPfs_addr   = 0x0062B0C0,
+vmspace_free_addr	13.02=  .vmspace_free_addr               = 0x002F6DC0,	13.04=  .vmspace_free_addr               = 0x002F6DC0,
+mountpfs__sceSblPfsSetKeys_hook1	13.02=  .mountpfs__sceSblPfsSetKeys_hook1                          = 0x006A2EF9,	13.04=  .mountpfs__sceSblPfsSetKeys_hook1                          = 0x006A2EF9,
+mountpfs__sceSblPfsSetKeys_hook2	13.02=  .mountpfs__sceSblPfsSetKeys_hook2                          = 0x006A312A,	13.04=  .mountpfs__sceSblPfsSetKeys_hook2                          = 0x006A312A,
+enable_data_mount_patch	13.02=  .enable_data_mount_patch         = 0x00323380,	13.04=  .enable_data_mount_patch         = 0x00323380,
+=== Fusion and OSM target values ===
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->kern_open = (void*)(kernelBase + 0x003435E0);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->kmem_alloc = (void*)(kernelBase + 0x00465A50);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->kmem_free = (void*)(kernelBase + 0x00465C20);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->vn_fullpath = (void*)(kernelBase + 0x00308CE0);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->getnewvnode = (void*)(kernelBase + 0x0036E2F0);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->M_MOUNT = (void*)(kernelBase + 0x01A40250);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->malloc = (void*)(kernelBase + 0x00009520);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->free = (void*)(kernelBase + 0x000096E0);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->sysctl_ctx_free = (void*)(kernelBase + 0x003F95E0);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->patch_kmem_alloc1 = (void*)(kernelBase + 0x00465B1C);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->patch_kmem_alloc2 = (void*)(kernelBase + 0x00465B03);
+research/webkit-1302/upstream/fusion-1302/Offsets-1302.h:    addrs->patch_mount = (void*)(kernelBase + 0x001512A7);
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: kern_open
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: kmem_alloc
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: kmem_free
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: vn_fullpath
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: getnewvnode
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: M_MOUNT
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: malloc
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: free
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: sysctl_ctx_free
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: patch_kmem_alloc1
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: patch_kmem_alloc2
+research/webkit-1302/upstream/osm-kernel-sdk/firmware-1302.yaml:  - name: patch_mount

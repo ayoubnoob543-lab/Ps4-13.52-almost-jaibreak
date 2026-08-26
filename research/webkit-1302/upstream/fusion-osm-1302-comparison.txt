@@ -1,0 +1,30 @@
+Fusion assignments: 163
+OSM YAML assignments: 175
+Common names: 163
+Identical common offsets: 162
+Different common offsets: 1
+DIFF	trap_fatalHook	Fusion=0x0	OSM=0x0014AA90
+TARGETS
+patch_mount	Fusion=0x001512A7	OSM=0x001512A7
+M_MOUNT	Fusion=0x01A40250	OSM=0x01A40250
+getnewvnode	Fusion=0x0036E2F0	OSM=0x0036E2F0
+vn_fullpath	Fusion=0x00308CE0	OSM=0x00308CE0
+kern_open	Fusion=0x003435E0	OSM=0x003435E0
+malloc	Fusion=0x00009520	OSM=0x00009520
+free	Fusion=0x000096E0	OSM=0x000096E0
+kmem_alloc	Fusion=0x00465A50	OSM=0x00465A50
+kmem_free	Fusion=0x00465C20	OSM=0x00465C20
+OSM-only names
+CallStackPrintfHook	0x016F7CE
+DELAY	0x0015FB10
+FaultAddressPrintfHook	0x016F5FC
+faultin	0x003D480
+patch_PrxPathCheck1	0x00474C25
+patch_PrxPathCheck2	0x00474C2E
+patch_PrxPathCheck3	0x00474C37
+vm_fault_disable_pagefaults	0x001E6490
+vm_fault_enable_pagefaults	0x001E64C0
+vm_map_find	0x002FA5A0
+vm_map_set_name	0x003027D0
+wakeup	0x001402B0
+Fusion-only names

@@ -7,7 +7,9 @@
 
 La nueva búsqueda encuentra **más evidencia de infraestructura de kernel y de procedencia de offsets**, pero no encuentra una correspondencia verificable con `ffs_mountfs()`, `ffs_reload()`, `ffs_vget()` o `ffs_alloc()` en Orbis 13.02. Las coincidencias FFS directas se concentran en dos clases: código/documentación FreeBSD upstream y documentación de Celsius en el repositorio de investigación `adri22235/ps4-suid-scanner`. No aparece un cuerpo de función Orbis, un string de kernel Orbis, pseudocódigo, cross-reference ni offset atribuido explícitamente a una función FFS.
 
-La evidencia indirecta más fuerte es que los artefactos 13.02 exponen funciones generales de kernel relacionadas con VFS/memoria y un parche llamado `patch_mount`, y que el SDK incluye headers FreeBSD UFS/FFS. Eso demuestra que los proyectos trabajan con una arquitectura FreeBSD-like y con mecanismos de montaje/payload. **No demuestra que `patch_mount` sea `ffs_mountfs`, ni que Orbis conserve el código vulnerable, ni que Celsius proporcione R/W.**
+La evidencia indirecta más fuerte es que los artefactos 13.02 exponen funciones generales de kernel relacionadas con VFS/memoria y un parche llamado `patch_mount`, y que el SDK incluye headers FreeBSD UFS/FFS. También apareció un segundo repositorio relevante, OSM-Made/PS4-Kernel-SDK, cuyo YAML `firmware-1302.yaml` reproduce prácticamente toda la tabla de Fusion. Eso demuestra una línea pública de tablas de símbolos VFS y mecanismos de montaje/payload, pero no una nueva fuente binaria. **No demuestra que `patch_mount` sea `ffs_mountfs`, ni que Orbis conserve el código vulnerable, ni que Celsius proporcione R/W.**
+
+El repositorio OSM-Made es importante para la procedencia, pero no cambia la categoría probatoria: su commit inicial de 13.02 (`093808e`, 22 de enero de 2026) llega después del commit/PR 13.02 de Fusion (20 de enero de 2026), añade únicamente `offsets/firmware-1302.yaml` y no menciona FFS, Celsius, bollars ni un dump. La comparación reproducible encontró 163 nombres comunes, 162 offsets idénticos y una única diferencia (`trap_fatalHook`: `0` frente a `0x0014AA90`). Los objetivos `patch_mount`, `M_MOUNT`, `getnewvnode`, `vn_fullpath`, `kern_open`, `malloc`, `free`, `kmem_alloc` y `kmem_free` son idénticos. Esto respalda **DERIVED/same-lineage**, no independencia.
 
 ## 1. `Shared/Offsets-1302.h` de AetherPS/Fusion
 
@@ -38,7 +40,18 @@ El archivo tiene 203 líneas y define `InitKernel1302(uint64_t kernelBase, Kerne
 
 `M_MOUNT`, `getnewvnode`, `vn_fullpath`, `kern_open` y `kern_mkdir` son indicios razonables de componentes VFS, pero son símbolos generales. No identifican una rutina FFS concreta. Clasificación: **CORROBORATED** como infraestructura VFS-like publicada; **HYPOTHESIS** para cualquier relación con Celsius.
 
-## 2. Búsqueda de referencias FFS/UFS
+## 2. Procedencia cruzada de las tablas 13.02
+
+| Artefacto | Fecha/commit | Contenido real | Relación con `patch_mount` | Clasificación |
+|---|---|---|---|---|
+| Fusion `Shared/Offsets-1302.h` | 20-ene-2026, `1d7c031` | Header C generado/manual con asignaciones `kernelBase + offset` | Define `patch_mount=0x001512A7` | `SOURCE_ONLY` para offset |
+| OSM `offsets/firmware-1302.yaml` | 22-ene-2026, `093808e` | YAML de offsets, 853 líneas nuevas | Reproduce el mismo offset y casi toda la tabla | `DERIVED` / `SOURCE_ONLY` |
+| kpayload 13.02 | árbol de firmware del payload | Struct de offsets para R/W, PFS, VM y SceShellCore | No contiene `patch_mount` | `CORROBORATED` para sus propios símbolos; sin FFS |
+| SDK PR #6 | 5-oct-2025, `66d5a096` | Cambios de runtime en `crt/kernel.c` | No añade `patch_mount` ni FFS | `CORROBORATED` como soporte 13.02; `INVALID` para Celsius |
+
+La evidencia de OSM no es un dump ni una fuente primaria del kernel. El README indica como guía que los offsets deberían actualizarse desde un dump conocido y probarse en hardware, pero esa recomendación no prueba el origen concreto de `firmware-1302.yaml`. No hay comentario, hash de kernel, build number ni artefacto adjunto que permita auditar la medición.
+
+## 3. Búsqueda de referencias FFS/UFS
 
 Se buscaron `ffs_mountfs`, `ffs_reload`, `ffs_vget`, `ffs_alloc`, `mountfs`, `fs_ncg`, `fs_cssize`, `fs_contigsumsize`, `fs_bsize`, `fs_fsize`, `UFS`, `FFS`, `superblock`, además de `Celsius`, `bollars`, `Dr.Yenyen`, `Pharaoh2k` y `13.04`.
 
@@ -57,13 +70,13 @@ Se buscaron `ffs_mountfs`, `ffs_reload`, `ffs_vget`, `ffs_alloc`, `mountfs`, `fs
 
 No aparecieron strings extraídas de un binario de kernel Orbis. Las únicas coincidencias de campos de superbloque (`fs_*`) provienen del código FreeBSD y de documentación que lo reproduce.
 
-## 3. Código FreeBSD frente a los artefactos 13.02
+## 4. Código FreeBSD frente a los artefactos 13.02
 
 El código FreeBSD upstream sí contiene la ruta histórica en la que `fs_cssize`, `fs_contigsumsize` y `fs_ncg` participan en cálculos de tamaño y asignación, seguida por bucles que consumen `fs_ncg`. Esa relación es **VERIFIED para el código FreeBSD de referencia**.
 
 Los artefactos 13.02 no contienen `struct fs` de Orbis asociada a una función, no muestran los tipos usados por Sony, no contienen instrucciones equivalentes y no incluyen un diff de 13.02→13.50. Por tanto, no hay base para afirmar que la implementación Orbis tenga el mismo overflow ni que el bug sea explotable.
 
-## 4. Cadena de procedencia de Celsius
+## 5. Cadena de procedencia de Celsius
 
 La cadena pública reconstruible es la siguiente:
 
@@ -73,7 +86,7 @@ Esta cadena tiene una ruptura crítica: entre la documentación de Celsius y los
 
 El PR de SDK que añadió soporte 13.02, [`66d5a096`](https://github.com/ps4-payload-dev/sdk/commit/66d5a096e1c301c17b826f0759e6b843b881bcd2), sólo modifica `crt/kernel.c` para añadir el caso de firmware y tres direcciones generales: base inferida desde `LSTAR`, `targetid`, `copyin` y `copyout`. No añade FFS, Celsius, un dump ni pseudocódigo. Clasificación: **CORROBORATED** como cambio de soporte del SDK; **INVALID** como evidencia de Celsius.
 
-## 5. ¿Puede asociarse algún offset a FFS?
+## 6. ¿Puede asociarse algún offset a FFS?
 
 No de forma razonable y verificable. La asociación más cercana sería:
 
@@ -86,7 +99,7 @@ No de forma razonable y verificable. La asociación más cercana sería:
 | `kern_open/kern_mkdir` | Operaciones de filesystem | No son funciones UFS específicas | **CORROBORATED**, no FFS |
 | `malloc/free` | Primitivas que Celsius necesitaría | Presentes en cualquier kernel y no localizan la función | **INVALID** como evidencia de vulnerabilidad |
 
-## 6. Respuestas finales
+## 7. Respuestas finales
 
 **¿Qué evidencia nueva aparece?** Aparece un historial más claro de soporte 13.02 en Fusion y SDK, y se confirma que los artefactos exponen infraestructura VFS genérica (`M_MOUNT`, `getnewvnode`, `vn_fullpath`, `patch_mount`) junto con primitivas de memoria. No aparece evidencia nueva directa de Celsius.
 
