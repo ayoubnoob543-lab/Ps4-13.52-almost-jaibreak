@@ -859,3 +859,7 @@ Expediente creado desde d42bf9c; se separan las búsquedas A y B y se excluye la
 ## A search: RE projects and kernel artifacts
 
 The expanded A search inspected Al-Azif's `ps4-re-utilities`, OpenOrbis, ConsoleMods' SDK documentation, the historical PSXHAX IDA loader page and CTurt's kernel exploitation article. These provide tools, loaders, headers or historical methodology, but no Orbis 13.02/13.04 bytes, pseudocode, call graph, `ffs_mountfs`, `ffs_reload` or xref for `0x001512A7`. `ps4-re-utilities` is useful only as a possible offline parser if a legitimate `80010002` kernel ELF is later found. Classifications are recorded in the session report.
+
+## B-chain provenance update
+
+The public provenance chain now has a clearer primary announcement: Dr.Yenyen's July 18, 2026 X post, quoted by GameGaz on July 19, 2026. GameGaz supplies the claimed trigger requirements and firmware range but explicitly says the exploit was not yet practical. A GAMERZ YouTube community post repeats the same story and adds an unverified USB timing/size detail; Wikova repeats GameGaz and is derived. None exposes a PoC, UFS image, hash, bootstrap or kernel-R/W transition.

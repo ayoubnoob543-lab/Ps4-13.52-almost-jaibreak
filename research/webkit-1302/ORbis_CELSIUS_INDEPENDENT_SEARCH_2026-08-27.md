@@ -44,3 +44,14 @@ Cada hallazgo se documentará como: artefacto | URL/origen | fecha | hash | firm
 | CTurt, “Hacking the PS4, part 3” | https://cturt.github.io/ps4-3.html | 2015-12-17 | N/A | Firmwares antiguos | No es Celsius | Metodología histórica de WebKit, ROP, sysctl y análisis de kernel | Fuente primaria histórica; **VERIFIED en su alcance, no transferible a 13.02** |
 
 Conclusión A provisional: ningún resultado contiene bytes, pseudocódigo, call graph o proyecto RE de Orbis 13.02/13.04 que permita identificar `ffs_mountfs`, `ffs_reload` o la función situada en `0x001512A7`. Los SDK y loaders encontrados son infraestructura, no el artefacto objetivo.
+
+## Búsqueda B ampliada: cadena de referencias públicas
+
+| Artefacto | URL/origen | Fecha | Hash | Firmware | Relación con Celsius | Pieza que aporta | Procedencia |
+|---|---|---:|---|---|---|---|---|
+| Artículo GameGaz sobre Celsius | https://gamegaz.com/2026071945823/ | 2026-07-19; cita post de Dr.Yenyen del 2026-07-18 | N/A | Afirma PS4 hasta 13.04 y PS5 hasta 12.70 | Es la referencia secundaria más detallada: menciona `ffs_mount`, heap overflow, USB 3.0/HDD 250 GB+, Vue/BD-J y parche 13.50 | Requisitos declarados y fecha del primer anuncio público citado; no PoC ni imagen | **SOURCE_ONLY**; la propia página advierte que no estaba en fase práctica |
+| Post de Dr.Yenyen citado por GameGaz | https://x.com/calmboy2019/status/2078549759460094065 | 2026-07-18 | N/A | Afirma PS4 hasta 13.04 y PS5 hasta 12.70 | Fuente primaria del anuncio público y del nombre Celsius, pero el texto sólo pide paciencia y no adjunta implementación | Fecha y claim original; no transición técnica | **SOURCE_ONLY** para la existencia de artefactos no publicados |
+| Post de GAMERZ 56K | https://www.youtube.com/post/UgkxE2BPYs9Rf7TJgKq8GqnZlTh-kOpDU15F | 2026-07-26 aprox. | N/A | Repite PS4 hasta 13.04, incluyendo 13.02 | Añade que se recomienda USB de 320/500 GB y que el timing de inserción sería crítico, pero no enlaza código o imagen | Hipótesis operativa no reproducible | **SOURCE_ONLY / rumor secundario** |
+| Entrada Wikova | https://wikova.com/wiki/DQm4J1HU | Actualizada 2026-08-10 | N/A | Resume 13.02–13.04 | Reutiliza el relato general y cita GameGaz entre sus fuentes; no aporta artefacto independiente | Sólo índice narrativo y referencias | **DERIVED**, no corroboración independiente |
+
+El anuncio de Dr.Yenyen enlazado por GameGaz es la primera fuente pública localizada que da nombre y rango de firmware, pero no entrega la PoC. GameGaz aporta requisitos declarados y una advertencia explícita de que Celsius aún no estaba en fase práctica. Los posts de YouTube y Wikova son derivados; ninguno cierra la transición `WebKit/Jordy → mount → FFS → corrupción → primitive`.
