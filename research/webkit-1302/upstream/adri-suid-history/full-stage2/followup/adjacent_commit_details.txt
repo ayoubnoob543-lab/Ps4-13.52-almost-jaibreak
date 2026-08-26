@@ -1,0 +1,66 @@
+===== 702fcc397d45546baab5311bc0a264870ae90042 =====
+[1;38m{[m
+[1;34m"files"[m[1;38m:[m [1;38m[[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 33[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 33[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"webkit_gadgets_1304.js"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"raw_url"[m[1;38m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/raw/702fcc397d45546baab5311bc0a264870ae90042/webkit_gadgets_1304.js"[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m
+[1;38m][m[1;38m,[m
+[1;34m"message"[m[1;38m:[m [32m"Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump"[m[1;38m,[m
+[1;34m"parents"[m[1;38m:[m [1;38m[[m
+[32m"3fd35a4e475698b59dae40794901a56126a38c52"[m
+[1;38m][m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"702fcc397d45546baab5311bc0a264870ae90042"[m
+[1;38m}[m
+===== 96a79482d249fdbc6101bc641241488de66c313d =====
+[1;38m{[m
+[1;34m"files"[m[1;38m:[m [1;38m[[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 194[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 194[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"stage2_jordy.js"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"raw_url"[m[1;38m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/raw/96a79482d249fdbc6101bc641241488de66c313d/stage2_jordy.js"[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m
+[1;38m][m[1;38m,[m
+[1;34m"message"[m[1;38m:[m [32m"Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04"[m[1;38m,[m
+[1;34m"parents"[m[1;38m:[m [1;38m[[m
+[32m"702fcc397d45546baab5311bc0a264870ae90042"[m
+[1;38m][m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"96a79482d249fdbc6101bc641241488de66c313d"[m
+[1;38m}[m
+===== 1089382ec1e0000e9557b7748d39b57952bbc4f3 =====
+[1;38m{[m
+[1;34m"files"[m[1;38m:[m [1;38m[[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 302[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 302[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"jordy_stage2.js"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"raw_url"[m[1;38m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/raw/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js"[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 194[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 194[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"stage2_jordy.js"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"raw_url"[m[1;38m:[m [32m"https://github.com/adri22235/ps4-suid-scanner/raw/96a79482d249fdbc6101bc641241488de66c313d/stage2_jordy.js"[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"removed"[m
+[1;38m}[m
+[1;38m][m[1;38m,[m
+[1;34m"message"[m[1;38m:[m [32m"Replace skeleton with full stage 2: persistent r/w + ROP for 13.04"[m[1;38m,[m
+[1;34m"parents"[m[1;38m:[m [1;38m[[m
+[32m"96a79482d249fdbc6101bc641241488de66c313d"[m
+[1;38m][m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"1089382ec1e0000e9557b7748d39b57952bbc4f3"[m
+[1;38m}[m

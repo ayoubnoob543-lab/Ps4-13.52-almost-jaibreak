@@ -311,3 +311,21 @@ Artefactos locales: `research/webkit-1302/upstream/adri-suid-history/full-stage2
 ## False-positive mirror: firmware-lab
 
 El índice de código de GitHub devuelve también `ayoubnoob543-lab/firmware-lab/jordy_stage2.js`, pero el archivo está en el commit `0d6221d3d9cb1009d1383a36445e26d6faa502bd`, creado por `ayoubnoob543-lab` el 2026-08-26, con padre `e5d9ee5...` y mensaje `docs: remove aggregate progress percentages`. El archivo tiene 315 líneas y SHA-256 `87923c925ee77ea3e596f3d5aff21b61bcd2bd251408236663d16560e8496b27`; es una variante local posterior que usa BigInt y explicita mensajes `INCOMPLETE`, no una fuente independiente ni una copia histórica externa. Su procedencia es `DERIVED/LOCAL RESEARCH ARTIFACT` y debe excluirse de la búsqueda de mirrors de terceros.
+
+
+## Stage 2 adjacent commit: WebKit gadget file
+
+Commit `702fcc397d45546baab5311bc0a264870ae90042` (2026-07-30) is the direct ancestor of the stage2 skeleton. It adds only `webkit_gadgets_1304.js`, SHA-256 `b5910bf0ab9035577df7d5b1327cf9d972e7fd9fd7ddac5b1850062b70a7dd61`. The file lists 16 WebKit ROP gadget offsets and states its source was `1304_libSceNKWebKit.sprx.decrypted (68 MB) from zecoxao`, found through Python byte-pattern search.
+
+The same file contains unsubstantiated comments claiming a kernel comparison: 13.00 and 13.04 have the same size (20,080,104 bytes), `ffs_mountfs` string at `0x7d021f` in both, 27.79% of bytes differ, and “Celsius NOT patched”/“CONFIRMED”. The repository does not include the alleged kernel files, hashes, diff, bytes around the string, disassembly, function boundaries, or a proof that the string is an executable Orbis function. It therefore provides a new lead about an alleged private/third-party 13.04 artifact and a claim of 13.00/13.04 equivalence, but no auditable proof of `ffs_mountfs()` or Celsius. Classification: gadget offsets and file existence `VERIFIED`; source attribution and kernel-comparison claims `SOURCE_ONLY`; Celsius/FFS identification `UNVERIFIED`; kernel bytes/diff `INVALID as evidence because absent`.
+
+
+## Adjacent WebKit 13.50 gadget file
+
+Commit `702fcc397d45546baab5311bc0a264870ae90042` also contains `webkit_gadgets_1350.js`, SHA-256 `83bb1f0577d7f0ebeb8af2f26ca4585f6395a86e85b8c7e2dbe1e8b029bbfa19`. It lists 17 WebKit 13.50 gadget offsets and says they were found with radare2 pattern search in a 68 MB `libSceNKWebKit.sprx.decrypted`. It explicitly warns that 13.04 gadgets have different addresses and recommends BinDiff to port them.
+
+The file comments claim kernel offsets `PRISON0 = 0x111FA18` and `ROOTVNODE = 0x2136E90` for 13.50, attributed to a “midohar36 kernel dump”, while stating that full 13.50 kernel offsets still need extraction via BinDiff. No dump, hash, bytes, or FFS/Celsius comparison is included. Classification: gadget file and values `VERIFIED` as repository content; midohar36 dump attribution `SOURCE_ONLY`; 13.50 kernel equivalence and Celsius patch status `UNVERIFIED`; FFS evidence `INVALID` because absent.
+
+## Follow-up search for reused stage2 components — 2026-08-26
+
+Searches for the exact conceptual identifiers `Jordy Stage 2`, `m_vector` + `Celsius`, and `SSV candidate` + PS4 WebKit ROP returned no additional public result. The absence is limited to the indexed public search corpus and does not exclude private or deleted material. Classification: `CORROBORATED` only as a negative search result; no new source identified.
