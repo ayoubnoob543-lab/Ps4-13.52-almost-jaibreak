@@ -915,3 +915,7 @@ All reachable refs in the clone expose only `main`/remote HEAD, 8 commits, and n
 ## Discarded candidate: earthonion/vue-mitm-poc
 
 The mirror repository has 10 commits, one branch, no tags, and is described as a PS4 Vue JS injection PoC targeting version 1.01. It contains no Celsius, Jordy, UFS/FFS, `ffs_mountfs`, 13.02/13.04 or kernel-R/W material. Verified as historical Vue entrypoint context; invalid as a Celsius artifact.
+
+## Discarded candidate: earthonion/ps4debugportal
+
+The mirror repo has 36 commits, one branch and three tags. Its README describes a web PS4 memory debugger that requires an already-running `ps4debug` payload. It contains no Celsius, Jordy, UFS/FFS, `ffs_mountfs`, 13.02/13.04 offsets or exploit chain. Verified as a debugger frontend dependent on an existing payload; invalid as a Celsius artifact.

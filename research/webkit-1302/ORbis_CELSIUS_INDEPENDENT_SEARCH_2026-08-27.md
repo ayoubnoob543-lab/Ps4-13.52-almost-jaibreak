@@ -133,3 +133,9 @@ La revisión de todas las refs disponibles sólo muestra `main` y su HEAD remoto
 El repositorio público del mirror contiene 10 commits, una rama, ningún tag y seis archivos principales (`inject.js`, `proxy.py`, `log_server.py`, `hosts.txt`, `download0` y README). El README lo describe como “poc for ps4 vue js injection via mitm” y fija como objetivo la versión 1.01. No menciona Celsius, Jordy, UFS/FFS, `ffs_mountfs`, 13.02/13.04 ni kernel R/W. Aporta contexto histórico del entrypoint Vue, pero no una pieza reutilizable de la cadena Celsius 13.02. Clasificación: **VERIFIED** como PoC Vue 1.01; **INVALID** como PoC Celsius.
 
 Fuente: [earthonion/vue-mitm-poc](https://git.etawen.dev/earthonion/vue-mitm-poc).
+
+## Candidato descartado: `earthonion/ps4debugportal`
+
+El repositorio del mirror tiene 36 commits, una rama y 3 tags. Su README lo describe como una interfaz web de depuración de memoria para PS4 con scanner, editor, disassembler y endpoints de lectura/escritura; exige que la consola ya esté ejecutando el payload `ps4debug`. No contiene Celsius, Jordy, UFS/FFS, `ffs_mountfs`, offsets 13.02/13.04 ni una cadena de explotación. Aporta únicamente una interfaz de consumo para memoria de procesos y no una primitive de kernel ni un bootstrap. Clasificación: **VERIFIED** como herramienta de depuración dependiente de payload; **INVALID** como artefacto Celsius.
+
+Fuente: [earthonion/ps4debugportal](https://git.etawen.dev/earthonion/ps4debugportal).
