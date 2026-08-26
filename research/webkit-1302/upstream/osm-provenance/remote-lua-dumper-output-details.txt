@@ -1,0 +1,616 @@
+=== payloads/kernel_dumper.lua ===
+1--- @egycnq
+2-
+3:function get_kernel_elf_size()
+4:    -- ELF header offsets
+5:    local E_PHNUM_OFFSET = 0x38  -- Number of program headers
+6:    local E_PHOFF_OFFSET = 0x40  -- Program header offset (should be 0x40)
+7-
+8:    -- Program header entry size
+9:    local PHDR_SIZE = 0x38
+10-
+11-    -- Program types
+12-    local PT_LOAD = 1
+13-    local PT_SCE_RELRO = 0x61000000
+14-
+15-    -- Read number of program headers
+16:    local e_phnum = kernel.read_word(kernel.addr.data_base + E_PHNUM_OFFSET):tonumber()
+17-    printf("Number of program headers: %d", e_phnum)
+18-
+19:    local end_addr = kernel.addr.data_base:tonumber()  -- Convert kbase to number for comparison
+20-
+21-    -- Parse each program header
+22-    for i = 0, e_phnum - 1 do
+23:        local phdr_offset = E_PHOFF_OFFSET + (i * PHDR_SIZE)
+24-
+25:        -- Read p_type (4 bytes at offset 0x00)
+26:        local p_type = kernel.read_dword(kernel.addr.data_base + phdr_offset):tonumber()
+27-
+28-        -- Only process PT_LOAD and PT_SCE_RELRO segments
+29-        if p_type == PT_LOAD or p_type == PT_SCE_RELRO then
+30-            -- Read segment details and convert to numbers
+31:            local p_vaddr = kernel.read_qword(kernel.addr.data_base + phdr_offset + 0x10):tonumber()
+32:            local p_memsz = kernel.read_qword(kernel.addr.data_base + phdr_offset + 0x28):tonumber()
+33:            local p_align = kernel.read_qword(kernel.addr.data_base + phdr_offset + 0x30):tonumber()
+34-
+35-            -- Calculate aligned end address
+36-            local segment_end = p_vaddr + p_memsz
+37-
+38-            -- Apply alignment (next_multiple_of)
+39-            if p_align > 0 then
+40-                local remainder = segment_end % p_align
+41-                if remainder ~= 0 then
+42-                    segment_end = segment_end + (p_align - remainder)
+43-                end
+44-            end
+45-
+46-            -- Update max end address
+47-            if segment_end > end_addr then
+48-                end_addr = segment_end
+49:                printf("Segment %d: type=0x%X, vaddr=0x%X, size=0x%X, end=0x%X",
+50-                    i, p_type, p_vaddr, p_memsz, segment_end)
+51-            end
+52-        end
+53-    end
+54-
+55:    -- Calculate total size
+56:    local total_size = end_addr - kernel.addr.data_base:tonumber()
+57:    printf("Kernel size: 0x%X", total_size)
+58:    return total_size
+59-end
+60-
+61:function dump_kernel_elf()
+62-    -- Constants
+63:    local CHUNK_SIZE = 0x4000              -- 16KB chunks
+64-    local PROGRESS_INTERVAL = 0x500000     -- Progress update every 5MB
+65-    local NOTIFICATION_INTERVAL = 10       -- Notification every 10 seconds
+66:    local OUTPUT_PATH = "/mnt/usb0/kernel.elf"
+67-    local FILE_PERMISSIONS = tonumber("0777", 8)
+68-    local BYTES_PER_MB = 1048576
+69-    local BYTES_PER_KB = 1024
+70-
+71-    -- File flags
+72-    local O_WRONLY = 0x0001
+73-    local O_CREAT = 0x0200
+74-    local O_TRUNC = 0x0400
+75-
+76-    local fd = nil  -- Track file descriptor for cleanup
+77-
+78-    -- Send start notification
+79:    send_ps_notification("Starting kernel dump...")
+80-
+81-    -- Input validation
+82-    if not kernel.addr.data_base or kernel.addr.data_base == 0 then
+83-        local error_msg = "Invalid kernel base address"
+84-        print(error_msg)
+85-        send_ps_notification(error_msg)
+86-        return false
+87-    end
+--
+98-
+99-    if not ok then
+100-        local error_msg = "Failed to resolve syscalls: " .. tostring(err)
+101-        print(error_msg)
+102-        send_ps_notification(error_msg)
+103-        return false
+104-    end
+105-
+106:    -- Get kernel size
+107:    local kernel_size = get_kernel_elf_size()
+108:    if not kernel_size or kernel_size <= 0 then
+109:        local error_msg = "Invalid kernel size"
+110-        print(error_msg)
+111-        send_ps_notification(error_msg)
+112-        return false
+113-    end
+114-
+115-    -- Open output file
+116-    print("Opening " .. OUTPUT_PATH)
+117:    local fd_result = syscall.open(OUTPUT_PATH, bit32.bor(O_WRONLY, O_CREAT, O_TRUNC), FILE_PERMISSIONS)
+118-
+119-    if not fd_result then
+120-        local error_msg = "Failed to call open syscall"
+121-        print(error_msg)
+122-        send_ps_notification(error_msg)
+123-        return false
+124-    end
+125-
+126-    fd = fd_result:tonumber()
+127-    if fd < 0 then
+128-        local error_msg = "Failed to open USB! Check if USB is inserted"
+129-        print(error_msg)
+130-        send_ps_notification(error_msg)
+131-        return false
+132-    end
+133-
+134:    -- Calculate size in MB and start dumping
+135:    local size_mb = math.floor(kernel_size / BYTES_PER_MB)
+136:    send_ps_notification(string.format("Dumping %d MB kernel...", size_mb))
+137-
+138:    print("Dumping kernel to " .. OUTPUT_PATH)
+139:    printf("Total size to dump: 0x%X bytes (%d MB)", kernel_size, size_mb)
+140-
+141:    -- Dump in chunks
+142:    local offset = 0
+143-    local start_time = os.clock()
+144-    local last_notification_time = start_time
+145:    local dump_success = false
+146-
+147:    while offset < kernel_size do
+148-        -- Calculate how much to read
+149:        local to_read = math.min(CHUNK_SIZE, kernel_size - offset)
+150-
+151-        -- Read from kernel memory
+152-        local read_ok, data = pcall(function()
+153:            local read_addr = kernel.addr.data_base + offset
+154:            return kernel.read_buffer(read_addr, to_read)
+155-        end)
+156-
+157-        if not read_ok or not data then
+158:            local error_msg = string.format("Kernel read failed at offset 0x%X: %s", offset, tostring(data))
+159-            print(error_msg)
+160-            send_ps_notification("Kernel read failed!")
+161-            break
+162-        end
+163-
+164-        -- Write the data to file
+165-        local write_result = syscall.write(fd, data, #data)
+166-        if not write_result then
+--
+181-
+182-        if written == 0 then
+183-            local error_msg = "USB full! Free up space"
+184-            print(error_msg)
+185-            send_ps_notification(error_msg)
+186-            break
+187-        end
+188-
+189:        offset = offset + written
+190-
+191-        -- Progress update
+192:        if offset % PROGRESS_INTERVAL == 0 or offset == kernel_size then
+193:            local progress_pct = math.floor((offset * 100) / kernel_size)
+194-            local elapsed = os.clock() - start_time
+195:            local speed_kbps = math.floor(offset / BYTES_PER_KB / elapsed)
+196-
+197-            printf("Progress: 0x%X / 0x%X (%d%%) - Speed: %d KB/s",
+198:                offset, kernel_size, progress_pct, speed_kbps)
+199-
+200-            -- Send notification every NOTIFICATION_INTERVAL seconds
+201-            local current_time = os.clock()
+202-            if current_time - last_notification_time > NOTIFICATION_INTERVAL then
+203:                send_ps_notification(string.format("Dumping... %d%%", progress_pct))
+204-                last_notification_time = current_time
+205-            end
+206-        end
+207-    end
+208-
+209-    -- Check if we completed successfully
+210:    dump_success = (offset == kernel_size)
+211-
+212:    if dump_success then
+213-        -- Sync to ensure all data is written
+214-        print("Syncing data to disk...")
+215-        local sync_result = syscall.fsync(fd)
+216-        local sync_ok = sync_result and sync_result:tonumber() >= 0
+217-
+218-        if not sync_ok then
+219-            print("Warning: fsync failed - data might not be fully written")
+220-            send_ps_notification("Warning: sync failed!")
+221-        end
+222-
+223-        -- Final stats
+224-        local total_time = os.clock() - start_time
+225:        local avg_speed_kbps = math.floor(offset / BYTES_PER_KB / total_time)
+226-
+227:        printf("Dump completed in %d seconds", math.floor(total_time))
+228:        printf("Successfully dumped 0x%X bytes (%d MB)", offset, math.floor(offset / BYTES_PER_MB))
+229-        printf("Average speed: %d KB/s", avg_speed_kbps)
+230-
+231-        -- Send completion notification with formatted time
+232-        local completion_msg
+233-        if total_time < 60 then
+234:            completion_msg = string.format("Kernel dumped! Time: %d seconds", math.floor(total_time))
+235-        else
+236-            local minutes = math.floor(total_time / 60)
+237-            local seconds = math.floor(total_time - (minutes * 60))
+238:            completion_msg = string.format("Kernel dumped! Time: %d:%02d", minutes, seconds)
+239-        end
+240-
+241-        send_ps_notification(completion_msg)
+242-    end
+243-
+244-    -- Always close file descriptor if it was opened
+245-    if fd and fd >= 0 then
+246-        syscall.close(fd)
+247-    end
+248-
+249:    return dump_success
+250-end
+251-
+252-function main()
+253-    if PLATFORM ~= "ps4" then
+254-        error("this payload only targets ps4")
+255-    end
+256-
+257-    check_jailbroken()
+258-
+259:    dump_kernel_elf()
+260-end
+261-
+262-main()
+=== payloads/kdata_dumper.lua ===
+1-
+2---[[
+3:    run netcat/socat on the other end to receive the kernel data dump
+4-    1) either through netcat
+5:        $ nc -nlvp 5656 > kernel_data_dump.bin
+6-    2) or through socat
+7:        $ socat -u TCP-LISTEN:5656,reuseaddr OPEN:kernel_data_dump.bin,create,trunc
+8-]]
+9-
+10-IP = "192.168.1.2"
+11-PORT = 5656
+12-
+13-function htons(port)
+14-    return bit32.bor(bit32.lshift(port, 8), bit32.rshift(port, 8)) % 0x10000
+15-end
+16-
+17-function aton(ip)
+18-    local a, b, c, d = ip:match("(%d+).(%d+).(%d+).(%d+)")
+19-    return bit32.bor(bit32.lshift(d, 24), bit32.lshift(c, 16), bit32.lshift(b, 8), a)
+20-end
+21-
+22:function find_kdata_base_offset(addr_inside_kdata)
+23-
+24-    print("start searching for kdata base...")
+25-
+26:    local addr = bit64.band(addr_inside_kdata, bit64.bnot(PAGE_SIZE-1))
+27-
+28:    local offset = 0
+29-    while true do
+30-
+31:        local n1 = kernel.read_dword(addr-offset):tonumber()
+32:        local n2 = kernel.read_dword(addr-offset+4):tonumber()
+33:        local n3 = kernel.read_dword(addr-offset+8):tonumber()
+34:        local n4 = kernel.read_dword(addr-offset+12):tonumber()
+35-
+36-        if n1 == 1 and n2 == 1 and n3 == 0 and n4 == 0 then
+37:            return addr - offset
+38-        end
+39-
+40:        offset = offset + PAGE_SIZE
+41-    end
+42-
+43-end
+44-
+45:function dump_kdata_over_network(kdata_base)
+46-
+47-    local sock_fd = syscall.socket(AF_INET, SOCK_STREAM, 0):tonumber()
+48-    if sock_fd == -1 then
+49-        error("socket() error: " .. get_error_string())
+50-    end
+51-
+52-    local sockaddr_in = memory.alloc(16)
+53-
+--
+58-    printf("trying to connect to %s:%d", IP, PORT)
+59-
+60-    if syscall.connect(sock_fd, sockaddr_in, 16):tonumber() == -1 then
+61-        error("connect() error: " .. get_error_string())
+62-    end
+63-
+64-    print("connected sucessfully")
+65-
+66:    print("dumping kdata until crashing...")
+67-
+68:    local read_size = PAGE_SIZE
+69:    local mem = memory.alloc(read_size)
+70-
+71-    local MB = 0x100000
+72-
+73:    local offset = 0
+74-    while true do
+75-
+76:        kernel.copyout(kdata_base + offset, mem, read_size)
+77-
+78:        if syscall.write(sock_fd, mem, read_size):tonumber() == -1 then
+79-            error("write() error: " .. get_error_string())
+80-            break
+81-        end
+82-
+83:        if offset % (5 * MB) == 0 then
+84:            printf("dumping kernel data: %d mb", offset / MB)
+85-        end
+86-
+87:        offset = offset + read_size
+88-    end
+89-
+90-end
+91-
+92-
+93-function main()
+94-
+95-    check_kernel_rw()
+--
+98-        error("this payload only targets ps5")
+99-    end
+100-
+101-    local kdata_base = kernel.addr.data_base
+102-
+103-    -- if kdata base is unknown, search for it
+104-    if not kdata_base then
+105-        if not kernel.addr.inside_kdata then
+106:            error("an address inside kdata is needed for dumper to work")
+107-        end
+108:        kdata_base = find_kdata_base_offset(kernel.addr.inside_kdata)
+109-    end
+110-
+111-    printf("kdata base: %s", hex(kdata_base))
+112-
+113:    dump_kdata_over_network(kdata_base)
+114-end
+115-
+116-main()
+117-
+=== savedata/kernel_offset.lua ===
+1-
+2:-- kernel offsets
+3:-- credit to @hammer-83 for these offsets
+4:-- https://github.com/hammer-83/ps5-jar-loader/blob/main/sdk/src/main/java/org/ps5jb/sdk/core/kernel/KernelOffsets.java
+5-
+6:ps5_kernel_offset_list = {
+7-
+8-    [{ "1.00", "1.01", "1.02" }] = {
+9-
+10-        DATA_BASE = 0x01B40000,
+11:        DATA_SIZE = 0x08631930,
+12-
+13-        DATA_BASE_DYNAMIC = 0x00000000,
+14-        DATA_BASE_TO_DYNAMIC = 0x0658BB58,
+15-        DATA_BASE_ALLPROC = 0x026D1BF8,
+16-        DATA_BASE_SECURITY_FLAGS = 0x06241074,
+17-        DATA_BASE_ROOTVNODE = 0x06565540,
+18-        DATA_BASE_KERNEL_PMAP_STORE = 0x02F9F2B8,
+19-        DATA_BASE_DATA_CAVE = 0x05F20000,
+--
+22-        PMAP_STORE_PML4PML4I = -0x1C,
+23-        PMAP_STORE_DMPML4I = 0x288,
+24-        PMAP_STORE_DMPDPI = 0x28C,
+25-    },
+26-
+27-    [{ "1.05", "1.10", "1.11", "1.12", "1.13", "1.14" }] = {
+28-
+29-        DATA_BASE = 0x01B40000,
+30:        DATA_SIZE = 0x08631930,
+31-
+32-        DATA_BASE_DYNAMIC = 0x00000000,
+33-        DATA_BASE_TO_DYNAMIC = 0x0658BB58,
+34-        DATA_BASE_ALLPROC = 0x026D1C18,
+35-        DATA_BASE_SECURITY_FLAGS = 0x06241074,
+36-        DATA_BASE_ROOTVNODE = 0x06565540,
+37-        DATA_BASE_KERNEL_PMAP_STORE = 0x02F9F328,
+38-        DATA_BASE_DATA_CAVE = 0x05F20000,
+--
+41-        PMAP_STORE_PML4PML4I = -0x1C,
+42-        PMAP_STORE_DMPML4I = 0x288,
+43-        PMAP_STORE_DMPDPI = 0x28C,
+44-    },
+45-
+46-    [{ "2.00", "2.20", "2.25", "2.26", "2.30", "2.50", "2.70" }] = {
+47-
+48-        DATA_BASE = 0x01B80000,
+49:        DATA_SIZE = 0x087E1930,
+50-
+51-        DATA_BASE_DYNAMIC = 0x00000000,
+52-        DATA_BASE_TO_DYNAMIC = 0x06739B88,
+53-        DATA_BASE_ALLPROC = 0x02701C28,
+54-        DATA_BASE_SECURITY_FLAGS = 0x063E1274,
+55-        DATA_BASE_ROOTVNODE = 0x067134C0,
+56-        DATA_BASE_KERNEL_PMAP_STORE = 0x031338C8,
+57-        DATA_BASE_DATA_CAVE = 0x060C0000,  -- Use same as Specter's Byepervisor repo for interop
+--
+60-        PMAP_STORE_PML4PML4I = -0x1C,
+61-        PMAP_STORE_DMPML4I = 0x288,
+62-        PMAP_STORE_DMPDPI = 0x28C,
+63-    },
+64-
+65-    [{ "3.00", "3.20", "3.21" }] = {
+66-
+67-        DATA_BASE = 0x0BD0000,
+68:        DATA_SIZE = 0x08871930,
+69-
+70-        DATA_BASE_DYNAMIC = 0x00010000,
+71-        DATA_BASE_TO_DYNAMIC = 0x067D1B90,
+72-        DATA_BASE_ALLPROC = 0x0276DC58,
+73-        DATA_BASE_SECURITY_FLAGS = 0x06466474,
+74-        DATA_BASE_ROOTVNODE = 0x067AB4C0,
+75-        DATA_BASE_KERNEL_PMAP_STORE = 0x031BE218,
+76-        DATA_BASE_DATA_CAVE = 0x06140000,  -- Unconfirmed
+--
+79-        PMAP_STORE_PML4PML4I = -0x1C,
+80-        PMAP_STORE_DMPML4I = 0x288,
+81-        PMAP_STORE_DMPDPI = 0x28C,
+82-    },
+83-
+84-    [{ "4.00", "4.02", "4.03", "4.50", "4.51" }] = {
+85-
+86-        DATA_BASE = 0x0C00000,
+87:        DATA_SIZE = 0x087B1930,
+88-
+89-        DATA_BASE_DYNAMIC = 0x00010000,
+90-        DATA_BASE_TO_DYNAMIC = 0x0670DB90,
+91-        DATA_BASE_ALLPROC = 0x027EDCB8,
+92-        DATA_BASE_SECURITY_FLAGS = 0x06506474,
+93-        DATA_BASE_ROOTVNODE = 0x066E74C0,
+94-        DATA_BASE_KERNEL_PMAP_STORE = 0x03257A78,
+95-        DATA_BASE_DATA_CAVE = 0x06C01000,  -- Unconfirmed
+--
+98-        PMAP_STORE_PML4PML4I = -0x1C,
+99-        PMAP_STORE_DMPML4I = 0x288,
+100-        PMAP_STORE_DMPDPI = 0x28C,
+101-    },
+102-
+103-    [{ "5.00", "5.02" , "5.10"}] = {
+104-
+105-        DATA_BASE = 0x0C40000,
+106:        DATA_SIZE = 0x08921930,
+107-
+108-        DATA_BASE_DYNAMIC = 0x00010000,
+109-        DATA_BASE_TO_DYNAMIC = 0x06879C00,
+110-        DATA_BASE_ALLPROC = 0x0291DD00,
+111-        DATA_BASE_SECURITY_FLAGS = 0x066466EC,
+112-        DATA_BASE_ROOTVNODE = 0x06853510,
+113-        DATA_BASE_KERNEL_PMAP_STORE = 0x03398A88,
+114-        DATA_BASE_DATA_CAVE = 0x06320000,  -- Unconfirmed
+--
+117-        PMAP_STORE_PML4PML4I = -0x105C,
+118-        PMAP_STORE_DMPML4I = 0x29C,
+119-        PMAP_STORE_DMPDPI = 0x2A0,
+120-    },
+121-
+122-    [{ "5.50" }] = {
+123-
+124-        DATA_BASE = 0x0C40000,
+125:        DATA_SIZE = 0x08921930,
+126-
+127-        DATA_BASE_DYNAMIC = 0x00010000,
+128-        DATA_BASE_TO_DYNAMIC = 0x06879C00,
+129-        DATA_BASE_ALLPROC = 0x0291DD00,
+130-        DATA_BASE_SECURITY_FLAGS = 0x066466EC,
+131-        DATA_BASE_ROOTVNODE = 0x06853510,
+132-        DATA_BASE_KERNEL_PMAP_STORE = 0x03394A88,
+133-        DATA_BASE_DATA_CAVE = 0x06320000,  -- Unconfirmed
+--
+136-        PMAP_STORE_PML4PML4I = -0x105C,
+137-        PMAP_STORE_DMPML4I = 0x29C,
+138-        PMAP_STORE_DMPDPI = 0x2A0,
+139-    },
+140-
+141-    [{ "6.00", "6.02", "6.50" }] = {
+142-
+143-        DATA_BASE = 0x0C60000,  -- Unconfirmed
+144:        DATA_SIZE = 0x08861930,
+145-
+146-        DATA_BASE_DYNAMIC = 0x00010000,
+147-        DATA_BASE_TO_DYNAMIC = 0x067C5C10,
+148-        DATA_BASE_ALLPROC = 0x02869D20,
+149-        DATA_BASE_SECURITY_FLAGS = 0x065968EC,
+150-        DATA_BASE_ROOTVNODE = 0x0679F510,
+151-        DATA_BASE_KERNEL_PMAP_STORE = 0x032E4358,
+152-        DATA_BASE_DATA_CAVE = 0x06270000,  -- Unconfirmed
+--
+155-        PMAP_STORE_PML4PML4I = -0x105C,
+156-        PMAP_STORE_DMPML4I = 0x29C,
+157-        PMAP_STORE_DMPDPI = 0x2A0,
+158-    },
+159-
+160-    [{ "7.00", "7.01", "7.20", "7.40", "7.60", "7.61" }] = {
+161-
+162-        DATA_BASE = 0x0C50000,
+163:        DATA_SIZE = 0x05191930,
+164-
+165-        DATA_BASE_DYNAMIC = 0x00010000,
+166-        DATA_BASE_TO_DYNAMIC = 0x030EDC40,
+167-        DATA_BASE_ALLPROC = 0x02859D50,
+168-        DATA_BASE_SECURITY_FLAGS = 0x00AC8064,
+169-        DATA_BASE_ROOTVNODE = 0x030C7510,
+170-        DATA_BASE_KERNEL_PMAP_STORE = 0x02E2C848,
+171-        DATA_BASE_DATA_CAVE = 0x050A1000,  -- Unconfirmed
+--
+174-        PMAP_STORE_PML4PML4I = -0x10AC,
+175-        PMAP_STORE_DMPML4I = 0x29C,
+176-        PMAP_STORE_DMPDPI = 0x2A0,
+177-    },
+178-
+179-        [{ "8.00", "8.20", "8.40", "8.60" }] = {
+180-
+181-        DATA_BASE = 0xC70000,
+182:        DATA_SIZE = nil,
+183-
+184-        DATA_BASE_DYNAMIC = 0x10000,
+185-        DATA_BASE_TO_DYNAMIC = nil,
+186-        DATA_BASE_ALLPROC = 0x2875D50,
+187-        DATA_BASE_SECURITY_FLAGS = 0xAC3064,
+188-        DATA_BASE_ROOTVNODE = 0x30FB510,
+189-        DATA_BASE_KERNEL_PMAP_STORE = 0x2E48848,
+190-        DATA_BASE_DATA_CAVE = nil,
+--
+193-        PMAP_STORE_PML4PML4I = nil,
+194-        PMAP_STORE_DMPML4I = nil,
+195-        PMAP_STORE_DMPDPI = nil,
+196-    },
+197-
+198-    [{ "9.00" }] = {
+199-
+200-        DATA_BASE = 0xCA0000,
+201:        DATA_SIZE = nil,
+202-
+203-        DATA_BASE_DYNAMIC = 0x10000,
+204-        DATA_BASE_TO_DYNAMIC = nil,
+205-        DATA_BASE_ALLPROC = 0x2755D50,
+206-        DATA_BASE_SECURITY_FLAGS = 0xD72064,
+207-        DATA_BASE_ROOTVNODE = 0x2FDB510,
+208-        DATA_BASE_KERNEL_PMAP_STORE = 0x2D28B78,
+209-        DATA_BASE_DATA_CAVE = nil,
+--
+213-        PMAP_STORE_DMPML4I = nil,
+214-        PMAP_STORE_DMPDPI = nil,
+215-
+216-    },
+217-
+218-    [{ "9.05", "9.20", "9.40", "9.60" }] = {
+219-
+220-        DATA_BASE = 0xCA0000,
+221:        DATA_SIZE = nil,
+222-
+223-        DATA_BASE_DYNAMIC = 0x10000,
+224-        DATA_BASE_TO_DYNAMIC = nil,
+225-        DATA_BASE_ALLPROC = 0x2755D50,
+226-        DATA_BASE_SECURITY_FLAGS = 0xD73064,
+227-        DATA_BASE_ROOTVNODE = 0x2FDB510,
+228-        DATA_BASE_KERNEL_PMAP_STORE = 0x2D28B78,
+229-        DATA_BASE_DATA_CAVE = nil,
+--
+233-        PMAP_STORE_DMPML4I = nil,
+234-        PMAP_STORE_DMPDPI = nil,
+235-
+236-    },
+237-
+238-    [{ "10.00", "10.01" }] = {
+239-
+240-        DATA_BASE = 0xCC0000,
+241:        DATA_SIZE = nil,
+242-
+243-        DATA_BASE_DYNAMIC = 0x10000,
+244-        DATA_BASE_TO_DYNAMIC = nil,
+245-        DATA_BASE_ALLPROC = 0x2765D70,
+246-        DATA_BASE_SECURITY_FLAGS = 0xD79064,
+247-        DATA_BASE_ROOTVNODE = 0x2FA3510,
+248-        DATA_BASE_KERNEL_PMAP_STORE = 0x2CF0EF8,
+249-        DATA_BASE_DATA_CAVE = nil,
+250-        DATA_BASE_GVMSPACE = 0x2D52570,
+251-
+252-        PMAP_STORE_PML4PML4I = nil,
+253-        PMAP_STORE_DMPML4I = nil,
+254-        PMAP_STORE_DMPDPI = nil,
+255-    },
+256-}
+257-
+258:ps4_kernel_offset_list = {
+259-    [{ "9.00" }] = {
+260:        EVF_OFFSET          = 0x7f6f27,
+261-        PRISON0             = 0x111f870,
+262-        ROOTVNODE           = 0x21eff20,
+263:        TARGET_ID_OFFSET    = 0x221688d,
+264:        SYSENT_661_OFFSET   = 0x1107f00,
+265-        JMP_RSI_GADGET      = 0x4c7ad
+266-    },
+267-    [{ "9.03", "9.04" }] = {
+268:        EVF_OFFSET          = 0x7f4ce7,
+269-        PRISON0             = 0x111b840,
+270-        ROOTVNODE           = 0x21ebf20,
+271:        TARGET_ID_OFFSET    = 0x221288d,
+272:        SYSENT_661_OFFSET   = 0x1103f00,
+273-        JMP_RSI_GADGET      = 0x5325b
+274-    },

@@ -181,3 +181,7 @@ Studocu page https://www.studocu.com/it/document/politecnico-di-torino/informati
 ## Full GizzZmo history and object audit
 
 The complete visible Git history and object-path scan of `GizzZmo/LUA-Lapse` found only `main`, with no tags/releases or historical path named `kernel.elf`. Historical objects include inherited `savedata/elfldr.elf` blobs and `kpatch/1100.bin`; they are loader/patch artifacts, not kernel dumps. Commits mentioning offsets concern older firmware families and do not identify Fusion/ArabPixel's 13.02 table or FFS. Classification: `VERIFIED` for the visible Git object set; `DERIVED` for the fork lineage; `INVALID` as a public Orbis 13.02 kernel artifact.
+
+## Dumper implementation details
+
+`remote_lua_loader/payloads/kernel_dumper.lua` contains an actual PS4-side routine that reads kernel memory in chunks and writes a kernel ELF to USB, with progress notifications and a reported dump size. This is a generator/tool, not a published output; the source does not embed a 13.02 dump or FFS symbols. `payloads/kdata_dumper.lua` explicitly targets PS5 and streams kdata over TCP, so it is not a PS4 13.02 artifact. `savedata/kernel_offset.lua` credits PS5 offsets from hammer-83. Classification: `VERIFIED` for tool behavior; `SOURCE_ONLY` for claimed output path; `INVALID` as direct 13.02/Celsius evidence.
