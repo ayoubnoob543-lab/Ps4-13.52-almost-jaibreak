@@ -806,3 +806,7 @@ Targeted public searches for `Jordy targetAddress m_vector stage2`, `Celsius UFS
 ## SDK `libufs` finding
 
 The public `ps4-payload-dev/sdk` v0.8 tree includes an initial `libufs` port and the v0.4 release advertises `nmount` and related libc support. Static inspection of `libufs/type.c` shows ordinary userland disk-image/device handling (`ufs_disk_fillout`, `ufs_disk_fillout_blank`, `sbread`, file/device opening and superblock access). It does not contain the kernel `ffs_mountfs` implementation, Celsius trigger, heap-grooming logic or a PS4 13.02 exploit bridge. This is nevertheless a useful reconstruction component for understanding or generating FFS metadata and testing image layouts offline. Classification: `VERIFIED` as userland FreeBSD/libufs tooling; Celsius image compatibility `SOURCE_ONLY`; kernel transition `NOT PROVIDED`.
+
+## Celsius-to-kernel-R/W targeted search
+
+Searches for `Celsius PS4 kernel R/W`, `ffs_mount heap overflow PS4 kernel read write`, and author-linked variants returned the scanner's own `cve_analysis.md`, secondary YouTube/Reddit discussions, PSDevWiki's generic bugs index, and historical CTurt arbitrary-R/W writeups. No separate Celsius primitive, heap-grooming code, object-target selection, kernel-R/W conversion, or 13.02 implementation was located. Historical Lapse/Poops bridge code remains the only concrete public R/W model, but it uses a different vulnerability and is not a Celsius derivative. Classification: Celsius-specific primitive `UNVERIFIED`; historical bridge `VERIFIED` only for its original chain.
