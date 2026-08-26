@@ -1,0 +1,217 @@
+=== README.md ===
+5-- Process List
+6-- Module List
+7-- Virtual Memory Map (Both Kernel and Userland)
+8-- Read/Write Memory (Both Kernel and Userland)
+9-- Read/~~Write~~ Physical Memory (Kernel Context)
+10-- Debugger (Userland)
+11-- Function Calling (RPC)
+12-- UART Server on port 3321
+13-- HTTP Server on port 2812
+14-- Set Fan Threshold Temperature
+15-- Console Info (PSID, UPD/SDK Version, Kernel Info, ...)
+16-- System Notifications
+17-- Loading ELFs
+18-- Loading SPRXs
+19-- ...
+20-
+21-### Patches
+22-- Disable ASLR
+23:- Mount "/user" On Any Process
+24-- Disable Coredump
+25-- Remove Firmware Checks For PKGs (param.sfo, elf/prx Still Need Backporting)
+26-- 5.05 Async IO (blkno) Spam Removed
+27-- 2MB Page Kernel Panic Patched (9.00 And Above)
+28-- Kernel ELF Loading Patched ("vm_fault_copy_wired: page missing")
+29-- Virtual Query Patched To Allow `sceKernelVirtualQuery` On Pages Flagged As System
+30-- ...
+31-
+32-### Syscalls
+33-Frame4 installs the following custom syscalls:
+34-- **107** sys_proc_list
+35-- **108** sys_proc_rw
+36-- **109** sys_proc_cmd
+37-- **110** sys_kern_base
+38-- **111** sys_kern_rw
+39-- **112** sys_console_cmd
+40-- **115** sys_kern_cmd
+41-
+=== debugger/include/errno.h ===
+56-#define EMSGSIZE        40      // Message too long
+57-#define EPROTOTYPE      41      // Protocol wrong type for socket
+58-#define ENOPROTOOPT     42      // Protocol not available
+59-#define EPROTONOSUPPORT 43      // Protocol not supported
+60-#define ESOCKTNOSUPPORT 44      // Socket type not supported
+61-#define EOPNOTSUPP      45      // Operation not supported
+62-#define ENOTSUP         EOPNOTSUPP  // Operation not supported
+63-#define EPFNOSUPPORT    46      // Protocol family not supported
+64-#define EAFNOSUPPORT    47      // Address family not supported by protocol family
+65-#define EADDRINUSE      48      // Address already in use
+66-#define EADDRNOTAVAIL   49      // Can't assign requested address
+67-
+68-// ipc/network software -- operational errors
+69-#define ENETDOWN        50      // Network is down
+70-#define ENETUNREACH     51      // Network is unreachable
+71-#define ENETRESET       52      // Network dropped connection on reset
+72-#define ECONNABORTED    53      // Software caused connection abort
+73-#define ECONNRESET      54      // Connection reset by peer
+74:#define ENOBUFS         55      // No buffer space available
+75-#define EISCONN         56      // Socket is already connected
+76-#define ENOTCONN        57      // Socket is not connected
+77-#define ESHUTDOWN       58      // Can't send after socket shutdown
+78-#define ETOOMANYREFS    59      // Too many references: can't splice
+79-#define ETIMEDOUT       60      // Operation timed out
+80:#define ECONNREFUSED    61      // Connection refused
+81-
+82-#define ELOOP           62      // Too many levels of symbolic links
+83-#endif // _POSIX_SOURCE
+84-#define ENAMETOOLONG    63      // File name too long
+85-
+86-// should be rearranged
+87-#ifndef _POSIX_SOURCE
+88-#define EHOSTDOWN       64      // Host is down
+89-#define EHOSTUNREACH    65      // No route to host
+90-#endif // _POSIX_SOURCE
+91-#define ENOTEMPTY       66      // Directory not empty
+92-
+93-// quotas & mush
+94-#ifndef _POSIX_SOURCE
+95-#define EPROCLIM        67      // Too many processes
+96-#define EUSERS          68      // Too many users
+97-#define EDQUOT          69      // Disc quota exceeded
+98-
+=== debugger/source/server.c ===
+356-        }
+357-
+358-        // check cmd handler error
+359-        if (r) {
+360-            goto error;
+361-        }
+362-    }
+363-
+364-error:
+365-    uprintf("client disconnected");
+366-    free_client(svc);
+367-
+368-    return 0;
+369-}
+370-
+371-
+372-void configure_socket(int fd) {
+373-    int flag;
+374:    int bufsize;
+375-
+376-    flag = 1;
+377-    sceNetSetsockopt(fd, SOL_SOCKET, SO_NBIO, (char *)&flag, sizeof(flag));
+378-
+379-    flag = 1;
+380-    sceNetSetsockopt(fd, IPPROTO_TCP, TCP_NODELAY, (char *)&flag, sizeof(flag));
+381-
+382-    flag = 1;
+383-    sceNetSetsockopt(fd, SOL_SOCKET, SO_NOSIGPIPE, (char *)&flag, sizeof(flag));
+384-
+385-    flag = 1;
+386-    sceNetSetsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, (char *)&flag, sizeof(flag));
+387-
+388-    flag = 1;
+389-    sceNetSetsockopt(fd, SOL_SOCKET, SO_REUSEADDR, (char *)&flag, sizeof(flag));
+390-
+391:    bufsize = 0x100000;
+392:    sceNetSetsockopt(fd, SOL_SOCKET, SO_SNDBUF, (char *)&bufsize, sizeof(bufsize));
+393-
+394:    bufsize = 0x100000;
+395:    sceNetSetsockopt(fd, SOL_SOCKET, SO_RCVBUF, (char *)&bufsize, sizeof(bufsize));
+396-}
+397-
+398-void *broadcast_thread(void *arg) {
+399-    struct sockaddr_in server;
+400-    struct sockaddr_in client;
+401-    unsigned int clisize;
+402-    int serv;
+403-    int flag;
+404-    int r;
+405-    uint32_t magic;
+406-
+407-    uprintf("broadcast server started");
+408-
+409-    // setup server
+410-    server.sin_len = sizeof(server);
+411-    server.sin_family = AF_INET;
+412-    server.sin_addr.s_addr = IN_ADDR_ANY;
+413-    server.sin_port = sceNetHtons(BROADCAST_SERVER_PORT);
+=== installer/source/installer.c ===
+488-            fwCheckPatch = 0x3C5EA7;
+489-            disableCoreDumpPatch = 0x2EFC1B;
+490-            break;
+491-        case 1100:
+492-            // causes issues
+493-            //mountPatchOffset = 0x3210C6;
+494-            //mountPatchOffset2 = 0x3210BC;
+495-            fwCheckPatch = 0x3C41A7;
+496-            disableCoreDumpPatch = 0x2ECF2B;
+497-            break;
+498-        case 1202:
+499-            fwCheckPatch = 0x3CA567;
+500-            disableCoreDumpPatch = 0x2F126B;
+501-            break;
+502-        default:
+503-            break;
+504-    }
+505-
+506:    // mount /user on any process sandbox with read/write perm
+507-    uint64_t nop_slide = 0x9090909090909090;
+508-    if (mountPatchOffset) {
+509-        proc_rw_mem(p, (void *)(shellcore_base + mountPatchOffset), 6, &nop_slide, 0, 1);
+510-    }
+511-    if (mountPatchOffset2) {
+512-        proc_rw_mem(p, (void *)(shellcore_base + mountPatchOffset2), 6, &nop_slide, 0, 1);
+513-    }
+514-
+515-    // other patches
+516-    if (fwCheckPatch) {
+517-        proc_rw_mem(p, (void *)(shellcore_base + fwCheckPatch), 1, (void *)"\xEB", 0, 1); // always jump
+518-    }
+519-    if (disableCoreDumpPatch) { // thanks to osm
+520-        proc_rw_mem(p, (void *)(shellcore_base + disableCoreDumpPatch), 5, (void *)"\x41\xC6\x45\x0C\x00", 0, 1); // mov byte ptr [r13 + 0x0C], 0
+521-    }
+522-
+523-    return 0;
+524-}
+=== ps4-payload-sdk/libPS4/include/file.h ===
+54-  uint32_t d_fileno;
+55-  uint16_t d_reclen;
+56-  uint8_t d_type;
+57-  uint8_t d_namlen;
+58-  char d_name[255 + 1];
+59-};
+60-
+61-struct iovec {
+62-  void *iov_base;
+63-  size_t iov_len;
+64-};
+65-
+66-ssize_t read(int fd, void *buf, size_t nbyte);
+67-ssize_t write(int fd, const void *buf, size_t count);
+68-int open(const char *path, int flags, int mode);
+69-int close(int fd);
+70-int link(const char *path, const char *link);
+71-int unlink(const char *pathname);
+72:int readlink(const char *path, char *buf, int bufsiz);
+73-int symlink(const char *path, const char *link);
+74-int mount(const char *type, const char *dir, int flags, void *data);
+75-int nmount(struct iovec *iov, uint32_t niov, int flags);
+76-int unmount(const char *dir, int flags);
+77-int fchown(int fd, int uid, int gid);
+78-int fchmod(int fd, int mode);
+79-int rename(const char *oldpath, const char *newpath);
+80-int mkdir(const char *pathname, mode_t mode);
+81-int rmdir(const char *path);
+82-int stat(const char *path, struct stat *sb);
+83-int fstat(int fd, struct stat *sb);
+84-int fstatat(int fd, const char *path, struct stat *buf, int flag);
+85-int lstat(const char *path, struct stat *buf);
+86-int getdents(int fd, char *buf, int count);
+87-off_t lseek(int fildes, off_t offset, int whence);
+88-int getSandboxDirectory(char *destination, int *length);
+89-int file_exists(char *fname);
+90-int dir_exists(char *dname);
