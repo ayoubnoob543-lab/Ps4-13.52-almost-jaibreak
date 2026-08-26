@@ -1,0 +1,21 @@
+
+===== ffs_mountfs Celsius =====
+
+===== jordy_stage2.js =====
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32mdocs/entry-1352-audit.md[0m: - `[0;30;43mjordy_stage2.js[0m`: borrador de etapa 2 para 13.04 con TODOs explícitos.
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32mdocs/entry-port-audit.md[0m: No se creó una variante experimental. Copiar HenLoader, `scanner_1304.iso`, los gadgets 13.50 o `[0;30;43mjordy_stage2.js[0m` y cambiar etiquetas de firmware produciría un artefacto que parecería 13.52 sin una cadena verificable. No hay cambios experimentales que revertir.
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32mtools/check_source_quality.py[0m: js = ROOT / "[0;30;43mjordy_stage2.js[0m"
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32mdocs/REPRO_LIMITATIONS.md[0m: Exact WebKit 13.52 and matching `SceShellCore`, `SceShellUI` and `SceRemotePlay` images are not present. `webkit_gadgets_1304.js` and `webkit_gadgets_1350.js` are historical/reference tables, and `[0;30;43mjordy_stage2.js[0m` is an incomplete integration prototype. External projects can document historical techniques, but their offsets must not be imported as 13.52 values without target bytes.
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32mdocs/webkit-libkernel-repro.md[0m: | `[0;30;43mjordy_stage2.js[0m` | Incomplete integration/prototype; base discovery and pivot remain explicit dependencies | Does not provide a complete entry path or executable exploit |
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32mdocs/audits/2026-08-26/verification-results.txt[0m: PASS [0;30;43mjordy_stage2.js
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32m.github/workflows/sanity-check.yml[0m: node --check [0;30;43mjordy_stage2.js
+
+===== webkit_gadgets_1304.js =====
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32mdocs/entry-1352-audit.md[0m: - `[0;30;43mwebkit_gadgets_1304.js[0m`: gadgets de referencia para 13.04.
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32mdocs/REPRO_LIMITATIONS.md[0m: Exact WebKit 13.52 and matching `SceShellCore`, `SceShellUI` and `SceRemotePlay` images are not present. `[0;30;43mwebkit_gadgets_1304.js[0m` and `webkit_gadgets_1350.js` are historical/reference tables, and `jordy_stage2.js` is an incomplete integration prototype. External projects can document historical techniques, but their offsets must not be imported as 13.52 values without target bytes.
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32mdocs/webkit-libkernel-repro.md[0m: | `[0;30;43mwebkit_gadgets_1304.js[0m` | Historical 13.04 gadget/reference table | Not an exact 13.52 WebKit image or build ID |
+[0;34mayoubnoob543-lab/firmware-lab[0m:[0;1;32mdocs/audits/2026-08-26/verification-results.txt[0m: PASS [0;30;43mwebkit_gadgets_1304.js
+
+===== fs_contigsumsize PS4 =====
+
+===== patch_mount 1512A7 =====

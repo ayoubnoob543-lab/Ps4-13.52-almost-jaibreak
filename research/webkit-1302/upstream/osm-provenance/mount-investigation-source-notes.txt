@@ -834,3 +834,7 @@ Repository searches for the exact terms `Celsius PS4`, `ffs_mount PS4`, `bollars
 ## Wayback/CDX forensic pass
 
 The CDX lookup covered the scanner repository, its likely raw files (`jordy_stage2.js`, `webkit_gadgets_1304.js`, `scanner_1304.iso`) and candidate author paths. It returned no useful snapshots for the scanner or stage files, no capture for `bollars`, no useful `Pharaoh2k` capture, and only an unrelated 2025 `DrYenyen` GitHub page. No historical Celsius PoC, UFS image, or bootstrap was recovered. Raw CDX output is stored in `celsius_wayback_cdx_results.txt`. Classification: negative historical search; no new artifact.
+
+## GitHub code/gist search for original Celsius artifacts
+
+Exact code searches for `ffs_mountfs Celsius`, `jordy_stage2.js`, `webkit_gadgets_1304.js`, `fs_contigsumsize PS4` and `patch_mount 1512A7` returned no external Celsius implementation. The only hits were files in the laboratory mirror itself, including documentation explicitly describing `jordy_stage2.js` as incomplete. No gist, paste, fork or independent source was found through this index. Raw results are stored in `celsius_code_gist_search.txt`. Classification: no new artifact; repository-lineage evidence remains `DERIVED/SOURCE_ONLY`.
