@@ -309,3 +309,11 @@ seguido de seis escrituras `0x90` en el punto de parche de montaje. En 7.02 el p
 La publicación también explica que para portar Mira se obtuvieron offsets desde un kernel descifrado de 7.02 y que otros offsets fueron proporcionados por notzecoxao. Esto demuestra el patrón histórico “kernel artefacto → offsets → parches”, pero no proporciona un kernel 13.02 ni conecta Celsius con Fusion. Clasificación: comentario y operación de parche Mira 7.02 `VERIFIED` como artefacto histórico; analogía con 13.02 `CORROBORATED`; relación con FFS/Celsius `INVALID`.
 
 [39]: https://www.psxhax.com/threads/mira-7-00-7-02-ps4-wip-ports-by-al-azif-macross-retail-7-02-elf-collection.8153/ "Historical Mira 7.00–7.02 patch source and kernel-offset context"
+
+## 23. Fuente primaria histórica: Pastebin de Al-Azif y OpenOrbis
+
+La fuente primaria pública de los parches Mira 7.02 es el Pastebin de Al-Azif [`CM8iYRvE`](https://pastebin.com/CM8iYRvE), fechado el 20-sep-2020. El archivo contiene el código completo de `Patches702-Kernel.cpp`; en las líneas 194–201 usa el comentario `Enable mount for unprivileged user`, toma `gKernelBase[0x0029636A]` y escribe seis `0x90`. El Pastebin no menciona `ffs_mountfs`, `ffs_reload`, UFS, `struct fs`, Celsius ni superbloques.
+
+El Pastebin de `Patches702-Loader.cpp` [`hBWgZjKA`](https://pastebin.com/hBWgZjKA) contiene sólo los parches necesarios para que el loader arranque y no incluye el parche de montaje. Esto refuerza que el patch point de montaje pertenece a la capa de funcionalidad del framework, no a la rutina vulnerable de FFS.
+
+La documentación de [OpenOrbis/mira-project](https://github.com/OpenOrbis/mira-project) describe explícitamente una “System-level FUSE implementation (Experimental, WIP)” y operaciones para montar juegos guardados y PFS. Ese contexto es compatible con que el nombre `patch_mount` de Fusion/Mira se refiera a habilitar una ruta de montaje/FUSE no privilegiada. No constituye evidencia de que el punto sea una función FFS ni de que esté relacionado con Celsius. Clasificación: Pastebins de parches `VERIFIED`; descripción FUSE/Mira `VERIFIED`; relación con Celsius `INVALID`.
