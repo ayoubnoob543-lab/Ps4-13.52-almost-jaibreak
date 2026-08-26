@@ -1,0 +1,20 @@
+3686be54cb13adae5fd281336617096383a9dbe2 2026-04-29T23:10:30-04:00 Merge pull request #224 from ArabPixel/main
+889276655d89efda1da75bfd6443126037833341 2026-04-22T22:08:24+02:00 Replace config.js with config.json everywhere
+6d4877f0debd246908cb10942caae404729b47d2 2026-04-08T13:09:47-04:00 Merge pull request #217 from h5d7r/patch-4
+b6ffdfce80cfa90332f4eeda4fc0f2353914ff33 2026-04-08T18:46:37+03:00 add German language
+4c0eae10b6ee0b9ec253b9e5f02ff02d40db3e90 2026-04-08T18:44:14+03:00 add German language
+df626b5ffc53ce156c2cdd72ab78567355e55ad0 2026-04-08T18:41:51+03:00 add German language
+7749ddada0290e45dd08168972f451212ca693dc 2026-03-17T23:31:01+04:00 refactor: fix eboot base address calculation
+bb3ddb94101f68d7c48e8c44a99cf4bdee8d8a52 2026-03-17T17:37:57+00:00 Merge pull request #205 from john-tornblom/main
+f99e6346605005b8ab3b89feb1fa9866d0c49839 2026-03-17T17:51:27+01:00 bump elfldr.elf to v0.5
+48b03db829737b9489123fa208674ab49534aea4 2026-03-17T17:49:42+01:00 apply symbol relocation in elf loader
+15aa092b85bfba5f6ed283ecf89a212e722bc7bd 2026-03-15T20:46:11-04:00 Merge pull request #167 from Eddy00007/main
+dfd4ed53c66158af27a09238b723fc264aaf0548 2026-03-15T20:45:42-04:00 Merge pull request #202 from m2k7m/patch-9
+f627de799d1b0b47fe099be8e1e4133ce7811a29 2026-03-15T21:22:39+03:00 remove loadingMainMenu, mainMenuLoaded, loadingConfig, configLoaded
+e863abe441c0f0285f8334d74aeaa165fe4b4483 2026-03-15T14:02:34-04:00 Merge pull request #201 from m2k7m/patch-8
+aea4a32137807272852de8bcf9c3b721d210fe5f 2026-03-15T16:29:43+00:00 chore: eslint auto-fix
+5595822ec7920e289c8be8b3a3ae74f6070a7565 2026-03-15T19:29:05+03:00 fix: eslint
+5736445a5d50f3547a7c0afb529fd4330e8ce659 2026-03-15T19:12:58+03:00 fix: eslint
+e64124740a0325e980207eeae2362ff2dd860680 2026-03-15T19:02:35+03:00 refactor: simplify theme label assignment and comment out USB path scanning
+07532a4ed6a1b73afb5c10f8a1745b2455dee8a9 2026-03-15T17:40:44+03:00 refactor: update navigation hints and translations for multiple languages
+f0f25ed702e752330e5bb38f1b8a7507588ef7de 2026-03-15T13:50:10+00:00 chore: eslint auto-fix
