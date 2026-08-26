@@ -1,0 +1,182 @@
+f86cbf137761646850f159c1dc909c32315a3cee92ad15a7e0d899db1364f4ce  research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c
+67-#include <vm/vm.h>
+68-#include <vm/uma.h>
+69-#include <vm/vm_page.h>
+70-
+71-#include <geom/geom.h>
+72-#include <geom/geom_vfs.h>
+73-
+74-#include <ddb/ddb.h>
+75-
+76-static uma_zone_t uma_inode, uma_ufs1, uma_ufs2;
+77-
+78-static int	ffs_reload(struct mount *, struct thread *);
+79:static int	ffs_mountfs(struct vnode *, struct mount *, struct thread *);
+80-static void	ffs_oldfscompat_read(struct fs *, struct ufsmount *,
+81-		    ufs2_daddr_t);
+82-static void	ffs_ifree(struct ufsmount *ump, struct inode *ip);
+83-static int	ffs_sync_lazy(struct mount *mp);
+84-
+85-static vfs_init_t ffs_init;
+86-static vfs_uninit_t ffs_uninit;
+87-static vfs_extattrctl_t ffs_extattrctl;
+88-static vfs_cmount_t ffs_cmount;
+89-static vfs_unmount_t ffs_unmount;
+90-static vfs_mount_t ffs_mount;
+91-static vfs_statfs_t ffs_statfs;
+92-static vfs_fhtovp_t ffs_fhtovp;
+93-static vfs_sync_t ffs_sync;
+94-
+95-static struct vfsops ufs_vfsops = {
+96-	.vfs_extattrctl =	ffs_extattrctl,
+97-	.vfs_fhtovp =		ffs_fhtovp,
+98-	.vfs_init =		ffs_init,
+99-	.vfs_mount =		ffs_mount,
+100-	.vfs_cmount =		ffs_cmount,
+101-	.vfs_quotactl =		ufs_quotactl,
+102-	.vfs_root =		ufs_root,
+103-	.vfs_statfs =		ffs_statfs,
+104-	.vfs_sync =		ffs_sync,
+105-	.vfs_uninit =		ffs_uninit,
+106-	.vfs_unmount =		ffs_unmount,
+107-	.vfs_vget =		ffs_vget,
+108-	.vfs_susp_clean =	process_deferred_inactive,
+109-};
+110-
+111-VFS_SET(ufs_vfsops, ufs, 0);
+112-MODULE_VERSION(ufs, 1);
+113-
+114-static b_strategy_t ffs_geom_strategy;
+--
+525-		vput(devvp);
+526-		if (error)
+527-			return (error);
+528-	} else {
+529-		/*
+530-		 * New mount
+531-		 *
+532-		 * We need the name for the mount point (also used for
+533-		 * "last mounted on") copied in. If an error occurs,
+534-		 * the mount point is discarded by the upper level code.
+535-		 * Note that vfs_mount() populates f_mntonname for us.
+536-		 */
+537:		if ((error = ffs_mountfs(devvp, mp, td)) != 0) {
+538-			vrele(devvp);
+539-			return (error);
+540-		}
+541-		if (fsckpid > 0) {
+542-			KASSERT(MOUNTEDSOFTDEP(mp) == 0,
+543-			    ("soft updates enabled on read-only file system"));
+544-			ump = VFSTOUFS(mp);
+545-			fs = ump->um_fs;
+546-			DROP_GIANT();
+547-			g_topology_lock();
+548-			/*
+549-			 * Request write access.
+550-			 */
+551-			error = g_access(ump->um_cp, 0, 1, 0);
+552-			g_topology_unlock();
+553-			PICKUP_GIANT();
+554-			if (error) {
+555-				printf("WARNING: %s: Checker activation "
+556-				    "failed\n", fs->fs_fsmnt);
+557-			} else { 
+558-				ump->um_fsckpid = fsckpid;
+559-				if (fs->fs_snapinum[0] != 0)
+560-					ffs_snapshot_mount(mp);
+561-				fs->fs_mtime = time_second;
+562-				fs->fs_clean = 0;
+563-				(void) ffs_sbupdate(ump, MNT_WAIT, 0);
+564-			}
+565-		}
+566-	}
+567-	vfs_mountedfrom(mp, fspec);
+568-	return (0);
+569-}
+570-
+571-/*
+572- * Compatibility with old mount system call.
+--
+640-		return (error);
+641-	newfs = (struct fs *)bp->b_data;
+642-	if ((newfs->fs_magic != FS_UFS1_MAGIC &&
+643-	     newfs->fs_magic != FS_UFS2_MAGIC) ||
+644-	    newfs->fs_bsize > MAXBSIZE ||
+645-	    newfs->fs_bsize < sizeof(struct fs)) {
+646-			brelse(bp);
+647-			return (EIO);		/* XXX needs translation */
+648-	}
+649-	/*
+650-	 * Copy pointer fields back into superblock before copying in	XXX
+651-	 * new superblock. These should really be in the ufsmount.	XXX
+652:	 * Note that important parameters (eg fs_ncg) are unchanged.
+653-	 */
+654-	newfs->fs_csp = fs->fs_csp;
+655-	newfs->fs_maxcluster = fs->fs_maxcluster;
+656-	newfs->fs_contigdirs = fs->fs_contigdirs;
+657-	newfs->fs_active = fs->fs_active;
+658-	/* The file system is still read-only. */
+659-	newfs->fs_ronly = 1;
+660-	sblockloc = fs->fs_sblockloc;
+661-	bcopy(newfs, fs, (u_int)fs->fs_sbsize);
+662-	brelse(bp);
+663-	mp->mnt_maxsymlinklen = fs->fs_maxsymlinklen;
+664-	ffs_oldfscompat_read(fs, VFSTOUFS(mp), sblockloc);
+665-	UFS_LOCK(ump);
+666-	if (fs->fs_pendingblocks != 0 || fs->fs_pendinginodes != 0) {
+667-		printf("WARNING: %s: reload pending error: blocks %jd "
+668-		    "files %d\n", fs->fs_fsmnt, (intmax_t)fs->fs_pendingblocks,
+669-		    fs->fs_pendinginodes);
+670-		fs->fs_pendingblocks = 0;
+671-		fs->fs_pendinginodes = 0;
+672-	}
+673-	UFS_UNLOCK(ump);
+674-
+675-	/*
+676-	 * Step 3: re-read summary information from disk.
+677-	 */
+678:	size = fs->fs_cssize;
+679-	blks = howmany(size, fs->fs_fsize);
+680:	if (fs->fs_contigsumsize > 0)
+681:		size += fs->fs_ncg * sizeof(int32_t);
+682:	size += fs->fs_ncg * sizeof(u_int8_t);
+683-	free(fs->fs_csp, M_UFSMNT);
+684-	space = malloc((u_long)size, M_UFSMNT, M_WAITOK);
+685-	fs->fs_csp = space;
+686-	for (i = 0; i < blks; i += fs->fs_frag) {
+687-		size = fs->fs_bsize;
+688-		if (i + fs->fs_frag > blks)
+689-			size = (blks - i) * fs->fs_fsize;
+690-		error = bread(devvp, fsbtodb(fs, fs->fs_csaddr + i), size,
+691-		    NOCRED, &bp);
+692-		if (error)
+693-			return (error);
+694-		bcopy(bp->b_data, space, (u_int)size);
+695-		space = (char *)space + size;
+696-		brelse(bp);
+697-	}
+698-	/*
+699-	 * We no longer know anything about clusters per cylinder group.
+700-	 */
+701:	if (fs->fs_contigsumsize > 0) {
+702-		fs->fs_maxcluster = lp = space;
+703:		for (i = 0; i < fs->fs_ncg; i++)
+704:			*lp++ = fs->fs_contigsumsize;
+705-		space = lp;
+706-	}
+707:	size = fs->fs_ncg * sizeof(u_int8_t);
+708-	fs->fs_contigdirs = (u_int8_t *)space;
+709-	bzero(fs->fs_contigdirs, size);
+710-
+711-loop:
+712-	MNT_VNODE_FOREACH_ALL(vp, mp, mvp) {
+713-		/*
+714-		 * Step 4: invalidate all cached file data.
+715-		 */
+716-		if (vget(vp, LK_EXCLUSIVE | LK_INTERLOCK, td)) {
+717-			MNT_VNODE_FOREACH_ALL_ABORT(mp, mvp);
+718-			goto loop;
+719-		}
+720-		if (vinvalbuf(vp, 0, 0, 0))
+721-			panic("ffs_reload: dirty2");
+=== fix search ===

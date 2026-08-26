@@ -1,0 +1,47 @@
+=== repositories ===
+=== code/search fallback ===
+[1;37m{[m
+  [1;34m"message"[m[1;37m:[m [32m"Query must include 'is:issue' or 'is:pull-request'"[m[1;37m,[m
+  [1;34m"documentation_url"[m[1;37m:[m [32m"https://docs.github.com/rest/search/search#search-issues-and-pull-requests"[m[1;37m,[m
+  [1;34m"status"[m[1;37m:[m [32m"422"[m
+[1;37m}[m
+=== public commits ===
+=== user ===
+[1;37m{[m
+  [1;34m"login"[m[1;37m:[m [32m"bollars"[m[1;37m,[m
+  [1;34m"id"[m[1;37m:[m 5968935[1;37m,[m
+  [1;34m"node_id"[m[1;37m:[m [32m"MDQ6VXNlcjU5Njg5MzU="[m[1;37m,[m
+  [1;34m"avatar_url"[m[1;37m:[m [32m"https://avatars.githubusercontent.com/u/5968935?v=4"[m[1;37m,[m
+  [1;34m"gravatar_id"[m[1;37m:[m [32m""[m[1;37m,[m
+  [1;34m"url"[m[1;37m:[m [32m"https://api.github.com/users/bollars"[m[1;37m,[m
+  [1;34m"html_url"[m[1;37m:[m [32m"https://github.com/bollars"[m[1;37m,[m
+  [1;34m"followers_url"[m[1;37m:[m [32m"https://api.github.com/users/bollars/followers"[m[1;37m,[m
+  [1;34m"following_url"[m[1;37m:[m [32m"https://api.github.com/users/bollars/following{/other_user}"[m[1;37m,[m
+  [1;34m"gists_url"[m[1;37m:[m [32m"https://api.github.com/users/bollars/gists{/gist_id}"[m[1;37m,[m
+  [1;34m"starred_url"[m[1;37m:[m [32m"https://api.github.com/users/bollars/starred{/owner}{/repo}"[m[1;37m,[m
+  [1;34m"subscriptions_url"[m[1;37m:[m [32m"https://api.github.com/users/bollars/subscriptions"[m[1;37m,[m
+  [1;34m"organizations_url"[m[1;37m:[m [32m"https://api.github.com/users/bollars/orgs"[m[1;37m,[m
+  [1;34m"repos_url"[m[1;37m:[m [32m"https://api.github.com/users/bollars/repos"[m[1;37m,[m
+  [1;34m"events_url"[m[1;37m:[m [32m"https://api.github.com/users/bollars/events{/privacy}"[m[1;37m,[m
+  [1;34m"received_events_url"[m[1;37m:[m [32m"https://api.github.com/users/bollars/received_events"[m[1;37m,[m
+  [1;34m"type"[m[1;37m:[m [32m"User"[m[1;37m,[m
+  [1;34m"user_view_type"[m[1;37m:[m [32m"public"[m[1;37m,[m
+  [1;34m"site_admin"[m[1;37m:[m [33mfalse[m[1;37m,[m
+  [1;34m"name"[m[1;37m:[m [36mnull[m[1;37m,[m
+  [1;34m"company"[m[1;37m:[m [36mnull[m[1;37m,[m
+  [1;34m"blog"[m[1;37m:[m [32m""[m[1;37m,[m
+  [1;34m"location"[m[1;37m:[m [36mnull[m[1;37m,[m
+  [1;34m"email"[m[1;37m:[m [36mnull[m[1;37m,[m
+  [1;34m"hireable"[m[1;37m:[m [36mnull[m[1;37m,[m
+  [1;34m"bio"[m[1;37m:[m [36mnull[m[1;37m,[m
+  [1;34m"twitter_username"[m[1;37m:[m [36mnull[m[1;37m,[m
+  [1;34m"public_repos"[m[1;37m:[m 1[1;37m,[m
+  [1;34m"public_gists"[m[1;37m:[m 0[1;37m,[m
+  [1;34m"followers"[m[1;37m:[m 0[1;37m,[m
+  [1;34m"following"[m[1;37m:[m 0[1;37m,[m
+  [1;34m"created_at"[m[1;37m:[m [32m"2013-11-18T12:40:21Z"[m[1;37m,[m
+  [1;34m"updated_at"[m[1;37m:[m [32m"2023-08-19T19:27:23Z"[m
+[1;37m}[m
+=== repositories ===
+=== issues ===
+=== commits ===

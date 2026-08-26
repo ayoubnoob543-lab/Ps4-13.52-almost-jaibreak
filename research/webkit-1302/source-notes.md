@@ -182,3 +182,21 @@ Candidatos documentados por la wiki que deben mantenerse separados por estado:
 - `CVE-2016-1885` amd64_set_ldt: limitado a versiones antiguas y posiblemente no aplicable por falta de compatibilidad IA-32; `DISPROVEN/PATCHED` para 13.02.
 
 La página pública es colaborativa y varias entradas son tentativas; su contenido se usa como fuente secundaria, nunca como prueba de que Orbis 13.02 sea vulnerable.
+
+## Reddit sobre Celsius — revisión 26 de agosto de 2026
+
+Fuente: https://www.reddit.com/r/PS5_Jailbreak/comments/1v180lp/ps4ps5_jailbreak_news_new_celsius_kernel_bug_27k/
+
+La discusión y el post revisado son material secundario/comunitario. El contenido visible habla de avances generales y mantiene el límite público de jailbreak de PS4 en 13.00; no aporta el repositorio original de Celsius, una PoC, un log de PS4 13.02/13.04, un diff de kernel ni una explicación independiente del supuesto parche 13.50. Clasificación para Celsius en 13.02: `SOURCE_ONLY` como rumor/seguimiento de escena, no `VERIFIED` ni `CORROBORATED`.
+
+La búsqueda pública de GitHub tampoco localizó un repositorio o commit bajo la cuenta `bollars` que contenga Celsius/ffs_mount: la cuenta pública tiene un único repositorio, `bollars/ddoslib`, no relacionado. El repositorio `adri22235/ps4-suid-scanner` es el principal artefacto público que atribuye Celsius a bollars, con commits entre 2026-07-18 y 2026-08-09; por tanto, documenta la atribución pero no constituye una fuente primaria independiente del descubrimiento.
+
+## Fuentes secundarias adicionales sobre Celsius — 26 de agosto de 2026
+
+[GameGaz, 19 de julio de 2026](https://gamegaz.com/2026071945823/) atribuye a bollars el hallazgo de Celsius en `ffs_mount`, afirma PS4 hasta 13.04 y PS5 hasta 12.70, y dice que PS4 13.50/PS5 13.00 ya lo corrigen. También afirma requisito de HDD USB 3.0 de 250 GB o más y una entrada userland Vue/BD-J, pero declara expresamente que aún no estaba en etapa práctica ni podía llamarse kernel exploit confirmado.
+
+[Publicación de GAMERZ 56K en YouTube](https://www.youtube.com/post/UgkxE2BPYs9Rf7TJgKq8GqnZlTh-kOpDU15F) repite las mismas afirmaciones: `ffs_mount`, integer overflow/heap overflow, PS4 hasta 13.04 incluyendo 13.02, patch 13.50+, disco USB 3.0 recomendado de 320/500 GB y ausencia de garantía de estabilidad. No aporta código, commit, log de hardware ni fuente primaria independiente. Clasificación: `SOURCE_ONLY`.
+
+[Wikova, artículo PlayStation 4 Jailbreak](https://wikova.com/wiki/DQm4J1HU) resume Celsius como descubierto en julio de 2026 por bollars, hasta PS4 13.04/PS5 12.70, con requisito de HDD USB 3.0 de 250 GB o más y parcheado en 13.50/13.00. Es una fuente terciaria conectada a GameGaz y no una corroboración independiente. También mantiene que Poopsploit/Netctrl llega a PS4 13.00, por lo que no sustituye la evidencia primaria de Netctrl.
+
+La búsqueda del perfil público de bollars en GitHub encontró sólo `bollars/ddoslib`, sin Celsius, PoC ni código FFS. Esto deja la atribución original sin artefacto primario público localizable; `adri22235/ps4-suid-scanner` y las noticias citadas son fuentes secundarias o derivadas.
