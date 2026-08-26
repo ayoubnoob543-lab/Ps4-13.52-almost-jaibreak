@@ -159,3 +159,7 @@ La PR #3 de GitHub añade `mkufs2_linux.sh`, que usa `makefs -t ffs -B le -M 1m 
 ## Refs históricas de `vue-after-free`
 
 La API del mirror expone seis ramas: `main`, `ts-new`, `release`, `netctrl_c0w`, `test` y `ts`, además de seis tags: `2.0`, `v1.4`, `v1.3`, `v1.2`, `v1.1` y `v1.0`. La rama `netctrl_c0w` y los tags históricos son candidatos relevantes para comparar procedencia del puente WebKit→Netctrl, aunque el nombre no implica Celsius. El main ya muestra que su kernel bridge llega sólo hasta 13.00; las refs históricas deben verificarse antes de concluir que aportan algo para 13.02. El inventario de refs queda guardado en `earthonion_vue_after_free_refs_full.txt`.
+
+## Auditoría de ramas y tags históricos de `vue-after-free`
+
+Las refs históricas consultadas conservan una familia de archivos `src/download0/kernel.ts`, `lapse.ts`, `loader.ts`, `netctrl_c0w_twins.ts` y payloads `aiofix_network.elf`/`elfldr.elf`, además de textos de interfaz `jbBehaviorLapse` y `jbBehaviorNetctrl`. No apareció ningún archivo denominado Celsius, `ffs_mountfs`, UFS, FFS, `mount`, Jordy o un stage de transición equivalente. La presencia de `netctrl_c0w_twins.ts` y `aiofix_network.elf` confirma que el mirror contiene material histórico de Netctrl/AIO, pero no lo convierte en una PoC Celsius ni extiende su cobertura a 13.02. El resultado es útil para separar la cadena Netctrl histórica de Celsius: **VERIFIED** como artefactos Netctrl/AIO; **INVALID** como cierre Celsius 13.02.

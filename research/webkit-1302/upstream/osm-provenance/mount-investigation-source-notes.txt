@@ -939,3 +939,7 @@ PR #3 adds `mkufs2_linux.sh`, using `makefs -t ffs -B le -M 1m -o version=2,bsiz
 ## vue-after-free historical refs
 
 The mirror API exposes branches `main`, `ts-new`, `release`, `netctrl_c0w`, `test`, and `ts`, plus tags `2.0`, `v1.4`, `v1.3`, `v1.2`, `v1.1`, and `v1.0`. `netctrl_c0w` and historical tags are candidates for WebKit-to-Netctrl provenance, not automatically Celsius. Main's kernel bridge ends at 13.00; refs require direct comparison before any 13.02 claim.
+
+## vue-after-free historical branches/tags audit
+
+Historical refs retain `kernel.ts`, `lapse.ts`, `loader.ts`, `netctrl_c0w_twins.ts`, `aiofix_network.elf` and related Lapse/Netctrl UI assets. No Celsius, FFS/UFS, `ffs_mountfs`, Jordy or mount-transition file appeared by name. This verifies historical Netctrl/AIO material but does not extend it to a Celsius 13.02 bridge.
