@@ -1,0 +1,142 @@
+=== third_party/henloader_lp ===
+## [31mHEAD (no branch)[m
+[33m15f49b2[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m 13.00 support, autoload, and stability hacks
+files=100
+top-level:
+1789644	third_party/henloader_lp/aiofix_USBpayload/hen.h
+13922	third_party/henloader_lp/aiofix_USBpayload/main.c
+5441	third_party/henloader_lp/HenLoader/Makefile
+1983	third_party/henloader_lp/README.md
+1093	third_party/henloader_lp/LICENSE
+334	third_party/henloader_lp/aiofix_USBpayload/Makefile
+52	third_party/henloader_lp/.git
+build-related:
+HenLoader/Makefile
+HenLoader/thirdparty/bd-tools/README
+HenLoader/thirdparty/makefs/Makefile
+HenLoader/thirdparty/makefs/cd9660.c
+HenLoader/thirdparty/makefs/cd9660.h
+HenLoader/thirdparty/makefs/chfs.c
+HenLoader/thirdparty/makefs/chfs_makefs.h
+HenLoader/thirdparty/makefs/extern.h
+HenLoader/thirdparty/makefs/ffs.c
+HenLoader/thirdparty/makefs/ffs.h
+HenLoader/thirdparty/makefs/getid.c
+HenLoader/thirdparty/makefs/makefs.c
+HenLoader/thirdparty/makefs/makefs.h
+HenLoader/thirdparty/makefs/misc.c
+HenLoader/thirdparty/makefs/msdos.c
+HenLoader/thirdparty/makefs/msdos.h
+HenLoader/thirdparty/makefs/mtree.h
+HenLoader/thirdparty/makefs/nbcompat.h
+HenLoader/thirdparty/makefs/pack_dev.c
+HenLoader/thirdparty/makefs/pack_dev.h
+HenLoader/thirdparty/makefs/spec.c
+HenLoader/thirdparty/makefs/stat_flags.h
+HenLoader/thirdparty/makefs/strstuff.c
+HenLoader/thirdparty/makefs/udf.c
+HenLoader/thirdparty/makefs/udf/Makefile
+HenLoader/thirdparty/makefs/udf/cdio.h
+HenLoader/thirdparty/makefs/udf/cdio_mmc_structs.h
+HenLoader/thirdparty/makefs/udf/ecma167-udf.h
+HenLoader/thirdparty/makefs/udf/newfs_udf.h
+HenLoader/thirdparty/makefs/udf/udf_bswap.h
+HenLoader/thirdparty/makefs/udf/udf_mount.h
+HenLoader/thirdparty/makefs/udf/udf_osta.h
+HenLoader/thirdparty/makefs/udf/unicode.h
+HenLoader/thirdparty/makefs/udf_core.c
+HenLoader/thirdparty/makefs/udf_core.h
+HenLoader/thirdparty/makefs/udf_osta.c
+HenLoader/thirdparty/makefs/util.h
+HenLoader/thirdparty/makefs/v7fs.c
+HenLoader/thirdparty/makefs/v7fs_makefs.h
+HenLoader/thirdparty/makefs/walk.c
+aiofix_USBpayload/Makefile
+aiofix_USBpayload/hen.h
+aiofix_USBpayload/main.c
+
+=== third_party/ps4-payload-sdk ===
+## [31mHEAD (no branch)[m
+[33m46efae9[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Add 13.52 support
+files=76
+top-level:
+3262	third_party/ps4-payload-sdk/.clang-format
+1402	third_party/ps4-payload-sdk/README.md
+911	third_party/ps4-payload-sdk/install.sh
+794	third_party/ps4-payload-sdk/Dockerfile
+754	third_party/ps4-payload-sdk/action.yml
+712	third_party/ps4-payload-sdk/libPS4/Makefile
+457	third_party/ps4-payload-sdk/libPS4/linker.x
+99	third_party/ps4-payload-sdk/entrypoint.sh
+65	third_party/ps4-payload-sdk/libPS4/crt0.s
+55	third_party/ps4-payload-sdk/.git
+29	third_party/ps4-payload-sdk/.gitignore
+build-related:
+libPS4/Makefile
+libPS4/crt0.s
+libPS4/include/barrier.h
+libPS4/include/base64.h
+libPS4/include/camera.h
+libPS4/include/cfg.h
+libPS4/include/debug.h
+libPS4/include/dump.h
+libPS4/include/elf.h
+libPS4/include/elf64.h
+libPS4/include/elf_common.h
+libPS4/include/eventflag.h
+libPS4/include/file.h
+libPS4/include/fw_defines.h
+libPS4/include/graphics.h
+libPS4/include/jit.h
+libPS4/include/kernel.h
+libPS4/include/libc.h
+libPS4/include/memory.h
+libPS4/include/module.h
+libPS4/include/mutex.h
+libPS4/include/network.h
+libPS4/include/pad.h
+libPS4/include/payload_utils.h
+libPS4/include/pfs.h
+libPS4/include/pkg.h
+libPS4/include/proc.h
+libPS4/include/ps4.h
+libPS4/include/pthread.h
+libPS4/include/registry.h
+libPS4/include/semaphore.h
+libPS4/include/strings.h
+libPS4/include/syscall.h
+libPS4/include/sysutil.h
+libPS4/include/types.h
+libPS4/include/unknown.h
+libPS4/include/usb.h
+libPS4/include/zlib.h
+libPS4/linker.x
+libPS4/source/barrier.c
+libPS4/source/base64.c
+libPS4/source/camera.c
+libPS4/source/cfg.c
+libPS4/source/debug.c
+libPS4/source/dump.c
+libPS4/source/eventflag.c
+libPS4/source/file.c
+libPS4/source/jit.c
+libPS4/source/kernel.c
+libPS4/source/libc.c
+libPS4/source/memory.c
+libPS4/source/module.c
+libPS4/source/network.c
+libPS4/source/pad.c
+libPS4/source/payload_utils.c
+libPS4/source/pfs.c
+libPS4/source/pkg.c
+libPS4/source/proc.c
+libPS4/source/pthread.c
+libPS4/source/registry.c
+libPS4/source/semaphore.c
+libPS4/source/strings.c
+libPS4/source/syscall.s
+libPS4/source/sysutil.c
+libPS4/source/unknown.c
+libPS4/source/usb.c
+libPS4/source/zlib.c
+
