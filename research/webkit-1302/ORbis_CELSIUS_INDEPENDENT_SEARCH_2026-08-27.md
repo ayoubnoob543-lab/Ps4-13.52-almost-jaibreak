@@ -217,3 +217,9 @@ La auditoría del historial de `claimore22/PS4-12.00-Jailbreak` conserva sólo t
 ### Diferencia interna crítica en `claimore22/kernel.js`
 
 El archivo define `kpatch_mmap_offsets['13.02'] = [0x1fa78a, 0x1fa78d]` y normaliza 13.04 hacia esa misma entrada de mmap. Pero `shellcode_fw_map` no tiene 13.02/13.04, `ps4_kernel_offset_list` termina en `13.00: offset_ps4_12_50`, y la lógica de verificación de parches sólo trata explícitamente 12.00/12.02. Por ello, la presencia textual de una entrada mmap 13.02 no equivale a soporte completo de kernel R/W en 13.02/13.04. Este extracto refuerza la clasificación del proyecto como derivado 12.00 con una tabla parcial/anticipada para mmap, no como puente Celsius.
+
+## Estado operativo tras las auditorías Vue/NetCtrl
+
+La evidencia nueva permite documentar una integración pública completa de **Vue/BD-J → NetCtrl → kernel R/W → binloader**, pero únicamente en líneas históricas con alcance declarado hasta 12.00 o 13.00. `claimore22/PS4-12.00-Jailbreak` aporta el wrapper MITM y la integración de carga de payload; `vue-after-free` aporta ramas `netctrl_c0w`, `release` y `ts-new` con primitives R/W históricas. Ninguna de esas líneas contiene la transición `mount → FFS → ffs_mountfs` ni un artefacto Celsius.
+
+El dato más cercano a FW 13.02 es la entrada aislada de mmap en `claimore22/kernel.js`, normalizada también para 13.04, pero la ausencia de shellcode, tabla completa y verificación operativa para esas versiones impide tratarla como soporte kernel completo. El siguiente objetivo de procedencia sigue siendo localizar un proyecto de análisis binario Orbis 13.02/13.04 o una copia histórica del bootstrap Celsius; las cadenas NetCtrl ya no deben utilizarse como sustituto de esa evidencia.
