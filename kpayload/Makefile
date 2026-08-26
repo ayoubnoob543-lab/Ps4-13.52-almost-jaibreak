@@ -10,7 +10,7 @@ TARGET  := $(shell basename $(CURDIR)).bin
 # Compiler flags
 OPTIMIZATION := -Os
 STANDARDS    := -std=gnu11 -fno-builtin -nostartfiles -nostdlib
-WARNINGS     := -Wall -Wno-error=implicit-int -Wno-error=int-conversion -Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration -Wno-error=return-mismatch # -Wextra # -Werror
+WARNINGS     := -Wall -Wno-error=implicit-int -Wno-error=int-conversion -Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration # -Wextra # -Werror
 
 # PS4 payloads are x86_64 (BTVER2). Detect how to invoke the compiler:
 # 1) native x86_64 toolchain, or 2) clang-style driver with an explicit target.

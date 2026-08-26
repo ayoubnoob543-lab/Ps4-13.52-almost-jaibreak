@@ -1,0 +1,60 @@
+=== repo_health ===
+branch=main head=f0031f194500eb2e15150a3bdeb5f9d598d92ab3 tracked=676
+working_tree_clean=False findings=0
+=== check_source_quality ===
+source_quality=PASS
+shell=PASS
+javascript=PASS
+java_static=PASS
+offset_source_integrity=PASS
+=== check_env ===
+PS4 research environment preflight
+root=/home/ubuntu/firmware-lab
+ci_mode=0
+PASS: command bash -> /usr/bin/bash
+PASS: command git -> /usr/bin/git
+PASS: command python3 -> /usr/bin/python3
+PASS: command node -> /home/ubuntu/.nvm/versions/node/v22.13.0/bin/node
+PASS: command make -> /usr/bin/make
+ERROR: required command is missing: gcc
+PASS: command objdump -> /usr/bin/objdump
+ERROR: required command is missing: xxd
+PASS: command curl -> /usr/bin/curl
+PASS: command unzip -> /usr/bin/unzip
+PASS: command sha256sum -> /usr/bin/sha256sum
+python_version=Python 3.12.3
+node_version=v22.13.0
+objdump_version=GNU objdump (GNU Binutils for Ubuntu) 2.42
+make_version=GNU Make 4.3
+WARN: python capstone not installed; x86-64 disassembly relies on objdump/llvm-objdump
+ERROR: required command is missing: gcc|clang
+PASS: readable artifact libkernel_sys_13.52.bin
+PASS: readable artifact lk_dump1.bin
+PASS: readable artifact lk_dump2.bin
+PASS: readable artifact lk_dump3.bin
+PASS: readable artifact tools/verify_offsets.py
+PASS: readable artifact tools/analyze_xref_versions.py
+PASS: readable artifact tools/run_static_audit.sh
+ERROR: SDK submodule is not initialized: /home/ubuntu/firmware-lab/third_party/ps4-payload-sdk
+WARN: henloader_lp submodule not initialized (run: git submodule update --init)
+PASS: combined dump size=479232
+PASS: lk_dump1.bin size=159744
+PASS: lk_dump2.bin size=159744
+PASS: lk_dump3.bin size=159744
+ENV_PREFLIGHT_FAILED failures=4
+=== STATUS AFTER AUDIT ===
+[31m??[m all-files.tsv
+[31m??[m architecture-extract.txt
+[31m??[m audit_extract.sh
+[31m??[m audit_inventory.sh
+[31m??[m audit_static.sh
+[31m??[m audit_verify.sh
+[31m??[m build-verification.txt
+[31m??[m internal-controls.txt
+[31m??[m inventory.txt
+[31m??[m pytest-audit-rerun.txt
+[31m??[m pytest-audit.txt
+[31m??[m static-audit.txt
+[31m??[m tracked-sha256.txt
+[31m??[m unittest-audit.txt
+[31m??[m verification-results.txt

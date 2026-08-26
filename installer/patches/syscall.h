@@ -21,7 +21,8 @@
           ".globl " #name "\n"            \
           #name ":\n\t"                   \
           "mov rax, " #number "\n\t"      \
-          "jmp syscall_macro");
+          "jmp syscall_macro\n\t"              \
+          ".att_syntax prefix");
 
 unsigned long syscall(unsigned long n, ...);
 
