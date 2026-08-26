@@ -221,3 +221,7 @@ The statically extracted blob from `Fusion.bin` is 34,672 bytes, SHA-256 `a87a77
 ## Fusion embedded ELF symbol-table check
 
 `readelf -s`, `readelf --dyn-syms`, and `readelf -r` report that reading the section headers extends past the end of the 34,672-byte extracted resource. This prevents a complete symbol/relocation-table validation and is consistent with a stripped, custom-loaded or truncated resource; it must not be interpreted as evidence that the blob is an Orbis kernel. The previously verified ELF header and Fusion-specific strings remain the stronger classification evidence. Classification: `VERIFIED` for parser limitation; `INVALID` as any inference about `ffs_mountfs`.
+
+## Search for Fusion symbol resource
+
+Public searches for `Kernel.elf.sym`, `Fusion Kernel Started`, and related Fusion resource strings returned no result outside the already audited Fusion source/release. No public symbol file, map, IDA database, Ghidra project, or FFS cross-reference was found. Classification: `CORROBORATED` as a negative result in the searched public sources; `INVALID` as evidence of Orbis kernel symbols.
