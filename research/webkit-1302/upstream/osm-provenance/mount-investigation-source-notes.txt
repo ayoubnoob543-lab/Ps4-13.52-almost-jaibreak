@@ -189,3 +189,7 @@ The complete visible Git history and object-path scan of `GizzZmo/LUA-Lapse` fou
 ## External search for generated kernel.elf
 
 Searches for the exact output path `/mnt/usb0/kernel.elf`, `kernel.elf` with LUA-Lapse, and `kernel.elf` with Remote Lua Loader returned only repository README pages and unrelated older PS4 references. No downloadable dump, mirror, checksum, screenshot with firmware identity, or FFS analysis was found. Classification: `CORROBORATED` as a negative result within the searched public index; `UNVERIFIED` for any claim that a 12.02 output was shared privately.
+
+## GBAtemp scene-status cross-check
+
+GBAtemp PS4 Exploit Guide page 1419: https://gbatemp.net/threads/ps4-exploit-guide.497858/page-1419 lists separate statuses for stable public kernel exploitation up to 12.02, Poopsploit up to 13.00, and Vue userland up to 13.02. It does not provide an Orbis kernel ELF, dump hash, disassembly, `patch_mount` source, or FFS analysis. The page's firmware MD5 values are update/PUP checksums and cannot be used as kernel provenance. Classification: `SOURCE_ONLY` for scene-status claims; `INVALID` as direct 13.02 kernel/Celsius evidence.
