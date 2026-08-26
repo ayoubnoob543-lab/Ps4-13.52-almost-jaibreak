@@ -846,3 +846,7 @@ The Celsius-related video pages checked in this pass yielded either no usable de
 ## Public fork forensic audit
 
 GitHub reports four public forks of `adri22235/ps4-suid-scanner`: `ayoubnoob543-lab/ps4-suid-scanner`, `ke5adb/ps4-suid-scanner`, `kishan9601743105-oss/ps4-suid-scanner` and `OptiTronOffical/ps4-suid-scanner`. Static comparison found the same hashes for `webkit_gadgets_1304.js` (`b5910bf0...`), `scanner_1304.iso` (`6ed15acd...`) and `hen.bin` (`f29bd1f0...`) where present. The forks that omit `jordy_stage2.js` do so by deletion; none adds a different stage 2, UFS image, FFS code, or kernel-R/W bridge. Their visible histories point back to the same upstream commits (`702fcc3`, `96a7948`, `1089382`) and are not independent Celsius sources. Full output is in `celsius_forks_diff_audit.txt`; names are in `celsius_fork_names.txt`. Classification: fork propagation `VERIFIED`; independent PoC `DISPROVEN/NOT FOUND`.
+
+## Git unreachable-object audit
+
+`git fsck --full --no-reflogs --unreachable` produced no unreachable commits, trees or blobs in the upstream clone or any of the four public forks. This does not prove that GitHub never garbage-collected an object or that private/deleted server-side refs never existed, but it confirms that no recoverable deleted Celsius stage, image or PoC is present in the locally cloned public histories.
