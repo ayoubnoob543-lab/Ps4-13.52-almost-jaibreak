@@ -1,0 +1,3128 @@
+## libufs history
+[33m06e5a0e[m libufs: initial commit
+[33mf0e9a99[m remove unused include headers
+[33m5c4e004[m initial commit
+[33m43a0074[m initial commit
+## nmount history
+[33m356c5bf[m cosmetics
+[33m311827f[m libc: add some more syscall wrappers
+[33m8bad681[m libc: add nmount et al.
+[33mf0e9a99[m remove unused include headers
+[33m3d58524[m include: remove openssl headers
+[33m560feea[m samples: and mntinfo example
+[33m5ebf377[m libc: add getmntinfo
+[33m5c4e004[m initial commit
+[33m43a0074[m initial commit
+## files at v0.8
+include/freebsd-9.3/fs/msdosfs/msdosfsmount.h
+include/freebsd-9.3/fs/ntfs/ntfsmount.h
+include/freebsd-9.3/fs/nwfs/nwfs_mount.h
+include/freebsd-9.3/fs/udf/udf_mount.h
+include/freebsd-9.3/geom/mountver/g_mountver.h
+include/freebsd-9.3/isofs/cd9660/cd9660_mount.h
+include/freebsd-9.3/libufs.h
+include/freebsd-9.3/nfs/nfs_mountcommon.h
+include/freebsd-9.3/nfsclient/nfsmount.h
+include/freebsd-9.3/rpcsvc/mount.h
+include/freebsd-9.3/rpcsvc/mount.x
+include/freebsd-9.3/sys/mount.h
+include/freebsd-9.3/ufs/ffs/ffs_extern.h
+include/freebsd-9.3/ufs/ffs/fs.h
+include/freebsd-9.3/ufs/ffs/softdep.h
+include/freebsd-9.3/ufs/ufs/acl.h
+include/freebsd-9.3/ufs/ufs/dinode.h
+include/freebsd-9.3/ufs/ufs/dir.h
+include/freebsd-9.3/ufs/ufs/dirhash.h
+include/freebsd-9.3/ufs/ufs/extattr.h
+include/freebsd-9.3/ufs/ufs/gjournal.h
+include/freebsd-9.3/ufs/ufs/inode.h
+include/freebsd-9.3/ufs/ufs/quota.h
+include/freebsd-9.3/ufs/ufs/ufs_extern.h
+include/freebsd-9.3/ufs/ufs/ufsmount.h
+libc/mount.c
+libufs/Makefile
+libufs/block.c
+libufs/cgroup.c
+libufs/inode.c
+libufs/libufs.h
+libufs/sblock.c
+libufs/type.c
+samples/kdump/.gitignore
+samples/kdump/Makefile
+samples/kdump/main.c
+## file contents
+===== include/freebsd-9.3/libufs.h =====
+/*
+ * Copyright (c) 2002 Juli Mallett.  All rights reserved.
+ *
+ * This software was written by Juli Mallett <jmallett@FreeBSD.org> for the
+ * FreeBSD project.  Redistribution and use in source and binary forms, with
+ * or without modification, are permitted provided that the following
+ * conditions are met:
+ *
+ * 1. Redistribution of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistribution in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * $FreeBSD: releng/9.3/lib/libufs/libufs.h 218601 2011-02-12 12:46:00Z kib $
+ */
+
+#ifndef	__LIBUFS_H__
+#define	__LIBUFS_H__
+
+/*
+ * libufs structures.
+ */
+
+/*
+ * userland ufs disk.
+ */
+struct uufsd {
+	const char *d_name;	/* disk name */
+	int d_ufs;		/* decimal UFS version */
+	int d_fd;		/* raw device file descriptor */
+	long d_bsize;		/* device bsize */
+	ufs2_daddr_t d_sblock;	/* superblock location */
+	struct csum *d_sbcsum;	/* Superblock summary info */
+	caddr_t d_inoblock;	/* inode block */
+	ino_t d_inomin;		/* low inode */
+	ino_t d_inomax;		/* high inode */
+	union {
+		struct fs d_fs;	/* filesystem information */
+		char d_sb[MAXBSIZE];
+				/* superblock as buffer */
+	} d_sbunion;
+	union {
+		struct cg d_cg;	/* cylinder group */
+		char d_buf[MAXBSIZE];
+				/* cylinder group storage */
+	} d_cgunion;
+	int d_ccg;		/* current cylinder group */
+	int d_lcg;		/* last cylinder group (in d_cg) */
+	const char *d_error;	/* human readable disk error */
+	int d_mine;		/* internal flags */
+#define	d_fs	d_sbunion.d_fs
+#define	d_sb	d_sbunion.d_sb
+#define	d_cg	d_cgunion.d_cg
+};
+
+/*
+ * libufs macros (internal, non-exported).
+ */
+#ifdef	_LIBUFS
+/*
+ * Trace steps through libufs, to be used at entry and erroneous return.
+ */
+static inline void
+ERROR(struct uufsd *u, const char *str)
+{
+
+#ifdef	_LIBUFS_DEBUGGING
+	if (str != NULL) {
+		fprintf(stderr, "libufs: %s", str);
+		if (errno != 0)
+			fprintf(stderr, ": %s", strerror(errno));
+		fprintf(stderr, "\n");
+	}
+#endif
+	if (u != NULL)
+		u->d_error = str;
+}
+#endif	/* _LIBUFS */
+
+__BEGIN_DECLS
+
+/*
+ * libufs prototypes.
+ */
+
+/*
+ * block.c
+ */
+ssize_t bread(struct uufsd *, ufs2_daddr_t, void *, size_t);
+ssize_t bwrite(struct uufsd *, ufs2_daddr_t, const void *, size_t);
+int berase(struct uufsd *, ufs2_daddr_t, ufs2_daddr_t);
+
+/*
+ * cgroup.c
+ */
+ufs2_daddr_t cgballoc(struct uufsd *);
+int cgbfree(struct uufsd *, ufs2_daddr_t, long);
+ino_t cgialloc(struct uufsd *);
+int cgread(struct uufsd *);
+int cgread1(struct uufsd *, int);
+int cgwrite(struct uufsd *);
+int cgwrite1(struct uufsd *, int);
+
+/*
+ * inode.c
+ */
+int getino(struct uufsd *, void **, ino_t, int *);
+int putino(struct uufsd *);
+
+/*
+ * sblock.c
+ */
+int sbread(struct uufsd *);
+int sbwrite(struct uufsd *, int);
+
+/*
+ * type.c
+ */
+int ufs_disk_close(struct uufsd *);
+int ufs_disk_fillout(struct uufsd *, const char *);
+int ufs_disk_fillout_blank(struct uufsd *, const char *);
+int ufs_disk_write(struct uufsd *);
+
+/*
+ * ffs_subr.c
+ */
+void	ffs_clrblock(struct fs *, u_char *, ufs1_daddr_t);
+void	ffs_clusteracct(struct fs *, struct cg *, ufs1_daddr_t, int);
+void	ffs_fragacct(struct fs *, int, int32_t [], int);
+int	ffs_isblock(struct fs *, u_char *, ufs1_daddr_t);
+int	ffs_isfreeblock(struct fs *, u_char *, ufs1_daddr_t);
+void	ffs_setblock(struct fs *, u_char *, ufs1_daddr_t);
+
+__END_DECLS
+
+#endif	/* __LIBUFS_H__ */
+===== include/freebsd-9.3/ufs/ffs/ffs_extern.h =====
+/*-
+ * Copyright (c) 1991, 1993, 1994
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 4. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)ffs_extern.h	8.6 (Berkeley) 3/30/95
+ * $FreeBSD: releng/9.3/sys/ufs/ffs/ffs_extern.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+
+#ifndef _UFS_FFS_EXTERN_H
+#define	_UFS_FFS_EXTERN_H
+
+#ifndef _KERNEL
+#error "No user-serving parts inside"
+#else
+
+struct buf;
+struct cg;
+struct fid;
+struct fs;
+struct inode;
+struct malloc_type;
+struct mount;
+struct thread;
+struct sockaddr;
+struct statfs;
+struct ucred;
+struct vnode;
+struct vop_fsync_args;
+struct vop_reallocblks_args;
+struct workhead;
+
+int	ffs_alloc(struct inode *, ufs2_daddr_t, ufs2_daddr_t, int, int,
+	    struct ucred *, ufs2_daddr_t *);
+int	ffs_balloc_ufs1(struct vnode *a_vp, off_t a_startoffset, int a_size,
+            struct ucred *a_cred, int a_flags, struct buf **a_bpp);
+int	ffs_balloc_ufs2(struct vnode *a_vp, off_t a_startoffset, int a_size,
+            struct ucred *a_cred, int a_flags, struct buf **a_bpp);
+int	ffs_blkatoff(struct vnode *, off_t, char **, struct buf **);
+void	ffs_blkfree(struct ufsmount *, struct fs *, struct vnode *,
+	    ufs2_daddr_t, long, ino_t, enum vtype, struct workhead *);
+ufs2_daddr_t ffs_blkpref_ufs1(struct inode *, ufs_lbn_t, int, ufs1_daddr_t *);
+ufs2_daddr_t ffs_blkpref_ufs2(struct inode *, ufs_lbn_t, int, ufs2_daddr_t *);
+int	ffs_checkfreefile(struct fs *, struct vnode *, ino_t);
+void	ffs_clrblock(struct fs *, u_char *, ufs1_daddr_t);
+void	ffs_clusteracct(struct fs *, struct cg *, ufs1_daddr_t, int);
+void	ffs_bdflush(struct bufobj *, struct buf *);
+int	ffs_copyonwrite(struct vnode *, struct buf *);
+int	ffs_flushfiles(struct mount *, int, struct thread *);
+void	ffs_fragacct(struct fs *, int, int32_t [], int);
+int	ffs_freefile(struct ufsmount *, struct fs *, struct vnode *, ino_t,
+	    int, struct workhead *);
+void	ffs_fserr(struct fs *, ino_t, char *);
+int	ffs_isblock(struct fs *, u_char *, ufs1_daddr_t);
+int	ffs_isfreeblock(struct fs *, u_char *, ufs1_daddr_t);
+void	ffs_load_inode(struct buf *, struct inode *, struct fs *, ino_t);
+int	ffs_mountroot(void);
+void	ffs_oldfscompat_write(struct fs *, struct ufsmount *);
+int	ffs_own_mount(const struct mount *mp);
+int	ffs_reallocblks(struct vop_reallocblks_args *);
+int	ffs_realloccg(struct inode *, ufs2_daddr_t, ufs2_daddr_t,
+	    ufs2_daddr_t, int, int, int, struct ucred *, struct buf **);
+int	ffs_reload(struct mount *, struct thread *, int);
+int	ffs_sbupdate(struct ufsmount *, int, int);
+void	ffs_setblock(struct fs *, u_char *, ufs1_daddr_t);
+int	ffs_snapblkfree(struct fs *, struct vnode *, ufs2_daddr_t, long, ino_t,
+	    enum vtype, struct workhead *);
+void	ffs_snapremove(struct vnode *vp);
+int	ffs_snapshot(struct mount *mp, char *snapfile);
+void	ffs_snapshot_mount(struct mount *mp);
+void	ffs_snapshot_unmount(struct mount *mp);
+void	process_deferred_inactive(struct mount *mp);
+void	ffs_sync_snap(struct mount *, int);
+int	ffs_syncvnode(struct vnode *vp, int waitfor, int flags);
+int	ffs_truncate(struct vnode *, off_t, int, struct ucred *, struct thread *);
+int	ffs_update(struct vnode *, int);
+int	ffs_valloc(struct vnode *, int, struct ucred *, struct vnode **);
+
+int	ffs_vfree(struct vnode *, ino_t, int);
+vfs_vget_t ffs_vget;
+int	ffs_vgetf(struct mount *, ino_t, int, struct vnode **, int);
+void	ffs_susp_initialize(void);
+void	ffs_susp_uninitialize(void);
+
+#define	FFSV_FORCEINSMQ	0x0001
+
+extern struct vop_vector ffs_vnodeops1;
+extern struct vop_vector ffs_fifoops1;
+extern struct vop_vector ffs_vnodeops2;
+extern struct vop_vector ffs_fifoops2;
+
+/*
+ * Soft update function prototypes.
+ */
+
+int	softdep_check_suspend(struct mount *, struct vnode *,
+	  int, int, int, int);
+void	softdep_get_depcounts(struct mount *, int *, int *);
+void	softdep_initialize(void);
+void	softdep_uninitialize(void);
+int	softdep_mount(struct vnode *, struct mount *, struct fs *,
+	    struct ucred *);
+void	softdep_unmount(struct mount *);
+int	softdep_move_dependencies(struct buf *, struct buf *);
+int	softdep_flushworklist(struct mount *, int *, struct thread *);
+int	softdep_flushfiles(struct mount *, int, struct thread *);
+void	softdep_update_inodeblock(struct inode *, struct buf *, int);
+void	softdep_load_inodeblock(struct inode *);
+void	softdep_freefile(struct vnode *, ino_t, int);
+int	softdep_request_cleanup(struct fs *, struct vnode *,
+	    struct ucred *, int);
+void	softdep_setup_freeblocks(struct inode *, off_t, int);
+void	softdep_setup_inomapdep(struct buf *, struct inode *, ino_t, int);
+void	softdep_setup_blkmapdep(struct buf *, struct mount *, ufs2_daddr_t,
+	    int, int);
+void	softdep_setup_allocdirect(struct inode *, ufs_lbn_t, ufs2_daddr_t,
+	    ufs2_daddr_t, long, long, struct buf *);
+void	softdep_setup_allocext(struct inode *, ufs_lbn_t, ufs2_daddr_t,
+	    ufs2_daddr_t, long, long, struct buf *);
+void	softdep_setup_allocindir_meta(struct buf *, struct inode *,
+	    struct buf *, int, ufs2_daddr_t);
+void	softdep_setup_allocindir_page(struct inode *, ufs_lbn_t,
+	    struct buf *, int, ufs2_daddr_t, ufs2_daddr_t, struct buf *);
+void	softdep_setup_blkfree(struct mount *, struct buf *, ufs2_daddr_t, int,
+	    struct workhead *);
+void	softdep_setup_inofree(struct mount *, struct buf *, ino_t,
+	    struct workhead *);
+void	softdep_setup_sbupdate(struct ufsmount *, struct fs *, struct buf *);
+void	softdep_fsync_mountdev(struct vnode *);
+int	softdep_sync_metadata(struct vnode *);
+int	softdep_sync_buf(struct vnode *, struct buf *, int);
+int     softdep_process_worklist(struct mount *, int);
+int     softdep_fsync(struct vnode *);
+int	softdep_waitidle(struct mount *);
+int	softdep_prealloc(struct vnode *, int);
+int	softdep_journal_lookup(struct mount *, struct vnode **);
+void	softdep_journal_freeblocks(struct inode *, struct ucred *, off_t, int);
+void	softdep_journal_fsync(struct inode *);
+void	softdep_buf_append(struct buf *, struct workhead *);
+void	softdep_inode_append(struct inode *, struct ucred *, struct workhead *);
+void	softdep_freework(struct workhead *);
+
+
+/*
+ * Things to request flushing in softdep_request_cleanup()
+ */
+#define	FLUSH_INODES		1
+#define	FLUSH_INODES_WAIT	2
+#define	FLUSH_BLOCKS		3
+#define	FLUSH_BLOCKS_WAIT	4
+/*
+ * Flag to ffs_syncvnode() to request flushing of data only,
+ * but skip the ffs_update() on the inode itself. Used to avoid
+ * deadlock when flushing snapshot inodes while holding snaplk.
+ */
+#define	NO_INO_UPDT		0x00000001
+
+===== include/freebsd-9.3/ufs/ffs/fs.h =====
+/*-
+ * Copyright (c) 1982, 1986, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 4. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)fs.h	8.13 (Berkeley) 3/21/95
+ * $FreeBSD: releng/9.3/sys/ufs/ffs/fs.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+
+#ifndef _UFS_FFS_FS_H_
+#define	_UFS_FFS_FS_H_
+
+#include <sys/mount.h>
+#include <ufs/ufs/dinode.h>
+
+/*
+ * Each disk drive contains some number of filesystems.
+ * A filesystem consists of a number of cylinder groups.
+ * Each cylinder group has inodes and data.
+ *
+ * A filesystem is described by its super-block, which in turn
+ * describes the cylinder groups.  The super-block is critical
+ * data and is replicated in each cylinder group to protect against
+ * catastrophic loss.  This is done at `newfs' time and the critical
+ * super-block data does not change, so the copies need not be
+ * referenced further unless disaster strikes.
+ *
+ * For filesystem fs, the offsets of the various blocks of interest
+ * are given in the super block as:
+ *	[fs->fs_sblkno]		Super-block
+ *	[fs->fs_cblkno]		Cylinder group block
+ *	[fs->fs_iblkno]		Inode blocks
+ *	[fs->fs_dblkno]		Data blocks
+ * The beginning of cylinder group cg in fs, is given by
+ * the ``cgbase(fs, cg)'' macro.
+ *
+ * Depending on the architecture and the media, the superblock may
+ * reside in any one of four places. For tiny media where every block 
+ * counts, it is placed at the very front of the partition. Historically,
+ * UFS1 placed it 8K from the front to leave room for the disk label and
+ * a small bootstrap. For UFS2 it got moved to 64K from the front to leave
+ * room for the disk label and a bigger bootstrap, and for really piggy
+ * systems we check at 256K from the front if the first three fail. In
+ * all cases the size of the superblock will be SBLOCKSIZE. All values are
+ * given in byte-offset form, so they do not imply a sector size. The
+ * SBLOCKSEARCH specifies the order in which the locations should be searched.
+ */
+#define	SBLOCK_FLOPPY	     0
+#define	SBLOCK_UFS1	  8192
+#define	SBLOCK_UFS2	 65536
+#define	SBLOCK_PIGGY	262144
+#define	SBLOCKSIZE	  8192
+#define	SBLOCKSEARCH \
+	{ SBLOCK_UFS2, SBLOCK_UFS1, SBLOCK_FLOPPY, SBLOCK_PIGGY, -1 }
+
+/*
+ * Max number of fragments per block. This value is NOT tweakable.
+ */
+#define	MAXFRAG 	8
+
+/*
+ * Addresses stored in inodes are capable of addressing fragments
+ * of `blocks'. File system blocks of at most size MAXBSIZE can
+ * be optionally broken into 2, 4, or 8 pieces, each of which is
+ * addressable; these pieces may be DEV_BSIZE, or some multiple of
+ * a DEV_BSIZE unit.
+ *
+ * Large files consist of exclusively large data blocks.  To avoid
+ * undue wasted disk space, the last data block of a small file may be
+ * allocated as only as many fragments of a large block as are
+ * necessary.  The filesystem format retains only a single pointer
+ * to such a fragment, which is a piece of a single large block that
+ * has been divided.  The size of such a fragment is determinable from
+ * information in the inode, using the ``blksize(fs, ip, lbn)'' macro.
+ *
+ * The filesystem records space availability at the fragment level;
+ * to determine block availability, aligned fragments are examined.
+ */
+
+/*
+ * MINBSIZE is the smallest allowable block size.
+ * In order to insure that it is possible to create files of size
+ * 2^32 with only two levels of indirection, MINBSIZE is set to 4096.
+ * MINBSIZE must be big enough to hold a cylinder group block,
+ * thus changes to (struct cg) must keep its size within MINBSIZE.
+ * Note that super blocks are always of size SBLOCKSIZE,
+ * and that both SBLOCKSIZE and MAXBSIZE must be >= MINBSIZE.
+ */
+#define	MINBSIZE	4096
+
+/*
+ * The path name on which the filesystem is mounted is maintained
+ * in fs_fsmnt. MAXMNTLEN defines the amount of space allocated in
+ * the super block for this name.
+ */
+#define	MAXMNTLEN	468
+
+/*
+ * The volume name for this filesystem is maintained in fs_volname.
+ * MAXVOLLEN defines the length of the buffer allocated.
+ */
+#define	MAXVOLLEN	32
+
+/*
+ * There is a 128-byte region in the superblock reserved for in-core
+ * pointers to summary information. Originally this included an array
+ * of pointers to blocks of struct csum; now there are just a few
+ * pointers and the remaining space is padded with fs_ocsp[].
+ *
+ * NOCSPTRS determines the size of this padding. One pointer (fs_csp)
+ * is taken away to point to a contiguous array of struct csum for
+ * all cylinder groups; a second (fs_maxcluster) points to an array
+ * of cluster sizes that is computed as cylinder groups are inspected,
+ * and the third points to an array that tracks the creation of new
+ * directories. A fourth pointer, fs_active, is used when creating
+ * snapshots; it points to a bitmap of cylinder groups for which the
+ * free-block bitmap has changed since the snapshot operation began.
+ */
+#define	NOCSPTRS	((128 / sizeof(void *)) - 4)
+
+/*
+ * A summary of contiguous blocks of various sizes is maintained
+ * in each cylinder group. Normally this is set by the initial
+ * value of fs_maxcontig. To conserve space, a maximum summary size
+ * is set by FS_MAXCONTIG.
+ */
+#define	FS_MAXCONTIG	16
+
+/*
+ * MINFREE gives the minimum acceptable percentage of filesystem
+ * blocks which may be free. If the freelist drops below this level
+ * only the superuser may continue to allocate blocks. This may
+ * be set to 0 if no reserve of free blocks is deemed necessary,
+ * however throughput drops by fifty percent if the filesystem
+ * is run at between 95% and 100% full; thus the minimum default
+ * value of fs_minfree is 5%. However, to get good clustering
+ * performance, 10% is a better choice. hence we use 10% as our
+ * default value. With 10% free space, fragmentation is not a
+ * problem, so we choose to optimize for time.
+ */
+#define	MINFREE		8
+#define	DEFAULTOPT	FS_OPTTIME
+
+/*
+ * Grigoriy Orlov <gluk@ptci.ru> has done some extensive work to fine
+ * tune the layout preferences for directories within a filesystem.
+ * His algorithm can be tuned by adjusting the following parameters
+ * which tell the system the average file size and the average number
+ * of files per directory. These defaults are well selected for typical
+ * filesystems, but may need to be tuned for odd cases like filesystems
+ * being used for squid caches or news spools.
+ */
+#define	AVFILESIZ	16384	/* expected average file size */
+#define	AFPDIR		64	/* expected number of files per directory */
+
+/*
+ * The maximum number of snapshot nodes that can be associated
+===== include/freebsd-9.3/ufs/ffs/softdep.h =====
+/*-
+ * Copyright 1998, 2000 Marshall Kirk McKusick. All Rights Reserved.
+ *
+ * The soft updates code is derived from the appendix of a University
+ * of Michigan technical report (Gregory R. Ganger and Yale N. Patt,
+ * "Soft Updates: A Solution to the Metadata Update Problem in File
+ * Systems", CSE-TR-254-95, August 1995).
+ *
+ * Further information about soft updates can be obtained from:
+ *
+ *	Marshall Kirk McKusick		http://www.mckusick.com/softdep/
+ *	1614 Oxford Street		mckusick@mckusick.com
+ *	Berkeley, CA 94709-1608		+1-510-843-9542
+ *	USA
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY MARSHALL KIRK MCKUSICK ``AS IS'' AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED.  IN NO EVENT SHALL MARSHALL KIRK MCKUSICK BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)softdep.h	9.7 (McKusick) 6/21/00
+ * $FreeBSD: releng/9.3/sys/ufs/ffs/softdep.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+
+#include <sys/queue.h>
+
+/*
+ * Allocation dependencies are handled with undo/redo on the in-memory
+ * copy of the data. A particular data dependency is eliminated when
+ * it is ALLCOMPLETE: that is ATTACHED, DEPCOMPLETE, and COMPLETE.
+ * 
+ * The ATTACHED flag means that the data is not currently being written
+ * to disk.
+ * 
+ * The UNDONE flag means that the data has been rolled back to a safe
+ * state for writing to the disk. When the I/O completes, the data is
+ * restored to its current form and the state reverts to ATTACHED.
+ * The data must be locked throughout the rollback, I/O, and roll
+ * forward so that the rolled back information is never visible to
+ * user processes.
+ *
+ * The COMPLETE flag indicates that the item has been written. For example,
+ * a dependency that requires that an inode be written will be marked
+ * COMPLETE after the inode has been written to disk.
+ * 
+ * The DEPCOMPLETE flag indicates the completion of any other
+ * dependencies such as the writing of a cylinder group map has been
+ * completed. A dependency structure may be freed only when both it
+ * and its dependencies have completed and any rollbacks that are in
+ * progress have finished as indicated by the set of ALLCOMPLETE flags
+ * all being set.
+ * 
+ * The two MKDIR flags indicate additional dependencies that must be done
+ * when creating a new directory. MKDIR_BODY is cleared when the directory
+ * data block containing the "." and ".." entries has been written.
+ * MKDIR_PARENT is cleared when the parent inode with the increased link
+ * count for ".." has been written. When both MKDIR flags have been
+ * cleared, the DEPCOMPLETE flag is set to indicate that the directory
+ * dependencies have been completed. The writing of the directory inode
+ * itself sets the COMPLETE flag which then allows the directory entry for
+ * the new directory to be written to disk. The RMDIR flag marks a dirrem
+ * structure as representing the removal of a directory rather than a
+ * file. When the removal dependencies are completed, additional work needs
+ * to be done* (an additional decrement of the associated inode, and a
+ * decrement of the parent inode).
+ *
+ * The DIRCHG flag marks a diradd structure as representing the changing
+ * of an existing entry rather than the addition of a new one. When
+ * the update is complete the dirrem associated with the inode for
+ * the old name must be added to the worklist to do the necessary
+ * reference count decrement.
+ * 
+ * The GOINGAWAY flag indicates that the data structure is frozen from
+ * further change until its dependencies have been completed and its
+ * resources freed after which it will be discarded.
+ *
+ * The IOSTARTED flag prevents multiple calls to the I/O start routine from
+ * doing multiple rollbacks.
+ *
+ * The NEWBLOCK flag marks pagedep structures that have just been allocated,
+ * so must be claimed by the inode before all dependencies are complete.
+ *
+ * The INPROGRESS flag marks worklist structures that are still on the
+ * worklist, but are being considered for action by some process.
+ *
+ * The UFS1FMT flag indicates that the inode being processed is a ufs1 format.
+ *
+ * The EXTDATA flag indicates that the allocdirect describes an
+ * extended-attributes dependency.
+ *
+ * The ONWORKLIST flag shows whether the structure is currently linked
+ * onto a worklist.
+ *
+ * The UNLINK* flags track the progress of updating the on-disk linked
+ * list of active but unlinked inodes. When an inode is first unlinked
+ * it is marked as UNLINKED. When its on-disk di_freelink has been
+ * written its UNLINKNEXT flags is set. When its predecessor in the
+ * list has its di_freelink pointing at us its UNLINKPREV is set.
+ * When the on-disk list can reach it from the superblock, its
+ * UNLINKONLIST flag is set. Once all of these flags are set, it
+ * is safe to let its last name be removed.
+ */
+#define	ATTACHED	0x000001
+#define	UNDONE		0x000002
+#define	COMPLETE	0x000004
+#define	DEPCOMPLETE	0x000008
+#define	MKDIR_PARENT	0x000010 /* diradd, mkdir, jaddref, jsegdep only */
+#define	MKDIR_BODY	0x000020 /* diradd, mkdir, jaddref only */
+#define	RMDIR		0x000040 /* dirrem only */
+#define	DIRCHG		0x000080 /* diradd, dirrem only */
+#define	GOINGAWAY	0x000100 /* indirdep, jremref only */
+#define	IOSTARTED	0x000200 /* inodedep, pagedep, bmsafemap only */
+#define	DELAYEDFREE	0x000400 /* allocindirect free delayed. */
+#define	NEWBLOCK	0x000800 /* pagedep, jaddref only */
+#define	INPROGRESS	0x001000 /* dirrem, freeblks, freefrag, freefile only */
+#define	UFS1FMT		0x002000 /* indirdep only */
+#define	EXTDATA		0x004000 /* allocdirect only */
+#define ONWORKLIST	0x008000
+#define	IOWAITING	0x010000 /* Thread is waiting for IO to complete. */
+#define	ONDEPLIST	0x020000 /* Structure is on a dependency list. */
+#define	UNLINKED	0x040000 /* inodedep has been unlinked. */
+#define	UNLINKNEXT	0x080000 /* inodedep has valid di_freelink */
+#define	UNLINKPREV	0x100000 /* inodedep is pointed at in the unlink list */
+#define	UNLINKONLIST	0x200000 /* inodedep is in the unlinked list on disk */
+#define	UNLINKLINKS	(UNLINKNEXT | UNLINKPREV)
+
+#define	ALLCOMPLETE	(ATTACHED | COMPLETE | DEPCOMPLETE)
+
+/*
+ * The workitem queue.
+ * 
+ * It is sometimes useful and/or necessary to clean up certain dependencies
+ * in the background rather than during execution of an application process
+ * or interrupt service routine. To realize this, we append dependency
+ * structures corresponding to such tasks to a "workitem" queue. In a soft
+ * updates implementation, most pending workitems should not wait for more
+ * than a couple of seconds, so the filesystem syncer process awakens once
+ * per second to process the items on the queue.
+ */
+
+/* LIST_HEAD(workhead, worklist);	-- declared in buf.h */
+
+/*
+ * Each request can be linked onto a work queue through its worklist structure.
+ * To avoid the need for a pointer to the structure itself, this structure
+ * MUST be declared FIRST in each type in which it appears! If more than one
+ * worklist is needed in the structure, then a wk_data field must be added
+ * and the macros below changed to use it.
+ */
+struct worklist {
+	LIST_ENTRY(worklist)	wk_list;	/* list of work requests */
+	struct mount		*wk_mp;		/* Mount we live in */
+	unsigned int		wk_type:8,	/* type of request */
+				wk_state:24;	/* state flags */
+};
+#define	WK_DATA(wk) ((void *)(wk))
+#define	WK_PAGEDEP(wk) ((struct pagedep *)(wk))
+#define	WK_INODEDEP(wk) ((struct inodedep *)(wk))
+#define	WK_BMSAFEMAP(wk) ((struct bmsafemap *)(wk))
+#define	WK_NEWBLK(wk)  ((struct newblk *)(wk))
+#define	WK_ALLOCDIRECT(wk) ((struct allocdirect *)(wk))
+#define	WK_INDIRDEP(wk) ((struct indirdep *)(wk))
+#define	WK_ALLOCINDIR(wk) ((struct allocindir *)(wk))
+===== include/freebsd-9.3/ufs/ufs/acl.h =====
+/*-
+ * Copyright (c) 1999-2001 Robert N. M. Watson
+ * All rights reserved.
+ *
+ * This software was developed by Robert Watson for the TrustedBSD Project.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * $FreeBSD: releng/9.3/sys/ufs/ufs/acl.h 200796 2009-12-21 19:39:10Z trasz $
+ */
+/*
+ * Developed by the TrustedBSD Project.
+ * Support for POSIX.1e access control lists.
+ */
+
+#ifndef _UFS_UFS_ACL_H_
+#define	_UFS_UFS_ACL_H_
+
+#ifdef _KERNEL
+
+int	ufs_getacl_nfs4_internal(struct vnode *vp, struct acl *aclp, struct thread *td);
+int	ufs_setacl_nfs4_internal(struct vnode *vp, struct acl *aclp, struct thread *td);
+void	ufs_sync_acl_from_inode(struct inode *ip, struct acl *acl);
+void	ufs_sync_inode_from_acl(struct acl *acl, struct inode *ip);
+
+int	ufs_getacl(struct vop_getacl_args *);
+int	ufs_setacl(struct vop_setacl_args *);
+int	ufs_aclcheck(struct vop_aclcheck_args *);
+
+#endif /* !_KERNEL */
+
+#endif /* !_UFS_UFS_ACL_H_ */
+===== include/freebsd-9.3/ufs/ufs/dinode.h =====
+/*-
+ * Copyright (c) 2002 Networks Associates Technology, Inc.
+ * All rights reserved.
+ *
+ * This software was developed for the FreeBSD Project by Marshall
+ * Kirk McKusick and Network Associates Laboratories, the Security
+ * Research Division of Network Associates, Inc. under DARPA/SPAWAR
+ * contract N66001-01-C-8035 ("CBOSS"), as part of the DARPA CHATS
+ * research program
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * Copyright (c) 1982, 1989, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ * (c) UNIX System Laboratories, Inc.
+ * All or some portions of this file are derived from material licensed
+ * to the University of California by American Telephone and Telegraph
+ * Co. or Unix System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. The names of the authors may not be used to endorse or promote
+ *    products derived from this software without specific prior written
+ *    permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)dinode.h	8.3 (Berkeley) 1/21/94
+ * $FreeBSD: releng/9.3/sys/ufs/ufs/dinode.h 259224 2013-12-11 19:25:38Z pfg $
+ */
+
+#ifndef _UFS_UFS_DINODE_H_
+#define	_UFS_UFS_DINODE_H_
+
+/*
+ * The root inode is the root of the filesystem.  Inode 0 can't be used for
+ * normal purposes and historically bad blocks were linked to inode 1, thus
+ * the root inode is 2.  (Inode 1 is no longer used for this purpose, however
+ * numerous dump tapes make this assumption, so we are stuck with it).
+ */
+#define	ROOTINO	((ino_t)2)
+
+/*
+ * The Whiteout inode# is a dummy non-zero inode number which will
+ * never be allocated to a real file.  It is used as a place holder
+ * in the directory entry which has been tagged as a DT_WHT entry.
+ * See the comments about ROOTINO above.
+ */
+#define	WINO	((ino_t)1)
+
+/*
+ * The size of physical and logical block numbers and time fields in UFS.
+ */
+typedef	int32_t	ufs1_daddr_t;
+typedef	int64_t	ufs2_daddr_t;
+typedef int64_t ufs_lbn_t;
+typedef int64_t ufs_time_t;
+
+/* File permissions. */
+#define	IEXEC		0000100		/* Executable. */
+#define	IWRITE		0000200		/* Writeable. */
+#define	IREAD		0000400		/* Readable. */
+#define	ISVTX		0001000		/* Sticky bit. */
+#define	ISGID		0002000		/* Set-gid. */
+#define	ISUID		0004000		/* Set-uid. */
+
+/* File types. */
+#define	IFMT		0170000		/* Mask of file type. */
+#define	IFIFO		0010000		/* Named pipe (fifo). */
+#define	IFCHR		0020000		/* Character device. */
+#define	IFDIR		0040000		/* Directory file. */
+#define	IFBLK		0060000		/* Block device. */
+#define	IFREG		0100000		/* Regular file. */
+#define	IFLNK		0120000		/* Symbolic link. */
+#define	IFSOCK		0140000		/* UNIX domain socket. */
+#define	IFWHT		0160000		/* Whiteout. */
+
+/*
+ * A dinode contains all the meta-data associated with a UFS2 file.
+ * This structure defines the on-disk format of a dinode. Since
+ * this structure describes an on-disk structure, all its fields
+ * are defined by types with precise widths.
+ */
+
+#define	NXADDR	2			/* External addresses in inode. */
+#define	NDADDR	12			/* Direct addresses in inode. */
+#define	NIADDR	3			/* Indirect addresses in inode. */
+
+struct ufs2_dinode {
+	u_int16_t	di_mode;	/*   0: IFMT, permissions; see below. */
+	int16_t		di_nlink;	/*   2: File link count. */
+	u_int32_t	di_uid;		/*   4: File owner. */
+	u_int32_t	di_gid;		/*   8: File group. */
+	u_int32_t	di_blksize;	/*  12: Inode blocksize. */
+	u_int64_t	di_size;	/*  16: File byte count. */
+	u_int64_t	di_blocks;	/*  24: Blocks actually held. */
+	ufs_time_t	di_atime;	/*  32: Last access time. */
+	ufs_time_t	di_mtime;	/*  40: Last modified time. */
+	ufs_time_t	di_ctime;	/*  48: Last inode change time. */
+	ufs_time_t	di_birthtime;	/*  56: Inode creation time. */
+	int32_t		di_mtimensec;	/*  64: Last modified time. */
+	int32_t		di_atimensec;	/*  68: Last access time. */
+	int32_t		di_ctimensec;	/*  72: Last inode change time. */
+	int32_t		di_birthnsec;	/*  76: Inode creation time. */
+	u_int32_t	di_gen;		/*  80: Generation number. */
+	u_int32_t	di_kernflags;	/*  84: Kernel flags. */
+	u_int32_t	di_flags;	/*  88: Status flags (chflags). */
+	u_int32_t	di_extsize;	/*  92: External attributes size. */
+	ufs2_daddr_t	di_extb[NXADDR];/*  96: External attributes block. */
+	ufs2_daddr_t	di_db[NDADDR];	/* 112: Direct disk blocks. */
+	ufs2_daddr_t	di_ib[NIADDR];	/* 208: Indirect disk blocks. */
+	u_int64_t	di_modrev;	/* 232: i_modrev for NFSv4 */
+	ino_t		di_freelink;	/* 240: SUJ: Next unlinked inode. */
+	uint32_t	di_spare[3];	/* 244: Reserved; currently unused */
+};
+
+/*
+ * The di_db fields may be overlaid with other information for
+ * file types that do not have associated disk storage. Block
+ * and character devices overlay the first data block with their
+ * dev_t value. Short symbolic links place their path in the
+ * di_db area.
+ */
+#define	di_rdev di_db[0]
+
+/*
+ * A UFS1 dinode contains all the meta-data associated with a UFS1 file.
+ * This structure defines the on-disk format of a UFS1 dinode. Since
+ * this structure describes an on-disk structure, all its fields
+ * are defined by types with precise widths.
+ */
+struct ufs1_dinode {
+	u_int16_t	di_mode;	/*   0: IFMT, permissions; see below. */
+	int16_t		di_nlink;	/*   2: File link count. */
+	ino_t		di_freelink;	/*   4: SUJ: Next unlinked inode. */
+	u_int64_t	di_size;	/*   8: File byte count. */
+	int32_t		di_atime;	/*  16: Last access time. */
+	int32_t		di_atimensec;	/*  20: Last access time. */
+	int32_t		di_mtime;	/*  24: Last modified time. */
+	int32_t		di_mtimensec;	/*  28: Last modified time. */
+	int32_t		di_ctime;	/*  32: Last inode change time. */
+	int32_t		di_ctimensec;	/*  36: Last inode change time. */
+	ufs1_daddr_t	di_db[NDADDR];	/*  40: Direct disk blocks. */
+	ufs1_daddr_t	di_ib[NIADDR];	/*  88: Indirect disk blocks. */
+===== include/freebsd-9.3/ufs/ufs/dir.h =====
+/*-
+ * Copyright (c) 1982, 1986, 1989, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ * (c) UNIX System Laboratories, Inc.
+ * All or some portions of this file are derived from material licensed
+ * to the University of California by American Telephone and Telegraph
+ * Co. or Unix System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 4. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)dir.h	8.2 (Berkeley) 1/21/94
+ * $FreeBSD: releng/9.3/sys/ufs/ufs/dir.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+
+#ifndef _UFS_UFS_DIR_H_
+#define	_UFS_UFS_DIR_H_
+
+/*
+ * Theoretically, directories can be more than 2Gb in length, however, in
+ * practice this seems unlikely. So, we define the type doff_t as a 32-bit
+ * quantity to keep down the cost of doing lookup on a 32-bit machine.
+ */
+#define	doff_t		int32_t
+#define	MAXDIRSIZE	(0x7fffffff)
+
+/*
+ * A directory consists of some number of blocks of DIRBLKSIZ
+ * bytes, where DIRBLKSIZ is chosen such that it can be transferred
+ * to disk in a single atomic operation (e.g. 512 bytes on most machines).
+ *
+ * Each DIRBLKSIZ byte block contains some number of directory entry
+ * structures, which are of variable length.  Each directory entry has
+ * a struct direct at the front of it, containing its inode number,
+ * the length of the entry, and the length of the name contained in
+ * the entry.  These are followed by the name padded to a 4 byte boundary
+ * with null bytes.  All names are guaranteed null terminated.
+ * The maximum length of a name in a directory is MAXNAMLEN.
+ *
+ * The macro DIRSIZ(fmt, dp) gives the amount of space required to represent
+ * a directory entry.  Free space in a directory is represented by
+ * entries which have dp->d_reclen > DIRSIZ(fmt, dp).  All DIRBLKSIZ bytes
+ * in a directory block are claimed by the directory entries.  This
+ * usually results in the last entry in a directory having a large
+ * dp->d_reclen.  When entries are deleted from a directory, the
+ * space is returned to the previous entry in the same directory
+ * block by increasing its dp->d_reclen.  If the first entry of
+ * a directory block is free, then its dp->d_ino is set to 0.
+ * Entries other than the first in a directory do not normally have
+ * dp->d_ino set to 0.
+ */
+#define	DIRBLKSIZ	DEV_BSIZE
+#define	MAXNAMLEN	255
+
+struct	direct {
+	u_int32_t d_ino;		/* inode number of entry */
+	u_int16_t d_reclen;		/* length of this record */
+	u_int8_t  d_type; 		/* file type, see below */
+	u_int8_t  d_namlen;		/* length of string in d_name */
+	char	  d_name[MAXNAMLEN + 1];/* name with length <= MAXNAMLEN */
+};
+
+/*
+ * File types
+ */
+#define	DT_UNKNOWN	 0
+#define	DT_FIFO		 1
+#define	DT_CHR		 2
+#define	DT_DIR		 4
+#define	DT_BLK		 6
+#define	DT_REG		 8
+#define	DT_LNK		10
+#define	DT_SOCK		12
+#define	DT_WHT		14
+
+/*
+ * Convert between stat structure types and directory types.
+ */
+#define	IFTODT(mode)	(((mode) & 0170000) >> 12)
+#define	DTTOIF(dirtype)	((dirtype) << 12)
+
+/*
+ * The DIRSIZ macro gives the minimum record length which will hold
+ * the directory entry.  This requires the amount of space in struct direct
+ * without the d_name field, plus enough space for the name with a terminating
+ * null byte (dp->d_namlen+1), rounded up to a 4 byte boundary.
+ *
+ * 
+ */
+#define	DIRECTSIZ(namlen)						\
+	(((uintptr_t)&((struct direct *)0)->d_name +			\
+	  ((namlen)+1)*sizeof(((struct direct *)0)->d_name[0]) + 3) & ~3)
+#if (BYTE_ORDER == LITTLE_ENDIAN)
+#define	DIRSIZ(oldfmt, dp) \
+    ((oldfmt) ? DIRECTSIZ((dp)->d_type) : DIRECTSIZ((dp)->d_namlen))
+#else
+#define	DIRSIZ(oldfmt, dp) \
+    DIRECTSIZ((dp)->d_namlen)
+#endif
+#define	OLDDIRFMT	1
+#define	NEWDIRFMT	0
+
+/*
+ * Template for manipulating directories.  Should use struct direct's,
+ * but the name field is MAXNAMLEN - 1, and this just won't do.
+ */
+struct dirtemplate {
+	u_int32_t	dot_ino;
+	int16_t		dot_reclen;
+	u_int8_t	dot_type;
+	u_int8_t	dot_namlen;
+	char		dot_name[4];	/* must be multiple of 4 */
+	u_int32_t	dotdot_ino;
+	int16_t		dotdot_reclen;
+	u_int8_t	dotdot_type;
+	u_int8_t	dotdot_namlen;
+	char		dotdot_name[4];	/* ditto */
+};
+
+/*
+ * This is the old format of directories, sanz type element.
+ */
+struct odirtemplate {
+	u_int32_t	dot_ino;
+	int16_t		dot_reclen;
+	u_int16_t	dot_namlen;
+	char		dot_name[4];	/* must be multiple of 4 */
+	u_int32_t	dotdot_ino;
+	int16_t		dotdot_reclen;
+	u_int16_t	dotdot_namlen;
+	char		dotdot_name[4];	/* ditto */
+};
+#endif /* !_DIR_H_ */
+===== include/freebsd-9.3/ufs/ufs/dirhash.h =====
+/*-
+ * Copyright (c) 2001 Ian Dowse.  All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * $FreeBSD: releng/9.3/sys/ufs/ufs/dirhash.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+
+#ifndef _UFS_UFS_DIRHASH_H_
+#define	_UFS_UFS_DIRHASH_H_
+
+#include <sys/_lock.h>
+#include <sys/_sx.h>
+
+/*
+ * For fast operations on large directories, we maintain a hash
+ * that maps the file name to the offset of the directory entry within
+ * the directory file.
+ *
+ * The hashing uses a dumb spillover to the next free slot on
+ * collisions, so we must keep the utilisation low to avoid
+ * long linear searches. Deleted entries that are not the last
+ * in a chain must be marked DIRHASH_DEL.
+ *
+ * We also maintain information about free space in each block
+ * to speed up creations.
+ */
+#define	DIRHASH_EMPTY	(-1)	/* entry unused */
+#define	DIRHASH_DEL	(-2)	/* deleted entry; may be part of chain */
+
+#define	DIRALIGN	4
+#define	DH_NFSTATS	(DIRECTSIZ(MAXNAMLEN + 1) / DIRALIGN)
+				 /* max DIRALIGN words in a directory entry */
+
+/*
+ * Dirhash uses a score mechanism to achieve a hybrid between a
+ * least-recently-used and a least-often-used algorithm for entry
+ * recycling. The score is incremented when a directory is used, and
+ * decremented when the directory is a candidate for recycling. When
+ * the score reaches zero, the hash is recycled. Hashes are linked
+ * together on a TAILQ list, and hashes with higher scores filter
+ * towards the tail (most recently used) end of the list.
+ *
+ * New hash entries are given an inital score of DH_SCOREINIT and are
+ * placed at the most-recently-used end of the list. This helps a lot
+ * in the worst-case case scenario where every directory access is
+ * to a directory that is not hashed (i.e. the working set of hash
+ * candidates is much larger than the configured memry limit). In this
+ * case it limits the number of hash builds to 1/DH_SCOREINIT of the
+ * number of accesses.
+ */ 
+#define	DH_SCOREINIT	8	/* initial dh_score when dirhash built */
+#define	DH_SCOREMAX	64	/* max dh_score value */
+
+/*
+ * The main hash table has 2 levels. It is an array of pointers to
+ * blocks of DH_NBLKOFF offsets.
+ */
+#define	DH_BLKOFFSHIFT	8
+#define	DH_NBLKOFF	(1 << DH_BLKOFFSHIFT)
+#define	DH_BLKOFFMASK	(DH_NBLKOFF - 1)
+
+#define	DH_ENTRY(dh, slot) \
+    ((dh)->dh_hash[(slot) >> DH_BLKOFFSHIFT][(slot) & DH_BLKOFFMASK])
+
+struct dirhash {
+	struct sx dh_lock;	/* protects all fields except list & score */
+	int	dh_refcount;
+
+	doff_t	**dh_hash;	/* the hash array (2-level) */
+	int	dh_narrays;	/* number of entries in dh_hash */
+	int	dh_hlen;	/* total slots in the 2-level hash array */
+	int	dh_hused;	/* entries in use */
+	int	dh_memreq;	/* Memory used. */
+
+	/* Free space statistics. XXX assumes DIRBLKSIZ is 512. */
+	u_int8_t *dh_blkfree;	/* free DIRALIGN words in each dir block */
+	int	dh_nblk;	/* size of dh_blkfree array */
+	int	dh_dirblks;	/* number of DIRBLKSIZ blocks in dir */
+	int	dh_firstfree[DH_NFSTATS + 1]; /* first blk with N words free */
+
+	doff_t	dh_seqoff;	/* sequential access optimisation offset */
+
+	int	dh_score;	/* access count for this dirhash */
+
+	int	dh_onlist;	/* true if on the ufsdirhash_list chain */
+
+	time_t	dh_lastused;	/* time the dirhash was last read or written*/
+
+	/* Protected by ufsdirhash_mtx. */
+	TAILQ_ENTRY(dirhash) dh_list;	/* chain of all dirhashes */
+};
+
+
+/*
+ * Dirhash functions.
+ */
+void	ufsdirhash_init(void);
+void	ufsdirhash_uninit(void);
+int	ufsdirhash_build(struct inode *);
+doff_t	ufsdirhash_findfree(struct inode *, int, int *);
+doff_t	ufsdirhash_enduseful(struct inode *);
+int	ufsdirhash_lookup(struct inode *, char *, int, doff_t *, struct buf **,
+	    doff_t *);
+void	ufsdirhash_newblk(struct inode *, doff_t);
+void	ufsdirhash_add(struct inode *, struct direct *, doff_t);
+void	ufsdirhash_remove(struct inode *, struct direct *, doff_t);
+void	ufsdirhash_move(struct inode *, struct direct *, doff_t, doff_t);
+void	ufsdirhash_dirtrunc(struct inode *, doff_t);
+void	ufsdirhash_free(struct inode *);
+
+void	ufsdirhash_checkblock(struct inode *, char *, doff_t);
+
+#endif /* !_UFS_UFS_DIRHASH_H_ */
+===== include/freebsd-9.3/ufs/ufs/extattr.h =====
+/*-
+ * Copyright (c) 1999-2001 Robert N. M. Watson
+ * All rights reserved.
+ *
+ * This software was developed by Robert Watson for the TrustedBSD Project.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * $FreeBSD: releng/9.3/sys/ufs/ufs/extattr.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+/*
+ * Developed by the TrustedBSD Project.
+ * Support for extended filesystem attributes.
+ */
+
+#ifndef _UFS_UFS_EXTATTR_H_
+#define	_UFS_UFS_EXTATTR_H_
+
+#define	UFS_EXTATTR_MAGIC		0x00b5d5ec
+#define	UFS_EXTATTR_VERSION		0x00000003
+#define	UFS_EXTATTR_FSROOTSUBDIR	".attribute"
+#define	UFS_EXTATTR_SUBDIR_SYSTEM	"system"
+#define	UFS_EXTATTR_SUBDIR_USER		"user"
+#define	UFS_EXTATTR_MAXEXTATTRNAME	65	/* including null */
+
+#define	UFS_EXTATTR_ATTR_FLAG_INUSE	0x00000001	/* attr has been set */
+#define	UFS_EXTATTR_PERM_KERNEL		0x00000000
+#define	UFS_EXTATTR_PERM_ROOT		0x00000001
+#define	UFS_EXTATTR_PERM_OWNER		0x00000002
+#define	UFS_EXTATTR_PERM_ANYONE		0x00000003
+
+#define	UFS_EXTATTR_UEPM_INITIALIZED	0x00000001
+#define	UFS_EXTATTR_UEPM_STARTED	0x00000002
+
+#define	UFS_EXTATTR_CMD_START		0x00000001
+#define	UFS_EXTATTR_CMD_STOP		0x00000002
+#define	UFS_EXTATTR_CMD_ENABLE		0x00000003
+#define	UFS_EXTATTR_CMD_DISABLE		0x00000004
+
+struct ufs_extattr_fileheader {
+	u_int	uef_magic;	/* magic number for sanity checking */
+	u_int	uef_version;	/* version of attribute file */
+	u_int	uef_size;	/* size of attributes, w/o header */
+};
+
+struct ufs_extattr_header {
+	u_int	ueh_flags;	/* flags for attribute */
+	u_int	ueh_len;	/* local defined length; <= uef_size */
+	u_int32_t	ueh_i_gen;	/* generation number for sanity */
+	/* data follows the header */
+};
+
+/*
+ * This structure defines the required fields of an extended-attribute header.
+ */
+struct extattr {
+	int32_t	ea_length;	    /* length of this attribute */
+	int8_t	ea_namespace;	    /* name space of this attribute */
+	int8_t	ea_contentpadlen;   /* bytes of padding at end of attribute */
+	int8_t	ea_namelength;	    /* length of attribute name */
+	char	ea_name[1];	    /* null-terminated attribute name */
+	/* extended attribute content follows */
+};
+
+/*
+ * These macros are used to access and manipulate an extended attribute:
+ *
+ * EXTATTR_NEXT(eap) returns a pointer to the next extended attribute
+ *	following eap.
+ * EXTATTR_CONTENT(eap) returns a pointer to the extended attribute
+ *	content referenced by eap.
+ * EXTATTR_CONTENT_SIZE(eap) returns the size of the extended attribute
+ *	content referenced by eap.
+ * EXTATTR_SET_LENGTHS(eap, contentsize) called after initializing the
+ *	attribute name to calculate and set the ea_length, ea_namelength,
+ *	and ea_contentpadlen fields of the extended attribute structure.
+ */
+#define	EXTATTR_NEXT(eap) \
+	((struct extattr *)(((void *)(eap)) + (eap)->ea_length))
+#define	EXTATTR_CONTENT(eap) (((void *)(eap)) + EXTATTR_BASE_LENGTH(eap))
+#define	EXTATTR_CONTENT_SIZE(eap) \
+	((eap)->ea_length - EXTATTR_BASE_LENGTH(eap) - (eap)->ea_contentpadlen)
+#define	EXTATTR_BASE_LENGTH(eap) \
+	((sizeof(struct extattr) + (eap)->ea_namelength + 7) & ~7)
+#define	EXTATTR_SET_LENGTHS(eap, contentsize) do { \
+	KASSERT(((eap)->ea_name[0] != 0), \
+		("Must initialize name before setting lengths")); \
+	(eap)->ea_namelength = strlen((eap)->ea_name); \
+	(eap)->ea_contentpadlen = ((contentsize) % 8) ? \
+		8 - ((contentsize) % 8) : 0; \
+	(eap)->ea_length = EXTATTR_BASE_LENGTH(eap) + \
+		(contentsize) + (eap)->ea_contentpadlen; \
+} while (0)
+
+#ifdef _KERNEL
+
+#include <sys/_sx.h>
+
+#ifdef MALLOC_DECLARE
+MALLOC_DECLARE(M_EXTATTR);
+#endif
+
+struct vnode;
+LIST_HEAD(ufs_extattr_list_head, ufs_extattr_list_entry);
+struct ufs_extattr_list_entry {
+	LIST_ENTRY(ufs_extattr_list_entry)	uele_entries;
+	struct ufs_extattr_fileheader		uele_fileheader;
+	int	uele_attrnamespace;
+	char	uele_attrname[UFS_EXTATTR_MAXEXTATTRNAME];
+	struct vnode	*uele_backing_vnode;
+};
+
+struct ucred;
+struct ufs_extattr_per_mount {
+	struct sx	uepm_lock;
+	struct ufs_extattr_list_head	uepm_list;
+	struct ucred	*uepm_ucred;
+	int	uepm_flags;
+};
+
+void	ufs_extattr_uepm_init(struct ufs_extattr_per_mount *uepm);
+void	ufs_extattr_uepm_destroy(struct ufs_extattr_per_mount *uepm);
+int	ufs_extattr_start(struct mount *mp, struct thread *td);
+int	ufs_extattr_autostart(struct mount *mp, struct thread *td);
+int	ufs_extattr_stop(struct mount *mp, struct thread *td);
+int	ufs_extattrctl(struct mount *mp, int cmd, struct vnode *filename,
+	    int attrnamespace, const char *attrname);
+int	ufs_getextattr(struct vop_getextattr_args *ap);
+int	ufs_deleteextattr(struct vop_deleteextattr_args *ap);
+int	ufs_setextattr(struct vop_setextattr_args *ap);
+void	ufs_extattr_vnode_inactive(struct vnode *vp, struct thread *td);
+
+#else
+
+/* User-level definition of KASSERT for macros above */
+#define	KASSERT(cond, str) do { \
+        if (!(cond)) { printf("panic: "); printf(str); printf("\n"); exit(1); }\
+} while (0)
+
+#endif /* !_KERNEL */
+
+#endif /* !_UFS_UFS_EXTATTR_H_ */
+===== include/freebsd-9.3/ufs/ufs/gjournal.h =====
+/*-
+ * Copyright (c) 2005-2006 Pawel Jakub Dawidek <pjd@FreeBSD.org>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHORS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * $FreeBSD: releng/9.3/sys/ufs/ufs/gjournal.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+
+#ifndef _UFS_UFS_GJOURNAL_H_
+#define	_UFS_UFS_GJOURNAL_H_
+
+/*
+ * GEOM journal function prototypes.
+ */
+void	ufs_gjournal_orphan(struct vnode *fvp);
+void	ufs_gjournal_close(struct vnode *vp);
+#endif /* !_UFS_UFS_GJOURNAL_H_ */
+===== include/freebsd-9.3/ufs/ufs/inode.h =====
+/*-
+ * Copyright (c) 1982, 1989, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ * (c) UNIX System Laboratories, Inc.
+ * All or some portions of this file are derived from material licensed
+ * to the University of California by American Telephone and Telegraph
+ * Co. or Unix System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 4. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)inode.h	8.9 (Berkeley) 5/14/95
+ * $FreeBSD: releng/9.3/sys/ufs/ufs/inode.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+
+#ifndef _UFS_UFS_INODE_H_
+#define	_UFS_UFS_INODE_H_
+
+#include <sys/lock.h>
+#include <sys/queue.h>
+#include <ufs/ufs/dinode.h>
+
+/*
+ * This must agree with the definition in <ufs/ufs/dir.h>.
+ */
+#define	doff_t		int32_t
+
+/*
+ * The inode is used to describe each active (or recently active) file in the
+ * UFS filesystem. It is composed of two types of information. The first part
+ * is the information that is needed only while the file is active (such as
+ * the identity of the file and linkage to speed its lookup). The second part
+ * is the permanent meta-data associated with the file which is read in
+ * from the permanent dinode from long term storage when the file becomes
+ * active, and is put back when the file is no longer being used.
+ *
+ * An inode may only be changed while holding either the exclusive
+ * vnode lock or the shared vnode lock and the vnode interlock. We use
+ * the latter only for "read" and "get" operations that require
+ * changing i_flag, or a timestamp. This locking protocol allows executing
+ * those operations without having to upgrade the vnode lock from shared to
+ * exclusive.
+ */
+struct inode {
+	TAILQ_ENTRY(inode) i_nextsnap; /* snapshot file list. */
+	struct	vnode  *i_vnode;/* Vnode associated with this inode. */
+	struct	ufsmount *i_ump;/* Ufsmount point associated with this inode. */
+	u_int32_t i_flag;	/* flags, see below */
+	struct cdev *i_dev;	/* Device associated with the inode. */
+	ino_t	  i_number;	/* The identity of the inode. */
+	int	  i_effnlink;	/* i_nlink when I/O completes */
+
+	struct	 fs *i_fs;	/* Associated filesystem superblock. */
+	struct	 dquot *i_dquot[MAXQUOTAS]; /* Dquot structures. */
+	/*
+	 * Side effects; used during directory lookup.
+	 */
+	int32_t	  i_count;	/* Size of free slot in directory. */
+	doff_t	  i_endoff;	/* End of useful stuff in directory. */
+	doff_t	  i_diroff;	/* Offset in dir, where we found last entry. */
+	doff_t	  i_offset;	/* Offset of free space in directory. */
+
+	union {
+		struct dirhash *dirhash; /* Hashing for large directories. */
+		daddr_t *snapblklist;    /* Collect expunged snapshot blocks. */
+	} i_un;
+
+	/*
+	 * Data for extended attribute modification.
+ 	 */
+	u_char	  *i_ea_area;	/* Pointer to malloced copy of EA area */
+	unsigned  i_ea_len;	/* Length of i_ea_area */
+	int	  i_ea_error;	/* First errno in transaction */
+	int	  i_ea_refs;	/* Number of users of EA area */
+
+	/*
+	 * Copies from the on-disk dinode itself.
+	 */
+	u_int16_t i_mode;	/* IFMT, permissions; see below. */
+	int16_t	  i_nlink;	/* File link count. */
+	u_int64_t i_size;	/* File byte count. */
+	u_int32_t i_flags;	/* Status flags (chflags). */
+	u_int64_t i_gen;	/* Generation number. */
+	u_int32_t i_uid;	/* File owner. */
+	u_int32_t i_gid;	/* File group. */
+	/*
+	 * The real copy of the on-disk inode.
+	 */
+	union {
+		struct ufs1_dinode *din1;	/* UFS1 on-disk dinode. */
+		struct ufs2_dinode *din2;	/* UFS2 on-disk dinode. */
+	} dinode_u;
+};
+/*
+ * These flags are kept in i_flag.
+ */
+#define	IN_ACCESS	0x0001		/* Access time update request. */
+#define	IN_CHANGE	0x0002		/* Inode change time update request. */
+#define	IN_UPDATE	0x0004		/* Modification time update request. */
+#define	IN_MODIFIED	0x0008		/* Inode has been modified. */
+#define	IN_NEEDSYNC	0x0010		/* Inode requires fsync. */
+#define	IN_LAZYMOD	0x0040		/* Modified, but don't write yet. */
+#define	IN_LAZYACCESS	0x0100		/* Process IN_ACCESS after the
+					   suspension finished */
+#define	IN_EA_LOCKED	0x0200
+#define	IN_EA_LOCKWAIT	0x0400
+
+#define	IN_TRUNCATED	0x0800		/* Journaled truncation pending. */
+
+#define	i_devvp i_ump->um_devvp
+#define	i_umbufobj i_ump->um_bo
+#define	i_dirhash i_un.dirhash
+#define	i_snapblklist i_un.snapblklist
+#define	i_din1 dinode_u.din1
+#define	i_din2 dinode_u.din2
+
+#ifdef _KERNEL
+/*
+ * The DIP macro is used to access fields in the dinode that are
+ * not cached in the inode itself.
+ */
+#define	DIP(ip, field) \
+	(((ip)->i_ump->um_fstype == UFS1) ? \
+	(ip)->i_din1->d##field : (ip)->i_din2->d##field)
+#define	DIP_SET(ip, field, val) do { \
+	if ((ip)->i_ump->um_fstype == UFS1) \
+		(ip)->i_din1->d##field = (val); \
+	else \
+		(ip)->i_din2->d##field = (val); \
+	} while (0)
+
+#define	SHORTLINK(ip) \
+	(((ip)->i_ump->um_fstype == UFS1) ? \
+	(caddr_t)(ip)->i_din1->di_db : (caddr_t)(ip)->i_din2->di_db)
+#define	IS_SNAPSHOT(ip)		((ip)->i_flags & SF_SNAPSHOT)
+
+/*
+ * Structure used to pass around logical block paths generated by
+ * ufs_getlbns and used by truncate and bmap code.
+ */
+struct indir {
+	ufs2_daddr_t in_lbn;		/* Logical block number. */
+	int	in_off;			/* Offset in buffer. */
+};
+
+/* Convert between inode pointers and vnode pointers. */
+#define	VTOI(vp)	((struct inode *)(vp)->v_data)
+#define	ITOV(ip)	((ip)->i_vnode)
+
+/* Determine if soft dependencies are being done */
+#define	DOINGSOFTDEP(vp)   ((vp)->v_mount->mnt_flag & (MNT_SOFTDEP | MNT_SUJ))
+#define	MOUNTEDSOFTDEP(mp) ((mp)->mnt_flag & (MNT_SOFTDEP | MNT_SUJ))
+#define	DOINGSUJ(vp)	   ((vp)->v_mount->mnt_flag & MNT_SUJ)
+#define	MOUNTEDSUJ(mp)	   ((mp)->mnt_flag & MNT_SUJ)
+
+/* This overlays the fid structure (see mount.h). */
+struct ufid {
+	u_int16_t ufid_len;	/* Length of structure. */
+===== include/freebsd-9.3/ufs/ufs/quota.h =====
+/*-
+ * Copyright (c) 1982, 1986, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * This code is derived from software contributed to Berkeley by
+ * Robert Elz at The University of Melbourne.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 4. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)quota.h	8.3 (Berkeley) 8/19/94
+ * $FreeBSD: releng/9.3/sys/ufs/ufs/quota.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+
+#ifndef _UFS_UFS_QUOTA_H_
+#define	_UFS_UFS_QUOTA_H_
+
+/*
+ * Definitions for disk quotas imposed on the average user
+ * (big brother finally hits UNIX).
+ *
+ * The following constants define the amount of time given a user before the
+ * soft limits are treated as hard limits (usually resulting in an allocation
+ * failure). The timer is started when the user crosses their soft limit, it
+ * is reset when they go below their soft limit.
+ */
+#define	MAX_IQ_TIME	(7*24*60*60)	/* seconds in 1 week */
+#define	MAX_DQ_TIME	(7*24*60*60)	/* seconds in 1 week */
+
+/*
+ * The following constants define the usage of the quota file array in the
+ * ufsmount structure and dquot array in the inode structure.  The semantics
+ * of the elements of these arrays are defined in the routine getinoquota;
+ * the remainder of the quota code treats them generically and need not be
+ * inspected when changing the size of the array.
+ */
+#define	MAXQUOTAS	2
+#define	USRQUOTA	0	/* element used for user quotas */
+#define	GRPQUOTA	1	/* element used for group quotas */
+
+/*
+ * Definitions for the default names of the quotas files.
+ */
+#define	INITQFNAMES { \
+	"user",		/* USRQUOTA */ \
+	"group",	/* GRPQUOTA */ \
+	"undefined", \
+}
+#define	QUOTAFILENAME	"quota"
+#define	QUOTAGROUP	"operator"
+
+/*
+ * Command definitions for the 'quotactl' system call.  The commands are
+ * broken into a main command defined below and a subcommand that is used
+ * to convey the type of quota that is being manipulated (see above).
+ */
+#define	SUBCMDMASK	0x00ff
+#define	SUBCMDSHIFT	8
+#define	QCMD(cmd, type)	(((cmd) << SUBCMDSHIFT) | ((type) & SUBCMDMASK))
+
+#define	Q_QUOTAON	0x0100	/* enable quotas */
+#define	Q_QUOTAOFF	0x0200	/* disable quotas */
+#define	Q_GETQUOTA32	0x0300	/* get limits and usage (32-bit version) */
+#define	Q_SETQUOTA32	0x0400	/* set limits and usage (32-bit version) */
+#define	Q_SETUSE32	0x0500	/* set usage (32-bit version) */
+#define	Q_SYNC		0x0600	/* sync disk copy of a filesystems quotas */
+#define	Q_GETQUOTA	0x0700	/* get limits and usage (64-bit version) */
+#define	Q_SETQUOTA	0x0800	/* set limits and usage (64-bit version) */
+#define	Q_SETUSE	0x0900	/* set usage (64-bit version) */
+#define	Q_GETQUOTASIZE	0x0A00	/* get bit-size of quota file fields */
+
+/*
+ * The following structure defines the format of the disk quota file
+ * (as it appears on disk) - the file is an array of these structures
+ * indexed by user or group number.  The setquota system call establishes
+ * the vnode for each quota file (a pointer is retained in the ufsmount
+ * structure).
+ */
+struct dqblk32 {
+	u_int32_t dqb_bhardlimit;	/* absolute limit on disk blks alloc */
+	u_int32_t dqb_bsoftlimit;	/* preferred limit on disk blks */
+	u_int32_t dqb_curblocks;	/* current block count */
+	u_int32_t dqb_ihardlimit;	/* maximum # allocated inodes + 1 */
+	u_int32_t dqb_isoftlimit;	/* preferred inode limit */
+	u_int32_t dqb_curinodes;	/* current # allocated inodes */
+	int32_t   dqb_btime;		/* time limit for excessive disk use */
+	int32_t   dqb_itime;		/* time limit for excessive files */
+};
+
+struct dqblk64 {
+	u_int64_t dqb_bhardlimit;	/* absolute limit on disk blks alloc */
+	u_int64_t dqb_bsoftlimit;	/* preferred limit on disk blks */
+	u_int64_t dqb_curblocks;	/* current block count */
+	u_int64_t dqb_ihardlimit;	/* maximum # allocated inodes + 1 */
+	u_int64_t dqb_isoftlimit;	/* preferred inode limit */
+	u_int64_t dqb_curinodes;	/* current # allocated inodes */
+	int64_t   dqb_btime;		/* time limit for excessive disk use */
+	int64_t   dqb_itime;		/* time limit for excessive files */
+};
+
+#define	dqblk dqblk64
+
+#define	Q_DQHDR64_MAGIC "QUOTA64"
+#define	Q_DQHDR64_VERSION 0x20081104
+
+struct dqhdr64 {
+	char	  dqh_magic[8];		/* Q_DQHDR64_MAGIC */
+	uint32_t  dqh_version;		/* Q_DQHDR64_VERSION */
+	uint32_t  dqh_hdrlen;		/* header length */
+	uint32_t  dqh_reclen;		/* record length */
+	char	  dqh_unused[44];	/* reserved for future extension */
+};
+
+#ifdef _KERNEL
+
+#include <sys/queue.h>
+
+/*
+ * The following structure records disk usage for a user or group on a
+ * filesystem. There is one allocated for each quota that exists on any
+ * filesystem for the current user or group. A cache is kept of recently
+ * used entries.
+ * (h) protected by dqhlock
+ */
+struct dquot {
+	LIST_ENTRY(dquot) dq_hash;	/* (h) hash list */
+	TAILQ_ENTRY(dquot) dq_freelist;	/* (h) free list */
+	struct mtx dq_lock;		/* lock for concurrency */
+	u_int16_t dq_flags;		/* flags, see below */
+	u_int16_t dq_type;		/* quota type of this dquot */
+	u_int32_t dq_cnt;		/* (h) count of active references */
+	u_int32_t dq_id;		/* identifier this applies to */
+	struct ufsmount *dq_ump;	/* (h) filesystem that this is
+					   taken from */
+	struct dqblk64 dq_dqb;		/* actual usage & quotas */
+};
+/*
+ * Flag values.
+ */
+#define	DQ_LOCK		0x01		/* this quota locked (no MODS) */
+#define	DQ_WANT		0x02		/* wakeup on unlock */
+#define	DQ_MOD		0x04		/* this quota modified since read */
+#define	DQ_FAKE		0x08		/* no limits here, just usage */
+#define	DQ_BLKS		0x10		/* has been warned about blk limit */
+#define	DQ_INODS	0x20		/* has been warned about inode limit */
+/*
+ * Shorthand notation.
+ */
+#define	dq_bhardlimit	dq_dqb.dqb_bhardlimit
+#define	dq_bsoftlimit	dq_dqb.dqb_bsoftlimit
+#define	dq_curblocks	dq_dqb.dqb_curblocks
+#define	dq_ihardlimit	dq_dqb.dqb_ihardlimit
+#define	dq_isoftlimit	dq_dqb.dqb_isoftlimit
+#define	dq_curinodes	dq_dqb.dqb_curinodes
+#define	dq_btime	dq_dqb.dqb_btime
+#define	dq_itime	dq_dqb.dqb_itime
+
+/*
+ * If the system has never checked for a quota for this file, then it is
+===== include/freebsd-9.3/ufs/ufs/ufs_extern.h =====
+/*-
+ * Copyright (c) 1991, 1993, 1994
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 4. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)ufs_extern.h	8.10 (Berkeley) 5/14/95
+ * $FreeBSD: releng/9.3/sys/ufs/ufs/ufs_extern.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+
+#ifndef _UFS_UFS_EXTERN_H_
+#define	_UFS_UFS_EXTERN_H_
+
+struct componentname;
+struct direct;
+struct indir;
+struct inode;
+struct mount;
+struct thread;
+struct sockaddr;
+struct ucred;
+struct ufid;
+struct vfsconf;
+struct vnode;
+struct vop_bmap_args;
+struct vop_cachedlookup_args;
+struct vop_generic_args;
+struct vop_inactive_args;
+struct vop_reclaim_args;
+
+extern struct vop_vector ufs_fifoops;
+extern struct vop_vector ufs_vnodeops;
+
+int	 ufs_bmap(struct vop_bmap_args *);
+int	 ufs_bmaparray(struct vnode *, ufs2_daddr_t, ufs2_daddr_t *,
+	    struct buf *, int *, int *);
+int	 ufs_fhtovp(struct mount *, struct ufid *, int, struct vnode **);
+int	 ufs_checkpath(ino_t, ino_t, struct inode *, struct ucred *, ino_t *);
+void	 ufs_dirbad(struct inode *, doff_t, char *);
+int	 ufs_dirbadentry(struct vnode *, struct direct *, int);
+int	 ufs_dirempty(struct inode *, ino_t, struct ucred *);
+int	 ufs_extread(struct vop_read_args *);
+int	 ufs_extwrite(struct vop_write_args *);
+void	 ufs_makedirentry(struct inode *, struct componentname *,
+	    struct direct *);
+int	 ufs_direnter(struct vnode *, struct vnode *, struct direct *,
+	    struct componentname *, struct buf *, int);
+int	 ufs_dirremove(struct vnode *, struct inode *, int, int);
+int	 ufs_dirrewrite(struct inode *, struct inode *, ino_t, int, int);
+int	 ufs_lookup_ino(struct vnode *, struct vnode **, struct componentname *,
+	    ino_t *);
+int	 ufs_getlbns(struct vnode *, ufs2_daddr_t, struct indir *, int *);
+int	 ufs_inactive(struct vop_inactive_args *);
+int	 ufs_init(struct vfsconf *);
+void	 ufs_itimes(struct vnode *vp);
+int	 ufs_lookup(struct vop_cachedlookup_args *);
+void	 ufs_prepare_reclaim(struct vnode *vp);
+int	 ufs_readdir(struct vop_readdir_args *);
+int	 ufs_reclaim(struct vop_reclaim_args *);
+void	 ffs_snapgone(struct inode *);
+vfs_root_t ufs_root;
+int	 ufs_uninit(struct vfsconf *);
+int	 ufs_vinit(struct mount *, struct vop_vector *, struct vnode **);
+
+#include <sys/sysctl.h>
+SYSCTL_DECL(_vfs_ufs);
+
+/*
+ * Soft update function prototypes.
+ */
+int	softdep_setup_directory_add(struct buf *, struct inode *, off_t,
+	    ino_t, struct buf *, int);
+void	softdep_change_directoryentry_offset(struct buf *, struct inode *,
+	    caddr_t, caddr_t, caddr_t, int);
+void	softdep_setup_remove(struct buf *,struct inode *, struct inode *, int);
+void	softdep_setup_directory_change(struct buf *, struct inode *,
+	    struct inode *, ino_t, int);
+void	softdep_change_linkcnt(struct inode *);
+void	softdep_releasefile(struct inode *);
+int	softdep_slowdown(struct vnode *);
+void	softdep_setup_create(struct inode *, struct inode *);
+void	softdep_setup_dotdot_link(struct inode *, struct inode *);
+void	softdep_setup_link(struct inode *, struct inode *);
+void	softdep_setup_mkdir(struct inode *, struct inode *);
+void	softdep_setup_rmdir(struct inode *, struct inode *);
+void	softdep_setup_unlink(struct inode *, struct inode *);
+void	softdep_revert_create(struct inode *, struct inode *);
+void	softdep_revert_dotdot_link(struct inode *, struct inode *);
+void	softdep_revert_link(struct inode *, struct inode *);
+void	softdep_revert_mkdir(struct inode *, struct inode *);
+void	softdep_revert_rmdir(struct inode *, struct inode *);
+
+/*
+ * Flags to low-level allocation routines.  The low 16-bits are reserved
+ * for IO_ flags from vnode.h.
+ *
+ * Note: The general vfs code typically limits the sequential heuristic
+ * count to 127.  See sequential_heuristic() in kern/vfs_vnops.c
+ */
+#define	BA_CLRBUF	0x00010000	/* Clear invalid areas of buffer. */
+#define	BA_METAONLY	0x00020000	/* Return indirect block buffer. */
+#define	BA_UNMAPPED	0x00040000	/* Do not mmap resulted buffer. */
+#define	BA_SEQMASK	0x7F000000	/* Bits holding seq heuristic. */
+#define	BA_SEQSHIFT	24
+#define	BA_SEQMAX	0x7F
+
+#endif /* !_UFS_UFS_EXTERN_H_ */
+===== include/freebsd-9.3/ufs/ufs/ufsmount.h =====
+/*-
+ * Copyright (c) 1982, 1986, 1989, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 4. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)ufsmount.h	8.6 (Berkeley) 3/30/95
+ * $FreeBSD: releng/9.3/sys/ufs/ufs/ufsmount.h 262780 2014-03-05 04:27:15Z pfg $
+ */
+
+#ifndef _UFS_UFS_UFSMOUNT_H_
+#define	_UFS_UFS_UFSMOUNT_H_
+
+#include <sys/buf.h>	/* XXX For struct workhead. */
+
+/*
+ * Arguments to mount UFS-based filesystems
+ */
+struct ufs_args {
+	char	*fspec;			/* block special device to mount */
+	struct	oexport_args export;	/* network export information */
+};
+
+#ifdef _KERNEL
+
+#ifdef MALLOC_DECLARE
+MALLOC_DECLARE(M_UFSMNT);
+#endif
+
+struct buf;
+struct inode;
+struct nameidata;
+struct timeval;
+struct ucred;
+struct uio;
+struct vnode;
+struct ufs_extattr_per_mount;
+struct jblocks;
+struct inodedep;
+
+TAILQ_HEAD(inodedeplst, inodedep);
+LIST_HEAD(bmsafemaphd, bmsafemap);
+
+/* This structure describes the UFS specific mount structure data. */
+struct ufsmount {
+	struct	mount *um_mountp;		/* filesystem vfs structure */
+	struct	cdev *um_dev;			/* device mounted */
+	struct	g_consumer *um_cp;
+	struct	bufobj *um_bo;			/* Buffer cache object */
+	struct	vnode *um_devvp;		/* block device mounted vnode */
+	u_long	um_fstype;			/* type of filesystem */
+	struct	fs *um_fs;			/* pointer to superblock */
+	struct	ufs_extattr_per_mount um_extattr;	/* extended attrs */
+	u_long	um_nindir;			/* indirect ptrs per block */
+	u_long	um_bptrtodb;			/* indir ptr to disk block */
+	u_long	um_seqinc;			/* inc between seq blocks */
+	struct	mtx um_lock;			/* Protects ufsmount & fs */
+	pid_t	um_fsckpid;			/* PID permitted fsck sysctls */
+	long	um_numindirdeps;		/* outstanding indirdeps */
+	struct	workhead softdep_workitem_pending; /* softdep work queue */
+	struct	worklist *softdep_worklist_tail; /* Tail pointer for above */
+	struct	workhead softdep_journal_pending; /* journal work queue */
+	struct	worklist *softdep_journal_tail;	/* Tail pointer for above */
+	struct	jblocks *softdep_jblocks;	/* Journal block information */
+	struct	inodedeplst softdep_unlinked;	/* Unlinked inodes */
+	struct	bmsafemaphd softdep_dirtycg;	/* Dirty CGs */
+	int	softdep_on_journal;		/* Items on the journal list */
+	int	softdep_on_worklist;		/* Items on the worklist */
+	int	softdep_deps;			/* Total dependency count */
+	int	softdep_accdeps;		/* accumulated dep count */
+	int	softdep_req;			/* Wakeup when deps hits 0. */
+	struct	vnode *um_quotas[MAXQUOTAS];	/* pointer to quota files */
+	struct	ucred *um_cred[MAXQUOTAS];	/* quota file access cred */
+	time_t	um_btime[MAXQUOTAS];		/* block quota time limit */
+	time_t	um_itime[MAXQUOTAS];		/* inode quota time limit */
+	char	um_qflags[MAXQUOTAS];		/* quota specific flags */
+	int64_t	um_savedmaxfilesize;		/* XXX - limit maxfilesize */
+	int	um_candelete;			/* devvp supports TRIM */
+	int	um_writesuspended;		/* suspension in progress */
+	int	(*um_balloc)(struct vnode *, off_t, int, struct ucred *, int, struct buf **);
+	int	(*um_blkatoff)(struct vnode *, off_t, char **, struct buf **);
+	int	(*um_truncate)(struct vnode *, off_t, int, struct ucred *, struct thread *);
+	int	(*um_update)(struct vnode *, int);
+	int	(*um_valloc)(struct vnode *, int, struct ucred *, struct vnode **);
+	int	(*um_vfree)(struct vnode *, ino_t, int);
+	void	(*um_ifree)(struct ufsmount *, struct inode *);
+	int	(*um_rdonly)(struct inode *);
+	void	(*um_snapgone)(struct inode *);
+};
+
+#define UFS_BALLOC(aa, bb, cc, dd, ee, ff) VFSTOUFS((aa)->v_mount)->um_balloc(aa, bb, cc, dd, ee, ff)
+#define UFS_BLKATOFF(aa, bb, cc, dd) VFSTOUFS((aa)->v_mount)->um_blkatoff(aa, bb, cc, dd)
+#define UFS_TRUNCATE(aa, bb, cc, dd, ee) VFSTOUFS((aa)->v_mount)->um_truncate(aa, bb, cc, dd, ee)
+#define UFS_UPDATE(aa, bb) VFSTOUFS((aa)->v_mount)->um_update(aa, bb)
+#define UFS_VALLOC(aa, bb, cc, dd) VFSTOUFS((aa)->v_mount)->um_valloc(aa, bb, cc, dd)
+#define UFS_VFREE(aa, bb, cc) VFSTOUFS((aa)->v_mount)->um_vfree(aa, bb, cc)
+#define UFS_IFREE(aa, bb) ((aa)->um_ifree(aa, bb))
+#define	UFS_RDONLY(aa) ((aa)->i_ump->um_rdonly(aa))
+#define	UFS_SNAPGONE(aa) ((aa)->i_ump->um_snapgone(aa))
+
+#define	UFS_LOCK(aa)	mtx_lock(&(aa)->um_lock)
+#define	UFS_UNLOCK(aa)	mtx_unlock(&(aa)->um_lock)
+#define	UFS_MTX(aa)	(&(aa)->um_lock)
+
+/*
+ * Filesystem types
+ */
+#define	UFS1	1
+#define	UFS2	2
+
+/*
+ * Flags describing the state of quotas.
+ */
+#define	QTF_OPENING	0x01			/* Q_QUOTAON in progress */
+#define	QTF_CLOSING	0x02			/* Q_QUOTAOFF in progress */
+#define	QTF_64BIT	0x04			/* 64-bit quota file */
+
+/* Convert mount ptr to ufsmount ptr. */
+#define	VFSTOUFS(mp)	((struct ufsmount *)((mp)->mnt_data))
+#define	UFSTOVFS(ump)	(ump)->um_mountp
+
+/*
+ * Macros to access filesystem parameters in the ufsmount structure.
+ * Used by ufs_bmap.
+ */
+#define	MNINDIR(ump)			((ump)->um_nindir)
+#define	blkptrtodb(ump, b)		((b) << (ump)->um_bptrtodb)
+#define	is_sequential(ump, a, b)	((b) == (a) + ump->um_seqinc)
+#endif /* _KERNEL */
+
+#endif
+===== libufs/Makefile =====
+#   Copyright (C) 2026 John Törnblom
+#
+# This file is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; see the file COPYING. If not see
+# <http://www.gnu.org/licenses/>.
+
+DESTDIR ?= /opt/ps4-payload-sdk
+
+LLVM_CONFIG_CANDIDATES := llvm-config-21 \
+                          llvm-config-20 llvm-config-19 llvm-config-18 \
+                          llvm-config-17 llvm-config-16 llvm-config-15 \
+                          llvm-config
+LLVM_CONFIG_CANDIDATES := $(foreach LCC,$(LLVM_CONFIG_CANDIDATES), \
+                          $(if $(shell command -v $(LCC) 2>/dev/null), $(LCC)))
+
+LLVM_CONFIG ?= $(firstword $(LLVM_CONFIG_CANDIDATES))
+ifndef LLVM_CONFIG
+    $(error Unable to find llvm-config)
+endif
+
+LLVM_BINDIR := $(shell $(LLVM_CONFIG) --bindir)
+CC := $(LLVM_BINDIR)/clang
+AR := $(LLVM_BINDIR)/llvm-ar
+
+CFLAGS := -target x86_64-scie-ps4 -fPIC  -fno-plt -fno-stack-protector
+CFLAGS += -nobuiltininc -isystem ../include/freebsd-9.3
+CFLAGS += -fvisibility-nodllstorageclass=default
+CFLAGS += -O1 -D_LIBUFS
+
+ASFLAGS := $(CFLAGS)
+
+SRCS := $(wildcard *.c)
+OBJS := $(SRCS:.c=.o)
+
+ARCHIVE := libufs.a
+
+.PHONY: all clean install
+
+all: $(ARCHIVE)
+
+$(ARCHIVE): $(OBJS)
+	$(AR) -rsc $@ $^
+
+clean:
+	rm -f *.a *.o
+
+install: $(ARCHIVE)
+	install -d $(DESTDIR)/target/lib
+	install $^ $(DESTDIR)/target/lib
+===== libufs/block.c =====
+/*
+ * Copyright (c) 2002 Juli Mallett.  All rights reserved.
+ *
+ * This software was written by Juli Mallett <jmallett@FreeBSD.org> for the
+ * FreeBSD project.  Redistribution and use in source and binary forms, with
+ * or without modification, are permitted provided that the following
+ * conditions are met:
+ *
+ * 1. Redistribution of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistribution in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#include <sys/cdefs.h>
+__FBSDID("$FreeBSD$");
+
+#include <sys/param.h>
+#include <sys/mount.h>
+#include <sys/disk.h>
+#include <sys/disklabel.h>
+#include <sys/stat.h>
+
+#include <ufs/ufs/ufsmount.h>
+#include <ufs/ufs/dinode.h>
+#include <ufs/ffs/fs.h>
+
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include <libufs.h>
+
+ssize_t
+bread(struct uufsd *disk, ufs2_daddr_t blockno, void *data, size_t size)
+{
+	void *p2;
+	ssize_t cnt;
+
+	ERROR(disk, NULL);
+
+	p2 = data;
+	/*
+	 * XXX: various disk controllers require alignment of our buffer
+	 * XXX: which is stricter than struct alignment.
+	 * XXX: Bounce the buffer if not 64 byte aligned.
+	 * XXX: this can be removed if/when the kernel is fixed
+	 */
+	if (((intptr_t)data) & 0x3f) {
+		p2 = malloc(size);
+		if (p2 == NULL) {
+			ERROR(disk, "allocate bounce buffer");
+			goto fail;
+		}
+	}
+	cnt = pread(disk->d_fd, p2, size, (off_t)(blockno * disk->d_bsize));
+	if (cnt == -1) {
+		ERROR(disk, "read error from block device");
+		goto fail;
+	}
+	if (cnt == 0) {
+		ERROR(disk, "end of file from block device");
+		goto fail;
+	}
+	if ((size_t)cnt != size) {
+		ERROR(disk, "short read or read error from block device");
+		goto fail;
+	}
+	if (p2 != data) {
+		memcpy(data, p2, size);
+		free(p2);
+	}
+	return (cnt);
+fail:	memset(data, 0, size);
+	if (p2 != data) {
+		free(p2);
+	}
+	return (-1);
+}
+
+ssize_t
+bwrite(struct uufsd *disk, ufs2_daddr_t blockno, const void *data, size_t size)
+{
+	ssize_t cnt;
+	int rv;
+	void *p2 = NULL;
+
+	ERROR(disk, NULL);
+
+	rv = ufs_disk_write(disk);
+	if (rv == -1) {
+		ERROR(disk, "failed to open disk for writing");
+		return (-1);
+	}
+
+	/*
+	 * XXX: various disk controllers require alignment of our buffer
+	 * XXX: which is stricter than struct alignment.
+	 * XXX: Bounce the buffer if not 64 byte aligned.
+	 * XXX: this can be removed if/when the kernel is fixed
+	 */
+	if (((intptr_t)data) & 0x3f) {
+		p2 = malloc(size);
+		if (p2 == NULL) {
+			ERROR(disk, "allocate bounce buffer");
+			return (-1);
+		}
+		memcpy(p2, data, size);
+		data = p2;
+	}
+	cnt = pwrite(disk->d_fd, data, size, (off_t)(blockno * disk->d_bsize));
+	if (p2 != NULL)
+		free(p2);
+	if (cnt == -1) {
+		ERROR(disk, "write error to block device");
+		return (-1);
+	}
+	if ((size_t)cnt != size) {
+		ERROR(disk, "short write to block device");
+		return (-1);
+	}
+
+	return (cnt);
+}
+
+int
+berase(struct uufsd *disk, ufs2_daddr_t blockno, ufs2_daddr_t size)
+{
+	off_t ioarg[2];
+	int rv;
+
+	ERROR(disk, NULL);
+	rv = ufs_disk_write(disk);
+	if (rv == -1) {
+		ERROR(disk, "failed to open disk for writing");
+		return(rv);
+	}
+	ioarg[0] = blockno * disk->d_bsize;
+	ioarg[1] = size;
+	rv = ioctl(disk->d_fd, DIOCGDELETE, ioarg);
+	return (rv);
+}
+===== libufs/cgroup.c =====
+/*
+ * Copyright (c) 2003 Juli Mallett.  All rights reserved.
+ *
+ * This software was written by Juli Mallett <jmallett@FreeBSD.org> for the
+ * FreeBSD project.  Redistribution and use in source and binary forms, with
+ * or without modification, are permitted provided that the following
+ * conditions are met:
+ *
+ * 1. Redistribution of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistribution in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#include <sys/cdefs.h>
+__FBSDID("$FreeBSD$");
+
+#include <sys/param.h>
+#include <sys/mount.h>
+#include <sys/disklabel.h>
+#include <sys/stat.h>
+
+#include <ufs/ufs/ufsmount.h>
+#include <ufs/ufs/dinode.h>
+#include <ufs/ffs/fs.h>
+
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include <libufs.h>
+
+ufs2_daddr_t
+cgballoc(struct uufsd *disk)
+{
+	u_int8_t *blksfree;
+	struct cg *cgp;
+	struct fs *fs;
+	long bno;
+
+	fs = &disk->d_fs;
+	cgp = &disk->d_cg;
+	blksfree = cg_blksfree(cgp);
+	for (bno = 0; bno < fs->fs_fpg / fs->fs_frag; bno++)
+		if (ffs_isblock(fs, blksfree, bno))
+			goto gotit;
+	return (0);
+gotit:
+	fs->fs_cs(fs, cgp->cg_cgx).cs_nbfree--;
+	ffs_clrblock(fs, blksfree, (long)bno);
+	ffs_clusteracct(fs, cgp, bno, -1);
+	cgp->cg_cs.cs_nbfree--;
+	fs->fs_cstotal.cs_nbfree--;
+	fs->fs_fmod = 1;
+	return (cgbase(fs, cgp->cg_cgx) + blkstofrags(fs, bno));
+}
+
+int
+cgbfree(struct uufsd *disk, ufs2_daddr_t bno, long size)
+{
+	u_int8_t *blksfree;
+	struct fs *fs;
+	struct cg *cgp;
+	ufs1_daddr_t fragno, cgbno;
+	int i, cg, blk, frags, bbase;
+
+	fs = &disk->d_fs;
+	cg = dtog(fs, bno);
+	if (cgread1(disk, cg) != 1)
+		return (-1);
+	cgp = &disk->d_cg;
+	cgbno = dtogd(fs, bno);
+	blksfree = cg_blksfree(cgp);
+	if (size == fs->fs_bsize) {
+		fragno = fragstoblks(fs, cgbno);
+		ffs_setblock(fs, blksfree, fragno);
+		ffs_clusteracct(fs, cgp, fragno, 1);
+		cgp->cg_cs.cs_nbfree++;
+		fs->fs_cstotal.cs_nbfree++;
+		fs->fs_cs(fs, cg).cs_nbfree++;
+	} else {
+		bbase = cgbno - fragnum(fs, cgbno);
+		/*
+		 * decrement the counts associated with the old frags
+		 */
+		blk = blkmap(fs, blksfree, bbase);
+		ffs_fragacct(fs, blk, cgp->cg_frsum, -1);
+		/*
+		 * deallocate the fragment
+		 */
+		frags = numfrags(fs, size);
+		for (i = 0; i < frags; i++)
+			setbit(blksfree, cgbno + i);
+		cgp->cg_cs.cs_nffree += i;
+		fs->fs_cstotal.cs_nffree += i;
+		fs->fs_cs(fs, cg).cs_nffree += i;
+		/*
+		 * add back in counts associated with the new frags
+		 */
+		blk = blkmap(fs, blksfree, bbase);
+		ffs_fragacct(fs, blk, cgp->cg_frsum, 1);
+		/*
+		 * if a complete block has been reassembled, account for it
+		 */
+		fragno = fragstoblks(fs, bbase);
+		if (ffs_isblock(fs, blksfree, fragno)) {
+			cgp->cg_cs.cs_nffree -= fs->fs_frag;
+			fs->fs_cstotal.cs_nffree -= fs->fs_frag;
+			fs->fs_cs(fs, cg).cs_nffree -= fs->fs_frag;
+			ffs_clusteracct(fs, cgp, fragno, 1);
+			cgp->cg_cs.cs_nbfree++;
+			fs->fs_cstotal.cs_nbfree++;
+			fs->fs_cs(fs, cg).cs_nbfree++;
+		}
+	}
+	return cgwrite(disk);
+}
+
+ino_t
+cgialloc(struct uufsd *disk)
+{
+	struct ufs2_dinode *dp2;
+	u_int8_t *inosused;
+	struct cg *cgp;
+	struct fs *fs;
+	ino_t ino;
+	int i;
+
+	fs = &disk->d_fs;
+	cgp = &disk->d_cg;
+	inosused = cg_inosused(cgp);
+	for (ino = 0; ino < fs->fs_ipg; ino++)
+		if (isclr(inosused, ino))
+			goto gotit;
+	return (0);
+gotit:
+	if (fs->fs_magic == FS_UFS2_MAGIC &&
+	    ino + INOPB(fs) > cgp->cg_initediblk &&
+	    cgp->cg_initediblk < cgp->cg_niblk) {
+		char block[MAXBSIZE];
+		bzero(block, (int)fs->fs_bsize);
+		dp2 = (struct ufs2_dinode *)&block;
+		for (i = 0; i < INOPB(fs); i++) {
+			dp2->di_gen = arc4random() / 2 + 1;
+			dp2++;
+		}
+		if (bwrite(disk, ino_to_fsba(fs,
+		    cgp->cg_cgx * fs->fs_ipg + cgp->cg_initediblk),
+		    block, fs->fs_bsize))
+			return (0);
+		cgp->cg_initediblk += INOPB(fs);
+	}
+
+	setbit(inosused, ino);
+	cgp->cg_irotor = ino;
+	cgp->cg_cs.cs_nifree--;
+	fs->fs_cstotal.cs_nifree--;
+	fs->fs_cs(fs, cgp->cg_cgx).cs_nifree--;
+	fs->fs_fmod = 1;
+
+	return (ino + (cgp->cg_cgx * fs->fs_ipg));
+}
+
+int
+===== libufs/inode.c =====
+/*
+ * Copyright (c) 2002 Juli Mallett.  All rights reserved.
+ *
+ * This software was written by Juli Mallett <jmallett@FreeBSD.org> for the
+ * FreeBSD project.  Redistribution and use in source and binary forms, with
+ * or without modification, are permitted provided that the following
+ * conditions are met:
+ *
+ * 1. Redistribution of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistribution in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#include <sys/cdefs.h>
+__FBSDID("$FreeBSD$");
+
+#include <sys/param.h>
+#include <sys/mount.h>
+#include <sys/disklabel.h>
+#include <sys/stat.h>
+
+#include <ufs/ufs/ufsmount.h>
+#include <ufs/ufs/dinode.h>
+#include <ufs/ffs/fs.h>
+
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include <libufs.h>
+
+int
+getino(struct uufsd *disk, void **dino, ino_t inode, int *mode)
+{
+	ino_t min, max;
+	caddr_t inoblock;
+	struct ufs1_dinode *dp1;
+	struct ufs2_dinode *dp2;
+	struct fs *fs;
+
+	ERROR(disk, NULL);
+
+	fs = &disk->d_fs;
+	inoblock = disk->d_inoblock;
+	min = disk->d_inomin;
+	max = disk->d_inomax;
+
+	if (inoblock == NULL) {
+		inoblock = malloc(fs->fs_bsize);
+		if (inoblock == NULL) {
+			ERROR(disk, "unable to allocate inode block");
+			return (-1);
+		}
+		disk->d_inoblock = inoblock;
+	}
+	if (inode >= min && inode < max)
+		goto gotit;
+	bread(disk, fsbtodb(fs, ino_to_fsba(fs, inode)), inoblock,
+	    fs->fs_bsize);
+	disk->d_inomin = min = inode - (inode % INOPB(fs));
+	disk->d_inomax = max = min + INOPB(fs);
+gotit:	switch (disk->d_ufs) {
+	case 1:
+		dp1 = &((struct ufs1_dinode *)inoblock)[inode - min];
+		*mode = dp1->di_mode & IFMT;
+		*dino = dp1;
+		return (0);
+	case 2:
+		dp2 = &((struct ufs2_dinode *)inoblock)[inode - min];
+		*mode = dp2->di_mode & IFMT;
+		*dino = dp2;
+		return (0);
+	default:
+		break;
+	}
+	ERROR(disk, "unknown UFS filesystem type");
+	return (-1);
+}
+
+int
+putino(struct uufsd *disk)
+{
+	struct fs *fs;
+
+	fs = &disk->d_fs;
+	if (disk->d_inoblock == NULL) {
+		ERROR(disk, "No inode block allocated");
+		return (-1);
+	}
+	if (bwrite(disk, fsbtodb(fs, ino_to_fsba(&disk->d_fs, disk->d_inomin)),
+	    disk->d_inoblock, disk->d_fs.fs_bsize) <= 0)
+		return (-1);
+	return (0);
+}
+===== libufs/libufs.h =====
+/*
+ * Copyright (c) 2002 Juli Mallett.  All rights reserved.
+ *
+ * This software was written by Juli Mallett <jmallett@FreeBSD.org> for the
+ * FreeBSD project.  Redistribution and use in source and binary forms, with
+ * or without modification, are permitted provided that the following
+ * conditions are met:
+ *
+ * 1. Redistribution of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistribution in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * $FreeBSD$
+ */
+
+#ifndef	__LIBUFS_H__
+#define	__LIBUFS_H__
+
+/*
+ * libufs structures.
+ */
+
+/*
+ * userland ufs disk.
+ */
+struct uufsd {
+	const char *d_name;	/* disk name */
+	int d_ufs;		/* decimal UFS version */
+	int d_fd;		/* raw device file descriptor */
+	long d_bsize;		/* device bsize */
+	ufs2_daddr_t d_sblock;	/* superblock location */
+	struct csum *d_sbcsum;	/* Superblock summary info */
+	caddr_t d_inoblock;	/* inode block */
+	ino_t d_inomin;		/* low inode */
+	ino_t d_inomax;		/* high inode */
+	union {
+		struct fs d_fs;	/* filesystem information */
+		char d_sb[MAXBSIZE];
+				/* superblock as buffer */
+	} d_sbunion;
+	union {
+		struct cg d_cg;	/* cylinder group */
+		char d_buf[MAXBSIZE];
+				/* cylinder group storage */
+	} d_cgunion;
+	int d_ccg;		/* current cylinder group */
+	int d_lcg;		/* last cylinder group (in d_cg) */
+	const char *d_error;	/* human readable disk error */
+	int d_mine;		/* internal flags */
+#define	d_fs	d_sbunion.d_fs
+#define	d_sb	d_sbunion.d_sb
+#define	d_cg	d_cgunion.d_cg
+};
+
+/*
+ * libufs macros (internal, non-exported).
+ */
+#ifdef	_LIBUFS
+/*
+ * Trace steps through libufs, to be used at entry and erroneous return.
+ */
+static inline void
+ERROR(struct uufsd *u, const char *str)
+{
+
+#ifdef	_LIBUFS_DEBUGGING
+	if (str != NULL) {
+		fprintf(stderr, "libufs: %s", str);
+		if (errno != 0)
+			fprintf(stderr, ": %s", strerror(errno));
+		fprintf(stderr, "\n");
+	}
+#endif
+	if (u != NULL)
+		u->d_error = str;
+}
+#endif	/* _LIBUFS */
+
+__BEGIN_DECLS
+
+/*
+ * libufs prototypes.
+ */
+
+/*
+ * block.c
+ */
+ssize_t bread(struct uufsd *, ufs2_daddr_t, void *, size_t);
+ssize_t bwrite(struct uufsd *, ufs2_daddr_t, const void *, size_t);
+int berase(struct uufsd *, ufs2_daddr_t, ufs2_daddr_t);
+
+/*
+ * cgroup.c
+ */
+ufs2_daddr_t cgballoc(struct uufsd *);
+int cgbfree(struct uufsd *, ufs2_daddr_t, long);
+ino_t cgialloc(struct uufsd *);
+int cgread(struct uufsd *);
+int cgread1(struct uufsd *, int);
+int cgwrite(struct uufsd *);
+int cgwrite1(struct uufsd *, int);
+
+/*
+ * inode.c
+ */
+int getino(struct uufsd *, void **, ino_t, int *);
+int putino(struct uufsd *);
+
+/*
+ * sblock.c
+ */
+int sbread(struct uufsd *);
+int sbwrite(struct uufsd *, int);
+
+/*
+ * type.c
+ */
+int ufs_disk_close(struct uufsd *);
+int ufs_disk_fillout(struct uufsd *, const char *);
+int ufs_disk_fillout_blank(struct uufsd *, const char *);
+int ufs_disk_write(struct uufsd *);
+
+/*
+ * ffs_subr.c
+ */
+void	ffs_clrblock(struct fs *, u_char *, ufs1_daddr_t);
+void	ffs_clusteracct(struct fs *, struct cg *, ufs1_daddr_t, int);
+void	ffs_fragacct(struct fs *, int, int32_t [], int);
+int	ffs_isblock(struct fs *, u_char *, ufs1_daddr_t);
+int	ffs_isfreeblock(struct fs *, u_char *, ufs1_daddr_t);
+void	ffs_setblock(struct fs *, u_char *, ufs1_daddr_t);
+
+__END_DECLS
+
+#endif	/* __LIBUFS_H__ */
+===== libufs/sblock.c =====
+/*
+ * Copyright (c) 2002 Juli Mallett.  All rights reserved.
+ *
+ * This software was written by Juli Mallett <jmallett@FreeBSD.org> for the
+ * FreeBSD project.  Redistribution and use in source and binary forms, with
+ * or without modification, are permitted provided that the following
+ * conditions are met:
+ *
+ * 1. Redistribution of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistribution in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#include <sys/cdefs.h>
+__FBSDID("$FreeBSD$");
+
+#include <sys/param.h>
+#include <sys/mount.h>
+#include <sys/disklabel.h>
+#include <sys/stat.h>
+
+#include <ufs/ufs/ufsmount.h>
+#include <ufs/ufs/dinode.h>
+#include <ufs/ffs/fs.h>
+
+#include <errno.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#include <libufs.h>
+
+static int superblocks[] = SBLOCKSEARCH;
+
+int
+sbread(struct uufsd *disk)
+{
+	uint8_t block[MAXBSIZE];
+	struct fs *fs;
+	int sb, superblock;
+	int i, size, blks;
+	uint8_t *space;
+
+	ERROR(disk, NULL);
+
+	fs = &disk->d_fs;
+	superblock = superblocks[0];
+
+	for (sb = 0; (superblock = superblocks[sb]) != -1; sb++) {
+		if (bread(disk, superblock, disk->d_sb, SBLOCKSIZE) == -1) {
+			ERROR(disk, "non-existent or truncated superblock");
+			return (-1);
+		}
+		if (fs->fs_magic == FS_UFS1_MAGIC)
+			disk->d_ufs = 1;
+		if (fs->fs_magic == FS_UFS2_MAGIC &&
+		    fs->fs_sblockloc == superblock)
+			disk->d_ufs = 2;
+		if (fs->fs_bsize <= MAXBSIZE &&
+		    (size_t)fs->fs_bsize >= sizeof(*fs)) {
+			if (disk->d_ufs)
+				break;
+		}
+		disk->d_ufs = 0;
+	}
+	if (superblock == -1 || disk->d_ufs == 0) {
+		/*
+		 * Other error cases will result in errno being set, here we
+		 * must set it to indicate no superblock could be found with
+		 * which to associate this disk/filesystem.
+		 */
+		ERROR(disk, "no usable known superblock found");
+		errno = ENOENT;
+		return (-1);
+	}
+	disk->d_bsize = fs->fs_fsize / fsbtodb(fs, 1);
+	disk->d_sblock = superblock / disk->d_bsize;
+	/*
+	 * Read in the superblock summary information.
+	 */
+	size = fs->fs_cssize;
+	blks = howmany(size, fs->fs_fsize);
+	size += fs->fs_ncg * sizeof(int32_t);
+	space = malloc(size);
+	if (space == NULL) {
+		ERROR(disk, "failed to allocate space for summary information");
+		return (-1);
+	}
+	fs->fs_csp = (struct csum *)space;
+	for (i = 0; i < blks; i += fs->fs_frag) {
+		size = fs->fs_bsize;
+		if (i + fs->fs_frag > blks)
+			size = (blks - i) * fs->fs_fsize;
+		if (bread(disk, fsbtodb(fs, fs->fs_csaddr + i), block, size)
+		    == -1) {
+			ERROR(disk, "Failed to read sb summary information");
+			free(fs->fs_csp);
+			return (-1);
+		}
+		bcopy(block, space, size);
+		space += size;
+	}
+	fs->fs_maxcluster = (uint32_t *)space;
+	disk->d_sbcsum = fs->fs_csp;
+
+	return (0);
+}
+
+int
+sbwrite(struct uufsd *disk, int all)
+{
+	struct fs *fs;
+	int blks, size;
+	uint8_t *space;
+	unsigned i;
+
+	ERROR(disk, NULL);
+
+	fs = &disk->d_fs;
+
+	if (!disk->d_sblock) {
+		disk->d_sblock = disk->d_fs.fs_sblockloc / disk->d_bsize;
+	}
+
+	if (bwrite(disk, disk->d_sblock, fs, SBLOCKSIZE) == -1) {
+		ERROR(disk, "failed to write superblock");
+		return (-1);
+	}
+	/*
+	 * Write superblock summary information.
+	 */
+	blks = howmany(fs->fs_cssize, fs->fs_fsize);
+	space = (uint8_t *)disk->d_sbcsum;
+	for (i = 0; i < blks; i += fs->fs_frag) {
+		size = fs->fs_bsize;
+		if (i + fs->fs_frag > blks)
+			size = (blks - i) * fs->fs_fsize;
+		if (bwrite(disk, fsbtodb(fs, fs->fs_csaddr + i), space, size)
+		    == -1) {
+			ERROR(disk, "Failed to write sb summary information");
+			return (-1);
+		}
+		space += size;
+	}
+	if (all) {
+		for (i = 0; i < fs->fs_ncg; i++)
+			if (bwrite(disk, fsbtodb(fs, cgsblock(fs, i)),
+			    fs, SBLOCKSIZE) == -1) {
+				ERROR(disk, "failed to update a superblock");
+				return (-1);
+			}
+	}
+	return (0);
+}
+===== libufs/type.c =====
+/*
+ * Copyright (c) 2002 Juli Mallett.  All rights reserved.
+ *
+ * This software was written by Juli Mallett <jmallett@FreeBSD.org> for the
+ * FreeBSD project.  Redistribution and use in source and binary forms, with
+ * or without modification, are permitted provided that the following
+ * conditions are met:
+ *
+ * 1. Redistribution of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistribution in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#include <sys/cdefs.h>
+__FBSDID("$FreeBSD$");
+
+#include <sys/param.h>
+#include <sys/mount.h>
+#include <sys/disklabel.h>
+#include <sys/stat.h>
+
+#include <ufs/ufs/ufsmount.h>
+#include <ufs/ufs/dinode.h>
+#include <ufs/ffs/fs.h>
+
+#include <errno.h>
+#include <fcntl.h>
+#include <fstab.h>
+#include <paths.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include <libufs.h>
+
+/* Internally, track the 'name' value, it's ours. */
+#define	MINE_NAME	0x01
+/* Track if its fd points to a writable device. */
+#define	MINE_WRITE	0x02
+
+int
+ufs_disk_close(struct uufsd *disk)
+{
+	ERROR(disk, NULL);
+	close(disk->d_fd);
+	if (disk->d_inoblock != NULL) {
+		free(disk->d_inoblock);
+		disk->d_inoblock = NULL;
+	}
+	if (disk->d_mine & MINE_NAME) {
+		free((char *)(uintptr_t)disk->d_name);
+		disk->d_name = NULL;
+	}
+	if (disk->d_sbcsum != NULL) {
+		free(disk->d_sbcsum);
+		disk->d_sbcsum = NULL;
+	}
+	return (0);
+}
+
+int
+ufs_disk_fillout(struct uufsd *disk, const char *name)
+{
+	if (ufs_disk_fillout_blank(disk, name) == -1) {
+		return (-1);
+	}
+	if (sbread(disk) == -1) {
+		ERROR(disk, "could not read superblock to fill out disk");
+		return (-1);
+	}
+	return (0);
+}
+
+int
+ufs_disk_fillout_blank(struct uufsd *disk, const char *name)
+{
+	struct stat st;
+	struct fstab *fs;
+	struct statfs sfs;
+	const char *oname;
+	char dev[MAXPATHLEN];
+	int fd, ret;
+
+	ERROR(disk, NULL);
+
+	oname = name;
+again:	if ((ret = stat(name, &st)) < 0) {
+		if (*name != '/') {
+			snprintf(dev, sizeof(dev), "%s%s", _PATH_DEV, name);
+			name = dev;
+			goto again;
+		}
+		/*
+		 * The given object doesn't exist, but don't panic just yet -
+		 * it may be still mount point listed in /etc/fstab, but without
+		 * existing corresponding directory.
+		 */
+		name = oname;
+	}
+	if (ret >= 0 && S_ISREG(st.st_mode)) {
+		/* Possibly a disk image, give it a try.  */
+		;
+	} else if (ret >= 0 && S_ISCHR(st.st_mode)) {
+		/* This is what we need, do nothing. */
+		;
+	} else if (0 /*(fs = getfsfile(name)) != NULL */) {
+		/*
+		 * The given mount point is listed in /etc/fstab.
+		 * It is possible that someone unmounted file system by hand
+		 * and different file system is mounted on this mount point,
+		 * but we still prefer /etc/fstab entry, because on the other
+		 * hand, there could be /etc/fstab entry for this mount
+		 * point, but file system is not mounted yet (eg. noauto) and
+		 * statfs(2) will point us at different file system.
+		 */
+		name = fs->fs_spec;
+	} else if (ret >= 0 && S_ISDIR(st.st_mode)) {
+		/*
+		 * The mount point is not listed in /etc/fstab, so it may be
+		 * file system mounted by hand.
+		 */
+		if (statfs(name, &sfs) < 0) {
+			ERROR(disk, "could not find special device");
+			return (-1);
+		}
+		strlcpy(dev, sfs.f_mntfromname, sizeof(dev));
+		name = dev;
+	} else {
+		ERROR(disk, "could not find special device");
+		return (-1);
+	}
+	fd = open(name, O_RDONLY);
+	if (fd == -1) {
+		ERROR(disk, "could not open special device");
+		return (-1);
+	}
+
+	disk->d_bsize = 1;
+	disk->d_ccg = 0;
+	disk->d_fd = fd;
+	disk->d_inoblock = NULL;
+	disk->d_inomin = 0;
+	disk->d_inomax = 0;
+	disk->d_lcg = 0;
+	disk->d_mine = 0;
+	disk->d_ufs = 0;
+	disk->d_error = NULL;
+	disk->d_sbcsum = NULL;
+
+	if (oname != name) {
+		name = strdup(name);
+		if (name == NULL) {
+			ERROR(disk, "could not allocate memory for disk name");
+			return (-1);
+		}
+		disk->d_mine |= MINE_NAME;
+	}
+	disk->d_name = name;
+
+	return (0);
+}
+
+int
+ufs_disk_write(struct uufsd *disk)
+{

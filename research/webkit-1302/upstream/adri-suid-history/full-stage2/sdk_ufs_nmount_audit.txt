@@ -1,0 +1,527 @@
+## refs and recent history
+[33m1a85cb5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;33mtag: [m[1;33mv0.9[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m CMake: add PAYLOAD_DEPLOY
+[33mf7af1d0[m Fix `VMSPACE_P_ROOT` for 9.00
+[33me5c1c06[m cosmetics
+[33m464c2ca[m crt: Port kernel_mprotect
+[33m14ffdcb[m add support for relocatable linking (ld -r)
+[33m9478b90[m cmake: enable `USES_TERMINAL`
+[33m78af3b1[m[33m ([m[1;33mtag: [m[1;33mv0.8[m[33m)[m cosmetics
+[33mca286ea[m Test build systems independently
+[33m6ff8f73[m Add missing `PS4_DEPLOY` for cmake
+[33m5d2a9fa[m Add copyright notice for cmake
+[33mad52030[m Add cmake targets
+[33mdfa1115[m libc: fix getfsstat
+[33m22bd82b[m cosmetics
+[33m2428125[m cosmetics
+[33m264265b[m cosmetics
+[33m98a660e[m crt: public `kernel_dynlib_obj`
+[33m0e438ca[m Missed this
+[33m7b12d86[m Add 13.50 offsets
+[33m552e60c[m crt: apply kernel patches for mmap syscalls
+[33m38e8f6f[m crt: patch kernel to allow mmap for SELF decryption
+[33m4a2217c[m crt: add some kernel patching infrastructure
+[33m2f9d1cd[m libc: fix aio return values
+[33mcc9be23[m rtld: init SceAppInstUtil
+[33me7d2c51[m sce stubs: add SceAppInstUtil
+[33m917c39c[m libc: add aio functions
+[33m356c5bf[m cosmetics
+[33m5383aae[m sce stubs: add SceNetCtl
+[33m94dc89b[m sce stubs: add SceHttp
+[33m377ee7c[m sce stubs: add SceFsInternalForVsh
+[33m06e5a0e[m libufs: initial commit
+[33m3d348aa[m[33m ([m[1;33mtag: [m[1;33mv0.7[m[33m)[m deploy: add support for deploying payloads using URIs
+[33m972e19d[m stubs: add libSceSsl2
+[33m477f33d[m rtld: init libSceHttp2 and libSceSsl
+[33m2d717e1[m rtld: use sceKernelLoadStartModule instead of the the dynlib syscall directly
+[33m45c80ae[m add stubs for libSceHttp2 and libSceSsl
+## UFS/nmount paths
+./crt/kernel.c
+./crt/kernel.h
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h
+./include/freebsd-9.3/fs/ntfs/ntfsmount.h
+./include/freebsd-9.3/fs/nwfs/nwfs_mount.h
+./include/freebsd-9.3/fs/udf/udf_mount.h
+./include/freebsd-9.3/geom/mountver/g_mountver.h
+./include/freebsd-9.3/isofs/cd9660/cd9660_mount.h
+./include/freebsd-9.3/libufs.h
+./include/freebsd-9.3/nfs/nfs_mountcommon.h
+./include/freebsd-9.3/nfsclient/nfsmount.h
+./include/freebsd-9.3/rpcsvc/mount.h
+./include/freebsd-9.3/rpcsvc/mount.x
+./include/freebsd-9.3/sys/kernel.h
+./include/freebsd-9.3/sys/kerneldump.h
+./include/freebsd-9.3/sys/mount.h
+./include/freebsd-9.3/ufs/ffs/ffs_extern.h
+./include/freebsd-9.3/ufs/ffs/fs.h
+./include/freebsd-9.3/ufs/ffs/softdep.h
+./include/freebsd-9.3/ufs/ufs/acl.h
+./include/freebsd-9.3/ufs/ufs/dinode.h
+./include/freebsd-9.3/ufs/ufs/dir.h
+./include/freebsd-9.3/ufs/ufs/dirhash.h
+./include/freebsd-9.3/ufs/ufs/extattr.h
+./include/freebsd-9.3/ufs/ufs/gjournal.h
+./include/freebsd-9.3/ufs/ufs/inode.h
+./include/freebsd-9.3/ufs/ufs/quota.h
+./include/freebsd-9.3/ufs/ufs/ufs_extern.h
+./include/freebsd-9.3/ufs/ufs/ufsmount.h
+./include/ps4/kernel.h
+./libc/mount.c
+./libufs/Makefile
+./libufs/block.c
+./libufs/cgroup.c
+./libufs/inode.c
+./libufs/libufs.h
+./libufs/sblock.c
+./libufs/type.c
+./samples/kdump/.gitignore
+./samples/kdump/Makefile
+./samples/kdump/main.c
+./sce_stubs/libkernel.c
+./sce_stubs/libkernel_sys.c
+./sce_stubs/libkernel_web.c
+## relevant commits
+-- libufs
+[33m06e5a0e[m libufs: initial commit
+[33mf0e9a99[m remove unused include headers
+[33m5c4e004[m initial commit
+[33m43a0074[m initial commit
+-- nmount
+[33me7d2c51[m sce stubs: add SceAppInstUtil
+[33m06e5a0e[m libufs: initial commit
+[33m8bad681[m libc: add nmount et al.
+[33m2ff3943[m stubs: add libSceSystemService and libSceUserService
+[33mf0e9a99[m remove unused include headers
+[33m5c4e004[m initial commit
+[33m43a0074[m initial commit
+-- 13.04
+[33m1879b7b[m readme: update list of confirmed offsets
+[33mf0e9a99[m remove unused include headers
+[33m5c4e004[m initial commit
+[33m43a0074[m initial commit
+-- kdump
+[33mcb76812[m ci: add macos target
+[33ma5897f2[m ci: cosmetics
+[33mf0e9a99[m remove unused include headers
+[33m5c4e004[m initial commit
+[33m43a0074[m initial commit
+## source matches
+./.github/workflows/macos-latest.yml:44:          $MAKE -C samples/kdump
+./.github/workflows/ubuntu-latest.yml:53:        $MAKE -C samples/kdump
+./Makefile:21:SUBDIRS    := crt include libc libufs sce_stubs host
+./README.md:64:The SDK relies on a couple of kernel offsets that are typically unique for a given
+./README.md:65:firmware version. Currently, offsets for the following versions are included
+./README.md:103:- [ ] 13.02 and 13.04
+./ci.sh:34:	      "kdump"
+./crt/kernel.c:98:  unsigned long p_offset;
+./crt/kernel.c:120:unsigned long KERNEL_IMAGE_SIZE = 0;
+./crt/kernel.c:978:		  &KERNEL_IMAGE_SIZE))) {
+./crt/kernel.c:982:		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_COPYIN))) {
+./crt/kernel.c:986:		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_COPYOUT))) {
+./crt/kernel.c:990:		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_TARGETID))) {
+./crt/kernel.c:994:    if(!KERNEL_ADDRESS_IMAGE_BASE || !KERNEL_IMAGE_SIZE ||
+./crt/kernel.c:1004:		&KERNEL_IMAGE_SIZE))) {
+./crt/kernel.c:1014:  if((err=kernel_copyout(addr+8, &addr, sizeof(addr)))) {
+./crt/kernel.c:1020:    if(kernel_copyout(addr + KERNEL_OFFSET_PROC_P_PID, &pid,
+./crt/kernel.c:1029:    if(kernel_copyout(addr+8, &prev, sizeof(prev))) {
+./crt/kernel.c:1068:kernel_copyout(unsigned long kaddr, void *uaddr, unsigned long len) {
+./crt/kernel.c:1105:  kernel_copyout(addr, &val, sizeof(val));
+./crt/kernel.c:1115:  kernel_copyout(addr, &val, sizeof(val));
+./crt/kernel.c:1125:  kernel_copyout(addr, &val, sizeof(val));
+./crt/kernel.c:1135:  kernel_copyout(addr, &val, sizeof(val));
+./crt/kernel.c:1182:  if((kernel_copyout(addr, current, size))) {
+./crt/kernel.c:1191:  // before does not match current, wrong offset?
+./crt/kernel.c:1215:  if(kernel_copyout(KERNEL_ADDRESS_ALLPROC, &addr, sizeof(addr))) {
+./crt/kernel.c:1220:    if(kernel_copyout(addr + KERNEL_OFFSET_PROC_P_PID, &other_pid,
+./crt/kernel.c:1229:    if(kernel_copyout(addr, &next, sizeof(next))) {
+./crt/kernel.c:1249:  if(kernel_copyout(kproc + 0x340, &kaddr, sizeof(kaddr)) < 0) {
+./crt/kernel.c:1254:    if(kernel_copyout(kaddr, &kaddr, sizeof(kaddr)) < 0) {
+./crt/kernel.c:1261:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, handle),
+./crt/kernel.c:1267:  if(kernel_copyout(kaddr, obj, sizeof(dynlib_obj_t)) < 0) {
+./crt/kernel.c:1287:  if(kernel_copyout(kproc + 0x340, &kaddr, sizeof(kaddr)) < 0) {
+./crt/kernel.c:1292:    if(kernel_copyout(kaddr, &kaddr, sizeof(kaddr)) < 0) {
+./crt/kernel.c:1299:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, mapbase),
+./crt/kernel.c:1304:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, mapsize),
+./crt/kernel.c:1310:      if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, handle),
+./crt/kernel.c:1337:  if(kernel_copyout(kproc + 0x340, &kaddr, sizeof(kaddr)) < 0) {
+./crt/kernel.c:1343:    if(kernel_copyout(kaddr, &kaddr, sizeof(kaddr)) < 0) {
+./crt/kernel.c:1349:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, path),
+./crt/kernel.c:1353:    if(kernel_copyout(kpath, path, sizeof(path)) < 0) {
+./crt/kernel.c:1357:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, handle),
+./crt/kernel.c:1442:  if(kernel_copyout(obj.dynsec, &dynsec, sizeof(dynsec)) < 0) {
+./crt/kernel.c:1457:  if(kernel_copyout(dynsec.symtab, symtab, dynsec.symtabsize) < 0) {
+./crt/kernel.c:1461:  if(kernel_copyout(dynsec.strtab, strtab, dynsec.strtabsize) < 0) {
+./crt/kernel.c:1502:  if(kernel_copyout(proc + KERNEL_OFFSET_PROC_P_FD, &filedesc,
+./crt/kernel.c:1520:  if(kernel_copyout(proc + KERNEL_OFFSET_PROC_P_UCRED, &ucred,
+./crt/kernel.c:1538:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_PRISON, &prison,
+./crt/kernel.c:1573:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_SCEAUTHID, &authid,
+./crt/kernel.c:1607:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_SCECAPS, caps, 16)) {
+./crt/kernel.c:1640:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_SCEATTRS, &attrs,
+./crt/kernel.c:1759:  if(kernel_copyout(filedesc + KERNEL_OFFSET_FILEDESC_FD_RDIR, &vnode,
+./crt/kernel.c:1777:  if(kernel_copyout(filedesc + KERNEL_OFFSET_FILEDESC_FD_JDIR, &vnode,
+./crt/kernel.c:1794:  if(kernel_copyout(filedesc + KERNEL_OFFSET_FILEDESC_FD_CDIR, &vnode,
+./crt/kernel.c:1856:  return kernel_copyout(KERNEL_ADDRESS_QA_FLAGS, qaflags, 16);
+./crt/kernel.c:1881:  if(kernel_copyout(proc_addr + KERNEL_OFFSET_PROC_P_VMSPACE,
+./crt/kernel.c:1886:  if(kernel_copyout(vmspace_addr + KERNEL_OFFSET_VMSPACE_P_ROOT,
+./crt/kernel.c:1892:    if(kernel_copyout(vm_map_entry_addr + 0x20, &start, sizeof(start))) {
+./crt/kernel.c:1895:    if(kernel_copyout(vm_map_entry_addr + 0x28, &end, sizeof(end))) {
+./crt/kernel.c:1901:      if(kernel_copyout(vm_map_entry_addr + 0x10, &vm_map_entry_addr,
+./crt/kernel.c:1907:      if(kernel_copyout(vm_map_entry_addr + 0x18, &vm_map_entry_addr,
+./crt/kernel.c:1936:    if(kernel_copyout(vm_entry + 0x20, &start, sizeof(start))) {
+./crt/kernel.c:1944:    if(kernel_copyout(vm_entry + 0x5c, &vm_prot, sizeof(vm_prot))) {
+./crt/kernel.c:1953:    if(kernel_copyout(vm_entry + 0x08, &vm_entry, sizeof(vm_entry))) {
+./crt/kernel.c:1985:    if(kernel_copyout(vm_entry + 0x20, &start, sizeof(start))) {
+./crt/kernel.c:1998:    if(kernel_copyout(vm_entry + 0x08, &vm_entry, sizeof(vm_entry))) {
+./crt/kernel.h:100:  unsigned long tlsoffset;
+./crt/kernel.h:130:extern unsigned long KERNEL_IMAGE_SIZE;
+./crt/kernel.h:134:int kernel_copyout(unsigned long kaddr, void *uaddr, unsigned long len);
+./crt/rtld.c:75:  unsigned long r_offset;
+./crt/rtld.c:261:  void* loc = img + rela->r_offset;
+./crt/rtld.c:296:  void* loc = img + rela->r_offset;
+./crt/rtld.c:321:  unsigned long* loc = (unsigned long*)(img + rela->r_offset);
+./include/freebsd-9.3/FlexLexer.h:182:	int yy_more_offset;
+./include/freebsd-9.3/FlexLexer.h:183:	int yy_prev_more_offset;
+./include/freebsd-9.3/aio.h:68:	off_t	aio_offset;		/* File offset for I/O */
+./include/freebsd-9.3/altq/altq_cbq.h:52:#define	CBQCLF_CLEARDSCP	0x0010  /* clear diffserv codepoint */
+./include/freebsd-9.3/altq/altq_cdnr.h:54:		u_int8_t	un_dscp;	/* diffserv code point */
+./include/freebsd-9.3/altq/altq_cdnr.h:214:/* diffserve code points */
+./include/freebsd-9.3/altq/altq_cdnr.h:241:	u_int8_t	pkt_dscp;	/* diffserv code point */
+./include/freebsd-9.3/altq/altq_hfsc.h:58:#define	HFCF_CLEARDSCP		0x0010  /* clear diffserv codepoint */
+./include/freebsd-9.3/altq/altq_hfsc.h:264:	u_int64_t	cl_vtoff;	/* inter-period cumulative vt offset */
+./include/freebsd-9.3/altq/altq_priq.h:62:#define	PRCF_CLEARDSCP		0x0010  /* clear diffserv codepoint */
+./include/freebsd-9.3/altq/altq_rio.h:71:#define	RIOF_CLEARDSCP	0x200	/* clear diffserv codepoint */
+./include/freebsd-9.3/altq/altq_rmclass.h:235:#define	RMCF_CLEARDSCP		0x0010  /* clear diffserv codepoint */
+./include/freebsd-9.3/archive.h:389: * Retrieve the byte offset in UNCOMPRESSED data where last-read
+./include/freebsd-9.3/archive.h:399: * A zero-copy version of archive_read_data that also exposes the file offset
+./include/freebsd-9.3/archive.h:401: * the desired size of the block.  The API does guarantee that offsets will
+./include/freebsd-9.3/archive.h:406:			    const void **buff, size_t *size, off_t *offset);
+./include/freebsd-9.3/archive.h:410:			    __LA_INT64_T *offset);
+./include/freebsd-9.3/arpa/nameser.h:406:/* Offsets into SIG record rdata to find various values */
+./include/freebsd-9.3/bluetooth.h:158:	uint16_t        clock_offset;
+./include/freebsd-9.3/bsdxml.h:738:/* Source file byte offsets for the start and end of attribute names and values.
+./include/freebsd-9.3/bsdxml.h:744:  XML_Index  nameStart;  /* Offset to beginning of the attribute name. */
+./include/freebsd-9.3/bsdxml.h:745:  XML_Index  nameEnd;    /* Offset after the attribute name's last byte. */
+./include/freebsd-9.3/bsdxml.h:746:  XML_Index  valueStart; /* Offset to beginning of the attribute value. */
+./include/freebsd-9.3/bsdxml.h:747:  XML_Index  valueEnd;   /* Offset after the attribute value's last byte. */
+./include/freebsd-9.3/bsdxml.h:943:   the integer pointed to by offset to the offset within this buffer
+./include/freebsd-9.3/bsdxml.h:954:                    int *offset,
+./include/freebsd-9.3/bsm/audit.h:249: * 	aq_bufsz:	AQ_BUFSZ (32767)	AQ_MAXBUFSZ (1048576)
+./include/freebsd-9.3/bsm/audit.h:259:	int	aq_bufsz;	/* Max size of audit record for audit(2). */
+./include/freebsd-9.3/bsm/libbsm.h:373: * offset                  2 bytes
+./include/freebsd-9.3/bsm/libbsm.h:385:	u_int16_t	offset;
+./include/freebsd-9.3/bsnmp/snmpclient.h:174:	    /* offset of the field into the C-structure. For octet strings
+./include/freebsd-9.3/bsnmp/snmpclient.h:176:	    off_t		offset;
+./include/freebsd-9.3/cam/ata/ata_all.h:116:uint64_t	ata_logical_sector_offset(struct ata_params *ident_data);
+./include/freebsd-9.3/cam/cam_ccb.h:874:	u_int	sync_offset;
+./include/freebsd-9.3/cam/cam_ccb.h:1133: * buffer is too small, provsiz will be larger than bufsiz.
+./include/freebsd-9.3/cam/cam_ccb.h:1145:	off_t bufsiz;			/* IN: Size of external buffer */
+./include/freebsd-9.3/cam/cam_periph.h:93:/* Generically usefull offsets into the peripheral private area */
+./include/freebsd-9.3/cam/cam_periph.h:137:	int		num_bufs_used;
+./include/freebsd-9.3/cam/cam_sim.h:81:/* Generically useful offsets into the sim private area */
+./include/freebsd-9.3/cam/scsi/scsi_all.h:756:        u_int8_t offset[3];
+./include/freebsd-9.3/cam/scsi/scsi_all.h:766:	u_int8_t offset[3];
+./include/freebsd-9.3/cam/scsi/scsi_all.h:1159:	__offsetof(struct scsi_inquiry_data, additional_length) + 1)
+./include/freebsd-9.3/cam/scsi/scsi_all.h:1278:    __offsetof(struct scsi_vpd_device_id, desc_list)
+./include/freebsd-9.3/cam/scsi/scsi_all.h:1319:    __offsetof(struct scsi_vpd_id_descriptor, identifier) 
+./include/freebsd-9.3/cam/scsi/scsi_all.h:1766:	((length >= (offsetof(struct scsi_sense_data_fixed, field) +	\
+./include/freebsd-9.3/cam/scsi/scsi_all.h:1769:	((((offsetof(struct scsi_sense_data_fixed, field) +		\
+./include/freebsd-9.3/cam/scsi/scsi_all.h:1771:	(offsetof(struct scsi_sense_data_fixed, extra_len) +		\
+./include/freebsd-9.3/cam/scsi/scsi_all.h:1795:	((length >= (offsetof(struct scsi_sense_data_desc, field) +	\
+./include/freebsd-9.3/cam/scsi/scsi_all.h:2465:			uint8_t buffer_id, u_int32_t offset,
+./include/freebsd-9.3/cam/scsi/scsi_all.h:2472:			uint8_t buffer_id, u_int32_t offset,
+./include/freebsd-9.3/cam/scsi/scsi_da.h:406:		u_int8_t rot_offset;	/* rotational offset */
+./include/freebsd-9.3/cam/scsi/scsi_da.h:494:	uint8_t rotational_offset;
+./include/freebsd-9.3/cam/scsi/scsi_da.h:516:	u_int8_t head_offset_count;
+./include/freebsd-9.3/cam/scsi/scsi_da.h:517:	u_int8_t data_strobe_offset_cnt;
+./include/freebsd-9.3/cam/scsi/scsi_enc.h:152:	size_t bufsiz;		/* IN/OUT: length of string provided/returned */
+./include/freebsd-9.3/cam/scsi/scsi_low.h:239:	struct buf *bp;			/* io bufs */
+./include/freebsd-9.3/cam/scsi/scsi_low.h:482:		u_int8_t offset;
+./include/freebsd-9.3/cam/scsi/scsi_sa.h:188:	u_int8_t ew_bufsize[3];
+./include/freebsd-9.3/cam/scsi/scsi_ses.h:95:	      + offsetof(struct ses_page_hdr, gen_code));
+./include/freebsd-9.3/camlib.h:121:	u_int8_t	sync_offset;	 /* Negotiated sync offset */
+./include/freebsd-9.3/curses.h:410:	NCURSES_SIZE_T _yoffset; /* real begy is _begy + _yoffset */
+./include/freebsd-9.3/dev/agp/agpreg.h:33: * Offsets for various AGP configuration registers.
+./include/freebsd-9.3/dev/agp/agpreg.h:38: * Offsets from the AGP Capability pointer.
+./include/freebsd-9.3/dev/agp/agpreg.h:67: * Config offsets for Intel AGP chipsets.
+./include/freebsd-9.3/dev/agp/agpreg.h:76: * Config offsets for Intel i8xx/E7xxx AGP chipsets.
+./include/freebsd-9.3/dev/agp/agpreg.h:84: * Config offsets for VIA AGP 2.x chipsets.
+./include/freebsd-9.3/dev/agp/agpreg.h:91: * Config offsets for VIA AGP 3.0 chipsets.
+./include/freebsd-9.3/dev/agp/agpreg.h:99: * Config offsets for SiS AGP chipsets.
+./include/freebsd-9.3/dev/agp/agpreg.h:107: * Config offsets for Ali AGP chipsets.
+./include/freebsd-9.3/dev/agp/agpreg.h:114: * Config offsets for the AMD 751 chipset.
+./include/freebsd-9.3/dev/agp/agpreg.h:127: * Memory mapped register offsets for AMD 751 chipset.
+./include/freebsd-9.3/dev/agp/agpreg.h:202: * Memory mapped register offsets for i810 chipset.
+./include/freebsd-9.3/dev/an/if_anreg.h:169:	unsigned	an_offset:15;
+./include/freebsd-9.3/dev/bktr/ioctl_bt848.h:92:	short		offset;
+./include/freebsd-9.3/dev/bktr/ioctl_bt848.h:245:   int      x_offset;
+./include/freebsd-9.3/dev/bktr/ioctl_bt848.h:246:   int      y_offset;
+./include/freebsd-9.3/dev/bktr/ioctl_meteor.h:173:	unsigned num_bufs;	 /* number of frames in buffer (1-32) */
+./include/freebsd-9.3/dev/bktr/ioctl_meteor.h:177:				    hiwat <= numbufs */
+./include/freebsd-9.3/dev/bktr/ioctl_meteor.h:180:	int	num_active_bufs; /* count of active frame buffer
+./include/freebsd-9.3/dev/ciss/cissreg.h:145:	    u_int8_t	offense_offset;
+./include/freebsd-9.3/dev/ciss/cissreg.h:414:    u_int32_t	transport_offset;
+./include/freebsd-9.3/dev/ciss/cissreg.h:727:#define CISS_TL_SIMPLE_CFG_OFF	0xb8	/* offset in BAR at which config table is located */
+./include/freebsd-9.3/dev/firewire/firewire.h:50:	struct fw_bufspec {
+./include/freebsd-9.3/dev/firewire/firewire.h:232:/* The destination offset field in the request was set to an address not
+./include/freebsd-9.3/dev/firewire/firewirereg.h:66:	int rommax;	/* offset from 0xffff f000 0000 */
+./include/freebsd-9.3/dev/firewire/firewirereg.h:174:#define CSRARC(sc, offset) ((sc)->csr_arc[(offset)/4])
+./include/freebsd-9.3/dev/firewire/firewirereg.h:215:	int poffset;
+./include/freebsd-9.3/dev/firewire/firewirereg.h:328:#define bio_offset b_offset
+./include/freebsd-9.3/dev/firewire/fwdma.h:62:	int offset = am->esize * index;
+./include/freebsd-9.3/dev/firewire/fwdma.h:64:	return ((caddr_t)am->seg[offset / ssize].v_addr + (offset % ssize));
+./include/freebsd-9.3/dev/firewire/fwdma.h:71:	int offset = am->esize * index;
+./include/freebsd-9.3/dev/firewire/fwdma.h:73:	return (am->seg[offset / ssize].bus_addr + (offset % ssize));
+./include/freebsd-9.3/dev/firewire/fwohcivar.h:61:		int buf_offset;	/* signed */
+./include/freebsd-9.3/dev/firewire/iec13213.h:62:#define CSRTYPE_C	(1 << CSRTYPE_SHIFT) /* CSR offset */
+./include/freebsd-9.3/dev/firewire/iec13213.h:237:	int offset;
+./include/freebsd-9.3/dev/ic/esp.h:40: * CMD1 and CMD2 are the command ports, offsets from <esp_iobase>.
+./include/freebsd-9.3/dev/ic/i82586.h:74:	u_short ie_scb_offset;		/* 16-bit physaddr of next struct */
+./include/freebsd-9.3/dev/ic/sab82532.h:52:#define	SAB_CHAN_A	0x00	/* channel A register offset */
+./include/freebsd-9.3/dev/ic/sab82532.h:53:#define	SAB_CHAN_B	0x40	/* channel B register offset */
+./include/freebsd-9.3/dev/ieee488/upd7210.h:53:	u_int			reg_offset[8];
+./include/freebsd-9.3/dev/ieee488/upd7210.h:67:	size_t			bufsize;
+./include/freebsd-9.3/dev/lmc/if_lmc.h:545:#define Bt8370_RSYNC_BIT	0x0D2	/* RW: Rx System Bus Sync Bit Offs */
+./include/freebsd-9.3/dev/lmc/if_lmc.h:546:#define Bt8370_RSYNC_TS		0x0D3	/* RW: Rx System Bus Sync TS Offs  */
+./include/freebsd-9.3/dev/lmc/if_lmc.h:549:#define Bt8370_TSYNC_TS		0x0D6	/* RW: Tx System Bus Sync TS Offs  */
+./include/freebsd-9.3/dev/lmc/if_lmc.h:551:#define Bt8370_RSYNC_FRM	0x0D8	/* RW: Sig Reinsertion Frame Offs  */
+./include/freebsd-9.3/dev/lmc/if_lmc.h:1033:  struct sk_buff *head;		/* tail-queue of skbuffs */
+./include/freebsd-9.3/dev/lmc/if_lmc.h:1036:  struct mbuf *head;		/* tail-queue of mbufs */
+./include/freebsd-9.3/dev/mfi/mfireg.h:1452: * This resides at offset 0x60 where the SGL normally starts in MPT IO Frames
+./include/freebsd-9.3/dev/mfi/mfireg.h:1549:	uint8_t		ChainOffset;                    /* 0x02 */
+./include/freebsd-9.3/dev/mfi/mfireg.h:1585:	uint8_t		NextChainOffset;
+./include/freebsd-9.3/dev/mfi/mfireg.h:1717:	uint8_t		NextChainOffset;
+./include/freebsd-9.3/dev/mfi/mfireg.h:1732:	uint8_t			ChainOffset;                    /* 0x02 */
+./include/freebsd-9.3/dev/mfi/mfireg.h:1744:	uint8_t			SGLOffset0;                     /* 0x14 */
+./include/freebsd-9.3/dev/mfi/mfireg.h:1745:	uint8_t			SGLOffset1;                     /* 0x15 */
+./include/freebsd-9.3/dev/mfi/mfireg.h:1746:	uint8_t			SGLOffset2;                     /* 0x16 */
+./include/freebsd-9.3/dev/mfi/mfireg.h:1747:	uint8_t			SGLOffset3;                     /* 0x17 */
+./include/freebsd-9.3/dev/mfi/mfivar.h:368:	uint8_t				chain_offset_value_for_main_message;
+./include/freebsd-9.3/dev/mfi/mfivar.h:369:	uint8_t				chain_offset_value_for_mpt_ptmsg;
+./include/freebsd-9.3/dev/mpt/mpilib/mpi.h:90: *                      Added define for offset of High Priority Request Queue.
+./include/freebsd-9.3/dev/mpt/mpilib/mpi.h:416:    U8                      NextChainOffset;
+./include/freebsd-9.3/dev/mpt/mpilib/mpi.h:425:    U8                      NextChainOffset;
+./include/freebsd-9.3/dev/mpt/mpilib/mpi.h:434:    U8                      NextChainOffset;
+./include/freebsd-9.3/dev/mpt/mpilib/mpi.h:642:    U8                      ChainOffset;
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_cnfg.h:96: *                      Added structure offset comments.
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_cnfg.h:541:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_cnfg.h:700:    U8                              InfoOffset0;        /* 08h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_cnfg.h:702:    U8                              InfoOffset1;        /* 0Ah */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_fc.h:61: *                      Added structure offset comments.
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_fc.h:91:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_fc.h:180:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_fc.h:229:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_fc.h:270:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_fc.h:312:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_fc.h:357:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_init.h:50: *  03-27-01  01.01.04  Added structure offset comments.
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_init.h:107:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_init.h:294:    U8                          ChainOffset;                    /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_init.h:313:    U8                          SGLOffset0;                     /* 58h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_init.h:314:    U8                          SGLOffset1;                     /* 59h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_init.h:315:    U8                          SGLOffset2;                     /* 5Ah */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_init.h:316:    U8                          SGLOffset3;                     /* 5Bh */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_init.h:439:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_init.h:509:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:66: *                      Added structure offset comments.
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:174:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:244:    U8                      ChainOffset;                /* 01h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:355:     U8                     ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:414:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:453:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:486:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:1027:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:1057:    U32                     ImageOffset;                /* 08h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:1087:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:1116:    U32                     ImageOffset;                /* 08h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:1154:    U32                     NextImageHeaderOffset;      /* 30h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_ioc.h:1221:    U32                     NextImageHeaderOffset;      /* 0Ch */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_lan.h:57: *  03-27-01  01.01.03  Added structure offset comments.
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_lan.h:79:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_lan.h:113:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_lan.h:139:    U32                     PacketOffset;       /* 18h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_lan.h:151:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_log_fc.h:57: *                  6 = Invalid Field Offset
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_log_fc.h:112:    MPI_IOCLOGINFO_FC_INVALID_FIELD_BYTE_OFFSET     = 0x26000000, /* The lower 24 bits give the byte offset of the field in the request message that is invalid */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_log_sas.h:88:#define IOP_LOGINFO_CODE_FWUPLOAD_WRONG_IMAGE_SIZE           (0x0003E002) /* ImageSize field in TCSGE was bad/offset in MfgPg 4 was wrong */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_log_sas.h:194:#define PL_LOGINFO_SUB_CODE_FRAME_XFER_ERROR                 (0x00000400) /* Bits 0-3 encode Transport Status Register (offset 0x08) */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_raid.h:44: *  03-27-01  01.01.02  Added structure offset comments.
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_raid.h:89:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_raid.h:205:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_raid.h:253:    U8                      ChainOffset;
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_sas.h:131:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_sas.h:185:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_sas.h:249:    U8                      ChainOffset;        /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:55: *  03-27-01  01.01.04  Added structure offset comments.
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:119:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:215:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:223:    U16                     NextCmdBufferOffset;        /* 12h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:260:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:362:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:370:    U32                     RelativeOffset;             /* 18h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:410:    U8                      ChainOffset;                    /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:418:    U32                     RelativeOffset;                 /* 18h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:433:    U8                      SGLOffset0;                     /* 48h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:434:    U8                      SGLOffset1;                     /* 49h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:435:    U8                      SGLOffset2;                     /* 4Ah */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:436:    U8                      SGLOffset3;                     /* 4Bh */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:481:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_targ.h:561:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_tool.h:99:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_tool.h:128:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_tool.h:147:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_tool.h:182:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_tool.h:249:    U8                          ChainOffset;            /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_tool.h:277:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_tool.h:302:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/mpt/mpilib/mpi_tool.h:352:    U8                      ChainOffset;                /* 02h */
+./include/freebsd-9.3/dev/nvme/nvme_private.h:348:#define nvme_mmio_offsetof(reg)						       \
+./include/freebsd-9.3/dev/nvme/nvme_private.h:349:	offsetof(struct nvme_registers, reg)
+./include/freebsd-9.3/dev/nvme/nvme_private.h:353:	    nvme_mmio_offsetof(reg))
+./include/freebsd-9.3/dev/nvme/nvme_private.h:357:	    nvme_mmio_offsetof(reg), val)
+./include/freebsd-9.3/dev/nvme/nvme_private.h:362:		    nvme_mmio_offsetof(reg), val & 0xFFFFFFFF); 	       \
+./include/freebsd-9.3/dev/nvme/nvme_private.h:364:		    nvme_mmio_offsetof(reg)+4,				       \
+./include/freebsd-9.3/dev/pci/pcireg.h:32: * PCIR_xxx: config register offset
+./include/freebsd-9.3/dev/pci/pcireg.h:95:/* Capability Register Offsets */
+./include/freebsd-9.3/dev/ppbus/ppb_msq.h:41:/* offset of each mask (see above) */
+./include/freebsd-9.3/dev/ppbus/ppb_msq.h:70:#define MS_OP_DBRA      7	/* dbra <offset>			*/
+./include/freebsd-9.3/dev/ppbus/ppb_msq.h:71:#define MS_OP_BRSET     8	/* brset <mask>, <offset>		*/
+./include/freebsd-9.3/dev/ppbus/ppb_msq.h:72:#define MS_OP_BRCLEAR   9	/* brclear <mask>, <offset>		*/
+./include/freebsd-9.3/dev/ppbus/ppb_msq.h:77:#define MS_OP_BRSTAT	14	/* brstat <mask>, <mask>, <offset>	*/
+./include/freebsd-9.3/dev/ppbus/ppb_msq.h:130:#define MS_BRSET(mask,offset)	{ MS_OP_BRSET, {{ (mask) }, { (offset) }}}
+./include/freebsd-9.3/dev/ppbus/ppb_msq.h:131:#define MS_DBRA(offset)		{ MS_OP_DBRA, {{ (offset) }}}
+./include/freebsd-9.3/dev/ppbus/ppb_msq.h:132:#define MS_BRCLEAR(mask,offset)	{ MS_OP_BRCLEAR, {{ (mask) }, { (offset) }}}
+./include/freebsd-9.3/dev/ppbus/ppb_msq.h:133:#define MS_BRSTAT(mask_set,mask_clr,offset) \
+./include/freebsd-9.3/dev/ppbus/ppb_msq.h:134:		{ MS_OP_BRSTAT, {{ mask_set }, { mask_clr }, { (offset) }}}
+./include/freebsd-9.3/dev/usb/usb_busdma.h:70: * pointer and the physical address belonging to an offset in an USB
+./include/freebsd-9.3/dev/usb/usb_busdma.h:95:	usb_size_t page_offset_buf;
+./include/freebsd-9.3/dev/usb/usb_busdma.h:96:	usb_size_t page_offset_end;
+./include/freebsd-9.3/dev/usb/usb_busdma.h:140:	    usb_frlength_t pc_offset, usb_frlength_t len);
+./include/freebsd-9.3/dev/usb/usb_compat_linux.h:211: * the data offset and data length of an isochronous packet.
+./include/freebsd-9.3/dev/usb/usb_compat_linux.h:216:	uint32_t offset;		/* depreciated buffer offset (the
+./include/freebsd-9.3/dev/usb/usb_compat_linux.h:281:	    struct usb_host_endpoint *uhe, usb_frlength_t bufsize);
+./include/freebsd-9.3/dev/usb/usb_core.h:55:/* helper for computing offsets */
+./include/freebsd-9.3/dev/usb/usb_dev.h:123:	usb_frlength_t bufsize;		/* BULK and INTERRUPT buffer size */
+./include/freebsd-9.3/dev/usb/usb_ioctl.h:35:/* Building "kdump" depends on these includes */
+./include/freebsd-9.3/dev/usb/usb_ioctl.h:104:	uint16_t ugd_offset;
+./include/freebsd-9.3/dev/usb/usb_ioctl.h:219:	uint32_t max_bufsize;
+./include/freebsd-9.3/dev/usb/usb_mbuf.h:87:void   *usb_alloc_mbufs(struct malloc_type *type, struct usb_ifqueue *ifq,
+./include/freebsd-9.3/dev/usb/usb_transfer.h:101:	usb_frlength_t bufsize;
+./include/freebsd-9.3/dev/usb/usb_transfer.h:102:	usb_frlength_t bufsize_max;
+./include/freebsd-9.3/dev/usb/usbdi.h:217:	usb_frlength_t bufsize;	/* total pipe buffer size in bytes */
+./include/freebsd-9.3/dev/usb/usbdi.h:535:void	usbd_xfer_set_frame_offset(struct usb_xfer *xfer, usb_frlength_t offset,
+./include/freebsd-9.3/dev/usb/usbdi.h:554:void	usbd_copy_in(struct usb_page_cache *cache, usb_frlength_t offset,
+./include/freebsd-9.3/dev/usb/usbdi.h:556:int	usbd_copy_in_user(struct usb_page_cache *cache, usb_frlength_t offset,
+./include/freebsd-9.3/dev/usb/usbdi.h:558:void	usbd_copy_out(struct usb_page_cache *cache, usb_frlength_t offset,
+./include/freebsd-9.3/dev/usb/usbdi.h:560:int	usbd_copy_out_user(struct usb_page_cache *cache, usb_frlength_t offset,
+./include/freebsd-9.3/dev/usb/usbdi.h:562:void	usbd_get_page(struct usb_page_cache *pc, usb_frlength_t offset,
+./include/freebsd-9.3/dev/usb/usbdi.h:564:void	usbd_m_copy_in(struct usb_page_cache *cache, usb_frlength_t dst_offset,
+./include/freebsd-9.3/dev/usb/usbdi.h:565:	    struct mbuf *m, usb_size_t src_offset, usb_frlength_t src_len);
+./include/freebsd-9.3/dev/usb/usbdi.h:566:void	usbd_frame_zero(struct usb_page_cache *cache, usb_frlength_t offset,
+./include/freebsd-9.3/dev/usb/usbdi.h:577:int	usb_fifo_alloc_buffer(struct usb_fifo *f, uint32_t bufsize,
+./include/freebsd-9.3/dev/usb/usbdi.h:582:	    usb_frlength_t offset, usb_frlength_t len, uint8_t what);
+./include/freebsd-9.3/dev/usb/usbdi.h:588:	    usb_frlength_t offset, usb_frlength_t len, usb_frlength_t *actlen,
+./include/freebsd-9.3/dev/wi/if_wireg.h:354:	u_int16_t		wi_buf_off; /* offset of idb */
+./include/freebsd-9.3/dev/wi/if_wivar.h:61:	struct ieee80211_beacon_offsets	wv_bo;
+./include/freebsd-9.3/dev/wi/if_wivar.h:122:	u_int16_t		sc_dbm_offset;	/* dBm ~ RSSI - sc_dbm_offset */
+./include/freebsd-9.3/dev/wi/if_wivar.h:171:    MAX((sc)->sc_min_rssi, (rssi))) - (sc)->sc_dbm_offset)
+./include/freebsd-9.3/dialog.h:639:extern bool dlg_edit_string(char * /*string*/, int * /*offset*/, int /*key*/, int /*fkey*/, bool /*force*/);
+./include/freebsd-9.3/dialog.h:644:extern int dlg_edit_offset(char * /*string*/, int /*offset*/, int /*x_last*/);
+./include/freebsd-9.3/dialog.h:646:extern int dlg_limit_columns(const char * /*string*/, int /*limit*/, int /*offset*/);
+./include/freebsd-9.3/dialog.h:647:extern void dlg_show_string(WINDOW * /*win*/, const char * /*string*/, int /*offset*/, chtype /*attr*/, int /*y_base*/, int /*x_base*/, int /*x_last*/, bool /*hidden*/, bool /*force*/);
+./include/freebsd-9.3/dialog.h:681:extern int dlg_check_scrolled(int /* key */, int /* last */, int /* page */, bool */* show */, int */* offset */);
+./include/freebsd-9.3/dialog.h:686:extern int dlg_print_scrolled(WINDOW * /* win */, const char * /* prompt */, int /* offset */, int /* height */, int /* width */, int /* pauseopt */);
+./include/freebsd-9.3/dirent.h:64:	long	dd_loc;		/* offset in current buffer */
+./include/freebsd-9.3/dwarf.h:104:#define DW_AT_bit_offset		0x0c
+./include/freebsd-9.3/dwarf.h:447:#define DW_CFA_offset	 		0x80
+./include/freebsd-9.3/dwarf.h:456:#define DW_CFA_offset_extended 		0x05
+./include/freebsd-9.3/dwarf.h:465:#define DW_CFA_def_cfa_offset 		0x0e
+./include/freebsd-9.3/dwarf.h:468:#define DW_CFA_cfa_offset_extended_sf 	0x11
+./include/freebsd-9.3/dwarf.h:470:#define DW_CFA_def_cfa_offset_sf 	0x13
+./include/freebsd-9.3/dwarf.h:471:#define DW_CFA_val_offset		0x14
+./include/freebsd-9.3/dwarf.h:472:#define DW_CFA_val_offset_sf 		0x15
+./include/freebsd-9.3/elf-hints.h:38:	u_int32_t	strtab;		/* Offset of string table in file */
+./include/freebsd-9.3/elf-hints.h:40:	u_int32_t	dirlist;	/* Offset of directory list in
+./include/freebsd-9.3/fcntl.h:263:	off_t	l_start;	/* starting offset */
+./include/freebsd-9.3/fcntl.h:277:	off_t	l_start;	/* starting offset */
+./include/freebsd-9.3/fenv.h:67: * has the rounding control bits offset by 3 and the exception mask
+./include/freebsd-9.3/fenv.h:68: * bits offset by 7.
+./include/freebsd-9.3/fetch.h:47:	off_t		 offset;
+./include/freebsd-9.3/form.h:100:   * directly, we cannot make the struct opaque.  Offsets of members up to
+./include/freebsd-9.3/fs/devfs/devfs.h:195:void	devfs_unmount_final(struct devfs_mount *);
+./include/freebsd-9.3/fs/msdosfs/denode.h:54: * To describe a file uniquely the de_dirclust, de_diroffset, and
+./include/freebsd-9.3/fs/msdosfs/denode.h:59: * de_diroffset is the index into the cluster for the entry describing
+./include/freebsd-9.3/fs/msdosfs/denode.h:95: * Internal pseudo-offset for (nonexistent) directory entry for the root
+./include/freebsd-9.3/fs/msdosfs/denode.h:143:	u_long de_diroffset;	/* offset of this entry in the directory cluster */
+./include/freebsd-9.3/fs/msdosfs/denode.h:144:	u_long de_fndoffset;	/* offset of found dir entry */
+./include/freebsd-9.3/fs/msdosfs/denode.h:145:	int de_fndcnt;		/* number of slots before de_fndoffset */
+./include/freebsd-9.3/fs/msdosfs/denode.h:161:	u_int64_t de_inode;	/* Inode number (really byte offset of direntry) */
+./include/freebsd-9.3/fs/msdosfs/denode.h:251:	u_int32_t defid_dirofs;	/* offset of entry within the cluster */
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:91:	u_long pm_cnshift;	/* shift file offset right this amount to get a cluster number */
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:92:	u_long pm_crbomask;	/* and a file offset with this mask to get cluster rel offset */
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:93:	u_long pm_bnshift;	/* shift file offset right this amount to get a block number */
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:103:	u_int pm_fatdiv;	/*	offset computation */
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:127:/* Byte offset in FAT on filesystem pmp, cluster cn */
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:170: * Convert file offset to cluster number
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:182: * Convert file offset to block number
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:188: * Convert cluster number to file offset
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:194: * Convert block number to file offset
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:205: * Calculate block number for directory entry in root dir, offset dirofs
+./include/freebsd-9.3/fs/msdosfs/msdosfsmount.h:211: * Calculate block number for directory entry at cluster dirclu, offset
+./include/freebsd-9.3/fs/nfs/nfs.h:432: * I/O system calls on ufs are never interrupted by signals the set should
+./include/freebsd-9.3/fs/nfs/nfs_var.h:456:void nfscl_umount(struct nfsmount *, NFSPROC_T *);
+./include/freebsd-9.3/fs/nfs/nfsdport.h:108:#define	vnode_mount(v)	((v)->v_mount)
+./include/freebsd-9.3/fs/nfs/nfskpiport.h:41:#define	vnode_mount(v)		((v)->v_mount)
+./include/freebsd-9.3/fs/nfs/nfsport.h:108:#include <ufs/ufs/dir.h>
+./include/freebsd-9.3/fs/nfs/nfsport.h:109:#include <ufs/ufs/quota.h>
+./include/freebsd-9.3/fs/nfs/nfsport.h:110:#include <ufs/ufs/inode.h>
+./include/freebsd-9.3/fs/nfs/nfsport.h:111:#include <ufs/ufs/extattr.h>
+./include/freebsd-9.3/fs/nfs/nfsport.h:112:#include <ufs/ufs/ufsmount.h>
+./include/freebsd-9.3/fs/nfs/nfsport.h:119:#include "opt_ufs.h"
+./include/freebsd-9.3/fs/nfs/nfsport.h:141: * Allocate mbufs. Must succeed and never set the mbuf ptr to NULL.
+./include/freebsd-9.3/fs/nfs/nfsport.h:495: * mbufs any more.)
+./include/freebsd-9.3/fs/nfs/nfsport.h:798: * Define a structure similar to ufs_args for use in exporting the V4 root.
+./include/freebsd-9.3/fs/ntfs/ntfs.h:145:	u_int8_t        al_nameoff;	/* Name offset from entry start */
+./include/freebsd-9.3/fs/ntfs/ntfs.h:193:	u_int16_t       fr_attroff;	/* offset to attributes */
+./include/freebsd-9.3/fs/smbfs/smbfs_node.h:62:	long			n_dirofs;	/* last ff offset */
+./include/freebsd-9.3/fs/smbfs/smbfs_subr.h:110:	int		f_eofs;		/* entry offset in the parameter block */
+./include/freebsd-9.3/fs/udf/ecma167-udf.h:383:#define	GETICB(ad_type, fentry, offset)	\
+./include/freebsd-9.3/fs/udf/ecma167-udf.h:384:	(struct ad_type *)&fentry->data[offset]
+./include/freebsd-9.3/fs/udf/udf.h:71:	int		offset;
+./include/freebsd-9.3/fstab.h:41: * For ufs fs_spec field is the block special name.  Programs that want to
+./include/freebsd-9.3/fstab.h:59:	char	*fs_vfstype;		/* File system type, ufs, nfs */
+./include/freebsd-9.3/gelf.h:39:typedef Elf64_Off	GElf_Off;	/* Offsets */
+./include/freebsd-9.3/geom/eli/g_eli.h:65: * 4 - IV is generated from offset converted to little-endian
+./include/freebsd-9.3/geom/eli/g_eli.h:525:void g_eli_crypto_ivgen(struct g_eli_softc *sc, off_t offset, u_char *iv,
+./include/freebsd-9.3/geom/eli/g_eli.h:565:uint8_t *g_eli_key_hold(struct g_eli_softc *sc, off_t offset, size_t blocksize);
+./include/freebsd-9.3/geom/gate/g_gate.h:93:	off_t			 sc_readoffset;		/* P: XXX */
+./include/freebsd-9.3/geom/gate/g_gate.h:138:	off_t	gctl_readoffset;
+./include/freebsd-9.3/geom/gate/g_gate.h:153:	off_t		gctl_readoffset;
+./include/freebsd-9.3/geom/gate/g_gate.h:175:	off_t		 gctl_offset;
+./include/freebsd-9.3/geom/geom.h:197:	u_int			stripeoffset;
+./include/freebsd-9.3/geom/geom.h:317:void * g_read_data(struct g_consumer *cp, off_t offset, off_t length, int *error);
+./include/freebsd-9.3/geom/geom.h:318:int g_write_data(struct g_consumer *cp, off_t offset, void *ptr, off_t length);
+./include/freebsd-9.3/geom/geom.h:319:int g_delete_data(struct g_consumer *cp, off_t offset, off_t length);
+./include/freebsd-9.3/geom/geom.h:329:	off_t		offset;
+./include/freebsd-9.3/geom/geom_ctl.h:45:	off_t				offset;
+./include/freebsd-9.3/geom/geom_disk.h:88:	u_int			d_stripeoffset;
+./include/freebsd-9.3/geom/geom_slice.h:42:	off_t	offset;
+./include/freebsd-9.3/geom/geom_slice.h:49:	off_t	offset;
+./include/freebsd-9.3/geom/geom_slice.h:72:int g_slice_config(struct g_geom *gp, u_int idx, int how, off_t offset, off_t length, u_int sectorsize, const char *fmt, ...) __printflike(7, 8);
+./include/freebsd-9.3/geom/geom_slice.h:80:int g_slice_conf_hot(struct g_geom *gp, u_int idx, off_t offset, off_t length, int ract, int dact, int wact);
+./include/freebsd-9.3/geom/journal/g_journal.h:73:#define	JEMPTY(sc)	((sc)->sc_journal_offset -			\
+./include/freebsd-9.3/geom/journal/g_journal.h:75:			 (sc)->sc_active.jj_offset &&			\
+./include/freebsd-9.3/geom/journal/g_journal.h:100: * need to store two off_t values (offset in data provider and offset in
+./include/freebsd-9.3/geom/journal/g_journal.h:103:#define	bio_joffset	bio_completed
+./include/freebsd-9.3/geom/journal/g_journal.h:117:	off_t		 jj_offset;	/* Journal's start offset. */
+./include/freebsd-9.3/geom/journal/g_journal.h:136:	off_t		 sc_journal_offset;
+./include/freebsd-9.3/geom/journal/g_journal.h:161:	off_t		 sc_jstart;	/* Journal space start offset. */
+./include/freebsd-9.3/geom/journal/g_journal.h:162:	off_t		 sc_jend;	/* Journal space end offset. */
+./include/freebsd-9.3/geom/journal/g_journal.h:215:	uint64_t	je_joffset;
+./include/freebsd-9.3/geom/journal/g_journal.h:216:	uint64_t	je_offset;
+./include/freebsd-9.3/geom/journal/g_journal.h:224:#define	GJ_VALIDATE_OFFSET(offset, sc)	do {				\
+./include/freebsd-9.3/geom/journal/g_journal.h:225:	if ((offset) + GJ_RECORD_MAX_SIZE(sc) >= (sc)->sc_jend) {	\
+./include/freebsd-9.3/geom/journal/g_journal.h:226:		(offset) = (sc)->sc_jstart;				\
+./include/freebsd-9.3/geom/journal/g_journal.h:250:extern const struct g_journal_desc g_journal_ufs;
+./include/freebsd-9.3/geom/journal/g_journal.h:287:	uint64_t	md_jstart;	/* Journal space start offset. */
+./include/freebsd-9.3/geom/journal/g_journal.h:288:	uint64_t	md_jend;	/* Journal space end offset. */
+./include/freebsd-9.3/geom/journal/g_journal.h:289:	uint64_t	md_joffset;	/* Last known consistent journal offset. */
+./include/freebsd-9.3/geom/journal/g_journal.h:307:	le64enc(data + 41, md->md_joffset);
