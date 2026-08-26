@@ -193,3 +193,7 @@ Searches for the exact output path `/mnt/usb0/kernel.elf`, `kernel.elf` with LUA
 ## GBAtemp scene-status cross-check
 
 GBAtemp PS4 Exploit Guide page 1419: https://gbatemp.net/threads/ps4-exploit-guide.497858/page-1419 lists separate statuses for stable public kernel exploitation up to 12.02, Poopsploit up to 13.00, and Vue userland up to 13.02. It does not provide an Orbis kernel ELF, dump hash, disassembly, `patch_mount` source, or FFS analysis. The page's firmware MD5 values are update/PUP checksums and cannot be used as kernel provenance. Classification: `SOURCE_ONLY` for scene-status claims; `INVALID` as direct 13.02 kernel/Celsius evidence.
+
+## OBHQ kernel-dumper
+
+Primary repository: https://github.com/obhq/kernel-dumper. README states explicitly: `Only 11.00 is supported.` It is a Rust payload that writes a locally generated `kernel.elf` to USB and gives Ghidra loading instructions. The repository has 49 commits, no public kernel dump asset in the top-level tree, and no 12.02/13.02 support claim. The README's sample ELF addresses are illustrative and explicitly not reusable. Classification: `VERIFIED` as an 11.00 dumper; `INVALID` as 13.02/Celsius evidence.
