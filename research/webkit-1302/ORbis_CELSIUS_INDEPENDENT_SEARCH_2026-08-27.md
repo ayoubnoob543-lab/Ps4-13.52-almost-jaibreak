@@ -85,3 +85,7 @@ Fuente de imagen: `https://pbs.twimg.com/media/HNh9_EUWEAA3fwf?format=webp&name=
 La tercera imagen adjunta dice que los userlands esperados en PS4 son **Vue y BD-J**, y en PS5 **Y2JB y BD-J**. Añade que la ejecución no tarda 50 minutos, pero requiere conectar el USB en el momento correcto y que el éxito depende del timing. No proporciona nombres de archivos, código, parámetros de montaje, imagen UFS, dirección o primitive de kernel R/W. Clasificación: **SOURCE_ONLY** para la elección de entrypoints y **HYPOTHESIS** para el detalle del timing hasta que exista una PoC pública.
 
 Fuente de imagen: `https://pbs.twimg.com/media/HNh9_YGWgAANBEm?format=webp&name=medium`; SHA-256 local del WebP: `767f2ce350dc97ed90298cd3de70aa5effe521d399d959658be0442b9ed14187`.
+
+## Búsqueda por frases distintivas del anuncio
+
+Las búsquedas textuales de `“250GB drives aren't all made the same”`, `“The expected userlands” “Vue and BD-J”` y `“It has been named Celsius” PS4` no devolvieron copias indexadas adicionales. No se localizó un hilo original alternativo, archivo enlazado, PoC, bootstrap o imagen UFS fuera de las referencias ya documentadas. Resultado: **búsqueda negativa**, sin corroboración independiente nueva.
