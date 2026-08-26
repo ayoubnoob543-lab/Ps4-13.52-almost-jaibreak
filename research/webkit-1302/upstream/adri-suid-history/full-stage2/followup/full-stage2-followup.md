@@ -115,6 +115,14 @@ La recuperación exacta del commit confirma que no es una cadena operativa ocult
 | fcall/dlsym/pivot completo | **INVALID** |
 | Celsius/FFS | **UNVERIFIED; no código presente** |
 
+## Nuevo hallazgo de linaje: Jordy 11.60 y la cadena PS4 histórica
+
+El commit padre de `1630d79`, [`c6b52aea`][9], añade únicamente `jordy/index.html` (786 líneas). El archivo se identifica expresamente como bootstrap de WebKit/RW para **PS5 FW 11.60 / WebKit 616.1**. La implementación valida arbitrary read/write userland mediante el layout `JSFinalObject`/`m_vector`, pero el escaneo completo no encuentra `kernel`, `kread`, `kwrite`, `ffs`, `Celsius`, `mount`, `dlsym`, `pivot`, `ROP`, `libkernel`, `SHELLCODE` ni `FW_OFFSETS`. Por tanto, “jordy 11.60” no es la pieza kernel omitida de `jordy_stage2.js`.
+
+La cadena PS4 completa localizada en esta investigación procede de una línea distinta y anterior: `ps3120/CSSFontFace-Exploit` → `ntfargo/CSSFontFace-Exploit`/`ufm42/wobkot`. El commit [`6f33986`][10] añade `netctrl.js`, `ps4/kernel.js`, `ps4/userland.js`, workers, constantes, ROP y blobs de parches para 6.00–11.02. Los progenitores y la cadena primaria contienen implementación real de kernel R/W histórica, pero no contienen 13.02/13.04, `ffs_mountfs`, Celsius ni el nombre `jordy_stage2`.
+
+Esta separación es importante: el stage 2 de `ps4-suid-scanner` parece combinar terminología de bootstrap WebKit/Jordy con una arquitectura de segunda fase que no está presente en el artefacto PS5 11.60 ni se puede atribuir textualmente a la cadena PS4 Netctrl/Lapse. La evidencia de reutilización directa sigue siendo insuficiente.
+
 ## Nuevo candidato relacionado: CSSFontFace/Lapse PS4 histórico
 
 La búsqueda de proyectos citados por `netctrl-ps5.js` localizó [`Feyzee61/cssfontface_lapse`][8], un fork declarado de `wobkot` y `CSSFontFace-Exploit`. Su `public/lapse.js` contiene una fase PS4 real de kernel R/W basada en `pktopts`: valida una lectura de una cadena del kernel, deriva `kbase`, recorre `pcpu → curthread → proc`, obtiene `p_ucred`, y construye `KernelMemory` con `copyin`, `copyout`, `read64` y `write64`. También contiene blobs de parche kernel por firmware y modificación de `sysent[661]`.
@@ -146,3 +154,7 @@ La procedencia y el alcance deben limitarse cuidadosamente. El README declara pr
 [7]: https://github.com/zecoxao/zecoxao.github.io/commit/1630d79d2a7146a65436e5f2fc0ff5dc6d9ba07b "Commit zecoxao: kern and user jordy"
 
 [8]: https://github.com/Feyzee61/cssfontface_lapse "Feyzee61 CSSFontFace Lapse"
+
+[9]: https://github.com/zecoxao/zecoxao.github.io/commit/c6b52aea9e212427aa54b12b35557877363f1940 "Commit zecoxao: jordy 11.60"
+
+[10]: https://github.com/ntfargo/CSSFontFace-Exploit/commit/6f3398616ac0e3a0a7b45bf33730529a75578db7 "Commit ntfargo/ufm42: full chain exploit with lapse and netctrl"
