@@ -691,3 +691,8 @@ The fork audit initially associated the payloads with the current HEAD, but comm
 ## Exact payload introduction commit
 
 Path-specific history resolves the provenance of both binaries: commit `d29bd6c3cfb1cfa75be20952149acda7a6e582aa`, authored by `hejran7` on 2026-08-04, adds `host/files/pl_KernelDumper.bin` as a 17,832-byte binary and `host/files/pl_KernelClock.bin` as a 13,184-byte binary. The later HEAD commit `963e188` does not introduce them. This makes the upload provenance precise, but the commit contains no source, dump metadata, firmware 13.02 label or FFS/Celsius material; classification remains payload/tool artifact `VERIFIED`, 13.02/Celsius relation `UNVERIFIED`.
+
+
+## hejran7 main-flow audit
+
+`hejran7/host/src/main.js` loads PS4 constants/userland, obtains the userland ARW, initializes ROP and syscalls, then loads `ps4/kernel.js` and the selected exploit chain (`lapse` or Netctrl). The chain calls `make_karw()`/`ucred_triple_free()`, then `find_all_proc()`, `jailbreak()` and `kernel_patches()` with firmware-specific patch blobs. There is no `jordy_stage2`, UFS/FFS mount, Celsius or hidden 13.02 branch. The source ordering reinforces that `kernel.js` and dumper payloads are consumers after a historical exploit primitive, not missing exploit components for 13.02.
