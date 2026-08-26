@@ -931,3 +931,7 @@ Mirror HEAD is `b3b5637c8f36c8076aef3dba7a7f3610d88df040`; GitHub HEAD is `4d29e
 ## Complete GitHub refs audit for mkufs2
 
 GitHub exposes main, Copilot/PR #1, PR #2 and PR #3; all main refs contain README and mkufs2.sh, while PR #3 additionally contains mkufs2_linux.sh. Grep across all GitHub refs finds no Celsius, `ffs_mountfs`, 13.02/13.04, 250GB, extended-storage or Jordy references. The mirror is a historical snapshot, not a hidden Celsius image source.
+
+## mkufs2 Linux PR #3
+
+PR #3 adds `mkufs2_linux.sh`, using `makefs -t ffs -B le -M 1m -o version=2,bsize=32768,fsize=4096,label=ffpkg`. It provides explicit portable FFS/UFS2 image parameters but no Celsius image, corruption fields, `ffs_mountfs`, disk-size requirement or bootstrap. Verified as image recipe; no Celsius linkage.

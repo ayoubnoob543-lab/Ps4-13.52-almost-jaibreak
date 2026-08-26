@@ -151,3 +151,7 @@ La comparación de refs muestra que el mirror `git.etawen.dev/earthonion/mkufs2`
 ### Revisión de todas las refs GitHub de `mkufs2`
 
 La comparación completa muestra que GitHub mantiene `main` (`4d29e9fc...`), la rama Copilot/PR #1 (`38f22e25...`) y PR #2/#3 (`9d4a8322...`, `9ebb28a5...`). Todas las refs principales contienen `README.md` y `mkufs2.sh`; PR #3 añade `mkufs2_linux.sh`. La diferencia entre el mirror y GitHub no oculta una PoC Celsius: el grep de todas las refs no encuentra `Celsius`, `ffs_mountfs`, `13.02`, `13.04`, `250GB`, `extended storage` ni `Jordy`. PR #3 sólo amplía la herramienta a Linux. Esto confirma que el mirror es un snapshot histórico diferenciado, pero no una fuente de la imagen Celsius.
+
+### Variante Linux de `mkufs2` (PR #3)
+
+La PR #3 de GitHub añade `mkufs2_linux.sh`, que usa `makefs -t ffs -B le -M 1m -o version=2,bsize=32768,fsize=4096,label=ffpkg`. Esta variante aporta una receta reproducible para construir una imagen FFS/UFS2 desde Linux, con parámetros explícitos de endianess, tamaño de bloque, tamaño de fragmento y etiqueta `ffpkg`. No añade campos de superbloque manipulados, tamaño de disco, imagen Celsius, `ffs_mountfs`, argumentos de corrupción ni bootstrap. Es una mejora de portabilidad de la herramienta, no el artefacto original de Celsius. Clasificación: **VERIFIED** como receta de imagen; **SOURCE_ONLY/HYPOTHESIS** para cualquier relación con Celsius.
