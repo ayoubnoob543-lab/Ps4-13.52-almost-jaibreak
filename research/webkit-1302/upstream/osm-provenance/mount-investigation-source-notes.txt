@@ -768,3 +768,9 @@ The refined search returned ConsoleMods stating that no public kernel exploit ex
 ## GitHub API exact-code search
 
 GitHub code-search queries for `patch_mount PS4`, `0x001512A7`, `ffs_mountfs PS4` and `Celsius PS4` produced no relevant external implementation. The only technically relevant hit was the laboratory's own mirrored `webkit_gadgets_1304.js`; other `Celsius` matches were unrelated projects or ordinary text. This adds no independent bytes, disassembly, hash, or cross-reference. Classification: no new corroboration; external exploit linkage remains `UNVERIFIED`.
+
+## Celsius reconstruction baseline (2026-08-27)
+
+For this phase Celsius is treated as the working baseline, per user instruction. The public scanner documentation states a claimed path based on `ffs_mountfs`, a malformed UFS superblock, a BD-J or Vue entrypoint, and a 250GB+ HDD. It names `fs_ncg`, `fs_cssize`, `fs_contigsumsize`, `fs_bsize` and `fs_fsize` and describes integer arithmetic followed by a loop consuming `fs_ncg`.
+
+The code currently available in `ps4-suid-scanner` does not implement that path. `SuidScanner.java` resolves `open`, `close`, `getdents`, `stat` and `write` through an external BD-J API and scans SUID files. It does not construct a UFS image, invoke mount, reach `ffs_mountfs`, groom the kernel heap or expose kernel R/W. `jordy_stage2.js` similarly supplies helpers and comments but not the missing WebKit bootstrap, mount arguments or kernel-side conversion. These are reconstruction gaps, not a reason to revisit the baseline assumption.

