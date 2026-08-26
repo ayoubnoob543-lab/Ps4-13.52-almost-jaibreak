@@ -1,0 +1,5 @@
+source_sha256 aff12b6cddc352e598ea263e1f901cdc525da5e9c0b53467bf5768ec58032af4
+source_offset 0x5c70
+embedded_size 34672
+embedded_sha256 a87a778065820f9dd5c7f480ffa38df4365b845784c011d59f38bdc663e01906
+output /home/ubuntu/firmware-lab/research/webkit-1302/upstream/osm-provenance/binary-assets/fusion14-embedded.elf
