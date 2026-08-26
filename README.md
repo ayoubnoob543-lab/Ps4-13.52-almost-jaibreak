@@ -18,7 +18,7 @@ Laboratorio de investigación estática y de ingeniería de herramientas para ar
 | Build local | `REQUIRES_TOOLCHAIN` | Requiere GCC/Clang x86-64, `xxd`, SDK inicializado y plugins con procedencia. |
 | Tests estáticos | `PASS_WITH_SKIPS` | La suite disponible pasa; algunos tests requieren clones o dependencias externas. |
 
-Estas etiquetas describen **evidencia y reproducibilidad**, no un porcentaje de avance, probabilidad de jailbreak ni seguridad del firmware. Se eliminan deliberadamente las métricas agregadas del tipo “100% de infraestructura / 15% indirecto / 0% bytes”, porque mezclaban unidades distintas y podían interpretarse como una medida objetiva de progreso global.
+Estas etiquetas describen **evidencia y reproducibilidad**, no una probabilidad de avance, una probabilidad de jailbreak ni una medida de seguridad del firmware. Se eliminan deliberadamente las métricas agregadas que mezclaban infraestructura, evidencia indirecta y bytes disponibles, porque usaban unidades distintas y podían interpretarse como una medida objetiva de progreso global.
 
 ## Cadena de investigación
 
