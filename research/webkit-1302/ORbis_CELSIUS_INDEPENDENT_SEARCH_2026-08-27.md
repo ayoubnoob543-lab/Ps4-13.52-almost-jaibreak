@@ -245,3 +245,7 @@ La API de GitHub devolvió ocho forks públicos. La inspección de sus ramas por
 ## Consultas exactas adicionales de artefactos Orbis
 
 Las consultas exactas `"ffs_mountfs" "Orbis" PS4`, `"0x001512A7" PS4` y `"Orbis" "13.04" "Ghidra" kernel` no devolvieron resultados públicos utilizables. Esto se registra como **ausencia de resultado en el índice consultado**, no como prueba de que el artefacto no exista fuera de los índices públicos.
+
+## Estado de fase: búsqueda exacta sin artefacto nuevo
+
+Tras auditar los loaders de kernel, sus forks, GhidraOrbis y sus forks, las ramas históricas de `vue-after-free`, el derivado `claimore22` y las consultas exactas de `ffs_mountfs`/`0x001512A7`, no se ha localizado un dump o proyecto RE Orbis 13.02/13.04. El inventario negativo sólo cubre artefactos públicos indexados y refs accesibles; no permite concluir que una copia privada, no indexada o retirada no exista. La mejor evidencia pública nueva sigue siendo indirecta: `mkufs2` para modelado UFS y las cadenas NetCtrl para el patrón de R/W posterior a una corrupción distinta.
