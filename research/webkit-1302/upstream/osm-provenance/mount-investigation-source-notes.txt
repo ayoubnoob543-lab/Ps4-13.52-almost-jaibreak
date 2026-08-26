@@ -842,3 +842,7 @@ Exact code searches for `ffs_mountfs Celsius`, `jordy_stage2.js`, `webkit_gadget
 ## Video-description forensic pass
 
 The Celsius-related video pages checked in this pass yielded either no usable description or a news-style description. The usable description links back to Dr.Yenyen's X post and unrelated/general projects; it does not expose a Celsius PoC, UFS image, hash, bootstrap, `patch_mount` reference, or kernel-R/W conversion. The video material is therefore secondary reporting only and contributes no new chain component.
+
+## Public fork forensic audit
+
+GitHub reports four public forks of `adri22235/ps4-suid-scanner`: `ayoubnoob543-lab/ps4-suid-scanner`, `ke5adb/ps4-suid-scanner`, `kishan9601743105-oss/ps4-suid-scanner` and `OptiTronOffical/ps4-suid-scanner`. Static comparison found the same hashes for `webkit_gadgets_1304.js` (`b5910bf0...`), `scanner_1304.iso` (`6ed15acd...`) and `hen.bin` (`f29bd1f0...`) where present. The forks that omit `jordy_stage2.js` do so by deletion; none adds a different stage 2, UFS image, FFS code, or kernel-R/W bridge. Their visible histories point back to the same upstream commits (`702fcc3`, `96a7948`, `1089382`) and are not independent Celsius sources. Full output is in `celsius_forks_diff_audit.txt`; names are in `celsius_fork_names.txt`. Classification: fork propagation `VERIFIED`; independent PoC `DISPROVEN/NOT FOUND`.

@@ -1,0 +1,179 @@
+===== OptiTronOffical_ps4-suid-scanner =====
+[33m1089382[m[33m ([m[1;31mupstream/main[m[33m)[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+[33m96a7948[m Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+[33m702fcc3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+[33m3fd35a4[m[33m ([m[1;33mtag: [m[1;33mv2.0[m[33m)[m Add compiled ps4-hen for FW 13.04 with full offsets
+[33mb1570ef[m Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+[33m596745e[m CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+[33m615c637[m Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+[33m13d44f2[m Add Pharaoh2k to credits
+[33m6cacb24[m Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+[33m9d0d8e1[m PS4 SUID Scanner for FW 13.04 - BD-JB based
+-- files
+./1352_offsets.txt
+./scanner_1304.iso
+-- text
+./1304.c:84:  .mountpfs__sceSblPfsSetKeys_hook1                          = 0x006A2EF9,
+./1304.c:85:  .mountpfs__sceSblPfsSetKeys_hook2                          = 0x006A312A,
+./1304.c:118:  .enable_data_mount_patch         = 0x00323380,
+./README.md:20:- ✅ **PlayStation Vue** — Installed, potential Celsius entry point
+./README.md:23:- 🔥 **Celsius (ffs_mount)** — Integer overflow in ffs_mountfs(), works up to 13.04, patched in 13.50. Discovered by bollars.
+./README.md:29:- **2026-07-18**: Celsius (ffs_mount KEX) announced by bollars
+./README.md:63:- **Celsius / ffs_mount** — Integer overflow in ffs_mountfs() (CONFIRMED for 13.04)
+./README.md:65:## Celsius (ffs_mount) Technical Analysis
+./README.md:67:The vulnerability is in `ffs_mountfs()` in `sys/ufs/ffs/ffs_vfsops.c`:
+./README.md:74:space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // small malloc
+./README.md:81:`fs->fs_ncg` comes from the UFS superblock (attacker controlled). A large value causes integer overflow in the size calculation, resulting in a small malloc but massive heap overflow.
+./README.md:83:**Requirements:** BD-J or Vue entry point + 250GB+ HDD with malformed UFS image.
+./README.md:106:- bollars — Celsius (ffs_mount) discovery
+./README.md:109:- Victor — Celsius confirmation and technical guidance
+./cve_analysis.md:29:## Celsius / ffs_mount — Integer Overflow 🔥 CONFIRMED
+./cve_analysis.md:32:- **Component:** ffs_mountfs() in sys/ufs/ffs/ffs_vfsops.c
+./cve_analysis.md:46:space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // allocates SMALL buffer
+./cve_analysis.md:58:1. Craft UFS image with malicious superblock (fs_ncg = 0x40000001)
+./cve_analysis.md:67:- 250GB+ HDD with malformed UFS image (per Victor's guidance)
+./webkit_gadgets_1304.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)
+./webkit_gadgets_1304.js:31:// CONFIRMED: Celsius (ffs_mount) is present in 13.04 kernel
+-- changes vs upstream
+===== ayoubnoob543-lab_ps4-suid-scanner =====
+[33me57065f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fix header file formatting
+[33m1089382[m[33m ([m[1;31mupstream/main[m[33m)[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+[33m96a7948[m Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+[33m702fcc3[m Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+[33m3fd35a4[m[33m ([m[1;33mtag: [m[1;33mv2.0[m[33m)[m Add compiled ps4-hen for FW 13.04 with full offsets
+[33mb1570ef[m Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+[33m596745e[m CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+[33m615c637[m Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+[33m13d44f2[m Add Pharaoh2k to credits
+[33m6cacb24[m Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+[33m9d0d8e1[m PS4 SUID Scanner for FW 13.04 - BD-JB based
+-- files
+./1352_offsets.txt
+./jordy_stage2.js
+./scanner_1304.iso
+-- text
+./1304.c:84:  .mountpfs__sceSblPfsSetKeys_hook1                          = 0x006A2EF9,
+./1304.c:85:  .mountpfs__sceSblPfsSetKeys_hook2                          = 0x006A312A,
+./1304.c:118:  .enable_data_mount_patch         = 0x00323380,
+./README.md:20:- ✅ **PlayStation Vue** — Installed, potential Celsius entry point
+./README.md:23:- 🔥 **Celsius (ffs_mount)** — Integer overflow in ffs_mountfs(), works up to 13.04, patched in 13.50. Discovered by bollars.
+./README.md:29:- **2026-07-18**: Celsius (ffs_mount KEX) announced by bollars
+./README.md:63:- **Celsius / ffs_mount** — Integer overflow in ffs_mountfs() (CONFIRMED for 13.04)
+./README.md:65:## Celsius (ffs_mount) Technical Analysis
+./README.md:67:The vulnerability is in `ffs_mountfs()` in `sys/ufs/ffs/ffs_vfsops.c`:
+./README.md:74:space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // small malloc
+./README.md:81:`fs->fs_ncg` comes from the UFS superblock (attacker controlled). A large value causes integer overflow in the size calculation, resulting in a small malloc but massive heap overflow.
+./README.md:83:**Requirements:** BD-J or Vue entry point + 250GB+ HDD with malformed UFS image.
+./README.md:106:- bollars — Celsius (ffs_mount) discovery
+./README.md:109:- Victor — Celsius confirmation and technical guidance
+./cve_analysis.md:29:## Celsius / ffs_mount — Integer Overflow 🔥 CONFIRMED
+./cve_analysis.md:32:- **Component:** ffs_mountfs() in sys/ufs/ffs/ffs_vfsops.c
+./cve_analysis.md:46:space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // allocates SMALL buffer
+./cve_analysis.md:58:1. Craft UFS image with malicious superblock (fs_ncg = 0x40000001)
+./cve_analysis.md:67:- 250GB+ HDD with malformed UFS image (per Victor's guidance)
+./jordy_stage2.js:12:var g_candidate = null;       // The SSV candidate that controls m_vector
+./jordy_stage2.js:74:// Restore original m_vector (safety)
+./jordy_stage2.js:79:        log("[S2] m_vector restored to original");
+./jordy_stage2.js:87:    // Redirect rwView's m_vector to addr
+./jordy_stage2.js:163:    // We know targetAddress from Jordy's addrof
+./jordy_stage2.js:166:    var vtable = read64(targetAddress);
+./jordy_stage2.js:219:    // === After dlsym resolves mount: ===
+./jordy_stage2.js:221:    // pop rsi, ret; mount point
+./jordy_stage2.js:223:    // pop rcx, ret; data (malformed UFS image)
+./jordy_stage2.js:224:    // call mount → triggers ffs_mountfs → Celsius
+./jordy_stage2.js:226:    // === After kernel r/w via Celsius: ===
+./jordy_stage2.js:260:        log("[S2] Dumping first 64 bytes at targetAddress for analysis...");
+./jordy_stage2.js:263:            var b = read8(targetAddress + i);
+./jordy_stage2.js:301:// This keeps candidate alive and gives stage2 control of m_vector.
+./webkit_gadgets_1304.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)
+./webkit_gadgets_1304.js:31:// CONFIRMED: Celsius (ffs_mount) is present in 13.04 kernel
+-- changes vs upstream
+===== ke5adb_ps4-suid-scanner =====
+[33m1089382[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31mupstream/main[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+[33m96a7948[m Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+[33m702fcc3[m Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+[33m3fd35a4[m[33m ([m[1;33mtag: [m[1;33mv2.0[m[33m)[m Add compiled ps4-hen for FW 13.04 with full offsets
+[33mb1570ef[m Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+[33m596745e[m CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+[33m615c637[m Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+[33m13d44f2[m Add Pharaoh2k to credits
+[33m6cacb24[m Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+[33m9d0d8e1[m PS4 SUID Scanner for FW 13.04 - BD-JB based
+-- files
+./1352_offsets.txt
+./jordy_stage2.js
+./scanner_1304.iso
+-- text
+./1304.c:84:  .mountpfs__sceSblPfsSetKeys_hook1                          = 0x006A2EF9,
+./1304.c:85:  .mountpfs__sceSblPfsSetKeys_hook2                          = 0x006A312A,
+./1304.c:118:  .enable_data_mount_patch         = 0x00323380,
+./README.md:20:- ✅ **PlayStation Vue** — Installed, potential Celsius entry point
+./README.md:23:- 🔥 **Celsius (ffs_mount)** — Integer overflow in ffs_mountfs(), works up to 13.04, patched in 13.50. Discovered by bollars.
+./README.md:29:- **2026-07-18**: Celsius (ffs_mount KEX) announced by bollars
+./README.md:63:- **Celsius / ffs_mount** — Integer overflow in ffs_mountfs() (CONFIRMED for 13.04)
+./README.md:65:## Celsius (ffs_mount) Technical Analysis
+./README.md:67:The vulnerability is in `ffs_mountfs()` in `sys/ufs/ffs/ffs_vfsops.c`:
+./README.md:74:space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // small malloc
+./README.md:81:`fs->fs_ncg` comes from the UFS superblock (attacker controlled). A large value causes integer overflow in the size calculation, resulting in a small malloc but massive heap overflow.
+./README.md:83:**Requirements:** BD-J or Vue entry point + 250GB+ HDD with malformed UFS image.
+./README.md:106:- bollars — Celsius (ffs_mount) discovery
+./README.md:109:- Victor — Celsius confirmation and technical guidance
+./cve_analysis.md:29:## Celsius / ffs_mount — Integer Overflow 🔥 CONFIRMED
+./cve_analysis.md:32:- **Component:** ffs_mountfs() in sys/ufs/ffs/ffs_vfsops.c
+./cve_analysis.md:46:space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // allocates SMALL buffer
+./cve_analysis.md:58:1. Craft UFS image with malicious superblock (fs_ncg = 0x40000001)
+./cve_analysis.md:67:- 250GB+ HDD with malformed UFS image (per Victor's guidance)
+./jordy_stage2.js:12:var g_candidate = null;       // The SSV candidate that controls m_vector
+./jordy_stage2.js:74:// Restore original m_vector (safety)
+./jordy_stage2.js:79:        log("[S2] m_vector restored to original");
+./jordy_stage2.js:87:    // Redirect rwView's m_vector to addr
+./jordy_stage2.js:163:    // We know targetAddress from Jordy's addrof
+./jordy_stage2.js:166:    var vtable = read64(targetAddress);
+./jordy_stage2.js:219:    // === After dlsym resolves mount: ===
+./jordy_stage2.js:221:    // pop rsi, ret; mount point
+./jordy_stage2.js:223:    // pop rcx, ret; data (malformed UFS image)
+./jordy_stage2.js:224:    // call mount → triggers ffs_mountfs → Celsius
+./jordy_stage2.js:226:    // === After kernel r/w via Celsius: ===
+./jordy_stage2.js:260:        log("[S2] Dumping first 64 bytes at targetAddress for analysis...");
+./jordy_stage2.js:263:            var b = read8(targetAddress + i);
+./jordy_stage2.js:301:// This keeps candidate alive and gives stage2 control of m_vector.
+./webkit_gadgets_1304.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)
+./webkit_gadgets_1304.js:31:// CONFIRMED: Celsius (ffs_mount) is present in 13.04 kernel
+-- changes vs upstream
+===== kishan9601743105-oss_ps4-suid-scanner =====
+[33m1089382[m[33m ([m[1;31mupstream/main[m[33m)[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+[33m96a7948[m Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+[33m702fcc3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+[33m3fd35a4[m[33m ([m[1;33mtag: [m[1;33mv2.0[m[33m)[m Add compiled ps4-hen for FW 13.04 with full offsets
+[33mb1570ef[m Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+[33m596745e[m CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+[33m615c637[m Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+[33m13d44f2[m Add Pharaoh2k to credits
+[33m6cacb24[m Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+[33m9d0d8e1[m PS4 SUID Scanner for FW 13.04 - BD-JB based
+-- files
+./1352_offsets.txt
+./scanner_1304.iso
+-- text
+./1304.c:84:  .mountpfs__sceSblPfsSetKeys_hook1                          = 0x006A2EF9,
+./1304.c:85:  .mountpfs__sceSblPfsSetKeys_hook2                          = 0x006A312A,
+./1304.c:118:  .enable_data_mount_patch         = 0x00323380,
+./README.md:20:- ✅ **PlayStation Vue** — Installed, potential Celsius entry point
+./README.md:23:- 🔥 **Celsius (ffs_mount)** — Integer overflow in ffs_mountfs(), works up to 13.04, patched in 13.50. Discovered by bollars.
+./README.md:29:- **2026-07-18**: Celsius (ffs_mount KEX) announced by bollars
+./README.md:63:- **Celsius / ffs_mount** — Integer overflow in ffs_mountfs() (CONFIRMED for 13.04)
+./README.md:65:## Celsius (ffs_mount) Technical Analysis
+./README.md:67:The vulnerability is in `ffs_mountfs()` in `sys/ufs/ffs/ffs_vfsops.c`:
+./README.md:74:space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // small malloc
+./README.md:81:`fs->fs_ncg` comes from the UFS superblock (attacker controlled). A large value causes integer overflow in the size calculation, resulting in a small malloc but massive heap overflow.
+./README.md:83:**Requirements:** BD-J or Vue entry point + 250GB+ HDD with malformed UFS image.
+./README.md:106:- bollars — Celsius (ffs_mount) discovery
+./README.md:109:- Victor — Celsius confirmation and technical guidance
+./cve_analysis.md:29:## Celsius / ffs_mount — Integer Overflow 🔥 CONFIRMED
+./cve_analysis.md:32:- **Component:** ffs_mountfs() in sys/ufs/ffs/ffs_vfsops.c
+./cve_analysis.md:46:space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // allocates SMALL buffer
+./cve_analysis.md:58:1. Craft UFS image with malicious superblock (fs_ncg = 0x40000001)
+./cve_analysis.md:67:- 250GB+ HDD with malformed UFS image (per Victor's guidance)
+./webkit_gadgets_1304.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)
+./webkit_gadgets_1304.js:31:// CONFIRMED: Celsius (ffs_mount) is present in 13.04 kernel
+-- changes vs upstream

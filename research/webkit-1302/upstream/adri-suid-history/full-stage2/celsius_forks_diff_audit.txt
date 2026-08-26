@@ -1,0 +1,182 @@
+===== OptiTronOffical_ps4-suid-scanner =====
+origin	https://github.com/OptiTronOffical/ps4-suid-scanner.git (fetch)
+origin	https://github.com/OptiTronOffical/ps4-suid-scanner.git (push)
+upstream	https://github.com/adri22235/ps4-suid-scanner.git (fetch)
+upstream	https://github.com/adri22235/ps4-suid-scanner.git (push)
+[33m1089382[m[33m ([m[1;31mupstream/main[m[33m)[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+[33m96a7948[m Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+[33m702fcc3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+[33m3fd35a4[m[33m ([m[1;33mtag: [m[1;33mv2.0[m[33m)[m Add compiled ps4-hen for FW 13.04 with full offsets
+[33mb1570ef[m Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+[33m596745e[m CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+[33m615c637[m Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+[33m13d44f2[m Add Pharaoh2k to credits
+[33m6cacb24[m Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+[33m9d0d8e1[m PS4 SUID Scanner for FW 13.04 - BD-JB based
+-- hashes
+b5910bf0ab9035577df7d5b1327cf9d972e7fd9fd7ddac5b1850062b70a7dd61  webkit_gadgets_1304.js
+6ed15acd9cfb2539e034cde72a9003f52cf6338f04549670e1b8d515d948bd30  scanner_1304.iso
+f29bd1f0ac5cc1edef6ebccb735ef6c4dff702711cc3b9f465e66fd03dd707ce  hen.bin
+-- tracked file status
+1352_offsets.txt
+hen.bin
+scanner_1304.iso
+-- diff stat against main clone
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/FETCH_HEAD |   2 [32m+[m[31m-[m
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/config     |   6 [32m+[m[31m-[m
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/index      | Bin [31m1030[m -> [32m950[m bytes
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/logs/HEAD  |   2 [32m+[m[31m-[m
+ .../. => .}/.git/logs/refs/heads/main              |   2 [32m+[m[31m-[m
+ .../. => .}/.git/logs/refs/remotes/origin/HEAD     |   2 [32m+[m[31m-[m
+ .../null => ./.git/logs/refs/remotes/upstream/main |   1 [32m+[m
+ .../10/89382ec1e0000e9557b7748d39b57952bbc4f3      | Bin [31m0[m -> [32m224[m bytes
+ .../69/e7f254f4d4acd5e571fbe65d924edaf0caf72b      | Bin [31m0[m -> [32m2497[m bytes
+ .../7b/70786a1091229eb1b8f4e2639545f424fc2358      | Bin [31m0[m -> [32m391[m bytes
+ .../81/e06fefbbce1cf2bf1735031b823bc8568d5d57      | Bin [31m0[m -> [32m390[m bytes
+ .../96/a79482d249fdbc6101bc641241488de66c313d      | Bin [31m0[m -> [32m223[m bytes
+ .../c3/94105d8bb28b7d419dd7295785131ab3035fdb      | Bin [31m0[m -> [32m3298[m bytes
+ .../null}                                          | Bin [31m2136[m -> [32m0[m bytes
+ .../null}                                          | Bin [31m204[m -> [32m0[m bytes
+ ...ck-7898e2dcd7f01a6ae57bf75ab3c251bdf1c9afd8.idx | Bin [31m0[m -> [32m1968[m bytes
+ ...k-7898e2dcd7f01a6ae57bf75ab3c251bdf1c9afd8.pack | Bin [31m2931654[m -> [32m2925864[m bytes
+ ...ck-7898e2dcd7f01a6ae57bf75ab3c251bdf1c9afd8.rev | Bin [31m0[m -> [32m180[m bytes
+ .../ps4-suid-scanner-all/. => .}/.git/packed-refs  |   3 [32m+[m[31m-[m
+ .../. => .}/.git/refs/heads/main                   |   2 [32m+[m[31m-[m
+ /dev/null => ./.git/refs/remotes/upstream/main     |   1 [32m+[m
+ /dev/null => ./.git/refs/tags/v2.0                 |   1 [32m+[m
+ ..././jordy_stage2.js => dev/null}                 | 302 [31m---------------------[m
+ 23 files changed, 14 insertions(+), 310 deletions(-)
+===== ayoubnoob543-lab_ps4-suid-scanner =====
+origin	https://github.com/ayoubnoob543-lab/ps4-suid-scanner.git (fetch)
+origin	https://github.com/ayoubnoob543-lab/ps4-suid-scanner.git (push)
+upstream	https://github.com/adri22235/ps4-suid-scanner.git (fetch)
+upstream	https://github.com/adri22235/ps4-suid-scanner.git (push)
+[33me57065f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fix header file formatting
+[33m1089382[m[33m ([m[1;31mupstream/main[m[33m)[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+[33m96a7948[m Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+[33m702fcc3[m Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+[33m3fd35a4[m[33m ([m[1;33mtag: [m[1;33mv2.0[m[33m)[m Add compiled ps4-hen for FW 13.04 with full offsets
+[33mb1570ef[m Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+[33m596745e[m CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+[33m615c637[m Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+[33m13d44f2[m Add Pharaoh2k to credits
+[33m6cacb24[m Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+[33m9d0d8e1[m PS4 SUID Scanner for FW 13.04 - BD-JB based
+-- hashes
+e07e8fee72cae298010304349acdd1876a35bf46e9f0e814585ee7f9f9d47528  jordy_stage2.js
+b5910bf0ab9035577df7d5b1327cf9d972e7fd9fd7ddac5b1850062b70a7dd61  webkit_gadgets_1304.js
+6ed15acd9cfb2539e034cde72a9003f52cf6338f04549670e1b8d515d948bd30  scanner_1304.iso
+f29bd1f0ac5cc1edef6ebccb735ef6c4dff702711cc3b9f465e66fd03dd707ce  hen.bin
+-- tracked file status
+1352_offsets.txt
+hen.bin
+jordy_stage2.js
+scanner_1304.iso
+-- diff stat against main clone
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/FETCH_HEAD |   2 [32m+[m[31m-[m
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/config     |   6 [32m+++++[m[31m-[m
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/index      | Bin [31m1030[m -> [32m1030[m bytes
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/logs/HEAD  |   2 [32m+[m[31m-[m
+ .../. => .}/.git/logs/refs/heads/main              |   2 [32m+[m[31m-[m
+ .../. => .}/.git/logs/refs/remotes/origin/HEAD     |   2 [32m+[m[31m-[m
+ .../null => ./.git/logs/refs/remotes/upstream/main |   1 [32m+[m
+ ...ck-2d22354354e7bc157052c031bb7bf9a514dfde1e.idx | Bin [31m0[m -> [32m2220[m bytes
+ ...k-2d22354354e7bc157052c031bb7bf9a514dfde1e.pack | Bin [31m2931654[m -> [32m2932581[m bytes
+ ...ck-2d22354354e7bc157052c031bb7bf9a514dfde1e.rev | Bin [31m0[m -> [32m216[m bytes
+ .../null}                                          | Bin [31m2136[m -> [32m0[m bytes
+ .../null}                                          | Bin [31m204[m -> [32m0[m bytes
+ .../ps4-suid-scanner-all/. => .}/.git/packed-refs  |   3 [32m+[m[31m--[m
+ .../. => .}/.git/refs/heads/main                   |   2 [32m+[m[31m-[m
+ /dev/null => ./.git/refs/remotes/upstream/main     |   1 [32m+[m
+ /dev/null => ./.git/refs/tags/v2.0                 |   1 [32m+[m
+ {/tmp/ps4-suid-scanner-all/. => .}/1304.h          |   1 [32m+[m
+ 17 files changed, 15 insertions(+), 8 deletions(-)
+===== ke5adb_ps4-suid-scanner =====
+origin	https://github.com/ke5adb/ps4-suid-scanner.git (fetch)
+origin	https://github.com/ke5adb/ps4-suid-scanner.git (push)
+upstream	https://github.com/adri22235/ps4-suid-scanner.git (fetch)
+upstream	https://github.com/adri22235/ps4-suid-scanner.git (push)
+[33m1089382[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31mupstream/main[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+[33m96a7948[m Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+[33m702fcc3[m Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+[33m3fd35a4[m[33m ([m[1;33mtag: [m[1;33mv2.0[m[33m)[m Add compiled ps4-hen for FW 13.04 with full offsets
+[33mb1570ef[m Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+[33m596745e[m CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+[33m615c637[m Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+[33m13d44f2[m Add Pharaoh2k to credits
+[33m6cacb24[m Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+[33m9d0d8e1[m PS4 SUID Scanner for FW 13.04 - BD-JB based
+-- hashes
+e07e8fee72cae298010304349acdd1876a35bf46e9f0e814585ee7f9f9d47528  jordy_stage2.js
+b5910bf0ab9035577df7d5b1327cf9d972e7fd9fd7ddac5b1850062b70a7dd61  webkit_gadgets_1304.js
+6ed15acd9cfb2539e034cde72a9003f52cf6338f04549670e1b8d515d948bd30  scanner_1304.iso
+f29bd1f0ac5cc1edef6ebccb735ef6c4dff702711cc3b9f465e66fd03dd707ce  hen.bin
+-- tracked file status
+1352_offsets.txt
+hen.bin
+jordy_stage2.js
+scanner_1304.iso
+-- diff stat against main clone
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/FETCH_HEAD |   2 [32m+[m[31m-[m
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/config     |   6 [32m+++++[m[31m-[m
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/index      | Bin [31m1030[m -> [32m1030[m bytes
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/logs/HEAD  |   2 [32m+[m[31m-[m
+ .../. => .}/.git/logs/refs/heads/main              |   2 [32m+[m[31m-[m
+ .../. => .}/.git/logs/refs/remotes/origin/HEAD     |   2 [32m+[m[31m-[m
+ .../null => ./.git/logs/refs/remotes/upstream/main |   1 [32m+[m
+ .../null}                                          | Bin [31m204[m -> [32m0[m bytes
+ ...ck-f12518423bdd32cc256d62472f7be624d68e0e83.idx | Bin [31m2136[m -> [32m2136[m bytes
+ ...k-f12518423bdd32cc256d62472f7be624d68e0e83.pack | Bin [31m2931654[m -> [32m2931663[m bytes
+ ...ck-f12518423bdd32cc256d62472f7be624d68e0e83.rev | Bin [31m0[m -> [32m204[m bytes
+ .../ps4-suid-scanner-all/. => .}/.git/packed-refs  |   1 [31m-[m
+ /dev/null => ./.git/refs/remotes/upstream/main     |   1 [32m+[m
+ /dev/null => ./.git/refs/tags/v2.0                 |   1 [32m+[m
+ 14 files changed, 12 insertions(+), 6 deletions(-)
+===== kishan9601743105-oss_ps4-suid-scanner =====
+origin	https://github.com/kishan9601743105-oss/ps4-suid-scanner.git (fetch)
+origin	https://github.com/kishan9601743105-oss/ps4-suid-scanner.git (push)
+upstream	https://github.com/adri22235/ps4-suid-scanner.git (fetch)
+upstream	https://github.com/adri22235/ps4-suid-scanner.git (push)
+[33m1089382[m[33m ([m[1;31mupstream/main[m[33m)[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+[33m96a7948[m Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+[33m702fcc3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+[33m3fd35a4[m[33m ([m[1;33mtag: [m[1;33mv2.0[m[33m)[m Add compiled ps4-hen for FW 13.04 with full offsets
+[33mb1570ef[m Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+[33m596745e[m CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+[33m615c637[m Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+[33m13d44f2[m Add Pharaoh2k to credits
+[33m6cacb24[m Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+[33m9d0d8e1[m PS4 SUID Scanner for FW 13.04 - BD-JB based
+-- hashes
+b5910bf0ab9035577df7d5b1327cf9d972e7fd9fd7ddac5b1850062b70a7dd61  webkit_gadgets_1304.js
+6ed15acd9cfb2539e034cde72a9003f52cf6338f04549670e1b8d515d948bd30  scanner_1304.iso
+f29bd1f0ac5cc1edef6ebccb735ef6c4dff702711cc3b9f465e66fd03dd707ce  hen.bin
+-- tracked file status
+1352_offsets.txt
+hen.bin
+scanner_1304.iso
+-- diff stat against main clone
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/FETCH_HEAD |   2 [32m+[m[31m-[m
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/config     |   6 [32m+[m[31m-[m
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/index      | Bin [31m1030[m -> [32m950[m bytes
+ {/tmp/ps4-suid-scanner-all/. => .}/.git/logs/HEAD  |   2 [32m+[m[31m-[m
+ .../. => .}/.git/logs/refs/heads/main              |   2 [32m+[m[31m-[m
+ .../. => .}/.git/logs/refs/remotes/origin/HEAD     |   2 [32m+[m[31m-[m
+ .../null => ./.git/logs/refs/remotes/upstream/main |   1 [32m+[m
+ .../10/89382ec1e0000e9557b7748d39b57952bbc4f3      | Bin [31m0[m -> [32m224[m bytes
+ .../69/e7f254f4d4acd5e571fbe65d924edaf0caf72b      | Bin [31m0[m -> [32m2497[m bytes
+ .../7b/70786a1091229eb1b8f4e2639545f424fc2358      | Bin [31m0[m -> [32m391[m bytes
+ .../81/e06fefbbce1cf2bf1735031b823bc8568d5d57      | Bin [31m0[m -> [32m390[m bytes
+ .../96/a79482d249fdbc6101bc641241488de66c313d      | Bin [31m0[m -> [32m223[m bytes
+ .../c3/94105d8bb28b7d419dd7295785131ab3035fdb      | Bin [31m0[m -> [32m3298[m bytes
+ .../null}                                          | Bin [31m2136[m -> [32m0[m bytes
+ .../null}                                          | Bin [31m204[m -> [32m0[m bytes
+ ...ck-7898e2dcd7f01a6ae57bf75ab3c251bdf1c9afd8.idx | Bin [31m0[m -> [32m1968[m bytes
+ ...k-7898e2dcd7f01a6ae57bf75ab3c251bdf1c9afd8.pack | Bin [31m2931654[m -> [32m2925864[m bytes
+ ...ck-7898e2dcd7f01a6ae57bf75ab3c251bdf1c9afd8.rev | Bin [31m0[m -> [32m180[m bytes
+ .../ps4-suid-scanner-all/. => .}/.git/packed-refs  |   3 [32m+[m[31m-[m
+ .../. => .}/.git/refs/heads/main                   |   2 [32m+[m[31m-[m
+ /dev/null => ./.git/refs/remotes/upstream/main     |   1 [32m+[m
+ /dev/null => ./.git/refs/tags/v2.0                 |   1 [32m+[m
+ ..././jordy_stage2.js => dev/null}                 | 302 [31m---------------------[m
+ 23 files changed, 14 insertions(+), 310 deletions(-)
