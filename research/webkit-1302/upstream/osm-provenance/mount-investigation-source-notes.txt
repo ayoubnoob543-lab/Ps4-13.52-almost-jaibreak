@@ -197,3 +197,7 @@ GBAtemp PS4 Exploit Guide page 1419: https://gbatemp.net/threads/ps4-exploit-gui
 ## OBHQ kernel-dumper
 
 Primary repository: https://github.com/obhq/kernel-dumper. README states explicitly: `Only 11.00 is supported.` It is a Rust payload that writes a locally generated `kernel.elf` to USB and gives Ghidra loading instructions. The repository has 49 commits, no public kernel dump asset in the top-level tree, and no 12.02/13.02 support claim. The README's sample ELF addresses are illustrative and explicitly not reusable. Classification: `VERIFIED` as an 11.00 dumper; `INVALID` as 13.02/Celsius evidence.
+
+## OBHQ kernel-dumper forks
+
+The three visible forks (`ZaaWi/kernel-dumper`, `gmh5225/kernel-dumper`, `thecodefodder/kernel-dumper`) were audited by tree paths. They contain inherited Rust dumper/ELF-loader sources such as `kernel-dumper.ld`, `korbis-macros/src/offset.rs`, and `korbis/src/elf/mod.rs`; they do not contain kernel dump outputs, `kernel.elf` assets, 13.02 support, FFS symbols, or Celsius material. Their fork status and matching paths make them `DERIVED`, not independent corroboration. Classification: `VERIFIED` for fork contents; `INVALID` as 13.02/FFS evidence.

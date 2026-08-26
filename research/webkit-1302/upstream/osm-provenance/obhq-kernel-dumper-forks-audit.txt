@@ -1,0 +1,14 @@
+=== forks ===
+ZaaWi/kernel-dumper	2024-10-03T21:01:24Z	2024-10-03T21:01:24Z	main
+gmh5225/kernel-dumper	2024-05-15T18:37:22Z	2024-05-15T18:37:22Z	main
+thecodefodder/kernel-dumper	2024-05-02T02:08:55Z	2024-05-02T02:08:55Z	main
+=== ZaaWi/kernel-dumper ===
+kernel-dumper.ld	376	de8c3e6151e1274ae5a3de1ca6c3a2ad5d9fc1f9
+korbis-macros/src/offset.rs	2268	4e3e721ac2ad2e853519689a06a66f84374072e7
+korbis/src/elf/mod.rs	3044	70aa30b5de4b764bd884bda2caf3d66d8fea4878
+=== gmh5225/kernel-dumper ===
+kernel-dumper.ld	376	de8c3e6151e1274ae5a3de1ca6c3a2ad5d9fc1f9
+korbis-macros/src/offset.rs	2268	4e3e721ac2ad2e853519689a06a66f84374072e7
+korbis/src/elf/mod.rs	3044	70aa30b5de4b764bd884bda2caf3d66d8fea4878
+=== thecodefodder/kernel-dumper ===
+kernel-dumper.ld	305	5306bfec2491805ce815ef640ddb99c82b9123c1
