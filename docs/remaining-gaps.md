@@ -186,3 +186,38 @@ los demás sin el binario real.
 Fuentes que confirman offsets mmap 13.02: Vuemony/vue-after-free,
 RiyonAbib07/ps-vue-jb-2.5, rezaadi0105/vue-after-free — todos comparten
 el mismo origen. Ninguno publica los otros 10 offsets.
+
+## BÚSQUEDA EXHAUSTIVA DE LOS 10 OFFSETS FALTANTES PARA 13.02 (2026-08-25)
+
+### Fuentes revisadas
+- TODOS los forks de Vuemony/vue-after-free (15+, sin modificaciones relevantes)
+- GitHub Code Search por cada offset individual (0x2bd42d, 0x2bd471, etc.)
+- Búsqueda web en PSX-Place, PSXHAX, psdevwiki, Reddit
+- Repos relacionados: SocraticBliss, zecoxao, fail0verflow/prosperous
+
+### Resultado
+Los 10 offsets faltantes **NO existen en ninguna fuente pública**:
+| Offset (13.00) | Buscado | Encontrado |
+|---|---|---|
+| +0x00000ACD | ✓ GitHub code search | Nada |
+| +0x002BD42D | ✓ GitHub code search → solo kexploit.js 9.00 (FW distinto) | N/A para 13.02 |
+| +0x002BD471 | ✓ ídem | N/A |
+| +0x002BD4ED | ✓ ídem | N/A |
+| +0x002BD531 | ✓ ídem | N/A |
+| +0x002BD6DD | ✓ ídem | N/A |
+| +0x002BDB8D | ✓ ídem | N/A |
+| +0x002BDC5D | ✓ ídem | N/A |
+| +0x000004C2 | ✓ GitHub code search | Nada |
+| +0x00391546 | ✓ GitHub code search | Nada |
+
+### Verificación de procedencia de los offsets mmap 13.02
+Commit `50cd384f` (Vuemony, 2026-02-08): añadió [0x1fa78a, 0x1fa78d]
+junto con 12.50 y 13.00 en un solo commit. Sin evidencia independiente
+de análisis del binario kernel 13.02. Clasificación elevada a UNVERIFIED
+(antes: VERIFIED_METADATA — corrección necesaria).
+
+### Conclusión definitiva
+La cadena 13.02 NO puede reconstruirse con material público porque
+faltan 10 offsets que solo existen dentro del kernel retail cifrado.
+El único camino es: consola-oracle → .dec → extraer kernel binario →
+calcular offsets → publicar. Un solo acceso resuelve el problema permanentemente.
