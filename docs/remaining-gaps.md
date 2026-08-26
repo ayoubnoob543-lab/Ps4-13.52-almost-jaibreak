@@ -89,3 +89,32 @@ remoción. Clasificación de cada uno para 13.52: HIPÓTESIS FUERTE.
 - kqueue(362)/kevent(363): presentes en TODAS las versiones
 - SysV IPC (221/222/510): AUSENTE en TODAS las variantes libkernel de juego
 - Set de wrappers congelado desde 11.02: cero churn en tres versiones mayores
+
+## 🆕 HALLAZGO MAYOR: Netctrl/Poopsploit — triple-free ucred hasta FW 13.00 (2026-08-25)
+
+Fuente: repo `RiyonAbib07/ps-vue-jb-2.5` (creado 2026-03-11, TypeScript, 72KB)
+
+### Arquitectura
+| Componente | Vulnerabilidad | FW |
+|---|---|---|
+| WebKit userland | CVE-2017-7117 | 5.05–13.02 |
+| Kernel: Lapse | PPPoE (TheFlow) | 1.01–12.02 |
+| **Kernel: Netctrl** | **triple-free ucred vía netcontrol(99)** | **1.01–13.00** |
+
+### Mecanismo verificado por análisis de código fuente
+1. `socket(AF_UNIX)` + `netcontrol(NETEVENT_SET_QUEUE)` + `close()` → free ucred
+2. `setuid(1)` → alloc nueva ucred (reclaim)
+3. `close(dup(uaf_socket))` → double-free
+4. Búsqueda de "twins" (sockets compartiendo ucred libre) → triple-free
+5. Spray iov recvmsg para groom del heap
+6. Spray rthdr IPv6 para localizar gemelos
+
+### Clasificación
+- Mecánica: CONFIRMADA por análisis de código fuente público (70KB TypeScript legible)
+- Funcionamiento en HW 13.00: AUTHOR_REPORTED sin verificación independiente
+- Relación CVE-2026-45251: usa el mismo patrón UaF-fd pero con trigger netcontrol específico PS4
+
+### Implicancia para el lab
+Si Netctrl funciona realmente en 13.52 (no solo 13.00), combinado con el userland
+WebKit (CVE-2017-7117 que funciona hasta 13.02), existiría una cadena completa
+userland→kernel R/W para 13.52. PERO esto requiere verificación en hardware.
