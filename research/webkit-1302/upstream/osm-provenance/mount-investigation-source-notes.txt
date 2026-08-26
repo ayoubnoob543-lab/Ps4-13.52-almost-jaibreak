@@ -987,3 +987,7 @@ Created 2026-07-08 with 3 commits. README claims a local MITM Vue chain for PS4 
 ## claimore22 derivative provenance
 
 `claimore22/PS4-12.00-Jailbreak` has a linear three-commit history. README credits ChendoChap, TheOfficialFloW, c0w-ar, earthonion, Helloyunho, Vuemony and AlAzif. It integrates local MITM with adapted Vue/Netctrl/Lapse/binloader files; no Celsius, FFS/UFS, `ffs_mountfs` or storage image exists. `kernel.js` contains a 13.02 mmap entry, but the operational project is limited to 12.00. Classify as verified public adaptation and derived provenance, invalid as a Celsius closure.
+
+## claimore22 kernel.js internal scope distinction
+
+`kernel.js` defines mmap patch offsets for 13.02 and maps 13.04 to that entry, but `shellcode_fw_map` has no 13.02/13.04, the complete `ps4_kernel_offset_list` ends at `13.00: offset_ps4_12_50`, and explicit patch verification handles 12.00/12.02 only. A 13.02 mmap entry is therefore not full 13.02/13.04 kernel-R/W support and does not connect to Celsius.

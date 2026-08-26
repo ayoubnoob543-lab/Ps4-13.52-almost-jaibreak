@@ -213,3 +213,7 @@ Hashes del derivado: `server/download0/netctrl_c0w_twins.js` SHA-256 `90af20243a
 ## Procedencia del derivado `claimore22`
 
 La auditoría del historial de `claimore22/PS4-12.00-Jailbreak` conserva sólo tres commits y un historial lineal. Su README atribuye la cadena subyacente a ChendoChap, TheOfficialFloW, c0w-ar, earthonion, Helloyunho, Vuemony y AlAzif. El árbol contiene una integración local MITM y copias adaptadas de `netctrl_c0w_twins.js`, `kernel.js`, `lapse.js`, `binloader.js` y `serve_local.js`; no hay archivos Celsius, FFS/UFS, `ffs_mountfs` o una imagen de almacenamiento. Las coincidencias de firmware en `kernel.js` incluyen una entrada mmap 13.02, pero la comprobación/uso operativo del proyecto se limita a 12.00. La procedencia es de un derivado de la línea Vue/Netctrl, no de una PoC Celsius original. Clasificación: **VERIFIED** como adaptación pública; **DERIVED** como procedencia; **INVALID** para cerrar Celsius.
+
+### Diferencia interna crítica en `claimore22/kernel.js`
+
+El archivo define `kpatch_mmap_offsets['13.02'] = [0x1fa78a, 0x1fa78d]` y normaliza 13.04 hacia esa misma entrada de mmap. Pero `shellcode_fw_map` no tiene 13.02/13.04, `ps4_kernel_offset_list` termina en `13.00: offset_ps4_12_50`, y la lógica de verificación de parches sólo trata explícitamente 12.00/12.02. Por ello, la presencia textual de una entrada mmap 13.02 no equivale a soporte completo de kernel R/W en 13.02/13.04. Este extracto refuerza la clasificación del proyecto como derivado 12.00 con una tabla parcial/anticipada para mmap, no como puente Celsius.

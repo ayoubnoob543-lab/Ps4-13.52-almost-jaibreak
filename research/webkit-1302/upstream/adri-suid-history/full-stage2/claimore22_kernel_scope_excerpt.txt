@@ -1,0 +1,100 @@
+## sha
+b69e7bfdf18e3a5cc6e6f021f311ad22b3a82edb4a7388e05f4b6f429658bfda  server/download0/kernel.js
+## mmap patch table
+  '8.50': [0x826ea, 0x826ed],
+  // TODO: verify
+  '9.00': [0x16632a, 0x16632d],
+  // TODO: verify
+  '9.03': [0x1662da, 0x1662dd],
+  // TODO: verify
+  '9.50': [0x122d7a, 0x122d7d],
+  // TODO: verify
+  '10.00': [0xed59a, 0xed59d],
+  // TODO: verify
+  '10.50': [0x19c42a, 0x19c42d],
+  // TODO: verify
+  '11.00': [0x15626a, 0x15626d],
+  '11.02': [0x15628a, 0x15628d],
+  '11.50': [0x1fa63a, 0x1fa63d],
+  '12.00': [0x1fa71a, 0x1fa71d],
+  '12.50': [0x1fa75a, 0x1fa75d],
+  '13.00': [0x1fa77a, 0x1fa77d],
+  '13.02': [0x1fa78a, 0x1fa78d]
+};
+var shellcode_fw_map = {
+  '5.00': '5.00',
+  '5.01': '5.00',
+  '5.03': '5.03',
+  '5.05': '5.03',
+  '5.07': '5.03',
+## firmware map
+  '10.00': '10.00',
+  '10.01': '10.00',
+  '10.50': '10.50',
+  '10.70': '10.50',
+  '10.71': '10.50',
+  '11.00': '11.00',
+  '11.02': '11.02',
+  '11.50': '11.50',
+  '11.52': '11.50',
+  '12.00': '12.00',
+  '12.02': '12.00',
+  '12.50': '12.50',
+  '12.52': '12.50',
+  '13.00': '13.00'
+};
+function get_mmap_patch_offsets(fw_version) {
+  // Normalize version
+  var lookup = fw_version;
+  if (fw_version === '9.04') lookup = '9.03';else if (fw_version === '9.51' || fw_version === '9.60') lookup = '9.50';else if (fw_version === '10.01') lookup = '10.00';else if (fw_version === '10.70' || fw_version === '10.71') lookup = '10.50';else if (fw_version === '11.52') lookup = '11.50';else if (fw_version === '12.02') lookup = '12.00';else if (fw_version === '12.52') lookup = '12.50';else if (fw_version === '13.04') lookup = '13.02';
+  return kpatch_mmap_offsets[lookup] || null;
+}
+
+// Helper to convert hex string to byte array
+function hexToBytes(hex) {
+  if (hex.length % 2 === 0 && !isNaN(parseInt(hex, 16))) {
+    var bytes = [];
+## kernel offset map
+  '9.03': offset_ps4_9_03,
+  '9.04': offset_ps4_9_03,
+  '9.50': offset_ps4_9_50,
+  '9.51': offset_ps4_9_50,
+  '9.60': offset_ps4_9_50,
+  '10.00': offset_ps4_10_00,
+  '10.01': offset_ps4_10_00,
+  '10.50': offset_ps4_10_50,
+  '10.70': offset_ps4_10_50,
+  '10.71': offset_ps4_10_50,
+  '11.00': offset_ps4_11_00,
+  '11.02': offset_ps4_11_02,
+  '11.50': offset_ps4_11_50,
+  '11.52': offset_ps4_11_50,
+  '12.00': offset_ps4_12_00,
+  '12.02': offset_ps4_12_00,
+  '12.50': offset_ps4_12_50,
+  '12.52': offset_ps4_12_50,
+  '13.00': offset_ps4_12_50
+};
+var kernel_offset = null; // Global
+
+function get_kernel_offset(FW_VERSION) {
+  var fw_offsets = ps4_kernel_offset_list[FW_VERSION];
+  if (!fw_offsets) {
+    throw new Error('Unsupported PS4 firmware version: ' + FW_VERSION);
+  }
+  kernel_offset = Object.assign({}, fw_offsets);
+
+## guard
+server/download0/kernel.js:30:  '12.00': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb000000668981a3761b00b8eb04000041b9eb00000041baeb000000668981ecc02f0041bbeb000000b890e9ffff4881c2717904006689b1b3761b006689b9d3761b0066448981f47a6200c681cd0a0000ebc681cdd32b00ebc68111d42b00ebc6818dd42b00ebc681d1d42b00ebc6817dd62b00ebc6812ddb2b00ebc681fddb2b00eb66448989df836200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c681e6143900eb66898164711b00c78118771b0090e93c01c78160d83b004831c0c3c6811aa71f0037c6811da71f0037c781802d100102000000488991882d1001c781ac2d1001010000000f20c0480d000001000f22c00f20c04825fffffeff0f22c0b8eb480000ba040000004531c04531c9be0500000066898151551200b8eb060000bf050000006689819355120041ba0100000048b84183bfa00400000041bb010000004889819b551200b804000000668981ad551200b8498bffffc781a9551200498b87d0c681af55120000c781b6551200498bb7b0668991ba551200c681bc55120000c781ce551200498b87406689b1d2551200c681d455120000c781db551200498bb7206689b9df551200c681e155120000c781f3551200498dbfc066448981f7551200c681f955120000c781ff551200498dbfe06644898903561200c6810556120000c78112561200498dbf006644899116561200c6811856120000c7811e561200498dbf206644899922561200c68124561200006689812f561200c68131561200ff0f20c0480d000001000f22c031c0c3',
+server/download0/kernel.js:80:  '12.00': [0x1fa71a, 0x1fa71d],
+server/download0/kernel.js:83:  '13.02': [0x1fa78a, 0x1fa78d]
+server/download0/kernel.js:129:  '12.00': '12.00',
+server/download0/kernel.js:130:  '12.02': '12.00',
+server/download0/kernel.js:138:  if (fw_version === '9.04') lookup = '9.03';else if (fw_version === '9.51' || fw_version === '9.60') lookup = '9.50';else if (fw_version === '10.01') lookup = '10.00';else if (fw_version === '10.70' || fw_version === '10.71') lookup = '10.50';else if (fw_version === '11.52') lookup = '11.50';else if (fw_version === '12.02') lookup = '12.00';else if (fw_version === '12.52') lookup = '12.50';else if (fw_version === '13.04') lookup = '13.02';
+server/download0/kernel.js:434:  '12.00': offset_ps4_12_00,
+server/download0/kernel.js:445:    throw new Error('Unsupported PS4 firmware version: ' + FW_VERSION);
+server/download0/kernel.js:897:    // === Verify 12.00 kernel patches ===
+server/download0/kernel.js:898:    if (fw_version === '12.00' || fw_version === '12.02') {
+server/download0/kernel.js:899:      debug('Verifying 12.00 kernel patches...');
+server/download0/kernel.js:902:      // Patch offsets and expected values for 12.00
+server/download0/kernel.js:1051:        debug('All 12.00 kernel patches verified OK!');
