@@ -651,3 +651,8 @@ The first `gh api --paginate ... -f per_page=100` invocation produced a non-JSON
 ## ntfargo fork audit
 
 Using clean JSON from the GitHub REST API, 80 public forks of `ntfargo/CSSFontFace-Exploit` were enumerated and their default-branch trees inspected. Relevant forks expose the same historical paths (`public/src/lapse.js`, `public/src/netctrl.js`, `public/src/ps4/kernel.js`, or historical `public/src/ps4/lapse/...` and `offsets.mjs`). No fork tree revealed `jordy_stage2.js`, `stage2`, `Celsius`, `ffs_mountfs` or a dedicated UFS/FFS artifact. The fork network therefore confirms broad propagation of the historical PS4 chain, not a missing 13.02 extension. The raw earlier `ntfargo_forks.json` remains color-contaminated; `ntfargo_forks_clean.json` and `ntfargo_forks_tree_audit.txt` are the authoritative captures.
+
+
+## Fork summary
+
+The saved fork summary shows the network is dominated by repeated historical `lapse.js`/`netctrl.js`/`ps4/kernel.js` paths, with a smaller subset exposing only `offsets.mjs`. One fork also exposes kernel-dumper-related host files. The relevant path inventory still does not reveal `jordy_stage2`, a Celsius file, `ffs_mountfs` or a 13.02-specific stage. These are repository-tree observations only; repeated forks are not independent technical corroboration.
