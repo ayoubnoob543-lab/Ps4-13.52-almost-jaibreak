@@ -983,3 +983,7 @@ Targeted searches for `HenForyu`, `earthonion`, and `Echo Stretch` found no publ
 ## External derivative: claimore22/PS4-12.00-Jailbreak
 
 Created 2026-07-08 with 3 commits. README claims a local MITM Vue chain for PS4 12.00 using `netctrl_c0w_twins.js`, `kernel.js`, `lapse.js`, binloader and GoldHEN; `serve_local.js` loads JS in memory. Hashes: netctrl twins `90af20243aeed45511b3e2b7e927cfe5f4183f337e19ae29aaa500a33f1af211`, kernel `b69e7bfdf18e3a5cc6e6f021f311ad22b3a82edb4a7388e05f4b6f429658bfda`, lapse `52d4b30a1a51ea353ff99841bd7a95103a6cde88fa568daa2a0feb45437a3d24`, serve_local `1d3d5c785727a6e5553dd2a0396ee5874bf76300c15d233a7164e2bcaa82c721`. Hashes differ from the previously compared mirror files, so classify as adaptation/derivative, not exact copy. No Celsius/FFS/13.02; verified public Netctrl 12.00 derivative, invalid as Celsius.
+
+## claimore22 derivative provenance
+
+`claimore22/PS4-12.00-Jailbreak` has a linear three-commit history. README credits ChendoChap, TheOfficialFloW, c0w-ar, earthonion, Helloyunho, Vuemony and AlAzif. It integrates local MITM with adapted Vue/Netctrl/Lapse/binloader files; no Celsius, FFS/UFS, `ffs_mountfs` or storage image exists. `kernel.js` contains a 13.02 mmap entry, but the operational project is limited to 12.00. Classify as verified public adaptation and derived provenance, invalid as a Celsius closure.

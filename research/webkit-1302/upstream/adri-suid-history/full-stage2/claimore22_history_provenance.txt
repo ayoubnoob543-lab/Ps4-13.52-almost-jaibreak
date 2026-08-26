@@ -1,0 +1,212 @@
+## history
+ecc212bb9430a645e4d9304360a21478f16c8478 2026-07-07T22:23:56-04:00 claimore22 <claimore22@users.noreply.github.com> Add GitHub links to credits
+177e7cc34e839b343dba12b26bb371b4828076d8 2026-07-07T22:22:29-04:00 claimore22 <claimore22@users.noreply.github.com> Add 'Why This Exists' section to README
+03ce95e8876454d71a949c4112809efe0a015626 2026-07-07T22:21:29-04:00 claimore22 <claimore22@users.noreply.github.com> PS4 12.00 Jailbreak + GoldHEN
+## remotes
+origin	https://github.com/claimore22/PS4-12.00-Jailbreak.git (fetch)
+origin	https://github.com/claimore22/PS4-12.00-Jailbreak.git (push)
+## parent relations
+* [33mecc212b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mv1.0.0[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Add GitHub links to credits
+* [33m177e7cc[m Add 'Why This Exists' section to README
+* [33m03ce95e[m PS4 12.00 Jailbreak + GoldHEN
+## all text matches
+[35mecc212bb9430a645e4d9304360a21478f16c8478:README.md[m[36m:[m[32m11[m[36m:[m- The original `[1;31mearthonion[m.com` exploit had several pain points: its `serve.js` tried to save files to the PS4 filesystem via POST (which hung), and the Lapse exploit crashed with `thrd_create()` on FW 12.00
+[35mecc212bb9430a645e4d9304360a21478f16c8478:README.md[m[36m:[m[32m74[m[36m:[m2. Navigate to `http://[1;31mearthonion[m.com`
+[35mecc212bb9430a645e4d9304360a21478f16c8478:README.md[m[36m:[m[32m92[m[36m:[m| Can't connect to [1;31mearthonion[m.com | Check PS4 proxy address/port matches PC |
+[35mecc212bb9430a645e4d9304360a21478f16c8478:README.md[m[36m:[m[32m98[m[36m:[m1. PS Vue requests `[1;31mearthonion[m.com/manifest.aes` — proxy returns a modified manifest pointing to our local `serve_local.js`
+[35mecc212bb9430a645e4d9304360a21478f16c8478:README.md[m[36m:[m[32m109[m[36m:[m- **[[1;31mChendoChap[m](https://github.com/[1;31mChendoChap[m)** — original kernel exploit PoC (ipv6 UAF)
+[35mecc212bb9430a645e4d9304360a21478f16c8478:README.md[m[36m:[m[32m111[m[36m:[m- **[[1;31mc0w-ar[m](https://github.com/[1;31mc0w-ar[m/)** — Lapse and NetCtrl porting, reverse engineering
+[35mecc212bb9430a645e4d9304360a21478f16c8478:README.md[m[36m:[m[32m112[m[36m:[m- **[[1;31mearthonion[m](https://github.com/[1;31mearthonion[m)** — UI, payload hosting, JS injection, binloader, reverse engineering
+[35mecc212bb9430a645e4d9304360a21478f16c8478:README.md[m[36m:[m[32m114[m[36m:[m- **[[1;31mHelloyunho[m](https://github.com/[1;31mHelloyunho[m)** — Lapse exploit, TypeScript port, PS4 kernel offsets
+[35mecc212bb9430a645e4d9304360a21478f16c8478:README.md[m[36m:[m[32m116[m[36m:[m- **[[1;31mVuemony[m](https://github.com/[1;31mVuemony[m/vue-after-free)** — Vue-after-free exploit framework
+[35mecc212bb9430a645e4d9304360a21478f16c8478:proxy/serve_local.js[m[36m:[m[32m2[m[36m:[mvar EARTHONION = "[1;31mearthonion[m.com";
+[35mecc212bb9430a645e4d9304360a21478f16c8478:proxy/stock_n_hack_capture.py[m[36m:[m[32m120[m[36m:[m    if "[1;31mearthonion[m.com" in host:
+[35mecc212bb9430a645e4d9304360a21478f16c8478:proxy/stock_n_hack_capture.py[m[36m:[m[32m127[m[36m:[m                "scripts": [{"src": "http://[1;31mearthonion[m.com/download0/serve.js.aes?" + ts, "version": ts}]
+[35mecc212bb9430a645e4d9304360a21478f16c8478:proxy/stock_n_hack_capture.py[m[36m:[m[32m130[m[36m:[m            flow.response.headers["X-Stock-N-Hack"] = "[1;31mearthonion[m-manifest-intercept"
+[35mecc212bb9430a645e4d9304360a21478f16c8478:proxy/stock_n_hack_capture.py[m[36m:[m[32m141[m[36m:[m                flow.response.headers["X-Stock-N-Hack"] = "[1;31mearthonion[m-intercept"
+[35mecc212bb9430a645e4d9304360a21478f16c8478:proxy/stock_n_hack_capture.py[m[36m:[m[32m145[m[36m:[m        # Other .js files from [1;31mearthonion[m: serve from local download0/
+[35mecc212bb9430a645e4d9304360a21478f16c8478:proxy/stock_n_hack_capture.py[m[36m:[m[32m153[m[36m:[m                flow.response.headers["X-Stock-N-Hack"] = "[1;31mearthonion[m-intercept"
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/binloader.js[m[36m:[m[32m89[m[36m:[m    P_O[1;31mFFS[mET: 0x08,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/binloader.js[m[36m:[m[32m98[m[36m:[m    SH_O[1;31mFFS[mET: 0x18,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/binloader.js[m[36m:[m[32m105[m[36m:[m    R_O[1;31mFFS[mET: 0x00,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/binloader.js[m[36m:[m[32m289[m[36m:[m      p_offset: mem.view(base).getBigInt(PROGRAM_HEADER.P_O[1;31mFFS[mET, true),
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/binloader.js[m[36m:[m[32m302[m[36m:[m      sh_offset: view.getBigInt(SECTION_HEADER.SH_O[1;31mFFS[mET, true),
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/binloader.js[m[36m:[m[32m312[m[36m:[m      r_offset: mem.view(base).getBigInt(RELA_ENTRY.R_O[1;31mFFS[mET, true),
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m4[m[36m:[m// Source: https://github.com/[1;31mHelloyunho[m/yarpe/blob/main/payloads/lapse.py
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m83[m[36m:[m  '[1;31m13.02[m': [0x1fa78a, 0x1fa78d]
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m138[m[36m:[m  if (fw_version === '9.04') lookup = '9.03';else if (fw_version === '9.51' || fw_version === '9.60') lookup = '9.50';else if (fw_version === '10.01') lookup = '10.00';else if (fw_version === '10.70' || fw_version === '10.71') lookup = '10.50';else if (fw_version === '11.52') lookup = '11.50';else if (fw_version === '12.02') lookup = '12.00';else if (fw_version === '12.52') lookup = '12.50';else if (fw_version === '[1;31m13.04[m') lookup = '[1;31m13.02[m';
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m168[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7B3ED4,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m175[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7B42E4,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m183[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7B42A4,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m190[m[36m:[m  EVF_O[1;31mFFS[mET: 0X80EF12,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m197[m[36m:[m  EVF_O[1;31mFFS[mET: 0X80EDE2,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m204[m[36m:[m  EVF_O[1;31mFFS[mET: 0X80F482,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m211[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C8971,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m219[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C8971,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m226[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C8E31,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m233[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C6019,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m240[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C6099,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m248[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C7829,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m256[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7F92CB,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m263[m[36m:[m  EVF_O[1;31mFFS[mET: 0X79A92E,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m271[m[36m:[m  EVF_O[1;31mFFS[mET: 0X79A96E,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m279[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7EDCFF,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m287[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7DA91C,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m294[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7F6F27,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m297[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221688D,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m303[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7F4CE7,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m306[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221288D,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m312[m[36m:[m  EVF_O[1;31mFFS[mET: 0x769A88,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m315[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221A40D,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m321[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7B5133,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m324[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x1B9E08D,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m330[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7A7B14,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m333[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x1BE460D,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m339[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7FC26F,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m342[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221C60D,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m348[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7FC22F,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m351[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221C60D,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m357[m[36m:[m  EVF_O[1;31mFFS[mET: 0x784318,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m360[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x21CC60D,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m367[m[36m:[m  EVF_O[1;31mFFS[mET: 0x784798,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m370[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x21CC60D,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m377[m[36m:[m  EVF_O[1;31mFFS[mET: 0x0,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m381[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x0,
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m683[m[36m:[m  var O[1;31mFFS[mET_P_UCRED = 0x40;
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/kernel.js[m[36m:[m[32m691[m[36m:[m  var ucred = kernel.read_qword(proc.add(O[1;31mFFS[mET_P_UCRED));
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/lapse.js[m[36m:[m[32m1588[m[36m:[m    var O[1;31mFFS[mET_P_UCRED = 0x40;
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/lapse.js[m[36m:[m[32m1595[m[36m:[m    kernel.addr.base = kernel.addr.inside_kdata.sub(kernel_offset.EVF_O[1;31mFFS[mET);
+[35mecc212bb9430a645e4d9304360a21478f16c8478:server/download0/lapse.js[m[36m:[m[32m1603[m[36m:[m    var ucred = kernel.read_qword(proc.add(O[1;31mFFS[mET_P_UCRED));
+[35mecc212bb9430a645e4d9304360a21478f16c8478:start.bat[m[36m:[m[32m45[m[36m:[mecho    3. Launch PS Vue -^> [1;31mearthonion[m.com
+[35mecc212bb9430a645e4d9304360a21478f16c8478:start.sh[m[36m:[m[32m43[m[36m:[mecho "   3. Launch PS Vue -> [1;31mearthonion[m.com"
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:README.md[m[36m:[m[32m11[m[36m:[m- The original `[1;31mearthonion[m.com` exploit had several pain points: its `serve.js` tried to save files to the PS4 filesystem via POST (which hung), and the Lapse exploit crashed with `thrd_create()` on FW 12.00
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:README.md[m[36m:[m[32m74[m[36m:[m2. Navigate to `http://[1;31mearthonion[m.com`
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:README.md[m[36m:[m[32m92[m[36m:[m| Can't connect to [1;31mearthonion[m.com | Check PS4 proxy address/port matches PC |
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:README.md[m[36m:[m[32m98[m[36m:[m1. PS Vue requests `[1;31mearthonion[m.com/manifest.aes` — proxy returns a modified manifest pointing to our local `serve_local.js`
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:README.md[m[36m:[m[32m110[m[36m:[m- **[1;31mChendoChap[m** — original PoC
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:README.md[m[36m:[m[32m113[m[36m:[m- **[1;31mHelloyunho[m** — Lapse exploit, PS4 kernel offsets
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:proxy/serve_local.js[m[36m:[m[32m2[m[36m:[mvar EARTHONION = "[1;31mearthonion[m.com";
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:proxy/stock_n_hack_capture.py[m[36m:[m[32m120[m[36m:[m    if "[1;31mearthonion[m.com" in host:
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:proxy/stock_n_hack_capture.py[m[36m:[m[32m127[m[36m:[m                "scripts": [{"src": "http://[1;31mearthonion[m.com/download0/serve.js.aes?" + ts, "version": ts}]
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:proxy/stock_n_hack_capture.py[m[36m:[m[32m130[m[36m:[m            flow.response.headers["X-Stock-N-Hack"] = "[1;31mearthonion[m-manifest-intercept"
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:proxy/stock_n_hack_capture.py[m[36m:[m[32m141[m[36m:[m                flow.response.headers["X-Stock-N-Hack"] = "[1;31mearthonion[m-intercept"
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:proxy/stock_n_hack_capture.py[m[36m:[m[32m145[m[36m:[m        # Other .js files from [1;31mearthonion[m: serve from local download0/
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:proxy/stock_n_hack_capture.py[m[36m:[m[32m153[m[36m:[m                flow.response.headers["X-Stock-N-Hack"] = "[1;31mearthonion[m-intercept"
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/binloader.js[m[36m:[m[32m89[m[36m:[m    P_O[1;31mFFS[mET: 0x08,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/binloader.js[m[36m:[m[32m98[m[36m:[m    SH_O[1;31mFFS[mET: 0x18,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/binloader.js[m[36m:[m[32m105[m[36m:[m    R_O[1;31mFFS[mET: 0x00,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/binloader.js[m[36m:[m[32m289[m[36m:[m      p_offset: mem.view(base).getBigInt(PROGRAM_HEADER.P_O[1;31mFFS[mET, true),
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/binloader.js[m[36m:[m[32m302[m[36m:[m      sh_offset: view.getBigInt(SECTION_HEADER.SH_O[1;31mFFS[mET, true),
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/binloader.js[m[36m:[m[32m312[m[36m:[m      r_offset: mem.view(base).getBigInt(RELA_ENTRY.R_O[1;31mFFS[mET, true),
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m4[m[36m:[m// Source: https://github.com/[1;31mHelloyunho[m/yarpe/blob/main/payloads/lapse.py
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m83[m[36m:[m  '[1;31m13.02[m': [0x1fa78a, 0x1fa78d]
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m138[m[36m:[m  if (fw_version === '9.04') lookup = '9.03';else if (fw_version === '9.51' || fw_version === '9.60') lookup = '9.50';else if (fw_version === '10.01') lookup = '10.00';else if (fw_version === '10.70' || fw_version === '10.71') lookup = '10.50';else if (fw_version === '11.52') lookup = '11.50';else if (fw_version === '12.02') lookup = '12.00';else if (fw_version === '12.52') lookup = '12.50';else if (fw_version === '[1;31m13.04[m') lookup = '[1;31m13.02[m';
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m168[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7B3ED4,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m175[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7B42E4,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m183[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7B42A4,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m190[m[36m:[m  EVF_O[1;31mFFS[mET: 0X80EF12,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m197[m[36m:[m  EVF_O[1;31mFFS[mET: 0X80EDE2,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m204[m[36m:[m  EVF_O[1;31mFFS[mET: 0X80F482,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m211[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C8971,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m219[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C8971,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m226[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C8E31,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m233[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C6019,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m240[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C6099,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m248[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C7829,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m256[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7F92CB,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m263[m[36m:[m  EVF_O[1;31mFFS[mET: 0X79A92E,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m271[m[36m:[m  EVF_O[1;31mFFS[mET: 0X79A96E,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m279[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7EDCFF,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m287[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7DA91C,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m294[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7F6F27,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m297[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221688D,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m303[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7F4CE7,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m306[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221288D,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m312[m[36m:[m  EVF_O[1;31mFFS[mET: 0x769A88,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m315[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221A40D,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m321[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7B5133,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m324[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x1B9E08D,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m330[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7A7B14,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m333[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x1BE460D,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m339[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7FC26F,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m342[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221C60D,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m348[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7FC22F,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m351[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221C60D,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m357[m[36m:[m  EVF_O[1;31mFFS[mET: 0x784318,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m360[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x21CC60D,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m367[m[36m:[m  EVF_O[1;31mFFS[mET: 0x784798,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m370[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x21CC60D,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m377[m[36m:[m  EVF_O[1;31mFFS[mET: 0x0,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m381[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x0,
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m683[m[36m:[m  var O[1;31mFFS[mET_P_UCRED = 0x40;
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/kernel.js[m[36m:[m[32m691[m[36m:[m  var ucred = kernel.read_qword(proc.add(O[1;31mFFS[mET_P_UCRED));
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/lapse.js[m[36m:[m[32m1588[m[36m:[m    var O[1;31mFFS[mET_P_UCRED = 0x40;
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/lapse.js[m[36m:[m[32m1595[m[36m:[m    kernel.addr.base = kernel.addr.inside_kdata.sub(kernel_offset.EVF_O[1;31mFFS[mET);
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:server/download0/lapse.js[m[36m:[m[32m1603[m[36m:[m    var ucred = kernel.read_qword(proc.add(O[1;31mFFS[mET_P_UCRED));
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:start.bat[m[36m:[m[32m45[m[36m:[mecho    3. Launch PS Vue -^> [1;31mearthonion[m.com
+[35m177e7cc34e839b343dba12b26bb371b4828076d8:start.sh[m[36m:[m[32m43[m[36m:[mecho "   3. Launch PS Vue -> [1;31mearthonion[m.com"
+[35m03ce95e8876454d71a949c4112809efe0a015626:README.md[m[36m:[m[32m63[m[36m:[m2. Navigate to `http://[1;31mearthonion[m.com`
+[35m03ce95e8876454d71a949c4112809efe0a015626:README.md[m[36m:[m[32m81[m[36m:[m| Can't connect to [1;31mearthonion[m.com | Check PS4 proxy address/port matches PC |
+[35m03ce95e8876454d71a949c4112809efe0a015626:README.md[m[36m:[m[32m87[m[36m:[m1. PS Vue requests `[1;31mearthonion[m.com/manifest.aes` — proxy returns a modified manifest pointing to our local `serve_local.js`
+[35m03ce95e8876454d71a949c4112809efe0a015626:README.md[m[36m:[m[32m99[m[36m:[m- **[1;31mChendoChap[m** — original PoC
+[35m03ce95e8876454d71a949c4112809efe0a015626:README.md[m[36m:[m[32m102[m[36m:[m- **[1;31mHelloyunho[m** — Lapse exploit, PS4 kernel offsets
+[35m03ce95e8876454d71a949c4112809efe0a015626:proxy/serve_local.js[m[36m:[m[32m2[m[36m:[mvar EARTHONION = "[1;31mearthonion[m.com";
+[35m03ce95e8876454d71a949c4112809efe0a015626:proxy/stock_n_hack_capture.py[m[36m:[m[32m120[m[36m:[m    if "[1;31mearthonion[m.com" in host:
+[35m03ce95e8876454d71a949c4112809efe0a015626:proxy/stock_n_hack_capture.py[m[36m:[m[32m127[m[36m:[m                "scripts": [{"src": "http://[1;31mearthonion[m.com/download0/serve.js.aes?" + ts, "version": ts}]
+[35m03ce95e8876454d71a949c4112809efe0a015626:proxy/stock_n_hack_capture.py[m[36m:[m[32m130[m[36m:[m            flow.response.headers["X-Stock-N-Hack"] = "[1;31mearthonion[m-manifest-intercept"
+[35m03ce95e8876454d71a949c4112809efe0a015626:proxy/stock_n_hack_capture.py[m[36m:[m[32m141[m[36m:[m                flow.response.headers["X-Stock-N-Hack"] = "[1;31mearthonion[m-intercept"
+[35m03ce95e8876454d71a949c4112809efe0a015626:proxy/stock_n_hack_capture.py[m[36m:[m[32m145[m[36m:[m        # Other .js files from [1;31mearthonion[m: serve from local download0/
+[35m03ce95e8876454d71a949c4112809efe0a015626:proxy/stock_n_hack_capture.py[m[36m:[m[32m153[m[36m:[m                flow.response.headers["X-Stock-N-Hack"] = "[1;31mearthonion[m-intercept"
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/binloader.js[m[36m:[m[32m89[m[36m:[m    P_O[1;31mFFS[mET: 0x08,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/binloader.js[m[36m:[m[32m98[m[36m:[m    SH_O[1;31mFFS[mET: 0x18,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/binloader.js[m[36m:[m[32m105[m[36m:[m    R_O[1;31mFFS[mET: 0x00,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/binloader.js[m[36m:[m[32m289[m[36m:[m      p_offset: mem.view(base).getBigInt(PROGRAM_HEADER.P_O[1;31mFFS[mET, true),
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/binloader.js[m[36m:[m[32m302[m[36m:[m      sh_offset: view.getBigInt(SECTION_HEADER.SH_O[1;31mFFS[mET, true),
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/binloader.js[m[36m:[m[32m312[m[36m:[m      r_offset: mem.view(base).getBigInt(RELA_ENTRY.R_O[1;31mFFS[mET, true),
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m4[m[36m:[m// Source: https://github.com/[1;31mHelloyunho[m/yarpe/blob/main/payloads/lapse.py
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m83[m[36m:[m  '[1;31m13.02[m': [0x1fa78a, 0x1fa78d]
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m138[m[36m:[m  if (fw_version === '9.04') lookup = '9.03';else if (fw_version === '9.51' || fw_version === '9.60') lookup = '9.50';else if (fw_version === '10.01') lookup = '10.00';else if (fw_version === '10.70' || fw_version === '10.71') lookup = '10.50';else if (fw_version === '11.52') lookup = '11.50';else if (fw_version === '12.02') lookup = '12.00';else if (fw_version === '12.52') lookup = '12.50';else if (fw_version === '[1;31m13.04[m') lookup = '[1;31m13.02[m';
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m168[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7B3ED4,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m175[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7B42E4,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m183[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7B42A4,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m190[m[36m:[m  EVF_O[1;31mFFS[mET: 0X80EF12,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m197[m[36m:[m  EVF_O[1;31mFFS[mET: 0X80EDE2,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m204[m[36m:[m  EVF_O[1;31mFFS[mET: 0X80F482,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m211[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C8971,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m219[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C8971,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m226[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C8E31,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m233[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C6019,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m240[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C6099,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m248[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7C7829,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m256[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7F92CB,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m263[m[36m:[m  EVF_O[1;31mFFS[mET: 0X79A92E,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m271[m[36m:[m  EVF_O[1;31mFFS[mET: 0X79A96E,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m279[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7EDCFF,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m287[m[36m:[m  EVF_O[1;31mFFS[mET: 0X7DA91C,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m294[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7F6F27,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m297[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221688D,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m303[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7F4CE7,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m306[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221288D,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m312[m[36m:[m  EVF_O[1;31mFFS[mET: 0x769A88,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m315[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221A40D,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m321[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7B5133,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m324[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x1B9E08D,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m330[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7A7B14,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m333[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x1BE460D,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m339[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7FC26F,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m342[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221C60D,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m348[m[36m:[m  EVF_O[1;31mFFS[mET: 0x7FC22F,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m351[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x221C60D,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m357[m[36m:[m  EVF_O[1;31mFFS[mET: 0x784318,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m360[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x21CC60D,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m367[m[36m:[m  EVF_O[1;31mFFS[mET: 0x784798,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m370[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x21CC60D,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m377[m[36m:[m  EVF_O[1;31mFFS[mET: 0x0,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m381[m[36m:[m  TARGET_ID_O[1;31mFFS[mET: 0x0,
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m683[m[36m:[m  var O[1;31mFFS[mET_P_UCRED = 0x40;
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/kernel.js[m[36m:[m[32m691[m[36m:[m  var ucred = kernel.read_qword(proc.add(O[1;31mFFS[mET_P_UCRED));
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/lapse.js[m[36m:[m[32m1588[m[36m:[m    var O[1;31mFFS[mET_P_UCRED = 0x40;
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/lapse.js[m[36m:[m[32m1595[m[36m:[m    kernel.addr.base = kernel.addr.inside_kdata.sub(kernel_offset.EVF_O[1;31mFFS[mET);
+[35m03ce95e8876454d71a949c4112809efe0a015626:server/download0/lapse.js[m[36m:[m[32m1603[m[36m:[m    var ucred = kernel.read_qword(proc.add(O[1;31mFFS[mET_P_UCRED));
+[35m03ce95e8876454d71a949c4112809efe0a015626:start.bat[m[36m:[m[32m45[m[36m:[mecho    3. Launch PS Vue -^> [1;31mearthonion[m.com
+[35m03ce95e8876454d71a949c4112809efe0a015626:start.sh[m[36m:[m[32m43[m[36m:[mecho "   3. Launch PS Vue -> [1;31mearthonion[m.com"
