@@ -97,3 +97,9 @@ La búsqueda de código para `Celsius`, `ffs_mount` y `Jordy`, excluyendo `adri2
 ## Pista de mirrors: earthonion
 
 Una referencia secundaria indica que repositorios retirados del GitHub de `earthonion` fueron re-subidos a `https://git.earthonion.com/earthonion`. La página pública del mirror muestra 45 repositorios, entre ellos `elfldr-autoldr`, `install_y2jb`, `ddd_pair_dump`, `sponsorblock-ps4-installer` y `ps4-enter-idu`, principalmente PS5/BD-drive/loader y utilidades generales. La revisión visible no muestra repositorio llamado Celsius, `ffs_mount`, UFS/FFS, Jordy PS4 o kernel Orbis 13.02/13.04. La pista merece conservarse como posible mirror histórico, pero hasta inspeccionar los árboles y commits concretos no es evidencia de una PoC Celsius. Clasificación: **SOURCE_ONLY / candidato de búsqueda**, sin artefacto técnico confirmado.
+
+## Inventario adicional del mirror earthonion
+
+Las páginas 2 y 3 del mirror público muestran repositorios que sí justifican una inspección focalizada: `vue-after-free`, `vue-mitm-poc`, `ps4debugportal` y `mkufs2`. También aparecen `np-fake-signin`, `micropython-for-ps4` y `netflix-n-hack`, pero no están vinculados por nombre a Celsius. El mirror indica que los repositorios fueron re-subidos/reconstruidos el 30 de abril de 2026, por lo que su fecha de mirror no equivale necesariamente a la fecha de origen. Hasta leer sus árboles, commits y hashes, se clasifican como **SOURCE_ONLY / candidatos de búsqueda**. No se debe inferir que `vue-after-free` o `mkufs2` contengan la cadena Celsius sólo por el nombre.
+
+Fuente: [mirror público de earthonion, página 2](https://git.etawen.dev/earthonion?page=2&sort=recentupdate&q=&tab=repositories) y [página 3](https://git.etawen.dev/earthonion?page=3&sort=recentupdate&q=&tab=repositories).

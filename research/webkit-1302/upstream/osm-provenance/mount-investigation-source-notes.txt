@@ -895,3 +895,7 @@ Global GitHub code search for `Celsius`, `ffs_mount` and `Jordy`, excluding `adr
 ## earthonion mirror lead
 
 A Reddit post says removed earthonion GitHub repositories were re-uploaded to `https://git.earthonion.com/earthonion`. The public mirror lists 45 repositories, mostly PS5/BD-drive/loaders and general utilities. No visible repository name directly indicates Celsius, PS4 13.02, UFS/FFS or Jordy PS4. Preserve as a candidate mirror for tree/commit inspection, not as evidence yet.
+
+## earthonion pages 2-3
+
+Pages 2-3 expose candidate repositories `vue-after-free`, `vue-mitm-poc`, `ps4debugportal`, and `mkufs2`. Mirror timestamps are April 30, 2026 and may not be source dates. They are candidates for direct tree/commit inspection only; names alone do not connect them to Celsius. Classification remains `SOURCE_ONLY` pending artifact analysis.
