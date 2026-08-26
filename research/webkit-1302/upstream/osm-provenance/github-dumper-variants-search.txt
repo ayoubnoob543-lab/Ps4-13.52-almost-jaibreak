@@ -1,0 +1,116 @@
+=== PS4 kernel dumper 13.02 ===
+=== PS4 kernel dumper 13.04 ===
+=== PS4 1302 kernel ===
+=== code filenames ===
+    [1;34m"path"[m[1;37m:[m [32m"docs/FF7/Kernel/Kernel.bin.md"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/ff7-mods/ff7-flat-wiki/blob/638936503b1ca08243d73846dde4299419bcf542/docs/FF7/Kernel/Kernel.bin.md"[m
+    [1;34m"path"[m[1;37m:[m [32m"bootimage-rust-kernel.bin"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"GustavoWidman/rust-kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/GustavoWidman/rust-kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/GustavoWidman/rust-kernel/blob/94a18c17f950572b80cee9611223ef7ab68e397a/bootimage-rust-kernel.bin"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.Result.g.fs"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.Result.g.fs"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.Lib.Uuid.Src.Uuid.g.fs"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.Lib.Uuid.Src.Uuid.g.fs"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Sexp.g.fs"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Sexp.g.fs"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Error.g.fs"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Error.g.fs"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Percent.g.fs"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Percent.g.fs"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Unix.Time_ns.g.fs"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Unix.Time_ns.g.fs"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Or_error.g.fs"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Or_error.g.fs"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Time_float.g.fs"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Time_float.g.fs"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Unix.Time_float.g.fs"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Unix.Time_float.g.fs"[m
+    [1;34m"path"[m[1;37m:[m [32m"micro-os_kernel.bin.symbol"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/emirtdede/Basic-Operating-System/blob/93a29a5b0b85c79c89bd39ae13adb628c686096d/micro-os_kernel.bin.symbol"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Source_code_position.g.fs"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.Lib.Dotnet.Core_with_dotnet.Src.Source_code_position.g.fs"[m
+    [1;34m"path"[m[1;37m:[m [32m"generated/Core_kernel.Bin_prot_generated_types.fsproj"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"janestreet/fsharp_core_kernel"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/janestreet/fsharp_core_kernel/blob/d35385b6ea1413f8d5ce603ede19640922663f61/generated/Core_kernel.Bin_prot_generated_types.fsproj"[m
+    [1;34m"path"[m[1;37m:[m [32m"kernel.bin.sha256"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lesmart13/Kumul-Fly-OS"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lesmart13/Kumul-Fly-OS"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lesmart13/Kumul-Fly-OS/blob/4ea467f4a99cdc4ed3f6168a6ed66b8072d016ac/kernel.bin.sha256"[m
+    [1;34m"path"[m[1;37m:[m [32m"micro-os_kernel.bin.list"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/emirtdede/Basic-Operating-System/blob/93a29a5b0b85c79c89bd39ae13adb628c686096d/micro-os_kernel.bin.list"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/cig_wf188n-kernel.bin.its"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gl-inet-builder/openwrt-imagebuilder-ipq807x-ipq60xx_4.1/blob/03d1da7c9238ed83d51c0e6ffceaedc3be637c8a/build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/cig_wf188n-kernel.bin.its"[m
+    [1;34m"path"[m[1;37m:[m [32m"Core/Object Arts/Dolphin/Base/Kernel.BindingContext.cls"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/dolphinsmalltalk/Dolphin/blob/d4883ea45be2fbfa3611552af24ddd983dfca958/Core/Object Arts/Dolphin/Base/Kernel.BindingContext.cls"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/hfcl_ion4xe-kernel.bin.its"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gl-inet-builder/openwrt-imagebuilder-ipq807x-ipq60xx_4.1/blob/03d1da7c9238ed83d51c0e6ffceaedc3be637c8a/build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/hfcl_ion4xe-kernel.bin.its"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/hfcl_ion4xi-kernel.bin.its"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gl-inet-builder/openwrt-imagebuilder-ipq807x-ipq60xx_4.1/blob/03d1da7c9238ed83d51c0e6ffceaedc3be637c8a/build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/hfcl_ion4xi-kernel.bin.its"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/qcom_cp01_c1-kernel.bin.its"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gl-inet-builder/openwrt-imagebuilder-ipq807x-ipq60xx_4.1/blob/03d1da7c9238ed83d51c0e6ffceaedc3be637c8a/build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/qcom_cp01_c1-kernel.bin.its"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/yuncore_ax840-kernel.bin.its"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gl-inet-builder/openwrt-imagebuilder-ipq807x-ipq60xx_4.1/blob/03d1da7c9238ed83d51c0e6ffceaedc3be637c8a/build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/yuncore_ax840-kernel.bin.its"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/wallys_dr6018-kernel.bin.its"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gl-inet-builder/openwrt-imagebuilder-ipq807x-ipq60xx_4.1/blob/03d1da7c9238ed83d51c0e6ffceaedc3be637c8a/build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/wallys_dr6018-kernel.bin.its"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/glinet_ax1800-kernel.bin.its"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gl-inet-builder/openwrt-imagebuilder-ipq807x-ipq60xx_4.1/blob/03d1da7c9238ed83d51c0e6ffceaedc3be637c8a/build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/glinet_ax1800-kernel.bin.its"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/glinet_axt1800-kernel.bin.its"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gl-inet-builder/openwrt-imagebuilder-ipq807x-ipq60xx_4.1/blob/03d1da7c9238ed83d51c0e6ffceaedc3be637c8a/build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/glinet_axt1800-kernel.bin.its"[m
+    [1;34m"path"[m[1;37m:[m [32m"images/qemu-kernel.bin-meta.json"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/msft-mirror-aosp/platform.prebuilts.fuchsia_sdk/blob/12c41f24a38aefda3c5dda0dd513945b616cd765/images/qemu-kernel.bin-meta.json"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/edgecore_eap101-kernel.bin.its"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gl-inet-builder/openwrt-imagebuilder-ipq807x-ipq60xx_4.1/blob/03d1da7c9238ed83d51c0e6ffceaedc3be637c8a/build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/edgecore_eap101-kernel.bin.its"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/wallys_dr6018_v4-kernel.bin.its"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/gl-inet-builder/openwrt-imagebuilder-ipq807x-ipq60xx_4.1/blob/03d1da7c9238ed83d51c0e6ffceaedc3be637c8a/build_dir/target-arm_cortex-a7_musl_eabi/linux-ipq807x_ipq60xx/wallys_dr6018_v4-kernel.bin.its"[m
+    [1;34m"path"[m[1;37m:[m [32m"Core/Object Arts/Dolphin/Base/Kernel.BindingReferenceWrapper.cls"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/dolphinsmalltalk/Dolphin/blob/d4883ea45be2fbfa3611552af24ddd983dfca958/Core/Object Arts/Dolphin/Base/Kernel.BindingReferenceWrapper.cls"[m
+    [1;34m"path"[m[1;37m:[m [32m"releases/Paraduse-Beta/kernel.bin.sha256"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lesmart13/Kumul-Fly-OS"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lesmart13/Kumul-Fly-OS"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lesmart13/Kumul-Fly-OS/blob/4ea467f4a99cdc4ed3f6168a6ed66b8072d016ac/releases/Paraduse-Beta/kernel.bin.sha256"[m
+    [1;34m"path"[m[1;37m:[m [32m"releases/phase10-20260331/kernel.bin.sha256"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lesmart13/Kumul-Fly-OS"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lesmart13/Kumul-Fly-OS"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lesmart13/Kumul-Fly-OS/blob/4ea467f4a99cdc4ed3f6168a6ed66b8072d016ac/releases/phase10-20260331/kernel.bin.sha256"[m
+    [1;34m"path"[m[1;37m:[m [32m"openwrt-bcm5862x-generic-meraki_mx64-initramfs-kernel.bin.sha512"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/clayface/U-boot-MX64-20190430_MX64/blob/cd5b491d4521d0f33a385cf95f0f38bbd73e6a0c/openwrt-bcm5862x-generic-meraki_mx64-initramfs-kernel.bin.sha512"[m
+    [1;34m"path"[m[1;37m:[m [32m"openwrt-bcm5862x-generic-meraki_mx64a0-initramfs-kernel.bin.sha512"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/clayface/U-boot-MX64-20190430_MX64/blob/cd5b491d4521d0f33a385cf95f0f38bbd73e6a0c/openwrt-bcm5862x-generic-meraki_mx64a0-initramfs-kernel.bin.sha512"[m
+    [1;34m"path"[m[1;37m:[m [32m"releases/phase10-closeout-20260331/kernel.bin.sha256"[m[1;37m,[m
+      [1;34m"nameWithOwner"[m[1;37m:[m [32m"lesmart13/Kumul-Fly-OS"[m[1;37m,[m
+      [1;34m"url"[m[1;37m:[m [32m"https://github.com/lesmart13/Kumul-Fly-OS"[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/lesmart13/Kumul-Fly-OS/blob/4ea467f4a99cdc4ed3f6168a6ed66b8072d016ac/releases/phase10-closeout-20260331/kernel.bin.sha256"[m
+    [1;34m"path"[m[1;37m:[m [32m"Core/Object Arts/Dolphin/Base/Kernel.BindingReference.cls"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/dolphinsmalltalk/Dolphin/blob/d4883ea45be2fbfa3611552af24ddd983dfca958/Core/Object Arts/Dolphin/Base/Kernel.BindingReference.cls"[m
+    [1;34m"path"[m[1;37m:[m [32m"examples/1.Basic/mcp/attachment/vdw_kernel.bindat"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/JiaxuanLiu-Arsko/VASPilot/blob/2d9b2dfaf6e0508dd73f74396352f1965e9e860c/examples/1.Basic/mcp/attachment/vdw_kernel.bindat"[m
+    [1;34m"path"[m[1;37m:[m [32m"examples/2.Basic+RAG/mcp/attachment/vdw_kernel.bindat"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/JiaxuanLiu-Arsko/VASPilot/blob/2d9b2dfaf6e0508dd73f74396352f1965e9e860c/examples/2.Basic+RAG/mcp/attachment/vdw_kernel.bindat"[m
+    [1;34m"path"[m[1;37m:[m [32m"build_dir/target-mips_24kc_musl/json_info_files/openwrt-ath79-generic-tplink_tl-wdr4310-v1-initramfs-kernel.bin.json"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/mirandadrummond/openwrt/blob/d3e3ee9dce6c05d48cd82c6f524ae438b70d416f/build_dir/target-mips_24kc_musl/json_info_files/openwrt-ath79-generic-tplink_tl-wdr4310-v1-initramfs-kernel.bin.json"[m
+    [1;34m"path"[m[1;37m:[m [32m"app/kernel.bindings.ts"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/duffman/backend-igniter/blob/2cdddd6661444d9f5d9640a9f205c42bf6ff47c2/app/kernel.bindings.ts"[m
+    [1;34m"path"[m[1;37m:[m [32m"Example/inputs/vdw_kernel.bindat"[m[1;37m,[m
+    [1;34m"url"[m[1;37m:[m [32m"https://github.com/benshi97/Data_NSCDFT_for_Metals/blob/4e5e0cd7dfb708073b2f2e1831fa32b6b287b5af/Example/inputs/vdw_kernel.bindat"[m

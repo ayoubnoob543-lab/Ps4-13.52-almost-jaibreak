@@ -1,0 +1,979 @@
+=== v0.4 tree markers ===
+crt/kernel.c	35894	3d440a606180e628ef2132359fbc793f22b07a33
+crt/kernel.h	4083	ae0756308327397e06f68572622663f9c89827cf
+include/freebsd-9.3/fnmatch.h	2394	146e4fad1304552a9615ecccbdc5a73fdf62b4d8
+include/freebsd-9.3/lwres/netdb.h	13044	aba863db9b89280850136db7cdaaed81514f8e1c
+include/freebsd-9.3/machine/minidump.h	1765	0efddb6746917d031c154053a7371d84f733666a
+include/freebsd-9.3/protocols/dumprestore.h	5733	1da44a18b422cc82d02aa3b955b72f7c87d978b6
+include/freebsd-9.3/sys/kernel.h	14090	84fdd335f621ee9e150e949aa8f035cfced4e65d
+include/freebsd-9.3/sys/kerneldump.h	3695	2b085a8963c7f67924d0ad255c400fb443f5c6a7
+include/ps4/kernel.h	3288	ec6ff9948058175bdc08c1524eaae2c70e91a00b
+samples/kdump/.gitignore	14	beefd6694656a80413e5c874105ee4c197fd8050
+samples/kdump/Makefile	1143	5e069cd2f7d0a0fe0acb5b2acee25ec296424ce0
+samples/kdump/main.c	1179	57a5218c7a7ce7910be09a5ada23d49be525dc07
+sce_stubs/libkernel.c	120012	b95dedc0aa07a2f102dd44328568de3c5eee4f85
+sce_stubs/libkernel_sys.c	130663	5e49a65b237057d957da3f4bfde3192f5678059d
+sce_stubs/libkernel_web.c	120012	b95dedc0aa07a2f102dd44328568de3c5eee4f85
+=== v0.4 kernel case ===
+11-GNU General Public License for more details.
+12-
+13-You should have received a copy of the GNU General Public License
+14:along with this program; see the file COPYING. If not, see
+15-<http://www.gnu.org/licenses/>.  */
+16-
+17-#include "kernel.h"
+18-#include "syscall.h"
+19-
+20-
+21-/**
+22- * Private constants.
+--
+98-/**
+99- * Public constants.
+100- **/
+101:unsigned long KERNEL_IMAGE_SIZE = 0;
+102-
+103-unsigned long KERNEL_ADDRESS_IMAGE_BASE = 0;
+104-unsigned long KERNEL_ADDRESS_ALLPROC    = 0;
+105-unsigned long KERNEL_ADDRESS_ROOTVNODE  = 0;
+106-unsigned long KERNEL_ADDRESS_PRISON0    = 0;
+107-unsigned long KERNEL_ADDRESS_TARGETID   = 0;
+108-unsigned long KERNEL_ADDRESS_QA_FLAGS   = 0;
+109:unsigned long KERNEL_ADDRESS_COPYIN     = 0;
+110:unsigned long KERNEL_ADDRESS_COPYOUT    = 0;
+111-
+112-const unsigned long KERNEL_OFFSET_PROC_P_UCRED   = 0x40;
+113-const unsigned long KERNEL_OFFSET_PROC_P_FD      = 0x48;
+114-const unsigned long KERNEL_OFFSET_PROC_P_PID     = 0xB0;
+115-
+116-const unsigned long KERNEL_OFFSET_UCRED_CR_UID   = 0x04;
+117-const unsigned long KERNEL_OFFSET_UCRED_CR_RUID  = 0x08;
+118-const unsigned long KERNEL_OFFSET_UCRED_CR_SVUID = 0x0C;
+--
+356-
+357-
+358-/**
+359: * Search for the entry to the kernel copyin function.
+360- **/
+361-static int
+362:kexec_find_copyin(struct thread *td, kexec_args_t* args) {
+363-  char pattern[] = "554889e54989fa4901d24939e2??174989ea4983c2104c39d77d0b4889f"
+364-                   "f4889d6e8????????65488b0425200000004c8b05????????4c8980d000"
+365-                   "0000";
+366-  const unsigned char* img = (const unsigned char*)args->arg1;
+367-  unsigned long img_size = (unsigned long)args->arg2;
+368-  unsigned long* res = (unsigned long*)args->arg3;
+369-
+370-  if(!img || !res) {
+--
+382-
+383-
+384-/**
+385: * Search for the entry to the kernel copyout function.
+386- **/
+387-static int
+388:kexec_find_copyout(struct thread *td, kexec_args_t* args) {
+389-  char pattern[] = "554889e565488b0425200000004c8b05????????4c8980d00000004885d"
+390-                   "274??65488b0c2500000000488b4108488b88????????48f7c100000040";
+391-  const unsigned char* img = (const unsigned char*)args->arg1;
+392-  unsigned long img_size = (unsigned long)args->arg2;
+393-  unsigned long* res = (unsigned long*)args->arg3;
+394-
+395-  if(!img || !res) {
+396-    return EFAULT;
+--
+457- * Copy data from user space into kernel space (must be invoked from kernel space).
+458- **/
+459-static int
+460:kexec_copyin(struct thread *td, kexec_args_t* args) {
+461:  int (*copyin)(const void*, void*, unsigned long) = (void*)args->arg1;
+462-  const void* uaddr = (void*)args->arg2;
+463-  void *kaddr = (void*)args->arg3;
+464-  unsigned long len = args->arg4;
+465-  unsigned long cr0;
+466-  int ret;
+467-
+468-  // read cr0
+469-  asm volatile(".att_syntax\n"
+--
+473-  asm volatile(".att_syntax\n"
+474-	       "mov %0, %%cr0" : : "r" (cr0 & ~X86_CR0_WP));
+475-
+476:  ret = copyin(uaddr, kaddr, len);
+477-
+478-  // restore cr0
+479-  asm volatile(".att_syntax\n"
+480-	       "mov %0, %%cr0" : : "r" (cr0));
+481-
+482-  return ret;
+483-}
+484-
+--
+487- * Copy data from kernel space into user space (must be invoked from kernel space).
+488- **/
+489-static int
+490:kexec_copyout(struct thread *td, kexec_args_t* args) {
+491:  int (*copyout)(const void*, void*, unsigned long) = (void*)args->arg1;
+492-  const void *kaddr = (void*)args->arg2;
+493-  void* uaddr = (void*)args->arg3;
+494-  unsigned long len = args->arg4;
+495-
+496:  return copyout(kaddr, uaddr, len);
+497-}
+498-
+499-
+500-/**
+501- * Find a pattern in kernel memory (must be invoked from kernel space).
+502- **/
+503-static int
+504-kexec_find_pattern(struct thread *td, kexec_args_t* args) {
+505:  int (*copyin)(const void*, void*, unsigned long) = (void*)args->arg1;
+506:  int (*copyout)(const void*, void*, unsigned long) = (void*)args->arg2;
+507-  void* uctx = (void*)args->arg3;
+508-  kexec_find_pattern_ctx_t ctx;
+509-  unsigned long res;
+510-  int err;
+511-
+512:  if((err=copyin(uctx, &ctx, sizeof(ctx)))) {
+513-    return err;
+514-  }
+515-
+516-  ctx.pattern[sizeof(ctx.pattern)-1] = 0;
+517-  res = (long)pattern_scan((void*)ctx.kaddr, ctx.kaddr_len, ctx.pattern);
+518-
+519:  return copyout(&res, ctx.res, sizeof(res));
+520-}
+521-
+522-
+523-unsigned int
+524-kernel_get_fw_version(void) {
+525-  int mib[2] = {1, 38};
+526-  unsigned long size = sizeof(mib);
+527-  unsigned int version = 0;
+--
+555-  case 0x3500000:
+556-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003A1AD0;
+557-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x019A121D;
+558:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003B92A0;
+559:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003B9220;
+560-    break;
+561-
+562-  case 0x3550000:
+563-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003A1F10;
+564-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x019A121D;
+565:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003B96E0;
+566:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003B9660;
+567-    break;
+568-
+569-  case 0x3700000:
+570-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003A2000;
+571-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x019AD21D;
+572:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003B97D0;
+573:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003B9750;
+574-    break;
+575-
+576-  case 0x4000000:
+577-  case 0x4010000:
+578-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EA00;
+579-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200151D;
+580:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286CC0;
+581:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286C40;
+582-    break;
+583-
+584-  case 0x4050000:
+585-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EB30;
+586-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200151D;
+587:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286DF0;
+588:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286D70;
+589-    break;
+590-
+591-  case 0x4060000:
+592-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EB40;
+593-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200151D;
+594:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286DF0;
+595:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286D70;
+596-    break;
+597-
+598-  case 0x4070000:
+599-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EB40;
+600-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200551D;
+601:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286DF0;
+602:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286D70;
+603-    break;
+604-
+605-  case 0x4500000:
+606-  case 0x4550000:
+607-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003095D0;
+608-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B6D08D;
+609:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x0014A890;
+610:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x0014A7B0;
+611-    break;
+612-
+613-  case 0x4700000:
+614-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030B840;
+615-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B7D08D;
+616:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00149F20;
+617:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00149E40;
+618-    break;
+619-
+620-  case 0x4710000:
+621-  case 0x4720000:
+622-  case 0x4730000:
+623-  case 0x4740000:
+624-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030B7D0;
+625-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B7D08D;
+626:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00149F20;
+627:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00149E40;
+628-    break;
+629-
+630-  case 0x5000000:
+631-  case 0x5010000:
+632-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+633-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01CD068D;
+634:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA600;
+635:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA520;
+636-    break;
+637-
+638-  case 0x5030000:
+639-  case 0x5050000:
+640-  case 0x5070000:
+641-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+642-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01CD068D;
+643:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA710;
+644:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA630;
+645-    break;
+646-
+647-  case 0x5500000:
+648-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+649-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x022BBF8D;
+650:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00405BB0;
+651:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00405AC0;
+652-    break;
+653-
+654-  case 0x5530000:
+655-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+656-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x022BBF8D;
+657:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00405AB0;
+658:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x004059C0;
+659-    break;
+660-
+661-  case 0x5550000:
+662-  case 0x5560000:
+663-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+664-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x022BBF8D;
+665:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00405E70;
+666:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00405D80;
+667-    break;
+668-
+669-  case 0x6000000:
+670-  case 0x6020000:
+671-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+672-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x02159B8D;
+673:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x001148F0;
+674:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00114800;
+675-    break;
+676-
+677-  case 0x6200000:
+678-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+679-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0215DB8D;
+680:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x001148F0;
+681:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00114800;
+682-    break;
+683-
+684-  case 0x6500000:
+685-  case 0x6510000:
+686-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+687-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01BD800D;
+688:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003C13F0;
+689:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003C1300;
+690-    break;
+691-
+692-  case 0x6700000:
+693-  case 0x6710000:
+694-  case 0x6720000:
+695-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+696-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01BD800D;
+697:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003C17A0;
+698:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003C16B0;
+699-    break;
+700-
+701-  case 0x7000000:
+702-  case 0x7010000:
+703-  case 0x7020000:
+704-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+705-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x022FED8D;
+706:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x0002F230;
+707:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x0002F140;
+708-    break;
+709-
+710-  case 0x7500000:
+711-  case 0x7510000:
+712-  case 0x7550000:
+713-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+714-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x022287CD;
+715:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x0028F9F0;
+716:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x0028F900;
+717-    break;
+718-
+719-  case 0x8000000:
+720-  case 0x8010000:
+721-  case 0x8030000:
+722-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+723-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B5158D;
+724:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x0025E3B0;
+725:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x0025E2C0;
+726-    break;
+727-
+728-  case 0x8500000:
+729-  case 0x8520000:
+730-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+731-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01C8338D;
+732:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003A42E0;
+733:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003A41F0;
+734-    break;
+735-
+736-  case 0x9000000:
+737-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+738-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0221688D;
+739:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002716A0;
+740:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002715B0;
+741-    break;
+742-
+743-  case 0x9030000:
+744-  case 0x9040000:
+745-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+746-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0221688D;
+747:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00271320;
+748:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00271230;
+749-    break;
+750-
+751-  case 0x9500000:
+752-  case 0x9510000:
+753-  case 0x9600000:
+754-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+755-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0221A40D;
+756:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00201EB0;
+757:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00201DC0;
+758-    break;
+759-
+760-  case 0x10000000:
+761-  case 0x10010000:
+762-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+763-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B9E08D;
+764:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00472F10;
+765:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00472E20;
+766-    break;
+767-
+768-  case 0x10500000:
+769-  case 0x10700000:
+770-  case 0x10710000:
+771-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+772-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01BE460D;
+773:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x000D7560;
+774:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x000D7470;
+775-    break;
+776-
+777-  case 0x11000000:
+778-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+779-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+780:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002DDFE0;
+781:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002DDEF0;
+782-    break;
+783-
+784-  case 0x11020000:
+785-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+786-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+787:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002DE000;
+788:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002DDF10;
+789-    break;
+790-
+791-  case 0x11500000:
+792-  case 0x11520000:
+793-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+794-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+795:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD590;
+796:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD4A0;
+797-    break;
+798-
+799-  case 0x12000000:
+800-  case 0x12020000:
+801-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+802-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+803:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD670;
+804:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD580;
+805-    break;
+806-
+807-  case 0x12500000:
+808-  case 0x12520000:
+809-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+810-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+811:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6B0;
+812:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5C0;
+813-    break;
+814-
+815-  case 0x13000000:
+816-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+817-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+818:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6D0;
+819:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5E0;
+820-    break;
+821-
+822:  case 0x13020000:
+823-    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+824-    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+825:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6E0;
+826:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5F0;
+827-    break;
+828-
+829-  default:
+830:    if(fw < 0x13020000) {
+831-      return -ENOSYS;
+832-    }
+833-
+834-    if((err=kexec(kexec_find_image_base, &KERNEL_ADDRESS_IMAGE_BASE))) {
+835-      return err;
+836-    }
+837-    if((err=kexec(kexec_get_image_size, KERNEL_ADDRESS_IMAGE_BASE,
+838:		  &KERNEL_IMAGE_SIZE))) {
+839-      return err;
+840-    }
+841:    if((err=kexec(kexec_find_copyin, KERNEL_ADDRESS_IMAGE_BASE,
+842:		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_COPYIN))) {
+843-      return err;
+844-    }
+845:    if((err=kexec(kexec_find_copyout, KERNEL_ADDRESS_IMAGE_BASE,
+846:		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_COPYOUT))) {
+847-      return err;
+848-    }
+849-    if((err=kexec(kexec_find_targetid, KERNEL_ADDRESS_IMAGE_BASE,
+850:		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_TARGETID))) {
+851-      return err;
+852-    }
+853-
+854:    if(!KERNEL_ADDRESS_IMAGE_BASE || !KERNEL_IMAGE_SIZE ||
+855:       !KERNEL_ADDRESS_COPYIN || !KERNEL_ADDRESS_COPYOUT ||
+856-       !KERNEL_ADDRESS_TARGETID) {
+857-      return -ENOSYS;
+858-    }
+859-    break;
+860-  }
+861-
+862-  // get the size of the kernel image
+863-  if((err=kexec(kexec_get_image_size, KERNEL_ADDRESS_IMAGE_BASE,
+864:		&KERNEL_IMAGE_SIZE))) {
+865-    return err;
+866-  }
+867-
+868-  // get the kernel address pointing at the current thread
+869-  if((err=kexec(kexec_get_thread, &addr))) {
+870-    return err;
+871-  }
+872-
+873-  // get the kernel address pointing at the current proc
+874:  if((err=kernel_copyout(addr+8, &addr, sizeof(addr)))) {
+875-    return err;
+876-  }
+877-
+878-  // find 'allproc'
+879-  while(addr) {
+880:    if(kernel_copyout(addr + KERNEL_OFFSET_PROC_P_PID, &pid,
+881-		      sizeof(pid))) {
+882-      return 0;
+883-    }
+884-
+885-    if(pid == 0) {
+886-      break;
+887-    }
+888-
+889:    if(kernel_copyout(addr+8, &prev, sizeof(prev))) {
+890-      return 0;
+891-    }
+892-
+893-    addr = prev;
+894-  }
+895-
+896-  // ensure we found 'allproc'
+897-  if(!(KERNEL_ADDRESS_ALLPROC=addr)) {
+--
+915-
+916-
+917-int
+918:kernel_copyin(const void *uaddr, unsigned long kaddr, unsigned long len) {
+919-  if(!kaddr || !uaddr) {
+920-    return -EINVAL;
+921-  }
+922-
+923:  return kexec(kexec_copyin, KERNEL_ADDRESS_COPYIN, uaddr, kaddr, len);
+924-}
+925-
+926-
+927-int
+928:kernel_copyout(unsigned long kaddr, void *uaddr, unsigned long len) {
+929-  if(!kaddr || !uaddr) {
+930-    return -EINVAL;
+931-  }
+932-
+933:  return kexec(kexec_copyout, KERNEL_ADDRESS_COPYOUT, kaddr, uaddr, len);
+934-}
+935-
+936-
+937-int
+938-kernel_setlong(unsigned long addr, unsigned long val) {
+939:  return kernel_copyin(&val, addr, sizeof(val));
+940-}
+941-
+942-
+943-int
+944-kernel_setint(unsigned long addr, unsigned int val) {
+945:  return kernel_copyin(&val, addr, sizeof(val));
+946-}
+947-
+948-
+949-int
+950-kernel_setshort(unsigned long addr, unsigned short val) {
+951:  return kernel_copyin(&val, addr, sizeof(val));
+952-}
+953-
+954-
+955-int
+956-kernel_setchar(unsigned long addr, unsigned char val) {
+957:  return kernel_copyin(&val, addr, sizeof(val));
+958-}
+959-
+960-
+961-unsigned long
+962-kernel_getlong(unsigned long addr) {
+963-  unsigned long val = 0;
+964-
+965:  kernel_copyout(addr, &val, sizeof(val));
+966-
+967-  return val;
+968-}
+969-
+970-
+971-unsigned int
+972-kernel_getint(unsigned long addr) {
+973-  unsigned int val = 0;
+974-
+975:  kernel_copyout(addr, &val, sizeof(val));
+976-
+977-  return val;
+978-}
+979-
+980-
+981-unsigned short
+982-kernel_getshort(unsigned long addr) {
+983-  unsigned short val = 0;
+984-
+985:  kernel_copyout(addr, &val, sizeof(val));
+986-
+987-  return val;
+988-}
+989-
+990-
+991-unsigned char
+992-kernel_getchar(unsigned long addr) {
+993-  unsigned char val = 0;
+994-
+995:  kernel_copyout(addr, &val, sizeof(val));
+996-
+997-  return val;
+998-}
+999-
+1000-
+1001-unsigned long
+1002:kernel_find_pattern(unsigned long addr, unsigned int len, const char* pattern) {
+1003-  kexec_find_pattern_ctx_t ctx;
+1004-  unsigned long res = 0;
+1005-  int pattern_len = -1;
+1006-
+1007-  if(!addr || !len || !pattern) {
+1008-    return 0;
+1009-  }
+1010-
+--
+1024-    return 0;
+1025-  }
+1026-
+1027:  if(kexec(kexec_find_pattern, KERNEL_ADDRESS_COPYIN, KERNEL_ADDRESS_COPYOUT,
+1028-	   &ctx)) {
+1029-    return 0;
+1030-  }
+1031-
+1032-  return res;
+1033-}
+1034-
+1035-
+--
+1039-  unsigned char current[size];
+1040-
+1041-  // obtain current pattern
+1042:  if((kernel_copyout(addr, current, size))) {
+1043-    return -1;
+1044-  }
+1045-
+1046-  // already patched
+1047-  if(!memcmp(current, after, size)) {
+1048-    return 0;
+1049-  }
+1050-
+--
+1054-  }
+1055-
+1056-  // apply patch
+1057:  if((kernel_copyin(after, addr, size))) {
+1058-    return -1;
+1059-  }
+1060-
+1061-  return 0;
+1062-}
+1063-
+1064-
+1065-unsigned long
+--
+1072-    pid = __syscall(SYS_getpid);
+1073-  }
+1074-
+1075:  if(kernel_copyout(KERNEL_ADDRESS_ALLPROC, &addr, sizeof(addr))) {
+1076-    return 0;
+1077-  }
+1078-
+1079-  while(addr) {
+1080:    if(kernel_copyout(addr + KERNEL_OFFSET_PROC_P_PID, &other_pid,
+1081-		      sizeof(other_pid))) {
+1082-      return 0;
+1083-    }
+1084-
+1085-    if(pid == other_pid) {
+1086-      break;
+1087-    }
+1088-
+1089:    if(kernel_copyout(addr, &next, sizeof(next))) {
+1090-      return 0;
+1091-    }
+1092-
+1093-    addr = next;
+1094-  }
+1095-
+1096-  return addr;
+1097-}
+--
+1106-    return -1;
+1107-  }
+1108-
+1109:  if(kernel_copyout(kproc + 0x340, &kaddr, sizeof(kaddr)) < 0) {
+1110-    return -1;
+1111-  }
+1112-
+1113-  do {
+1114:    if(kernel_copyout(kaddr, &kaddr, sizeof(kaddr)) < 0) {
+1115-      return -1;
+1116-    }
+1117-    if(!kaddr) {
+1118-      return -1;
+1119-    }
+1120-
+1121:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, handle),
+1122-		      &obj->handle, sizeof(obj->handle)) < 0) {
+1123-      return -1;
+1124-    }
+1125-  } while(obj->handle != handle);
+1126-
+1127:  if(kernel_copyout(kaddr, obj, sizeof(dynlib_obj_t)) < 0) {
+1128-    return -1;
+1129-  }
+1130-
+1131-  return 0;
+1132-}
+1133-
+1134-unsigned long
+1135-kernel_dynlib_mapbase_addr(int pid, unsigned int handle) {
+--
+1164-    return 0;
+1165-  }
+1166-
+1167:  if(kernel_copyout(proc + KERNEL_OFFSET_PROC_P_FD, &filedesc,
+1168-		    sizeof(filedesc))) {
+1169-    return 0;
+1170-  }
+1171-
+1172-  return filedesc;
+1173-}
+1174-
+1175-
+--
+1182-    return 0;
+1183-  }
+1184-
+1185:  if(kernel_copyout(proc + KERNEL_OFFSET_PROC_P_UCRED, &ucred,
+1186-		    sizeof(ucred))) {
+1187-    return 0;
+1188-  }
+1189-
+1190-  return ucred;
+1191-}
+1192-
+1193-
+--
+1200-    return 0;
+1201-  }
+1202-
+1203:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_PRISON, &prison,
+1204-		    sizeof(prison))) {
+1205-    return 0;
+1206-  }
+1207-
+1208-  return prison;
+1209-}
+1210-
+1211-
+--
+1217-    return -1;
+1218-  }
+1219-
+1220:  if(kernel_copyin(&prison, ucred + KERNEL_OFFSET_UCRED_CR_PRISON,
+1221-		   sizeof(prison))) {
+1222-    return -1;
+1223-  }
+1224-
+1225-  return 0;
+1226-}
+1227-
+1228-
+--
+1235-    return 0;
+1236-  }
+1237-
+1238:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_SCEAUTHID, &authid,
+1239-		    sizeof(authid))) {
+1240-    return 0;
+1241-  }
+1242-
+1243-  return authid;
+1244-}
+1245-
+1246-
+--
+1252-    return -1;
+1253-  }
+1254-
+1255:  if(kernel_copyin(&authid, ucred + KERNEL_OFFSET_UCRED_CR_SCEAUTHID,
+1256-		   sizeof(authid))) {
+1257-    return -1;
+1258-  }
+1259-
+1260-  return 0;
+1261-}
+1262-
+1263-
+--
+1269-    return -1;
+1270-  }
+1271-
+1272:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_SCECAPS, caps, 16)) {
+1273-    return -1;
+1274-  }
+1275-
+1276-  return 0;
+1277-}
+1278-
+1279-
+1280-int
+--
+1285-    return -1;
+1286-  }
+1287-
+1288:  if(kernel_copyin(caps, ucred + KERNEL_OFFSET_UCRED_CR_SCECAPS, 16)) {
+1289-    return -1;
+1290-  }
+1291-
+1292-  return 0;
+1293-}
+1294-
+1295-
+1296-unsigned long
+--
+1302-    return 0;
+1303-  }
+1304-
+1305:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_SCEATTRS, &attrs,
+1306-		    sizeof(attrs))) {
+1307-    return 0;
+1308-  }
+1309-
+1310-  return attrs;
+1311-}
+1312-
+1313-
+--
+1319-    return -1;
+1320-  }
+1321-
+1322:  if(kernel_copyin(&attrs, ucred + KERNEL_OFFSET_UCRED_CR_SCEATTRS,
+1323-		   sizeof(attrs))) {
+1324-    return -1;
+1325-  }
+1326-
+1327-  return 0;
+1328-}
+1329-
+1330-
+--
+1336-    return -1;
+1337-  }
+1338-
+1339:  if(kernel_copyin(&uid, ucred + KERNEL_OFFSET_UCRED_CR_UID,
+1340-		   sizeof(uid))) {
+1341-    return -1;
+1342-  }
+1343-
+1344-  return 0;
+1345-}
+1346-
+1347-
+--
+1353-    return -1;
+1354-  }
+1355-
+1356:  if(kernel_copyin(&ruid, ucred + KERNEL_OFFSET_UCRED_CR_RUID,
+1357-		   sizeof(ruid))) {
+1358-    return -1;
+1359-  }
+1360-
+1361-  return 0;
+1362-}
+1363-
+1364-
+--
+1370-    return -1;
+1371-  }
+1372-
+1373:  if(kernel_copyin(&svuid, ucred + KERNEL_OFFSET_UCRED_CR_SVUID,
+1374-		   sizeof(svuid))) {
+1375-    return -1;
+1376-  }
+1377-
+1378-  return 0;
+1379-}
+1380-
+1381-
+--
+1387-    return -1;
+1388-  }
+1389-
+1390:  if(kernel_copyin(&rgid, ucred + KERNEL_OFFSET_UCRED_CR_RGID,
+1391-		   sizeof(rgid))) {
+1392-    return -1;
+1393-  }
+1394-
+1395-  return 0;
+1396-}
+1397-
+1398-
+--
+1404-    return -1;
+1405-  }
+1406-
+1407:  if(kernel_copyin(&svgid, ucred + KERNEL_OFFSET_UCRED_CR_SVGID,
+1408-		   sizeof(svgid))) {
+1409-    return -1;
+1410-  }
+1411-
+1412-  return 0;
+1413-}
+1414-
+1415-unsigned long
+--
+1421-    return 0;
+1422-  }
+1423-
+1424:  if(kernel_copyout(filedesc + KERNEL_OFFSET_FILEDESC_FD_RDIR, &vnode,
+1425-		    sizeof(vnode))) {
+1426-    return 0;
+1427-  }
+1428-
+1429-  return vnode;
+1430-}
+1431-
+1432-
+--
+1439-    return 0;
+1440-  }
+1441-
+1442:  if(kernel_copyout(filedesc + KERNEL_OFFSET_FILEDESC_FD_JDIR, &vnode,
+1443-		    sizeof(vnode))) {
+1444-    return 0;
+1445-  }
+1446-
+1447-  return vnode;
+1448-}
+1449-
+1450-unsigned long
+--
+1456-    return 0;
+1457-  }
+1458-
+1459:  if(kernel_copyout(filedesc + KERNEL_OFFSET_FILEDESC_FD_CDIR, &vnode,
+1460-		    sizeof(vnode))) {
+1461-    return 0;
+1462-  }
+1463-
+1464-  return vnode;
+1465-}
+1466-
+1467-
+--
+1473-    return 0;
+1474-  }
+1475-
+1476:  if(kernel_copyin(&vnode, filedesc + KERNEL_OFFSET_FILEDESC_FD_RDIR,
+1477-		   sizeof(vnode))) {
+1478-    return -1;
+1479-  }
+1480-
+1481-  return 0;
+1482-}
+1483-
+1484-
+--
+1490-    return 0;
+1491-  }
+1492-
+1493:  if(kernel_copyin(&vnode, filedesc + KERNEL_OFFSET_FILEDESC_FD_JDIR,
+1494-		   sizeof(vnode))) {
+1495-    return -1;
+1496-  }
+1497-
+1498-  return 0;
+1499-}
+1500-
+1501-
+--
+1507-    return 0;
+1508-  }
+1509-
+1510:  if(kernel_copyin(&vnode, filedesc + KERNEL_OFFSET_FILEDESC_FD_CDIR,
+1511-		   sizeof(vnode))) {
+1512-    return -1;
+1513-  }
+1514-
+1515-  return 0;
+1516-}
+1517-
+1518-
+1519-int
+1520-kernel_get_qaflags(unsigned char qaflags[16]) {
+1521:  return kernel_copyout(KERNEL_ADDRESS_QA_FLAGS, qaflags, 16);
+1522-}
+1523-
+1524-
+1525-int
+1526-kernel_set_qaflags(const unsigned char qaflags[16]) {
+1527:  return kernel_copyin(qaflags, KERNEL_ADDRESS_QA_FLAGS, 16);
+1528-}
+=== v0.4 log ===
+546bb1c513a75885def8ba2598b58fb69a44226b	2025-10-05T03:17:32Z	Al Azif	Add 13.02 support	https://github.com/ps4-payload-dev/sdk/commit/546bb1c513a75885def8ba2598b58fb69a44226b
+7ca86e9b871b60311c2ce87f4a6be06478751026	2025-08-30T13:50:51Z	John Törnblom	fix kdump sample	https://github.com/ps4-payload-dev/sdk/commit/7ca86e9b871b60311c2ce87f4a6be06478751026
+c421830fba482300013fa4ff99096af7c599d0ea	2025-07-11T14:11:07Z	John Törnblom	crt: add pattern scanning for initializing under unknown firmware versions	https://github.com/ps4-payload-dev/sdk/commit/c421830fba482300013fa4ff99096af7c599d0ea
+35f14520b737c3c31e7de1fa782ebf49c6b69d49	2025-07-11T12:35:14Z	John Törnblom	crt: precompute size of kernel image	https://github.com/ps4-payload-dev/sdk/commit/35f14520b737c3c31e7de1fa782ebf49c6b69d49
+4323a2d9d8e2646e7488c5c5147709b5824eef7d	2025-07-10T18:40:14Z	John Törnblom	crt: add kernel_find_pattern() and kernel_get_image_size()	https://github.com/ps4-payload-dev/sdk/commit/4323a2d9d8e2646e7488c5c5147709b5824eef7d

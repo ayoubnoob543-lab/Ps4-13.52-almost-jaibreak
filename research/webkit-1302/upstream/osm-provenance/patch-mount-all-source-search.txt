@@ -1,0 +1,344 @@
+=== Fusion/Loader/source/patches.c ===
+89-	kmem = (uint8_t*)g_KernelAddrs.patch_disablepfsSig;
+90-	kmem[0] = 0x31;
+91-	kmem[1] = 0xC0;
+92-	kmem[2] = 0xC3;
+93-
+94-	// flatz enable debug RIFs
+95-	kmem = (uint8_t*)g_KernelAddrs.patch_debugRif1;
+96-	kmem[0] = 0xB0;
+97-	kmem[1] = 0x01;
+98-	kmem[2] = 0xC3;
+99-
+100-	kmem = (uint8_t*)g_KernelAddrs.patch_debugRif2;
+101-	kmem[0] = 0xB0;
+102-	kmem[1] = 0x01;
+103-	kmem[2] = 0xC3;
+104-
+105-	// Patch debug setting errors
+106-	kmem = (uint8_t*)g_KernelAddrs.patch_debugSettings1;
+107-	kmem[0] = 0x00;
+108-	kmem[1] = 0x00;
+109-	kmem[2] = 0x00;
+110-	kmem[3] = 0x00;
+111-
+112-	kmem = (uint8_t*)g_KernelAddrs.patch_debugSettings2;
+113-	kmem[0] = 0x00;
+114-	kmem[1] = 0x00;
+115-	kmem[2] = 0x00;
+116-	kmem[3] = 0x00;
+117-
+118-	// Enable mount for unprivileged user
+119:	kmem = (uint8_t*)g_KernelAddrs.patch_mount;
+120-	kmem[0] = 0x90;
+121-	kmem[1] = 0x90;
+122-	kmem[2] = 0x90;
+123-	kmem[3] = 0x90;
+124-	kmem[4] = 0x90;
+125-	kmem[5] = 0x90;
+126-
+127-	// Patch setuid: Don't run kernel exploit more than once/privilege escalation
+128-	kmem = (uint8_t*)g_KernelAddrs.patch_setuid;
+129-	kmem[0] = 0xB8;
+130-	kmem[1] = 0x00;
+131-	kmem[2] = 0x00;
+132-	kmem[3] = 0x00;
+133-	kmem[4] = 0x00;
+134-
+135-	// Patch sys_mmap: Allow RWX (read-write-execute) mapping
+136-	kmem = (uint8_t*)g_KernelAddrs.patch_sysmap;
+137-	kmem[0] = 0x37;
+138-	kmem[3] = 0x37;
+139-
+140-	// Patch sys_dynlib_dlsym: Allow from anywhere
+141-	kmem = (uint8_t*)g_KernelAddrs.patch_dynlib_dlsym1;
+142-	kmem[0] = 0xEB;
+143-	kmem[1] = 0x4C;
+144-
+145-	kmem = (uint8_t*)g_KernelAddrs.patch_dynlib_dlsym2;
+146-	kmem[0] = 0x48;
+147-	kmem[1] = 0x31;
+148-	kmem[2] = 0xC0;
+149-	kmem[3] = 0xC3;
+=== Shared/Offsets-1202.h ===
+150-    addrs->cloneuio = (void*)(kernelBase + 0x0036CC80);
+151-    addrs->console_write = (void*)(kernelBase + 0x0046F990);
+152-    addrs->deci_tty_write = (void*)(kernelBase + 0x0048C4E0);
+153-    addrs->M_IOV = (void*)(kernelBase + 0x01A4A230);
+154-    addrs->console_cdev = (void*)(kernelBase + 0x022D1F30);
+155-    addrs->DeciTTYWriteHook = (void*)(kernelBase + 0x01A7EDD8);
+156-
+157-    /* Kernel Patches */
+158-    addrs->patch_memcpy = (void*)(kernelBase + 0x002BD48D);
+159-    addrs->patch_kmem_alloc1 = (void*)(kernelBase + 0x00465AAC);
+160-    addrs->patch_kmem_alloc2 = (void*)(kernelBase + 0x00465AB4);
+161-    addrs->patch_ASLR = (void*)(kernelBase + 0x00477C54);
+162-    addrs->patch_copyin1 = (void*)(kernelBase + 0x002BD6C7);
+163-    addrs->patch_copyin2 = (void*)(kernelBase + 0x002BD6D3);
+164-    addrs->patch_copyout1 = (void*)(kernelBase + 0x002BD5D2);
+165-    addrs->patch_copyout2 = (void*)(kernelBase + 0x002BD5DE);
+166-    addrs->patch_copyinstr1 = (void*)(kernelBase + 0x002BDB73);
+167-    addrs->patch_copyinstr2 = (void*)(kernelBase + 0x002BDB7F);
+168-    addrs->patch_copyinstr3 = (void*)(kernelBase + 0x002BDBB0);
+169-    addrs->patch_swword_lwpid1 = (void*)(kernelBase + 0x002BD992);
+170-    addrs->patch_swword_lwpid2 = (void*)(kernelBase + 0x002BD9A1);
+171-    addrs->patch_ptrace1 = (void*)(kernelBase + 0x0036699D);
+172-    addrs->patch_ptrace2 = (void*)(kernelBase + 0x00366E71);
+173-    addrs->patch_dynlibPath1 = (void*)(kernelBase + 0x001B83EF);
+174-    addrs->patch_dynlibPath2 = (void*)(kernelBase + 0x001B83FA);
+175-    addrs->patch_disablepfsSig = (void*)(kernelBase + 0x0069D9A0);
+176-    addrs->patch_debugRif1 = (void*)(kernelBase + 0x0064EB30);
+177-    addrs->patch_debugRif2 = (void*)(kernelBase + 0x0064EB60);
+178-    addrs->patch_debugSettings1 = (void*)(kernelBase + 0x004E8748);
+179-    addrs->patch_debugSettings2 = (void*)(kernelBase + 0x004E980E);
+180:    addrs->patch_mount = (void*)(kernelBase + 0x00151267);
+181-    addrs->patch_setuid = (void*)(kernelBase + 0x003914DF);
+182-    addrs->patch_sysmap = (void*)(kernelBase + 0x001FA71A);
+183-    addrs->patch_dynlib_dlsym1 = (void*)(kernelBase + 0x001B7718);
+184-    addrs->patch_dynlib_dlsym2 = (void*)(kernelBase + 0x003BD860);
+185-    addrs->patch_display_dump = (void*)(kernelBase + 0x001BF1C5);
+186-    addrs->patch_debuglogs = (void*)(kernelBase + 0x002E04C7);
+187-    addrs->patch_fuseLoader = (void*)(kernelBase + 0x0049538E);
+188-    addrs->patch_fuseroot1 = (void*)(kernelBase + 0x0010D066);
+189-    addrs->patch_fuseroot2 = (void*)(kernelBase + 0x0010D07E);
+190-    addrs->patch_mprotect = (void*)(kernelBase + 0x002FC0EC);
+191-    addrs->patch_dmamini0 = (void*)(kernelBase + 0x005C96CB);
+192-    addrs->patch_dmamini1 = (void*)(kernelBase + 0x005C96CF);
+193-    addrs->patch_mdbg_basic = kernelBase + 0x0075CB50;
+194-    addrs->patch_mpage_panic = (void*)(kernelBase + 0x00303B4E);
+195-    addrs->patch_vputx_panic = (void*)(kernelBase + 0x00370772);
+196-    addrs->patch_vm_fault_panic = (void*)(kernelBase + 0x01E20A6);
+197-
+198-    /* mdbg Assist Mode offsets */
+199-    uint64_t mdbg_offsets[] = { 0x54, 0x238, 0x1416, 0x2120, 0x2146, 0x216C, 0x2192, 0x21B8, 0x21DE, 0x2204, 0x222A, 0x2250, 0x2276, 0x229C, 0x22C2, 0x22E8, 0x230E, 0x2334, 0x236A, 0x2390, 0x23B6, 0x23DC };
+200-    for (int i = 0; i < 22; i++) {
+201-        addrs->mdbgAssistMode[i] = addrs->patch_mdbg_basic + mdbg_offsets[i];
+202-    }
+203-}
+=== Shared/Offsets-1250.h ===
+150-    addrs->cloneuio = (void*)(kernelBase + 0x0036CCC0);
+151-    addrs->console_write = (void*)(kernelBase + 0x0046F9D0);
+152-    addrs->deci_tty_write = (void*)(kernelBase + 0x0048C520);
+153-    addrs->M_IOV = (void*)(kernelBase + 0x01A4A230);
+154-    addrs->console_cdev = (void*)(kernelBase + 0x022D1F30);
+155-    addrs->DeciTTYWriteHook = (void*)(kernelBase + 0x01A7EDD8);
+156-
+157-    /* Kernel Patches */
+158-    addrs->patch_memcpy = (void*)(kernelBase + 0x002BD4CD);
+159-    addrs->patch_kmem_alloc1 = (void*)(kernelBase + 0x00465AEC);
+160-    addrs->patch_kmem_alloc2 = (void*)(kernelBase + 0x00465AF4);
+161-    addrs->patch_ASLR = (void*)(kernelBase + 0x00477C94);
+162-    addrs->patch_copyin1 = (void*)(kernelBase + 0x002BD707);
+163-    addrs->patch_copyin2 = (void*)(kernelBase + 0x002BD713);
+164-    addrs->patch_copyout1 = (void*)(kernelBase + 0x002BD612);
+165-    addrs->patch_copyout2 = (void*)(kernelBase + 0x002BD61E);
+166-    addrs->patch_copyinstr1 = (void*)(kernelBase + 0x002BDBB3);
+167-    addrs->patch_copyinstr2 = (void*)(kernelBase + 0x002BDBBF);
+168-    addrs->patch_copyinstr3 = (void*)(kernelBase + 0x002BDBF0);
+169-    addrs->patch_swword_lwpid1 = (void*)(kernelBase + 0x002BDA42);
+170-    addrs->patch_swword_lwpid2 = (void*)(kernelBase + 0x002BDA55);
+171-    addrs->patch_ptrace1 = (void*)(kernelBase + 0x003669DD);
+172-    addrs->patch_ptrace2 = (void*)(kernelBase + 0x00366EB1);
+173-    addrs->patch_dynlibPath1 = (void*)(kernelBase + 0x001B842F);
+174-    addrs->patch_dynlibPath2 = (void*)(kernelBase + 0x001B8437);
+175-    addrs->patch_disablepfsSig = (void*)(kernelBase + 0x0069DA40);
+176-    addrs->patch_debugRif1 = (void*)(kernelBase + 0x0064EBD0);
+177-    addrs->patch_debugRif2 = (void*)(kernelBase + 0x0064EC00);
+178-    addrs->patch_debugSettings1 = (void*)(kernelBase + 0x004E8788);
+179-    addrs->patch_debugSettings2 = (void*)(kernelBase + 0x004E984E);
+180:    addrs->patch_mount = (void*)(kernelBase + 0x001512A7);
+181-    addrs->patch_setuid = (void*)(kernelBase + 0x0039151F);
+182-    addrs->patch_sysmap = (void*)(kernelBase + 0x001FA75A);
+183-    addrs->patch_dynlib_dlsym1 = (void*)(kernelBase + 0x001B7758);
+184-    addrs->patch_dynlib_dlsym2 = (void*)(kernelBase + 0x003BD8A0);
+185-    addrs->patch_display_dump = (void*)(kernelBase + 0x001BF205);
+186-    addrs->patch_debuglogs = (void*)(kernelBase + 0x002E0507);
+187-    addrs->patch_fuseLoader = (void*)(kernelBase + 0x004953CE);
+188-    addrs->patch_fuseroot1 = (void*)(kernelBase + 0x0010D066);
+189-    addrs->patch_fuseroot2 = (void*)(kernelBase + 0x0010D07E);
+190-    addrs->patch_mprotect = (void*)(kernelBase + 0x002FC12C);
+191-    addrs->patch_dmamini0 = (void*)(kernelBase + 0x005C970B);
+192-    addrs->patch_dmamini1 = (void*)(kernelBase + 0x005C970F);
+193-    addrs->patch_mdbg_basic = kernelBase + 0x0075CC10;
+194-    addrs->patch_mpage_panic = (void*)(kernelBase + 0x00303B8E);
+195-    addrs->patch_vputx_panic = (void*)(kernelBase + 0x003707B2);
+196-    addrs->patch_vm_fault_panic = (void*)(kernelBase + 0x001E20E6);
+197-
+198-    /* mdbg Assist Mode offsets */
+199-    uint64_t mdbg_offsets[] = { 0x54, 0x238, 0x1416, 0x2120, 0x2146, 0x216C, 0x2192, 0x21B8, 0x21DE, 0x2204, 0x222A, 0x2250, 0x2276, 0x229C, 0x22C2, 0x22E8, 0x230E, 0x2334, 0x236A, 0x2390, 0x23B6, 0x23DC };
+200-    for (int i = 0; i < 22; i++) {
+201-        addrs->mdbgAssistMode[i] = addrs->patch_mdbg_basic + mdbg_offsets[i];
+202-    }
+203-}
+=== Shared/Offsets-1300.h ===
+150-    addrs->cloneuio = (void*)(kernelBase + 0x0036CCE0);
+151-    addrs->console_write = (void*)(kernelBase + 0x0046F9F0);
+152-    addrs->deci_tty_write = (void*)(kernelBase + 0x0048C540);
+153-    addrs->M_IOV = (void*)(kernelBase + 0x01A4A230);
+154-    addrs->console_cdev = (void*)(kernelBase + 0x022D1F30);
+155-    addrs->DeciTTYWriteHook = (void*)(kernelBase + 0x01A7EDD8);
+156-
+157-    /* Kernel Patches */
+158-    addrs->patch_memcpy = (void*)(kernelBase + 0x002BD4ED);
+159-    addrs->patch_kmem_alloc1 = (void*)(kernelBase + 0x00465B0C);
+160-    addrs->patch_kmem_alloc2 = (void*)(kernelBase + 0x00465AF4);
+161-    addrs->patch_ASLR = (void*)(kernelBase + 0x00465B14);
+162-    addrs->patch_copyin1 = (void*)(kernelBase + 0x002BD727);
+163-    addrs->patch_copyin2 = (void*)(kernelBase + 0x002BD733);
+164-    addrs->patch_copyout1 = (void*)(kernelBase + 0x002BD632);
+165-    addrs->patch_copyout2 = (void*)(kernelBase + 0x002BD63E);
+166-    addrs->patch_copyinstr1 = (void*)(kernelBase + 0x002BDBD3);
+167-    addrs->patch_copyinstr2 = (void*)(kernelBase + 0x002BDBDF);
+168-    addrs->patch_copyinstr3 = (void*)(kernelBase + 0x002BDC10);
+169-    addrs->patch_swword_lwpid1 = (void*)(kernelBase + 0x002BDA62);
+170-    addrs->patch_swword_lwpid2 = (void*)(kernelBase + 0x002BDA75);
+171-    addrs->patch_ptrace1 = (void*)(kernelBase + 0x003669FD);
+172-    addrs->patch_ptrace2 = (void*)(kernelBase + 0x00366ED1);
+173-    addrs->patch_dynlibPath1 = (void*)(kernelBase + 0x001B842F);
+174-    addrs->patch_dynlibPath2 = (void*)(kernelBase + 0x001B8437);
+175-    addrs->patch_disablepfsSig = (void*)(kernelBase + 0x0069DB00);
+176-    addrs->patch_debugRif1 = (void*)(kernelBase + 0x0064EC20);
+177-    addrs->patch_debugRif2 = (void*)(kernelBase + 0x0064EC50);
+178-    addrs->patch_debugSettings1 = (void*)(kernelBase + 0x004E87A8);
+179-    addrs->patch_debugSettings2 = (void*)(kernelBase + 0x004E986E);
+180:    addrs->patch_mount = (void*)(kernelBase + 0x001512A7);
+181-    addrs->patch_setuid = (void*)(kernelBase + 0x0039153F);
+182-    addrs->patch_sysmap = (void*)(kernelBase + 0x001FA77A);
+183-    addrs->patch_dynlib_dlsym1 = (void*)(kernelBase + 0x001B7758);
+184-    addrs->patch_dynlib_dlsym2 = (void*)(kernelBase + 0x003BD8C0);
+185-    addrs->patch_display_dump = (void*)(kernelBase + 0x001BF205);
+186-    addrs->patch_debuglogs = (void*)(kernelBase + 0x002E0527);
+187-    addrs->patch_fuseLoader = (void*)(kernelBase + 0x004953EE);
+188-    addrs->patch_fuseroot1 = (void*)(kernelBase + 0x0010D066);
+189-    addrs->patch_fuseroot2 = (void*)(kernelBase + 0x0010D07E);
+190-    addrs->patch_mprotect = (void*)(kernelBase + 0x002FC14C);
+191-    addrs->patch_dmamini0 = (void*)(kernelBase + 0x005C972B);
+192-    addrs->patch_dmamini1 = (void*)(kernelBase + 0x005C972F);
+193-    addrs->patch_mdbg_basic = kernelBase + 0x0075CD90;
+194-    addrs->patch_mpage_panic = (void*)(kernelBase + 0x00303BAE);
+195-    addrs->patch_vputx_panic = (void*)(kernelBase + 0x003707D2);
+196-    addrs->patch_vm_fault_panic = (void*)(kernelBase + 0x001E2106);
+197-
+198-    /* mdbg Assist Mode offsets */
+199-    uint64_t mdbg_offsets[] = { 0x54, 0x238, 0x1416, 0x2120, 0x2146, 0x216C, 0x2192, 0x21B8, 0x21DE, 0x2204, 0x222A, 0x2250, 0x2276, 0x229C, 0x22C2, 0x22E8, 0x230E, 0x2334, 0x236A, 0x2390, 0x23B6, 0x23DC };
+200-    for (int i = 0; i < 22; i++) {
+201-        addrs->mdbgAssistMode[i] = addrs->patch_mdbg_basic + mdbg_offsets[i];
+202-    }
+203-}
+=== Shared/Offsets-900.h ===
+150-    addrs->cloneuio = (void*)(kernelBase + 0x0044E7E0);
+151-    addrs->console_write = (void*)(kernelBase + 0x002D6EB0);
+152-    addrs->deci_tty_write = (void*)(kernelBase + 0x0048CDE0);
+153-    addrs->M_IOV = (void*)(kernelBase + 0x01A792C0);
+154-    addrs->console_cdev = (void*)(kernelBase + 0x021F1128);
+155-    addrs->DeciTTYWriteHook = (void*)(kernelBase + 0x01A7ED98);
+156-
+157-    /* Kernel Patches */
+158-    addrs->patch_memcpy = (void*)(kernelBase + 0x002714BD);
+159-    addrs->patch_kmem_alloc1 = (void*)(kernelBase + 0x0037BF3C);
+160-    addrs->patch_kmem_alloc2 = (void*)(kernelBase + 0x0037BF44);
+161-    addrs->patch_ASLR = (void*)(kernelBase + 0x0005F824);
+162-    addrs->patch_copyin1 = (void*)(kernelBase + 0x002716F7);
+163-    addrs->patch_copyin2 = (void*)(kernelBase + 0x00271703);
+164-    addrs->patch_copyout1 = (void*)(kernelBase + 0x00271602);
+165-    addrs->patch_copyout2 = (void*)(kernelBase + 0x0027160E);
+166-    addrs->patch_copyinstr1 = (void*)(kernelBase + 0x00271BA3);
+167-    addrs->patch_copyinstr2 = (void*)(kernelBase + 0x00271BAF);
+168-    addrs->patch_copyinstr3 = (void*)(kernelBase + 0x00271BE0);
+169-    addrs->patch_swword_lwpid1 = (void*)(kernelBase + 0x002719C2);
+170-    addrs->patch_swword_lwpid2 = (void*)(kernelBase + 0x002719D1);
+171-    addrs->patch_ptrace1 = (void*)(kernelBase + 0x0041F4E5);
+172-    addrs->patch_ptrace2 = (void*)(kernelBase + 0x0041F9D1);
+173-    addrs->patch_dynlibPath1 = (void*)(kernelBase + 0x0023C19F);
+174-    addrs->patch_dynlibPath2 = (void*)(kernelBase + 0x0023C1AA);
+175-    addrs->patch_disablepfsSig = (void*)(kernelBase + 0x006885C0);
+176-    addrs->patch_debugRif1 = (void*)(kernelBase + 0x00650430);
+177-    addrs->patch_debugRif2 = (void*)(kernelBase + 0x00650460);
+178-    addrs->patch_debugSettings1 = (void*)(kernelBase + 0x004E8E48);
+179-    addrs->patch_debugSettings2 = (void*)(kernelBase + 0x004EA12F);
+180:    addrs->patch_mount = (void*)(kernelBase + 0x0004ADE7);
+181-    addrs->patch_setuid = (void*)(kernelBase + 0x000019FF);
+182-    addrs->patch_sysmap = (void*)(kernelBase + 0x0016632A);
+183-    addrs->patch_dynlib_dlsym1 = (void*)(kernelBase + 0x0023B67F);
+184-    addrs->patch_dynlib_dlsym2 = (void*)(kernelBase + 0x00221B40);
+185-    addrs->patch_display_dump = (void*)(kernelBase + 0x00028A75);
+186-    addrs->patch_debuglogs = (void*)(kernelBase + 0x000B7B17);
+187-    addrs->patch_fuseLoader = (void*)(kernelBase + 0x0049074E);
+188-    addrs->patch_fuseroot1 = (void*)(kernelBase + 0x00306866);
+189-    addrs->patch_fuseroot2 = (void*)(kernelBase + 0x0030687E);
+190-    addrs->patch_mprotect = (void*)(kernelBase + 0x00080B8B);
+191-    addrs->patch_dmamini0 = (void*)(kernelBase + 0x005D1EDB);
+192-    addrs->patch_dmamini1 = (void*)(kernelBase + 0x005D1EDF);
+193-    addrs->patch_mdbg_basic = kernelBase + 0x0075CD30;
+194-    addrs->patch_mpage_panic = (void*)(kernelBase + 0x00884BE);
+195-    addrs->patch_vputx_panic = (void*)(kernelBase + 0x0235D72);
+196-    addrs->patch_vm_fault_panic = (void*)(kernelBase + 0x00152966);
+197-
+198-    /* mdbg Assist Mode offsets */
+199-    uint64_t mdbg_offsets[] = { 0x54, 0x238, 0x1416, 0x2120, 0x2146, 0x216C, 0x2192, 0x21B8, 0x21DE, 0x2204, 0x222A, 0x2250, 0x2276, 0x229C, 0x22C2, 0x22E8, 0x230E, 0x2334, 0x236A, 0x2390, 0x23B6, 0x23DC };
+200-    for (int i = 0; i < 22; i++) {
+201-        addrs->mdbgAssistMode[i] = addrs->patch_mdbg_basic + mdbg_offsets[i];
+202-    }
+203-}
+=== Shared/Offsets.h ===
+155-    void* cloneuio;
+156-    void* console_write;
+157-    void* deci_tty_write;
+158-    void* M_IOV;
+159-    void* console_cdev;
+160-    void* DeciTTYWriteHook;
+161-
+162-    /* Kernel Patches */
+163-    void* patch_memcpy;
+164-    void* patch_kmem_alloc1;
+165-    void* patch_kmem_alloc2;
+166-    void* patch_ASLR;
+167-    void* patch_copyin1;
+168-    void* patch_copyin2;
+169-    void* patch_copyout1;
+170-    void* patch_copyout2;
+171-    void* patch_copyinstr1;
+172-    void* patch_copyinstr2;
+173-    void* patch_copyinstr3;
+174-    void* patch_swword_lwpid1;
+175-    void* patch_swword_lwpid2;
+176-    void* patch_ptrace1;
+177-    void* patch_ptrace2;
+178-    void* patch_dynlibPath1;
+179-    void* patch_dynlibPath2;
+180-    void* patch_disablepfsSig;
+181-    void* patch_debugRif1;
+182-    void* patch_debugRif2;
+183-    void* patch_debugSettings1;
+184-    void* patch_debugSettings2;
+185:    void* patch_mount;
+186-    void* patch_setuid;
+187-    void* patch_sysmap;
+188-    void* patch_dynlib_dlsym1;
+189-    void* patch_dynlib_dlsym2;
+190-    void* patch_display_dump;
+191-    void* patch_debuglogs;
+192-    void* patch_fuseLoader;
+193-    void* patch_fuseroot1;
+194-    void* patch_fuseroot2;
+195-    void* patch_mprotect;
+196-    void* patch_dmamini0;
+197-    void* patch_dmamini1;
+198-    uint64_t patch_mdbg_basic;
+199-    uint64_t mdbgAssistMode[22];
+200-    void* patch_mpage_panic;
+201-    void* patch_vputx_panic;
+202-    void* patch_vm_fault_panic;
+203-} KernelAddrs;
+204-
+205-/* Include implementation files */
+206-#include "Offsets-900.h"
+207-#include "Offsets-1202.h"
+208-#include "Offsets-1250.h"
+209-#include "Offsets-1300.h"
+210-
+211-static int DetectFirmwareVersion(uint64_t kernelbase)
+212-{
+213-    const char* buildString = (char*)(*(uint64_t*)(kernelbase + 0x130) + 0x80);
+214-    if (buildString == 0 || buildString[0] != 'r')
+215-    {

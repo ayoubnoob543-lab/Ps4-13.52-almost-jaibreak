@@ -75,3 +75,11 @@ External scene sources:
 ## Additional Reddit search
 
 A broader search for Reddit discussions combining `Celsius`, `ffs_mount`, `bollars`, `dump`, and PS4 13.04/13.02 did not return a new primary artifact. The useful public Reddit evidence remains ArabPixel's statement that Scene-Collective's dumper can be compiled and that PSFree Enhanced has updated payloads. No linked kernel image, disassembly, hash, or technical Celsius writeup was found in the returned discussion set.
+
+## Public dumper and upstream SDK audit
+
+Scene-Collective/ps4-kernel-dumper: https://github.com/Scene-Collective/ps4-kernel-dumper. Public README says it dumps the device kernel to USB and supports any firmware supported by its SDK. Visible history has firmware-specific updates through 7.0X, with no 13.02/13.04 revision. Classification: `VERIFIED` as historical dumper; `UNVERIFIED` for 13.02.
+Scene-Collective/ps4-payload-repo: https://github.com/Scene-Collective/ps4-payload-repo. Current tree/relevant history does not expose an identifiable 13.02/13.04 kernel-dumper build; visible commits are old 5.03/6.72-era payload generation. Classification: `VERIFIED` as payload repository; `INVALID` as 13.02 kernel artifact.
+Reddit discussion https://www.reddit.com/r/PS4Mods/comments/1tvjftl/is_there_a_kernel_dumper_for_1300/ contains ArabPixel's statement that Scene-Collective's dumper can be compiled and PSFree Enhanced has updated payloads. It contains no dump or technical output. Classification: `SOURCE_ONLY`.
+Searches for GitHub repository variants of PS4 kernel dumper 13.02/13.04 and `kernel.bin` found no additional Orbis 13.02 artifact. Old dumper pages (TeamFAPS, PSXHAX, etc.) concern earlier firmwares.
+Upstream SDK tag v0.4 (`ps4-payload-dev/sdk`, commit b1c7cbfc926a7e051507194445c3c07fcd5c343e) includes the ArabPixel-authored `546bb1c` 13.02 support in its history and the generic kdump/pattern-scan tooling, but no complete 13.02 offset table or FFS/Celsius artifact. This establishes later upstream adoption of initialization/tooling, not the material origin of Fusion's 13.02 table.

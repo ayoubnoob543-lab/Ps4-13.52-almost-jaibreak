@@ -285,3 +285,15 @@ La búsqueda web de `bollars` combinada con PS4/Celsius/`ffs_mountfs` sólo devu
 
 [37]: https://github.com/bollars "Public GitHub profile for bollars"
 [38]: https://github.com/bollars/ddoslib "Only visible repository under bollars"
+
+## 21. Uso efectivo de `patch_mount` en Fusion
+
+La búsqueda exhaustiva en los fuentes C/C++ del tag Fusion 1.4 muestra que `patch_mount` no se usa como símbolo de una función FFS ni como dirección de `ffs_mountfs()`. El único uso efectivo localizado está en el parcheador del kernel, bajo el comentario:
+
+> `// Enable mount for unprivileged user`
+
+A continuación se escribe `0x90` seis veces en `g_KernelAddrs.patch_mount`. El mismo bloque contiene parches separados para `copyin/copyout`, `setuid`, `sys_mmap`, `sys_dynlib_dlsym`, PFS y otros componentes. No hay una llamada a `ffs_mountfs`, una referencia a `struct fs`, una string UFS/FFS ni un cálculo de superbloque.
+
+Esto cambia la evaluación de `patch_mount`: ahora existe evidencia `VERIFIED` de que Fusion lo trata como un **punto de parche de autorización de montaje genérico**. La identificación exacta de la función interna que recibe los seis NOP sigue sin estar demostrada, pero la interpretación `patch_mount = ffs_mountfs()` deja de ser la hipótesis principal y se clasifica como `INVALID` con los artefactos públicos actuales. El contexto histórico “Add fuse root mount” refuerza que “mount” en Fusion se refiere a habilitar montaje/FUSE para usuarios no privilegiados, no a la vulnerabilidad Celsius en FFS.
+
+La sucesión histórica de offsets también es coherente con un patch point de código que se desplaza entre firmwares: 12.02 `0x151267`, 12.50/13.02/13.00 `0x1512A7`, mientras que otros offsets del mismo bloque cambian. Esta regularidad no identifica UFS ni prueba Celsius.

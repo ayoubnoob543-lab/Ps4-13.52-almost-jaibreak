@@ -1,0 +1,155 @@
+=== Fusion source references ===
+--- Fusion/Daemon/DeciLaunch.cpp ---
+98:	// Patch a bug on newer firmwares for launching DECI.
+--- Fusion/Daemon/Offsets.h ---
+123:			Logger::Info("Unknown Firmware: %X\n", SoftwareVersion.Version);
+--- Fusion/Kernel/include/Driver/FusionDriver.h ---
+18:        int res = copyin(data, input, sizeof(T));
+21:            printf("%s: copyin failed with error %d\n", __FUNCTION__, res);
+--- Fusion/Kernel/include/Utils/Detours/DetourMemoryPool.h ---
+6:	static void* PoolStart;
+12:		if (!PoolStart) return 0;
+14:		return PoolSize - ((uint64_t)PoolCurrent - (uint64_t)PoolStart);
+--- Fusion/Kernel/include/Utils/Resolver.h ---
+15:extern int (*copyout)(const void* kaddr, void* udaddr, size_t len);
+16:extern int (*copyin)(const void* uaddr, void* kaddr, size_t len);
+17:extern int (*copyout_nofault)(const void* kaddr, void* udaddr, size_t len);
+18:extern int (*copyin_nofault)(const void* uaddr, void* kaddr, size_t len);
+19:extern int (*copyinstr)(const void* uaddr, void* kaddr, size_t len, size_t*);
+--- Fusion/Kernel/source/Driver/DriverKernel.cpp ---
+46:        copyin_nofault((void*)input.DataAddress, (void*)input.ProcessAddress, input.Length);
+50:        copyout_nofault((void*)input.ProcessAddress, (void*)input.DataAddress, input.Length);
+61:    copyin(data, &input, sizeof(Input_IccNvsReadWrite));
+--- Fusion/Kernel/source/Driver/DriverProc.cpp ---
+78:	copyout(&backupJail, input.Jail, sizeof(JailBackup));
+172:	copyout(libTemp, input.LibraryListOut, sizeof(OrbisLibraryInfo) * input.MaxOutCount);
+178:		copyout(&realCount, input.LibraryCount, sizeof(int));
+214:	copyout(&outAddress, input.OutAddress, sizeof(outAddress));
+265:	copyout(&input, data, sizeof(Input_ResolveInfo));
+282:	copyout(&input, data, sizeof(Input_AuthId));
+--- Fusion/Kernel/source/Homebrew/FakePkgs.cpp ---
+404:		/* XXX: sorry, i'm lazy to refactor this crappy code :D basically, we're copying decrypted data to proper place,
+--- Fusion/Kernel/source/Misc/LibraryReplacer.cpp ---
+22:	copyin(args->prx_path, path, 1024);
+61:			copyout(&loadedHandleOut, args->handle_out, sizeof(int));
+--- Fusion/Kernel/source/Utils/Detours/DetourMemoryPool.cpp ---
+4:void* DetourMemoryPool::PoolStart;
+16:	PoolStart = KmemAllocAt(kernel_map, (vm_ooffset_t)KernelBase, PoolSize);
+17:	if (PoolStart == nullptr)
+25:	printf("DetourMemoryPool initialized with %zu bytes at address: 0x%llX.\n", PoolSize, PoolStart);
+28:	PoolCurrent = PoolStart;
+29:	memset(PoolStart, 0, PoolSize);
+36:	if (PoolStart)
+38:		kmem_free(kernel_map, PoolStart, PoolSize);
+40:		PoolStart = 0;
+56:    if (!PoolStart) {
+--- Fusion/Kernel/source/Utils/Resolver.cpp ---
+9:int (*copyout)(const void* kaddr, void* udaddr, size_t len) = NULL;
+10:int (*copyin)(const void* uaddr, void* kaddr, size_t len) = NULL;
+11:int (*copyout_nofault)(const void* kaddr, void* udaddr, size_t len) = NULL;
+12:int (*copyin_nofault)(const void* uaddr, void* kaddr, size_t len) = NULL;
+13:int (*copyinstr)(const void* uaddr, void* kaddr, size_t len, size_t*) = NULL;
+133:	RESOLVE(copyout);
+134:	RESOLVE(copyin);
+135:	RESOLVE(copyout_nofault);
+136:	RESOLVE(copyin_nofault);
+137:	RESOLVE(copyinstr);
+--- Fusion/Loader/source/kernel.c ---
+64:	/* Detect firmware and load offsets */
+65:	const char* detectedFirmware = InitializeFirmwareOffsets(&g_KernelAddrs, kernelBase);
+66:	if (detectedFirmware == 0)
+68:		/* Failed to detect firmware */
+76:	kernel_printf("Detected firmware: %s\n", detectedFirmware);
+--- Fusion/Loader/source/patches.c ---
+22:	// Patch copyin/copyout: Allow userland + kernel addresses in both params
+23:	// copyin
+24:	kmem = (uint8_t*)g_KernelAddrs.patch_copyin1;
+28:	kmem = (uint8_t*)g_KernelAddrs.patch_copyin2;
+33:	// copyout
+34:	kmem = (uint8_t*)g_KernelAddrs.patch_copyout1;
+38:	kmem = (uint8_t*)g_KernelAddrs.patch_copyout2;
+43:	// Patch copyinstr
+44:	kmem = (uint8_t*)g_KernelAddrs.patch_copyinstr1;
+48:	kmem = (uint8_t*)g_KernelAddrs.patch_copyinstr2;
+53:	kmem = (uint8_t*)g_KernelAddrs.patch_copyinstr3;
+119:	kmem = (uint8_t*)g_KernelAddrs.patch_mount;
+--- Shared/Offsets-1202.h ---
+12:    addrs->copyout = (void*)(kernelBase + 0x002BD580);
+13:    addrs->copyin = (void*)(kernelBase + 0x002BD670);
+14:    addrs->copyout_nofault = (void*)(kernelBase + 0x0036C660);
+15:    addrs->copyin_nofault = (void*)(kernelBase + 0x0036C620);
+16:    addrs->copyinstr = (void*)(kernelBase + 0x002BDB20);
+162:    addrs->patch_copyin1 = (void*)(kernelBase + 0x002BD6C7);
+163:    addrs->patch_copyin2 = (void*)(kernelBase + 0x002BD6D3);
+164:    addrs->patch_copyout1 = (void*)(kernelBase + 0x002BD5D2);
+165:    addrs->patch_copyout2 = (void*)(kernelBase + 0x002BD5DE);
+166:    addrs->patch_copyinstr1 = (void*)(kernelBase + 0x002BDB73);
+167:    addrs->patch_copyinstr2 = (void*)(kernelBase + 0x002BDB7F);
+168:    addrs->patch_copyinstr3 = (void*)(kernelBase + 0x002BDBB0);
+180:    addrs->patch_mount = (void*)(kernelBase + 0x00151267);
+--- Shared/Offsets-1250.h ---
+12:    addrs->copyout = (void*)(kernelBase + 0x002BD5C0);
+13:    addrs->copyin = (void*)(kernelBase + 0x002BD6B0);
+14:    addrs->copyout_nofault = (void*)(kernelBase + 0x0036C6A0);
+15:    addrs->copyin_nofault = (void*)(kernelBase + 0x0036C660);
+16:    addrs->copyinstr = (void*)(kernelBase + 0x002BDB60);
+162:    addrs->patch_copyin1 = (void*)(kernelBase + 0x002BD707);
+163:    addrs->patch_copyin2 = (void*)(kernelBase + 0x002BD713);
+164:    addrs->patch_copyout1 = (void*)(kernelBase + 0x002BD612);
+165:    addrs->patch_copyout2 = (void*)(kernelBase + 0x002BD61E);
+166:    addrs->patch_copyinstr1 = (void*)(kernelBase + 0x002BDBB3);
+167:    addrs->patch_copyinstr2 = (void*)(kernelBase + 0x002BDBBF);
+168:    addrs->patch_copyinstr3 = (void*)(kernelBase + 0x002BDBF0);
+180:    addrs->patch_mount = (void*)(kernelBase + 0x001512A7);
+--- Shared/Offsets-1300.h ---
+12:    addrs->copyout = (void*)(kernelBase + 0x002BD5E0);
+13:    addrs->copyin = (void*)(kernelBase + 0x002BD6D0);
+14:    addrs->copyout_nofault = (void*)(kernelBase + 0x0036C6C0);
+15:    addrs->copyin_nofault = (void*)(kernelBase + 0x0036C680);
+16:    addrs->copyinstr = (void*)(kernelBase + 0x002BDB80);
+162:    addrs->patch_copyin1 = (void*)(kernelBase + 0x002BD727);
+163:    addrs->patch_copyin2 = (void*)(kernelBase + 0x002BD733);
+164:    addrs->patch_copyout1 = (void*)(kernelBase + 0x002BD632);
+165:    addrs->patch_copyout2 = (void*)(kernelBase + 0x002BD63E);
+166:    addrs->patch_copyinstr1 = (void*)(kernelBase + 0x002BDBD3);
+167:    addrs->patch_copyinstr2 = (void*)(kernelBase + 0x002BDBDF);
+168:    addrs->patch_copyinstr3 = (void*)(kernelBase + 0x002BDC10);
+180:    addrs->patch_mount = (void*)(kernelBase + 0x001512A7);
+--- Shared/Offsets-900.h ---
+12:    addrs->copyout = (void*)(kernelBase + 0x002715B0);
+13:    addrs->copyin = (void*)(kernelBase + 0x002716A0);
+14:    addrs->copyout_nofault = (void*)(kernelBase + 0x0044E1C0);
+15:    addrs->copyin_nofault = (void*)(kernelBase + 0x0044E180);
+16:    addrs->copyinstr = (void*)(kernelBase + 0x00271B50);
+162:    addrs->patch_copyin1 = (void*)(kernelBase + 0x002716F7);
+163:    addrs->patch_copyin2 = (void*)(kernelBase + 0x00271703);
+164:    addrs->patch_copyout1 = (void*)(kernelBase + 0x00271602);
+165:    addrs->patch_copyout2 = (void*)(kernelBase + 0x0027160E);
+166:    addrs->patch_copyinstr1 = (void*)(kernelBase + 0x00271BA3);
+167:    addrs->patch_copyinstr2 = (void*)(kernelBase + 0x00271BAF);
+168:    addrs->patch_copyinstr3 = (void*)(kernelBase + 0x00271BE0);
+180:    addrs->patch_mount = (void*)(kernelBase + 0x0004ADE7);
+--- Shared/Offsets.h ---
+17:    void* copyout;
+18:    void* copyin;
+19:    void* copyout_nofault;
+20:    void* copyin_nofault;
+21:    void* copyinstr;
+167:    void* patch_copyin1;
+168:    void* patch_copyin2;
+169:    void* patch_copyout1;
+170:    void* patch_copyout2;
+171:    void* patch_copyinstr1;
+172:    void* patch_copyinstr2;
+173:    void* patch_copyinstr3;
+185:    void* patch_mount;
+211:static int DetectFirmwareVersion(uint64_t kernelbase)
+240:static inline const char* InitializeFirmwareOffsetsWithVersion(KernelAddrs* offsets, uint64_t kernelBase, int firmware)
+244:    switch (firmware)
+263:static inline const char* InitializeFirmwareOffsets(KernelAddrs* offsets, uint64_t kernelBase)
+265:    int firmware = DetectFirmwareVersion(kernelBase);
+267:    return InitializeFirmwareOffsetsWithVersion(offsets, kernelBase, firmware);;
+--- Shared/Types/Homebrew.h ---
+396:    uint64_t firmwareVersion;
+=== ArabPixel SDK commit diff summary ===
+crt/kernel.c	modified	8	1	9

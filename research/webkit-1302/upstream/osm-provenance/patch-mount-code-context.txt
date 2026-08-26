@@ -1,0 +1,38 @@
+=== Fusion/Kernel/source/Utils/Patches.cpp ===
+=== Fusion/Kernel/include/Utils/Patches.h ===
+=== Fusion/Kernel/source/Driver/DriverKernel.cpp ===
+40-    mtx_unlock_flags(&p->p_lock, 0);
+41-
+42-    cpu_disable_wp();
+43-
+44-    if (input.IsWrite)
+45-    {
+46-        copyin_nofault((void*)input.DataAddress, (void*)input.ProcessAddress, input.Length);
+47-    }
+48-    else
+49-    {
+50-        copyout_nofault((void*)input.ProcessAddress, (void*)input.DataAddress, input.Length);
+51-	}
+52-
+53-    cpu_enable_wp();
+54-
+55-    return 0;
+56-}
+57-
+58-int DriverKernel::KernelIccNvsReadWrite(caddr_t data)
+59-{
+60-    Input_IccNvsReadWrite input;
+61-    copyin(data, &input, sizeof(Input_IccNvsReadWrite));
+62-
+63-    if (input.IsWrite)
+64-    {
+65:		icc_nvs_write(input.Block, input.Offset, input.Size, input.Value);
+66-    }
+67-    else
+68-    {
+69:		icc_nvs_read(input.Block, input.Offset, input.Size, input.Value);
+70-    }
+71-
+72-	return 0;
+73-}
+=== Fusion/Loader/source/kernel.cpp ===
