@@ -716,3 +716,8 @@ Searches for the exact SHA-256 values of `pl_KernelClock.bin` and `pl_KernelDump
 ## TeamFAPS kernel dumper comparison
 
 The indexed `TeamFAPS/PS4-Kernel-Dumper` repository is explicitly described as a PS4 kernel dumper for firmware 3.50–5.07. Its README documents USB/socket dumping and credits historical PS4 exploit/tool authors, but it contains no 13.02/13.04 support, no Jordy/Celsius/FFS path and no relation to the `hejran7` payload hashes. It is a methodological historical reference only, not a missing stage2 component. Classification: `VERIFIED` as an old dumper repository; `INVALID` as evidence for 13.02 Celsius.
+
+
+## Expanded public search
+
+An expanded public search for the exact phrases `Jordy r/w`, `KernelView` + `ffs_mountfs` and `stage2_jordy.js` returned no additional indexed results. This is a negative search result only; it does not exclude private, deleted or non-indexed material.
