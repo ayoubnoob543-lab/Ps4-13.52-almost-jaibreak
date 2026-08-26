@@ -413,3 +413,13 @@ Searches for the exact strings `ffs_mountfs string at 0x7d021f`, `Celsius NOT pa
 ## Pre-stage2 commit audit
 
 The commits before the stage2 chain show no hidden implementation file. Initial commit `9d0d8e1` added README, `scanner_1304.iso` and `src/org/bdj/SuidScanner.java`. `6cacb24` added only `1304.c` and `1304.h` with kernel offsets; `13d44f2` only added Pharaoh2k to README credits; and `615c637` added `1352_offsets.txt`, expanded README and `cve_analysis.md`. No commit adds a Jordy bootstrap, fcall implementation, UFS image, FFS disassembly, shellcode, or ROP pivot before `702fcc3`/`96a7948`/`1089382`.
+
+
+## Initial BD-J scanner source audit
+
+`src/org/bdj/SuidScanner.java` from the initial `9d0d8e1` commit is ordinary Java BD-J scanner logic. It resolves `open`, `close`, `getdents`, `stat` and `write` through `API.dlsym`, allocates buffers, scans filesystem paths for SUID/SGID entries and writes results to USB. It does not define the WebKit exploit bootstrap, `m_vector` manipulation, ROP pivot, UFS/FFS mount, Celsius trigger or kernel R/W primitive. Its `API` abstraction is external to this file, so the scanner source cannot complete `jordy_stage2.js`.
+
+
+## BD-J API dependency check
+
+The scanner repository contains no `org.bdj.api.API` implementation or declaration. `SuidScanner.java` imports it externally and only calls its methods (`dlsym`, `call`, `malloc`, `read*`, `free`, `strcpy`). Therefore even the scanner’s userland function-call layer is an external BD-J runtime dependency, not a hidden implementation of the WebKit/Jordy stage2 chain. Classification: repository absence `VERIFIED`; reuse as missing stage2 code `INVALID`.
