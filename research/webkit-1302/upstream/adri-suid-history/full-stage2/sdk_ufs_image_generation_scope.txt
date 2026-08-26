@@ -1,0 +1,67 @@
+## makefs/libufs files
+./include/freebsd-9.3/libufs.h
+./include/freebsd-9.3/ufs/ffs/ffs_extern.h
+./include/freebsd-9.3/ufs/ffs/fs.h
+./include/freebsd-9.3/ufs/ffs/softdep.h
+./include/freebsd-9.3/ufs/ufs/acl.h
+./include/freebsd-9.3/ufs/ufs/dinode.h
+./include/freebsd-9.3/ufs/ufs/dir.h
+./include/freebsd-9.3/ufs/ufs/dirhash.h
+./include/freebsd-9.3/ufs/ufs/extattr.h
+./include/freebsd-9.3/ufs/ufs/gjournal.h
+./include/freebsd-9.3/ufs/ufs/inode.h
+./include/freebsd-9.3/ufs/ufs/quota.h
+./include/freebsd-9.3/ufs/ufs/ufs_extern.h
+./include/freebsd-9.3/ufs/ufs/ufsmount.h
+./libc/statfs.c
+./libufs/Makefile
+./libufs/block.c
+./libufs/cgroup.c
+./libufs/inode.c
+./libufs/libufs.h
+./libufs/sblock.c
+./libufs/type.c
+## makefs entrypoints
+libufs/cgroup.c:90:	if (size == fs->fs_bsize) {
+libufs/cgroup.c:157:		bzero(block, (int)fs->fs_bsize);
+libufs/cgroup.c:165:		    block, fs->fs_bsize))
+libufs/cgroup.c:193:	if ((unsigned)c >= fs->fs_ncg) {
+libufs/cgroup.c:197:	    fs->fs_bsize) == -1) {
+libufs/cgroup.c:218:	    disk->d_cgunion.d_buf, fs->fs_bsize) == -1) {
+libufs/inode.c:66:		inoblock = malloc(fs->fs_bsize);
+libufs/inode.c:76:	    fs->fs_bsize);
+libufs/inode.c:108:	    disk->d_inoblock, disk->d_fs.fs_bsize) <= 0)
+libufs/libufs.h:45:	ufs2_daddr_t d_sblock;	/* superblock location */
+libufs/libufs.h:53:				/* superblock as buffer */
+libufs/sblock.c:48:static int superblocks[] = SBLOCKSEARCH;
+libufs/sblock.c:55:	int sb, superblock;
+libufs/sblock.c:62:	superblock = superblocks[0];
+libufs/sblock.c:64:	for (sb = 0; (superblock = superblocks[sb]) != -1; sb++) {
+libufs/sblock.c:65:		if (bread(disk, superblock, disk->d_sb, SBLOCKSIZE) == -1) {
+libufs/sblock.c:66:			ERROR(disk, "non-existent or truncated superblock");
+libufs/sblock.c:72:		    fs->fs_sblockloc == superblock)
+libufs/sblock.c:74:		if (fs->fs_bsize <= MAXBSIZE &&
+libufs/sblock.c:75:		    (size_t)fs->fs_bsize >= sizeof(*fs)) {
+libufs/sblock.c:81:	if (superblock == -1 || disk->d_ufs == 0) {
+libufs/sblock.c:84:		 * must set it to indicate no superblock could be found with
+libufs/sblock.c:87:		ERROR(disk, "no usable known superblock found");
+libufs/sblock.c:91:	disk->d_bsize = fs->fs_fsize / fsbtodb(fs, 1);
+libufs/sblock.c:92:	disk->d_sblock = superblock / disk->d_bsize;
+libufs/sblock.c:94:	 * Read in the superblock summary information.
+libufs/sblock.c:96:	size = fs->fs_cssize;
+libufs/sblock.c:97:	blks = howmany(size, fs->fs_fsize);
+libufs/sblock.c:98:	size += fs->fs_ncg * sizeof(int32_t);
+libufs/sblock.c:106:		size = fs->fs_bsize;
+libufs/sblock.c:108:			size = (blks - i) * fs->fs_fsize;
+libufs/sblock.c:141:		ERROR(disk, "failed to write superblock");
+libufs/sblock.c:145:	 * Write superblock summary information.
+libufs/sblock.c:147:	blks = howmany(fs->fs_cssize, fs->fs_fsize);
+libufs/sblock.c:150:		size = fs->fs_bsize;
+libufs/sblock.c:152:			size = (blks - i) * fs->fs_fsize;
+libufs/sblock.c:161:		for (i = 0; i < fs->fs_ncg; i++)
+libufs/sblock.c:164:				ERROR(disk, "failed to update a superblock");
+libufs/type.c:83:		ERROR(disk, "could not read superblock to fill out disk");
+## docs/README references
+./Makefile:21:SUBDIRS    := crt include libc libufs sce_stubs host
+./libufs/Makefile:38:CFLAGS += -O1 -D_LIBUFS
+./libufs/Makefile:45:ARCHIVE := libufs.a

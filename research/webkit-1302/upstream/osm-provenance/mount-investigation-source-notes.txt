@@ -810,3 +810,7 @@ The public `ps4-payload-dev/sdk` v0.8 tree includes an initial `libufs` port and
 ## Celsius-to-kernel-R/W targeted search
 
 Searches for `Celsius PS4 kernel R/W`, `ffs_mount heap overflow PS4 kernel read write`, and author-linked variants returned the scanner's own `cve_analysis.md`, secondary YouTube/Reddit discussions, PSDevWiki's generic bugs index, and historical CTurt arbitrary-R/W writeups. No separate Celsius primitive, heap-grooming code, object-target selection, kernel-R/W conversion, or 13.02 implementation was located. Historical Lapse/Poops bridge code remains the only concrete public R/W model, but it uses a different vulnerability and is not a Celsius derivative. Classification: Celsius-specific primitive `UNVERIFIED`; historical bridge `VERIFIED` only for its original chain.
+
+## UFS image-generation scope in SDK
+
+The SDK tree contains `libufs` sources (`block.c`, `cgroup.c`, `inode.c`, `sblock.c`, `type.c`) and FreeBSD UFS/FFS headers. `sblock.c` reads `fs_cssize`, computes block counts, adds `fs_ncg * sizeof(int32_t)`, and iterates over cylinder groups; `cgroup.c` reads/writes group data and checks `fs_ncg`. This gives useful offline structure/layout primitives. The SDK does not include a complete `makefs` command, a Celsius-specific image, a malformed-superblock fixture, or the Orbis-side route that consumes it. Classification: offline FFS structure support `VERIFIED`; Celsius image `NOT FOUND`.
