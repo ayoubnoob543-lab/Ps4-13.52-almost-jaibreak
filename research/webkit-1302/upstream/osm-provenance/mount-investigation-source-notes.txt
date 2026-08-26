@@ -756,3 +756,7 @@ The local source inspection finds `patch_mount = kernelBase + 0x001512A7`, `M_MO
 ## Inventory of FFS-related source artifacts
 
 The repository-wide non-document search finds the vulnerable arithmetic and loop only in `research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c`, the historical upstream reference already collected. Other matches are comments in `jordy_stage2.js`/the skeleton, copied/forked scanner files, the 702fcc3 gadget comment, and third-party `makefs/ffs.c` code used to construct filesystems. No Orbis PS4 13.02/13.04 implementation, disassembly or binary function body appears in the source-like inventory. This is `VERIFIED` as an artifact inventory and supports classifying Orbis FFS correspondence as `HYPOTHESIS/UNVERIFIED_13_02`.
+
+## Mount semantic comparison
+
+The existing cross-source comparison confirms that kpayload 13.02/13.04 share several PFS/Shell mount-related offsets (`mountpfs__sceSblPfsSetKeys_hook*`, `enable_data_mount_patch`, `ROOTVNODE`, allocator symbols), but neither table names `patch_mount` or an FFS routine. Fusion/OSM add `patch_mount` alongside generic kernel patch symbols. No source gives an operation description, target bytes, call site or FFS cross-reference for `0x001512A7`. Thus equal mount-related offsets in kpayload are not evidence for Celsius; they are at most evidence of a common offset-table lineage. Classification: common offsets `CORROBORATED/DERIVED`; Celsius relation `HYPOTHESIS`.
