@@ -99,3 +99,7 @@ Reversing.codes, “How to patch the running PlayStation 4 kernel” (30-May-202
 PSDevWiki Reverse Engineering: https://www.psdevwiki.com/ps4/Reverse_Engineering. Lists disassemblers, `ps4-re-utilities`, kernel patches, and general PS4 reverse-engineering resources, but no Orbis 13.02 kernel or FFS disassembly. Classification: `VERIFIED` as index; `INVALID` as 13.02 artifact.
 
 CTurt, “Hacking the PS4, part 3” (17-Dec-2015): https://cturt.github.io/ps4-3.html. Provides historical methods for kernel stack/sysctl analysis and older kernel exploitation, not 13.02 material and not Celsius. Classification: `VERIFIED` historical context; `INVALID` as 13.02 FFS evidence.
+
+## Exact build-string and provenance search
+
+Searches for `226094`, `13.02 Kernel offsets`, `0x001512A7` combined with `226094`, and distinctive header sequences produced no relevant public result preceding ArabPixel/Fusion PR #13. The only exact technical origin still observable is the ArabPixel commit itself; no older gist, release, dump, IDA/Ghidra project, or external offset table was located through these queries. Classification: absence of prior hit is `CORROBORATED` only within the searched public corpus; it cannot prove that no private or deleted artifact ever existed.
