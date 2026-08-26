@@ -1,0 +1,46 @@
+## fork names
+BlackSwanBay/GhidraOrbis
+dajiaohuang/GhidraOrbis
+cuesta4/GhidraOrbis
+m0420/GhidraOrbis
+thethunderturner/GhidraOrbis
+Interested-Deving-1896/GhidraOrbis
+psucien/GhidraOrbis
+KKhanhH/GhidraOrbis
+notkmhn/GhidraOrbis
+printf-ui/GhidraOrbis
+carreon81/GhidraOrbis
+zipzip11/GhidraOrbis
+ReplayCoding/GhidraOrbis
+viniciuslrangel/GhidraOrbis
+kiwidoggie/GhidraOrbis
+gmh5225/ghidra-GhidraOrbis
+red-prig/GhidraOrbis
+cualquiercosa327/GhidraOrbis
+nekohaku/GhidraOrbis
+turbo420/GhidraOrbis
+illusionyy/GhidraOrbis
+GhidraPluginProject/GhidraOrbis
+## candidate file matches
+===== BlackSwanBay/GhidraOrbis =====
+===== dajiaohuang/GhidraOrbis =====
+===== cuesta4/GhidraOrbis =====
+===== m0420/GhidraOrbis =====
+===== thethunderturner/GhidraOrbis =====
+===== Interested-Deving-1896/GhidraOrbis =====
+===== psucien/GhidraOrbis =====
+===== KKhanhH/GhidraOrbis =====
+===== notkmhn/GhidraOrbis =====
+===== printf-ui/GhidraOrbis =====
+===== carreon81/GhidraOrbis =====
+===== zipzip11/GhidraOrbis =====
+===== ReplayCoding/GhidraOrbis =====
+===== viniciuslrangel/GhidraOrbis =====
+===== kiwidoggie/GhidraOrbis =====
+===== gmh5225/ghidra-GhidraOrbis =====
+===== red-prig/GhidraOrbis =====
+===== cualquiercosa327/GhidraOrbis =====
+===== nekohaku/GhidraOrbis =====
+===== turbo420/GhidraOrbis =====
+===== illusionyy/GhidraOrbis =====
+===== GhidraPluginProject/GhidraOrbis =====

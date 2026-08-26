@@ -229,3 +229,7 @@ El dato más cercano a FW 13.02 es la entrada aislada de mmap en `claimore22/ker
 `astrelsky/GhidraOrbis` es un plugin público de Ghidra para formatos y software Orbis, creado en 2020 y con 118 commits, 88 estrellas y 24 forks según su página. Sus créditos incluyen loaders de kernel PS4 y herramientas de PUP, pero el árbol descrito contiene código del plugin (`src/main/java`, scripts y datos), no un dump de kernel 13.02/13.04 ni un proyecto IDA/Ghidra con `ffs_mountfs` localizado.
 
 La página `PSDevWiki/Reverse_Engineering` enumera herramientas de análisis, `ps4-re-utilities`, loaders IDA y referencias a dumps, pero no identifica un artefacto Orbis 13.02/13.04 ni una dirección para `ffs_mountfs` o `0x001512A7`. Ambos recursos son infraestructura para analizar un dump si apareciera; no constituyen el dump. Clasificación: **VERIFIED** como tooling/documentación; **INVALID** como evidencia directa de Celsius 13.02.
+
+## Forks públicos de GhidraOrbis
+
+La API pública de GitHub devolvió 22 forks de `astrelsky/GhidraOrbis`. La inspección de los árboles por defecto no encontró rutas o nombres que indiquen dumps de kernel, proyectos 13.02/13.04, UFS/FFS, `ffs_mountfs` o bases de datos IDA/Ghidra asociadas con Orbis. Los forks son copias del plugin de tooling y no abren una nueva procedencia de Celsius. Clasificación: **VERIFIED** como inventario negativo de forks públicos; **INVALID** como fuente directa de análisis Celsius.

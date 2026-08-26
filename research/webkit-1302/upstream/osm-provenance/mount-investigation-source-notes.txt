@@ -995,3 +995,7 @@ Created 2026-07-08 with 3 commits. README claims a local MITM Vue chain for PS4 
 ## GhidraOrbis and PSDevWiki candidates
 
 `astrelsky/GhidraOrbis` provides public Ghidra support for Orbis formats/software and credits PS4 kernel loaders, but no Orbis 13.02/13.04 dump or `ffs_mountfs` project was found in the described tree. `PSDevWiki/Reverse_Engineering` lists RE tools, ps4-re-utilities, IDA loaders and dump references but identifies no 13.02/13.04 artifact or `0x001512A7` mapping. Both are tooling/documentation, not direct Celsius evidence.
+
+## Public GhidraOrbis forks
+
+GitHub API returned 22 public forks of `astrelsky/GhidraOrbis`. Default-branch trees showed no kernel dumps, 13.02/13.04 projects, UFS/FFS, `ffs_mountfs`, or IDA/Ghidra databases tied to Orbis. Forks remain tooling copies and add no Celsius provenance.
