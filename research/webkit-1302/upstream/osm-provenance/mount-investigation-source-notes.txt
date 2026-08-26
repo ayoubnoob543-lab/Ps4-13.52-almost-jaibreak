@@ -517,3 +517,34 @@ The same function explicitly rejects non-PS4 and rejects `config_target < 0x600`
 ## Lapse firmware-target table
 
 `public/lapse.js` enumerates supported versions through `11.02` (`9.00`, `9.03`, `9.04`, `9.50`, `9.51`, `9.60`, `10.00`, `10.01`, `10.50`, `10.70`, `10.71`, `11.00`, `11.02`). It sets `config_target = parseInt(fwVersion.replace('.', ''), 16)` and labels the platform as PS4 `[7.00 - 11.02]`. Kernel patching rejects `config_target >= 0x1000`, which excludes 10.00? (the hexadecimal comparison is part of the source’s own target encoding and must be interpreted with its case labels), but in any event no 13.02 or 13.04 target entry exists. This is another historical chain, not evidence for the scanner’s 13.02 stage.
+
+
+## Primary CSSFontFace Netctrl source
+
+The original `ntfargo/CSSFontFace-Exploit/public/src/netctrl.js` contains the primary PS4 JavaScript Netctrl chain. It defines the PS4 syscall numbers (`netcontrol`, `socketpair`, `sendmsg`, `kqueue`), IPv6 socket spray, iov/uio worker setup, and imports `ps4/kernel.js` in worker contexts. It uses the userland arbitrary read/write (`arw`) to groom and inspect RTHDR state, find twins/triplets and progress toward the kernel primitive. The file’s PS5 branch is TODO, confirming the reverse direction of the later `slopkit2/netctrl-ps5.js` port.
+
+This is a legitimate source of the PS4 Netctrl architecture, not of Celsius or `jordy_stage2.js`. Its firmware range and kernel patching depend on adjacent files and tables; the existence of this source alone does not extend the chain to PS4 13.02. Classification: source code `VERIFIED`; 13.02 compatibility and Celsius relation `UNVERIFIED`.
+
+
+## Primary kernel.js KernelView
+
+`ntfargo/CSSFontFace-Exploit/public/src/ps4/kernel.js` defines the primary PS4 `KernelView` abstraction. It resolves syscall numbers, creates pipe pairs, redirects the pipe backing pointer and count, and implements kernel reads/writes through `read`/`write` on the slave pipe. The class exposes typed reads and writes over arbitrary kernel addresses once the pktopts corruption has been established. It also defines `kexec` and PS4 networking/syscall constants.
+
+This is a genuine historical PS4 kernel-memory primitive and materially explains the kind of missing kernel-R/W object that `jordy_stage2.js` would need. It is still not a 13.02 artifact: its offsets and exploit setup are supplied by adjacent historical firmware files, and no Celsius/FFS operation is present in the reviewed section. Classification: historical PS4 kernel-RW implementation `VERIFIED` for its source scope; 13.02/13.04 compatibility `UNVERIFIED`; Celsius relation `INVALID` absent additional evidence.
+
+
+## CSSFontFace primary constants scope
+
+The recovered `ntfargo/CSSFontFace-Exploit/public/src/ps4/constants.js` is organized by firmware major/minor families and includes WebKit gadget offsets, kernel patch blob names, `SYSENT_661`, `JMP_RSI_GADGET` and `EVF_OFFSET`. The visible table covers historical firmware families through the 11.xx-era entries; no 13.02 or 13.04 key was found in the recovered source. The constants are therefore useful to reconstruct the older PS4 Netctrl/Lapse chain but cannot validate the Fusion 13.02 offsets or fill Jordy’s missing 13.02 stage.
+
+
+## Explicit 10.xx–11.02 constants
+
+The final section of `constants.js` confirms explicit entries for 10.00, 10.50, 11.00 and 11.02. These entries contain WebKit gadget RVAs, kernel patch blob names (`1000.bin`, `1050.bin`, `1100.bin`, `1102.bin`), `SYSENT_661`, `JMP_RSI_GADGET`, `KL_LOCK` and `EVF_OFFSET`. The table terminates at 11.02 and contains no 13.02/13.04 entry. Thus the original CSSFontFace/Lapse chain has a concrete historical kernel path and firmware-specific offsets through 11.02, but no source-level bridge to Fusion’s 13.02 table.
+
+
+## Primary full-chain commit `6f33986`
+
+The original repository’s commit `6f3398616ac0e3a0a7b45bf33730529a75578db7`, authored/committed by `ufm42` on 2026-07-25, is titled `Full chain exploit with lapse and netctrl`. It adds the complete source set: `lapse.js`, `netctrl.js`, `ps4/kernel.js`, `ps4/userland.js`, worker infrastructure, loaders, offsets/constants and binary kernel patch blobs for 6.00 through 11.02. The README states PS4 support 6.00–11.02 and explains that newer PS4 WebKit versions from roughly 11.5x onward redesigned CSSFontFace handling, making the repository’s `m_featureSettings` primitive unusable above the listed range.
+
+This commit is a real historical full-chain source and explains the architecture that later projects may reuse, but it is not a 13.02 implementation. It contains no 13.02/13.04 offsets, no `ffs_mountfs`/Celsius code and no evidence that its Netctrl/Lapse kernel path survives beyond the declared WebKit range. Classification: full historical chain `VERIFIED` as repository content; 13.02 applicability `DISPROVEN by stated scope / UNVERIFIED`.
