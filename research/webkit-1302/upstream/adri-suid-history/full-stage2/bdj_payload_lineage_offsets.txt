@@ -1,0 +1,19 @@
+## payload paths
+payloads/lapse/Makefile
+payloads/lapse/manifest.txt
+payloads/lapse/src/org/bdj/external/BinLoader.java
+payloads/lapse/src/org/bdj/external/Helper.java
+payloads/lapse/src/org/bdj/external/Kernel.java
+payloads/lapse/src/org/bdj/external/KernelOffset.java
+payloads/lapse/src/org/bdj/external/Lapse.java
+payloads/lapse/src/org/bdj/external/USBpayload.elf
+payloads/poops/Makefile
+payloads/poops/manifest.txt
+payloads/poops/src/org/bdj/external/BinLoader.java
+payloads/poops/src/org/bdj/external/Helper.java
+payloads/poops/src/org/bdj/external/Kernel.java
+payloads/poops/src/org/bdj/external/KernelOffset.java
+payloads/poops/src/org/bdj/external/Poops.java
+payloads/poops/src/org/bdj/external/USBpayload.elf
+## current support claims
+## history of offsets

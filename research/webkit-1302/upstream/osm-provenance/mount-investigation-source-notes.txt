@@ -786,3 +786,7 @@ ConsoleMods `https://consolemods.org/wiki/PS4:Exploit_Chart` lists no public ker
 ## BD-JB-1250 static userland map
 
 The public `ps3120/BD-JB-1250` tree contains a native BD-J API with reflective native-library lookup, `dlsym`, native invocation helpers, `__Ux86_64_setcontext`, libkernel symbol resolution and a remote JAR loader. Its history also contains older payload directories for Lapse/Poops, but the current tree and visible history do not supply Celsius/FFS mount code, a malformed UFS image, `ffs_mountfs`, or a 13.02 kernel-R/W bridge. This makes BD-J a plausible entrypoint substrate and shows which native-call capabilities are available, but it does not close the kernel transition. Classification: BD-J API capabilities `VERIFIED`; Celsius integration `SOURCE_ONLY/INCOMPLETE`.
+
+## BD-JB payload lineage: Lapse and Poops
+
+The current `ps3120/BD-JB-1250` tree contains separate `payloads/lapse` and `payloads/poops` projects with Java `Kernel.java`, `KernelOffset.java`, helpers, loaders and referenced `USBpayload.elf` files. The current tree search did not expose 13.02/13.04 support claims or Celsius/FFS mount code. These payloads are relevant as possible post-entrypoint kernel-R/W integration examples, but they are separate historical chains and do not document how Celsius would be invoked or adapted to 13.02. Classification: payload lineage `VERIFIED`; Celsius/13.02 applicability `UNVERIFIED`.
