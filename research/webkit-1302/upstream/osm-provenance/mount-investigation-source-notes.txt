@@ -744,3 +744,7 @@ Search variants for the exact commit, `1304_libSceNKWebKit.sprx.decrypted (68 MB
 ## Provenance of scanner tag binaries
 
 Git path history shows `scanner_1304.iso` was first added in commit `9d0d8e1a509d358439891d1994f5e52e047fd7b0` on 2026-07-18 by Adrián García Casado, as a 16 MiB binary, with no source URL, hash or imported provenance in the commit. `hen.bin` was first added in `3fd35a4e475698b59dae40794901a56126a38c52` on 2026-07-30 by the same author, as a 500736-byte binary, again without a source URL or derivation metadata. README credit lines mention BD-JB-1250, ps4-hen, Pharaoh2k and bollars but do not identify a binary provenance chain. Classification: commit dates/sizes/authors `VERIFIED`; origin as independent PS4 13.04 artifacts `UNVERIFIED/SOURCE_ONLY`.
+
+## Exact public search: patch_mount
+
+Las búsquedas exactas de `patch_mount` PS4 13.02, `patch_mount` + `M_MOUNT` y `0x001512A7` no devolvieron resultados públicos nuevos. No se localizó una referencia cruzada, bytes, símbolo, commit anterior o writeup independiente que vincule `patch_mount = 0x001512A7` con `ffs_mountfs`, UFS o Celsius. Estado: la entrada de la tabla continúa siendo `DERIVED/SOURCE_ONLY`; la asociación con FFS permanece `HYPOTHESIS`.
