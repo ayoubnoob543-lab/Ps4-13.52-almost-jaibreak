@@ -1,0 +1,11 @@
+## claimore hashes
+90af20243aeed45511b3e2b7e927cfe5f4183f337e19ae29aaa500a33f1af211  server/download0/netctrl_c0w_twins.js
+b69e7bfdf18e3a5cc6e6f021f311ad22b3a82edb4a7388e05f4b6f429658bfda  server/download0/kernel.js
+52d4b30a1a51ea353ff99841bd7a95103a6cde88fa568daa2a0feb45437a3d24  server/download0/lapse.js
+1d3d5c785727a6e5553dd2a0396ee5874bf76300c15d233a7164e2bcaa82c721  proxy/serve_local.js
+## mirror hashes
+## byte comparison
+netctrl twins: different
+kernel: different
+lapse: different
+## firmware guards
