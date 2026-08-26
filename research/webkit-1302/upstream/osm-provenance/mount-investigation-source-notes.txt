@@ -798,3 +798,7 @@ The BD-JB-1250 Lapse/Poops Java payload sources contain a concrete historical ke
 ## BD-J payload firmware-offset coverage
 
 The extracted `KernelOffset.java` code maps historical Lapse/Poops kernel fields such as `EVF_OFFSET`, `PRISON0`, `ROOTVNODE`, `TARGET_ID_OFFSET`, `SYSENT_661_OFFSET`, `JMP_RSI_GADGET` and `KL_LOCK`, and embeds shellcode strings for firmware versions including 12.00, 12.50 and 13.00. It aliases some nearby releases (for example 12.02 to 12.00), but the audited source does not define a 13.02 or 13.04 entry. This is a concrete post-exploit bridge model, not evidence that its primitive or offsets can be reused after Celsius on 13.02. Classification: historical bridge `VERIFIED`; 13.02 reuse `UNVERIFIED`.
+
+## Four-gap targeted search
+
+Targeted public searches for `Jordy targetAddress m_vector stage2`, `Celsius UFS image ffs_mountfs PoC` and `PS4 13.02 kernel R/W patch_mount` returned secondary videos, a Reddit mention of a 13.00 WebKit release using Jordy's AI WebKit, historical CTurt material and generic PS4Linux image collections. No new complete Jordy bootstrap, Orbis 13.02/13.04 disassembly, Celsius UFS image, `patch_mount` cross-reference or kernel-R/W primitive was exposed. These results are retained as `SECONDARY/SOURCE_ONLY`; they do not close any of the four gaps.
