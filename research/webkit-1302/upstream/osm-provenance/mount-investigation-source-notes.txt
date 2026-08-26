@@ -233,3 +233,7 @@ Primary repository: https://github.com/Al-Azif/ps4-re-utilities. Created 2025-12
 ## GhidraPS4Loader / PS4 KSDK historical cross-check
 
 PSXHAX article (17-Mar-2019): https://www.psxhax.com/threads/ghidraps4loader-ps4-elf-loader-ps4flashtool-more-by-jogolden.6688/ documents GhidraPS4Loader as a loader for decrypted PS4 ELF files and describes PS4 KSDK support as `5.05 only right now`. It does not publish a 13.02 kernel, FFS disassembly, Celsius artifact, or offset source. The article's `PS4FlashTool` concerns flash extraction/decryption and does not provide a kernel dump. Classification: `VERIFIED` for historical tooling/documentation; `INVALID` as 13.02 Orbis kernel/FFS evidence.
+
+## fail0verflow historical kernel-dump reference
+
+Primary technical references: https://fail0verflow.com/blog/2017/ps4-crashdump-dump/ and https://fail0verflow.com/blog/2017/ps4-namedobj-exploit/. The crashdump article documents a real historical 1.01 workflow and pseudocode around `mdbg_run_dump`, `trap_fatal`, `sysdump__internal_call_readuser`, and dump decoding; the namedobj article states that a 1.01 kernel dump was obtained via PCIe man-in-the-middle and used for reverse engineering. These are genuine examples of what primary kernel evidence looks like, but they are firmware 1.01-era artifacts and provide no 13.02 bytes, no `patch_mount`, and no `ffs_mountfs`/Celsius path. Classification: `VERIFIED` for historical 1.01 methodology; `INVALID` as 13.02 evidence.
