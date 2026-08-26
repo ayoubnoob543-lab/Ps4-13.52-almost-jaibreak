@@ -139,3 +139,7 @@ Fuente: [earthonion/vue-mitm-poc](https://git.etawen.dev/earthonion/vue-mitm-poc
 El repositorio del mirror tiene 36 commits, una rama y 3 tags. Su README lo describe como una interfaz web de depuración de memoria para PS4 con scanner, editor, disassembler y endpoints de lectura/escritura; exige que la consola ya esté ejecutando el payload `ps4debug`. No contiene Celsius, Jordy, UFS/FFS, `ffs_mountfs`, offsets 13.02/13.04 ni una cadena de explotación. Aporta únicamente una interfaz de consumo para memoria de procesos y no una primitive de kernel ni un bootstrap. Clasificación: **VERIFIED** como herramienta de depuración dependiente de payload; **INVALID** como artefacto Celsius.
 
 Fuente: [earthonion/ps4debugportal](https://git.etawen.dev/earthonion/ps4debugportal).
+
+## Búsqueda de vínculo `mkufs2` → Celsius
+
+Las búsquedas externas de `mkufs2 Celsius PS4`, `mkufs2 bollars UFS` y `mkufs2 Jordy extended storage` no devolvieron referencias técnicas relevantes. Los resultados fueron páginas generales sobre temperaturas, UFS como tecnología de almacenamiento o configuración de almacenamiento extendido. No existe una cita pública que conecte el repositorio `mkufs2` con Celsius, bollars, Jordy o la imagen del anuncio. Clasificación: **sin vínculo independiente encontrado**.
