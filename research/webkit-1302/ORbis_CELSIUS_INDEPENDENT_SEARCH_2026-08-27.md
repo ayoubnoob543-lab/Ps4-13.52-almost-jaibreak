@@ -237,3 +237,7 @@ La API pública de GitHub devolvió 22 forks de `astrelsky/GhidraOrbis`. La insp
 ## `SocraticBliss/ps4_kernel_loader` como candidato A
 
 El repositorio público `SocraticBliss/ps4_kernel_loader` fue creado el 2019-05-07, tiene 39 commits y contiene únicamente `ps4_kernel.py`, README y licencia. El README indica que el loader se usa cargando un kernel de PS4 ya “dumped or decrypted”; no incluye ningún dump, proyecto de IDA, pseudocódigo ni firmware 13.02/13.04. La publicación de PSXHAX del 2019-05-08 reproduce las instrucciones y el código del loader, pero tampoco enlaza un kernel concreto. Es infraestructura para analizar el artefacto que falta, no el artefacto. Clasificación: **VERIFIED** como loader; **INVALID** como evidencia directa de Celsius/Orbis 13.02.
+
+## Forks de `SocraticBliss/ps4_kernel_loader`
+
+La API de GitHub devolvió ocho forks públicos. La inspección de sus ramas por defecto no encontró archivos con nombres de dumps, proyectos IDA/Ghidra/Binary Ninja, UFS/FFS, `ffs_mountfs` o firmware 13.02/13.04. Son derivados del loader y no aportan un kernel concreto ni una nueva línea de procedencia hacia Celsius. Clasificación: **VERIFIED** como inventario negativo de forks; **INVALID** como artefacto directo Orbis 13.02/Celsius.

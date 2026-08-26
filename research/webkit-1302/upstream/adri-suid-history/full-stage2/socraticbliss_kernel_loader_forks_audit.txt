@@ -1,0 +1,18 @@
+## fork names
+Prefixmodz/ps4_kernel_loader
+turbo420/ps4_kernel_loader
+zha0/ps4_kernel_loader
+CrackerCat/ps4_kernel_loader
+YtnbFirewings/ps4_kernel_loader
+fogna80/ps4_kernel_loader
+fengjixuchui/ps4_kernel_loader
+Techlord-RCE/PS4-Kernel-Loader
+## candidate paths
+===== Prefixmodz/ps4_kernel_loader =====
+===== turbo420/ps4_kernel_loader =====
+===== zha0/ps4_kernel_loader =====
+===== CrackerCat/ps4_kernel_loader =====
+===== YtnbFirewings/ps4_kernel_loader =====
+===== fogna80/ps4_kernel_loader =====
+===== fengjixuchui/ps4_kernel_loader =====
+===== Techlord-RCE/PS4-Kernel-Loader =====
