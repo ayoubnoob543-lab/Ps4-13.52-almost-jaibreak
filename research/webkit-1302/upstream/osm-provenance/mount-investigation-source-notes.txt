@@ -656,3 +656,8 @@ Using clean JSON from the GitHub REST API, 80 public forks of `ntfargo/CSSFontFa
 ## Fork summary
 
 The saved fork summary shows the network is dominated by repeated historical `lapse.js`/`netctrl.js`/`ps4/kernel.js` paths, with a smaller subset exposing only `offsets.mjs`. One fork also exposes kernel-dumper-related host files. The relevant path inventory still does not reveal `jordy_stage2`, a Celsius file, `ffs_mountfs` or a 13.02-specific stage. These are repository-tree observations only; repeated forks are not independent technical corroboration.
+
+
+## `hejran7` fork with kernel-dumper payloads
+
+The fork `hejran7/CSSFontFace-Exploit` is the only ntfargo fork identified so far with `host/files/pl_KernelClock.bin` and `host/files/pl_KernelDumper.bin`; it also contains `host/src/lapse.js`, `host/src/netctrl.js` and `host/src/ps4/kernel.js`. Static metadata and strings show these are payload files/tools associated with the historical chain, not a raw Orbis kernel dump. The code still exposes the same historical PS4 `KernelView`, `dlsym`, pivot and kernel patch structure, with no 13.02/13.04, `ffs_mountfs`, Celsius or Jordy stage. Classification: historical tooling `VERIFIED` as repository content; 13.02/Celsius relation `UNVERIFIED`.

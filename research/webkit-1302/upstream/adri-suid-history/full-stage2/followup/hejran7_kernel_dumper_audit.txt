@@ -1,0 +1,251 @@
+## git
+963e188ee1174b6a4ff76bd6a2e8c533ba9f5d99 2026-08-04 Add files via upload
+952e06c267725eb4062f9f385723e082809ab141 2026-08-04 Add files via upload
+271494d35c6a6b703038fe0c049ba1b60cb0c2ab 2026-08-04 Fix formatting of README link instruction
+74493d7d5cd6a40f034129a3089af2b12f4065d1 2026-08-04 Add files via upload
+49df8bc44d2f08d701cf53af371777fd10a37a18 2026-08-04 Add files via upload
+b78607005695c19c57affdc9c54e3c0d0ffa7c48 2026-08-04 Delete localhost.pem
+9cf44f153ddf07363859b7dc3832e41c4b2afdbf 2026-08-04 Add files via upload
+d44614fc1a02e4448865b70e4ef33138036c5bd0 2026-08-04 Add files via upload
+eec3f8510148280e23065ecba42d786a4117b1fb 2026-08-04 Add files via upload
+4563be8fab4b84203f4a7596afdbebd2acbf62e5 2026-08-04 Add files via upload
+d29bd6c3cfb1cfa75be20952149acda7a6e582aa 2026-08-04 Add files via upload
+a42b55f50976f73f5b06dada870864da43ba7040 2026-08-04 Add files via upload
+4ebf9ea1f8de1b3407db5f5b8d5d96cf5486ec53 2026-08-04 Add files via upload
+c9850721fc49b57a351223a8fa55438d97c65ef8 2026-08-04 Add files via upload
+17620670a523e82ecfaf6bd4c3a683a25210aeea 2026-08-04 Add files via upload
+c6ef64561569457e94c784c1474e5118d0e82bd6 2026-08-04 Add files via upload
+87df1f950361af30cf1c50ec47cead314b039c45 2026-08-04 Delete host.py
+972145ad3876b040953bc04bdb99cd5c970616b6 2026-08-04 Delete README.md
+0acefc87f02fc38e9107bd4ef93763f9c7a9da98 2026-08-04 Delete LICENSE
+959685e5808863b2262cf4f4de5785399687fb97 2026-08-04 Delete public directory
+221baa6e7349b96a6fd299808a25a4178e47741c 2026-07-27 Merge branch 'main' of https://github.com/ntfargo/CSSFontFace-Exploit
+2f37734497881c57af336be5839b2ccd9373cb4e 2026-07-27 fix typo (from #21)
+c43aa0a2d19b4cb49bd1ec5fc94d93a4ac9ca639 2026-07-26 Create LICENSE
+d20b1c03a2d213a791580941fc11cf2be7f03b19 2026-07-26 cleanup
+0b65ea0e629a93ce3b9de1a0439a054feacff19a 2026-07-26 fix kp issue with lapse on some games
+44faa7df3740abbd390838a3f00aebf610c9a5f0 2026-07-26 Revert "update kernel patches"
+480fc4f3b1f0fe10893c7538179d08b581a7a8c5 2026-07-26 Merge branch 'main' of https://github.com/ntfargo/CSSFontFace-Exploit
+eeb7405f3f31417612563b57837533562520c658 2026-07-26 update kernel patches
+a180b5e7aad2e6eb94c3cddfc7c5a6b04b5ff012 2026-07-25 Payload location info
+e85e4204a7a4bd9c2ebcd54ac9c74960a155008a 2026-07-25 Merge branch 'main' of https://github.com/ntfargo/CSSFontFace-Exploit
+d2a15f7ae59093a6da29c8c41841e10bb7932b90 2026-07-25 add missing aio patches
+53e63788ad880f00ae390165c47f3a8153bdd286 2026-07-25 Create pages.yml
+78b24e2db458d889eb3b2e575677c25929b11dac 2026-07-25 cleanup
+b67390747247a5f24ebc87eb78092595fa18f989 2026-07-25 remove unused file
+316d17b44782f648302a8641b7851df1264de601 2026-07-25 remove unused file
+10decd6d63e755290454f064bed337ac8bc90c77 2026-07-25 Merge branch 'main' of https://github.com/ntfargo/CSSFontFace-Exploit
+c994681e393b849119c1b5c785f0f519ce2861fb 2026-07-25 typo
+e6bf5929c678e3c4fd512f2c7537ccc2eb070a1b 2026-07-25 Update support info
+00b3cb3ecef5d61538e5baa441a996aff186c5a1 2026-07-25 remove unused file
+6ee9b1aa34c73e197e11a4d63c882cbb436549f5 2026-07-25 minor fix
+9d07d15c8b790b1bf7d0b631d3a840fa6c69f204 2026-07-25 Merge pull request #6 from ArabPixel/main
+6f3398616ac0e3a0a7b45bf33730529a75578db7 2026-07-25 Full chain exploit with lapse and netctrl
+358303f403ed43451e8a62bfb50eb6ab954d9a88 2026-07-25 Apply cache
+a8c18c65fb93e1bab1dbbc18ce314ffe4257977f 2026-07-25 Add Support to ps4 6.00 - 11.02 + UI
+45bf232da74140670c00a513474a711baf0d47a6 2026-07-01 Correction to max exploitable firmware.
+b738fca338bd501b4b45ab9da95bf65e78c1e8d5 2026-06-24 Typo
+df94744dc971027c4377ab610e126e0dd861478f 2026-06-24 update readme
+1268f57ac27913ed81124ccfecd3906045b95137 2026-06-24 update readme
+4ea0a4abdd053da2c43b5cbc54113419325517ed 2026-06-24 Update README.md
+1f2c3017bc303ef1d45f4b895d23d788ec03472f 2026-06-24 update readme
+0624ae65cc26158a8f22a0611c54888a160ba895 2026-06-24 Update README
+0377bbf7161c2bf66db8be50622111840f5536be 2026-06-24 Update README.md
+5ea6c6e820302fec8396ce93488f845b0311256d 2026-06-24 Update README.md
+4f32372d7784ac19aec4f73713e4f2425efe3a67 2026-06-24 update readme
+dbeefcda6219dd62129f2bfcf413cedb2d41db78 2026-06-24 update readme
+73671cc42d8543ac914c33f620bd086eb13683e3 2026-06-24 update readme
+397088a4c57f8ce9a952fc8cb2cee2c1c213a360 2026-06-24 code commit
+e9f6ccd0cb7426aee06bec9ddd727b0be2371c48 2026-06-13 Initial commit
+## files
+./host/files/pl_DumperApp.bin
+./host/files/pl_DumperG.bin
+./host/files/pl_DumperM.bin
+./host/files/pl_DumperU.bin
+./host/files/pl_DumperVTX.bin
+./host/files/pl_KernelClock.bin
+./host/files/pl_KernelDumper.bin
+./host/files/pl_ModuleDumper.bin
+./host/src/lapse.js
+./host/src/netctrl.js
+./host/src/ps4/kernel.js
+## binary metadata
+host/files/pl_KernelClock.bin:  DOS executable (COM), start instruction 0xe9000000 00f30f1e
+host/files/pl_KernelDumper.bin: DOS executable (COM), start instruction 0xe9760500 00f30f1e
+8b33c2e2d40757a8e91c105d623172dc1512281d9ed49bd7aac804e69b515040  host/files/pl_KernelClock.bin
+f514e1d5479e56a6ec3202e7558558967f867354b1e8085c897b5d8bfd35c99c  host/files/pl_KernelDumper.bin
+## strings
+Kernel time changed!
+PS4 Firmware %s
+libkernel.sprx
+libkernel_web.sprx
+libkernel_sys.sprx
+sceKernelError
+sceKernelLoadStartModule
+sceKernelAllocateDirectMemory
+sceKernelMapDirectMemory
+sceKernelGetDirectMemorySize
+sceKernelStat
+sceKernelOpen
+sceKernelRead
+sceKernelLseek
+sceKernelClose
+sceKernelSleep
+sceKernelUsleep
+sceKernelGettimeofday
+sceKernelGetProcessTime
+sceKernelGetCurrentCpu
+sceKernelCreateEqueue
+sceKernelDeleteEqueue
+sceKernelAddUserEvent
+sceKernelAddReadEvent
+sceKernelSendNotificationRequest
+sceKernelGetFsSandboxRandomWord
+sceKernelGetSystemSwVersion
+sceKernelGetCpuTemperature
+%s (%s:%d) Unsupported firmware
+kpayload_kernel_clock
+Running Kernel Dumper
+PS4 Firmware %s
+%s/PS4/%s/kernel.bin
+%s/kernel.complete
+Kernel already dumped for %s, skipping dumping
+Unabled to create kernel dump! Quitting...
+Starting kernel dumping to %s.
+Kernel Size: %lu bytes
+Kernel Chunks: %lu
+Kernel dumping to %s
+Kernel dumped successfully!
+libkernel.sprx
+libkernel_web.sprx
+libkernel_sys.sprx
+sceKernelError
+sceKernelLoadStartModule
+sceKernelAllocateDirectMemory
+sceKernelMapDirectMemory
+sceKernelGetDirectMemorySize
+sceKernelStat
+sceKernelOpen
+sceKernelRead
+sceKernelLseek
+sceKernelClose
+sceKernelSleep
+sceKernelUsleep
+sceKernelGettimeofday
+sceKernelGetProcessTime
+sceKernelGetCurrentCpu
+sceKernelCreateEqueue
+sceKernelDeleteEqueue
+sceKernelAddUserEvent
+sceKernelAddReadEvent
+sceKernelSendNotificationRequest
+sceKernelGetFsSandboxRandomWord
+sceKernelGetSystemSwVersion
+sceKernelGetCpuTemperature
+%s (%s:%d) Unsupported firmware
+get_kernel_size
+kpayload_dump
+## code
+./host/files/js/menu.js:106:        "PL-Desc": "Dump a copy of your kernel to your USB drive.<br><br>Your kernel will be dumped to: KernelDump.bin on your USB drive.",
+./host/files/js/menu.js:247:        "PL-Desc": "Contains payloads to dump games from your PS4 <br>so that you can then build your own fake packages that you can install.",
+./host/files/js/menu.js:255:        "PL-Desc": "Dump your games or apps to a USB drive to be able to create fpkg files.<br><br>This payload will dump your game and game update (if there is one) into two seperate folders on your USB drive.<br>No config file is needed with this payload!",
+./host/files/js/menu.js:263:        "PL-Desc": "Dump your games or apps to a USB drive to be able to create fpkg files.<br><br>This payload will dump just your game on your USB drive.<br><br>No config file is needed with this payload!",
+./host/files/js/menu.js:271:        "PL-Desc": "Dump your games or apps to a USB drive to be able to create fpkg files.<br><br>This payload will dump just your game update to your USB drive.<br><br>No config file is needed with this payload!",
+./host/files/js/menu.js:279:        "PL-Desc": "Dump your games or apps to a USB drive to be able to create fpkg files.<br><br>This payload will dump your game and game update (if there is one) and merge them into one folder on your USB drive.<br>No config file is needed with this payload!",
+./host/files/js/menu.js:287:        "PL-Desc": "All-in-one game dumper for PS4",
+./host/src/lapse.js:128:          importScripts("ps4/kernel.js");
+./host/src/lapse.js:184:      throw new Error(`${v} not a kernel pointer !!`);
+./host/src/lapse.js:563:      // PANIC: double free on the 0x80 malloc zone. important kernel
+./host/src/lapse.js:693:  // string is located at the kernel's mapped ELF file
+./host/src/lapse.js:701:  // we now know the address of the kernel buffer we are leaking
+./host/src/lapse.js:972:  // PANIC: double free on the 0x100 malloc zone. important kernel data may alias
+./host/src/lapse.js:1007:  logger.info("Initiate kernel ARW...");
+./host/src/lapse.js:1071:  function kread8(addr) {
+./host/src/lapse.js:1104:  kread8(evf_cv_addr);
+./host/src/lapse.js:1112:  kernel_base = evf_cv_addr.sub(constants.EVF_OFFSET);
+./host/src/lapse.js:1113:  logger.info(`kernel base: ${kernel_base}`);
+./host/src/lapse.js:1115:  const p = kread8(aio_info_addr.add(8));
+./host/src/lapse.js:1120:    throw new Error(`${p} is not valid kernel address !!`);
+./host/src/lapse.js:1123:  const p_pid = kread8(p.add(0xb0));
+./host/src/lapse.js:1133:  const p_fd = kread8(p.add(0x48));
+./host/src/lapse.js:1136:  fdt_ofiles = kread8(p_fd);
+./host/src/lapse.js:1139:  const master_pipe_fp = kread8(fdt_ofiles.add(master_pipe[0] * FILEDESCENT_SIZE));
+./host/src/lapse.js:1142:  const slave_pipe_fp = kread8(fdt_ofiles.add(slave_pipe[0] * FILEDESCENT_SIZE));
+./host/src/lapse.js:1145:  const master_pipe_f_data = kread8(master_pipe_fp);
+./host/src/lapse.js:1148:  const slave_pipe_f_data = kread8(slave_pipe_fp);
+./host/src/lapse.js:1170:  logger.info("Achieved kernel ARW !!");
+./host/src/main.js:46:        await load_script("src/ps4/kernel.js");
+./host/src/main.js:116:      kernel_patches(kpatches_u8);
+./host/src/netctrl.js:74:            importScripts("ps4/kernel.js");
+./host/src/netctrl.js:121:            importScripts("ps4/kernel.js");
+./host/src/netctrl.js:608:  kernel_base = kl_lock.sub(constants.KL_LOCK);
+./host/src/netctrl.js:613:  logger.info(`kernel base: ${kernel_base}`);
+./host/src/netctrl.js:627:async function kread_slow(addr, size) {
+./host/src/netctrl.js:809:    throw new Error(`Unable to kread ${addr} !!`);
+./host/src/netctrl.js:815:async function kwrite_slow(dst, src, size) {
+./host/src/netctrl.js:960:async function kread8_slow(addr) {
+./host/src/netctrl.js:961:  const leak_buf = await kread_slow(addr, 8);
+./host/src/netctrl.js:994:  logger.info("Initiate kernel ARW...");
+./host/src/netctrl.js:996:  fdt_ofiles = await kread8_slow(kq_fdp);
+./host/src/netctrl.js:999:  const master_pipe_fp = await kread8_slow(fdt_ofiles.add(master_pipe[0] * FILEDESCENT_SIZE));
+./host/src/netctrl.js:1002:  const slave_pipe_fp = await kread8_slow(fdt_ofiles.add(slave_pipe[0] * FILEDESCENT_SIZE));
+./host/src/netctrl.js:1005:  const master_pipe_f_data = await kread8_slow(master_pipe_fp);
+./host/src/netctrl.js:1008:  const slave_pipe_f_data = await kread8_slow(slave_pipe_fp);
+./host/src/netctrl.js:1019:  await kwrite_slow(master_pipe_f_data, pipe_buf.addr, pipebuf.sizeof);
+./host/src/netctrl.js:1025:  logger.info("Achieved kernel ARW !!");
+./host/src/ps4/constants.js:28:      pivot_view_sp: 0x10,
+./host/src/ps4/constants.js:103:      pivot_view_sp: 0x18,
+./host/src/ps4/kernel.js:55:let kernel_base = undefined;
+./host/src/ps4/kernel.js:150:  kread(dst, src, size) {
+./host/src/ps4/kernel.js:163:  kwrite(dst, src, size) {
+./host/src/ps4/kernel.js:179:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);
+./host/src/ps4/kernel.js:185:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 8);
+./host/src/ps4/kernel.js:193:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 1);
+./host/src/ps4/kernel.js:201:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 2);
+./host/src/ps4/kernel.js:209:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);
+./host/src/ps4/kernel.js:217:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 1);
+./host/src/ps4/kernel.js:225:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 2);
+./host/src/ps4/kernel.js:233:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);
+./host/src/ps4/kernel.js:239:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 8);
+./host/src/ps4/kernel.js:248:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);
+./host/src/ps4/kernel.js:252:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 8);
+./host/src/ps4/kernel.js:259:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 1);
+./host/src/ps4/kernel.js:266:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 2);
+./host/src/ps4/kernel.js:273:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);
+./host/src/ps4/kernel.js:280:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 1);
+./host/src/ps4/kernel.js:287:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 2);
+./host/src/ps4/kernel.js:294:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);
+./host/src/ps4/kernel.js:300:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 8);
+./host/src/ps4/kernel.js:577:// intended for use only after kernel arw
+./host/src/ps4/kernel.js:578:function kernel_patches(shellcode) {
+./host/src/ps4/kernel.js:579:  logger.info("Applying kernel patches...");
+./host/src/ps4/kernel.js:581:  const sysent_661_addr = kernel_base.add(constants.SYSENT_661);
+./host/src/ps4/kernel.js:584:  const jmp_rsi_gadget_addr = kernel_base.add(constants.JMP_RSI_GADGET);
+./host/src/ps4/userland.js:14:let libkernel_base = undefined;
+./host/src/ps4/userland.js:100:  pivot: undefined,
+./host/src/ps4/userland.js:110:    this.pivot.prepare(this.stack.sp);
+./host/src/ps4/userland.js:112:    const pivot_obj = {};
+./host/src/ps4/userland.js:113:    const pivot_obj_addr = arw.addrof(pivot_obj);
+./host/src/ps4/userland.js:115:    const empty_jscell = arw.view(pivot_obj_addr).getBInt(0, true);
+./host/src/ps4/userland.js:117:    const pivot_addr = this.pivot.addr;
+./host/src/ps4/userland.js:118:    arw.view(pivot_obj_addr).setBInt(0, pivot_addr, true);
+./host/src/ps4/userland.js:120:    Math.expm1(pivot_obj);
+./host/src/ps4/userland.js:122:    arw.view(pivot_obj_addr).setBInt(0, empty_jscell, true);
+./host/src/ps4/userland.js:304:    this.pivot_view = new DataView(new ArrayBuffer(0x28));
+./host/src/ps4/userland.js:311:      this.pivot_view.setBInt(8, gadgets.PUSH_RDI_POP_RSP_RET, true);
+./host/src/ps4/userland.js:312:      this.pivot_view.setBInt(0x20, gadgets.MOV_RDI_QWORD_PTR_RAX_10_JMP_QWORD_PTR_RAX_8, true);
+./host/src/ps4/userland.js:314:      this.pivot_view.setBInt(0x10, gadgets.PUSH_RDX_POP_RSP_RET, true);
+./host/src/ps4/userland.js:315:      this.pivot_view.setBInt(0x20, gadgets.MOV_RDX_QWORD_PTR_RAX_18_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_10, true);
+./host/src/ps4/userland.js:324:    this.store_view.setBInt(8, this.pivot_view.buffer.data(), true);
+./host/src/ps4/userland.js:326:    this.pivot_view.setBInt(0, this.pivot_view.buffer.data(), true);
+./host/src/ps4/userland.js:327:    this.pivot_view.setBInt(constants.pivot_view_sp, sp, true);
+./host/src/ps4/userland.js:1208:  libkernel_base = _error_addr.sub(constants.k__error);
+./host/src/ps4/userland.js:1209:  logger.info(`libkernel base: ${libkernel_base}`);
+./host/src/ps4/userland.js:1211:  let m_function_pivot;
+./host/src/ps4/userland.js:1214:    m_function_pivot = g_NativeCodePoison.xor(gadgets.MOV_RDI_RDI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_120);
+./host/src/ps4/userland.js:1216:    m_function_pivot = gadgets.MOV_RDI_RDI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_40;
+./host/src/ps4/userland.js:1218:    m_function_pivot = gadgets.MOV_RDI_RSI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX;
+./host/src/ps4/userland.js:1221:  arw.view(m_executableOrRareData).setBInt(constants.wk_JSFunction_m_function, m_function_pivot, true);
+./host/src/ps4/userland.js:1223:  rop.pivot = new Pivot();
+./host/src/ps4/userland.js:1273:  scan_syscalls(libkernel_base);
+./host/src/ps4/userland.js:1284:  fn.dlsym = new NativeFunction(0x24f, "number");

@@ -1,0 +1,3 @@
+## hejran7/CSSFontFace-Exploit branch=main updated=2026-08-04T03:14:56Z
+paths=host/files/pl_KernelClock.bin; host/files/pl_KernelDumper.bin; host/src/lapse.js; host/src/netctrl.js; host/src/ps4/kernel.js
+
