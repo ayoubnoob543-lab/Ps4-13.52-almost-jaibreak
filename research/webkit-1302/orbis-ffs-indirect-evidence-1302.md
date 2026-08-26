@@ -297,3 +297,15 @@ A continuación se escribe `0x90` seis veces en `g_KernelAddrs.patch_mount`. El 
 Esto cambia la evaluación de `patch_mount`: ahora existe evidencia `VERIFIED` de que Fusion lo trata como un **punto de parche de autorización de montaje genérico**. La identificación exacta de la función interna que recibe los seis NOP sigue sin estar demostrada, pero la interpretación `patch_mount = ffs_mountfs()` deja de ser la hipótesis principal y se clasifica como `INVALID` con los artefactos públicos actuales. El contexto histórico “Add fuse root mount” refuerza que “mount” en Fusion se refiere a habilitar montaje/FUSE para usuarios no privilegiados, no a la vulnerabilidad Celsius en FFS.
 
 La sucesión histórica de offsets también es coherente con un patch point de código que se desplaza entre firmwares: 12.02 `0x151267`, 12.50/13.02/13.00 `0x1512A7`, mientras que otros offsets del mismo bloque cambian. Esta regularidad no identifica UFS ni prueba Celsius.
+
+## 22. Antecedente histórico de Mira: mismo comentario, distinto patch point
+
+La referencia histórica de Mira 7.00–7.02 publicada por PSXHAX incluye el código de `Patches702-Kernel.cpp`. Allí aparece el mismo comentario exacto:
+
+> `// Enable mount for unprivileged user`
+
+seguido de seis escrituras `0x90` en el punto de parche de montaje. En 7.02 el punto citado es `gKernelBase[0x0029636A]`, distinto del `0x001512A7` usado por Fusion en 12.50/13.00/13.02. La misma etiqueta semántica y la misma operación de seis NOPs en un firmware anterior constituyen evidencia histórica fuerte de que `patch_mount` es una convención de Fusion/Mira para eliminar un chequeo de autorización de montaje, no un nombre inferido de `ffs_mountfs()`.
+
+La publicación también explica que para portar Mira se obtuvieron offsets desde un kernel descifrado de 7.02 y que otros offsets fueron proporcionados por notzecoxao. Esto demuestra el patrón histórico “kernel artefacto → offsets → parches”, pero no proporciona un kernel 13.02 ni conecta Celsius con Fusion. Clasificación: comentario y operación de parche Mira 7.02 `VERIFIED` como artefacto histórico; analogía con 13.02 `CORROBORATED`; relación con FFS/Celsius `INVALID`.
+
+[39]: https://www.psxhax.com/threads/mira-7-00-7-02-ps4-wip-ports-by-al-azif-macross-retail-7-02-elf-collection.8153/ "Historical Mira 7.00–7.02 patch source and kernel-offset context"
