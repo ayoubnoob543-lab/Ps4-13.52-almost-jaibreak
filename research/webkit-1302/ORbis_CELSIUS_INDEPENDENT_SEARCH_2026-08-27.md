@@ -183,3 +183,7 @@ El intento de clonar `https://github.com/earthonion/vue-after-free.git` en la ra
 ## Commit `found twins!` de `vue-after-free`
 
 La página pública del commit `2872f95651a99b5f3690b8e74a4f373645b19759` muestra fecha 2026-01-04 23:44:04 -05:00, autor `earthonion`, parent `6b7ae84b50a65a1d74c43e1904d93add87460d47` y 608 adiciones/200 eliminaciones en `src/netctrl.js`. El diff documenta workers ROP, spray de sockets IPv6, búsqueda de “twins”, buffers de leak, detección de objetos y recursos para adquirir R/W. No contiene Celsius, UFS, FFS, `ffs_mountfs` ni una operación de mount. Es evidencia primaria de la evolución histórica de Netctrl, no del bootstrap Celsius. Clasificación: **VERIFIED** como commit Netctrl/ROP; **INVALID** como PoC Celsius.
+
+## Tag `2.0` de `vue-after-free`
+
+El tag público `2.0` conserva `kernel.ts`, `lapse.ts` y `netctrl_c0w_twins.ts`. El código incluye `kread`, `kwrite`, cálculo de base mediante `KL_LOCK`, `allproc`, `ucred`, `rootvnode`, `sysent` y mensajes de finalización de Netctrl. No aparecen `Celsius`, `Jordy`, `ffs_mountfs`, `ffs_reload`, UFS, FFS ni parámetros de montaje. La etiqueta `2.0` no añade soporte kernel 13.02/13.04: el material pertenece a Netctrl/Lapse histórico. El audit de hashes, tamaños y coincidencias se conserva en `earthonion_vue_tag20_audit.txt`. Clasificación: **VERIFIED** como código histórico Netctrl/Lapse; **INVALID** como bootstrap Celsius.
