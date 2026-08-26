@@ -177,3 +177,7 @@ Studocu page https://www.studocu.com/it/document/politecnico-di-torino/informati
 ## GizzZmo/LUA-Lapse fork
 
 `GizzZmo/LUA-Lapse` is a fork of `egycnq/LUA-Lapse`, which is itself a fork of `n0llptr/remote_lua_loader`. The README claims PS4 11.00 and 12.02 tested, says the kernel dump is saved as `/mnt/usb0/kernel.elf`, and describes `dump_kernel_elf()`/`get_kernel_elf_size()`. The repository tree contains source and inherited blobs but no published dump output, SHA-256, firmware-specific dump file, or FFS/Celsius analysis. The claim is `SOURCE_ONLY` for a 12.02 dump capability and `DERIVED` as repository lineage; it is not a 13.02 artifact and cannot establish Fusion offset provenance.
+
+## Full GizzZmo history and object audit
+
+The complete visible Git history and object-path scan of `GizzZmo/LUA-Lapse` found only `main`, with no tags/releases or historical path named `kernel.elf`. Historical objects include inherited `savedata/elfldr.elf` blobs and `kpatch/1100.bin`; they are loader/patch artifacts, not kernel dumps. Commits mentioning offsets concern older firmware families and do not identify Fusion/ArabPixel's 13.02 table or FFS. Classification: `VERIFIED` for the visible Git object set; `DERIVED` for the fork lineage; `INVALID` as a public Orbis 13.02 kernel artifact.

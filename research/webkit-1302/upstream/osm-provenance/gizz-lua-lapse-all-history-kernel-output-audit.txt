@@ -1,0 +1,68 @@
+=== refs ===
+refs/heads/main 526aadac2d009bc1674c1101a26b8b426769a026
+refs/remotes/origin/HEAD 526aadac2d009bc1674c1101a26b8b426769a026
+refs/remotes/origin/main 526aadac2d009bc1674c1101a26b8b426769a026
+=== history path/name search ===
+7f649d924e531c8d7675813923ee25a33df861b1 2025-06-09T21:49:02+03:00 n0llptr Added 9.00 offsets
+savedata/kernel_offset.lua
+savedata/offsets.lua
+savedata/offsets.lua
+savedata/offsets.lua
+37811b9b0da3fffeea9b0736ce152b77ff369c42 2025-06-07T20:59:15-06:00 Echo Stretch Updated elfldr.elf (8xx/9xx/10xx Correct Offsets)
+b7360c670064d5b7fd100124cbcfde33d14700b1 2025-06-07T20:22:24-06:00 Echo Stretch Fixed 8xx/9xx/10xx Offsets
+savedata/kernel_offset.lua
+93fedecafbfc6e3bda57ea4aad7a8c52d9b4525e 2025-06-06T10:03:26+03:00 n0llptr Update offsets.lua
+savedata/offsets.lua
+0cb9a3077cf963a04b120b6c8ab6981248dc3a44 2025-06-06T09:40:09+03:00 n0llptr Update offsets.lua
+savedata/offsets.lua
+a1365736b84c7cb5de9604d710de20e6373f3095 2025-06-02T20:47:51+03:00 n0llptr Fix 9.00 security flags offset
+savedata/kernel_offset.lua
+c728526138bae93038ab4d881f210639cd18c0e3 2025-05-31T19:39:23+03:00 n0llptr Fix 9.xx offsets which prevented ptrace from working (for elf loader)
+savedata/kernel_offset.lua
+c54d40e7f9bbe6131b3d01059db8dbbbc0f066f7 2025-05-30T09:42:32+08:00 shahril add 9.xx offsets
+savedata/kernel_offset.lua
+0f920eeebc130cea4f40d21fe2c92a89c967b120 2025-05-28T20:56:29+03:00 n0llptr Fix Nora Princess offset
+savedata/offsets.lua
+5d103d1e01d090ffb5bca02504c10e68bf449d25 2025-05-28T08:26:08+03:00 n0llptr Add 10.xx offsets
+savedata/kernel_offset.lua
+savedata/kernel_offset.lua
+ecb04a41bc0f480770673027c3797513b01796f3 2025-05-27T19:21:16+08:00 shahril fix issue if no kernel offsets for ps5 fw yet
+savedata/kernel_offset.lua
+cad330ad1f332d5d9b7f5d3251175355caf17b93 2025-05-26T22:55:43-06:00 Echo Stretch Added 8xx offsets
+savedata/kernel_offset.lua
+50530bbafeea8b5dbda60bb2d3b62ea9d028afc2 2025-05-27T09:31:30+08:00 shahril update: - kdata dumper now doesnt rely on hardcoded kdata size (dump until crash) - added ps4 structure offsets - clean ups here and there
+savedata/kernel_offset.lua
+6bdbf687de46393b43020bf2e6387d62d39dbc07 2025-05-26T14:29:44+08:00 shahril dont initialize kernel offsets if we're not jailbroken yet
+savedata/offsets.lua
+savedata/offsets.lua
+cdc938688cab649c885bc4ac852d750c2b03b006 2025-04-20T06:48:11+03:00 n0llptr Fix offset
+savedata/offsets.lua
+5a15cc14eab0967e0ebd78dbe3a0f8ad9e747646 2025-03-06T09:07:25+08:00 shahril updated elfldr.elf from recent sdk commits with new kernel offsets
+fd7be3f15f89ac0d5e1d56ee6c0a6c03552f9f89 2025-02-28T20:19:15-07:00 Echo Stretch Update kernel_offset.lua
+savedata/kernel_offset.lua
+6bc2a8a0e0b0d82519fab479ea3afd24c28e7c23 2025-02-14T12:47:56+02:00 n0llptr Fix 7.61 offsets typo
+savedata/kernel_offset.lua
+savedata/offsets.lua
+savedata/kernel_offset.lua
+savedata/kernel_offset.lua
+cc32d7aa9fb4d02bcf3cfdffcfc7843212f16c24 2025-01-26T15:50:40+08:00 shahril updates: - added `kernel.lua` which provides class for kernel r/w - added `kernel_offset.lua` which provides kernel offsets (currently only for ps5) - added `globals.lua` for useful constants - two new payloads - kdata_dumper.lua and read_klog.lua - other small changes/improvements
+savedata/kernel_offset.lua
+savedata/offsets.lua
+273c09eb6658794f1e1e18f32f0e5a2697563241 2025-01-02T02:02:57+08:00 shahril update offset
+savedata/offsets.lua
+savedata/offsets.lua
+savedata/offsets.lua
+savedata/offsets.lua
+savedata/offsets.lua
+savedata/offsets.lua
+savedata/offsets.lua
+savedata/offsets.lua
+savedata/offsets.lua
+=== all object path listing ===
+1e0987f46ed8e71996c804094279584689d16c1f kpatch/1100.bin
+4bc92317954737ea26ef17ba737982f29f1e78ed savedata/elfldr.elf
+43f884d51f6d6166fcefa45753b50135af6ada90 savedata/elfldr.elf
+342d186bc0090a744f0e14488acd308640b440bb savedata/elfldr.elf
+3ca98516587a40a2e494c8e09458e9937782b959 savedata/elfldr.elf
+0ba3bacaa264e32c8215a603e4ab8ef79da3a7e7 savedata/elfldr.elf
+e9131b888351642ab31742b192afc3b9b186bf58 savedata/elfldr.elf
