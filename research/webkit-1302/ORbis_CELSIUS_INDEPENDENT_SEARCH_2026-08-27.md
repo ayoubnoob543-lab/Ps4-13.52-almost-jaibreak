@@ -55,3 +55,11 @@ Conclusión A provisional: ningún resultado contiene bytes, pseudocódigo, call
 | Entrada Wikova | https://wikova.com/wiki/DQm4J1HU | Actualizada 2026-08-10 | N/A | Resume 13.02–13.04 | Reutiliza el relato general y cita GameGaz entre sus fuentes; no aporta artefacto independiente | Sólo índice narrativo y referencias | **DERIVED**, no corroboración independiente |
 
 El anuncio de Dr.Yenyen enlazado por GameGaz es la primera fuente pública localizada que da nombre y rango de firmware, pero no entrega la PoC. GameGaz aporta requisitos declarados y una advertencia explícita de que Celsius aún no estaba en fase práctica. Los posts de YouTube y Wikova son derivados; ninguno cierra la transición `WebKit/Jordy → mount → FFS → corrupción → primitive`.
+
+## Evidencia visual del anuncio primario de Dr.Yenyen
+
+La revisión directa de `https://x.com/calmboy2019/status/2078549759460094065` confirmó que el post del 18 de julio de 2026 contiene tres imágenes adjuntas. El texto visible dice: “Here you go. You’ll still have to be patient but this is what you might get. It’s named ‘Celsius’ … Up to 13.04 PS4 and 12.70 PS5.” Las imágenes muestran una conversación/captura de carácter declarativo sobre el descubrimiento atribuido a bollars y el rango afirmado; no muestran código fuente, pseudocódigo, bytes, hash, URL de descarga, imagen UFS/FFS, argumentos de montaje ni una secuencia de kernel R/W. La página también muestra respuestas de Dr.Yenyen y Echo Stretch, pero ninguna adjunta un artefacto técnico. Clasificación: anuncio primario del nombre y rango **SOURCE_ONLY** para la PoC no publicada; evidencia visual insuficiente para reconstruir la cadena.
+
+Imágenes referenciadas por X: `https://pbs.twimg.com/media/HNh9-w8WgAAmTFd?format=webp&name=medium`, `https://pbs.twimg.com/media/HNh9_EUWEAA3fwf?format=webp&name=medium` y `https://pbs.twimg.com/media/HNh9_YGWgAANBEm?format=webp&name=medium`. No se descargaron como artefactos ejecutables ni se trató su contenido como prueba binaria.
+
+Referencia: [Dr.Yenyen, post primario de Celsius, 18-07-2026](https://x.com/calmboy2019/status/2078549759460094065).

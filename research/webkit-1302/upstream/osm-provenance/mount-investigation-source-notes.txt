@@ -863,3 +863,7 @@ The expanded A search inspected Al-Azif's `ps4-re-utilities`, OpenOrbis, Console
 ## B-chain provenance update
 
 The public provenance chain now has a clearer primary announcement: Dr.Yenyen's July 18, 2026 X post, quoted by GameGaz on July 19, 2026. GameGaz supplies the claimed trigger requirements and firmware range but explicitly says the exploit was not yet practical. A GAMERZ YouTube community post repeats the same story and adds an unverified USB timing/size detail; Wikova repeats GameGaz and is derived. None exposes a PoC, UFS image, hash, bootstrap or kernel-R/W transition.
+
+## Direct X primary-post visual audit
+
+The direct X page for Dr.Yenyen's July 18, 2026 Celsius announcement contains three attached images. The visible text asserts the name and range “Up to 13.04 PS4 and 12.70 PS5”; the attached images are declarative discussion screenshots and contain no source code, hash, download URL, UFS image, mount arguments, or kernel-R/W sequence. X replies inspected on the page likewise add no technical artifact. Classification: primary announcement **SOURCE_ONLY** for an unpublished PoC; no new reconstructive artifact.
