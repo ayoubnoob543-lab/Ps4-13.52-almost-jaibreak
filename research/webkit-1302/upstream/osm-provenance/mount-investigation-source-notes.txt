@@ -899,3 +899,7 @@ A Reddit post says removed earthonion GitHub repositories were re-uploaded to `h
 ## earthonion pages 2-3
 
 Pages 2-3 expose candidate repositories `vue-after-free`, `vue-mitm-poc`, `ps4debugportal`, and `mkufs2`. Mirror timestamps are April 30, 2026 and may not be source dates. They are candidates for direct tree/commit inspection only; names alone do not connect them to Celsius. Classification remains `SOURCE_ONLY` pending artifact analysis.
+
+## New artifact: earthonion `vue-after-free`
+
+The public mirror's `vue-after-free` tree contains `kernel.ts` labeled “PS4 Kernel Offsets for Lapse exploit”. It includes mmap patch offsets for 13.02 and aliases 13.04 to 13.02 for that patch, but the complete Lapse/Netctrl offset table ends at `offset_ps4_12_50`, commented as 12.52/13.00. `lapse.ts` contains historical AIO and IPv6 R/W code whose IPv6 helper requires existing `kread8`/`kwrite8`; it is not Celsius and does not provide `ffs_mountfs`. README explicitly distinguishes Vue userland coverage through 13.04 from jailbreak/kernel coverage only through 13.00. This is verified as a new public artifact and negative evidence for a 13.02 Celsius bridge.
