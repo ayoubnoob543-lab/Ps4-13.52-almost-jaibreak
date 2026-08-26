@@ -891,3 +891,7 @@ Searches for distinctive phrases from the primary Celsius announcement returned 
 ## Global code search outside scanner
 
 Global GitHub code search for `Celsius`, `ffs_mount` and `Jordy`, excluding `adri22235/ps4-suid-scanner`, found no independent PS4 PoC, bootstrap, UFS/FFS image or Orbis implementation. `ffs_mount` hits were unrelated FreeBSD/NetBSD, GRUB, SPIFFS or other filesystem projects. Raw output is preserved in `celsius_global_code_search.txt`.
+
+## earthonion mirror lead
+
+A Reddit post says removed earthonion GitHub repositories were re-uploaded to `https://git.earthonion.com/earthonion`. The public mirror lists 45 repositories, mostly PS5/BD-drive/loaders and general utilities. No visible repository name directly indicates Celsius, PS4 13.02, UFS/FFS or Jordy PS4. Preserve as a candidate mirror for tree/commit inspection, not as evidence yet.

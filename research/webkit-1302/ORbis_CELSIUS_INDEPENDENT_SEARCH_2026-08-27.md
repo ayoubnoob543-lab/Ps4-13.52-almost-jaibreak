@@ -93,3 +93,7 @@ Las búsquedas textuales de `“250GB drives aren't all made the same”`, `“T
 ## Búsqueda global de código fuera del scanner
 
 La búsqueda de código para `Celsius`, `ffs_mount` y `Jordy`, excluyendo `adri22235/ps4-suid-scanner`, no encontró una PoC PS4, bootstrap, imagen UFS/FFS ni implementación Orbis. Las coincidencias de `ffs_mount` corresponden a FreeBSD/NetBSD, GRUB, SPIFFS u otros sistemas no relacionados; no son evidencia de Celsius. Las coincidencias de `Celsius`/`Jordy` recuperadas fueron documentación secundaria o proyectos sin relación técnica con la cadena. Se conserva el resultado bruto en `upstream/adri-suid-history/full-stage2/celsius_global_code_search.txt`. Clasificación: **búsqueda negativa**, sin artefacto independiente nuevo.
+
+## Pista de mirrors: earthonion
+
+Una referencia secundaria indica que repositorios retirados del GitHub de `earthonion` fueron re-subidos a `https://git.earthonion.com/earthonion`. La página pública del mirror muestra 45 repositorios, entre ellos `elfldr-autoldr`, `install_y2jb`, `ddd_pair_dump`, `sponsorblock-ps4-installer` y `ps4-enter-idu`, principalmente PS5/BD-drive/loader y utilidades generales. La revisión visible no muestra repositorio llamado Celsius, `ffs_mount`, UFS/FFS, Jordy PS4 o kernel Orbis 13.02/13.04. La pista merece conservarse como posible mirror histórico, pero hasta inspeccionar los árboles y commits concretos no es evidencia de una PoC Celsius. Clasificación: **SOURCE_ONLY / candidato de búsqueda**, sin artefacto técnico confirmado.
