@@ -143,3 +143,7 @@ Fuente: [earthonion/ps4debugportal](https://git.etawen.dev/earthonion/ps4debugpo
 ## Búsqueda de vínculo `mkufs2` → Celsius
 
 Las búsquedas externas de `mkufs2 Celsius PS4`, `mkufs2 bollars UFS` y `mkufs2 Jordy extended storage` no devolvieron referencias técnicas relevantes. Los resultados fueron páginas generales sobre temperaturas, UFS como tecnología de almacenamiento o configuración de almacenamiento extendido. No existe una cita pública que conecte el repositorio `mkufs2` con Celsius, bollars, Jordy o la imagen del anuncio. Clasificación: **sin vínculo independiente encontrado**.
+
+### Comparación mirror ↔ GitHub de `mkufs2`
+
+La comparación de refs muestra que el mirror `git.etawen.dev/earthonion/mkufs2` tiene HEAD `b3b5637c8f36c8076aef3dba7a7f3610d88df040`, mientras que `https://github.com/earthonion/mkufs2` publica HEAD `4d29e9fc2c6d18f8bb825dea0efb3e9bbc5887d3`. GitHub también expone la rama `copilot/add-test-workflow-for-mkufs2` y refs de PR que no aparecen en el clone del mirror. Esto convierte al mirror en un snapshot diferenciado que merece conservarse, pero no demuestra relación con Celsius. El primer commit del script coincide en el historial local; el estado final diverge. Clasificación: **VERIFIED** como divergencia de snapshots; **SOURCE_ONLY** para cualquier posible relación con Celsius, sin evidencia encontrada.

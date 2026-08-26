@@ -1,0 +1,17 @@
+## remotes
+origin	https://git.etawen.dev/earthonion/mkufs2.git (fetch)
+origin	https://git.etawen.dev/earthonion/mkufs2.git (push)
+## github refs
+4d29e9fc2c6d18f8bb825dea0efb3e9bbc5887d3	HEAD
+38f22e25e25789ce8119353dc79914c5c8096c6d	refs/heads/copilot/add-test-workflow-for-mkufs2
+4d29e9fc2c6d18f8bb825dea0efb3e9bbc5887d3	refs/heads/main
+38f22e25e25789ce8119353dc79914c5c8096c6d	refs/pull/1/head
+9d4a8322d4eb355c2ecd13c1d1300ad7997d6d7b	refs/pull/2/head
+9ebb28a50a7bb7f5d1607cbcdb50798c9da354f2	refs/pull/3/head
+## local refs
+b3b5637c8f36c8076aef3dba7a7f3610d88df040 refs/heads/main
+b3b5637c8f36c8076aef3dba7a7f3610d88df040 refs/remotes/origin/HEAD
+b3b5637c8f36c8076aef3dba7a7f3610d88df040 refs/remotes/origin/main
+## object ids
+b3b5637c8f36c8076aef3dba7a7f3610d88df040
+ae8cd6b293c27d0cfa8e357547fdf657f5f0f26a

@@ -923,3 +923,7 @@ The mirror repo has 36 commits, one branch and three tags. Its README describes 
 ## mkufs2-to-Celsius linkage search
 
 External searches found no relevant technical reference connecting `mkufs2` to Celsius, bollars, Jordy, or the advertised extended-storage image. Results were generic storage/temperature pages. No independent linkage was found.
+
+## mkufs2 mirror/GitHub provenance comparison
+
+Mirror HEAD is `b3b5637c8f36c8076aef3dba7a7f3610d88df040`; GitHub HEAD is `4d29e9fc2c6d18f8bb825dea0efb3e9bbc5887d3` and exposes an additional Copilot branch and PR refs. The mirror is therefore a distinct historical snapshot, not an exact current copy. This is verified provenance divergence, not evidence of Celsius; relation remains source-only with no technical linkage found.
