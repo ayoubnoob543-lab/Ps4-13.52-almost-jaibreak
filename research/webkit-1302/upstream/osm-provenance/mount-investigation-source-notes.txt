@@ -721,3 +721,8 @@ The indexed `TeamFAPS/PS4-Kernel-Dumper` repository is explicitly described as a
 ## Expanded public search
 
 An expanded public search for the exact phrases `Jordy r/w`, `KernelView` + `ffs_mountfs` and `stage2_jordy.js` returned no additional indexed results. This is a negative search result only; it does not exclude private, deleted or non-indexed material.
+
+
+## Search for the claimed 13.04 SPRX and midohar36 artifact
+
+Searches for the exact filename `1304_libSceNKWebKit.sprx.decrypted`, `midohar36` plus PS4 kernel dump/offsets, and zecoxao’s claimed 13.04 WebKit dump produced no matching public artifact. Results were historical PS4 exploitation/dumping references (CTurt, fail0verflow, old zecoxao/PS4 dumper pages), a forum question about offsets above 9.00, and generic kernel-dumper repositories. None supplies the claimed 13.04 SPRX, hash, kernel dump, FFS disassembly or a link to `jordy_stage2.js`. Classification: historical dumping references `VERIFIED` for their own firmware/context; 13.04/Celsius linkage `SOURCE_ONLY/UNVERIFIED`.
