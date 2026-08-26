@@ -139,3 +139,9 @@ Direct source inspection of DeathRGH/frame4 shows the installer comment `mount /
 ## PSDevWiki Strings cross-check
 
 The public PSDevWiki Strings page lists broad PS4 kernel/VFS symbols such as `kernel_mount` and `mount_argf` in the searchable corpus, but the direct extraction performed here returned no exact `ffs_mountfs`, `ffs_reload`, `ffs_vget`, `ffs_alloc`, `struct fs`, `fs_ncg`, `fs_cssize`, `fs_contigsumsize`, `fs_bsize` or `fs_fsize` lines. The page has no firmware-13.02 attribution or binary provenance. It remains `SOURCE_ONLY` as a generic string index and `INVALID` as direct 13.02/Celsius evidence.
+
+## 12.02 dump mentions in community forums
+
+4PDA pages https://4pda.to/forum/index.php?showtopic=885825&st=47120 and https://4pda.to/forum/index.php?showtopic=885825&st=30560 contain generic user reports about kernel dumps, mostly 6.72/11.00 and SFlash extraction. The extracted 12.02 context is a user-facing jailbreak guide, not a downloadable kernel image or verified FFS analysis. Classification: `SOURCE_ONLY` for community reports; `INVALID` as a 13.02 kernel source.
+
+GBAtemp PS4 Exploit Guide page 1309: https://gbatemp.net/threads/ps4-exploit-guide.497858/page-1309 states a scene status where 12.02 has a kernel exploit and lists Vue/BD-J/LUA entry points, but also says no HEN for the newer firmware range. It gives no kernel ELF, dump hash, FFS disassembly, or `patch_mount` cross-reference. The page includes a 12.02 SYS MD5 for a firmware update, which is a PUP checksum, not a kernel hash. Classification: `SOURCE_ONLY` for scene status and `INVALID` as Orbis kernel evidence.
