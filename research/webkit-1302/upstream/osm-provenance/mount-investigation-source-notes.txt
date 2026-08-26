@@ -201,3 +201,7 @@ Primary repository: https://github.com/obhq/kernel-dumper. README states explici
 ## OBHQ kernel-dumper forks
 
 The three visible forks (`ZaaWi/kernel-dumper`, `gmh5225/kernel-dumper`, `thecodefodder/kernel-dumper`) were audited by tree paths. They contain inherited Rust dumper/ELF-loader sources such as `kernel-dumper.ld`, `korbis-macros/src/offset.rs`, and `korbis/src/elf/mod.rs`; they do not contain kernel dump outputs, `kernel.elf` assets, 13.02 support, FFS symbols, or Celsius material. Their fork status and matching paths make them `DERIVED`, not independent corroboration. Classification: `VERIFIED` for fork contents; `INVALID` as 13.02/FFS evidence.
+
+## Static inspection of remote_lua_loader elfldr.elf
+
+The public `savedata/elfldr.elf` from `n0llptr/remote_lua_loader` is a 364,424-byte ELF payload/loader. Its section layout includes `.text`, dynamic symbol/relocation sections, `.rodata`, `.data`, and `.bss`; strings include `libkernel_web.sprx`, `libkernel_sys.sprx`, `libSceOrbisCompat.sprx`, `sceKernelLoadStartModule`, `kernel_mprotect`, `kernel_set_proc_rootdir`, `kernel_set_ucred_authid`, `elfldr.c`, and `payload.elf`. These are loader/post-exploitation indicators, not kernel image indicators. No `ffs_mountfs`, `ffs_reload`, `struct fs`, UFS, Celsius, or firmware-13.02 marker was found in the searched strings. Classification: `VERIFIED` as a static ELF payload; `INVALID` as Orbis kernel/FFS evidence.
