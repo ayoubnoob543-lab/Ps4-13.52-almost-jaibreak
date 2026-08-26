@@ -126,3 +126,7 @@ La próxima adquisición más informativa sería, en orden: un binario legítimo
 ## Archivos de soporte en este branch
 
 Los logs y copias forenses asociados se encuentran bajo `research/webkit-1302/upstream/`, especialmente en `adri-suid-history/full-stage2/followup/`, `osm-provenance/` y `artifact-inspection/`. Los commits de esta continuación incluyen `017e725`, `7e26c65`, `d2a9b4b`, `bf3d9c7`, `b172394`, `6412de9`, `ea80ceb`, `44c3f91`, `a6b5d59`, `4958666`, `ea558ae`, `a173371` y `08055fe`.
+
+## Actualización posterior: búsqueda API de código
+
+Las consultas exactas de GitHub para `patch_mount PS4`, `0x001512A7`, `ffs_mountfs PS4` y `Celsius PS4` no localizaron una implementación técnica externa. El único resultado relevante fue la copia del propio archivo `webkit_gadgets_1304.js` en el laboratorio; las demás coincidencias fueron repositorios irrelevantes o texto ordinario. No se obtuvo ningún nuevo byte, disassembly, hash, commit primario o referencia cruzada. Esto refuerza, sin convertirlo en prueba de parche, que la ruta pública continúa sin un artefacto de transición verificable.
