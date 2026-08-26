@@ -145,3 +145,7 @@ The public PSDevWiki Strings page lists broad PS4 kernel/VFS symbols such as `ke
 4PDA pages https://4pda.to/forum/index.php?showtopic=885825&st=47120 and https://4pda.to/forum/index.php?showtopic=885825&st=30560 contain generic user reports about kernel dumps, mostly 6.72/11.00 and SFlash extraction. The extracted 12.02 context is a user-facing jailbreak guide, not a downloadable kernel image or verified FFS analysis. Classification: `SOURCE_ONLY` for community reports; `INVALID` as a 13.02 kernel source.
 
 GBAtemp PS4 Exploit Guide page 1309: https://gbatemp.net/threads/ps4-exploit-guide.497858/page-1309 states a scene status where 12.02 has a kernel exploit and lists Vue/BD-J/LUA entry points, but also says no HEN for the newer firmware range. It gives no kernel ELF, dump hash, FFS disassembly, or `patch_mount` cross-reference. The page includes a 12.02 SYS MD5 for a firmware update, which is a PUP checksum, not a kernel hash. Classification: `SOURCE_ONLY` for scene status and `INVALID` as Orbis kernel evidence.
+
+## GitHub code-index search
+
+Authenticated GitHub code searches for `kernel.elf 13.02`, `kernel.elf 12.02`, `ffs_mountfs PS4`, `patch_mount PS4` and `226094 PS4` returned zero indexed code results. This is a negative result limited to GitHub's searchable public code index; it does not rule out unindexed binary assets, private/deleted repositories, external mirrors or account content. Classification: `CORROBORATED` within the queried index; not proof of global absence.
