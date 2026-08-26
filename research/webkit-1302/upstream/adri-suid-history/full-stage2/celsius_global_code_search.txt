@@ -1,0 +1,450 @@
+
+===== Celsius =====
+[0;34mlaravel/docs[0m:[0;1;32mmcp.md[0m: ->enum(['[0;30;43mcelsius[0m', 'fahrenheit'])
+[0;34mlaravel/docs[0m:[0;1;32mmcp.md[0m: ->default('[0;30;43mcelsius[0m'),
+[0;34mwizardforcel/sicp-py-zh[0m:[0;1;32m2.4.md[0m: >>> [0;30;43mcelsius[0m = make_connector('[0;30;43mCelsius[0m')
+[0;34mwizardforcel/sicp-py-zh[0m:[0;1;32m2.4.md[0m: >>> [0;30;43mcelsius[0m['set_val']('user', 25)
+[0;34mwizardforcel/sicp-py-zh[0m:[0;1;32m2.4.md[0m: [0;30;43mCelsius[0m = 25
+[0;34mPhotonsters/anycubic-photon-docs[0m:[0;1;32mFAQ.md[0m: - Make sure to mix the fresh resin well before adding. Try to ensure the resin temperature is the same, if the difference is more than 5~10 degrees [0;30;43mCelsius[0m, it may cause a layer line.
+[0;34mgreatscottgadgets/greatfet-tutorials[0m:[0;1;32mi2c.md[0m: # define a function to calculate temperature in degrees [0;30;43mCelsius
+[0;34mgreatscottgadgets/greatfet-tutorials[0m:[0;1;32mi2c.md[0m: # convert the temperature code to degrees [0;30;43mCelsius[0m and print it
+[0;34mhazelcast/hazelcast-platform-training[0m:[0;1;32mLab2.md[0m: - use `StreamStage.map` to convert the Fahrenheit temperatures to [0;30;43mCelsius
+[0;34mhazelcast/hazelcast-platform-training[0m:[0;1;32mLab2.md[0m: - write the stream of negative [0;30;43mCelsius[0m temperatures to a log
+[0;34mbbidulock/icewm[0m:[0;1;32mpo/fa.po[0m: #. TRANSLATORS: Please translate the string "C" into "[0;30;43mCelsius[0m Temperature" in your language.
+[0;34mbbidulock/icewm[0m:[0;1;32mpo/be.po[0m: #. TRANSLATORS: Please translate the string "C" into "[0;30;43mCelsius[0m Temperature" in your language.
+[0;34mbbidulock/icewm[0m:[0;1;32mpo/sl.po[0m: #. TRANSLATORS: Please translate the string "C" into "[0;30;43mCelsius[0m Temperature" in your language.
+[0;34mbbidulock/icewm[0m:[0;1;32mpo/ru.po[0m: #. TRANSLATORS: Please translate the string "C" into "[0;30;43mCelsius[0m Temperature" in your language.
+[0;34mQalculate/qalculate-gtk[0m:[0;1;32mpo/ca.po[0m: "(e.g. \"\\x + 273.15\" for the relation between degrees [0;30;43mCelsius[0m and Kelvin)."
+[0;34mQalculate/qalculate-gtk[0m:[0;1;32mpo/ca.po[0m: "exemple \"\\x + 273,15\" pela relació entre graus [0;30;43mCelsius[0m i Kelvin)."
+[0;34mwizardforcel/eloquent-js-3e-zh[0m:[0;1;32m6.md[0m: constructor([0;30;43mcelsius[0m) {
+[0;34mwizardforcel/eloquent-js-3e-zh[0m:[0;1;32m6.md[0m: this.[0;30;43mcelsius[0m = [0;30;43mcelsius[0m;
+[0;34mrstudio-conf-2020/time-series-forecasting[0m:[0;1;32mLabs.md[0m: Repeat the daily electricity example, but instead of using a quadratic function of temperature, use a piecewise linear function with the "knot" around 20 degrees [0;30;43mCelsius[0m (use predictors `Temperature` & `Temp2`). How can you optimize the choice of knot?
+[0;34mice-wm/icewm[0m:[0;1;32mpo/en.po[0m: #. TRANSLATORS: Please translate the string "C" into "[0;30;43mCelsius[0m Temperature" in your language.
+[0;34mhappypeter/haoduoshipin[0m:[0;1;32m383.md[0m: So what is a calory? when we need to measure the energy we consume and use, we use a unit of Calory, also called a large calory(kcal). The total amount of Caloris that a piece of food has can be meaured by burning it, in a space with enough water and surrounded by water. One carlory is defined as the amount of enery it would table to raise the temperature of one kilogram of water by one degree [0;30;43mCelsius[0m.
+[0;34mice-wm/icewm[0m:[0;1;32mpo/ro.po[0m: #. TRANSLATORS: Please translate the string "C" into "[0;30;43mCelsius[0m Temperature" in your language.
+[0;34mice-wm/icewm[0m:[0;1;32mpo/cs.po[0m: #. TRANSLATORS: Please translate the string "C" into "[0;30;43mCelsius[0m Temperature" in your language.
+[0;34mviking-gps/viking[0m:[0;1;32mpo/da.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mviking-gps/viking[0m:[0;1;32mpo/da.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mviking-gps/viking[0m:[0;1;32mpo/ko.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mviking-gps/viking[0m:[0;1;32mpo/hu.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mr-quantities/quantities[0m:[0;1;32mNEWS.md[0m: as [0;30;43mCelsius[0m to Fahrenheit (#9).
+[0;34mw1hkj/fldigi[0m:[0;1;32mpo/it.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mw1hkj/fldigi[0m:[0;1;32mpo/it.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mw1hkj/fldigi[0m:[0;1;32mpo/fr.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mw1hkj/fldigi[0m:[0;1;32mpo/fr.po[0m: msgid "report [0;30;43mCelsius[0m"
+[0;34mlrybak/hassio-owserver[0m:[0;1;32mDOCS.md[0m: temperature_scale: [0;30;43mCelsius
+[0;34mlrybak/hassio-owserver[0m:[0;1;32mDOCS.md[0m: temperature_scale: [0;30;43mCelsius
+[0;34mlablup/all-smi[0m:[0;1;32mAPI.md[0m: | `all_smi_gpu_temperature_threshold_slowdown_[0;30;43mcelsius[0m`      | Slowdown temperature threshold                                     | [0;30;43mcelsius[0m | `gpu`, `instance`, `gpu_uuid`, `gpu_index`   |
+[0;34mlablup/all-smi[0m:[0;1;32mAPI.md[0m: | `all_smi_gpu_temperature_threshold_shutdown_[0;30;43mcelsius[0m`      | Shutdown temperature threshold                                     | [0;30;43mcelsius[0m | `gpu`, `instance`, `gpu_uuid`, `gpu_index`   |
+[0;34mlablup/all-smi[0m:[0;1;32mAPI.md[0m: | `all_smi_gpu_temperature_[0;30;43mcelsius[0m`     | NPU temperature            | [0;30;43mcelsius[0m | `gpu_index`, `gpu_name`                   |
+[0;34msalesforce/agentscript[0m:[0;1;32mSPEC.md[0m: @outputs.temperature_[0;30;43mcelsius
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/sv.po[0m: msgid "Show temperature in Kelvin, [0;30;43mCelsius[0m or Fahrenheit"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/sv.po[0m: msgstr "Visa temperatur i Kelvin, [0;30;43mCelsius[0m eller Farhenheit"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/hu.po[0m: msgid "Show temperature in Kelvin, [0;30;43mCelsius[0m or Fahrenheit"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/hu.po[0m: msgstr "A hőmérséklet megjelenítése Kelvin, [0;30;43mCelsius[0m vagy Fahrenheit fokban"
+[0;34mironsheep/lovelace-rpi-monitor-card[0m:[0;1;32minfo.md[0m: | temp_scale        | string  | 'C' or 'F'         | Show Temperature in [0;30;43mCelsius[0m (C) or Fahrenheit (F). (Default is C)                     |
+[0;34matareao/my-weather-indicator[0m:[0;1;32mpo/sv.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34matareao/my-weather-indicator[0m:[0;1;32mpo/sv.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34matareao/my-weather-indicator[0m:[0;1;32mpo/ro.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34matareao/my-weather-indicator[0m:[0;1;32mpo/ro.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34matareao/my-weather-indicator[0m:[0;1;32mpo/hu.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34matareao/my-weather-indicator[0m:[0;1;32mpo/hu.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mjustrach/bhumi[0m:[0;1;32mLLM.txt[0m: def get_weather(location: str, unit: str = "[0;30;43mcelsius[0m"): ...
+[0;34mjustrach/bhumi[0m:[0;1;32mLLM.txt[0m: "unit": {"type": "string", "enum": ["[0;30;43mcelsius[0m","fahrenheit"]}
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/nn.po[0m: msgid "Show temperature in Kelvin, [0;30;43mCelsius[0m or Fahrenheit"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/nn.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/nn.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mtbs-fpv/tbs-crsf-spec[0m:[0;1;32mcrsf.md[0m: int16_t     temperature[];        // up to 20 temperature values in deci-degree (tenths of a degree) [0;30;43mCelsius[0m (e.g., 250 = 25.0°C, -50 = -5.0°C)
+[0;34matareao/my-weather-indicator[0m:[0;1;32mpo/he.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/id.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/id.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mr-quantities/units[0m:[0;1;32mNEWS.md[0m: * now allow for `set_units(1:3, "°C")` and also `set_units(1:3, "degree_[0;30;43mCelsius[0m")` by resolving names to symbols first; #43
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/ky.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/vi.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/ms.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/sk.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/am.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/mk.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/th.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/sr.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-applets[0m:[0;1;32mpo/kn.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmrded/ha-air-comfort-card[0m:[0;1;32minfo.md[0m: - Temperature and humidity readings with [0;30;43mCelsius[0m/Fahrenheit toggle
+[0;34mrlegendi/ELTE-javagyak[0m:[0;1;32mtodo.md[0m: Új feladat: konvertálj fokokat! Forrás: http://en.wikipedia.org/wiki/[0;30;43mCelsius[0m (2011.11.29.)
+[0;34mrlegendi/ELTE-javagyak[0m:[0;1;32mtodo.md[0m: from [0;30;43mCelsius[0m	to [0;30;43mCelsius[0m
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/sq.po[0m: #. Translators: [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/sq.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/pt.po[0m: #. Translators: [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/pt.po[0m: "A unidade a usar para temperatura. Valores: 'Kelvin', '[0;30;43mCelsius[0m', "
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/wa.po[0m: msgid "Show temperature in Kelvin, [0;30;43mCelsius[0m or Fahrenheit"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/wa.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mchasemc/IDBacApp[0m:[0;1;32mNEWS.md[0m: - "Cultivation_Temp_[0;30;43mCelsius[0m is now cultivation_temp_[0;30;43mcelsius[0m"
+[0;34mCFenner/MMM-Netatmo[0m:[0;1;32mDATA.md[0m: "unit": 0, //[0;30;43mcelsius
+[0;34mmax13fr/AirzoneCloud[0m:[0;1;32mAPI.md[0m: Set target_temperature for current all devices in the installation (in degrees [0;30;43mcelsius[0m)
+[0;34mmax13fr/AirzoneCloud[0m:[0;1;32mAPI.md[0m: Set target_temperature for current all devices in the group (in degrees [0;30;43mcelsius[0m)
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/eo.po[0m: msgid "Show temperature in Kelvin, [0;30;43mCelsius[0m or Fahrenheit"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/eo.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/jv.po[0m: #. Translators: [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/jv.po[0m: #. Translators: This is the temperature in degrees [0;30;43mCelsius[0m (\302\260 is U+00B0
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/et.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/et.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/nn.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/nn.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/nl.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/nl.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34malexmurray/indicator-sensors[0m:[0;1;32mpo/de.po[0m: msgid "[0;30;43mCelsius[0m (°C)"
+[0;34malexmurray/indicator-sensors[0m:[0;1;32mpo/de.po[0m: msgstr "[0;30;43mCelsius[0m (°C)"
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/nn.po[0m: #. Translators: [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/nn.po[0m: #. Translators: This is the temperature in degrees [0;30;43mCelsius[0m (\302\260 is U+00B0
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/eo.po[0m: #. Translators: [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/eo.po[0m: #. Translators: This is the temperature in degrees [0;30;43mCelsius[0m (\302\260 is U+00B0
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mNEWS[0m: * Fix incorrect spelling of [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/kk.po[0m: #. Translators: [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/kk.po[0m: #. Translators: This is the temperature in degrees [0;30;43mCelsius[0m (\302\260 is U+00B0
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/nb.po[0m: #. Translators: [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/nb.po[0m: #. Translators: This is the temperature in degrees [0;30;43mCelsius[0m (\302\260 is U+00B0
+[0;34m0xsline/GeminiImageApp[0m:[0;1;32mdoc.md[0m: return {"location": location, "temperature": temp, "unit": "[0;30;43mCelsius[0m"}
+[0;34m0xsline/GeminiImageApp[0m:[0;1;32mdoc.md[0m: Function result: {'location': 'London', 'temperature': 16, 'unit': '[0;30;43mCelsius[0m'}
+[0;34m0xsline/GeminiImageApp[0m:[0;1;32mdoc.md[0m: Model's final response: OK. The current temperature in London is 16 degrees [0;30;43mCelsius[0m.
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/fr.po[0m: #. Translators: [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/fr.po[0m: #. Translators: This is the temperature in degrees [0;30;43mCelsius[0m (\302\260 is U+00B0
+[0;34malexmurray/indicator-sensors[0m:[0;1;32mpo/it.po[0m: msgid "[0;30;43mCelsius[0m (°C)"
+[0;34malexmurray/indicator-sensors[0m:[0;1;32mpo/it.po[0m: msgstr "[0;30;43mCelsius[0m (°C)"
+[0;34mOpenWonderLabs/node-switchbot[0m:[0;1;32mBLE.md[0m: | &nbsp;&nbsp; `c` | Float   | Temperature (degree [0;30;43mCelsius[0m/°C)                                                                              |
+[0;34mOpenWonderLabs/node-switchbot[0m:[0;1;32mBLE.md[0m: | `fahrenheit`     | Boolean | The flag whether the Meter shows Fahrenheit (`true`) or [0;30;43mCelsius[0m (`false`) for the temperature on the display |
+[0;34mCairo-Dock/cairo-dock-plug-ins[0m:[0;1;32mpo/ka.po[0m: "in [0;30;43mCelsius[0m. The temperature will be displayed between this value and the "
+[0;34mCairo-Dock/cairo-dock-plug-ins[0m:[0;1;32mpo/ka.po[0m: msgid "If so, degrees will be displayed in [0;30;43mCelsius[0m, otherwise in Fahrenheit."
+[0;34mCairo-Dock/cairo-dock-plug-ins[0m:[0;1;32mpo/sk.po[0m: "in [0;30;43mCelsius[0m. The temperature will be displayed between this value and the "
+[0;34mCairo-Dock/cairo-dock-plug-ins[0m:[0;1;32mpo/sk.po[0m: msgid "If so, degrees will be displayed in [0;30;43mCelsius[0m, otherwise in Fahrenheit."
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/hi.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/hi.po[0m: msgid "degC,˚C,C,c,[0;30;43mCelsius[0m,[0;30;43mcelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/sl.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/sl.po[0m: msgid "degC,°C,˚C,C,c,[0;30;43mCelsius[0m,[0;30;43mcelsius[0m"
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/ta.po[0m: #. Translators: [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/ta.po[0m: #. Translators: This is the temperature in degrees [0;30;43mCelsius[0m (\302\260 is U+00B0
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/kn.po[0m: #. Translators: [0;30;43mCelsius
+[0;34mmate-desktop/libmateweather[0m:[0;1;32mpo/kn.po[0m: #. Translators: This is the temperature in degrees [0;30;43mCelsius[0m (\302\260 is U+00B0
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/uk.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/uk.po[0m: msgid "degC,°C,˚C,C,c,[0;30;43mCelsius[0m,[0;30;43mcelsius[0m"
+[0;34mgeanders/weathermetrics[0m:[0;1;32mNEWS.md[0m: - **`convert_temperature`:** Convert a vector of temperature values between common units of temperature measure (in degrees [0;30;43mCelsius[0m, Fahrenheit, and Kelvins)
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/pa.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/pa.po[0m: msgid "degC,˚C,C,c,[0;30;43mCelsius[0m,[0;30;43mcelsius[0m"
+[0;34mGNOME/libgweather[0m:[0;1;32mpo/si.po[0m: #. translators: [0;30;43mCelsius
+[0;34mGNOME/libgweather[0m:[0;1;32mpo/si.po[0m: #. Valid values are: "K" (Kelvin), "C" ([0;30;43mCelsius[0m) and "F" (Fahrenheit)
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/mr.po[0m: msgid "Show temperature in Kelvin, [0;30;43mCelsius[0m or Fahrenheit"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/mr.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/or.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mGNOME/gnome-calculator[0m:[0;1;32mpo/ta.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/bg.po[0m: msgid "Show temperature in Kelvin, [0;30;43mCelsius[0m or Fahrenheit"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/bg.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mGNOME/libgweather[0m:[0;1;32mpo/mn.po[0m: #. translators: [0;30;43mCelsius
+[0;34mGNOME/libgweather[0m:[0;1;32mpo/mn.po[0m: #. Valid values are: "K" (Kelvin), "C" ([0;30;43mCelsius[0m) and "F" (Fahrenheit)
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/ru.po[0m: msgid "Show temperature in Kelvin, [0;30;43mCelsius[0m or Fahrenheit"
+[0;34mmate-desktop/mate-sensors-applet[0m:[0;1;32mpo/ru.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mukhas/dl-fldigi[0m:[0;1;32mpo/es.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mukhas/dl-fldigi[0m:[0;1;32mpo/es.po[0m: msgid "report [0;30;43mCelsius[0m"
+[0;34mwlatic/envi_heater[0m:[0;1;32minfo.md[0m: - **Temperature Conversion**: Automatic [0;30;43mCelsius[0m/Fahrenheit support
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/cy.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/cy.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mmicrosoft/subseasonal_data[0m:[0;1;32mDATA.md[0m: Daily CFSv2 predictions for temperature and precipitation, on a 1.5°×1.5° grid, with lead times 0-30 days, are downloaded from IRI already averaged over the four 6-hourly daily predictions and aggregated over the 2-week period with the precipitation units as total mm over the 2-week period and temperature as the average temperature in [0;30;43mCelsius[0m over the 2-week period. Finally, for each issuance date i, lead l, and grid point, the forecast is replaced with the average of the (issuance date t, lead l) and the (issuance date t-1, lead l+1) forecasts.
+[0;34mmicrosoft/subseasonal_data[0m:[0;1;32mDATA.md[0m: Subweekly GMAO-GEOS, NRL-NESM, RSMAS-CCSM4, ESRL-FI, EMC-GEFS, and ECCC-GEM predictions for temperature and precipitation, on a 1.5°×1.5° grid, with lead times 0-30 days, are downloaded from IRI already averaged over all individual ensemble members and aggregated over the 2-week period with the precipitation units as total mm over the 2-week period and temperature as the average temperature in [0;30;43mCelsius[0m over the 2-week period. Finally, for each issuance date i, lead l, and grid point, the forecast is replaced with the average of the (issuance date t, lead l) and the (issuance date t-1, lead l+1) forecasts.
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/hu.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/hu.po[0m: msgstr "[0;30;43mCelsius[0m fok"
+[0;34mGNOME/libgweather[0m:[0;1;32mpo/et.po[0m: #. TRANSLATOR: This is the temperature in degrees [0;30;43mCelsius[0m (\302\260 is U+00B0 DEGREE SIGN)
+[0;34mGNOME/libgweather[0m:[0;1;32mpo/et.po[0m: #. TRANSLATOR: This is the temperature in degrees [0;30;43mCelsius[0m (\302\260 is U+00B0 DEGREE SIGN)
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/el.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/el.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/km.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/km.po[0m: msgstr "[0;30;43mCelsius[0m"
+[0;34mmetrico/fluXpipe[0m:[0;1;32mflux.md[0m: Using map() you can execute a function on each row. For example, we can add a new column with the temperatures converted to [0;30;43mcelsius[0m:
+[0;34mmetrico/fluXpipe[0m:[0;1;32mflux.md[0m: |> map(fn: (r) => ({r with [0;30;43mcelsius[0m: (( float(v: r._value) - 32.0) * 5.0 / 9.0)} ))
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/yo.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/tt.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/ne.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/hr.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/tr.po[0m: msgid "[0;30;43mCelsius[0m"
+[0;34mmate-desktop/mate-calc[0m:[0;1;32mpo/bn.po[0m: msgid "[0;30;43mCelsius[0m"
+
+===== ffs_mount =====
+[0;34mchenall/grub4dos[0m:[0;1;32mstage2/fsys_ffs.c[0m: [0;30;43mffs_mount[0m (void)
+[0;34mXboxDev/cromwell[0m:[0;1;32mfs/grub/filesys.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34mqemu/openbios[0m:[0;1;32mfs/grubfs/glue.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34mgrub4android/lk[0m:[0;1;32mlib/ffs/os.c[0m: status_t [0;30;43mffs_mount[0m(size_t index, struct device *dev)
+[0;34mqemu/openbios[0m:[0;1;32mfs/grubfs/fsys_ffs.c[0m: [0;30;43mffs_mount[0m (void)
+[0;34mjezze/grub-legacy[0m:[0;1;32mstage2/filesys.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34mmandriva-management-console/pulse-imaging-client[0m:[0;1;32mbootloader/filesys.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34mjezze/grub-legacy[0m:[0;1;32mstage2/fsys_ffs.c[0m: [0;30;43mffs_mount[0m (void)
+[0;34mmborgerson/cromwell[0m:[0;1;32mfs/grub/filesys.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34mrzhw/TrustedGRUB[0m:[0;1;32mstage2/filesys.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34marchitech-backup/grub-fedora[0m:[0;1;32mstage2/filesys.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34mjiazhang0/grub-efi[0m:[0;1;32mstage2/filesys.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34mavsm/openbsd-xen-sys[0m:[0;1;32mufs/ffs/ffs_extern.h[0m: int [0;30;43mffs_mount[0mroot(void);
+[0;34mavsm/openbsd-xen-sys[0m:[0;1;32mufs/ffs/ffs_extern.h[0m: int [0;30;43mffs_mount[0m(struct mount *, const char *, void *, struct nameidata *,
+[0;34mavsm/openbsd-xen-sys[0m:[0;1;32mufs/ffs/ffs_extern.h[0m: int [0;30;43mffs_mount[0mfs(struct vnode *, struct mount *, struct proc *);
+[0;34mldotsfan/lpcmod_os[0m:[0;1;32mfs/grub/filesys.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34msiriushq/openbsdk[0m:[0;1;32mufs/ffs/ffs_extern.h[0m: int [0;30;43mffs_mount[0mroot(void);
+[0;34msiriushq/openbsdk[0m:[0;1;32mufs/ffs/ffs_extern.h[0m: int [0;30;43mffs_mount[0m(struct mount *, const char *, void *, struct nameidata *,
+[0;34msiriushq/openbsdk[0m:[0;1;32mufs/ffs/ffs_extern.h[0m: int [0;30;43mffs_mount[0mfs(struct vnode *, struct mount *, struct proc *);
+[0;34mcardoe/grub-legacy[0m:[0;1;32mstage2/filesys.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34momapzoom/platform-external-grub[0m:[0;1;32mstage2/fsys_ffs.c[0m: [0;30;43mffs_mount[0m (void)
+[0;34morumin/openbsd-efivars[0m:[0;1;32mufs/ffs/ffs_extern.h[0m: int [0;30;43mffs_mount[0mroot(void);
+[0;34morumin/openbsd-efivars[0m:[0;1;32mufs/ffs/ffs_extern.h[0m: int [0;30;43mffs_mount[0m(struct mount *, const char *, void *, struct nameidata *,
+[0;34morumin/openbsd-efivars[0m:[0;1;32mufs/ffs/ffs_extern.h[0m: int [0;30;43mffs_mount[0mfs(struct vnode *, struct mount *, struct proc *);
+[0;34msvn2github/grub4dos-chenall[0m:[0;1;32mstage2/filesys.h[0m: int [0;30;43mffs_mount[0m (void);
+[0;34mtnadu/FreeBSD-release-4.0.0[0m:[0;1;32mufs/ffs/ffs_vfsops.c[0m: [0;30;43mffs_mount[0m( mp, path, data, ndp, p)
+[0;34mcardoe/grub-legacy[0m:[0;1;32mstage2/fsys_ffs.c[0m: [0;30;43mffs_mount[0m (void)
+[0;34mwobscale/openbsd-sys[0m:[0;1;32mufs/ffs/ffs_vfsops.c[0m: [0;30;43mffs_mount[0m(struct mount *mp, const char *path, void *data,
+[0;34morumin/openbsd-efivars[0m:[0;1;32mufs/ffs/ffs_vfsops.c[0m: [0;30;43mffs_mount[0m(struct mount *mp, const char *path, void *data,
+[0;34msvn2github/grub4dos-chenall[0m:[0;1;32mstage2/fsys_ffs.c[0m: [0;30;43mffs_mount[0m (void)
+[0;34mpts/pts-grub1-port[0m:[0;1;32mstage2/fsys_ffs.c[0m: [0;30;43mffs_mount[0m (void)
+[0;34mDemorianesimo69/dload[0m:[0;1;32mmbr/stage2/fsys_ffs.c[0m: [0;30;43mffs_mount[0m (void)
+[0;34mnullnilaki/NetBSDsgimips64[0m:[0;1;32mufs/ffs/ffs_vfsops.c[0m: [0;30;43mffs_mount[0m(struct mount *mp, const char *path, void *data, size_t *data_len)
+[0;34msevki/ufs2[0m:[0;1;32mffs/ffs_vfsops.c[0m: [0;30;43mffs_mount[0m(struct mount *mp)
+[0;34mkillvxk/SysProg-2[0m:[0;1;32mufs/ffs/ffs_vfsops.c[0m: [0;30;43mffs_mount[0m(struct mount *mp)
+[0;34mCoreNGS/sys[0m:[0;1;32mufs/ffs/ffs_vfsops.c[0m: [0;30;43mffs_mount[0m(struct mount *mp)
+[0;34mtrickest/cve[0m:[0;1;32m2007/CVE-2007-0229.md[0m: Integer overflow in the [0;30;43mffs_mount[0mfs function in Mac OS X 10.4.8 and FreeBSD 6.1 allows local users to cause a denial of service (panic) and possibly gain privileges via a crafted DMG image that causes "allocation of a negative size buffer" leading to a heap-based buffer overflow, a related issue to CVE-2006-5679.  NOTE: a third party states that this issue does not cross privilege boundaries in FreeBSD because only root may mount a filesystem.
+[0;34mchenall/grub4dos[0m:[0;1;32mstage2/filesys.h[0m: //int [0;30;43mffs_mount[0m (void);
+[0;34mchenall/grub4dos[0m:[0;1;32mstage2/disk_io.c[0m: //  {"ffs", [0;30;43mffs_mount[0m, ffs_read, ffs_dir, 0, ffs_embed},
+[0;34mrumpkernel/fs-utils[0m:[0;1;32mlib/mount_ffs.h[0m: #ifndef _SBIN_MOUNT_[0;30;43mFFS_MOUNT[0m_FFS_H_
+[0;34mrumpkernel/fs-utils[0m:[0;1;32mlib/mount_ffs.h[0m: #define _SBIN_MOUNT_[0;30;43mFFS_MOUNT[0m_FFS_H_
+[0;34mnodemcu/nodemcu-firmware[0m:[0;1;32mapp/spiffs/spiffs.c[0m: static bool myspi[0;30;43mffs_mount[0m(bool force_mount) {
+[0;34mnodemcu/nodemcu-firmware[0m:[0;1;32mapp/spiffs/spiffs.c[0m: int res = SPI[0;30;43mFFS_mount[0m(&fs,
+[0;34mnodemcu/nodemcu-firmware[0m:[0;1;32mdocs/modules/node.md[0m: {"ccount":12425790,"name":"myspi[0;30;43mffs_mount[0m","line":126},
+[0;34mnodemcu/nodemcu-firmware[0m:[0;1;32mdocs/modules/node.md[0m: {"ccount":12741862,"name":"myspi[0;30;43mffs_mount[0m","line":148},
+[0;34mpellepl/spiffs[0m:[0;1;32mpy/spiffs.py[0m: spiffs_lib.my_spi[0;30;43mffs_mount[0m.restype = ctypes.c_void_p
+[0;34mpellepl/spiffs[0m:[0;1;32mpy/spiffs.py[0m: fs = spiffs_lib.my_spi[0;30;43mffs_mount[0m(self.phys_size,
+[0;34mpellepl/spiffs[0m:[0;1;32mpy/python_ops.c[0m: void *my_spi[0;30;43mffs_mount[0m(int phys_size,
+[0;34mpellepl/spiffs[0m:[0;1;32mpy/python_ops.c[0m: int res = SPI[0;30;43mFFS_mount[0m(pfs,
+[0;34mpleumann/pasta80[0m:[0;1;32mrtl/agonhead.asm[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34mLiteOS/LiteOS[0m:[0;1;32mdemos/fs/README_CN.md[0m: int spi[0;30;43mffs_mount[0m(const char *path, u32_t phys_addr, u32_t phys_size,
+[0;34mbreakintoprogram/agon-mos[0m:[0;1;32msrc/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34melua/elua[0m:[0;1;32minc/niffs/nffs.h[0m: int n[0;30;43mffs_mount[0m();
+[0;34mschur/Agon-Light-Assembly[0m:[0;1;32minclude/mos_api.inc[0m: [0;30;43mffs_mount[0m:		.EQU	9Fh
+[0;34mpcawte/AgDev[0m:[0;1;32msrc/libc/mos_api.inc[0m: [0;30;43mffs_mount[0m		:=	09Fh
+[0;34mlennart-benschop/agon-utilities[0m:[0;1;32mmos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34mpellepl/spiffs[0m:[0;1;32msrc/spiffs.h[0m: s32_t SPI[0;30;43mFFS_mount[0m(spiffs *fs, spiffs_config *config, u8_t *work,
+[0;34mpellepl/spiffs[0m:[0;1;32msrc/spiffs.h[0m: * NB: formatting is awkward. Due to backwards compatibility, SPI[0;30;43mFFS_mount
+[0;34mXboxDev/cromwell[0m:[0;1;32mfs/grub/disk_io.c[0m: {"ffs", [0;30;43mffs_mount[0m, ffs_read, ffs_dir, 0, ffs_embed},
+[0;34mAgonPlatform/agon-hexload[0m:[0;1;32msrc/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34melua/elua[0m:[0;1;32msrc/niffs/niffs.c[0m: if(NI[0;30;43mFFS_mount[0m(&fs))
+[0;34melua/elua[0m:[0;1;32msrc/niffs/niffs.c[0m: int n[0;30;43mffs_mount[0m()
+[0;34mAgonPlatform/agon-hexload[0m:[0;1;32mloader/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34mOSPreservProject/oskit[0m:[0;1;32mnetbsd/fs/global.h[0m: #define [0;30;43mffs_mount[0m fs_netbsd_[0;30;43mffs_mount
+[0;34mOSPreservProject/oskit[0m:[0;1;32mnetbsd/fs/global.h[0m: #define [0;30;43mffs_mount[0mfs fs_netbsd_[0;30;43mffs_mount[0mfs
+[0;34mOSPreservProject/oskit[0m:[0;1;32mnetbsd/fs/global.h[0m: #define [0;30;43mffs_mount[0mroot fs_netbsd_[0;30;43mffs_mount[0mroot
+[0;34mDicklesworthstone/frankenfs[0m:[0;1;32mbaselines/README.md[0m: `perf_baseline.json` always carries the full target operation matrix; operations not yet automated or unsupported on the current host are emitted with `"status": "pending"` so progress is explicit and machine-auditable. `benchmark_record.sh` now attempts rootless FUSE mount probes (`mount_cold`, `mount_warm`, `mount_recovery`) via `scripts/mount_benchmark_probe.sh` whenever a local `target/<profile>/ffs-cli` binary and `/dev/fuse` are available. `mount_recovery` uses a journal-enabled probe image so journal replay scanning is exercised during mount. If rootless FUSE is blocked but passwordless sudo exists, you can opt in to privileged probes with `[0;30;43mFFS_MOUNT[0m_PROBE_USE_SUDO=1` (or `--mount-probe-use-sudo`). If a probe still fails, the script records the concrete failure reason in the relevant pending entry. Cache workload metric rows are also embedded under `cache_workload_metrics`.
+[0;34msijnstra/agon-projects[0m:[0;1;32mANSIplay/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34msijnstra/agon-projects[0m:[0;1;32m2048/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34msijnstra/agon-projects[0m:[0;1;32mPCXview/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34melua/elua[0m:[0;1;32minc/niffs/niffs.h[0m: #define ERR_NI[0;30;43mFFS_MOUNT[0mED                   -(NIFFS_ERR_BASE + 31)
+[0;34melua/elua[0m:[0;1;32minc/niffs/niffs.h[0m: int NI[0;30;43mFFS_mount[0m(niffs *fs);
+[0;34msijnstra/agon-projects[0m:[0;1;32mCPCpic/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34msijnstra/agon-projects[0m:[0;1;32mlogoplay/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34msijnstra/agon-projects[0m:[0;1;32mbootlogo/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34mjames7780/Agon_C_Sprites[0m:[0;1;32mmos_api - old.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34msijnstra/agon-projects[0m:[0;1;32mhexdump/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34msijnstra/agon-projects[0m:[0;1;32mmemsave/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34msijnstra/agon-projects[0m:[0;1;32mstrings/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34mdorimanx/exfat-nofuse[0m:[0;1;32mexfat_api.h[0m: #define [0;30;43mFFS_MOUNT[0mED             3
+[0;34mkomarufan/OpenASD[0m:[0;1;32mkernel/vfs/ffs.h[0m: uint32_t [0;30;43mffs_mount[0m_dev(const char *mount_pt, block_dev_t *dev,
+[0;34mkomarufan/OpenASD[0m:[0;1;32mkernel/vfs/ffs.h[0m: * Kept for backward compatibility; prefer [0;30;43mffs_mount[0m_dev.
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/m5dial/Kconfig[0m: config BSP_SPI[0;30;43mFFS_MOUNT[0m_POINT
+[0;34misraellot/esp-ginx[0m:[0;1;32mapp/spiffs/spiffs.c[0m: void spi[0;30;43mffs_mount[0m() {
+[0;34misraellot/esp-ginx[0m:[0;1;32mapp/spiffs/spiffs.c[0m: int res = SPI[0;30;43mFFS_mount[0m(&fs,
+[0;34msslab-gatech/janus[0m:[0;1;32mlkl/fs/affs/affs.h[0m: #define A[0;30;43mFFS_MOUNT[0m_SF_INTL		0x0001 /* International filesystem. */
+[0;34msslab-gatech/janus[0m:[0;1;32mlkl/fs/affs/affs.h[0m: #define A[0;30;43mFFS_MOUNT[0m_SF_BM_VALID		0x0002 /* Bitmap is valid. */
+[0;34msslab-gatech/janus[0m:[0;1;32mlkl/fs/affs/affs.h[0m: #define A[0;30;43mFFS_MOUNT[0m_SF_IMMUTABLE		0x0004 /* Protection bits cannot be changed */
+[0;34msslab-gatech/janus[0m:[0;1;32mlkl/fs/affs/affs.h[0m: #define A[0;30;43mFFS_MOUNT[0m_SF_QUIET		0x0008 /* chmod errors will be not reported */
+[0;34mAgonPlatform/agon-docs[0m:[0;1;32mdocs/mos/API.md[0m: ### `0x9F`: [0;30;43mffs_mount
+[0;34mopenbsd/src[0m:[0;1;32msbin/fsck_ffs/pass1.c[0m: /* This should match the file size limit in [0;30;43mffs_mount[0mfs(). */
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/esp-box/Kconfig[0m: config BSP_SPI[0;30;43mFFS_MOUNT[0m_POINT
+[0;34menvenomator/agon-sokoban[0m:[0;1;32mgame/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34mchenshuo/4.4BSD-Lite2[0m:[0;1;32msys/kern/vfs_conf.c[0m: extern	int [0;30;43mffs_mount[0mroot();
+[0;34mchenshuo/4.4BSD-Lite2[0m:[0;1;32msys/kern/vfs_conf.c[0m: { &ufs_vfsops, "ufs", 1, 0, MNT_LOCAL, [0;30;43mffs_mount[0mroot, NULL },
+[0;34msergev/LiteBSD[0m:[0;1;32msys/kern/vfs_conf.c[0m: extern  int [0;30;43mffs_mount[0mroot();
+[0;34msergev/LiteBSD[0m:[0;1;32msys/kern/vfs_conf.c[0m: { &ufs_vfsops, "ufs", 1, 0, MNT_LOCAL, [0;30;43mffs_mount[0mroot, NULL },
+[0;34mDragonFlyBSD/DragonFlyBSD[0m:[0;1;32msbin/fsck/pass1.c[0m: /* This should match the file size limit in [0;30;43mffs_mount[0mfs(). */
+[0;34mLineageOS/android_bootable_cboot_lk[0m:[0;1;32mtarget/pc-x86/config.c[0m: [0;30;43mffs_mount[0m(0, device_get_by_name(ide, ide0));
+[0;34mxdp-project/xdp-tools[0m:[0;1;32mheaders/xdp/libxdp.h[0m: #define XDP_BP[0;30;43mFFS_MOUNT[0m_ENVVAR "LIBXDP_BPFFS_AUTOMOUNT"
+[0;34mjames7780/Agon_C_Sprites[0m:[0;1;32mmos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34mDjPoke/Agon-Light-sprite-edition-suite[0m:[0;1;32mspredit/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34mSmingHub/SmingRTOS[0m:[0;1;32mREADME.md[0m: - spi[0;30;43mffs_mount[0m() and spi[0;30;43mffs_mount[0m_manual return bool based on mount result
+[0;34mSmingHub/SmingRTOS[0m:[0;1;32mREADME.md[0m: - When using spi[0;30;43mffs_mount[0m() the size of the spiffs FS is autodetected.
+[0;34mSmingHub/SmingRTOS[0m:[0;1;32mREADME.md[0m: - When using spi[0;30;43mffs_mount[0m_manual()
+[0;34mSmingHub/SmingRTOS[0m:[0;1;32mREADME.md[0m: - use the actual flash address : For conversion of current spi[0;30;43mffs_mount[0m_manual :  subtract 0x40200000 from start address
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/m5dial/API.md[0m: bsp_spi[0;30;43mffs_mount[0m();
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/m5dial/API.md[0m: |  esp\_err\_t | [**bsp\_spiffs\_mount**](#function-bsp_spi[0;30;43mffs_mount[0m) (void) <br>_Mount SPIFFS to virtual file system._ |
+[0;34mSiriusNEO/fscape[0m:[0;1;32mplayer.sh[0m: [0;30;43mFFS_MOUNT[0m_POINT=${1}
+[0;34mSiriusNEO/fscape[0m:[0;1;32mplayer.sh[0m: mv gen.sh $[0;30;43mFFS_MOUNT[0m_POINT/gen.sh
+[0;34mSiriusNEO/fscape[0m:[0;1;32mplayer.sh[0m: cd $[0;30;43mFFS_MOUNT[0m_POINT
+[0;34mrhodesepass/epass_usb_responder[0m:[0;1;32msrc/main.c[0m: cfg.[0;30;43mffs_mount[0m = argv[++i];
+[0;34mrhodesepass/epass_usb_responder[0m:[0;1;32msrc/main.c[0m: if (!cfg.[0;30;43mffs_mount[0m) {
+[0;34mSmartArduino/WiFiMCU[0m:[0;1;32mlua/exlibs/file.c[0m: void lua_spi[0;30;43mffs_mount[0m() {
+[0;34mSmartArduino/WiFiMCU[0m:[0;1;32mlua/exlibs/file.c[0m: int res = SPI[0;30;43mFFS_mount[0m(&fs,
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/esp_bsp_devkit/README.md[0m: bsp_spi[0;30;43mffs_mount[0m();
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/esp_bsp_devkit/README.md[0m: /* Use file system read/write with BSP_SPI[0;30;43mFFS_MOUNT[0m_POINT */
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/m5_atom_s3/API.md[0m: bsp_spi[0;30;43mffs_mount[0m();
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/m5_atom_s3/API.md[0m: |  esp\_err\_t | [**bsp\_spiffs\_mount**](#function-bsp_spi[0;30;43mffs_mount[0m) (void) <br>_Mount SPIFFS to virtual file system._ |
+[0;34mSiriusNEO/fscape[0m:[0;1;32mpreprocess.sh[0m: [0;30;43mFFS_MOUNT[0m_POINT=${1}
+[0;34mSiriusNEO/fscape[0m:[0;1;32mpreprocess.sh[0m: echo -n $[0;30;43mFFS_MOUNT[0m_POINT/ > path_cache
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/esp32_lyrat/API.md[0m: bsp_spi[0;30;43mffs_mount[0m();
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/esp32_lyrat/API.md[0m: |  esp\_err\_t | [**bsp\_spiffs\_mount**](#function-bsp_spi[0;30;43mffs_mount[0m) (void) <br>_Mount SPIFFS to virtual file system._ |
+[0;34mStratifyLabs/StratifyOS[0m:[0;1;32mguides/Filesystems.md[0m: S[0;30;43mFFS_MOUNT[0m("/home", &sffs_cfg, SYSFS_ALL_ACCESS), //external flash
+[0;34mStratifyLabs/StratifyOS[0m:[0;1;32mguides/Filesystems.md[0m: Removing entries from the above table will remove the filesystem from the BSP. If an external chip is not available, the `S[0;30;43mFFS_MOUNT[0m()` line is simply removed.
+[0;34mrhodesepass/epass_usb_responder[0m:[0;1;32msrc/responder.h[0m: const char* [0;30;43mffs_mount[0m;
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/esp-box/API.md[0m: bsp_spi[0;30;43mffs_mount[0m();
+[0;34mespressif/esp-bsp[0m:[0;1;32mbsp/esp-box/API.md[0m: |  esp\_err\_t | [**bsp\_spiffs\_mount**](#function-bsp_spi[0;30;43mffs_mount[0m) (void) <br>_Mount SPIFFS to virtual file system._ |
+[0;34mNetBSD/src[0m:[0;1;32mlib/libpuffs/puffs.c[0m: pu[0;30;43mffs_mount[0m(struct puffs_usermount *pu, const char *dir, int mntflags,
+[0;34mNetBSD/src[0m:[0;1;32mlib/libpuffs/puffs.c[0m: * set, pu[0;30;43mffs_mount[0m() doesn't do the regular mount procedure.
+[0;34mrumpkernel/fs-utils[0m:[0;1;32mlib/rump_syspuffs.h[0m: #ifndef _USR_SBIN_PUFFS_RUMP_SYSPU[0;30;43mFFS_MOUNT[0m_SYSPUFFS_H_
+[0;34mrumpkernel/fs-utils[0m:[0;1;32mlib/rump_syspuffs.h[0m: #define _USR_SBIN_PUFFS_RUMP_SYSPU[0;30;43mFFS_MOUNT[0m_SYSPUFFS_H_
+[0;34mleighbb/agon-dos2unix[0m:[0;1;32mmos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34msolokeys/openpgp[0m:[0;1;32mpc/opgpdevice.cpp[0m: void hw_spi[0;30;43mffs_mount[0m() {
+[0;34msolokeys/openpgp[0m:[0;1;32mpc/opgpdevice.cpp[0m: int res = SPI[0;30;43mFFS_mount[0m(&fs,
+[0;34mNetBSD/src[0m:[0;1;32mlib/libp2k/p2k.c[0m: rv = pu[0;30;43mffs_mount[0m(pu, mountpath, mntflags, p2n_root);
+[0;34mLuzrBum/Agon-Projects[0m:[0;1;32mtemplate/mos_api.inc[0m: [0;30;43mffs_mount[0m:		EQU	9Fh
+[0;34mossw/ossw-firmware-s120[0m:[0;1;32mfs.c[0m: return SPI[0;30;43mFFS_mount[0m(&fs,
+[0;34mxlfe/spiffy[0m:[0;1;32msrc/main.c[0m: void my_spi[0;30;43mffs_mount[0m() {
+[0;34mxlfe/spiffy[0m:[0;1;32msrc/main.c[0m: int res = SPI[0;30;43mFFS_mount[0m(&fs,
+[0;34mNetBSD/src[0m:[0;1;32msbin/fsck_ffs/pass1.c[0m: /* This should match the file size limit in [0;30;43mffs_mount[0mfs(). */
+
+===== Jordy =====
+[0;34mIntegerous/goQuality-dev-contents[0m:[0;1;32mREADME.md[0m: - [트랜잭션과 격리 레벨 그리고 Lock에 대하여](https://[0;30;43mjordy[0m-torvalds.tistory.com/121)
+[0;34mthechangelog/changelog.com[0m:[0;1;32mREADME.md[0m: <td align="center" valign="top" width="16.66%"><a href="https://github.com/[0;30;43mJordy[0mZomer"><img src="https://avatars3.githubusercontent.com/u/17198473?v=4?s=100" width="100px;" alt="[0;30;43mJordy[0m Zomer"/><br /><sub><b>[0;30;43mJordy[0m Zomer</b></sub></a><br /><a href="https://github.com/thechangelog/changelog.com/commits?author=[0;30;43mJordy[0mZomer" title="Code">💻</a></td>
+[0;34mRainCloudPlots/RainCloudPlots[0m:[0;1;32mREADME.md[0m: This repository is made available under the [MIT license](LICENSE) which means you're welcome to use and remix the contents so long as you credit the creators: [Micah Allen](https://twitter.com/micahgallen?lang=en), [Davide Poggiali](https://twitter.com/dav1d3p0g?lang=en), [Kirstie Whitaker](https://twitter.com/kirstie_j?lang=en), [Tom Rhys Marshall](https://twitter.com/tomrhysmarshall?lang=en), [[0;30;43mJordy[0m van Langen](https://mas.to/@[0;30;43mjordy[0mvanlangen), [Nicholas Judd](https://njudd.com) and [Rogier Kievit](https://www.rogierkievit.com/).
+[0;34mopencpu/opencpu[0m:[0;1;32mNEWS[0m: - Fixed bug when timeout > 60s (reported by [0;30;43mJordy[0m Coolen)
+[0;34macurlingG/Tarea1UTC[0m:[0;1;32mJordy.txt[0m: archivo de [0;30;43mJordy
+[0;34mLMDEHJULIO/FarmerFroilen-GroupWithJulio[0m:[0;1;32mjordy.txt[0m: [0;30;43mjordy[0m wuz here
+[0;34mJordyHers-org/Times-up-flutter[0m:[0;1;32mREADME.md[0m: <td align="center" valign="top" width="20%"><a href="https://[0;30;43mjordy[0mhers.com/#/"><img src="https://avatars.githubusercontent.com/u/49708438?v=4?s=70" width="70px;" alt="[0;30;43mJordy[0m Hershel Igondjo"/><br /><sub><b>[0;30;43mJordy[0m Hershel Igondjo</b></sub></a><br /><a href="https://github.com/[0;30;43mJordy[0mHers-org/Times-up-flutter/commits?author=[0;30;43mJordy[0mHers" title="Code">💻</a></td>
+[0;34mJordyHers-org/Times-up-flutter[0m:[0;1;32mREADME.md[0m: <td align="center" valign="top" width="20%"><a href="https://github.com/i-am-ijaz"><img src="https://avatars.githubusercontent.com/u/25157495?v=4?s=70" width="70px;" alt="Muhammad Ijaz"/><br /><sub><b>Muhammad Ijaz</b></sub></a><br /><a href="https://github.com/[0;30;43mJordy[0mHers-org/Times-up-flutter/commits?author=i-am-ijaz" title="Code">💻</a></td>
+[0;34mJordyHers-org/Times-up-flutter[0m:[0;1;32mREADME.md[0m: <td align="center" valign="top" width="20%"><a href="https://github.com/bhoomikshetty"><img src="https://avatars.githubusercontent.com/u/76581406?v=4?s=70" width="70px;" alt="Bhoomik Shetty"/><br /><sub><b>Bhoomik Shetty</b></sub></a><br /><a href="https://github.com/[0;30;43mJordy[0mHers-org/Times-up-flutter/commits?author=bhoomikshetty" title="Code">💻</a></td>
+[0;34mJordyHers-org/Times-up-flutter[0m:[0;1;32mREADME.md[0m: <td align="center" valign="top" width="20%"><a href="https://github.com/tarunsamanta2k20"><img src="https://avatars.githubusercontent.com/u/55488549?v=4?s=70" width="70px;" alt="Tarun Samanta"/><br /><sub><b>Tarun Samanta</b></sub></a><br /><a href="https://github.com/[0;30;43mJordy[0mHers-org/Times-up-flutter/commits?author=tarunsamanta2k20" title="Code">💻</a></td>
+[0;34mm0nad/awesome-privilege-escalation[0m:[0;1;32mREADME.md[0m: - [Escaping privileged containers for fun](https://web.archive.org/web/20220307063103/https://pwning.systems/posts/escaping-containers-for-fun/): by [0;30;43mJordy[0m/Oblivion/pwning.systems
+[0;34mBenjaminVanRyseghem/numbro[0m:[0;1;32mREADME.md[0m: <td align="center"><a href="https://github.com/[0;30;43mjordy[0mdejong"><img src="https://avatars1.githubusercontent.com/u/261761?v=4?s=100" width="100px;" alt=""/><br /><sub><b>[0;30;43mJordy[0m de Jong</b></sub></a><br /><a href="https://github.com/BenjaminVanRyseghem/numbro/commits?author=[0;30;43mjordy[0mdejong" title="Code">💻</a></td>
+[0;34minsidetrust/statistically-likely-usernames[0m:[0;1;32mjohn.txt[0m: [0;30;43mjordy[0mn
+[0;34minsidetrust/statistically-likely-usernames[0m:[0;1;32mjohn.txt[0m: [0;30;43mjordy
+[0;34moslabs-beta/ClusterWatch[0m:[0;1;32mREADME.md[0m: <img src="readme_assets/models/[0;30;43mjordy[0m.jpeg" width="140px;" alt=""/>
+[0;34moslabs-beta/ClusterWatch[0m:[0;1;32mREADME.md[0m: <sub><b>[0;30;43mJordy[0m Gonzalez</sub>
+[0;34mjaswdr/faker[0m:[0;1;32mREADME.md[0m: // 426 [0;30;43mJordy[0m Lodge
+[0;34mlowRISC/riscv-llvm[0m:[0;1;32mREADME.mkd[0m: Parzyszek, Ana Pazos, [0;30;43mJordy[0m Portman, Philip Reames, John Russo, Colin Schmidt,
+[0;34mkakaoenterprise/JORLDY[0m:[0;1;32mREADME.md[0m: Hello Wo**RL**d!!:hand:  **Join Our Reinforcement Learning framework for Developing Yours (JORLDY)** is an open-source Reinforcement Learning (RL) framework provided by [KakaoEnterprise](https://www.kakaoenterprise.com/). It is named after [0;30;43mJordy[0m, one of the [Kakao Niniz](https://www.kakaocorp.com/page/service/service/Niniz) character. It provides various RL algorithms and environment and they can be easily used using single code. This repository is opened for helping RL researchers and students who study RL.
+[0;34mkeep-starknet-strange/blobstream-starknet[0m:[0;1;32mREADME.md[0m: <td align="center" valign="top" width="14.28%"><a href="https://github.com/[0;30;43mJordy[0mRo1"><img src="https://avatars.githubusercontent.com/u/87231934?v=4?s=100" width="100px;" alt="[0;30;43mJordy[0m Romuald"/><br /><sub><b>[0;30;43mJordy[0m Romuald</b></sub></a><br /><a href="https://github.com/keep-starknet-strange/blobstream-starknet/commits?author=[0;30;43mJordy[0mRo1" title="Code">💻</a></td>
+[0;34mjorvlan/open-visualizations[0m:[0;1;32mR/exp.Rmd[0m: author: "[0;30;43mJordy[0m van Langen"
+[0;34mjorvlan/open-visualizations[0m:[0;1;32mR/exp.Rmd[0m: This tutorial is partly inspired by work from [Allen et al. (2019)](https://wellcomeopenresearch.org/articles/4-63) and was initially created to contribute to a GitHub repository called ['open-visualizations'](https://github.com/jorvlan/open-visualizations). The idea behind the ['open-visualizations'](https://github.com/jorvlan/open-visualizations) repository stems from the fact that (open) science - in general - lacks 'fully' transparent and robust visualizations, i.e., figures have always some form of 'hidden-data'. To overcome this issue, I started experimenting with some code in Python and R and after posting a [Tweet](https://twitter.com/[0;30;43mjordy[0mvanlangen/status/1228614021076533249), in which I stated that I was working on ['open-visualizations'](https://github.com/jorvlan/open-visualizations), Neuroscientist Micah Allen [replied](https://twitter.com/micahgallen/status/1228615972749266944) and advised me to check out his work on Rainclouds. After performing two of their tutorials, in [R](https://r-project.org/) and [Python](https://python.org) respectively, I thought of a way to combine the raincloud approach with my own work performed in [Python](https://www.python.org/). Shortly after posting another [Tweet](https://twitter.com/[0;30;43mjordy[0mvanlangen/status/1231171552684625921 ), which included some figures that I produced in [R](https://r-project.org/), I received a huge amount of encouraging feedback which led me to writing this markdown document. Next to this markdown document, I have created two other tutorials in Python. Both tutorials are available in my repository [open-visualizations](https://github.com/jorvlan/open-visualizations).
+[0;34mTheRouletteBoi/RouLetteVshMenu[0m:[0;1;32mREADME.md[0m: [@[0;30;43mJordy[0m-Nateur](https://github.com/[0;30;43mJordy[0m-Nateur) for his paf classes Module, PhHandler, PhPlane, PhText, PhWidget and View and his VSH-Playground
+[0;34mkeep-starknet-strange/satoru[0m:[0;1;32mREADME.md[0m: <td align="center" valign="top" width="14.28%"><a href="https://github.com/[0;30;43mJordy[0mRo1"><img src="https://avatars.githubusercontent.com/u/87231934?v=4?s=100" width="100px;" alt="[0;30;43mJordy[0m Romuald"/><br /><sub><b>[0;30;43mJordy[0m Romuald</b></sub></a><br /><a href="https://github.com/keep-starknet-strange/satoru/commits?author=[0;30;43mJordy[0mRo1" title="Code">💻</a></td>
+[0;34mm0chan/BugBounty[0m:[0;1;32mnames.txt[0m: [0;30;43mjordy
+[0;34mm0chan/BugBounty[0m:[0;1;32mnames.txt[0m: [0;30;43mjordy[0mn
+[0;34mkeep-starknet-strange/alexandria[0m:[0;1;32mREADME.md[0m: <td align="center" valign="top" width="14.28%"><a href="https://github.com/[0;30;43mJordy[0mRo1"><img src="https://avatars.githubusercontent.com/u/87231934?v=4?s=100" width="100px;" alt="[0;30;43mJordy[0m Romuald"/><br /><sub><b>[0;30;43mJordy[0m Romuald</b></sub></a><br /><a href="https://github.com/keep-starknet-strange/alexandria/commits?author=[0;30;43mJordy[0mRo1" title="Code">💻</a></td>
+[0;34mfabkrum/web-performance-resources[0m:[0;1;32mindex.md[0m: * [Don't make visitors on your website wait for the same page twice](https://www.rumvision.com/blog/ttfb-challenges-that-our-client-discovered-with-rumvision/), [0;30;43mJordy[0m Scholing, 05/2023
+[0;34mvstinner/python-security[0m:[0;1;32mbugs.txt[0m: author: [0;30;43mJordy[0m Zomer
+[0;34mMantisSTS/OpenXML-XXE-Generator[0m:[0;1;32mREADME.md[0m: OpenXML-XXE-Generator by Richard Clifford & [0;30;43mJordy[0m Zomer
+[0;34mkabk/govt4-17-instructions[0m:[0;1;32mREADME.md[0m: 03. [0;30;43mJordy[0m
+[0;34mredcode-labs/Sammler[0m:[0;1;32mnames.txt[0m: [0;30;43mJordy
+[0;34mredcode-labs/Sammler[0m:[0;1;32mnames.txt[0m: [0;30;43mJordy[0mn
+[0;34mMTangermann/BCI-2023-Workshop_Learning-from-small-datasets[0m:[0;1;32mREADME.md[0m: - Michael Tangermann, [0;30;43mJordy[0m Thielen, Pierre Guetschel, Matthias Dold, Jan Sosulski
+[0;34mMTangermann/BCI-2023-Workshop_Learning-from-small-datasets[0m:[0;1;32mREADME.md[0m: [0;30;43mJordy[0m Thielen:
+[0;34mjordydavelaar/raptor[0m:[0;1;32mREADME.md[0m: Main developers; Thomas Bronzwaer, [0;30;43mJordy[0m Davelaar
+[0;34mjordydavelaar/raptor[0m:[0;1;32mREADME.md[0m: ``` wget https://astro.ru.nl/~[0;30;43mjordy[0md/data2000.dat ```
+[0;34mrubyforgood/homeward-tails[0m:[0;1;32mREADME.md[0m: <td align="center" valign="top" width="14.28%"><a href="https://github.com/wiliajc87"><img src="https://avatars.githubusercontent.com/u/8497806?v=4?s=100" width="100px;" alt="[0;30;43mJordy[0m Williams"/><br /><sub><b>[0;30;43mJordy[0m Williams</b></sub></a><br /><a href="https://github.com/rubyforgood/homeward-tails/commits?author=wiliajc87" title="Code">💻</a></td>
+[0;34mpampanic/pam_panic[0m:[0;1;32mpo4a/pl.po[0m: "This man page has been revised by [0;30;43mJordy[0m Dickinson E<lt>[0;30;43mjordy[0m."
+[0;34mpampanic/pam_panic[0m:[0;1;32mpo4a/de.po[0m: "This man page has been revised by [0;30;43mJordy[0m Dickinson E<lt>[0;30;43mjordy[0m."
+[0;34mnvmd/itpp[0m:[0;1;32mNEWS-3.9[0m: Octave. Thanks to [0;30;43mJordy[0m Potman for providing a patch.
+[0;34mOPunktSchmidt/KpImageViewer-Extended[0m:[0;1;32mREADME.md[0m: Customized and extended version of an image viewer control found on CodeProject. All credits for the initial work go to [0;30;43mJordy[0m from CodeProject (https://www.codeproject.com/script/Membership/View.aspx?mid=4545084) and his Image Viewer Control (https://www.codeproject.com/Articles/71225/Image-Viewer-UserControl).
+[0;34mSeleDreams/godot-2-3ds[0m:[0;1;32mDONORS.md[0m: [0;30;43mJordy[0m Goodridge
+[0;34mmcamara/laravel-localization[0m:[0;1;32mREADME.md[0m: > [@[0;30;43mjordy[0mvanderhaegen](https://github.com/[0;30;43mjordy[0mvanderhaegen) for users
+[0;34mjorvlan/raincloudplots-workshops[0m:[0;1;32mREADME.md[0m: <a href="https://twitter.com/rogierK">Rogier Kievit</a> and <a href="https://twitter.com/[0;30;43mjordy[0mvanlangen">[0;30;43mJordy[0m van Langen</a>.
+[0;34mjorvlan/raincloudplots-workshops[0m:[0;1;32mREADME.md[0m: <img src="https://github.com/jorvlan/raincloudplots-workshops/blob/main/other/[0;30;43mjordy[0m_australia.jpg" width="150" height="150" align="right"/>
+[0;34mjordy-code/SourceTracker2-diagnostics[0m:[0;1;32mREADME.md[0m: pip install git+https://github.com/[0;30;43mjordy[0m-code/SourceTracker2-diagnostics.git@Update
+[0;34mduchallenge-team/dude[0m:[0;1;32mREADME.md[0m: Check out our standalone repository which explains it all: https://github.com/[0;30;43mJordy[0m-VL/DUDEeval
+[0;34mduchallenge-team/dude[0m:[0;1;32mREADME.md[0m: author={Van Landeghem, [0;30;43mJordy[0m, Łukasz Borchmann, Rubèn Tito, Michał Pietruszka, Dawid Jurkiewicz, Rafał Powalski, Paweł Józiak, Sanket Biswas, Mickaël Coustaty and Tomasz Stanisławek},
+[0;34mparticle-iot/wordclock[0m:[0;1;32mREADME.md[0m: This repo belongs to the word clock made by [0;30;43mJordy[0m Moors. This should contain the required code to get this up and running, along with the steps on how to do this.
+[0;34mOxRML/MADQA[0m:[0;1;32mREADME.md[0m: author={Łukasz Borchmann and [0;30;43mJordy[0m Van Landeghem and Michał Turski and Shreyansh Padarha and Ryan Othniel Kearns and Adam Mahdi and Niels Rogge and Clémentine Fourrier and Siwei Han and Huaxiu Yao and Artemis Llabrés and Yiming Xu and Dimosthenis Karatzas and Hao Zhang and Anupam Datta},
+[0;34mnjudd/ggrain[0m:[0;1;32mREADME.md[0m: [`ggrain`](https://www.njudd.com/raincloud-ggrain/) was developed by [`Nicholas Judd`](https://www.njudd.com), [`[0;30;43mJordy[0m van Langen`](https://github.com/jorvlan), Micah Allen, and [`Rogier Kievit`](https://lifespancognitivedynamics.com/).
+[0;34mjhmlam/Inching[0m:[0;1;32mAUTHORS.md[0m: * [0;30;43mJordy[0m Homing Lam, University of Southern California (Lead Contact)
+[0;34mjhmlam/Inching[0m:[0;1;32mAUTHORS.md[0m: * [0;30;43mJordy[0m Homing Lam, University of Southern California
+[0;34mckaraneen/neuroaid[0m:[0;1;32mREADME.md[0m: - [Brains on Beats](None) by Güçlü, Umut; Thielen, [0;30;43mJordy[0m; Hanke, Michael; van Gerven, Marcel A. J. (2016)
+[0;34mits0x08/IPTV-tool[0m:[0;1;32musers.txt[0m: [0;30;43mjordy
+[0;34mits0x08/IPTV-tool[0m:[0;1;32musers.txt[0m: [0;30;43mjordy[0mn
+[0;34mIonicaBizau/parse-url[0m:[0;1;32mREADME.md[0m: - `[0;30;43mjordy[0m-frijters-test-lib`
+[0;34mSvenSerneels/direpack[0m:[0;1;32mREADME.md[0m: 0. [`direpack`: A Python 3 package for state-of-the-art statistical dimensionality reduction methods](https://www.sciencedirect.com/science/article/pii/S235271102200200X), Emmanuel [0;30;43mJordy[0m Menvouta, Sven Serneels, Tim Verdonck, SoftwareX, 21 (2023), 101282.
+[0;34mbelkadan/Mail-Aliases[0m:[0;1;32mREADME.md[0m: Copyright (c) 2012 [0;30;43mJordy[0m Rose
+[0;34mt33bu/retroimagify[0m:[0;1;32mREADME.md[0m: Original image [Itsukushima Gate](https://en.wikipedia.org/wiki/Itsukushima_Shrine#/media/File:Itsukushima_Gate.jpg) by [0;30;43mJordy[0m Meow (CC BY-SA 3.0). The palettes are retrieved from free [Lospec Palette List](https://lospec.com/palette-list).
+[0;34mJordyCoolen/easyseq_covid19[0m:[0;1;32mREADME.md[0m: https://github.com/[0;30;43mJordy[0mCoolen/easyseq_covid19/releases/tag/v0.5.2
+[0;34mJordyCoolen/easyseq_covid19[0m:[0;1;32mREADME.md[0m: ([0;30;43mjordy[0m.coolen@radboudumc.nl)
+[0;34mgrupyrn/meetup[0m:[0;1;32mREADME.md[0m: * Desmistificando aplicações web com Flask ([[0;30;43mJordy[0m Araújo](https://github.com/[0;30;43mJordy[0mAraujo))
+[0;34mjackc/mat-view-strat-pg[0m:[0;1;32mnames.txt[0m: [0;30;43mJordy
+[0;34mjackc/mat-view-strat-pg[0m:[0;1;32mnames.txt[0m: [0;30;43mJordy[0man
+[0;34mjackc/mat-view-strat-pg[0m:[0;1;32mnames.txt[0m: [0;30;43mJordy[0mn
+[0;34mjackc/mat-view-strat-pg[0m:[0;1;32mnames.txt[0m: [0;30;43mJordy[0mnn
+[0;34mbsdlab/Dareplane[0m:[0;1;32mREADME.md[0m: author = {Dold, Matthias and Pereira, Joana and Sajonz, Bastian and Coenen, Volker A and Thielen, [0;30;43mJordy[0m and Janssen, Marcus L F and Tangermann, Michael},
+[0;34mKeithMarex/VvE-APP[0m:[0;1;32mREADME.md[0m: - [0;30;43mJordy[0m Koemans
+[0;34mbartwesselink/dbl-visualization[0m:[0;1;32mREADME.md[0m: - [0;30;43mJordy[0m Verhoeven
+[0;34mjpmayer/fantasy[0m:[0;1;32m2014.txt[0m: [0;30;43mJordy[0m Nelson, GB WR
+[0;34mjpmayer/fantasy[0m:[0;1;32m2014.txt[0m: [0;30;43mJordy[0m Nelson, GB WR
+[0;34mjpmayer/fantasy[0m:[0;1;32m2013.txt[0m: [0;30;43mJordy[0m Nelson, GB WR
+[0;34mjpmayer/fantasy[0m:[0;1;32m2013.txt[0m: [0;30;43mJordy[0m Nelson, GB WR
+[0;34mlookpin/lookpin-frontend-template[0m:[0;1;32mREADME.md[0m: - [0;30;43mjordy[0m and [0;30;43mjordy[0m-cli
+[0;34mjordyfontoura/np[0m:[0;1;32mREADME.md[0m: git clone https://github.com/[0;30;43mjordy[0mfontoura/np.git
+[0;34mjordyfontoura/np[0m:[0;1;32mREADME.md[0m: <a href="https://www.linkedin.com/in/[0;30;43mjordy[0m-fontoura/" target="_blank" rel="noreferrer">
+[0;34mErykuuu/IterationRp-SoczystaWolowina-edits[0m:[0;1;32mREADME.md[0m: - OpenDrt support creator: [JElfferich [0;30;43mJordy[0m Elfferich](https://github.com/JElfferich/itrp-patches)
+[0;34mquantify-os/quantify-scheduler[0m:[0;1;32mAUTHORS.md[0m: - [0;30;43mJordy[0m Gloudemans ([GitLab](https://gitlab.com/jgloudemans))
+[0;34mjordyamc/UKIKU[0m:[0;1;32mREADME.md[0m: ![](https://github.com/[0;30;43mjordy[0mamc/UKIKU/blob/master/web/img/UKIKU%20Facebook.png)
+[0;34mjordyamc/UKIKU[0m:[0;1;32mREADME.md[0m: [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4f8228880e0a4d3da8ee1c861801e5bf)](https://app.codacy.com/app/[0;30;43mjordy[0mamc/UKIKU?utm_source=github.com&utm_medium=referral&utm_content=[0;30;43mjordy[0mamc/UKIKU&utm_campaign=Badge_Grade_Dashboard)
+[0;34mjordyamc/UKIKU[0m:[0;1;32mREADME.md[0m: [![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/[0;30;43mjordy[0mamc/UKIKU/commits/master)
+[0;34mjordyamc/UKIKU[0m:[0;1;32mREADME.md[0m: [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/[0;30;43mjordy[0mamc/UKIKU/blob/master/LICENSE)
+[0;34mjordyamc/UKIKU[0m:[0;1;32mREADME.md[0m: [![GitHub forks](https://img.shields.io/github/forks/[0;30;43mjordy[0mamc/UKIKU.svg)](https://github.com/[0;30;43mjordy[0mamc/UKIKU/network/members)
+[0;34mKukiwon/rfduino-swift[0m:[0;1;32mREADME.md[0m: [0;30;43mJordy[0m van Kuijk, info@noproblem.software
+[0;34mkabk/go-theses-17[0m:[0;1;32mlist.txt[0m: 12: [0;30;43mJORDY[0m
+[0;34mandela/technites-bn-backend[0m:[0;1;32mREADME.md[0m: [Paul Otieno -TTL](https://github.com/Paulstar200) || [Fred Mucyo](https://github.com/mucyomiller) || [Didas Mbalanya](https://github.com/didasmbalanya) || [[0;30;43mJordy[0m Bastien](https://github.com/[0;30;43mJordy[0mbastien) || [Amily Kassim](https://github.com/amilykassim) || [Titus Thumbi](https://github.com/TgeeT)
+[0;34mnewdigate/rgb565_colors[0m:[0;1;32mREADME.md[0m: | ![[0;30;43mJordy[0m Blue](docs/tones/[0;30;43mJordy[0m_blue.svg)  | [0;30;43mJordy[0m Blue  | 0x8DDD | #8AB9F1 |
+[0;34mjordyvanvorselen/rib-reviews[0m:[0;1;32mREADME.md[0m: [0;30;43mJordy[0m van Vorselen - [@[0;30;43mjordy[0mvanvorselen](https://twitter.com/[0;30;43mjordy[0mvanvorselen) - [0;30;43mjordy[0mvanvorselen@gmail.com
+[0;34mjordyvanvorselen/rib-reviews[0m:[0;1;32mREADME.md[0m: [linkedin-url]: https://linkedin.com/in/[0;30;43mjordy[0m-van-vorselen
+[0;34mWellerQu/regExpGenerator[0m:[0;1;32mREADME.md[0m: sample1: `Sep 25 01:22:59 10.5.172.40 Feb 24 19:44:58 BD-Panorama 1,2020/09/25 01:22:59,007200001165,SYSTEM,globalprotect,0,2020/09/25 01:22:59,,globalprotectgateway-agent-msg,VPN-GW-N,0,0,general,informational,"GlobalProtect gateway agent message. Login from: 192.168.55.100, User name: tng\[0;30;43mjordy[0m, Time: Fri Sep 25 01:22:59 2016., Message: Agent Disable, Comment: none. Override(s)=1.",641825,0x8000000000000000,0,0,0,0,,PA-VM`
+[0;34mWellerQu/regExpGenerator[0m:[0;1;32mREADME.md[0m: const sample1 = `Sep 25 01:22:59 10.5.172.40 Feb 24 19:44:58 BD-Panorama 1,2020/09/25 21:22:59,007200001165,SYSTEM,globalprotect,0,2020/09/25 01:22:59,,globalprotectgateway-agent-msg,VPN-GW-N,0,0,general,informational,"GlobalProtect gateway agent message. Login from: 192.168.55.100, User name: tng\\[0;30;43mjordy[0m, Time: Fri Sep 25 01:22:59 2016., Message: Agent Disable, Comment: none. Override(s)=1.",641825,0x8000000000000000,0,0,0,0,,PA-VM`;
+[0;34mbecodeorg/verou-3-end-with-a-bang-il-volo[0m:[0;1;32mREADME.md[0m: ### 🧑‍🤝‍🧑 Made by [Jian](https://www.example.com) ,[Dery](https://www.example.com) & [[0;30;43mJordy[0m](https://www.example.com) with ❤️.
+[0;34mbecodeorg/verou-3-end-with-a-bang-il-volo[0m:[0;1;32mREADME.md[0m: Movies -> [[0;30;43mJordy[0m](https://www.example.com)<br>
+[0;34mthesoncriel/jordy-cli[0m:[0;1;32mREADME.md[0m: # [0;30;43mjordy[0m-cli
+[0;34mthesoncriel/jordy-cli[0m:[0;1;32mREADME.md[0m: [[0;30;43mjordy[0m](https://github.com/thesoncriel/[0;30;43mjordy[0m) 라이브러리와 함께 업무용 프론트엔드 프로젝트 아키텍처에서 쓰이는 CLI 도구입니다.
+[0;34mGremlinsAP/TheOne[0m:[0;1;32mreadme.md[0m: <li><a href="https://github.com/s129030" target="_blank">D'[0;30;43mJordy[0m Verheyden</a></li>
+[0;34mJordy-VL/uncertainty-bench[0m:[0;1;32mREADME.md[0m: Repository for **Benchmarking Scalable Predictive Uncertainty in Text Classification**, by [0;30;43mJordy[0m Van Landeghem, Matthew Blaschko, Bertrand Anckaert and Marie-Francine Moens.
+[0;34mJordy-VL/uncertainty-bench[0m:[0;1;32mREADME.md[0m: AUTHOR = {Van Landeghem, [0;30;43mJordy[0m and Blaschko, Matthew B. and Anckaert, Bertrand and Moens, Marie-Francine},
+[0;34mJordy-VL/multi-modal-early-exit[0m:[0;1;32mREADME.md[0m: ![paper figure](https://github.com/[0;30;43mJordy[0m-VL/multi-modal-early-exit/blob/main/EE/images/EE_design.jpg)
+[0;34mJordy-VL/multi-modal-early-exit[0m:[0;1;32mREADME.md[0m: ![gates figure](https://github.com/[0;30;43mJordy[0m-VL/multi-modal-early-exit/blob/main/EE/images/Calibration-effect-gate.drawio.png)
+[0;34mjordyvanraalte/blockchain[0m:[0;1;32mREADME.md[0m: [0;30;43mJordy[0m van Raalte - ik@[0;30;43mjordy[0mvanraalte.nl
+[0;34mjordyvanraalte/blockchain[0m:[0;1;32mREADME.md[0m: Linkedin: [[0;30;43mJordy[0m van Raalte](https://www.linkedin.com/in/[0;30;43mjordy[0m-van-raalte/)
+[0;34millacceptanything/illacceptanything[0m:[0;1;32mREADME.md[0m: [0;30;43mJordy[0mV - [github.com/[0;30;43mJordy[0mValentine](https://github.com/[0;30;43mJordy[0mValentine)**
+[0;34mdeckerweb/builder-template-categories[0m:[0;1;32mREADME.md[0m: * New: Integration with plugin Blocks Layouts (free, by [0;30;43mJordy[0m Meow) -- *for WordPress Block Editor, also known as "Gutenberg"*
+[0;34mrachelplayer/isg-playground[0m:[0;1;32mnames.txt[0m: [0;30;43mJordy
+[0;34mIonicaBizau/parse-path[0m:[0;1;32mREADME.md[0m: - `[0;30;43mjordy[0m-frijters-test-lib`
+[0;34mdivamgupta/lstm-gender-predictor[0m:[0;1;32mmale.txt[0m: [0;30;43mJordy
+[0;34myudi-matsuzake/configuracoes-de-rede[0m:[0;1;32mREADME.md[0m: Agradecimentos ao [[0;30;43mJordy[0m](https://github.com/[0;30;43mjordy[0mantunes/) pelas anotações iniciais.
+[0;34mjor-s/project-tech-team[0m:[0;1;32mREADME.md[0m: Team - [0;30;43mJordy[0m Sahit, Chun Xiao, Azam Awan and Giovanni Dwidjosewojo
+[0;34mjordy-u/MMM-Discourse-notifications[0m:[0;1;32mREADME.md[0m: ﻿[![Build Status](https://travis-ci.org/[0;30;43mjordy[0m-u/MMM-Discourse-notifications.svg?branch=master)](https://travis-ci.org/[0;30;43mjordy[0m-u/MMM-Discourse-notifications)
+[0;34mjordy-u/MMM-Discourse-notifications[0m:[0;1;32mREADME.md[0m: For a list of bugs and future features, take a look at [the wiki](https://github.com/[0;30;43mjordy[0m-u/MMM-Discourse-notifications/wiki/Bugs-&-coming-features).
+[0;34mjordyvanraalte/picqer-client-python[0m:[0;1;32mREADME.md[0m: Picqer client python by [0;30;43mJordy[0m van Raalte
+[0;34mrenansdf/l2b-art-gallery[0m:[0;1;32mREADME.md[0m: [0;30;43mJordy[0m Henry | Programming - original vanilla javascript code
+[0;34mPolinaStamenova/NewYorkTimes-Clone[0m:[0;1;32mREADME.md[0m: 👤 **[0;30;43mJordy[0m Garcia**
+[0;34mPolinaStamenova/NewYorkTimes-Clone[0m:[0;1;32mREADME.md[0m: - GitHub: [@githubhandle](https://github.com/garcia[0;30;43mjordy[0m)
+[0;34mPolinaStamenova/NewYorkTimes-Clone[0m:[0;1;32mREADME.md[0m: - LinkedIn: [LinkedIn](https://www.linkedin.com/in/[0;30;43mjordy[0m-garcia-675849206/)
+[0;34mtaskinoz/CSS-QL[0m:[0;1;32mREADME.md[0m: It was inspired by [this tweet from @[0;30;43mJordy[0m_vD_](https://twitter.com/[0;30;43mJordy[0m_vD_/status/1682041493446606849):
+[0;34mjan-vandorpe/Scrumdating[0m:[0;1;32mREADME.md[0m: [0;30;43mJordy[0m Vanderstukken, Wouter Vankerschaever, Gregory Reynaert, Micha Swart
+[0;34mJayich-Lab/EDM-Limits[0m:[0;1;32mREADME.md[0m: **Thank you to**: [0;30;43mJordy[0m De Vries, Dave DeMille, Mingyu Fan, Nick Hutzler, Prajwal Murthy, Luka Sever-Walter, and Jaideep Singh for help with this project.  The article Kirch and Schmidt-Wellenburg, *Search for electric dipole moments*, EPJ Web of Conferences, **234**, 01007 (2020) was a helpful reference.
+[0;34m4erka/ReverseProxy-E1[0m:[0;1;32mREADME.md[0m: 1. 5111100101 [0;30;43mJORDY[0m ADHITYO P
+[0;34mjhmlam/PyIcmDocking[0m:[0;1;32mREADME.md[0m: Author: [0;30;43mJordy[0m Homing Lam
+[0;34mjhmlam/PyIcmDocking[0m:[0;1;32mREADME.md[0m: Copyright (C) 2024  [0;30;43mJordy[0m Homing Lam, jhmlam, JHML. Ho Ming LAM. All rights reserved.
+[0;34mJordyPouw/necssary[0m:[0;1;32mREADME.md[0m: Preview the styling for the HTML elements [here](https://[0;30;43mjordy[0mpouw.github.io/necssary/test.html).
+[0;34mJordyPouw/necssary[0m:[0;1;32mREADME.md[0m: Read my introduction post if you are curious [here](https://www.[0;30;43mjordy[0m.build/post/necssary-css-reset "Introducing Necssary: The Essential CSS Foundation for Every Project").*
+[0;34maseprite/strings[0m:[0;1;32mREADME.md[0m: * [0;30;43mJordy[0m Tapia ([[0;30;43mjordy[0mtapia19](https://hosted.weblate.org/user/[0;30;43mjordy[0mtapia19/))
+[0;34mmathias-bellat/ML_archaeology_review[0m:[0;1;32mREADME.md[0m: in Archaeological Practices: A Review” from Mathias Bellat, [0;30;43mJordy[0m Didier
+[0;34mmathias-bellat/ML_archaeology_review[0m:[0;1;32mREADME.md[0m: > Mathias Bellat, [0;30;43mJordy[0m Didier Orellana Figueroa, Jonathan Scott Reeves, Ruhollah Taghizadeh-Mehrjardi, Claudio Tennie and Thomas Scholten, (2025). *Machine Learning Applications in Archaeological Practices: A Review*. Journal of Computer Applications in Archaeology  <https://doi.org/xxx/xxx>
+[0;34mthijor/dp-cvep-speller[0m:[0;1;32mREADME.md[0m: author = {Dold, Matthias and Pereira, Joana and Sajonz, Bastian and Coenen, Volker A and Thielen, [0;30;43mJordy[0m and Janssen, Marcus L F and Tangermann, Michael},
+[0;34mthijor/dp-cvep-speller[0m:[0;1;32mREADME.md[0m: author = {Thielen, [0;30;43mJordy[0m and Marsman, Pieter and Farquhar, Jason and Desain, Peter},
+[0;34mTahsinGokalp/laravel-ews-driver[0m:[0;1;32mREADME.md[0m: * [[0;30;43mJordy[0m Sinke](https://github.com/[0;30;43mjordy[0msinke)
+[0;34mMGelein/humansvsaliens[0m:[0;1;32mREADME.md[0m: Team Members: Jeroen Offerijns, [0;30;43mJordy[0m van Miltenburg & Mees Gelein.
+[0;34mJordyKingz/bots[0m:[0;1;32mREADME.md[0m: - ```[0;30;43mJordy[0m de Koning``` - Plugin developer & student IMT;
+[0;34mjordy-u/COVID-19-Dashboard-NL[0m:[0;1;32mREADME.md[0m: ![Slide_though_time](https://github.com/[0;30;43mjordy[0m-u/COVID-19-Dashboard-NL/blob/master/doc/images/scroll_through_time.gif)
+[0;34mHE-Arc/menu-finder-api-doc[0m:[0;1;32mREADME.md[0m: * **[[0;30;43mJordy[0m Crescoli](https://github.com/joecrescoll)**
+[0;34mJordyKieto/drift-sdk[0m:[0;1;32mREADME.md[0m: dataset = client.load_dataset("[0;30;43mjordy[0m-v0")
+[0;34mJordyKieto/drift-sdk[0m:[0;1;32mREADME.md[0m: routes = client.list_routes("[0;30;43mjordy[0m-v0")
+[0;34maxeljunior/DOOM-FireEffect[0m:[0;1;32mREADME.md[0m: <td align="center"><a href="https://github.com/[0;30;43mjordy[0mfontoura"><img src="https://avatars.githubusercontent.com/u/52868800?v=4" width="90px;" alt=""/><br /><sub><b>[0;30;43mJordy[0m Fontoura</b></sub></a><br /></td>
+[0;34mmanno/terminator[0m:[0;1;32mpo/fr.po[0m: "Last-Translator: [0;30;43mJordy[0m PROVOST <[0;30;43mjordy[0m.provost@free.fr>\n"

@@ -89,3 +89,7 @@ Fuente de imagen: `https://pbs.twimg.com/media/HNh9_YGWgAANBEm?format=webp&name=
 ## Búsqueda por frases distintivas del anuncio
 
 Las búsquedas textuales de `“250GB drives aren't all made the same”`, `“The expected userlands” “Vue and BD-J”` y `“It has been named Celsius” PS4` no devolvieron copias indexadas adicionales. No se localizó un hilo original alternativo, archivo enlazado, PoC, bootstrap o imagen UFS fuera de las referencias ya documentadas. Resultado: **búsqueda negativa**, sin corroboración independiente nueva.
+
+## Búsqueda global de código fuera del scanner
+
+La búsqueda de código para `Celsius`, `ffs_mount` y `Jordy`, excluyendo `adri22235/ps4-suid-scanner`, no encontró una PoC PS4, bootstrap, imagen UFS/FFS ni implementación Orbis. Las coincidencias de `ffs_mount` corresponden a FreeBSD/NetBSD, GRUB, SPIFFS u otros sistemas no relacionados; no son evidencia de Celsius. Las coincidencias de `Celsius`/`Jordy` recuperadas fueron documentación secundaria o proyectos sin relación técnica con la cadena. Se conserva el resultado bruto en `upstream/adri-suid-history/full-stage2/celsius_global_code_search.txt`. Clasificación: **búsqueda negativa**, sin artefacto independiente nuevo.

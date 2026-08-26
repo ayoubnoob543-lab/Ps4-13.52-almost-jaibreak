@@ -887,3 +887,7 @@ The third image states that the expected PS4 userlands are Vue and BD-J, while P
 ## Distinctive-phrase search
 
 Searches for distinctive phrases from the primary Celsius announcement returned no additional indexed copies, technical threads, linked files, PoC, bootstrap or UFS image. The public chain remains Dr.Yenyen -> secondary reproductions; no new independent artifact was found.
+
+## Global code search outside scanner
+
+Global GitHub code search for `Celsius`, `ffs_mount` and `Jordy`, excluding `adri22235/ps4-suid-scanner`, found no independent PS4 PoC, bootstrap, UFS/FFS image or Orbis implementation. `ffs_mount` hits were unrelated FreeBSD/NetBSD, GRUB, SPIFFS or other filesystem projects. Raw output is preserved in `celsius_global_code_search.txt`.
