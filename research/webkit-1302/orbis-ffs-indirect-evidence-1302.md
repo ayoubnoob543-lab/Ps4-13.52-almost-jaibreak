@@ -252,3 +252,15 @@ La inspección de `ArabPixel/sdk` aporta la única pista técnica nueva: el sopo
 La release Fusion 1.4 es un asset compilado de 214672 bytes (`aff12b6cddc352e598ea263e1f901cdc525da5e9c0b53467bf5768ec58032af4`) con payload comprimido propio. Su descripción sólo anuncia 12.50/13.00. La presencia de cadenas `Kernel.elf` y `ELF` embebidas no convierte el asset en kernel Orbis; la extracción ingenua no produce un ELF válido y no aparecen FFS/UFS/13.02. Se clasifica como payload Fusion `VERIFIED` y como supuesto dump Orbis `INVALID`.
 
 La hipótesis más fuerte actual es, por tanto, **“offsets derivados de una sesión privada de kernel R/W y tooling de kdump/pattern scan, publicados después como tablas”**, pero sigue siendo `HYPOTHESIS`. La fuente material primaria, si existió, no está en las ramas, tags, releases, issues o PRs públicos auditados.
+
+## 18. PSFree Enhanced: payload de dumper real, pero sin output 13.02
+
+La búsqueda de la referencia pública de ArabPixel en Reddit localizó la discusión [“is there a kernel dumper for 13.00?”](https://www.reddit.com/r/PS4Mods/comments/1tvjftl/is_there_a_kernel_dumper_for_1300/). ArabPixel respondió que existe un dumper, recomendó compilar el payload de Scene-Collective y mencionó que PSFree Enhanced tenía payloads actualizados.
+
+Se inspeccionó `ArabPixel/old-PSFree-Enhanced/payloads/Bins/Dumper/kerneldumper.bin`. El archivo es un payload raw de 15380 bytes, SHA-256 `61eaf5122a83aec55ac22045f7ac19f86ad663ea78eea3fa9e0d2a63fb5355a9`. Sus strings indican que escribe un archivo en `%s/PS4/%s/kernel.bin`, usa una marca `%s/kernel.complete`, espera un dispositivo USB, calcula tamaño y chunks, y anuncia “Kernel dumped successfully!”. Esto confirma un dumper compilado funcional como artefacto público de tooling.
+
+No aparecen strings `13.02`, `1302`, `13.04`, `ffs_mountfs`, `ffs_reload`, `UFS` o `Celsius`; el repositorio no contiene una variante `kerneldumper-1302.bin`, un kernel.bin resultante, log de ejecución ni hash de un dump. El historial relevante de PSFree Enhanced sólo muestra actualizaciones generales de payloads entre mayo y julio de 2025. Clasificación: `VERIFIED` como payload dumper; `SOURCE_ONLY` para la afirmación de que pudiera estar actualizado; `INVALID` como dump Orbis 13.02.
+
+El dato eleva la plausibilidad de que investigadores con kernel R/W pudieran obtener imágenes de kernel, pero no establece que el dumper de PSFree Enhanced haya sido ejecutado en 13.02 ni que generase la tabla de ArabPixel/Fusion. Tampoco proporciona una dirección o patrón para `patch_mount`/`ffs_mountfs`.
+
+La guía pública de [reversing.codes](https://reversing.codes/posts/ps4-kernel-patching-guide/) confirma conceptualmente que el dumper de Scene-Collective se usa para adquirir un kernel y que los offsets se obtienen restando la base KASLR a direcciones observadas en el dump. Es evidencia metodológica general, no evidencia específica de Orbis 13.02 ni de Celsius.

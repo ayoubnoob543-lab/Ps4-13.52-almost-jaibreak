@@ -71,3 +71,7 @@ External scene sources:
 - GameGaz: https://gamegaz.com/2026071945823/ (2026-07-19) repeats bollars attribution, ffs_mount heap-overflow claim, USB 3.0 250GB requirement, and says exploit was not yet practical; explicitly notes no matching public HackerOne report was found. Secondary/source-only.
 - Instagram GamerZ56K: https://www.instagram.com/p/DbATUEYDH9y/ (2026-07-19) says bollars found the issue by diffing PS4 kernels in the ffs_mount function and labels compatibility theoretical; no artifact. Secondary/source-only.
 - adri22235/ps4-suid-scanner: https://github.com/adri22235/ps4-suid-scanner (created 2026-07-18) repeats “works up to 13.04” and “patched in 13.50”; no primary Celsius code or kernel bytes.
+
+## Additional Reddit search
+
+A broader search for Reddit discussions combining `Celsius`, `ffs_mount`, `bollars`, `dump`, and PS4 13.04/13.02 did not return a new primary artifact. The useful public Reddit evidence remains ArabPixel's statement that Scene-Collective's dumper can be compiled and that PSFree Enhanced has updated payloads. No linked kernel image, disassembly, hash, or technical Celsius writeup was found in the returned discussion set.
