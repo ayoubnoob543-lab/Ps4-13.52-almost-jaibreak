@@ -1,0 +1,10 @@
+1089382ec1e0000e9557b7748d39b57952bbc4f3	2026-08-09T00:35:29Z	Adrián García Casado	Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+96a79482d249fdbc6101bc641241488de66c313d	2026-08-09T00:26:47Z	Adrián García Casado	Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+702fcc397d45546baab5311bc0a264870ae90042	2026-07-30T17:34:44Z	Adrián García Casado	Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+3fd35a4e475698b59dae40794901a56126a38c52	2026-07-29T23:45:04Z	Adrián García Casado	Add compiled ps4-hen for FW 13.04 with full offsets
+b1570ef644991d6ffe41c459753c169017d28be6	2026-07-29T07:54:13Z	Adrián García Casado	Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+596745e89dc6430697d3085ed31fdcea15d54c1d	2026-07-21T20:58:15Z	Adrián García Casado	CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+615c637aaf2d75d6bbc3a935590dc1833a0e743f	2026-07-21T19:38:34Z	Adrián García Casado	Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+13d44f233b4f693287739b6bb49806b8af058e15	2026-07-18T15:05:00Z	Adrián García Casado	Add Pharaoh2k to credits
+6cacb2432f9940a5710a8d13895d4c799342cca6	2026-07-18T15:02:05Z	Adrián García Casado	Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+9d0d8e1a509d358439891d1994f5e52e047fd7b0	2026-07-18T11:45:20Z	Adrián García Casado	PS4 SUID Scanner for FW 13.04 - BD-JB based

@@ -259,3 +259,11 @@ The current README and `cve_analysis.md` of `adri22235/ps4-suid-scanner` provide
 However, the checked files do not publish Orbis 13.02/13.04 kernel bytes, an Orbis disassembly/pseudocode listing, a reproducible Celsius PoC, a hardware log, a crash dump, a kernel hash, a patch diff against 13.50, or a primary bollars artifact. Their quoted C is recognizably FreeBSD/upstream-style source and is not by itself proof that Orbis retained the same implementation. The README separately says 13.04 offsets are based on 13.02 “identical kernel” and verified by Pharaoh2k, but gives no bytes or independent verification artifact.
 
 Classification: README/cve_analysis existence and wording `VERIFIED`; Celsius compatibility and 13.04 confirmation `SOURCE_ONLY`; exact Orbis code correspondence `HYPOTHESIS`/`UNVERIFIED_13_02`; claim of kernel R/W `SOURCE_ONLY`; 13.50 patch claim `SOURCE_ONLY`; upstream FreeBSD code pattern `CORROBORATED` only as historical context, not Orbis proof.
+
+## ps4-suid-scanner stage2 history: static audit
+
+Commit `96a79482d249fdbc6101bc641241488de66c313d` (2026-08-09) adds `stage2_jordy.js` with the message “Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04”. The file is 6,949 bytes. Its comments claim arbitrary R/W and Celsius, but the implementation contains explicit TODOs for `read32`, `write32`, ArrayBuffer/vtable layout, libkernel base resolution, dlsym address resolution, malformed UFS trigger, kernel patching, and ROP execution. It therefore is a design skeleton, not a runnable or hardware-demonstrated kernel R/W chain.
+
+The subsequent commit `1089382...` is listed in the public commit history as “Replace skeleton with full stage 2: persistent r/w + ROP for 13.04”, but the exact SHA did not resolve through the GitHub commit endpoint at the time of checking and the file is not present on current `main`; this requires further provenance checking. Until its exact tree/content and hardware evidence are obtained, the title alone remains `SOURCE_ONLY`, not proof of Celsius or 13.04 R/W.
+
+Classification: commit/file existence `VERIFIED`; skeleton status `VERIFIED` from source inspection; Celsius trigger `HYPOTHESIS`; 13.04 kernel R/W `UNVERIFIED_13_02`/`SOURCE_ONLY`; hardware validation `UNVERIFIED`.
