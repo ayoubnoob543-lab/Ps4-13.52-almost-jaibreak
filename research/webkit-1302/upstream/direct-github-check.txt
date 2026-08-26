@@ -1,0 +1,179 @@
+=== SLOPOS 1302.h ===
+#pragma once
+/* PS4 13.02 — kexec offsets: ArabPixel */
+
+#define kern_off_xfast_syscall             0x1C0
+
+#define kern_off_prison0                   0x111FA18
+#define kern_off_rootvnode                 0x2136E90
+
+/* kern_off_vmspace_acquire_ref TODO — help wanted */
+/* kern_off_vmspace_free TODO — help wanted */
+/* kern_off_proc_rwmem TODO — help wanted */
+
+#define kern_off_printf                    0x2E0450
+#define kern_off_snprintf                  0x2E0750
+#define kern_off_copyin                    0x2BD6E0
+#define kern_off_copyout                   0x2BD5F0
+#define kern_off_copyinstr                 0x2BDB90
+
+#define kern_off_kmem_alloc                0x465A50
+#define kern_off_kmem_alloc_contig         0x24D440
+#define kern_off_kmem_free                 0x465C20
+
+#define kern_off_kernel_map                0x22D1D50
+#define kern_off_kernel_pmap_store         0x1B2C3A0
+#define kern_off_sysent                    0x1102B70
+
+#define kern_off_pmap_extract              0x573D0
+#define kern_off_pmap_protect              0x58570
+
+#define kern_off_pml4pml4i                 0x1B2C390
+#define kern_off_dmpml4i                   0x1B2C394
+#define kern_off_dmpdpi                    0x1B2C398
+
+#define kern_off_sched_pin                 0x231670
+#define kern_off_sched_unpin               0x231690
+#define kern_off_smp_rendezvous            0x1AD530
+#define kern_off_smp_no_rendevous_barrier  0x1AD340
+#define kern_off_icc_query_nowait          0x447B40
+
+#define kern_off_gpu_devid_is_9924         0x4AC5A0
+#define kern_off_gc_get_fw_info            0x4BAF60
+#define kern_off_set_gpu_freq              0x4B9AA0
+#define kern_off_set_pstate                0x4BBE70
+#define kern_off_update_vddnp              0x4BA040
+#define kern_off_set_cu_power_gate         0x4BA450
+#define kern_off_set_nclk_mem_spd          0x436900
+#define kern_off_Starsha_UcodeInfo         0x0
+
+#define kern_off_pstate_before_shutdown    0x3A23D0
+#define kern_off_kern_reboot               0x3A1DE0
+
+#define kern_off_eap_hdd_key               0x26C4CF0
+#define kern_off_edid                      0x275E148
+#define kern_off_wlanbt                    0x478A60
+
+#define kern_off_disable_aslr              0x477CC4
+#define kern_off_mmap_self_1               0x3B2DB0
+#define kern_off_mmap_self_2               0x3B2DD0
+#define kern_off_mmap_self_3               0x1FC4B1
+#define kern_off_reg_mgr_set_int           0x4E8480
+#define kern_off_set_time                  0x6349E0
+#define kern_off_clear_time_diff           0x633EC0
+#define kern_off_target_id                 0x21CC60D
+#define kern_off_icc_nvs_write             0xA5A10
+#define kern_off_npdrm_open                0x64D6C0
+#define kern_off_npdrm_close               0x64D6E0
+#define kern_off_npdrm_ioctl               0x64D737
+#define kern_off_no_bd_patch               0x1D5DF3
+
+=== RiyonAbib repository metadata ===
+[1;38m{[m
+[1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"PS4 PlayStation Vue Jailbreak exploit for firmware 7.00-13.00, with enhanced stability improvements for 12.50+ (Netctrl/Poopsploit)"[m[1;38m,[m
+[1;34m"full_name"[m[1;38m:[m [32m"RiyonAbib07/ps-vue-jb-2.5"[m[1;38m,[m
+[1;34m"updated_at"[m[1;38m:[m [32m"2026-08-17T02:51:54Z"[m
+[1;38m}[m
+
+=== RiyonAbib candidate kernel.ts paths ===
+build_download0dat.ps1
+download0.dat
+src/download0
+src/download0/binloader.ts
+src/download0/check-jailbroken.ts
+src/download0/config.json
+src/download0/defs.ts
+src/download0/dummy_psn.json.aes
+src/download0/img
+src/download0/img/auto_close_btn_txt.png
+src/download0/img/auto_lapse_btn_txt.png
+src/download0/img/auto_poop_btn_txt.png
+src/download0/img/back_btn_txt.png
+src/download0/img/bg-fail.jpg
+src/download0/img/bg-success.png
+src/download0/img/btn_jb.png
+src/download0/img/btn_jb_dn.png
+src/download0/img/config_btn_txt.png
+src/download0/img/exit_btn_txt.png
+src/download0/img/feil
+src/download0/img/feil/1.jpg
+src/download0/img/feil/10.jpg
+src/download0/img/feil/11.jpg
+src/download0/img/feil/12.jpg
+src/download0/img/feil/13.jpg
+src/download0/img/feil/14.jpg
+src/download0/img/feil/15.jpg
+src/download0/img/feil/16.jpg
+src/download0/img/feil/17.jpg
+src/download0/img/feil/18.jpg
+src/download0/img/feil/19.jpg
+src/download0/img/feil/2.jpg
+src/download0/img/feil/20.jpg
+src/download0/img/feil/21.jpg
+src/download0/img/feil/22.jpg
+src/download0/img/feil/23.jpg
+src/download0/img/feil/24.jpg
+src/download0/img/feil/25.jpg
+src/download0/img/feil/26.jpg
+src/download0/img/feil/27.jpg
+src/download0/img/feil/28.jpg
+src/download0/img/feil/29.jpg
+src/download0/img/feil/3.jpg
+src/download0/img/feil/30.jpg
+src/download0/img/feil/31.jpg
+src/download0/img/feil/32.jpg
+src/download0/img/feil/33.jpg
+src/download0/img/feil/34.jpg
+src/download0/img/feil/35.jpg
+src/download0/img/feil/36.jpg
+src/download0/img/feil/37.jpg
+src/download0/img/feil/38.jpg
+src/download0/img/feil/39.jpg
+src/download0/img/feil/4.jpg
+src/download0/img/feil/40.jpg
+src/download0/img/feil/41.jpg
+src/download0/img/feil/42.jpg
+src/download0/img/feil/43.jpg
+src/download0/img/feil/44.jpg
+src/download0/img/feil/45.jpg
+src/download0/img/feil/46.jpg
+src/download0/img/feil/47.jpg
+src/download0/img/feil/48.jpg
+src/download0/img/feil/49.jpg
+src/download0/img/feil/5.jpg
+src/download0/img/feil/50.jpg
+src/download0/img/feil/51.jpg
+src/download0/img/feil/52.jpg
+src/download0/img/feil/53.jpg
+src/download0/img/feil/54.jpg
+src/download0/img/feil/55.jpg
+src/download0/img/feil/56.jpg
+src/download0/img/feil/57.jpg
+src/download0/img/feil/58.jpg
+src/download0/img/feil/59.jpg
+src/download0/img/feil/6.jpg
+src/download0/img/feil/60.jpg
+src/download0/img/feil/7.jpg
+src/download0/img/feil/8.jpg
+src/download0/img/feil/9.jpg
+src/download0/img/jailbreak_btn_txt.png
+src/download0/img/logo.png
+src/download0/img/multiview_bg_VAF.png
+src/download0/img/pl_menu_btn_txt.png
+src/download0/img/susec
+src/download0/img/susec/1.jpg
+src/download0/img/susec/10.jpg
+src/download0/img/susec/11.jpg
+src/download0/img/susec/12.jpg
+src/download0/img/susec/13.jpg
+src/download0/img/susec/14.jpg
+src/download0/img/susec/15.jpg
+src/download0/img/susec/16.jpg
+src/download0/img/susec/17.jpg
+src/download0/img/susec/18.jpg
+src/download0/img/susec/19.jpg
+src/download0/img/susec/2.jpg
+src/download0/img/susec/20.jpg
+src/download0/img/susec/21.jpg
+src/download0/img/susec/22.jpg

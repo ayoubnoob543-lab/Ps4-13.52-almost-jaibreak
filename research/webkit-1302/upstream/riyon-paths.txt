@@ -1,0 +1,12 @@
+src/download0/img/text/ar/payloadMenu.png
+src/download0/img/text/ja/payloadMenu.png
+src/download0/img/text/ko/payloadMenu.png
+src/download0/img/text/zh/payloadMenu.png
+src/download0/kernel.ts
+src/download0/payloads
+src/download0/payloads/elfldr.elf
+src/download0/payloads/explode.ts
+src/download0/payloads/fake-signin.bin
+src/download0/payloads/ftp-server.ts
+src/download0/payloads/updater.ts
+src/download0/payloads/web-ui.ts
