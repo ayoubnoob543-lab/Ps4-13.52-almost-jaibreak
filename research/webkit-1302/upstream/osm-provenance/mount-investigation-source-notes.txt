@@ -595,3 +595,13 @@ Current-clone SHA-256 values for `wobkot` and `ntfargo/CSSFontFace-Exploit` diff
 The path-specific Git history shows `ps3120/CSSFontFace-Exploit` contains the exact commit `6f3398616ac0e3a0a7b45bf33730529a75578db7` (`Full chain exploit with lapse and netctrl`) and subsequent shared commits with `ntfargo/CSSFontFace-Exploit` (`c994681`, `0b65ea0`, `2f37734`). This establishes that `ps3120` and `ntfargo` are the same direct code line for the full-chain source, not independent corroborations.
 
 `ufm42/wobkot` has a separate visible history with commit `2f96abf` titled `full chain exploit added`, followed by its own cleanup/fix commits. Its current files are architecturally equivalent but not byte-identical to the ntfargo/ps3120 line. The provenance graph is therefore: ps3120 → ntfargo shared full-chain line; wobkot = parallel/related historical implementation. Neither line reaches 13.02/13.04.
+
+
+## PS4 userland pivot comparison
+
+The historical PS4 `userland.js` contains a concrete `Pivot` class with stored WebKit gadget chains, firmware-dependent pivot variants and `prepare(sp)` state setup. It also defines `NativeFunction.invoke()` that builds a ROP frame, sets `rip`/`rax`, maps arguments to registers and dispatches through the ROP runtime. This is the kind of real base/dlsym/ROP integration absent from the 1089382 `jordy_stage2.js` file. The comparison remains architectural rather than proof of code copying; distinctive literal cross-search found no direct reuse.
+
+
+## Historical PS4 syscall/dlsym resolver
+
+`wobkot/public/src/ps4/userland.js` implements `init_syscalls()` and `scan_syscalls(base)`: it scans a libkernel mapping for the syscall-stub byte pattern, extracts syscall IDs and stores callable addresses, then binds `read`, `write`, `open`, `close`, `fstat`, `sysctl`, `socket`, `dlsym`, `dup` and `getpid`. This is a concrete implementation of the syscall/dlsym layer that `jordy_stage2.js` leaves as a placeholder. It is tied to the historical PS4 WebKit/libkernel layout and has no 13.02/13.04 offsets or Celsius/FFS path; it is evidence of a reusable design pattern, not a compatible missing module.
