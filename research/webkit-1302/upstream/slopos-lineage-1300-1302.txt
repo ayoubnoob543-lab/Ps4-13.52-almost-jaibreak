@@ -1,0 +1,15 @@
+=== ps4/1300.h ===
+42273e2180ca	2026-08-07T20:28:42Z	restructure into ps4/ + ps5/, backfill 19 kexec-complete headers
+=== ps4/1302.h ===
+42273e2180ca	2026-08-07T20:28:42Z	restructure into ps4/ + ps5/, backfill 19 kexec-complete headers
+=== README.md ===
+42273e2180ca	2026-08-07T20:28:42Z	restructure into ps4/ + ps5/, backfill 19 kexec-complete headers
+c5f72a5be91a	2024-08-12T15:07:25Z	feat: Added offsets for 5.05, 6.72, 7.02, 7.55 & 9.00 (#1)
+=== CREDITS.md ===
+42273e2180ca	2026-08-07T20:28:42Z	restructure into ps4/ + ps5/, backfill 19 kexec-complete headers
+=== current paths ===
+CREDITS.md	5b66423721e77f2be793b866064251bbdcaf728d	1023
+README.md	a7cd998dd1bc90490b80c41b44aecbc1f4f6bf12	2375
+ps4/1300.h	4ee81c6c335b897fa9dd7dd9b8ac4a746a036485	2823
+ps4/1302.h	238bc8086d6a7bd6c13397a6e8f68dd807b4a4d0	2823
+ps5/README.md	9b34980e07bd514ca4da322e9e6258047cc79523	246

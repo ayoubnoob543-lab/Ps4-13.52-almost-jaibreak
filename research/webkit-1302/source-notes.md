@@ -145,3 +145,11 @@ El artículo de [XDG Mods sobre el release de TheFlow](https://xdgmods.com/news/
 La discusión de [Reddit sobre 13.00/13.02/13.04](https://www.reddit.com/r/ps4piracy/comments/1qv6ohi/clearing_up_ps4_jailbreak_confusion_current/) repite “Poopsploit patched” para 13.02 y “userland only”, pero es una discusión comunitaria sin prueba técnica primaria. Se clasifica `CORROBORATED` sólo como consenso público de la frontera 13.00/13.02 y `UNVERIFIED_13_02` para la causalidad exacta del parche.
 
 Conclusión de procedencia: existe evidencia pública repetida de que el soporte publicado termina en 13.00 y una afirmación secundaria de que Sony parcheó 13.02; no existe en el corpus revisado evidencia directa que demuestre qué función o condición de Netctrl cambió entre 13.00 y 13.02.
+
+## SLOPOS y ps4-linux-loader — comparación de procedencia 13.00/13.02
+
+`SLOPOS-offsets` declara en `README.md` y `CREDITS.md` que sus offsets kexec se copian de `ps4-linux/ps4-linux-loader` (`magic.h` y `fw_offsets.h`), y atribuye conjuntamente `12.50 / 13.00 / 13.02 / 13.50 / 13.52` a ArabPixel. El historial de SLOPOS muestra que `ps4/1300.h` y `ps4/1302.h` fueron introducidos juntos en `42273e2180ca` (2026-08-07).
+
+En `ps4-linux-loader`, el header 13.02 aparece en `3d7a5456b75c` (2025-12-31). Las releases `v21`, `v21.5` y `v24b.1` anuncian payloads 13.02, pero escriben `13.02(?)`; el commit posterior `217e272eb099` (2026-05-11) añade 13.04/13.50 y mantiene 13.02 como payload de kexec/Linux. No se encontró en ese repositorio la implementación Netctrl/ucred ni una prueba de que los payloads de Linux demuestren la primitive Netctrl en 13.02.
+
+La comparación local de `1300.h` y `1302.h` tiene SHA-256 `a95c48e23743e193f7d1b543dc35a817d68bb71f129476de03c3deff38b1e94b` y `34a206ffa48a406f6d15879b40e941de5e9d0db094bfd2d0932a6cf58961066a`. Muchos offsets 13.02 son exactamente 13.00 + 0x10, mientras otros son idénticos. Sin bytes de kernel, esto es una diferencia documentada de tablas, no una validación binaria ni una prueba de cambio de función.

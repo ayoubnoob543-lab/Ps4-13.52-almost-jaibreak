@@ -55,6 +55,24 @@ Para elevar Netctrl a `VERIFIED` en 13.02 se necesitan, como mínimo, un firmwar
 
 Para los CVE/bugs candidatos se necesita además comparar el código vulnerable y parcheado con el kernel PS4 real de 13.00 y 13.02. Una similitud con FreeBSD upstream o un rango tentativo de PSDevWiki no sustituye ese diff. El overflow UFS/FFS requiere verificar tanto la ruta de mount como la posibilidad de preparar el artefacto cifrado en una consola concreta; no es un reemplazo inmediato de kernel R/W.
 
+## Comparación de tablas 13.00/13.02 y procedencia
+
+Las tablas locales `research/results/slopos/1300.h` y `1302.h` tienen hashes SHA-256 distintos (`a95c48e2…` y `34a206ff…`), pero ambas están marcadas `kexec offsets: ArabPixel`. La comparación mecánica muestra que muchos valores de 13.02 son el valor de 13.00 más `0x10`, mientras que otros permanecen idénticos. Permanecen iguales, entre otros, `prison0`, `rootvnode`, `kernel_map`, `kernel_pmap_store`, `sysent`, `pmap_extract`, `pmap_protect`, `pml4pml4i`, `target_id` y varios offsets de NPDRM. Eso es una diferencia documentada de tablas, no una validación de bytes del kernel.
+
+El README y `CREDITS.md` de [SLOPOS-offsets][11] declaran que los offsets kexec se copian de `ps4-linux/ps4-linux-loader` (`magic.h` y `fw_offsets.h`) y atribuyen 13.00/13.02/13.50/13.52 a ArabPixel. El historial de GitHub muestra que `ps4/1300.h` y `ps4/1302.h` aparecen juntos en el commit `42273e2180ca` del 7 de agosto de 2026, mientras que el header 13.02 del loader aparece en `3d7a5456b75c` del 31 de diciembre de 2025. No se observa una segunda fuente independiente con un método distinto.
+
+El commit `3d7a5456b75c` y las releases `v21`, `v21.5` y `v24b.1` de `ps4-linux-loader` anuncian payloads hasta 13.02, pero el README y los parches corresponden a **kexec/Linux payloads** y a sus offsets de carga/parcheo. No contienen la implementación Netctrl/ucred ni prueban que Netctrl proporcione R/W en 13.02. En las releases, el signo `(?)` junto a 13.02 indica además que ese soporte estaba expresado con incertidumbre. Clasificación: `CORROBORATED` para que existen artefactos de kexec etiquetados 13.02; `UNVERIFIED_13_02` para inferir desde ellos compatibilidad Netctrl.
+
+## Diferencias documentadas entre 13.00 y 13.02
+
+| Área | Diferencia observada | Qué demuestra | Clasificación |
+|---|---|---|---|
+| Tabla SLOPOS | 13.02 cambia numerosos offsets en `+0x10`, pero conserva otros | Diferencia de tabla atribuida a ArabPixel | `SOURCE_ONLY` |
+| Netctrl `kernel.ts` | 13.00 usa la tabla agrupada 12.50/12.52/13.00; no hay entrada 13.02 | El árbol público no integró una tabla Netctrl 13.02 | `VERIFIED` sobre el contenido del repositorio; `UNVERIFIED_13_02` sobre funcionamiento |
+| mmap RWX | 13.02 aparece en una tabla separada de offsets mmap/parcheo | Hay una ruta documental de parcheo para otra fase | `SOURCE_ONLY` |
+| SLOPOS lineage | 13.00 y 13.02 se incorporan juntos y comparten atribución | No es corroboración independiente | `CORROBORATED` |
+| Funciones NetControl/ucred | No hay bytes, símbolos o diff público 13.00/13.02 de esa ruta | No se puede confirmar cambio ni supervivencia | `MISSING` / `UNVERIFIED_13_02` |
+
 ## Respuestas solicitadas
 
 **1. Candidato más prometedor.** Netctrl/ucred triple-free, porque es el único candidato público revisado que combina una implementación de explotación PS4 cercana al objetivo —funcional publicada hasta 13.00— con una ruta explícita de leak y `kread/kwrite`. Aun así, su estado correcto para 13.02 es **`UNVERIFIED_13_02`**.
