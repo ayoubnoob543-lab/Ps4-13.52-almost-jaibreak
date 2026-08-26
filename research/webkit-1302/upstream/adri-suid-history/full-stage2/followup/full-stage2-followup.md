@@ -80,6 +80,14 @@ El artefacto más informativo que falta sigue siendo uno de estos: el SPRX 13.04
 
 > **INVALID como PoC funcional:** presentar el archivo 1089382, las páginas zecoxao o los offsets aislados como una cadena ejecutable completa.
 
+## Actualización de seguimiento
+
+La auditoría posterior de todas las refs remotas confirma que sólo existen `main → 1089382` y `v2.0 → 3fd35a4`; no hay ramas ni tags públicos adicionales. La búsqueda completa del árbol tampoco encuentra la implementación de `org.bdj.api.API` importada por `SuidScanner.java`, por lo que incluso las llamadas `API.dlsym` y `API.call` del scanner dependen de un runtime externo y no completan la cadena WebKit/Jordy.
+
+La búsqueda de identificadores internos (`call_rop_internal`, `LUA_PIVOT_SCRATCH`, `init_dlsym`) no encontró otro proyecto indexado fuera de Luac0re y sus derivados. Luac0re contiene una implementación real de `call_rop`, `func_wrap` y `init_dlsym`, pero sus dependencias son Lua, tablas de runtime y gadgets PS5/firmware específicos. El PoC histórico de Cryptogenic contiene otra implementación real de fcall/base/pivot para PS4 antiguo; tampoco aporta mount UFS, FFS o Celsius.
+
+Estos hallazgos refuerzan la conclusión de que `jordy_stage2.js` es una pieza de diseño que reutiliza gadgets y nomenclatura de otras cadenas, pero no una integración incompleta cuya lógica decisiva esté publicada en otro archivo del repositorio. La única evidencia nueva sobre Celsius sigue siendo el claim textual en `webkit_gadgets_1304.js`; no se ha encontrado el kernel, SPRX, imagen UFS, bootstrap Jordy ni log de hardware que lo respalde.
+
 ## Referencias
 
 [1]: https://github.com/Cryptogenic/PS4-4.0x-Code-Execution-PoC/blob/master/index.html "Cryptogenic PS4 4.0x Code Execution PoC"
