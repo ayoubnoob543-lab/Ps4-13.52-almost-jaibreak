@@ -271,3 +271,7 @@ Classification: commit/file existence `VERIFIED`; skeleton status `VERIFIED` fro
 ## Stage2 “full” commit availability check
 
 The commit listed in the public history as `1089382ec1e0000e9557b7748d39b57952bbc4f6` (“Replace skeleton with full stage 2: persistent r/w + ROP for 13.04”) returned `No commit found` from the GitHub API and a GitHub 404 page at the direct commit URL. Its content, tree, parent, and any claimed hardware evidence therefore cannot be independently inspected from the currently public repository surface. Classification: commit-list title `VERIFIED`; commit content and “full stage2” claim `UNVERIFIED`; Celsius/RW capability `SOURCE_ONLY` at most.
+
+## Search for vanished stage2 commit
+
+Exact searches for SHA `1089382ec1e0000e9557b7748d39b57952bbc4f6` and the messages “Replace skeleton with full stage 2” / “persistent r/w + ROP for 13.04” returned no indexed copy. This does not exclude private, deleted, or unindexed material, but no public recovery artifact was located. Classification: `VERIFIED` as a negative indexed search; any inference about private material remains `UNVERIFIED`.
