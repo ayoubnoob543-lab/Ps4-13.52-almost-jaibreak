@@ -911,3 +911,7 @@ The public mirror's `vue-after-free` tree contains `kernel.ts` labeled “PS4 Ke
 ## Full mkufs2 refs audit
 
 All reachable refs in the clone expose only `main`/remote HEAD, 8 commits, and no tags; every commit contains only `README.md` and `mkufs2.sh`. All-blob grep finds only the generic PS4/PS5 mountable-UFS wording, with no Celsius, `ffs_mountfs`, 13.02/13.04, corruption parameters, binary image, bollars or Jordy references. This supports classifying `mkufs2` as a public UFS recipe, not a Celsius PoC.
+
+## Discarded candidate: earthonion/vue-mitm-poc
+
+The mirror repository has 10 commits, one branch, no tags, and is described as a PS4 Vue JS injection PoC targeting version 1.01. It contains no Celsius, Jordy, UFS/FFS, `ffs_mountfs`, 13.02/13.04 or kernel-R/W material. Verified as historical Vue entrypoint context; invalid as a Celsius artifact.

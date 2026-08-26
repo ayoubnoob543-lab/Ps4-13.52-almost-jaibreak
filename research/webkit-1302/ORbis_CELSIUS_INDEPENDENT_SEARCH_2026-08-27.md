@@ -127,3 +127,9 @@ Fuente: [earthonion/mkufs2](https://git.etawen.dev/earthonion/mkufs2).
 ### Auditoría completa de `mkufs2`
 
 La revisión de todas las refs disponibles sólo muestra `main` y su HEAD remoto; la página del mirror indica una segunda rama, pero no aparece como ref alcanzable en el clone auditado. Hay 8 commits y 0 tags. Cada commit contiene únicamente `README.md` y `mkufs2.sh`. La búsqueda en todos los blobs alcanzables sólo encuentra la frase genérica de imagen UFS montable en PS4/PS5; no aparecen `Celsius`, `ffs_mountfs`, `13.02`, `13.04`, parámetros de corrupción, una imagen binaria ni una referencia a bollars/Jordy. Esto fortalece la clasificación de `mkufs2` como receta UFS independiente o derivada, no como PoC Celsius.
+
+## Candidato descartado: `earthonion/vue-mitm-poc`
+
+El repositorio público del mirror contiene 10 commits, una rama, ningún tag y seis archivos principales (`inject.js`, `proxy.py`, `log_server.py`, `hosts.txt`, `download0` y README). El README lo describe como “poc for ps4 vue js injection via mitm” y fija como objetivo la versión 1.01. No menciona Celsius, Jordy, UFS/FFS, `ffs_mountfs`, 13.02/13.04 ni kernel R/W. Aporta contexto histórico del entrypoint Vue, pero no una pieza reutilizable de la cadena Celsius 13.02. Clasificación: **VERIFIED** como PoC Vue 1.01; **INVALID** como PoC Celsius.
+
+Fuente: [earthonion/vue-mitm-poc](https://git.etawen.dev/earthonion/vue-mitm-poc).
