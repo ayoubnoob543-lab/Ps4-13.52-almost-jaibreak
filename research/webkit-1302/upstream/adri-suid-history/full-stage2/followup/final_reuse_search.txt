@@ -1,0 +1,18 @@
+QUERY=%220x3ce1000%22+PS4
+total=2
+adri22235/ps4-suid-scanner	jordy_stage2.js	c394105d8bb28b7d419dd7295785131ab3035fdb	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js
+ayoubnoob543-lab/firmware-lab	jordy_stage2.js	ed12c2797689ac3af0e294582302464b3951adc6	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/jordy_stage2.js
+QUERY=%22stage2_init%22+%22m_vector%22
+total=8
+adri22235/ps4-suid-scanner	jordy_stage2.js	c394105d8bb28b7d419dd7295785131ab3035fdb	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js
+ayoubnoob543-lab/firmware-lab	jordy_stage2.js	ed12c2797689ac3af0e294582302464b3951adc6	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/jordy_stage2.js
+jkrh/kvms	patches/host/virt/0001-KVM-external-hypervisor-5.15-kernel-baseport.patch	409eec932f217baefa34c1ed8b91f3147b8f6a90	https://github.com/jkrh/kvms/blob/126bb776cf0e36680333f3ff84fa1c42cb36226f/patches/host/virt/0001-KVM-external-hypervisor-5.15-kernel-baseport.patch
+jkrh/kvms	patches/host/nxp/kernel/0001-KVM-external-hypervisor-for-imx8qmmek-5.15.5-kernel.patch	0be438f70f063d3f0bd9737e71551bfcba321981	https://github.com/jkrh/kvms/blob/126bb776cf0e36680333f3ff84fa1c42cb36226f/patches/host/nxp/kernel/0001-KVM-external-hypervisor-for-imx8qmmek-5.15.5-kernel.patch
+jkrh/kvms	patches/host/nxp/kernel/0001-KVM-external-hypervisor-for-imx8qmmek-5.15.32-kernel.patch	00529b3eb94ad45e2f3fda84b729a7f340601d53	https://github.com/jkrh/kvms/blob/126bb776cf0e36680333f3ff84fa1c42cb36226f/patches/host/nxp/kernel/0001-KVM-external-hypervisor-for-imx8qmmek-5.15.32-kernel.patch
+tiiuae/spectrum-config-imx8	patches/kernel_kvms_5.15.32_imx8.patch	29476eab687d6176fef0164174a2eb72717a3457	https://github.com/tiiuae/spectrum-config-imx8/blob/93163dead28033ab83f0b1420a66aff0a26e76f4/patches/kernel_kvms_5.15.32_imx8.patch
+GUIBL1/CompareSimulation	configs/experiment/search_crossweaver_params.py	4906bb306d23feabab3a7364571c7fa1d960824c	https://github.com/GUIBL1/CompareSimulation/blob/0d6afea79bac3df6927d8f7add61ddddebaf584a/configs/experiment/search_crossweaver_params.py
+diandianjunA/dvstor	experiment/sift100m_common.sh	3956eb0c05d3c25ec64316d63c8ffe085555be69	https://github.com/diandianjunA/dvstor/blob/4abcc41cb2618ffe8559a12055cfa19c7179e062/experiment/sift100m_common.sh
+QUERY=%22webkit_base%22+%22ffs_mountfs%22+PS4
+total=2
+adri22235/ps4-suid-scanner	jordy_stage2.js	c394105d8bb28b7d419dd7295785131ab3035fdb	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js
+ayoubnoob543-lab/firmware-lab	jordy_stage2.js	ed12c2797689ac3af0e294582302464b3951adc6	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/jordy_stage2.js
