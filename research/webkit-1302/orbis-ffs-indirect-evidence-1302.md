@@ -24,6 +24,14 @@ La documentación de `adri22235/ps4-suid-scanner` es la descripción pública m�
 | ¿Está probado el parche de 13.50? | Sólo por anuncios y reportes secundarios; Sony no publica el diff. | **SOURCE_ONLY** |
 | ¿Hay ruta pública reproducible userland → kernel R/W en 13.02? | No. | **NO DEMOSTRADA** |
 
+## Actualización: qué piezas externas existen alrededor de Jordy
+
+La inspección de los 80 forks públicos de `ntfargo/CSSFontFace-Exploit` encontró principalmente propagación de la cadena histórica `lapse.js`/`netctrl.js`/`ps4/kernel.js` y, en algunos casos, sólo `offsets.mjs`. No apareció ningún `jordy_stage2.js`, archivo Celsius, `ffs_mountfs` ni extensión 13.02/13.04. El fork `hejran7` añade `pl_KernelDumper.bin` y `pl_KernelClock.bin`, pero su menú los identifica como payloads de dumper. Ambos son binarios pequeños con prólogos x86-64 y strings de APIs PS4/libkernel; no son una imagen de kernel. Su `kernel_patches()` declara explícitamente que sólo se usa “after kernel arw”, por lo que consume una primitive existente y no la obtiene.
+
+El repositorio `ddaaccdd/CSSFontFace-Exploit-1302research` aporta el contraste más informativo: contiene un scaffold real de derivación de bases WebKit/libc/libkernel, pivot, syscalls y dlsym, pero su README afirma que el vector CSSFontFace probado no funciona en 13.02 por razones arquitectónicas. No contiene Netctrl, `KernelView`, kernel R/W, UFS/FFS ni Celsius implementados. Así, las piezas históricas permiten reconstruir qué tendría que aportar una cadena completa, pero ninguna llena las lagunas de `jordy_stage2.js` para 13.02.
+
+El commit 1089382 sí existe y es auditable, pero su `jordy_stage2.js` continúa siendo un scaffold: devuelve `0` para las bases WebKit/libkernel, deja dlsym sin resolver, comenta el flujo `mount → ffs_mountfs → Celsius` y termina el pivot con `TODO`. La matriz de componentes muestra que `KernelView`, `kread/kwrite`, `p_ucred` y `pktopts` sólo aparecen en la cadena histórica PS4, no en Jordy.
+
 ## 1. Procedencia de los offsets 13.02
 
 El primer artefacto público completo localizado es `ArabPixel/Fusion/Shared/Offsets-1302.h`, añadido por el commit [`77a16b7f236df46f14bb2c744a24540e57245214`](https://github.com/ArabPixel/Fusion/commit/77a16b7f236df46f14bb2c744a24540e57245214), fechado el 18 de enero de 2026. El PR correspondiente de AetherPS/Fusion es [`#13`](https://github.com/AetherPS/Fusion/pull/13), descrito como “only kernel offsets and the implementation in Offsets.h”. El cambio contiene asignaciones del tipo `kernelBase + constante`; no contiene dump, ELF, bytes de instrucciones, hash de kernel, proyecto IDA/Ghidra, método de extracción ni prueba de hardware.
