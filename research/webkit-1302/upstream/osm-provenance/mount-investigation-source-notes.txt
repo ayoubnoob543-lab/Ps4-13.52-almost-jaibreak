@@ -790,3 +790,7 @@ The public `ps3120/BD-JB-1250` tree contains a native BD-J API with reflective n
 ## BD-JB payload lineage: Lapse and Poops
 
 The current `ps3120/BD-JB-1250` tree contains separate `payloads/lapse` and `payloads/poops` projects with Java `Kernel.java`, `KernelOffset.java`, helpers, loaders and referenced `USBpayload.elf` files. The current tree search did not expose 13.02/13.04 support claims or Celsius/FFS mount code. These payloads are relevant as possible post-entrypoint kernel-R/W integration examples, but they are separate historical chains and do not document how Celsius would be invoked or adapted to 13.02. Classification: payload lineage `VERIFIED`; Celsius/13.02 applicability `UNVERIFIED`.
+
+## BD-JB kernel bridge symbols (static)
+
+The BD-JB-1250 Lapse/Poops Java payload sources contain a concrete historical kernel bridge after their own exploit primitive: `kread`/`kwrite` wrappers over corrupted pipe descriptors, `kread64`/`kwrite64`, process traversal through `allproc`, `p_ucred` and `prison0` handling, `rootvnode` discovery, and a `sysent[661]` patch followed by JIT/shared-memory execution. This is valuable as a model for the post-Celsius R/W and payload-loading stages. It is not a Celsius implementation: its primitive is the Lapse/Poops pipe/uaf path, its offsets and structure layouts are firmware-specific, and no 13.02/13.04 adaptation or FFS mount trigger is present in the audited tree. Classification: bridge implementation `VERIFIED` for its historical target; reuse for Celsius 13.02 `SOURCE_ONLY/UNVERIFIED`.
