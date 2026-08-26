@@ -851,3 +851,7 @@ GitHub reports four public forks of `adri22235/ps4-suid-scanner`: `ayoubnoob543-
 
 `git fsck --full --no-reflogs --unreachable` produced no unreachable commits, trees or blobs in the upstream clone or any of the four public forks. This does not prove that GitHub never garbage-collected an object or that private/deleted server-side refs never existed, but it confirms that no recoverable deleted Celsius stage, image or PoC is present in the locally cloned public histories.
 Expediente creado desde d42bf9c; se separan las búsquedas A y B y se excluye la nueva auditoría de ps4-suid-scanner.
+
+## Independent A/B search update
+
+`Feyzee61/ps4jb` was inspected as a possible public WebKit/RW bridge. Its README states support for 5.05, 6.72 and 7.00–9.60 and describes PSFree/Lapse, not Celsius or 13.02. The recent Reddit 13.00 post mentions Jordy's AI WebKit and links an external entrypoint but exposes no Celsius, UFS image or kernel-RW transition. The Instagram Celsius post only repeats the 13.02–13.04 claim and USB requirement. `Al-Azif/ps4-re-utilities` provides kernel-ELF splitting tools, not target-firmware bytes or `ffs_mountfs`. These findings are recorded in `ORbis_CELSIUS_INDEPENDENT_SEARCH_2026-08-27.md` and are classified as historical/secondary, not independent proof of the missing chain.
