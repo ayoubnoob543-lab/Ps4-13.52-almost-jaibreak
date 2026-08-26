@@ -47,3 +47,6 @@ __pycache__/
 /original_pairs.txt
 /original_values.txt
 research/experiments/exp30_ioctl_mock/*.PUP.dec
+
+# Local provenance clones (not committed)
+research/webkit-1302/upstream/osm-provenance/clones/
