@@ -1,0 +1,473 @@
+## kernel API declarations
+crt/kernel.c:122:unsigned long KERNEL_ADDRESS_IMAGE_BASE = 0;
+crt/kernel.c:123:unsigned long KERNEL_ADDRESS_ALLPROC    = 0;
+crt/kernel.c:126:unsigned long KERNEL_ADDRESS_TARGETID   = 0;
+crt/kernel.c:128:unsigned long KERNEL_ADDRESS_COPYIN     = 0;
+crt/kernel.c:129:unsigned long KERNEL_ADDRESS_COPYOUT    = 0;
+crt/kernel.c:616:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003A1AD0;
+crt/kernel.c:617:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x019A121D;
+crt/kernel.c:618:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003B92A0;
+crt/kernel.c:619:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003B9220;
+crt/kernel.c:625:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003A1F10;
+crt/kernel.c:626:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x019A121D;
+crt/kernel.c:627:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003B96E0;
+crt/kernel.c:628:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003B9660;
+crt/kernel.c:634:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003A2000;
+crt/kernel.c:635:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x019AD21D;
+crt/kernel.c:636:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003B97D0;
+crt/kernel.c:637:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003B9750;
+crt/kernel.c:644:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EA00;
+crt/kernel.c:645:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200151D;
+crt/kernel.c:646:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286CC0;
+crt/kernel.c:647:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286C40;
+crt/kernel.c:653:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EB30;
+crt/kernel.c:654:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200151D;
+crt/kernel.c:655:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286DF0;
+crt/kernel.c:656:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286D70;
+crt/kernel.c:662:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EB40;
+crt/kernel.c:663:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200151D;
+crt/kernel.c:664:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286DF0;
+crt/kernel.c:665:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286D70;
+crt/kernel.c:671:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030EB40;
+crt/kernel.c:672:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0200551D;
+crt/kernel.c:673:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00286DF0;
+crt/kernel.c:674:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00286D70;
+crt/kernel.c:681:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x003095D0;
+crt/kernel.c:682:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B6D08D;
+crt/kernel.c:683:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x0014A890;
+crt/kernel.c:684:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x0014A7B0;
+crt/kernel.c:690:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030B840;
+crt/kernel.c:691:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B7D08D;
+crt/kernel.c:692:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00149F20;
+crt/kernel.c:693:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00149E40;
+crt/kernel.c:702:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x0030B7D0;
+crt/kernel.c:703:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B7D08D;
+crt/kernel.c:704:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00149F20;
+crt/kernel.c:705:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00149E40;
+crt/kernel.c:712:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:713:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01CD068D;
+crt/kernel.c:714:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA600;
+crt/kernel.c:715:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA520;
+crt/kernel.c:723:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:724:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01CD068D;
+crt/kernel.c:725:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA710;
+crt/kernel.c:726:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x001EA630;
+crt/kernel.c:732:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:733:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x022BBF8D;
+crt/kernel.c:734:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00405BB0;
+crt/kernel.c:735:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00405AC0;
+crt/kernel.c:741:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:742:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x022BBF8D;
+crt/kernel.c:743:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00405AB0;
+crt/kernel.c:744:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x004059C0;
+crt/kernel.c:751:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:752:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x022BBF8D;
+crt/kernel.c:753:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00405E70;
+crt/kernel.c:754:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00405D80;
+crt/kernel.c:761:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:762:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x02159B8D;
+crt/kernel.c:763:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x001148F0;
+crt/kernel.c:764:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00114800;
+crt/kernel.c:770:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:771:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0215DB8D;
+crt/kernel.c:772:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x001148F0;
+crt/kernel.c:773:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00114800;
+crt/kernel.c:780:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:781:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01BD800D;
+crt/kernel.c:782:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003C13F0;
+crt/kernel.c:783:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003C1300;
+crt/kernel.c:791:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:792:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01BD800D;
+crt/kernel.c:793:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003C17A0;
+crt/kernel.c:794:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003C16B0;
+crt/kernel.c:802:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:803:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x022FED8D;
+crt/kernel.c:804:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x0002F230;
+crt/kernel.c:805:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x0002F140;
+crt/kernel.c:813:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:814:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x022287CD;
+crt/kernel.c:815:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x0028F9F0;
+crt/kernel.c:816:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x0028F900;
+crt/kernel.c:824:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:825:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B5158D;
+crt/kernel.c:826:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x0025E3B0;
+crt/kernel.c:827:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x0025E2C0;
+crt/kernel.c:834:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:835:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01C8338D;
+crt/kernel.c:836:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x003A42E0;
+crt/kernel.c:837:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x003A41F0;
+crt/kernel.c:843:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:844:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0221688D;
+crt/kernel.c:845:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002716A0;
+crt/kernel.c:846:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002715B0;
+crt/kernel.c:853:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:854:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0221688D;
+crt/kernel.c:855:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00271320;
+crt/kernel.c:856:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00271230;
+crt/kernel.c:864:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:865:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x0221A40D;
+crt/kernel.c:866:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00201EB0;
+crt/kernel.c:867:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00201DC0;
+crt/kernel.c:874:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:875:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01B9E08D;
+crt/kernel.c:876:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x00472F10;
+crt/kernel.c:877:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x00472E20;
+crt/kernel.c:885:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:886:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x01BE460D;
+crt/kernel.c:887:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x000D7560;
+crt/kernel.c:888:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x000D7470;
+crt/kernel.c:894:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:895:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+crt/kernel.c:896:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002DDFE0;
+crt/kernel.c:897:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002DDEF0;
+crt/kernel.c:903:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:904:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+crt/kernel.c:905:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002DE000;
+crt/kernel.c:906:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002DDF10;
+crt/kernel.c:913:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:914:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+crt/kernel.c:915:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD590;
+crt/kernel.c:916:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD4A0;
+crt/kernel.c:923:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:924:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+crt/kernel.c:925:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD670;
+crt/kernel.c:926:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD580;
+crt/kernel.c:933:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:934:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+crt/kernel.c:935:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6B0;
+crt/kernel.c:936:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5C0;
+crt/kernel.c:942:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:943:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+crt/kernel.c:944:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6D0;
+crt/kernel.c:945:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5E0;
+crt/kernel.c:952:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:953:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+crt/kernel.c:954:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6E0;
+crt/kernel.c:955:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5F0;
+crt/kernel.c:961:    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+crt/kernel.c:962:    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+crt/kernel.c:963:    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6F0;
+crt/kernel.c:964:    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD600;
+crt/kernel.c:974:    if((err=kexec(kexec_find_image_base, &KERNEL_ADDRESS_IMAGE_BASE))) {
+crt/kernel.c:977:    if((err=kexec(kexec_get_image_size, KERNEL_ADDRESS_IMAGE_BASE,
+crt/kernel.c:981:    if((err=kexec(kexec_find_copyin, KERNEL_ADDRESS_IMAGE_BASE,
+crt/kernel.c:982:		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_COPYIN))) {
+crt/kernel.c:985:    if((err=kexec(kexec_find_copyout, KERNEL_ADDRESS_IMAGE_BASE,
+crt/kernel.c:986:		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_COPYOUT))) {
+crt/kernel.c:989:    if((err=kexec(kexec_find_targetid, KERNEL_ADDRESS_IMAGE_BASE,
+crt/kernel.c:990:		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_TARGETID))) {
+crt/kernel.c:994:    if(!KERNEL_ADDRESS_IMAGE_BASE || !KERNEL_IMAGE_SIZE ||
+crt/kernel.c:995:       !KERNEL_ADDRESS_COPYIN || !KERNEL_ADDRESS_COPYOUT ||
+crt/kernel.c:996:       !KERNEL_ADDRESS_TARGETID) {
+crt/kernel.c:1003:  if((err=kexec(kexec_get_image_size, KERNEL_ADDRESS_IMAGE_BASE,
+crt/kernel.c:1014:  if((err=kernel_copyout(addr+8, &addr, sizeof(addr)))) {
+crt/kernel.c:1020:    if(kernel_copyout(addr + KERNEL_OFFSET_PROC_P_PID, &pid,
+crt/kernel.c:1029:    if(kernel_copyout(addr+8, &prev, sizeof(prev))) {
+crt/kernel.c:1037:  if(!(KERNEL_ADDRESS_ALLPROC=addr)) {
+crt/kernel.c:1051:  KERNEL_ADDRESS_QA_FLAGS = KERNEL_ADDRESS_TARGETID + 0x1b;
+crt/kernel.c:1058:kernel_copyin(const void *uaddr, unsigned long kaddr, unsigned long len) {
+crt/kernel.c:1063:  return kexec(kexec_copyin, KERNEL_ADDRESS_COPYIN, uaddr, kaddr, len);
+crt/kernel.c:1068:kernel_copyout(unsigned long kaddr, void *uaddr, unsigned long len) {
+crt/kernel.c:1073:  return kexec(kexec_copyout, KERNEL_ADDRESS_COPYOUT, kaddr, uaddr, len);
+crt/kernel.c:1079:  return kernel_copyin(&val, addr, sizeof(val));
+crt/kernel.c:1085:  return kernel_copyin(&val, addr, sizeof(val));
+crt/kernel.c:1091:  return kernel_copyin(&val, addr, sizeof(val));
+crt/kernel.c:1097:  return kernel_copyin(&val, addr, sizeof(val));
+crt/kernel.c:1105:  kernel_copyout(addr, &val, sizeof(val));
+crt/kernel.c:1115:  kernel_copyout(addr, &val, sizeof(val));
+crt/kernel.c:1125:  kernel_copyout(addr, &val, sizeof(val));
+crt/kernel.c:1135:  kernel_copyout(addr, &val, sizeof(val));
+crt/kernel.c:1167:  if(kexec(kexec_find_pattern, KERNEL_ADDRESS_COPYIN, KERNEL_ADDRESS_COPYOUT,
+crt/kernel.c:1182:  if((kernel_copyout(addr, current, size))) {
+crt/kernel.c:1197:  if((kernel_copyin(after, addr, size))) {
+crt/kernel.c:1215:  if(kernel_copyout(KERNEL_ADDRESS_ALLPROC, &addr, sizeof(addr))) {
+crt/kernel.c:1220:    if(kernel_copyout(addr + KERNEL_OFFSET_PROC_P_PID, &other_pid,
+crt/kernel.c:1229:    if(kernel_copyout(addr, &next, sizeof(next))) {
+crt/kernel.c:1241:kernel_dynlib_obj(int pid, unsigned int handle, dynlib_obj_t* obj) {
+crt/kernel.c:1249:  if(kernel_copyout(kproc + 0x340, &kaddr, sizeof(kaddr)) < 0) {
+crt/kernel.c:1254:    if(kernel_copyout(kaddr, &kaddr, sizeof(kaddr)) < 0) {
+crt/kernel.c:1261:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, handle),
+crt/kernel.c:1267:  if(kernel_copyout(kaddr, obj, sizeof(dynlib_obj_t)) < 0) {
+crt/kernel.c:1276:kernel_dynlib_find_handle(int pid, unsigned long addr, unsigned int* handle) {
+crt/kernel.c:1287:  if(kernel_copyout(kproc + 0x340, &kaddr, sizeof(kaddr)) < 0) {
+crt/kernel.c:1292:    if(kernel_copyout(kaddr, &kaddr, sizeof(kaddr)) < 0) {
+crt/kernel.c:1299:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, mapbase),
+crt/kernel.c:1304:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, mapsize),
+crt/kernel.c:1310:      if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, handle),
+crt/kernel.c:1324:kernel_dynlib_handle(int pid, const char* basename, unsigned int *handle) {
+crt/kernel.c:1337:  if(kernel_copyout(kproc + 0x340, &kaddr, sizeof(kaddr)) < 0) {
+crt/kernel.c:1343:    if(kernel_copyout(kaddr, &kaddr, sizeof(kaddr)) < 0) {
+crt/kernel.c:1349:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, path),
+crt/kernel.c:1353:    if(kernel_copyout(kpath, path, sizeof(path)) < 0) {
+crt/kernel.c:1357:    if(kernel_copyout(kaddr + __builtin_offsetof(dynlib_obj_t, handle),
+crt/kernel.c:1381:kernel_dynlib_mapbase_addr(int pid, unsigned int handle) {
+crt/kernel.c:1384:  if(kernel_dynlib_obj(pid, handle, &obj)) {
+crt/kernel.c:1393:kernel_dynlib_entry_addr(int pid, unsigned int handle) {
+crt/kernel.c:1396:  if(kernel_dynlib_obj(pid, handle, &obj)) {
+crt/kernel.c:1405:kernel_dynlib_init_addr(int pid, unsigned int handle) {
+crt/kernel.c:1408:  if(kernel_dynlib_obj(pid, handle, &obj)) {
+crt/kernel.c:1417:kernel_dynlib_fini_addr(int pid, unsigned int handle) {
+crt/kernel.c:1420:  if(kernel_dynlib_obj(pid, handle, &obj)) {
+crt/kernel.c:1429:kernel_dynlib_resolve(int pid, int handle, const char *nid) {
+crt/kernel.c:1439:  if(kernel_dynlib_obj(pid, handle, &obj)) {
+crt/kernel.c:1442:  if(kernel_copyout(obj.dynsec, &dynsec, sizeof(dynsec)) < 0) {
+crt/kernel.c:1457:  if(kernel_copyout(dynsec.symtab, symtab, dynsec.symtabsize) < 0) {
+crt/kernel.c:1461:  if(kernel_copyout(dynsec.strtab, strtab, dynsec.strtabsize) < 0) {
+crt/kernel.c:1484:kernel_dynlib_dlsym(int pid, unsigned int handle, const char* sym) {
+crt/kernel.c:1489:  return kernel_dynlib_resolve(pid, handle, nid);
+crt/kernel.c:1502:  if(kernel_copyout(proc + KERNEL_OFFSET_PROC_P_FD, &filedesc,
+crt/kernel.c:1520:  if(kernel_copyout(proc + KERNEL_OFFSET_PROC_P_UCRED, &ucred,
+crt/kernel.c:1538:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_PRISON, &prison,
+crt/kernel.c:1555:  if(kernel_copyin(&prison, ucred + KERNEL_OFFSET_UCRED_CR_PRISON,
+crt/kernel.c:1573:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_SCEAUTHID, &authid,
+crt/kernel.c:1590:  if(kernel_copyin(&authid, ucred + KERNEL_OFFSET_UCRED_CR_SCEAUTHID,
+crt/kernel.c:1607:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_SCECAPS, caps, 16)) {
+crt/kernel.c:1623:  if(kernel_copyin(caps, ucred + KERNEL_OFFSET_UCRED_CR_SCECAPS, 16)) {
+crt/kernel.c:1640:  if(kernel_copyout(ucred + KERNEL_OFFSET_UCRED_CR_SCEATTRS, &attrs,
+crt/kernel.c:1657:  if(kernel_copyin(&attrs, ucred + KERNEL_OFFSET_UCRED_CR_SCEATTRS,
+crt/kernel.c:1674:  if(kernel_copyin(&uid, ucred + KERNEL_OFFSET_UCRED_CR_UID,
+crt/kernel.c:1691:  if(kernel_copyin(&ruid, ucred + KERNEL_OFFSET_UCRED_CR_RUID,
+crt/kernel.c:1708:  if(kernel_copyin(&svuid, ucred + KERNEL_OFFSET_UCRED_CR_SVUID,
+crt/kernel.c:1725:  if(kernel_copyin(&rgid, ucred + KERNEL_OFFSET_UCRED_CR_RGID,
+crt/kernel.c:1742:  if(kernel_copyin(&svgid, ucred + KERNEL_OFFSET_UCRED_CR_SVGID,
+crt/kernel.c:1759:  if(kernel_copyout(filedesc + KERNEL_OFFSET_FILEDESC_FD_RDIR, &vnode,
+crt/kernel.c:1777:  if(kernel_copyout(filedesc + KERNEL_OFFSET_FILEDESC_FD_JDIR, &vnode,
+crt/kernel.c:1794:  if(kernel_copyout(filedesc + KERNEL_OFFSET_FILEDESC_FD_CDIR, &vnode,
+crt/kernel.c:1811:  if(kernel_copyin(&vnode, filedesc + KERNEL_OFFSET_FILEDESC_FD_RDIR,
+crt/kernel.c:1828:  if(kernel_copyin(&vnode, filedesc + KERNEL_OFFSET_FILEDESC_FD_JDIR,
+crt/kernel.c:1845:  if(kernel_copyin(&vnode, filedesc + KERNEL_OFFSET_FILEDESC_FD_CDIR,
+crt/kernel.c:1856:  return kernel_copyout(KERNEL_ADDRESS_QA_FLAGS, qaflags, 16);
+crt/kernel.c:1862:  return kernel_copyin(qaflags, KERNEL_ADDRESS_QA_FLAGS, 16);
+crt/kernel.c:1881:  if(kernel_copyout(proc_addr + KERNEL_OFFSET_PROC_P_VMSPACE,
+crt/kernel.c:1886:  if(kernel_copyout(vmspace_addr + KERNEL_OFFSET_VMSPACE_P_ROOT,
+crt/kernel.c:1892:    if(kernel_copyout(vm_map_entry_addr + 0x20, &start, sizeof(start))) {
+crt/kernel.c:1895:    if(kernel_copyout(vm_map_entry_addr + 0x28, &end, sizeof(end))) {
+crt/kernel.c:1901:      if(kernel_copyout(vm_map_entry_addr + 0x10, &vm_map_entry_addr,
+crt/kernel.c:1907:      if(kernel_copyout(vm_map_entry_addr + 0x18, &vm_map_entry_addr,
+crt/kernel.c:1936:    if(kernel_copyout(vm_entry + 0x20, &start, sizeof(start))) {
+crt/kernel.c:1944:    if(kernel_copyout(vm_entry + 0x5c, &vm_prot, sizeof(vm_prot))) {
+crt/kernel.c:1953:    if(kernel_copyout(vm_entry + 0x08, &vm_entry, sizeof(vm_entry))) {
+crt/kernel.c:1985:    if(kernel_copyout(vm_entry + 0x20, &start, sizeof(start))) {
+crt/kernel.c:1994:    if(kernel_copyin(&vm_prot, vm_entry + 0x5c, sizeof(vm_prot))) {
+crt/kernel.c:1998:    if(kernel_copyout(vm_entry + 0x08, &vm_entry, sizeof(vm_entry))) {
+crt/kernel.h:129:extern unsigned long KERNEL_ADDRESS_IMAGE_BASE;
+crt/kernel.h:134:int kernel_copyout(unsigned long kaddr, void *uaddr, unsigned long len);
+crt/kernel.h:135:int kernel_copyin(const void *uaddr, unsigned long kaddr, unsigned long len);
+crt/kernel.h:164:unsigned long kernel_dynlib_dlsym(int pid, unsigned int handle, const char *sym);
+crt/patch.c:364:    if(kernel_patch(KERNEL_ADDRESS_IMAGE_BASE + patch1,
+crt/patch.c:370:    if(kernel_patch(KERNEL_ADDRESS_IMAGE_BASE + patch2,
+crt/patch.c:376:    if(kernel_patch(KERNEL_ADDRESS_IMAGE_BASE + patch3,
+crt/rtld.c:190:  if((addr=kernel_dynlib_dlsym(-1, g_libkernel_handle, symname))) {
+crt/rtld.c:193:  if((addr=kernel_dynlib_dlsym(-1, 0x2, symname))) {
+crt/rtld.c:198:    if((addr=kernel_dynlib_dlsym(-1, g_handles[i], symname))) {
+include/ps4/kernel.h:82:extern const intptr_t KERNEL_ADDRESS_IMAGE_BASE;
+include/ps4/kernel.h:83:extern const intptr_t KERNEL_ADDRESS_ALLPROC;
+include/ps4/kernel.h:86:extern const intptr_t KERNEL_ADDRESS_TARGETID;
+include/ps4/kernel.h:91:int32_t  kernel_copyin(const void *udaddr, intptr_t kaddr, size_t len);
+include/ps4/kernel.h:92:int32_t  kernel_copyout(intptr_t kaddr, void *udaddr, size_t  len);
+include/ps4/kernel.h:112:int      kernel_dynlib_obj(pid_t pid, uint32_t handle, dynlib_obj_t* obj);
+include/ps4/kernel.h:113:int      kernel_dynlib_handle(pid_t pid, const char* basename, uint32_t *handle);
+include/ps4/kernel.h:114:intptr_t kernel_dynlib_dlsym(pid_t pid, uint32_t handle, const char *sym);
+include/ps4/kernel.h:115:intptr_t kernel_dynlib_resolve(pid_t pid, uint32_t handle, const char *nid);
+include/ps4/kernel.h:116:intptr_t kernel_dynlib_mapbase_addr(pid_t pid, uint32_t handle);
+include/ps4/kernel.h:117:intptr_t kernel_dynlib_entry_addr(pid_t pid, uint32_t handle);
+include/ps4/kernel.h:118:intptr_t kernel_dynlib_init_addr(pid_t pid, uint32_t handle);
+include/ps4/kernel.h:119:intptr_t kernel_dynlib_fini_addr(pid_t pid, uint32_t handle);
+samples/kdump/main.c:35:    if(kernel_copyout(KERNEL_ADDRESS_IMAGE_BASE+i, buf, len)) {
+samples/kdump/main.c:36:      perror("kernel_copyout");
+## kernel source context
+  case 0x13500000:
+    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;
+    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;
+    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6F0;
+    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD600;
+
+    KERNEL_OFFSET_VMSPACE_P_ROOT = 0; // TODO
+    break;
+
+  default:
+    if(fw < 0x13500000) {
+      return -ENOSYS;
+    }
+
+    if((err=kexec(kexec_find_image_base, &KERNEL_ADDRESS_IMAGE_BASE))) {
+      return err;
+    }
+    if((err=kexec(kexec_get_image_size, KERNEL_ADDRESS_IMAGE_BASE,
+		  &KERNEL_IMAGE_SIZE))) {
+      return err;
+    }
+    if((err=kexec(kexec_find_copyin, KERNEL_ADDRESS_IMAGE_BASE,
+		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_COPYIN))) {
+      return err;
+    }
+    if((err=kexec(kexec_find_copyout, KERNEL_ADDRESS_IMAGE_BASE,
+		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_COPYOUT))) {
+      return err;
+    }
+    if((err=kexec(kexec_find_targetid, KERNEL_ADDRESS_IMAGE_BASE,
+		  KERNEL_IMAGE_SIZE, &KERNEL_ADDRESS_TARGETID))) {
+      return err;
+    }
+
+    if(!KERNEL_ADDRESS_IMAGE_BASE || !KERNEL_IMAGE_SIZE ||
+       !KERNEL_ADDRESS_COPYIN || !KERNEL_ADDRESS_COPYOUT ||
+       !KERNEL_ADDRESS_TARGETID) {
+      return -ENOSYS;
+    }
+    break;
+  }
+
+  // get the size of the kernel image
+  if((err=kexec(kexec_get_image_size, KERNEL_ADDRESS_IMAGE_BASE,
+		&KERNEL_IMAGE_SIZE))) {
+    return err;
+  }
+
+  // get the kernel address pointing at the current thread
+  if((err=kexec(kexec_get_thread, &addr))) {
+    return err;
+  }
+
+  // get the kernel address pointing at the current proc
+  if((err=kernel_copyout(addr+8, &addr, sizeof(addr)))) {
+    return err;
+  }
+
+  // find 'allproc'
+  while(addr) {
+    if(kernel_copyout(addr + KERNEL_OFFSET_PROC_P_PID, &pid,
+		      sizeof(pid))) {
+      return 0;
+    }
+
+    if(pid == 0) {
+      break;
+    }
+
+    if(kernel_copyout(addr+8, &prev, sizeof(prev))) {
+      return 0;
+    }
+
+    addr = prev;
+  }
+
+  // ensure we found 'allproc'
+  if(!(KERNEL_ADDRESS_ALLPROC=addr)) {
+    return -1;
+  }
+
+  // get the address pointing at the global kernel variable 'prison0'
+  if(!(KERNEL_ADDRESS_PRISON0=kernel_get_ucred_prison(1))) {
+    return -1;
+  }
+
+  // get the address pointing at the global kernel variable 'rootvnode'
+  if(!(KERNEL_ADDRESS_ROOTVNODE=kernel_get_proc_rootdir(1))) {
+    return -1;
+  }
+
+  KERNEL_ADDRESS_QA_FLAGS = KERNEL_ADDRESS_TARGETID + 0x1b;
+
+  return 0;
+}
+
+
+int
+kernel_copyin(const void *uaddr, unsigned long kaddr, unsigned long len) {
+  if(!kaddr || !uaddr) {
+    return -EINVAL;
+  }
+
+  return kexec(kexec_copyin, KERNEL_ADDRESS_COPYIN, uaddr, kaddr, len);
+}
+
+
+int
+kernel_copyout(unsigned long kaddr, void *uaddr, unsigned long len) {
+  if(!kaddr || !uaddr) {
+    return -EINVAL;
+  }
+
+  return kexec(kexec_copyout, KERNEL_ADDRESS_COPYOUT, kaddr, uaddr, len);
+}
+
+
+int
+kernel_setlong(unsigned long addr, unsigned long val) {
+  return kernel_copyin(&val, addr, sizeof(val));
+}
+
+
+int
+kernel_setint(unsigned long addr, unsigned int val) {
+  return kernel_copyin(&val, addr, sizeof(val));
+}
+
+
+int
+kernel_setshort(unsigned long addr, unsigned short val) {
+  return kernel_copyin(&val, addr, sizeof(val));
+}
+
+
+int
+kernel_setchar(unsigned long addr, unsigned char val) {
+  return kernel_copyin(&val, addr, sizeof(val));
+}
+
+
+unsigned long
+kernel_getlong(unsigned long addr) {
+  unsigned long val = 0;
+
+  kernel_copyout(addr, &val, sizeof(val));
+
+  return val;
+}
+
+
+unsigned int
+kernel_getint(unsigned long addr) {
+  unsigned int val = 0;
+
+  kernel_copyout(addr, &val, sizeof(val));
+
+  return val;
+}
+
+
+unsigned short
+kernel_getshort(unsigned long addr) {
+  unsigned short val = 0;
+
+  kernel_copyout(addr, &val, sizeof(val));
+
+  return val;
+}
+
+
+unsigned char
+kernel_getchar(unsigned long addr) {
+  unsigned char val = 0;
+
+  kernel_copyout(addr, &val, sizeof(val));
+
+  return val;
+}
+
+
+unsigned long
+kernel_find_pattern(unsigned long addr, unsigned int len, const char* pattern) {
+  kexec_find_pattern_ctx_t ctx;
+  unsigned long res = 0;
+  int pattern_len = -1;
+## offset source paths
+./crt/kernel.c
+./crt/kernel.h
+./include/freebsd-9.3/sys/kernel.h
+./include/freebsd-9.3/sys/kerneldump.h
+./include/ps4/kernel.h
+./sce_stubs/libkernel.c
+./sce_stubs/libkernel_sys.c
+./sce_stubs/libkernel_web.c

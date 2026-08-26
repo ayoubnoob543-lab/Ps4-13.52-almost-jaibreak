@@ -814,3 +814,7 @@ Searches for `Celsius PS4 kernel R/W`, `ffs_mount heap overflow PS4 kernel read 
 ## UFS image-generation scope in SDK
 
 The SDK tree contains `libufs` sources (`block.c`, `cgroup.c`, `inode.c`, `sblock.c`, `type.c`) and FreeBSD UFS/FFS headers. `sblock.c` reads `fs_cssize`, computes block counts, adds `fs_ncg * sizeof(int32_t)`, and iterates over cylinder groups; `cgroup.c` reads/writes group data and checks `fs_ncg`. This gives useful offline structure/layout primitives. The SDK does not include a complete `makefs` command, a Celsius-specific image, a malformed-superblock fixture, or the Orbis-side route that consumes it. Classification: offline FFS structure support `VERIFIED`; Celsius image `NOT FOUND`.
+
+## SDK kernel R/W API scope
+
+The current public SDK exposes `kernel_copyin` and `kernel_copyout`, plus typed getters/setters, kernel image-base discovery, `copyin`/`copyout` address discovery and `kernel_find_pattern`. The source shows these APIs call `kexec` at already-known `KERNEL_ADDRESS_COPYIN`/`KERNEL_ADDRESS_COPYOUT` addresses; they do not obtain the initial corruption primitive. The firmware switch shown includes `0x13500000` and generic pattern scanning for later firmware, but no 13.02 Celsius implementation. This is a reusable post-primitive R/W interface and a model for locating functions once R/W exists, not the missing Celsius-to-R/W conversion. Classification: API `VERIFIED`; Celsius linkage `NOT PROVIDED`.
