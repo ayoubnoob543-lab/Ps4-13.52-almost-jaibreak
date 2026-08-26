@@ -624,3 +624,8 @@ The included `index.html` contains diagnostic scaffolding with `version = "13.02
 The final section of `ddaaccdd/CSSFontFace-Exploit-1302research/index.html` contains concrete-looking routines that, after an achieved ARW, derive `webkit_base` from `Math.expm1`, derive `libc_base` from `strerror`, derive `libkernel_base` from `_error`, construct a `Pivot`/`Stack`/`Frame`, bind `_error` and `_strerror`, scan libkernel syscall stubs and bind common syscalls including `dlsym`. This documents the userland-to-ROP preparation boundary.
 
 The repository’s own README says the target CSSFontFace UAF does not work on 13.02; the presence of these routines is scaffold/diagnostic code and does not establish that they run successfully on 13.02, reach Netctrl or produce kernel R/W. No kernel stage, FFS mount or Celsius code is present in this section. Classification: code presence `VERIFIED`; successful 13.02 execution and kernel transition `UNVERIFIED`.
+
+
+## Component presence matrix
+
+The static presence matrix compares Jordy 1089382, the 13.02 research artifact, ntfargo Netctrl/kernel sources and zecoxao’s Jordy PS5 bootstrap. Jordy and the 13.02 research artifact both expose nominal WebKit/libkernel base, dlsym, Pivot and ROP vocabulary, but neither contains `KernelView`, `kread`, `kwrite`, `p_ucred`, `pktopts`, Netctrl or ucred integration. The ntfargo sources contain the concrete kernel-side primitives and ucred/pktopts path. Jordy alone contains the strings `ffs_mountfs`, `Celsius` and `mount`, but in the reviewed file these occur as claims/placeholders rather than an implemented path. The matrix is evidence of a sharp userland-vs-kernel integration boundary, not evidence that Celsius works.
