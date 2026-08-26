@@ -1,0 +1,5 @@
+readelf: Error: Reading 768 bytes extends past end of file for section headers
+=== dynamic symbols ===
+readelf: Error: Reading 768 bytes extends past end of file for section headers
+=== relocations ===
+readelf: Error: Reading 768 bytes extends past end of file for section headers

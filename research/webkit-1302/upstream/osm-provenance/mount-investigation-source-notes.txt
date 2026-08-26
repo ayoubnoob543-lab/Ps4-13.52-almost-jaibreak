@@ -217,3 +217,7 @@ A saved static parser located a zlib stream at file offset `0x5c70` in `Fusion.b
 ## Fusion embedded ELF classification
 
 The statically extracted blob from `Fusion.bin` is 34,672 bytes, SHA-256 `a87a778065820f9dd5c7f480ffa38df4365b845784c011d59f38bdc663e01906`, ELF64 x86-64, type `DYN`, entry point `0x1000`, statically linked and stripped. Its strings include `Kernel Driver`, `Fusion Kernel Started!`, `Fusion kernel module`, `/data/Fusion`, `FusionSysctl`, `Fusion Version`, and `Kernel.elf.sym`. These identify a Fusion kernel payload/module loaded by the exploit framework, not an image of the Orbis kernel. The string `Kernel.elf.sym` is a symbol/resource filename inside the Fusion payload and does not establish that the embedded ELF is a PS4 kernel dump. Classification: `VERIFIED` as Fusion payload; `INVALID` as Orbis 13.02 kernel/FFS evidence.
+
+## Fusion embedded ELF symbol-table check
+
+`readelf -s`, `readelf --dyn-syms`, and `readelf -r` report that reading the section headers extends past the end of the 34,672-byte extracted resource. This prevents a complete symbol/relocation-table validation and is consistent with a stripped, custom-loaded or truncated resource; it must not be interpreted as evidence that the blob is an Orbis kernel. The previously verified ELF header and Fusion-specific strings remain the stronger classification evidence. Classification: `VERIFIED` for parser limitation; `INVALID` as any inference about `ffs_mountfs`.
