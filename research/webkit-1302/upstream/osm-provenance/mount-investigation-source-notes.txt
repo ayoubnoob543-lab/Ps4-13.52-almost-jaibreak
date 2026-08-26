@@ -229,3 +229,7 @@ Public searches for `Kernel.elf.sym`, `Fusion Kernel Started`, and related Fusio
 ## Al-Azif PS4 RE Utilities
 
 Primary repository: https://github.com/Al-Azif/ps4-re-utilities. Created 2025-12-04, one commit, three forks. `self-extractor.py` extracts embedded SELF files from an externally supplied decrypted or dumped Kernel ELF (`80010002`); `split-kernel.py` separates AMD microBIOS and FreeBSD kernel from that externally supplied file. The README claims scripts tested up to 13.50, but explicitly requires decrypted input obtained by separate means. The repository contains no `kernel.elf`, kernel dump, 13.02 artifact, FFS symbols, or Celsius analysis. This is a useful post-acquisition analysis tool, not a source or output of the Fusion offsets. Classification: `VERIFIED` as tooling; `SOURCE_ONLY` for claimed version range; `INVALID` as direct 13.02/FFS evidence.
+
+## GhidraPS4Loader / PS4 KSDK historical cross-check
+
+PSXHAX article (17-Mar-2019): https://www.psxhax.com/threads/ghidraps4loader-ps4-elf-loader-ps4flashtool-more-by-jogolden.6688/ documents GhidraPS4Loader as a loader for decrypted PS4 ELF files and describes PS4 KSDK support as `5.05 only right now`. It does not publish a 13.02 kernel, FFS disassembly, Celsius artifact, or offset source. The article's `PS4FlashTool` concerns flash extraction/decryption and does not provide a kernel dump. Classification: `VERIFIED` for historical tooling/documentation; `INVALID` as 13.02 Orbis kernel/FFS evidence.
