@@ -279,3 +279,7 @@ Exact searches for SHA `1089382ec1e0000e9557b7748d39b57952bbc4f6` and the messag
 ## Official Sony 13.50 documentation check
 
 Sony's current PS4 system-software support page provides update/reinstallation instructions and a current update link, but no technical changelog identifying kernel diffs. The extracted page contains no references to UFS, FFS, `ffs_mountfs`, `ffs_reload`, Celsius, or a security patch. Therefore the public Sony documentation does not corroborate the claim that Celsius was patched in 13.50. Classification: `VERIFIED` for the page contents; `INVALID` as evidence of the specific patch; the patch claim remains `SOURCE_ONLY` based on scene reports.
+
+## Gezine 13.50 rumor check
+
+Reddit thread `r/ps4homebrew/comments/1sm5z56` (“Gezine now has a kernel exploit up to 13.50, but no intention of disclosure”) says, without technical details, that Gezine allegedly has a kernel exploit covering 13.50 but will not disclose it. The post provides no code, offsets, kernel image, crash log, primitive description, Celsius attribution, or hardware transcript. It cannot corroborate Celsius or establish a 13.02 route. Classification: `SOURCE_ONLY` as a community rumor; `UNVERIFIED` for the exploit claim; `INVALID` as technical proof.
