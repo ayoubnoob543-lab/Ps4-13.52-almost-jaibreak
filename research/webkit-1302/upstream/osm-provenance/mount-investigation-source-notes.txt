@@ -748,3 +748,7 @@ Git path history shows `scanner_1304.iso` was first added in commit `9d0d8e1a509
 ## Exact public search: patch_mount
 
 Las búsquedas exactas de `patch_mount` PS4 13.02, `patch_mount` + `M_MOUNT` y `0x001512A7` no devolvieron resultados públicos nuevos. No se localizó una referencia cruzada, bytes, símbolo, commit anterior o writeup independiente que vincule `patch_mount = 0x001512A7` con `ffs_mountfs`, UFS o Celsius. Estado: la entrada de la tabla continúa siendo `DERIVED/SOURCE_ONLY`; la asociación con FFS permanece `HYPOTHESIS`.
+
+## Source-level comparison of mount-related offset tables
+
+The local source inspection finds `patch_mount = kernelBase + 0x001512A7`, `M_MOUNT = kernelBase + 0x01A40250`, `getnewvnode = kernelBase + 0x0036E2F0`, `vn_fullpath = kernelBase + 0x00308CE0` and `kern_open = kernelBase + 0x003435E0` in `research/webkit-1302/upstream/fusion-1302/Offsets-1302.h`. The checked `kpayload` 1302/1304 offset sources do not define these names; their mount-related matches concern PFS/Shell patches, not `ffs_mountfs` or UFS. This strengthens that the Fusion `patch_mount` label is a project-specific patch symbol with no public semantic proof, rather than an independently identified FFS function. Classification: table contents `VERIFIED`; semantic association `patch_mount → ffs_mountfs` remains `HYPOTHESIS`.
