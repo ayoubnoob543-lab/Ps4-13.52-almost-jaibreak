@@ -696,3 +696,8 @@ Path-specific history resolves the provenance of both binaries: commit `d29bd6c3
 ## hejran7 main-flow audit
 
 `hejran7/host/src/main.js` loads PS4 constants/userland, obtains the userland ARW, initializes ROP and syscalls, then loads `ps4/kernel.js` and the selected exploit chain (`lapse` or Netctrl). The chain calls `make_karw()`/`ucred_triple_free()`, then `find_all_proc()`, `jailbreak()` and `kernel_patches()` with firmware-specific patch blobs. There is no `jordy_stage2`, UFS/FFS mount, Celsius or hidden 13.02 branch. The source ordering reinforces that `kernel.js` and dumper payloads are consumers after a historical exploit primitive, not missing exploit components for 13.02.
+
+
+## Deleted/renamed file audit
+
+The history scan found one directly relevant deletion in `ps4-suid-scanner`: `stage2_jordy.js` is deleted in its Git history, which is already preserved through the recoverable parent/child analysis and does not reveal a more complete replacement. In `hejran7`, the later history deletes the entire older `public/` chain, including `public/src/ps4/kernel.js`, Netctrl, userland, historical patch blobs and offsets, before adding the `host/` payload layout. The ntfargo/ps3120 histories delete older 11.50-related Lapse and patch files, not a Celsius or Jordy implementation. No deleted path named `ffs_mountfs`, `Celsius`, `jordy_stage2` successor or 13.02 kernel artifact was found beyond the known incomplete stage2 deletion.
