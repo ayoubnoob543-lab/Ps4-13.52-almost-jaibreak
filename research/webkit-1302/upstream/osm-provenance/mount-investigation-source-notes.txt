@@ -822,3 +822,7 @@ The current public SDK exposes `kernel_copyin` and `kernel_copyout`, plus typed 
 ## Scene-Collective/psfree lookup
 
 The presumed public repository `Scene-Collective/psfree` could not be resolved by GitHub (`Could not resolve to a Repository`). A repository search was recorded separately; no code from that URL was treated as evidence. This leaves the WebKit/Jordy bootstrap gap unchanged and avoids conflating similarly named scene projects.
+
+## Scene-Collective/psfree lookup
+
+The presumed public repository `Scene-Collective/psfree` could not be resolved by GitHub. A repository search and the failed exact lookup are recorded separately; no code from that URL was treated as evidence. This leaves the WebKit/Jordy bootstrap gap unchanged and avoids conflating similarly named scene projects.
