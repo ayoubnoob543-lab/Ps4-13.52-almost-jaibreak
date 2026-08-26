@@ -967,3 +967,7 @@ Tag `2.0` retains `kernel.ts`, `lapse.ts`, and `netctrl_c0w_twins.ts`, with expl
 ## vue-after-free release branch
 
 The `release` branch contains extensive AIO/Netctrl code with kernel address leaks, `kernel.read_*`/`kernel.write_*`, and an `ipv6_kernel_rw` helper that assumes pre-existing R/W callbacks. Its firmware table reaches 12.02 only; no 13.02/13.04, Celsius, `ffs_mountfs`, `ffs_reload`, UFS, FFS or mount material appears. Verified historical R/W artifact; invalid as Celsius.
+
+## Search of announcement phrases and 250GB requirement
+
+Searches found no new Celsius artifact. The only specific 250GB result was Sony's official PS4 external-storage documentation stating a general 250GB minimum for the device. This does not prove a 250GB Celsius image or link the requirement to `ffs_mountfs`; other results were generic/irrelevant.

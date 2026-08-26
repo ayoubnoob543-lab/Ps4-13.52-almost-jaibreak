@@ -191,3 +191,7 @@ El tag público `2.0` conserva `kernel.ts`, `lapse.ts` y `netctrl_c0w_twins.ts`.
 ## Rama `release` de `vue-after-free`
 
 La rama `release` contiene una implementación extensa de AIO/Netctrl con funciones de leak de direcciones, `kernel.read_*`/`kernel.write_*` y una auxiliar `ipv6_kernel_rw` que presupone callbacks R/W ya inicializados. Su tabla de offsets expone versiones hasta `12.02`; no hay entradas 13.02 ni 13.04. No aparecen Celsius, `ffs_mountfs`, `ffs_reload`, UFS, FFS ni mount. Aporta otro snapshot histórico de la primitive Netctrl/AIO, no el bootstrap Celsius ni una ruta 13.02. Clasificación: **VERIFIED** como artefacto histórico R/W dependiente de Netctrl; **INVALID** como Celsius.
+
+## Búsqueda de frases del anuncio y requisito de 250 GB
+
+Las búsquedas de `PS4 Celsius 13.04 extended storage UFS`, `PS4 ffs_mountfs 13.04 bollars` y `PS4 Jordy UFS image 250GB` no localizaron un artefacto técnico adicional. El único resultado específico de 250 GB fue la documentación oficial de Sony sobre almacenamiento externo de PS4, donde 250 GB es el mínimo general del dispositivo. Esto no demuestra que Celsius use una imagen de 250 GB ni conecta el requisito con `ffs_mountfs`. Los demás resultados fueron páginas generales o irrelevantes. Clasificación: **sin nueva fuente Celsius**; requisito de 250 GB sólo **contexto oficial general de PS4**.
