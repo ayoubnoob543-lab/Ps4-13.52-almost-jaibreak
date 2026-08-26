@@ -358,3 +358,32 @@ Acceso a credenciales vía `gs:[0]`.
 | `0x83bcf780` | copia/validación de buffer con credenciales |
 | `0x83be37b0` | función pup específica (softc + tabla) |
 | `0x83beb640` | implementación común del descifrado |
+
+---
+
+## 🔥 BASE DE DATOS DE OFFSETS KERNEL COMPLETA (alferdoss/SLOPOS-offsets)
+
+Descubierto: repositorio con offsets kexec para **CADA firmware PS4 desde 3.15 hasta 13.52**, incluyendo 13.02 y 13.52 específicamente.
+
+### Offsets críticos confirmados para 13.02:
+| Offset | Función | Valor |
+|---|---|---|
+| sysent | tabla de syscalls | 0x1102B70 |
+| prison0 | credenciales por defecto | 0x111FA18 |
+| rootvnode | root del filesystem | 0x2136E90 |
+| copyin | copia user→kernel | 0x2BD6E0 |
+| copyout | copia kernel→user | 0x2BD5F0 |
+| copyinstr | copia string | 0x2BDB90 |
+| kmem_alloc | allocación kernel | 0x465A50 |
+| kmem_free | liberación kernel | 0x465C20 |
+
+### Comparación entre versiones
+`sysent` NO se movió entre 13.00→13.02→13.52 (0x1102B70 constante).
+Los demás offsets tienen deltas de +0x10 (13.00→13.02) y +0xB0 (13.02→13.52).
+
+### Implicancia
+Con estos offsets, la cadena 13.02 es CONSTRUIBLE usando la técnica kexec clásica:
+1. WebKit exploit → userland
+2. Kernel exploit (ucred triple-free o semctl TOCTOU)
+3. Con R/W kernel: parchear sysent añadiendo kexec syscall
+4. Ejecutar payload que habilita GoldHEN/HEN
