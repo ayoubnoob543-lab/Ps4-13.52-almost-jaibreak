@@ -121,3 +121,7 @@ OBHQ `kernel-dumper` README confirms an actual `kernel.elf` output workflow via 
 VV1LD flexible dumper coverage documented by PSXHAX is 4.05/4.55/5.05, with later 5.50 material; a 2021 comment reports the Scene-Collective dumper produced a 34MB file on 6.72/7.55/9.00 and calls it incomplete. No 13.02 output appears. Source: https://www.psxhax.com/threads/flexible-kernel-dumper-payload-for-ps4-by-vvildcard777.5809/. Classification: `VERIFIED` historical dumper context; `INVALID` as 13.02 artifact.
 
 ConsoleMods Scene History records historical kernel ELF loading and dumps but does not list a public Orbis 13.02 kernel artifact. Classification: `SOURCE_ONLY` as scene chronology; `INVALID` as 13.02 evidence.
+
+## LUA-Lapse source inspection
+
+The source tree of `egycnq/LUA-Lapse` includes kernel base discovery, `kernel.read_*`/`kernel.write_*`, `dump_kernel_elf`, process/ucred and root vnode manipulation, and a `FW_VERSION` path for 12.02. Its README claims tested support for 12.02, 11.00 and 9.00. The inspected source contains no `patch_mount`, `ffs_mountfs`, `ffs_reload`, `struct fs`, UFS strings, or Celsius code. It is a post-exploitation/dumping tool and can potentially produce a kernel ELF on supported systems, but no public 13.02 output is included. Classification: `VERIFIED` as a 12.02 dumper/tool; `UNVERIFIED` for 13.02; `INVALID` as indirect FFS/Celsius evidence.
