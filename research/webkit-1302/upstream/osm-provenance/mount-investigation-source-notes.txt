@@ -850,3 +850,4 @@ GitHub reports four public forks of `adri22235/ps4-suid-scanner`: `ayoubnoob543-
 ## Git unreachable-object audit
 
 `git fsck --full --no-reflogs --unreachable` produced no unreachable commits, trees or blobs in the upstream clone or any of the four public forks. This does not prove that GitHub never garbage-collected an object or that private/deleted server-side refs never existed, but it confirms that no recoverable deleted Celsius stage, image or PoC is present in the locally cloned public histories.
+Expediente creado desde d42bf9c; se separan las búsquedas A y B y se excluye la nueva auditoría de ps4-suid-scanner.
