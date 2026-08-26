@@ -617,3 +617,10 @@ The literal scan of `jordy_stage2_1089382.js` against the preserved primary PS4 
 This public repository is a 13.02-specific research attempt, not a jailbreak. Its README says the `FontFaceSet::load` thenable-getter UAF vector does not work on 13.02 for architectural reasons, not because of offsets or timing. It records that the `FontFace.prototype.then` getter fires and that `matchingFaces` keeps object B alive indefinitely, differing from older upstream WebKit behavior. The README states that continuing requires another UAF vector or the `libSceWebKit2.sprx` binary from 13.02 for reversal.
 
 The included `index.html` contains diagnostic scaffolding with `version = "13.02"`, a userland pivot class, a libkernel base calculation, syscall scan and dlsym binding, but the repository’s own conclusion says the target UAF primitive is not achieved. It is therefore a valuable negative/diagnostic artifact explaining why a historical CSSFontFace chain cannot simply be ported to 13.02; it does not supply kernel R/W, Netctrl, Celsius, FFS mount or the missing full stage. Classification: 13.02 architectural observation `SOURCE_ONLY/CORROBORATED` depending on the exact claim; kernel-RW/Celsius `UNVERIFIED`.
+
+
+## 13.02 research artifact: ASLR/ROP boundary
+
+The final section of `ddaaccdd/CSSFontFace-Exploit-1302research/index.html` contains concrete-looking routines that, after an achieved ARW, derive `webkit_base` from `Math.expm1`, derive `libc_base` from `strerror`, derive `libkernel_base` from `_error`, construct a `Pivot`/`Stack`/`Frame`, bind `_error` and `_strerror`, scan libkernel syscall stubs and bind common syscalls including `dlsym`. This documents the userland-to-ROP preparation boundary.
+
+The repository’s own README says the target CSSFontFace UAF does not work on 13.02; the presence of these routines is scaffold/diagnostic code and does not establish that they run successfully on 13.02, reach Netctrl or produce kernel R/W. No kernel stage, FFS mount or Celsius code is present in this section. Classification: code presence `VERIFIED`; successful 13.02 execution and kernel transition `UNVERIFIED`.
