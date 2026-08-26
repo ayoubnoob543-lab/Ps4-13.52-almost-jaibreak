@@ -1,0 +1,86 @@
+## source-like files
+./jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/96a7948_vs_1089382.diff
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/firmware_lab_mirror_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/adri22235_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ayoubnoob543-lab_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ke5adb_ps4-suid-scanner_jordy_stage2.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/jordy_stage2_1089382.js
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/stage2_jordy_96a7948.js
+./research/webkit-1302/upstream/adri-suid-history/stage2_jordy.js
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c
+./research/webkit-1302/upstream/osm-provenance/mount-patch-lineage-comparison.tsv
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/cd9660.c
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c
+./webkit_gadgets_1304.js
+## all non-document matches summary
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:78:static int	ffs_reload(struct mount *, struct thread *);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:79:static int	ffs_mountfs(struct vnode *, struct mount *, struct thread *);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:80:static void	ffs_oldfscompat_read(struct fs *, struct ufsmount *,
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:146:	struct fs *fs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:336:		    (error = ffs_reload(mp, td)) != 0)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:537:		if ((error = ffs_mountfs(devvp, mp, td)) != 0) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:610:ffs_reload(struct mount *mp, struct thread *td)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:616:	struct fs *fs, *newfs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:631:		panic("ffs_reload: dirty1");
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:641:	newfs = (struct fs *)bp->b_data;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:645:	    newfs->fs_bsize < sizeof(struct fs)) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:652:	 * Note that important parameters (eg fs_ncg) are unchanged.
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:678:	size = fs->fs_cssize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:680:	if (fs->fs_contigsumsize > 0)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:681:		size += fs->fs_ncg * sizeof(int32_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:682:	size += fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:701:	if (fs->fs_contigsumsize > 0) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:703:		for (i = 0; i < fs->fs_ncg; i++)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:704:			*lp++ = fs->fs_contigsumsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:707:	size = fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:721:			panic("ffs_reload: dirty2");
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:753:ffs_mountfs(devvp, mp, td)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:760:	struct fs *fs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:808:		fs = (struct fs *)bp->b_data;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:815:		    fs->fs_bsize >= sizeof(struct fs))
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:914:	size = fs->fs_cssize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:916:	if (fs->fs_contigsumsize > 0)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:917:		size += fs->fs_ncg * sizeof(int32_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:918:	size += fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:935:	if (fs->fs_contigsumsize > 0) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:937:		for (i = 0; i < fs->fs_ncg; i++)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:938:			*lp++ = fs->fs_contigsumsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:941:	size = fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1122:	struct fs *fs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1182:	struct fs *fs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1213:	struct fs *fs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1398:	struct fs *fs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1413:	sbp->f_files =  fs->fs_ncg * fs->fs_ipg - ROOTINO;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1495:	struct fs *fs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1636:	struct fs *fs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1819:	struct fs *fs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1824:	    ufhp->ufid_ino >= fs->fs_ncg * fs->fs_ipg)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1864:	struct fs *fs = ump->um_fs;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1883:	blks = howmany(fs->fs_cssize, fs->fs_fsize);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1925:		softdep_setup_sbupdate(ump, (struct fs *)bp->b_data, bp);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1927:	ffs_oldfscompat_write((struct fs *)bp->b_data, ump);
+./research/webkit-1302/upstream/osm-provenance/mount-patch-lineage-comparison.tsv:8:The same label and six-NOP operation recur in historical Mira/Fusion mount patches; no source inspected names ffs_mountfs or exposes FFS structure/cross-reference.
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/jordy_stage2_1089382.js:224:    // call mount → triggers ffs_mountfs → Celsius
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/stage2_jordy_96a7948.js:132:    // This triggers ffs_mountfs() → integer overflow → heap overflow
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/96a7948_vs_1089382.diff:315:-    // This triggers ffs_mountfs() → integer overflow → heap overflow
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/96a7948_vs_1089382.diff:327:+    // call mount → triggers ffs_mountfs → Celsius
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/adri22235_ps4-suid-scanner_jordy_stage2.js:224:    // call mount → triggers ffs_mountfs → Celsius
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ayoubnoob543-lab_ps4-suid-scanner_jordy_stage2.js:224:    // call mount → triggers ffs_mountfs → Celsius
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/forks/ke5adb_ps4-suid-scanner_jordy_stage2.js:224:    // call mount → triggers ffs_mountfs → Celsius
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)
+./research/webkit-1302/upstream/adri-suid-history/full-stage2/firmware_lab_mirror_jordy_stage2.js:235:    // call mount → triggers ffs_mountfs → Celsius
+./research/webkit-1302/upstream/adri-suid-history/stage2_jordy.js:132:    // This triggers ffs_mountfs() → integer overflow → heap overflow
+./jordy_stage2.js:235:    // call mount → triggers ffs_mountfs → Celsius
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/cd9660.c:481: * @param struct fsnode *root The root node of the filesystem tree
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/cd9660.c:482: * @param struct fsinfo_t *fsopts Any options
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/cd9660.c:861: * @param struct fsnode * The node generated by makefs
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/cd9660.c:1350: * @param struct fsnode * The root node to be converted
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:253:	struct fs	*superblock;
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:465:	struct fs	*fs;
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:538:		t = (time_t)((struct fs *)fsopts->superblock)->fs_time;
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:876:	in.i_fs = (struct fs *)fsopts->superblock;
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:1053:	struct fs	*fs;
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:1065:	fs = (struct fs *)fsopts->superblock;
+./webkit_gadgets_1304.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)

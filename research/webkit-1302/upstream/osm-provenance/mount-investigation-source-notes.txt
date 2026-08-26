@@ -752,3 +752,7 @@ Las búsquedas exactas de `patch_mount` PS4 13.02, `patch_mount` + `M_MOUNT` y `
 ## Source-level comparison of mount-related offset tables
 
 The local source inspection finds `patch_mount = kernelBase + 0x001512A7`, `M_MOUNT = kernelBase + 0x01A40250`, `getnewvnode = kernelBase + 0x0036E2F0`, `vn_fullpath = kernelBase + 0x00308CE0` and `kern_open = kernelBase + 0x003435E0` in `research/webkit-1302/upstream/fusion-1302/Offsets-1302.h`. The checked `kpayload` 1302/1304 offset sources do not define these names; their mount-related matches concern PFS/Shell patches, not `ffs_mountfs` or UFS. This strengthens that the Fusion `patch_mount` label is a project-specific patch symbol with no public semantic proof, rather than an independently identified FFS function. Classification: table contents `VERIFIED`; semantic association `patch_mount → ffs_mountfs` remains `HYPOTHESIS`.
+
+## Inventory of FFS-related source artifacts
+
+The repository-wide non-document search finds the vulnerable arithmetic and loop only in `research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c`, the historical upstream reference already collected. Other matches are comments in `jordy_stage2.js`/the skeleton, copied/forked scanner files, the 702fcc3 gadget comment, and third-party `makefs/ffs.c` code used to construct filesystems. No Orbis PS4 13.02/13.04 implementation, disassembly or binary function body appears in the source-like inventory. This is `VERIFIED` as an artifact inventory and supports classifying Orbis FFS correspondence as `HYPOTHESIS/UNVERIFIED_13_02`.
