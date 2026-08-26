@@ -159,3 +159,7 @@ Gist `TheOfficialFloW/7174351201b5260d7780780f4059bebf`: https://gist.github.com
 ## LUA-Lapse history audit
 
 The public history of `egycnq/LUA-Lapse` shows the repository began as `remote_lua_loader` in November 2024 and later added tested firmware claims through commits by `n0llptr`/`shahril`. The visible history contains updates such as `Bump tested PS fw` (12-Dec-2024), but no commit identifies a 13.02 offset source, a public kernel output, or an FFS/Celsius artifact. The project README currently claims 12.02 support, not 13.02. Classification: `VERIFIED` for the visible history and 12.02 claim; `UNVERIFIED` for any 13.02 extrapolation; `INVALID` as evidence of Celsius.
+
+## LUA-Lapse releases and blob inventory
+
+GitHub API audit of `egycnq/LUA-Lapse` shows one public branch (`main`), no GitHub releases/assets, and no published `kernel.elf`. The largest source is `lapse.lua` (72,353 bytes); the only binary blob is `kpatch/1100.bin` (422 bytes), explicitly an 11.00 patch blob. No 12.02 or 13.02 kernel image is present. Classification: `VERIFIED` inventory; `INVALID` as 13.02 kernel/FFS artifact.
