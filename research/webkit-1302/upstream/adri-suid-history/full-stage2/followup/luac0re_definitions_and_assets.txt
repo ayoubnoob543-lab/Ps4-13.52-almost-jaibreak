@@ -1,0 +1,33 @@
+lua/func.lua:2:function func_wrap(function_address)
+lua/func.lua:8:function func_wrap_with_rax(function_address, rax)
+lua/func.lua:84:function init_dlsym()
+lua/func.lua:120:            SCE_KERNEL_DLSYM = expected_addr
+lua/func.lua:130:                SCE_KERNEL_DLSYM = 0;
+lua/func.lua:133:                SCE_KERNEL_DLSYM = search_start + matches[1] - 1
+lua/func.lua:140:            SCE_KERNEL_DLSYM = read64(LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr) - 0x450
+lua/func.lua:142:            SCE_KERNEL_DLSYM = read64(LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr) - 0x480
+lua/global.lua:103:SCE_KERNEL_DLSYM = 0
+./.git/config
+./jit_shellcode/dlsym_test/Makefile
+./jit_shellcode/dlsym_test/dlsym.c
+./jit_shellcode/dlsym_test/script.ld
+./jit_shellcode/dlsym_test/types.h
+./jit_shellcode/p2jb/Makefile
+./jit_shellcode/p2jb/p2jb.c
+./jit_shellcode/p2jb/script.ld
+./jit_shellcode/p2jb/types.h
+./jit_shellcode/poops/Makefile
+./jit_shellcode/poops/poops.c
+./jit_shellcode/poops/script.ld
+./jit_shellcode/poops/types.h
+./lua/func.lua
+./lua/jit/jit_func.lua
+./lua/jit/jit_rop.lua
+./lua/rop.lua
+./payloads/shellcode_test.lua
+./payloads/shellcode_test2.lua
+./payloads/shellcode_test3.lua
+./ps2/shellcode/Makefile
+./ps2/shellcode/shellcode.c
+./ps2/shellcode/shellcode.ld
+./ps2/shellcode/start.s

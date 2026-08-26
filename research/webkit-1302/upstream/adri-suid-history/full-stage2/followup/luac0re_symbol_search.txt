@@ -1,0 +1,144 @@
+./jit_shellcode/dlsym_test/dlsym.c:30:u64 main(u64 EBOOT_BASE, u64 SCE_KERNEL_DLSYM, u64 arg3, u64 arg4, u64 arg5, u64 arg6)
+./jit_shellcode/dlsym_test/dlsym.c:32:    void*   gadget = (void*)(EBOOT_BASE + GADGET_OFFSET);
+./jit_shellcode/dlsym_test/dlsym.c:33:    dlsym_t dlsym  = (dlsym_t) SCE_KERNEL_DLSYM;
+./lua/func.lua:2:function func_wrap(function_address)
+./lua/func.lua:8:function func_wrap_with_rax(function_address, rax)
+./lua/func.lua:84:function init_dlsym()
+./lua/func.lua:120:            SCE_KERNEL_DLSYM = expected_addr
+./lua/func.lua:130:                SCE_KERNEL_DLSYM = 0;
+./lua/func.lua:133:                SCE_KERNEL_DLSYM = search_start + matches[1] - 1
+./lua/func.lua:140:            SCE_KERNEL_DLSYM = read64(LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr) - 0x450
+./lua/func.lua:142:            SCE_KERNEL_DLSYM = read64(LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr) - 0x480
+./lua/func.lua:149:    sceKernelDlsym = func_wrap(SCE_KERNEL_DLSYM)    
+./lua/func.lua:154:    sceKernelLoadStartModule = func_wrap(dlsym(LIBKERNEL_HANDLE, "sceKernelLoadStartModule"))
+./lua/func.lua:166:    sceNetCtlInit = func_wrap(dlsym(libSceNetCtl_HANDLE, "sceNetCtlInit"))
+./lua/func.lua:167:    sceNetInit = func_wrap(dlsym(libSceNet_HANDLE, "sceNetInit"))
+./lua/func.lua:168:    sceNetSocket = func_wrap(dlsym(libSceNet_HANDLE, "sceNetSocket"))
+./lua/func.lua:173:    calloc                                = func_wrap(read64(EBOOT_OFFSETS.calloc))
+./lua/func.lua:174:    free                                  = func_wrap(read64(EBOOT_OFFSETS.free))
+./lua/func.lua:175:    sceKernelOpen                         = func_wrap(read64(EBOOT_OFFSETS.sceKernelOpen))
+./lua/func.lua:176:    sceKernelWrite                        = func_wrap(read64(EBOOT_OFFSETS.sceKernelWrite))
+./lua/func.lua:177:    sceKernelClose                        = func_wrap(read64(EBOOT_OFFSETS.sceKernelClose))
+./lua/func.lua:178:    sceKernelStat                         = func_wrap(read64(EBOOT_OFFSETS.sceKernelStat))
+./lua/func.lua:179:    sceKernelUsleep                       = func_wrap(read64(EBOOT_OFFSETS.sceKernelUsleep))
+./lua/func.lua:180:    sceMsgDialogInitialize                = func_wrap(read64(EBOOT_OFFSETS.sceMsgDialogInitialize))
+./lua/func.lua:181:    sceMsgDialogOpen                      = func_wrap(read64(EBOOT_OFFSETS.sceMsgDialogOpen))
+./lua/func.lua:182:    sceMsgDialogTerminate                 = func_wrap(read64(EBOOT_OFFSETS.sceMsgDialogTerminate))
+./lua/func.lua:183:    sceKernelGetModuleInfoFromAddr        = func_wrap(read64(LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr))
+./lua/func.lua:184:    sceKernelRemoveExceptionHandler       = func_wrap(read64(EBOOT_OFFSETS.sceKernelRemoveExceptionHandler))
+./lua/func.lua:185:    scePthreadCreate                      = func_wrap(read64(EBOOT_OFFSETS.scePthreadCreate))
+./lua/func.lua:186:    scePthreadJoin                        = func_wrap(read64(EBOOT_OFFSETS.scePthreadJoin))
+./lua/func.lua:187:    scePthreadSelf                        = func_wrap(read64(EBOOT_OFFSETS.scePthreadSelf))
+./lua/func.lua:188:    scePthreadCancel                      = func_wrap(read64(EBOOT_OFFSETS.scePthreadSelf) + 0x10)
+./lua/func.lua:189:    sceKernelJitCreateSharedMemory        = func_wrap(read64(EBOOT_OFFSETS.sceKernelJitCreateSharedMemory))
+./lua/func.lua:190:    sceKernelJitCreateAliasOfSharedMemory = func_wrap(read64(EBOOT_OFFSETS.sceKernelJitCreateAliasOfSharedMemory))
+./lua/func.lua:191:    sceKernelJitMapSharedMemory           = func_wrap(read64(EBOOT_OFFSETS.sceKernelJitMapSharedMemory))
+./lua/func.lua:192:    recv_fd                               = func_wrap(EBOOT_OFFSETS.recv_fd)
+./lua/func.lua:193:    libc_strerror                         = func_wrap(LIBC_OFFSETS.libc_strerror)
+./lua/func.lua:194:    libc_error                            = func_wrap(read64(LIBC_OFFSETS.libc_error))
+./lua/func.lua:196:    memcpy                                = func_wrap(read64(EBOOT_OFFSETS.memcpy))
+./lua/func.lua:197:    memset                                = func_wrap(read64(EBOOT_OFFSETS.memset))
+./lua/global.lua:66:THREAD_HANDLE_RUNTIME_BRIDGE = EBOOT_BASE + 0x3A1A38
+./lua/global.lua:67:THREAD_HANDLE_IOP_SPU2       = EBOOT_BASE + 0x5BF9738
+./lua/global.lua:68:THREAD_HANDLE_GS             = EBOOT_BASE + 0x57F89B0
+./lua/global.lua:71:DIALOG_SCRATCH        = EBOOT_BASE + 0x3C00000
+./lua/global.lua:72:LUA_PIVOT_RAX         = EBOOT_BASE + 0x2DC8A50
+./lua/global.lua:73:LUA_PIVOT_SCRATCH     = EBOOT_BASE + 0x5C00000
+./lua/global.lua:76:RET                   = EBOOT_BASE + 0x72
+./lua/global.lua:77:POP_RAX_RET           = EBOOT_BASE + 0xb50a0
+./lua/global.lua:78:POP_RBX_RET           = EBOOT_BASE + 0xc234
+./lua/global.lua:79:POP_RCX_RET           = EBOOT_BASE + 0x96059
+./lua/global.lua:80:POP_RDI_RET           = EBOOT_BASE + 0x1429
+./lua/global.lua:81:POP_RSI_RET           = EBOOT_BASE + 0xbf2b0
+./lua/global.lua:82:POP_RDX_RET           = EBOOT_BASE + 0xbf5b7
+./lua/global.lua:83:POP_RBP_RET           = EBOOT_BASE + 0x8f
+./lua/global.lua:84:POP_RSP_RET           = EBOOT_BASE + 0x61a70
+./lua/global.lua:89:POP_R13_RET           = EBOOT_BASE + 0xbf35d
+./lua/global.lua:90:POP_R14_RET           = EBOOT_BASE + 0x11d0e2
+./lua/global.lua:91:POP_R15_RET           = EBOOT_BASE + 0x1428
+./lua/global.lua:93:XCHG_RAX_RBP          = EBOOT_BASE + 0x7ea4 
+./lua/global.lua:94:SUB_RAX_RDX_RET       = EBOOT_BASE + 0x41a2
+./lua/global.lua:97:LUA_PIVOT1            = EBOOT_BASE + 0x129039 
+./lua/global.lua:99:LUA_PIVOT2            = EBOOT_BASE + 0x94d26 
+./lua/global.lua:100:MOV_DEREF_RDI_RAX_RET = EBOOT_BASE + 0x75b6c
+./lua/global.lua:101:MOV_RAX_DEREF_RAX_RET = EBOOT_BASE + 0x23ac20
+./lua/global.lua:103:SCE_KERNEL_DLSYM = 0
+./lua/global.lua:106:    calloc                                = EBOOT_BASE + 0x388EC0,
+./lua/global.lua:107:    free                                  = EBOOT_BASE + 0x388E60,
+./lua/global.lua:108:    sceKernelOpen                         = EBOOT_BASE + 0x388FB0,
+./lua/global.lua:109:    sceKernelWrite                        = EBOOT_BASE + 0x388FA0,
+./lua/global.lua:110:    sceKernelClose                        = EBOOT_BASE + 0x388FC0,
+./lua/global.lua:111:    sceKernelStat                         = EBOOT_BASE + 0x388FD0,
+./lua/global.lua:112:    sceKernelUsleep                       = EBOOT_BASE + 0x389640,
+./lua/global.lua:113:    sceMsgDialogInitialize                = EBOOT_BASE + 0x389128,
+./lua/global.lua:114:    sceMsgDialogOpen                      = EBOOT_BASE + 0x389158,
+./lua/global.lua:115:    sceMsgDialogTerminate                 = EBOOT_BASE + 0x389418,
+./lua/global.lua:116:    sceKernelRemoveExceptionHandler       = EBOOT_BASE + 0x389570,
+./lua/global.lua:117:    scePthreadCreate                      = EBOOT_BASE + 0x389660,
+./lua/global.lua:118:    scePthreadJoin                        = EBOOT_BASE + 0x3895E0,
+./lua/global.lua:119:    scePthreadSelf                        = EBOOT_BASE + 0x3895C8,
+./lua/global.lua:120:    sceKernelJitCreateSharedMemory        = EBOOT_BASE + 0x389528,
+./lua/global.lua:121:    sceKernelJitCreateAliasOfSharedMemory = EBOOT_BASE + 0x389530,
+./lua/global.lua:122:    sceKernelJitMapSharedMemory           = EBOOT_BASE + 0x389520,
+./lua/global.lua:123:    recv_fd                               = EBOOT_BASE + 0x728A0,
+./lua/global.lua:124:    memcpy                                = EBOOT_BASE + 0x3894C8,
+./lua/global.lua:125:    memset                                = EBOOT_BASE + 0x3894D0,
+./lua/init.lua:10:-- EBOOT_BASE
+./lua/jit/jit.lua:304:    BRIDGE_BASE = read64(EBOOT_BASE + 0x3A19C0)
+./lua/jit/jit.lua:309:    ORG_MAIN_SOCK = read32(EBOOT_BASE + 0x3A1A30)
+./lua/jit/jit.lua:384:    SHELLCODE_BASE = EE_PROG_BASE + 0x10000
+./lua/jit/jit_func.lua:2:function jit_func_wrap(function_address)
+./lua/jit/jit_func.lua:8:function jit_func_wrap_with_rax(function_address, rax)
+./lua/jit/jit_func.lua:34:    jit_calloc = jit_func_wrap(jit_calloc_addr)
+./lua/jit/jit_func.lua:35:    jit_libc_error = jit_func_wrap(jit_libc_error_addr)
+./lua/jit/jit_func.lua:36:    jit_sceKernelGetModuleInfoFromAddr = jit_func_wrap(jit_sceKernelGetModuleInfoFromAddr_addr)
+./lua/jit/jit_func.lua:37:    jit_sceKernelJitCreateSharedMemory = jit_func_wrap(jit_sceKernelJitCreateSharedMemory_addr)
+./lua/jit/jit_func.lua:38:    jit_sceKernelJitCreateAliasOfSharedMemory = jit_func_wrap(jit_sceKernelJitCreateAliasOfSharedMemory_addr)
+./lua/jit/jit_func.lua:39:    jit_sceKernelJitMapSharedMemory = jit_func_wrap(jit_sceKernelJitMapSharedMemory_addr)
+./lua/jit/jit_func.lua:40:    jit_memcpy = jit_func_wrap(jit_memcpy_addr)
+./lua/jit/jit_func.lua:41:    jit_memset = jit_func_wrap(jit_memset_addr)
+./lua/jit/jit_func.lua:43:    jit_sceKernelVirtualQuery = jit_func_wrap(jit_sceKernelVirtualQuery_addr)
+./lua/jit/jit_func.lua:44:    jit_sceKernelVirtualQueryAll = jit_func_wrap(jit_sceKernelVirtualQueryAll_addr)
+./lua/jit/jit_syscall.lua:46:                    jit_syscall[name] = jit_func_wrap_with_rax(jit_syscall.syscall_wrapper[num], num)
+./lua/jit/jit_syscall.lua:51:                jit_syscall[name] = jit_func_wrap_with_rax(jit_syscall.syscall_address, num)
+./lua/memory.lua:2:-- DO NOT PUT ADDRESS LOWER THAN EBOOT_BASE+0x393350
+./lua/misc.lua:239:        local sock_fd = create_socket(AF_INET, SOCK_STREAM, 0)
+./lua/misc.lua:304:function create_socket(domain, type, protocol)
+./lua/misc.lua:310:            send_notification("create_socket error: " .. get_error_string())
+./lua/misc.lua:319:        send_notification("create_socket error: " .. jit_get_error_string())
+./lua/misc.lua:325:        send_notification("create_socket error")
+./lua/misc.lua:369:    local sock_fd = create_socket(AF_INET, SOCK_STREAM, 0)
+./lua/misc.lua:370:    if sock_fd < 0 then error("create_socket error") end
+./lua/remotelualoader.lua:12:    local sock_fd = create_socket(AF_INET, SOCK_STREAM, 0)
+./lua/remotelualoader.lua:14:        error("create_socket error")
+./lua/remotelualoader.lua:59:            sock_fd = create_socket(AF_INET, SOCK_STREAM, 0)
+./lua/remotelualoader.lua:61:                error("create_socket error")
+./lua/syscall.lua:64:                    syscall[name] = func_wrap_with_rax(syscall.syscall_wrapper[num], num)
+./lua/syscall.lua:69:                syscall[name] = func_wrap_with_rax(syscall.syscall_address, num)
+./payloads/p2jb.lua:44:        init_dlsym()
+./payloads/p2jb.lua:47:    write_shellcode(SHELLCODE_BASE, shellcode)
+./payloads/p2jb.lua:49:    local func_shellcode = func_wrap(SHELLCODE_BASE)
+./payloads/p2jb.lua:52:    write64(arg1,     EBOOT_BASE)
+./payloads/p2jb.lua:53:    write64(arg1 + 8, SCE_KERNEL_DLSYM)
+./payloads/p2jb.lua:68:        local fd = create_socket(AF_INET6, SOCK_STREAM, 0)
+./payloads/p2jb.lua:70:            error(string.format("create_socket failed at index %d", i))
+./payloads/poops.lua:44:        init_dlsym()
+./payloads/poops.lua:47:    write_shellcode(SHELLCODE_BASE, shellcode)
+./payloads/poops.lua:49:    local func_shellcode = func_wrap(SHELLCODE_BASE)
+./payloads/poops.lua:52:    write64(arg1,     EBOOT_BASE)
+./payloads/poops.lua:53:    write64(arg1 + 8, SCE_KERNEL_DLSYM)
+./payloads/poops.lua:68:        local fd = create_socket(AF_INET6, SOCK_STREAM, 0)
+./payloads/poops.lua:70:            error(string.format("create_socket failed at index %d", i))
+./payloads/setlogserver.lua:21:    log_sock = create_socket(AF_INET, SOCK_DGRAM, 0)
+./payloads/setlogserver.lua:23:        error("create_socket failed")
+./payloads/shellcode_test.lua:47:rwx_test = func_wrap(rx_addr)
+./payloads/shellcode_test2.lua:4:write_shellcode(SHELLCODE_BASE, shellcode)
+./payloads/shellcode_test2.lua:6:send_notification(to_hex(read64(SHELLCODE_BASE)))
+./payloads/shellcode_test2.lua:7:send_notification(to_hex(read64(SHELLCODE_BASE + 8)))
+./payloads/shellcode_test2.lua:9:local shellcode_test = func_wrap(SHELLCODE_BASE)
+./payloads/shellcode_test3.lua:6:    init_dlsym()
+./payloads/shellcode_test3.lua:9:write_shellcode(SHELLCODE_BASE, shellcode)
+./payloads/shellcode_test3.lua:11:local dlsym_shellcode_test = func_wrap(SHELLCODE_BASE)
+./payloads/shellcode_test3.lua:12:local read_addr = dlsym_shellcode_test(EBOOT_BASE, SCE_KERNEL_DLSYM)
+./ps2/shellcode/shellcode.c:919:    // EBOOT_BASE
+./ps2/shellcode/shellcode.c:921:    static char eboot_base_name[] = "EBOOT_BASE";

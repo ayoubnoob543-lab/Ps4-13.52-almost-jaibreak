@@ -1,0 +1,10 @@
+[33m1089382[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Replace skeleton with full stage 2: persistent r/w + ROP for 13.04
+[33m96a7948[m Add stage 2 skeleton: Jordy r/w -> ROP -> Celsius for 13.04
+[33m702fcc3[m Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump
+[33m3fd35a4[m[33m ([m[1;33mtag: [m[1;33mv2.0[m[33m)[m Add compiled ps4-hen for FW 13.04 with full offsets
+[33mb1570ef[m Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+[33m596745e[m CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+[33m615c637[m Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+[33m13d44f2[m Add Pharaoh2k to credits
+[33m6cacb24[m Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+[33m9d0d8e1[m PS4 SUID Scanner for FW 13.04 - BD-JB based

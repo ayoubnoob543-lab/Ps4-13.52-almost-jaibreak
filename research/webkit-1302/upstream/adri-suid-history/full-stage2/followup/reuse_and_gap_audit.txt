@@ -1,0 +1,65 @@
+## exact gadget overlap
+    1 0x004032
+    1 0x0040b6
+    1 0x00b9e8
+    1 0x014504
+    1 0x01c2f7
+    1 0x01fade
+    1 0x060480
+    1 0x07245e
+    1 0x073017
+    1 0x1305ba
+    1 0x230cbe1
+## unresolved markers
+8:// 3. Then builds and executes ROP chain for kernel access
+18:var g_libkernel_base = 0;
+36:// Kernel 13.04 offsets
+169:    // Uint8Array vtable offset in WebKit 13.04 needs to be determined
+171:    // webkit_base = vtable - known_vtable_offset
+175:    // The vtable for JSC::JSUint8Array is at a known offset
+177:    // TODO: Determine JSUint8Array vtable offset for 13.04
+179:    // webkit_base = vtable - vtable_offset
+181:    return 0; // placeholder
+185:// STEP 3: Find libkernel base
+187:function findLibkernelBase() {
+188:    // Read WebKit's GOT to find imported libkernel functions
+189:    // pthread_create is imported from libkernel
+190:    // GOT entry for pthread_create at webkit_base + 0x3ce1000 (approx)
+192:    // TODO: Find exact GOT offset
+193:    return 0; // placeholder
+204:    function p(gadget_offset) {
+205:        chain[i++] = wk + gadget_offset;
+211:    // === Resolve dlsym ===
+212:    // pop rdi, ret; LIBKERNEL_HANDLE
+214:    // pop rsi, ret; "sceKernelDlsym" string addr
+215:    p(G.POP_RSI_RET); v(0); // TODO: string address
+216:    // call dlsym
+217:    // TODO: dlsym address
+219:    // === After dlsym resolves mount: ===
+221:    // pop rsi, ret; mount point
+224:    // call mount → triggers ffs_mountfs → Celsius
+226:    // === After kernel r/w via Celsius: ===
+248:    log("[S2] TODO: Implement execution pivot");
+259:        log("[S2] Could not determine webkit_base - need vtable offset");
+274:    g_libkernel_base = findLibkernelBase();
+275:    log("[S2] libkernel_base = 0x" + g_libkernel_base.toString(16));
+## external historical source markers
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js:1:// WebKit ROP Gadgets — PS4 Firmware 13.04
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js:2:// Source: 1304_libSceNKWebKit.sprx.decrypted (68 MB) from zecoxao
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js:25:// Kernel comparison: 13.00 vs 13.04
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js:26:// Same size: 20,080,104 bytes
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js:31:// CONFIRMED: Celsius (ffs_mount) is present in 13.04 kernel
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1304_702fcc4.js:32:// The vulnerable function exists at the same offset as 13.00
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:1:// WebKit ROP Gadgets — PS4 Firmware 13.50
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:2:// Source: libSceNKWebKit.sprx.decrypted (68 MB)
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:6:// These are for FW 13.50 as REFERENCE.
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:7:// FW 13.04 gadgets will have different addresses.
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:8:// Use BinDiff between 13.04 and 13.50 WebKit libs to port.
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:41:// Kernel offsets for 13.50 (from midohar36 kernel dump):
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:42:// Use these with the gadgets above for a complete exploit on 13.50
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:43:// PRISON0    = 0x111FA18  (same as 13.00-13.04)
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:44:// ROOTVNODE  = 0x2136E90  (same as 13.00-13.04)
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:45:// Note: Full kernel offsets for 13.50 need to be extracted via BinDiff
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:47:// To port to 13.04:
+research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/webkit_gadgets_1350_702fcc4.js:48:// 1. Obtain libSceNKWebKit.sprx from FW 13.04

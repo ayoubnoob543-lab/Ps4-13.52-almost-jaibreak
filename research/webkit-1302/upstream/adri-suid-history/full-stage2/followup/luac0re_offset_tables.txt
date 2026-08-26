@@ -1,0 +1,32 @@
+lua/func.lua:26:    if DLSYM_OFFSETS[version_key] then
+lua/func.lua:27:        return DLSYM_OFFSETS[version_key]
+lua/func.lua:32:    for key, offset in pairs(DLSYM_OFFSETS) do
+lua/func.lua:98:    if PLATFORM == "PS4" then
+lua/func.lua:99:        -- PS4: Verify dlsym signature at expected offset
+lua/func.lua:100:        local base_addr = read64(LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr)
+lua/func.lua:129:                send_notification("Warning : PS4 sceKernelDlsym offset not found")
+lua/func.lua:140:            SCE_KERNEL_DLSYM = read64(LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr) - 0x450
+lua/func.lua:142:            SCE_KERNEL_DLSYM = read64(LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr) - 0x480
+lua/func.lua:183:    sceKernelGetModuleInfoFromAddr        = func_wrap(read64(LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr))
+lua/func.lua:193:    libc_strerror                         = func_wrap(LIBC_OFFSETS.libc_strerror)
+lua/func.lua:194:    libc_error                            = func_wrap(read64(LIBC_OFFSETS.libc_error))
+lua/global.lua:129:LIBC_OFFSETS = {
+lua/global.lua:206:DLSYM_OFFSETS = { }
+lua/jit/jit.lua:174:    -- if PLATFORM ~= "PS4" then
+lua/jit/jit.lua:194:    -- if PLATFORM ~= "PS4" then
+lua/jit/jit_syscall.lua:7:    if PLATFORM == "PS4" then
+lua/jit/jit_syscall.lua:44:            if PLATFORM == "PS4" then
+lua/memory.lua:130:    write32(LIBC_OFFSETS.malloc_heap_override_enabled, 0) -- disable fixed override
+lua/memory.lua:131:    write64(LIBC_OFFSETS.malloc_heap_size_limit, -1)      -- unlimited
+lua/memory.lua:132:    write8(LIBC_OFFSETS.malloc_heap_page_align, 1)        -- must be 1 for 64KB alignment
+lua/memory.lua:133:    write64(LIBC_OFFSETS.malloc_heap_premapped_base, 0)   -- force mmap path
+lua/misc.lua:306:    -- PS4 or PS5 below firmware 8.00 or domain = 0: use syscall directly
+lua/misc.lua:307:    if PLATFORM == "PS4" or (PLATFORM == "PS5" and tonumber(FW_VERSION) < 8.00) or domain == AF_UNIX then
+lua/misc.lua:412:    if PLATFORM ~= "PS4" and PLATFORM ~= "PS5" then
+lua/misc.lua:417:    if PLATFORM == "PS4" then
+lua/syscall.lua:7:    if PLATFORM == "PS4" then
+lua/syscall.lua:8:        -- PS4 requires valid syscall wrapper from libkernel .text
+lua/syscall.lua:21:        local gettimeofday = read64(LIBC_OFFSETS.gettimeofday)
+lua/syscall.lua:36:    local addr_inside_libkernel = read64(LIBC_OFFSETS.gettimeofday)
+lua/syscall.lua:51:        PLATFORM = "PS4"
+lua/syscall.lua:62:            if PLATFORM == "PS4" then

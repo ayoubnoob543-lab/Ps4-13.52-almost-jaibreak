@@ -342,3 +342,65 @@ Classification: existence of related template `VERIFIED`; conceptual reuse `CORR
 ## zecoxao related pages comparison
 
 The three indexed zecoxao pages (`userland_only/index.html`, `p2jb/index.html`, and `poops/index.html`) share the same Luac0re/WebKit driver template. The pages contain conceptual ARW bootstrap code, but their per-firmware `FW_OFFSETS` entries for dlsym/JIT/gadgets/JOP are zero; `make_fcall`, `alloc_rwx_and_write`, and `create_sockets` remain TODO/throwing stubs; libkernel and eboot base leaks remain TODO. They are not missing pieces for the PS4 13.04 `jordy_stage2.js` chain. Classification: `CORROBORATED` as a related design template; `INVALID` as a completed WebKit/FFS/kernel-RW implementation for 13.02/13.04.
+
+
+## Historical fcall/base-resolution source found via related-code search
+
+GitHub code search for `sceKernelDlsym` + `POP_RSP_RET` found `Cryptogenic/PS4-4.0x-Code-Execution-PoC/index.html`: https://github.com/Cryptogenic/PS4-4.0x-Code-Execution-PoC/blob/master/index.html. The 308-line historical PoC implements, for older PS4 3.5x/4.0x-era WebKit, a concrete model that later templates describe abstractly: it derives a WebKit base by leaking `parseFloat`, selects a firmware-specific basic import map, derives libkernel using the `__stack_chk_fail` import pointer minus `0xd000`, selects a gadget map, builds a ROP chain, pivots via `pop rsp`, and exposes `p.call`/`p.syscall`.
+
+This is a real historical code reference for the general mechanisms behind `findWebkitBase`, `findLibkernelBase`, `dlsym`/imports and ROP pivot, but it is from older firmware and uses a different exploit/runtime API (`int64`, `p.read8`, `rop`, firmware maps). It does not provide 13.02/13.04 values, Celsius, UFS/FFS mounting, or a direct drop-in implementation for `jordy_stage2.js`. Classification: historical fcall/ROP implementation `VERIFIED` for its stated old target; reuse as 13.04 completion `SOURCE_ONLY/HYPOTHESIS`; Celsius/13.02 relation `INVALID`.
+
+
+## Complete repository tree and adjacent history audit — 2026-08-26
+
+A clean clone of `adri22235/ps4-suid-scanner` was searched across all reachable refs. The public history around the target is linear: `702fcc3` (WebKit 13.04 gadgets) → `96a7948` (stage2 skeleton) → `1089382` (replacement named full stage2), with no later public commit on `main`. The full-tree symbol search found `targetAddress`, `stage2_init`, `g_candidate`, `g_rwView`, `sceKernelDlsym`, `ffs_mountfs`, `webkit_base` and `libkernel_base` only in the README, `cve_analysis.md`, `jordy_stage2.js` and `webkit_gadgets_1304.js`; no auxiliary implementation file defines the missing functions or integration.
+
+The immediately preceding gadget commit confirms that the stage2 file reuses the 16 gadget constants from `webkit_gadgets_1304.js`. That file itself only records gadget offsets and unverified comments about `ffs_mountfs`; it does not contain a fcall or kernel path.
+
+
+## Remote refs closure — 2026-08-26
+
+`git ls-remote` and GitHub matching-refs show only `refs/heads/main -> 1089382ec1e0000e9557b7748d39b57952bbc4f3` and `refs/tags/v2.0 -> 3fd35a4e475698b59dae40794901a56126a38c52`. No additional public branches or tags are exposed by the upstream repository. This does not rule out deleted refs or private repositories, but no reachable public ref preserves another stage2 implementation.
+
+
+## Forks without stage2 file — 2026-08-26
+
+The trees of `kishan9601743105-oss/ps4-suid-scanner` and `OptiTronOffical/ps4-suid-scanner` contain only `1304.c`, `1304.h`, `1352_offsets.txt`, README/CVE notes and the two WebKit gadget files among the relevant source/documentation extensions. No alternative `jordy_stage2.js`, `stage2_jordy.js`, fcall helper, FFS mount code or ROP pivot file was found.
+
+
+## Reuse and gap audit
+
+The 1089382 file reuses the 11 principal gadget constants from `webkit_gadgets_1304.js` (`RET`, `LEAVE_RET`, `POP_RAX/RBX/RCX/RDI/RDX/RSI/RBP/RSP/R8_RET`). The numerical overlap establishes code/table reuse, not a completed chain. The unresolved-marker audit still finds placeholders for the JSUint8Array vtable offset, WebKit base, GOT/libkernel base, dlsym string/address, mount arguments, UFS image, Celsius transition, and execution pivot. The 13.04 gadget file’s only alleged FFS evidence remains comments about an absent kernel comparison.
+
+
+## Shellcode and hidden asset audit
+
+The zecoxao `poops`/`p2jb` pages do not embed a completed shellcode or kernel artifact. `SHELLCODE_HEX` is described as being concatenated at build time from an external source; the driver checks for an empty value, but no hex payload, `.elf`, `.bin`, `jit_shellcode` source, or UFS image is present in the page. The kernel-driver entry signature is only documented in comments, and its argument allocation, socket creation, fcall, dlsym and base leaks remain TODOs. This cannot supply the missing mount/FFS/RW pieces for `jordy_stage2.js`.
+
+
+## Luac0re p2jb.lua as a related implementation
+
+The public `Gezine/Luac0re/payloads/p2jb.lua` is a concrete Lua-side driver for PS5 P2JB, limited by its own code to firmware `<= 12.70`. It calls existing framework functions `init_dlsym`, `write_shellcode`, `func_wrap`, `malloc`, `write64`, `create_socket`, and then invokes embedded shellcode with `EBOOT_BASE` and `SCE_KERNEL_DLSYM` arguments. It includes a large shellcode hex string and the 80-socket setup used by P2JB.
+
+This is a genuine related implementation for another platform/exploit chain, but it depends on Luac0re runtime APIs and PS5-specific constants. It does not implement the missing WebKit/libkernel base leaks or ROP pivot in `jordy_stage2.js`, and it does not contain UFS/FFS/Celsius logic. It cannot be transferred to PS4 13.02/13.04 merely because it calls `init_dlsym` or `func_wrap`. Classification: P2JB code `VERIFIED` for its stated PS5 scope; reuse for Jordy/Celsius `SOURCE_ONLY/HYPOTHESIS`; PS4 13.02 kernel R/W `UNVERIFIED`.
+
+
+## Luac0re func.lua dependency audit
+
+`lua/func.lua` provides concrete Lua functions `func_wrap`, `func_wrap_with_rax`, `dlsym`, and `init_dlsym`. For PS4 it derives a candidate dlsym address from `read64(LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr) - 0x3A0`, verifies an 18-byte signature, and otherwise scans a 0x1000-byte region. It then wraps the address through `call_rop`. For PS5 it uses a different `-0x450`/`-0x480` calculation. The implementation depends on the Luac0re runtime (`call_rop`, `read_buffer`, `find_pattern`, `LIBC_OFFSETS`, `PLATFORM`, `FW_VERSION`, `malloc`, `read64`) and does not provide 13.02/13.04 values for the JavaScript stage2 file. This is useful provenance for the abstract dlsym concept, not a drop-in completion. Classification: implementation `VERIFIED` in Luac0re scope; reuse in Jordy PS4 13.04 `SOURCE_ONLY`; Celsius relation `INVALID`.
+
+
+## Luac0re call_rop implementation
+
+`lua/rop.lua` contains a concrete `call_rop(address, rax, arg1..arg6)` implementation. It writes a multi-stage chain to `LUA_PIVOT_SCRATCH`, uses Luac0re-specific gadgets (`XCHG_RAX_RBP`, `MOV_DEREF_RDI_RAX_RET`, `MOV_R9_RET`, `SUB_RAX_RDX_RET`, `POP_RSP_RET`), prepares stack/RBP placeholders, writes pivot structures and finally calls `call_rop_internal()`. It returns a saved RAX value.
+
+This is the clearest external source for the kind of ROP pivot that `jordy_stage2.js` leaves as `TODO`. However, it depends on a Lua runtime, Luac0re global addresses, `write64_unstable`, `read64_unstable`, `LUA_PIVOT_*`, `STRING_BASE`, `LUA_STATE` and PS5/firmware-specific gadget values. The 13.04 JavaScript stage2 file does not import or adapt this implementation. It remains a historical/related implementation, not evidence of a completed PS4 13.02/13.04 chain. Classification: `VERIFIED` in Luac0re scope; `SOURCE_ONLY` for reuse by Jordy; `UNVERIFIED` for PS4 13.02.
+
+
+## Luac0re offset-table check
+
+The Luac0re clone has an empty `DLSYM_OFFSETS = { }` declaration in `lua/global.lua`; its PS4 `init_dlsym()` branch instead computes/verifies a candidate from a runtime `LIBC_OFFSETS.sceKernelGetModuleInfoFromAddr` pointer. No explicit 13.02 or 13.04 offset table was found in the searched Lua/C/headers. The PS4 branches in `syscall.lua` and related files are generic runtime logic and do not bridge to the scanner’s `jordy_stage2.js`.
+
+## Luac0re identifier reuse search
+
+Searches for exact identifiers `call_rop_internal`, `LUA_PIVOT_SCRATCH`, and `init_dlsym` + `sceKernelGetModuleInfoFromAddr` found no additional publicly indexed implementation beyond Luac0re and the already audited derivative templates. No independent project was found that supplies a PS4 13.02/13.04 adaptation.
