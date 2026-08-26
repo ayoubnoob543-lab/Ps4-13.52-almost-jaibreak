@@ -1,0 +1,125 @@
+=== GizzZmo/LUA-Lapse ===
+GizzZmo/LUA-Lapse	2026-05-03T15:18:53Z	2026-05-23T13:31:03Z	true	egycnq/LUA-Lapse
+lapse.lua	72353	2e3335080af2ae55c9878312fe73183226e0735c
+=== egycnq/LUA-Lapse ===
+egycnq/LUA-Lapse	2025-06-09T04:05:07Z	2026-05-23T13:31:03Z	true	n0llptr/remote_lua_loader
+lapse.lua	72353	2e3335080af2ae55c9878312fe73183226e0735c
+=== exact README lines ===
+1-# LUA+Lapse - PS4 Post-Exploitation Framework
+2-
+3:A fork of [remote_lua_loader](https://github.com/shahrilnet/remote_lua_loader) with advanced post-exploitation capabilities for PS4 firmware 11.00 and 12.02.
+4-
+5-> ⚠️ **DISCLAIMER**: This project is for educational and research purposes only. Use at your own risk.
+6-
+7:> 💡 **Note**: If you do not want to dump your kernel, just do not insert a USB device and you can use this exploit for full FTP access only.
+8-
+9-## 🎯 What We've Achieved
+10-
+11:This project implements several advanced kernel exploitation techniques:
+12-
+13-### 1. **Sandbox Escape** 🔓
+14-
+15-- Breaks out of the PS4's BSD jail restriction
+16-- Grants root filesystem access
+17-- Modifies process credentials to achieve elevated privileges
+18-- Enables access to previously restricted system areas
+19-
+20:### 2. **Kernel Base (KBASE) Discovery** 🔍
+21-
+22:- Implements both static and dynamic methods to find kernel base address
+23-- Uses EVF (Event Flag) string leak for KBASE calculation
+24-
+25:### 3. **Kernel ELF Dumper** 💾
+26-
+27:- Dumps the entire PS4 kernel to USB storage
+28:- Supports large kernel dumps with progress tracking
+29-- Implements chunked reading (16KB blocks) for stability
+30-- Includes real-time progress notifications
+31-
+32-### 4. **Full FTP Access** 📁
+33-
+34-- After running this exploit, the game process is jailbroken
+35-- You can use `ftp_server.lua` from the original remote_lua_loader repo
+36-- Provides full filesystem access via FTP
+37-- No more restrictions on file browsing and transfers
+38-
+39:### 5. **Kernel Patching (11.00)** 🔧 **[NEW]**
+40-
+41-- ✅ Memory operation patches (bcopy, bzero, memcpy, etc.)
+42-- ✅ Syscall validation bypass
+43-- ✅ sys_setuid privilege escalation
+44-- ✅ vm_map_protect for RWX mappings
+--
+48-
+49-## 📊 Supported Firmware
+50-
+51-| Firmware | Status    |
+52-| -------- | --------- |
+53:| 12.02    | ✅ Tested |
+54-| 11.00    | ✅ Tested |
+55-| 9.00     |✅ Tested |
+56-
+57-"Thanks to n0llptr for adding 9.00 offsets"
+58-
+--
+76-
+77-### After Exploitation
+78-
+79-- Your game process is now jailbroken
+80-- You can send `ftp_server.lua` from the original repo for full FTP access
+81:- USB kernel dumps will be saved to `/mnt/usb0/kernel.elf`
+82-
+83-## 🔧 Technical Details
+84-
+85-### EVF (Event Flag) Constant
+86-
+87:The EVF constant is a kernel string that can be leaked through various vulnerabilities. We use this leak to calculate the kernel base address:
+88-
+89-```
+90-KBASE = leaked_evf_pointer - firmware_specific_evf_offset
+91-```
+92-
+--
+108-
+109-## 🚀 Features
+110-
+111-- **Automatic Firmware Detection**: Detects running firmware and applies appropriate offsets
+112-- **Robust Error Handling**: Validates operations at each step
+113:- **Progress Notifications**: Real-time updates during kernel dumping
+114:- **USB Dump Support**: Saves kernel dump to `/mnt/usb0/kernel.elf`
+115-- **FTP Compatibility**: Jailbroken process allows full FTP server functionality
+116-
+117-## This project demonstrates:
+118-
+119:- Kernel memory manipulation techniques
+120-- Process privilege escalation methods
+121-- ELF format parsing and validation
+122-- Memory scanning algorithms
+123-- Filesystem jailbreak techniques
+124-
+--
+127-### Key Functions
+128-
+129-1. **`calculate_kbase()`** - Static KBASE calculation using known offsets
+130-2. **`find_kbase()`** - Dynamic KBASE discovery with validation
+131-3. **`escape_sandbox()`** - Implements the jailbreak sequence
+132:4. **`dump_kernel_elf()`** - Handles kernel dumping with progress tracking
+133:5. **`get_kernel_elf_size()`** - Parses ELF headers to determine dump size
+134-
+135-### Memory Layout Understanding
+136-
+137:The exploit relies on understanding PS4's kernel memory layout:
+138-
+139-- Process structures (`curproc`)
+140-- Credential structures (`ucred`)
+141-- File descriptor tables
+142-- Vnode references
+143-
+144-## ⚠️ Important Notes
+145-
+146:- **USB Required**: Kernel dumping requires a FAT32/exFAT formatted USB drive
+147-- **Stability**: This is experimental code - expect potential crashes
+148-
+149-## 📝 Credits
+150-
+151-- Original [remote_lua_loader](https://github.com/shahrilnet/remote_lua_loader) by shahrilnet

@@ -173,3 +173,7 @@ GitHub API audit of `egycnq/LUA-Lapse` shows one public branch (`main`), no GitH
 BiteYourConsole article (14-May-2026): https://www.biteyourconsole.net/2026/05/14/remote-lua-loader-ps4-e-ps5-arriva-il-porting-di-p2jb-con-script-lua-save-mounter-e-supporto-ps5-pro-10-40/. Describes a P2JB port for Remote Lua Loader, thanks Gezine and contributors, and lists Lua/ELF-loader/FTP functionality. It does not publish a kernel image, hash, disassembly or FFS artifact; it is a secondary distribution/news article. Classification: `SOURCE_ONLY` for reported project scope; `INVALID` as 13.02 kernel evidence.
 
 Studocu page https://www.studocu.com/it/document/politecnico-di-torino/informatica/lapse-exploit-in-lua-a-comprehensive-analysis-and-code-review/135247371 was access-gated and yielded no technical content beyond login/registration. Search snippets are not treated as evidence. Classification: `INVALID` for this audit.
+
+## GizzZmo/LUA-Lapse fork
+
+`GizzZmo/LUA-Lapse` is a fork of `egycnq/LUA-Lapse`, which is itself a fork of `n0llptr/remote_lua_loader`. The README claims PS4 11.00 and 12.02 tested, says the kernel dump is saved as `/mnt/usb0/kernel.elf`, and describes `dump_kernel_elf()`/`get_kernel_elf_size()`. The repository tree contains source and inherited blobs but no published dump output, SHA-256, firmware-specific dump file, or FFS/Celsius analysis. The claim is `SOURCE_ONLY` for a 12.02 dump capability and `DERIVED` as repository lineage; it is not a 13.02 artifact and cannot establish Fusion offset provenance.
