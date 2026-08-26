@@ -838,3 +838,7 @@ The CDX lookup covered the scanner repository, its likely raw files (`jordy_stag
 ## GitHub code/gist search for original Celsius artifacts
 
 Exact code searches for `ffs_mountfs Celsius`, `jordy_stage2.js`, `webkit_gadgets_1304.js`, `fs_contigsumsize PS4` and `patch_mount 1512A7` returned no external Celsius implementation. The only hits were files in the laboratory mirror itself, including documentation explicitly describing `jordy_stage2.js` as incomplete. No gist, paste, fork or independent source was found through this index. Raw results are stored in `celsius_code_gist_search.txt`. Classification: no new artifact; repository-lineage evidence remains `DERIVED/SOURCE_ONLY`.
+
+## Video-description forensic pass
+
+The Celsius-related video pages checked in this pass yielded either no usable description or a news-style description. The usable description links back to Dr.Yenyen's X post and unrelated/general projects; it does not expose a Celsius PoC, UFS image, hash, bootstrap, `patch_mount` reference, or kernel-R/W conversion. The video material is therefore secondary reporting only and contributes no new chain component.
