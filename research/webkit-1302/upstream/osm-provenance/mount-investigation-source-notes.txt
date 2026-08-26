@@ -329,3 +329,16 @@ The file comments claim kernel offsets `PRISON0 = 0x111FA18` and `ROOTVNODE = 0x
 ## Follow-up search for reused stage2 components — 2026-08-26
 
 Searches for the exact conceptual identifiers `Jordy Stage 2`, `m_vector` + `Celsius`, and `SSV candidate` + PS4 WebKit ROP returned no additional public result. The absence is limited to the indexed public search corpus and does not exclude private or deleted material. Classification: `CORROBORATED` only as a negative search result; no new source identified.
+
+
+## Related zecoxao code search
+
+A GitHub code search for distinctive stage2 gadget values found `zecoxao/zecoxao.github.io` pages (`userland_only/index.html`, `p2jb/index.html`, `poops/index.html`) in addition to the original scanner and the local firmware-lab copy. The relevant `p2jb/index.html` is a Luac0re → WebKit port driver for PS5/P2JB, not a 13.02/13.04 PS4 Celsius implementation.
+
+Its `FW_OFFSETS` table uses zero placeholders for the per-firmware dlsym, JIT, ROP gadget, JOP and setjmp values, including 12.02–12.70 and the userland range 13.00–13.60. `make_fcall()` throws a TODO error; `alloc_rwx_and_write()` throws a TODO error; `create_sockets()` throws a TODO error; `libkernel_base` and `eboot_base` are explicitly TODO; `driver_entry()` aborts if those leaks are absent. The file contains conceptual comments about fcall, dlsym, JIT and kernel drivers, but no completed values or chain that can fill the missing parts of `jordy_stage2.js`.
+
+Classification: existence of related template `VERIFIED`; conceptual reuse `CORROBORATED`; usable WebKit/libkernel/dlsym/ROP implementation for PS4 13.02/13.04 `INVALID`; any Celsius connection `HYPOTHESIS` only.
+
+## zecoxao related pages comparison
+
+The three indexed zecoxao pages (`userland_only/index.html`, `p2jb/index.html`, and `poops/index.html`) share the same Luac0re/WebKit driver template. The pages contain conceptual ARW bootstrap code, but their per-firmware `FW_OFFSETS` entries for dlsym/JIT/gadgets/JOP are zero; `make_fcall`, `alloc_rwx_and_write`, and `create_sockets` remain TODO/throwing stubs; libkernel and eboot base leaks remain TODO. They are not missing pieces for the PS4 13.04 `jordy_stage2.js` chain. Classification: `CORROBORATED` as a related design template; `INVALID` as a completed WebKit/FFS/kernel-RW implementation for 13.02/13.04.

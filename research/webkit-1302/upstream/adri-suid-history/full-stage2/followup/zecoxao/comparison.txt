@@ -1,0 +1,135 @@
+===== research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/p2jb_index.html =====
+802://  ANY IDENTIFIER PREFIXED `TODO_FW_` OR MARKED `// TODO(fw)` MUST BE FILLED
+824:        SCE_KERNEL_DLSYM_OFF:  0,   // TODO(fw): libkernel.sprx sceKernelDlsym export
+825:        SCE_KERNEL_JIT_CREATE: 0,   // TODO(fw): sceKernelJitCreateSharedMemory
+826:        SCE_KERNEL_JIT_MAP:    0,   // TODO(fw): sceKernelJitMapSharedMemory
+827:        SCE_KERNEL_JIT_ALIAS:  0,   // TODO(fw): sceKernelJitCreateAliasOfSharedMemory
+831:        G_pop_rax_ret:    0, G_pop_rsp_ret:  0,
+836:    "12.00": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+838:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+841:    "12.02": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+843:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+845:    "12.20": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+847:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+849:    "12.40": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+851:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+853:    "12.60": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+855:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+857:    "12.70": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+859:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+862:    "13.00": { SCE_KERNEL_DLSYM_OFF:0 },
+863:    "13.20": { SCE_KERNEL_DLSYM_OFF:0 },
+864:    "13.40": { SCE_KERNEL_DLSYM_OFF:0 },
+865:    "13.60": { SCE_KERNEL_DLSYM_OFF:0 }
+884:// Extended R/W primitives. TODO: re-arming logic below is the delicate part —
+890:    // TODO(driver): Reproduce the vector-redirect trick outside of
+929:    // TODO(driver): mirror runAddrofCapture but with `obj` at getterCarrier[0]
+942:    // TODO(driver): fingerprint via a known byte at a stable WebKit offset.
+960:function make_fcall(fw) {
+961:    // TODO(driver): implement per the shape above using FW_OFFSETS[fw].G_*.
+964:        throw new Error("make_fcall: TODO — build a ROP fcall using FW_OFFSETS[" + fw + "].G_*");
+974:function resolve_dlsym(fw, libkernel_base) {
+975:    var off = FW_OFFSETS[fw].SCE_KERNEL_DLSYM_OFF;
+976:    if (!off) throw new Error("resolve_dlsym: SCE_KERNEL_DLSYM_OFF unset for FW " + fw);
+990:function alloc_rwx_and_write(fcall, dlsym_addr, fw, bytes) {
+991:    // TODO(driver): PS5 JIT dance —
+997:    throw new Error("alloc_rwx_and_write: TODO for FW " + fw);
+1000:function create_sockets(fcall, dlsym_addr, count) {
+1001:    // TODO(driver): resolve `socket` syscall wrapper via dlsym or from a
+1005:    throw new Error("create_sockets: TODO");
+1026:    // TODO(driver): calloc(16) for arg1; write64(arg1, eboot_base); write64(arg1+8, dlsym_addr).
+1062:    // TODO(driver): if we already have fcall+dlsym, resolve sceKernelOpen and
+1069:function driver_entry() {
+1091:        // TODO(driver): leak libkernel_base via GOT + slide (see 407/expl.js
+1093:        var libkernel_base = 0; // TODO(fw)
+1094:        var eboot_base = 0;     // TODO(fw): the poops/p2jb "gadget" seed
+===== research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/poops_index.html =====
+802://  ANY IDENTIFIER PREFIXED `TODO_FW_` OR MARKED `// TODO(fw)` MUST BE FILLED
+824:        SCE_KERNEL_DLSYM_OFF:  0,   // TODO(fw): libkernel.sprx sceKernelDlsym export
+825:        SCE_KERNEL_JIT_CREATE: 0,   // TODO(fw): sceKernelJitCreateSharedMemory
+826:        SCE_KERNEL_JIT_MAP:    0,   // TODO(fw): sceKernelJitMapSharedMemory
+827:        SCE_KERNEL_JIT_ALIAS:  0,   // TODO(fw): sceKernelJitCreateAliasOfSharedMemory
+831:        G_pop_rax_ret:    0, G_pop_rsp_ret:  0,
+836:    "12.00": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+838:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+841:    "12.02": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+843:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+845:    "12.20": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+847:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+849:    "12.40": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+851:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+853:    "12.60": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+855:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+857:    "12.70": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+859:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+862:    "13.00": { SCE_KERNEL_DLSYM_OFF:0 },
+863:    "13.20": { SCE_KERNEL_DLSYM_OFF:0 },
+864:    "13.40": { SCE_KERNEL_DLSYM_OFF:0 },
+865:    "13.60": { SCE_KERNEL_DLSYM_OFF:0 }
+884:// Extended R/W primitives. TODO: re-arming logic below is the delicate part —
+890:    // TODO(driver): Reproduce the vector-redirect trick outside of
+929:    // TODO(driver): mirror runAddrofCapture but with `obj` at getterCarrier[0]
+942:    // TODO(driver): fingerprint via a known byte at a stable WebKit offset.
+960:function make_fcall(fw) {
+961:    // TODO(driver): implement per the shape above using FW_OFFSETS[fw].G_*.
+964:        throw new Error("make_fcall: TODO — build a ROP fcall using FW_OFFSETS[" + fw + "].G_*");
+974:function resolve_dlsym(fw, libkernel_base) {
+975:    var off = FW_OFFSETS[fw].SCE_KERNEL_DLSYM_OFF;
+976:    if (!off) throw new Error("resolve_dlsym: SCE_KERNEL_DLSYM_OFF unset for FW " + fw);
+990:function alloc_rwx_and_write(fcall, dlsym_addr, fw, bytes) {
+991:    // TODO(driver): PS5 JIT dance —
+997:    throw new Error("alloc_rwx_and_write: TODO for FW " + fw);
+1000:function create_sockets(fcall, dlsym_addr, count) {
+1001:    // TODO(driver): resolve `socket` syscall wrapper via dlsym or from a
+1005:    throw new Error("create_sockets: TODO");
+1026:    // TODO(driver): calloc(16) for arg1; write64(arg1, eboot_base); write64(arg1+8, dlsym_addr).
+1062:    // TODO(driver): if we already have fcall+dlsym, resolve sceKernelOpen and
+1069:function driver_entry() {
+1091:        // TODO(driver): leak libkernel_base via GOT + slide (see 407/expl.js
+1093:        var libkernel_base = 0; // TODO(fw)
+1094:        var eboot_base = 0;     // TODO(fw): the poops/p2jb "gadget" seed
+===== research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/zecoxao/userland_only_index.html =====
+801://  ANY IDENTIFIER PREFIXED `TODO_FW_` OR MARKED `// TODO(fw)` MUST BE FILLED
+823:        SCE_KERNEL_DLSYM_OFF:  0,   // TODO(fw): libkernel.sprx sceKernelDlsym export
+824:        SCE_KERNEL_JIT_CREATE: 0,   // TODO(fw): sceKernelJitCreateSharedMemory
+825:        SCE_KERNEL_JIT_MAP:    0,   // TODO(fw): sceKernelJitMapSharedMemory
+826:        SCE_KERNEL_JIT_ALIAS:  0,   // TODO(fw): sceKernelJitCreateAliasOfSharedMemory
+830:        G_pop_rax_ret:    0, G_pop_rsp_ret:  0,
+835:    "12.00": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+837:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+840:    "12.02": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+842:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+844:    "12.20": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+846:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+848:    "12.40": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+850:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+852:    "12.60": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+854:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+856:    "12.70": { SCE_KERNEL_DLSYM_OFF:0,SCE_KERNEL_JIT_CREATE:0,SCE_KERNEL_JIT_MAP:0,SCE_KERNEL_JIT_ALIAS:0,
+858:        G_pop_rax_ret:0,G_pop_rsp_ret:0,G_mov_deref_rdi_rsi_ret:0,G_mov_rax_deref_rax_ret:0,
+861:    "13.00": { SCE_KERNEL_DLSYM_OFF:0 },
+862:    "13.20": { SCE_KERNEL_DLSYM_OFF:0 },
+863:    "13.40": { SCE_KERNEL_DLSYM_OFF:0 },
+864:    "13.60": { SCE_KERNEL_DLSYM_OFF:0 }
+883:// Extended R/W primitives. TODO: re-arming logic below is the delicate part —
+889:    // TODO(driver): Reproduce the vector-redirect trick outside of
+928:    // TODO(driver): mirror runAddrofCapture but with `obj` at getterCarrier[0]
+941:    // TODO(driver): fingerprint via a known byte at a stable WebKit offset.
+959:function make_fcall(fw) {
+960:    // TODO(driver): implement per the shape above using FW_OFFSETS[fw].G_*.
+963:        throw new Error("make_fcall: TODO — build a ROP fcall using FW_OFFSETS[" + fw + "].G_*");
+973:function resolve_dlsym(fw, libkernel_base) {
+974:    var off = FW_OFFSETS[fw].SCE_KERNEL_DLSYM_OFF;
+975:    if (!off) throw new Error("resolve_dlsym: SCE_KERNEL_DLSYM_OFF unset for FW " + fw);
+989:function alloc_rwx_and_write(fcall, dlsym_addr, fw, bytes) {
+990:    // TODO(driver): PS5 JIT dance —
+996:    throw new Error("alloc_rwx_and_write: TODO for FW " + fw);
+999:function create_sockets(fcall, dlsym_addr, count) {
+1000:    // TODO(driver): resolve `socket` syscall wrapper via dlsym or from a
+1004:    throw new Error("create_sockets: TODO");
+1025:    // TODO(driver): calloc(16) for arg1; write64(arg1, eboot_base); write64(arg1+8, dlsym_addr).
+1061:    // TODO(driver): if we already have fcall+dlsym, resolve sceKernelOpen and
+1068:function driver_entry() {
+1090:        // TODO(driver): leak libkernel_base via GOT + slide (see 407/expl.js
+1092:        var libkernel_base = 0; // TODO(fw)
+1093:        var eboot_base = 0;     // TODO(fw): the poops/p2jb "gadget" seed

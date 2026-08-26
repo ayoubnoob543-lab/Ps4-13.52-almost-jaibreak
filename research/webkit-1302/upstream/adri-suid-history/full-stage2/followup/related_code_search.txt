@@ -1,0 +1,19 @@
+QUERY=%220x230cbe1%22+%220x073017%22
+total=4
+adri22235/ps4-suid-scanner	webkit_gadgets_1304.js	db3d0d625e01d7f30ca01c0a4ba43d1db9b0ab8f	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/webkit_gadgets_1304.js
+adri22235/ps4-suid-scanner	jordy_stage2.js	c394105d8bb28b7d419dd7295785131ab3035fdb	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js
+ayoubnoob543-lab/firmware-lab	jordy_stage2.js	ed12c2797689ac3af0e294582302464b3951adc6	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/jordy_stage2.js
+ayoubnoob543-lab/firmware-lab	webkit_gadgets_1304.js	db3d0d625e01d7f30ca01c0a4ba43d1db9b0ab8f	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/webkit_gadgets_1304.js
+QUERY=%22sceKernelDlsym%22+%22POP_RSP_RET%22+PS4
+total=6
+zecoxao/zecoxao.github.io	userland_only/index.html	1ff4ba7542bddc918944c5dd0eb369a18ed480f5	https://github.com/zecoxao/zecoxao.github.io/blob/1a107fee9066af052e8251a3b9a8caa9ef426cbd/userland_only/index.html
+zecoxao/zecoxao.github.io	p2jb/index.html	d77098db6cdd93d31494fcb050e6e32a497dfa18	https://github.com/zecoxao/zecoxao.github.io/blob/1a107fee9066af052e8251a3b9a8caa9ef426cbd/p2jb/index.html
+zecoxao/zecoxao.github.io	poops/index.html	7cd71c7f172a04d346e21cc6aa5a5ffc14fa4e06	https://github.com/zecoxao/zecoxao.github.io/blob/1a107fee9066af052e8251a3b9a8caa9ef426cbd/poops/index.html
+adri22235/ps4-suid-scanner	jordy_stage2.js	c394105d8bb28b7d419dd7295785131ab3035fdb	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js
+ayoubnoob543-lab/firmware-lab	jordy_stage2.js	ed12c2797689ac3af0e294582302464b3951adc6	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/jordy_stage2.js
+badrcoderman/deepslop	research/userland_only/index.html	1ff4ba7542bddc918944c5dd0eb369a18ed480f5	https://github.com/badrcoderman/deepslop/blob/2862420e532b114525c9e1b434fb72ae337b5295/research/userland_only/index.html
+QUERY=%22PRISON0%22+%22ROOTVNODE%22+%22ffs_mountfs%22
+total=3
+adri22235/ps4-suid-scanner	jordy_stage2.js	c394105d8bb28b7d419dd7295785131ab3035fdb	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/jordy_stage2.js
+adri22235/ps4-suid-scanner	README.md	9087ee6489cbe18fed4b5c8d0f34291f67ff3f3f	https://github.com/adri22235/ps4-suid-scanner/blob/1089382ec1e0000e9557b7748d39b57952bbc4f3/README.md
+ayoubnoob543-lab/firmware-lab	jordy_stage2.js	ed12c2797689ac3af0e294582302464b3951adc6	https://github.com/ayoubnoob543-lab/firmware-lab/blob/0d6221d3d9cb1009d1383a36445e26d6faa502bd/jordy_stage2.js
