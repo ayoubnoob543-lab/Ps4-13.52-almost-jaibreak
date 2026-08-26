@@ -558,3 +558,28 @@ A token-level comparison found 267 identifiers in `jordy_stage2_1089382.js`, 319
 ## Distinctive cross-repository search
 
 A literal search across the original `ntfargo/CSSFontFace-Exploit`, `Feyzee61/cssfontface_lapse` and the 13.02 research clone found no shared occurrences of `SSV candidate`, `stage2_init`, `SHELLCODE_HEX`, `targetAddress`, `mount UFS`, `ffs_mountfs` or `Celsius`. The only notable overlap was generic `m_vector` terminology in the historical PS4 userland/lapse implementations. This does not support direct textual reuse of a missing Jordy stage from those repositories.
+
+
+## Progenitor-project audit caveat
+
+The first combined audit command for `/tmp/wobkot`, `/tmp/ps3120-css` and `/tmp/psfree-lapse` did not `cd` into each directory before running `git/find/grep`; the shell remained in `/home/ubuntu/firmware-lab`, so the resulting large output is contaminated by the current repository and must not be used as evidence for those progenitors. The exact repository-specific audit must be rerun with an explicit directory change for each project.
+
+
+## Progenitor audit retry caveat
+
+The corrected progenitor loop still hit a shell parsing error in the grouped block after producing partial output (notably from `psfree_lapse`). The generated `progenitor_projects_audit_clean.txt` is therefore a partial inventory only and must not be treated as a complete comparative result. Repository-specific commands should be run separately for each tree before classification.
+
+
+## Corrected `ufm42/wobkot` audit
+
+The repository-specific audit of `/tmp/wobkot` confirms it contains the historical PS4 chain components: `public/src/netctrl.js`, `public/src/ps4/kernel.js`, `public/src/ps4/userland.js`, firmware constants and ROP/pivot machinery. The source includes `KernelView` kread/kwrite, userland pivot construction and `NativeFunction` dlsym setup. The scan did not show 13.02, 13.04, `ffs_mountfs`, Celsius or a `jordy_stage2` file. `wobkot` is therefore a progenitor/parallel historical PS4 implementation, not the missing source for the 13.02 scanner stage.
+
+
+## ps3120 CSSFontFace progenitor
+
+The clean audit of `/tmp/ps3120-css` shows the same historical line that merges into `ntfargo/CSSFontFace-Exploit`: `public/src/ps4/lapse.mjs`, per-firmware Lapse files for 7.00–11.02, `ps4/offsets.mjs`, module offsets and per-firmware ROP files. The log includes the merge into `ntfargo` and the 2026-07-25 full-chain commit. No 13.02/13.04, `ffs_mountfs`, Celsius, `jordy_stage2`, or distinctive later-stage symbols were found. This is a source/progenitor lineage, not an independent 13.02 artifact.
+
+
+## psfree_lapse progenitor audit
+
+The clean audit of `Feyzee61/psfree_lapse` finds a single bundled `bundle.js` and a history whose visible support milestone is `Implemented 7.00 to 9.60 FW support` (2025-12-03). The bundle contains the same historical PS4 WebKit userland, `m_vector`/pivot, dlsym and pktopts-based kernel R/W code patterns seen in CSSFontFace/Lapse. No 13.02/13.04, `ffs_mountfs`, Celsius or `jordy_stage2` strings were found. This is useful as a historical implementation lineage but not as a source for missing 13.02 scanner pieces.

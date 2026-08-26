@@ -1,0 +1,99 @@
+## git
+ba736c0 2026-07-10 Update README for PSFree Exploit version to 2.3
+35478f7 2026-06-30 Update fix of kp on restart after failure
+802132c 2026-06-30 Merge pull request #9 from ArabPixel/main
+e300178 2026-05-19 Fix kernel panic on shutdown /restart after an exploit failed attempt
+59a4988 2026-04-08 Add background-size property to style
+df0306d 2026-04-07 Update README for PSFree WebKit Exploit v2.2
+6077dfd 2026-04-07 Update bundle.js
+2f1047b 2026-04-07 Update cache manifest and improve logging functions
+f1b7df2 2026-04-07 Refactor JavaScript error handling and logging
+546582a 2026-04-07 Add files via upload
+e630825 2026-04-07 Delete psfree_lapse.cache
+3f6a7a2 2026-02-26 Delete ps4jb.png
+899a24a 2026-02-26 Add files via upload
+c82cde9 2025-12-06 fix some bugs
+c145695 2025-12-06 some cleanup
+4de0578 2025-12-06 Add autorun checkbox to cache.html
+f011fd7 2025-12-06 Implement autorun countdown for jailbreak button
+b59352c 2025-12-05 Merge pull request #3 from aryanariman/patch-1
+8393dfa 2025-12-05 Add GoldHEN pre-check to skip redundant exploit
+528740f 2025-12-03 Implemented 7.00 to 9.60 FW support
+8f137be 2025-12-03 Update PSFree exploit chain version in cache.html
+a066ee2 2025-12-03 Update header to reflect PS4 exploit range
+091306a 2025-12-03 Update README for PSFree Exploit v2.04
+a2e9cd8 2025-12-03 Add files via upload
+7e2facb 2025-12-03 Delete psfree_lapse.png
+789ae14 2025-12-03 Add files via upload
+9947f69 2025-12-03 Delete psfree_lapse.png
+a24a062 2025-12-03 Revise firmware support and acknowledgments in README
+078b243 2025-12-03 Delete bundle_reference.js
+ba44fe4 2025-11-18 Enhance logging with color support in console
+21bf2ce 2025-11-18 Enhance logging with color coding for errors and success
+40fc50f 2025-11-14 Update bundle.js
+9db8f2e 2025-11-14 Revise README for recent codebase updates
+5924be7 2025-11-14 Update README.md
+2b637a6 2025-11-14 Update bundle_reference.js
+7ba1290 2025-11-13 Update README with reference bundle information
+7c1ecc8 2025-11-13 Add files via upload
+d2ef2c6 2025-11-13 Add logging for unsupported platform and exploit stages
+64a52ff 2025-11-13 Update README.md
+443d65d 2025-11-13 Update README.md
+b0a02bd 2025-11-13 Add files via upload
+c5cadf6 2025-11-13 Delete psfree_lapse.png
+66494bc 2025-11-13 Update README.md
+d9616cb 2025-11-13 Add files via upload
+93aaa5d 2025-11-13 Update README.md
+42c11d2 2025-11-12 Add files via upload
+715c520 2025-11-12 Initial commit
+## files
+./bundle.js
+./psfree_lapse_2.04.png
+## symbols
+./bundle.js:40:const off_view_m_vector = 0x10;
+./bundle.js:43:const off_vector = 0x04; //off_view_m_vector / 4;
+./bundle.js:44:const off_vector2 = 0x05; //(off_view_m_vector + 4) / 4;
+./bundle.js:382:// * main - Uint32Array whose m_vector points to worker
+./bundle.js:406:      const off_mvec = off_view_m_vector;
+./bundle.js:454:    return [mem.addrof(backer).readp(off_view_m_vector), backer];
+./bundle.js:1156:  // m_vector[0]
+./bundle.js:1198:  const faker_vector = rdr.read64(faker_p.add(off_view_m_vector));
+./bundle.js:1199:  const vector_idx = off_view_m_vector / 4;
+./bundle.js:1371:  return mem.addrof(view).readp(off_view_m_vector);
+./bundle.js:1716:// This will make pivoting back easy, just "leave; ret".
+./bundle.js:1744:// The JOP chain pushed rbp and moved rsp to rbp before the pivot. The chain
+./bundle.js:1745:// must save rbp (rsp before the pivot) somewhere if it uses it. The chain must
+./bundle.js:1748:// pushed earlier before the pivot, thus restoring the old rbp).
+./bundle.js:1891:    // Create a DOM object (textarea) which is used as the exploit pivot source.
+./bundle.js:1924:    // Stack pivot target
+./bundle.js:1961:  // We will not use a FastTypedArray since its m_vector is visited by the
+./bundle.js:1967:  // can inspect the invalid m_vector field.
+./bundle.js:1974:  const old_addr = u_addr.read64(off_view_m_vector);
+./bundle.js:1976:  u_addr.write64(off_view_m_vector, addr);
+./bundle.js:1993:  u_addr.write64(off_view_m_vector, old_addr);
+./bundle.js:3085:    'dynlib_dlsym': 591,
+./bundle.js:3342:  // pivot the pthread's stack pointer to our stack
+./bundle.js:4023:  function kread64(addr) {
+./bundle.js:4046:  const ka = kread64(kernel_addr);
+./bundle.js:4047:  //log(`kread64(&"evf cv"): ${kread64(kernel_addr)}`);
+./bundle.js:4059:  const pcpu = kread64(pcpu_p);
+./bundle.js:4061:  //log(`cpuid: ${kread64(pcpu.add(0x30)).hi}`);
+./bundle.js:4063:  const td = kread64(pcpu);
+./bundle.js:4066:  const proc = kread64(td.add(off_td_proc));
+./bundle.js:4070:  const pid2 = kread64(proc.add(0xb0)).lo;
+./bundle.js:4076:  const p_fd = kread64(proc.add(off_p_fd));
+./bundle.js:4079:  const ofiles = kread64(p_fd);
+./bundle.js:4082:  const p_ucred = kread64(proc.add(off_p_ucred));
+./bundle.js:4086:  const pipe_file = kread64(ofiles.add(pipes[0] * 8));
+./bundle.js:4089:  const kpipe = kread64(pipe_file);
+./bundle.js:4093:    pipe_save.write64(off, kread64(kpipe.add(off)));
+./bundle.js:4097:  const main_file = kread64(ofiles.add(main_sd * 8));
+./bundle.js:4100:  const main_sock = kread64(main_file);
+./bundle.js:4103:  const m_pcb = kread64(main_sock.add(0x18));
+./bundle.js:4106:  const m_pktopts = kread64(m_pcb.add(0x118));
+./bundle.js:4113:  const reclaim_sock = kread64(kread64(ofiles.add(reclaim_sd * 8)));
+./bundle.js:4116:  const r_pcb = kread64(reclaim_sock.add(0x18));
+./bundle.js:4119:  const r_pktopts = kread64(r_pcb.add(0x118));
+./bundle.js:4122:  const worker_sock = kread64(kread64(ofiles.add(worker_sd * 8)));
+./bundle.js:4125:  const w_pcb = kread64(worker_sock.add(0x18));
+./bundle.js:4128:  const w_pktopts = kread64(w_pcb.add(0x118));
