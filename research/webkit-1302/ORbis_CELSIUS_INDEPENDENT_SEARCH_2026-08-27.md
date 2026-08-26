@@ -199,3 +199,7 @@ Las búsquedas de `PS4 Celsius 13.04 extended storage UFS`, `PS4 ffs_mountfs 13.
 ## Rama `ts-new` de `vue-after-free`
 
 La rama `ts-new` conserva `netctrl_c0w_twins.ts` y una implementación explícita de Netctrl que comprueba `FW_VERSION` en el rango 9.00–13.00 y aborta por encima de 13.00. Tras la adquisición de la primitive lenta, llama a `jailbreak_shared`, calcula la base mediante `KL_LOCK` y exporta `kernel.read_buffer`/`kernel.write_buffer`. Esto demuestra una cadena histórica de Netctrl con límite declarado 13.00; no aporta Celsius, UFS, FFS, `ffs_mountfs`, Jordy ni un bootstrap 13.02/13.04. Clasificación: **VERIFIED** como límite y código histórico Netctrl; **INVALID** como cierre Celsius 13.02.
+
+## Búsqueda de autores asociados
+
+Las consultas dirigidas a `HenForyu`, `earthonion` y `Echo Stretch` no localizaron una copia pública del bootstrap Celsius, una imagen UFS/FFS ni un PoC de `ffs_mountfs`. El resultado útil adicional es el perfil/mirror público de earthonion, que ya fue auditado en `vue-after-free`, `mkufs2`, `vue-mitm-poc` y `ps4debugportal`. Las demás coincidencias fueron tutoriales, perfiles o referencias generales a otros firmwares. No se considera corroboración independiente del claim Celsius.

@@ -975,3 +975,7 @@ Searches found no new Celsius artifact. The only specific 250GB result was Sony'
 ## vue-after-free `ts-new` branch
 
 `ts-new` retains `netctrl_c0w_twins.ts` and explicitly checks PS4 firmware range 9.00–13.00, aborting above 13.00. After acquiring slow R/W it calls `jailbreak_shared`, derives the kernel base via KL_LOCK, and exports `kernel.read_buffer`/`kernel.write_buffer`. Verified historical Netctrl scope/code; invalid as Celsius 13.02 closure.
+
+## Associated-author search
+
+Targeted searches for `HenForyu`, `earthonion`, and `Echo Stretch` found no public Celsius bootstrap, UFS/FFS image, or `ffs_mountfs` PoC. The only useful result was earthonion's public mirror, already audited across `vue-after-free`, `mkufs2`, `vue-mitm-poc`, and `ps4debugportal`. Other results were tutorials/profiles/general firmware references and are not independent Celsius corroboration.
