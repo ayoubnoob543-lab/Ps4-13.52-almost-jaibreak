@@ -72,3 +72,21 @@ Por tanto, el trabajo público permite construir una **arquitectura de reconstru
 La auditoría del SDK público `ps4-payload-dev/sdk` añadió una pieza útil para la reconstrucción de la imagen: `libufs` contiene rutinas userland como `ufs_disk_fillout`, `ufs_disk_fillout_blank` y `sbread` para abrir dispositivos o imágenes y leer estructuras de superbloque. El release v0.4 también anuncia `nmount` y el release v0.8 una implementación inicial de `libufs`.
 
 Esta pieza permite estudiar o generar metadatos FFS fuera de la consola, pero no implementa el kernel `ffs_mountfs`, no aporta la imagen Celsius original, no define cómo llegar al dispositivo USB/HDD de Orbis y no convierte ninguna corrupción en kernel R/W. Se clasifica como **VERIFIED** para la herramienta userland FreeBSD, **SOURCE_ONLY** para su posible utilidad en la imagen Celsius y **NOT PROVIDED** para la transición kernel.
+
+## Auditoría focalizada de las cuatro piezas faltantes
+
+### Bootstrap WebKit/Jordy
+
+La búsqueda dirigida encontró una referencia secundaria a una liberación WebKit para 13.00 que usa “Jordy's AI WebKit”, pero no una copia pública completa del bootstrap que suministre simultáneamente `targetAddress`, `m_vector`, bases WebKit/libkernel, pivot y gadgets. La URL presumida `Scene-Collective/psfree` no resolvió en GitHub y no se trató como fuente. Estado: **parcialmente identificado como interfaz/claim, no conseguido como bootstrap completo**.
+
+### Artefacto Orbis y `patch_mount`
+
+No apareció un binario, disassembly, pseudocódigo o hash de Orbis 13.02/13.04 que identifique `ffs_mountfs`. `patch_mount = 0x001512A7` sigue siendo una etiqueta de tabla Fusion/OSM sin call site ni bytes. Estado: **no conseguido**. El artefacto decisivo sería un kernel/`libkernel` legítimo o un recorte de disassembly con referencias cruzadas a esa dirección.
+
+### Imagen UFS/FFS
+
+El SDK público aporta `libufs` userland y headers FreeBSD; sus rutinas permiten leer dispositivos/imágenes, superbloques y grupos de cilindros. Eso permite construir un laboratorio offline de estructuras FFS, pero no se encontró la imagen Celsius, sus campos exactos ni una parametrización publicada. Estado: **herramienta parcial conseguida; imagen Celsius no conseguida**.
+
+### Primitive Celsius→kernel R/W
+
+El SDK expone `kernel_copyin`/`kernel_copyout` y el árbol BD-JB contiene un puente histórico `kread`/`kwrite`, recorrido de `allproc`, modificación de `ucred`/`rootvnode` y parche de `sysent`. Ambos son consumidores o puentes de cadenas distintas: no incluyen la primitive inicial que convertiría el overflow de Celsius en R/W, y no existe una adaptación pública 13.02. Estado: **modelo histórico conseguido; primitive Celsius no conseguida**.
