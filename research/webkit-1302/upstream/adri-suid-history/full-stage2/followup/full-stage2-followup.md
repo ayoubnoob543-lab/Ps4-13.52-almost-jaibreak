@@ -180,3 +180,9 @@ La respuesta limpia de la API de GitHub para `702fcc397d45546baab5311bc0a264870a
 El clon completo, con ramas remotas y tags, expone únicamente `main`, `origin/main`, `origin/HEAD` y `v2.0`; todos apuntan a la historia pública auditada. Los únicos archivos de stage 2 son `stage2_jordy.js` (añadido en `96a7948`, 2026-08-09) y `jordy_stage2.js` (añadido en `1089382`, 2026-08-09, reemplazando al anterior). No aparecen archivos alternativos con nombres `stage2`, `jordy`, `rop`, `webkit` o `dlsym` en otras ramas/tags.
 
 El historial conserva además `webkit_gadgets_1304.js` (`702fcc3`) y `webkit_gadgets_1350.js` (`b1570ef`), pero no un blob de kernel ni una implementación separada de Celsius. El resultado no prueba que no existan copias fuera de GitHub; sí demuestra que no están en refs públicas del repositorio consultado. Clasificación: inventario de refs/archivos `VERIFIED`; ausencia de copias fuera del repositorio `UNVERIFIED`.
+
+## Auditoría del tag `v2.0`
+
+El tag `v2.0` no contiene una variante oculta de stage 2. Su README y `cve_analysis.md` presentan Celsius como “CONFIRMED”, atribuyen el descubrimiento a bollars, afirman alcance hasta PS4 13.04 y parche en 13.50, y describen el overflow de `fs_ncg` en términos de código FreeBSD. Sin embargo, el propio texto sólo declara un crash confirmado en FW 11.00 y califica la presencia en 13.04 como “likely” en otra sección. No aporta kernel Orbis, SPRX, hash, diff binario, log de 13.02/13.04 ni PoC ejecutable verificable.
+
+El tag sí incluye `scanner_1304.iso` y `hen.bin`; la caracterización de sus blobs los identifica respectivamente como datos de filesystem UDF y ejecutable DOS/COM, no como kernel Orbis, SPRX WebKit o imagen UFS demostrativa. Esto es `VERIFIED` como contenido del tag, pero no aporta evidencia de Celsius en 13.02. Las afirmaciones de firmware, parche y prueba siguen siendo `SOURCE_ONLY`/`UNVERIFIED_13_02`.

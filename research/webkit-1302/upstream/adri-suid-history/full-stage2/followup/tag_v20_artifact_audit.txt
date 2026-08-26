@@ -1,0 +1,189 @@
+## blob metadata
+-- README.md
+4465
+9087ee6489cbe18fed4b5c8d0f34291f67ff3f3f
+7801041c7c8136fbdc5b3f2061d60ce564f19dd476025535b66c03ef0ef16a7a  -
+-- cve_analysis.md
+4124
+3fc799950acede59a372f5acb121d752a060b0a3
+fc2041632f81a002fa54b1d18663af5d4417e5d302b2534554d3dc4c724af11e  -
+-- 1304.c
+5962
+69631e65948101625f500d0014449958f457e007
+e01bff6e6bfaf5dc2fc73a013c7e97c898ae3349dfbbd9af01ba48c836d51820  -
+-- scanner_1304.iso
+16777216
+0ba3ede262a91ebf4dceda2b33fb3ace205c1ec6
+6ed15acd9cfb2539e034cde72a9003f52cf6338f04549670e1b8d515d948bd30  -
+-- hen.bin
+500736
+9f576bf8f0bdbd4d9943b7da5a7f097b3ef038a4
+f29bd1f0ac5cc1edef6ebccb735ef6c4dff702711cc3b9f465e66fd03dd707ce  -
+## v2.0 Celsius sections
+- ✅ **PlayStation Vue** — Installed, potential Celsius entry point
+
+### Kernel Exploits
+- 🔥 **Celsius (ffs_mount)** — Integer overflow in ffs_mountfs(), works up to 13.04, patched in 13.50. Discovered by bollars.
+- 🔥 **CVE-2026-49415** — execve TOCTOU race condition, affects all FreeBSD versions. Under investigation.
+
+### Latest News
+- **2026-07-21**: MasterMaind confirms BD-J sandbox escape up to 13.50/13.52
+- **2026-07-21**: etaHEN updated for PS5 up to 12.70
+- **2026-07-18**: Celsius (ffs_mount KEX) announced by bollars
+- **2026-07-18**: 13.04 kernel offsets published
+
+## SUID Scanner
+
+Scans the PS4 filesystem for SUID/SGID binaries via BD-JB userland exploit.
+Uses native FreeBSD syscalls (open, getdents, stat) via BD-JB's Java API.
+Results displayed on screen and saved to USB at `/mnt/usb0/suid_scan.txt`.
+
+### Usage
+1. Burn `scanner_1304.iso` to BD-R at 4x speed
+2. Insert USB drive (FAT32/exFAT) in PS4
+3. Insert BD-R disc
+4. Results appear on screen and saved to USB
+
+## Kernel Offsets
+
+### 13.04 (Complete)
+Full offsets in `1304.c` — based on 13.02 (identical kernel) verified by Pharaoh2k's offset table.
+
+### 13.52 (Partial)
+```
+PRISON0    = 0x111FA18
+ROOTVNODE  = 0x2136E90
+SYSENT     = 0x110A760
+unknown1   = 0x4D6D0
+unknown2   = 0xE6C60
+```
+
+## CVE Analysis
+
+See `cve_analysis.md` for detailed analysis of:
+- **CVE-2026-7270** — execve buffer overflow (DISCARDED: function not present in FreeBSD 9)
+- **CVE-2026-49415** — execve TOCTOU race (CANDIDATE: SUID code confirmed in FreeBSD 9)
+- **Celsius / ffs_mount** — Integer overflow in ffs_mountfs() (CONFIRMED for 13.04)
+
+## Celsius (ffs_mount) Technical Analysis
+
+The vulnerability is in `ffs_mountfs()` in `sys/ufs/ffs/ffs_vfsops.c`:
+
+```c
+size = fs->fs_cssize;                          // attacker controlled
+if (fs->fs_contigsumsize > 0)
+    size += fs->fs_ncg * sizeof(int32_t);      // INTEGER OVERFLOW
+size += fs->fs_ncg * sizeof(u_int8_t);         // INTEGER OVERFLOW
+space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // small malloc
+
+// Later:
+for (i = 0; i < fs->fs_ncg; i++)               // huge loop
+    *lp++ = fs->fs_contigsumsize;               // HEAP OVERFLOW
+```
+
+`fs->fs_ncg` comes from the UFS superblock (attacker controlled). A large value causes integer overflow in the size calculation, resulting in a small malloc but massive heap overflow.
+
+**Requirements:** BD-J or Vue entry point + 250GB+ HDD with malformed UFS image.
+
+## MP4 Parser Vulnerability (Under Investigation)
+
+A malformed MP4 file (`mutado_race.mp4`) crashes Media Player and SHAREfactory:
+- Crash confirmed on FW 11.00 (likely present on 13.04)
+- Bug in `moov.udta.meta` atom parsing
+- Child atom declares 190 bytes in 90-byte container → heap overflow
+- Injection points at offsets 0x833 and 0x885
+- Error 34878-0 on SHAREfactory, freeze on Media Player
+
+Credit: Shunsui (discovery and analysis)
+
+## Based on
+- [BD-JB-1250](https://github.com/ps3120/BD-JB-1250) by ps3120/Gezine
+- [Scene-Collective/ps4-hen](https://github.com/Scene-Collective/ps4-hen) for offset format
+- [PPPwn](https://github.com/TheOfficialFloW/PPPwn) by TheFloW for exploit architecture reference
+
+## Credits
+- ps3120 — BD-JB-1250 and bdj1304.iso
+- Gezine — BD-JB vulnerability discovery
+- Scene-Collective — ps4-hen open source offsets
+- Pharaoh2k — 13.04 kernel offsets verification
+- bollars — Celsius (ffs_mount) discovery
+- MasterMaind (@ASaudidos) — BD-J escape confirmation up to 13.52
+- Shunsui — MP4 parser vulnerability discovery and analysis
+- Victor — Celsius confirmation and technical guidance
+
+## License
+This research is for educational and security research purposes only.
+  4. PROC_UNLOCK → VOP_UNLOCK → window of vulnerability
+  5. setugidsafety() closes insecure fds
+- **Challenge:** PS4 may not have accessible SUID binaries from BD-J sandbox
+
+## Celsius / ffs_mount — Integer Overflow 🔥 CONFIRMED
+
+- **Type:** Kernel heap overflow
+- **Component:** ffs_mountfs() in sys/ufs/ffs/ffs_vfsops.c
+- **Discovered by:** bollars (via kernel diffing)
+- **Works on:** PS4 up to 13.04, PS5 up to 12.70
+- **Patched in:** PS4 13.50, PS5 13.00
+- **Status:** CONFIRMED — vulnerable code present in FreeBSD 9
+
+### Vulnerable code:
+```c
+// Line ~910 in ffs_vfsops.c
+size = fs->fs_cssize;                          // from superblock (attacker controlled)
+blks = howmany(size, fs->fs_fsize);
+if (fs->fs_contigsumsize > 0)
+    size += fs->fs_ncg * sizeof(int32_t);      // INTEGER OVERFLOW HERE
+size += fs->fs_ncg * sizeof(u_int8_t);
+space = malloc((u_long)size, M_UFSMNT, M_WAITOK);  // allocates SMALL buffer
+
+// Later in the same function:
+if (fs->fs_contigsumsize > 0) {
+    fs->fs_maxcluster = lp = space;
+    for (i = 0; i < fs->fs_ncg; i++)           // iterates fs_ncg times
+        *lp++ = fs->fs_contigsumsize;           // HEAP OVERFLOW
+    space = lp;
+}
+```
+
+### Exploitation:
+1. Craft UFS image with malicious superblock (fs_ncg = 0x40000001)
+2. Mount via BD-J or Vue entry point
+3. Integer overflow causes small malloc + massive heap write
+4. Heap grooming needed to control what gets overwritten
+5. Convert heap overflow to kernel read/write
+6. Patch kernel, load payload
+
+### Requirements:
+- BD-J or Vue userland entry point
+- 250GB+ HDD with malformed UFS image (per Victor's guidance)
+- Kernel offsets for target firmware
+
+### Superblock structure (key fields):
+```
+Offset in struct fs:
+  fs_ncg           (u_int32_t) — controls the overflow
+  fs_bsize         (int32_t)   — must pass validation checks
+  fs_fsize         (int32_t)   — must pass validation checks
+  fs_cssize        (int32_t)   — initial size value
+  fs_contigsumsize (int32_t)   — must be > 0 to trigger vulnerable path
+```
+
+## MP4 Parser Vulnerability ⚠️ UNDER INVESTIGATION
+
+- **Type:** Heap buffer overflow in multimedia parser
+- **Component:** MP4/M4A atom parser (likely libSceAvPlayer)
+- **Discovered by:** Shunsui
+- **Confirmed on:** FW 11.00 (Media Player + SHAREfactory)
+- **Likely affected:** All PS4 firmwares including 13.04 and 13.52
+
+### Bug details:
+- moov.udta.meta atom declares 90 bytes
+- Child atom at offset 0x833 declares 190 bytes → exceeds parent
+- Parser reads beyond buffer bounds → heap corruption
+- Second corrupt atom at offset 0x885
+- Media Player freezes, SHAREfactory gives error 34878-0
+
+### Potential exploitation:
+## binary names/headers
+/dev/stdin: UDF filesystem data (version 1.5) 'scanner_1304'
+/dev/stdin: DOS executable (COM), start instruction 0xe99e4900 00415741

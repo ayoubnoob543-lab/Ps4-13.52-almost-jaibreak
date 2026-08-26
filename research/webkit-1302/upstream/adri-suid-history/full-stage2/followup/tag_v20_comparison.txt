@@ -1,0 +1,73 @@
+## v2.0 tree
+1304.c
+1304.h
+1352_offsets.txt
+README.md
+cve_analysis.md
+hen.bin
+scanner_1304.iso
+src/org/bdj/SuidScanner.java
+webkit_gadgets_1350.js
+## stage2-related diff v2.0..main
+ jordy_stage2.js        | 302 [32m+++++++++++++++++++++++++++++++++++++++++++++++++[m
+ webkit_gadgets_1304.js |  33 [32m++++++[m
+ 2 files changed, 335 insertions(+)
+## v2.0 commits
+3fd35a4 2026-07-30 01:45:04 +0200 Add compiled ps4-hen for FW 13.04 with full offsets
+b1570ef 2026-07-29 09:54:13 +0200 Add WebKit 13.50 ROP gadgets (17/17 found via radare2)
+596745e 2026-07-21 22:58:15 +0200 CVE-2026-7270: confirmed introduced in FreeBSD 13.0, definitively not in PS4
+615c637 2026-07-21 21:38:34 +0200 Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets
+13d44f2 2026-07-18 17:05:00 +0200 Add Pharaoh2k to credits
+6cacb24 2026-07-18 17:02:05 +0200 Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)
+9d0d8e1 2026-07-18 13:45:20 +0200 PS4 SUID Scanner for FW 13.04 - BD-JB based
+## v2.0 claims
+[35mv2.0:1304.c[m[36m:[m[32m7[m[36m:[m// PS4 Kernel Offsets - Firmware [1;31m13.04[m
+[35mv2.0:1304.c[m[36m:[m[32m8[m[36m:[m// Based on [1;31m13.02[m offsets (identical kernel) + Pharaoh2k's verification table
+[35mv2.0:1352_offsets.txt[m[36m:[m[32m6[m[36m:[m// PRISON0    = 0x111FA18  (same as 13.00-[1;31m13.04[m)
+[35mv2.0:1352_offsets.txt[m[36m:[m[32m7[m[36m:[m// ROOTVNODE  = 0x2136E90  (same as 13.00-[1;31m13.04[m)
+[35mv2.0:1352_offsets.txt[m[36m:[m[32m8[m[36m:[m// SYSENT     = 0x110A760  (DIFFERENT from [1;31m13.04[m: 0x1102B70)
+[35mv2.0:1352_offsets.txt[m[36m:[m[32m15[m[36m:[m// Note: SYSENT changed from 0x1102B70 ([1;31m13.04[m) to 0x110A760 (13.52)
+[35mv2.0:1352_offsets.txt[m[36m:[m[32m16[m[36m:[m// This indicates kernel code changes between [1;31m13.04[m and 13.52
+[35mv2.0:README.md[m[36m:[m[32m1[m[36m:[m# PS4 Security Research — Firmware [1;31m13.04[m
+[35mv2.0:README.md[m[36m:[m[32m3[m[36m:[mResearch tools and kernel offsets for PS4 firmware [1;31m13.04[m security research.
+[35mv2.0:README.md[m[36m:[m[32m7[m[36m:[m- `1304.c` / `1304.h` — Complete kernel offsets for FW [1;31m13.04[m
+[35mv2.0:README.md[m[36m:[m[32m15[m[36m:[m### Entry Points Confirmed on [1;31m13.04[m
+[35mv2.0:README.md[m[36m:[m[32m20[m[36m:[m- ✅ **PlayStation Vue** — Installed, potential [1;31mCelsius[m entry point
+[35mv2.0:README.md[m[36m:[m[32m23[m[36m:[m- 🔥 **[1;31mCelsius[m (ffs_mount)** — Integer overflow in [1;31mffs_mountfs[m(), works up to [1;31m13.04[m, patched in 13.50. Discovered by bollars.
+[35mv2.0:README.md[m[36m:[m[32m29[m[36m:[m- **2026-07-18**: [1;31mCelsius[m (ffs_mount KEX) announced by bollars
+[35mv2.0:README.md[m[36m:[m[32m30[m[36m:[m- **2026-07-18**: [1;31m13.04[m kernel offsets published
+[35mv2.0:README.md[m[36m:[m[32m46[m[36m:[m### [1;31m13.04[m (Complete)
+[35mv2.0:README.md[m[36m:[m[32m47[m[36m:[mFull offsets in `1304.c` — based on [1;31m13.02[m (identical kernel) verified by Pharaoh2k's offset table.
+[35mv2.0:README.md[m[36m:[m[32m63[m[36m:[m- **[1;31mCelsius[m / ffs_mount** — Integer overflow in [1;31mffs_mountfs[m() (CONFIRMED for [1;31m13.04[m)
+[35mv2.0:README.md[m[36m:[m[32m65[m[36m:[m## [1;31mCelsius[m (ffs_mount) Technical Analysis
+[35mv2.0:README.md[m[36m:[m[32m67[m[36m:[mThe vulnerability is in `[1;31mffs_mountfs[m()` in `sys/[1;31mufs[m/ffs/ffs_vfsops.c`:
+[35mv2.0:README.md[m[36m:[m[32m74[m[36m:[mspace = malloc((u_long)size, M_[1;31mUFS[mMNT, M_WAITOK);  // small malloc
+[35mv2.0:README.md[m[36m:[m[32m81[m[36m:[m`fs->fs_ncg` comes from the [1;31mUFS[m superblock (attacker controlled). A large value causes integer overflow in the size calculation, resulting in a small malloc but massive heap overflow.
+[35mv2.0:README.md[m[36m:[m[32m83[m[36m:[m**Requirements:** BD-J or Vue entry point + 250GB+ HDD with malformed [1;31mUFS[m image.
+[35mv2.0:README.md[m[36m:[m[32m88[m[36m:[m- Crash confirmed on FW 11.00 (likely present on [1;31m13.04[m)
+[35mv2.0:README.md[m[36m:[m[32m105[m[36m:[m- Pharaoh2k — [1;31m13.04[m kernel offsets verification
+[35mv2.0:README.md[m[36m:[m[32m106[m[36m:[m- bollars — [1;31mCelsius[m (ffs_mount) discovery
+[35mv2.0:README.md[m[36m:[m[32m109[m[36m:[m- Victor — [1;31mCelsius[m confirmation and technical guidance
+[35mv2.0:cve_analysis.md[m[36m:[m[32m18[m[36m:[m- **Patched:** June 30, 2026 (after PS4 [1;31m13.04[m release)
+[35mv2.0:cve_analysis.md[m[36m:[m[32m29[m[36m:[m## [1;31mCelsius[m / ffs_mount — Integer Overflow 🔥 CONFIRMED
+[35mv2.0:cve_analysis.md[m[36m:[m[32m32[m[36m:[m- **Component:** [1;31mffs_mountfs[m() in sys/[1;31mufs[m/ffs/ffs_vfsops.c
+[35mv2.0:cve_analysis.md[m[36m:[m[32m34[m[36m:[m- **Works on:** PS4 up to [1;31m13.04[m, PS5 up to 12.70
+[35mv2.0:cve_analysis.md[m[36m:[m[32m46[m[36m:[mspace = malloc((u_long)size, M_[1;31mUFS[mMNT, M_WAITOK);  // allocates SMALL buffer
+[35mv2.0:cve_analysis.md[m[36m:[m[32m58[m[36m:[m1. Craft [1;31mUFS[m image with malicious superblock (fs_ncg = 0x40000001)
+[35mv2.0:cve_analysis.md[m[36m:[m[32m67[m[36m:[m- 250GB+ HDD with malformed [1;31mUFS[m image (per Victor's guidance)
+[35mv2.0:cve_analysis.md[m[36m:[m[32m86[m[36m:[m- **Likely affected:** All PS4 firmwares including [1;31m13.04[m and 13.52
+Binary file [35mv2.0:hen.bin[m matches
+Binary file [35mv2.0:scanner_1304.iso[m matches
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m29[m[36m:[m            openAddr = api.[1;31mdlsym[m(API.LIBC_MODULE_HANDLE, "open");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m30[m[36m:[m            closeAddr = api.[1;31mdlsym[m(API.LIBC_MODULE_HANDLE, "close");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m31[m[36m:[m            getdentsAddr = api.[1;31mdlsym[m(API.LIBC_MODULE_HANDLE, "getdents");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m32[m[36m:[m            statAddr = api.[1;31mdlsym[m(API.LIBC_MODULE_HANDLE, "stat");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m33[m[36m:[m            writeAddr = api.[1;31mdlsym[m(API.LIBC_MODULE_HANDLE, "write");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m48[m[36m:[m        Status.println("=== SUID Scanner PS4 [1;31m13.04[m ===");
+[35mv2.0:src/org/bdj/SuidScanner.java[m[36m:[m[32m126[m[36m:[m                String data = "PS4 [1;31m13.04[m SUID Scan\nFound: " + suidCount + "\n\n" + results.toString();
+[35mv2.0:webkit_gadgets_1350.js[m[36m:[m[32m7[m[36m:[m// FW [1;31m13.04[m gadgets will have different addresses.
+[35mv2.0:webkit_gadgets_1350.js[m[36m:[m[32m8[m[36m:[m// Use BinDiff between [1;31m13.04[m and 13.50 WebKit libs to port.
+[35mv2.0:webkit_gadgets_1350.js[m[36m:[m[32m43[m[36m:[m// PRISON0    = 0x111FA18  (same as 13.00-[1;31m13.04[m)
+[35mv2.0:webkit_gadgets_1350.js[m[36m:[m[32m44[m[36m:[m// ROOTVNODE  = 0x2136E90  (same as 13.00-[1;31m13.04[m)
+[35mv2.0:webkit_gadgets_1350.js[m[36m:[m[32m47[m[36m:[m// To port to [1;31m13.04[m:
+[35mv2.0:webkit_gadgets_1350.js[m[36m:[m[32m48[m[36m:[m// 1. Obtain libSceNKWebKit.sprx from FW [1;31m13.04[m
