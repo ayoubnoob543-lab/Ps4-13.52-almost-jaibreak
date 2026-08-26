@@ -706,3 +706,8 @@ The history scan found one directly relevant deletion in `ps4-suid-scanner`: `st
 ## Git string-introduction history
 
 Git pickaxe history provides a clean provenance result. In `ps4-suid-scanner`, `ffs_mountfs` first appears in the 2026-08-09 stage2 skeleton commit `96a79482`, then in the 2026-08-09 replacement commit `1089382`; the 2026-07-30 WebKit 13.04 gadget commit `702fcc3` and the earlier research commit `615c637` also mention Celsius in documentation/context. The exact strings `mount UFS` and `kernel R/W` do not appear as committed additions. In `hejran7`, `ntfargo`, `ps3120` and `wobkot`, no history addition for `ffs_mountfs`, Celsius, `mount UFS`, `kernel R/W` or `stage2` was found. This supports the conclusion that the Celsius/FFS narrative is introduced by the scanner project itself, not inherited textually from the historical PS4 CSSFontFace/Netctrl chain.
+
+
+## External hash/name search for hejran7 payloads
+
+Searches for the exact SHA-256 values of `pl_KernelClock.bin` and `pl_KernelDumper.bin`, and for both filenames, returned no relevant indexed mirror or technical documentation. Results included a generic `TeamFAPS/PS4-Kernel-Dumper` repository and a secondary Reddit discussion about a 13.00 kernel dumper, but neither result was linked by hash, filename provenance or commit relationship to `hejran7`, and neither supplies Celsius/FFS evidence for 13.02. Classification: generic dumper references `SOURCE_ONLY` for this investigation; exact fork linkage `INVALID/UNFOUND`.
