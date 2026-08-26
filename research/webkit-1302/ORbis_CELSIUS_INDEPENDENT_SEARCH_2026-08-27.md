@@ -71,3 +71,11 @@ Las consultas públicas para `bollars PS4 exploit`, `bollars ffs_mount GitHub` y
 ## Búsqueda global de commits
 
 La búsqueda de commits para `ffs_mountfs` devuelve principalmente el historial de FreeBSD y repositorios que copian esos commits, por ejemplo cambios antiguos de locking o firmas de funciones. No aparece una implementación de Orbis, Celsius o una adaptación PS4. Las consultas `Celsius PS4` y `Jordy PS4 WebKit` no produjeron commits externos relevantes; las coincidencias útiles se limitaron al material ya conocido. No se consideraron los commits FreeBSD como evidencia de que Orbis conserve la misma ruta. Resultado: **sin artefacto nuevo**.
+
+### Transcripción de la imagen primaria 2
+
+La segunda imagen adjunta al post de Dr.Yenyen muestra un mensaje suyo que afirma: “There's a kernel exploit that's been posted around a bit. And it's difficult to deal with. Don't etawen don't ask in the servers about who and when will work on it. Don't annoy people. I've already tested it a bit. It has been named ‘Celsius’. It is for up to 13.04 on PS4 (yes yes 13.02 included) and up to 12.70 on PS5. It was patched on 13.50 PS4 and 13.00 PS5. No guarantee that it will work out or if it does that it will be easily usable. Again patched on 13.50 and 13.00 means as of those firmwares and above it no longer works. It's not Gezine's exploit btw. It requires a USB 3.0 250GB or above drive to trigger via extended storage. 250GB drives aren't all made the same so an actual recommendation for users is to get 320GB or 500GB to avoid issues or take your chances with 250GB drives. (And I mean get only when it gets announced as working)”.
+
+Esta imagen aporta el dato más explícito localizado sobre requisitos operativos declarados y sobre una prueba informal (“I've already tested it a bit”), pero no contiene código, imagen UFS, hash, argumentos de `mount`, dirección, primitive de corrupción ni log reproducible. Se clasifica como **SOURCE_ONLY** para la implementación y como **HYPOTHESIS** para los detalles operativos no acompañados de artefacto.
+
+Fuente de imagen: `https://pbs.twimg.com/media/HNh9_EUWEAA3fwf?format=webp&name=medium`; SHA-256 local del WebP: `cd6860811c80ab7c0f73a8c189ecad0c187eb41a751d4815fa6efba2e8f723b6`.

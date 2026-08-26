@@ -875,3 +875,7 @@ Searches for `bollars`, `bollars ffs_mount`, and spelling variants did not locat
 ## Global commit search
 
 Global commit search for `ffs_mountfs` returned FreeBSD upstream history and numerous repository copies of those historical commits, not Orbis/Celsius code. Searches for `Celsius PS4` and `Jordy PS4 WebKit` produced no independent relevant commits. These results reinforce the need for a target-firmware kernel artifact but do not add one.
+
+## Primary image 2 transcription
+
+The second image attached to Dr.Yenyen's July 18 post explicitly says Celsius was tested “a bit”, targets PS4 up to 13.04 including 13.02, was patched on PS4 13.50, is not Gezine's exploit, and requires a USB 3.0 drive of 250 GB or larger through extended storage; it recommends 320/500 GB due to drive variation. The image still contains no code, UFS image, hash, mount arguments, address, corruption primitive or reproducible log. Classify implementation as `SOURCE_ONLY`; unbacked operational details as `HYPOTHESIS`. Source: https://pbs.twimg.com/media/HNh9_EUWEAA3fwf?format=webp&name=medium, local SHA-256 `cd6860811c80ab7c0f73a8c189ecad0c187eb41a751d4815fa6efba2e8f723b6`.
