@@ -157,3 +157,32 @@ Estos offsets SOLO pueden determinarse teniendo acceso al binario kernel
 | Payload kernel completo 13.02 | ❌ NO EXISTE | — |
 | Kernel retail 13.52 bytes | ❌ NO EXISTE | — |
 | Confirmación HW 13.02 | ❌ nadie ha publicado | — |
+
+## ANÁLISIS DEL SHELLCODE KERNEL 13.00 — qué parchea exactamente (2026-08-25)
+
+Desensamblado del payload hex 13.00 (314 B): **12 parches al kernel**.
+Todos escriben bytes en direcciones relativas a la base del kernel.
+
+| # | Offset desde kernel base | Valor escrito | Función probable |
+|---|---|---|---|
+| 1 | `+0x00000ACD` | `0xEB` (JMP) | desactiva check |
+| 2 | `+0x002BD42D` | `0xEB` | desactiva check |
+| 3 | `+0x002BD471` | `0xEB` | desactiva check |
+| 4 | `+0x002BD4ED` | `0xEB` | desactiva check |
+| 5 | `+0x002BD531` | `0xEB` | desactiva check |
+| 6 | `+0x002BD6DD` | `0xEB` | desactiva check |
+| 7 | `+0x002BDB8D` | `0xEB` | desactiva check |
+| 8 | `+0x002BDC5D` | `0xEB` | desactiva check |
+| 9 | `+0x000004C2` | `0xEB` | desactiva check |
+| 10 | `+0x00391546` | `0xEB` | sys_veri / verificación |
+| 11 | `+0x001FA77A` | `0x37` | mmap RWX (byte 1) |
+| 12 | `+0x001FA77D` | `0x37` | mmap RWX (byte 2) |
+
+Para 13.02: SOLO se conocen los parches #11 y #12 (`[0x1fa78a, 0x1fa78d]`).
+Los otros 10 offsets son DESCONOCIDOS sin el binario kernel 13.52/13.02.
+Delta observado entre 13.00→13.02 en mmap: +0x10 bytes. NO extrapolable a
+los demás sin el binario real.
+
+Fuentes que confirman offsets mmap 13.02: Vuemony/vue-after-free,
+RiyonAbib07/ps-vue-jb-2.5, rezaadi0105/vue-after-free — todos comparten
+el mismo origen. Ninguno publica los otros 10 offsets.
