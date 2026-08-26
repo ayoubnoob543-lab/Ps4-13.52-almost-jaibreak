@@ -583,3 +583,15 @@ The clean audit of `/tmp/ps3120-css` shows the same historical line that merges 
 ## psfree_lapse progenitor audit
 
 The clean audit of `Feyzee61/psfree_lapse` finds a single bundled `bundle.js` and a history whose visible support milestone is `Implemented 7.00 to 9.60 FW support` (2025-12-03). The bundle contains the same historical PS4 WebKit userland, `m_vector`/pivot, dlsym and pktopts-based kernel R/W code patterns seen in CSSFontFace/Lapse. No 13.02/13.04, `ffs_mountfs`, Celsius or `jordy_stage2` strings were found. This is useful as a historical implementation lineage but not as a source for missing 13.02 scanner pieces.
+
+
+## Progenitor blob-hash comparison
+
+Current-clone SHA-256 values for `wobkot` and `ntfargo/CSSFontFace-Exploit` differ for `netctrl.js`, `ps4/kernel.js` and `ps4/userland.js`, so their current HEAD files are not byte-identical even though the architecture and history are related. `ps3120/CSSFontFace-Exploit` does not expose the same `public/src/netctrl.js` path at its current HEAD (its source is organized under `public/src/ps4/...`), so the first path-level comparison was incomplete. Git blob IDs were recorded for `wobkot` and `ntfargo`; a definitive derivation test requires comparing the exact merge commits/parent trees and normalized code, not merely current HEAD hashes.
+
+
+## Exact progenitor history
+
+The path-specific Git history shows `ps3120/CSSFontFace-Exploit` contains the exact commit `6f3398616ac0e3a0a7b45bf33730529a75578db7` (`Full chain exploit with lapse and netctrl`) and subsequent shared commits with `ntfargo/CSSFontFace-Exploit` (`c994681`, `0b65ea0`, `2f37734`). This establishes that `ps3120` and `ntfargo` are the same direct code line for the full-chain source, not independent corroborations.
+
+`ufm42/wobkot` has a separate visible history with commit `2f96abf` titled `full chain exploit added`, followed by its own cleanup/fix commits. Its current files are architecturally equivalent but not byte-identical to the ntfargo/ps3120 line. The provenance graph is therefore: ps3120 → ntfargo shared full-chain line; wobkot = parallel/related historical implementation. Neither line reaches 13.02/13.04.

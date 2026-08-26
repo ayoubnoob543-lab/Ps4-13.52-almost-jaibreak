@@ -1,0 +1,23 @@
+## ps3120 relevant history
+2f37734497881c57af336be5839b2ccd9373cb4e 2026-07-27 fix typo (from #21)
+0b65ea0e629a93ce3b9de1a0439a054feacff19a 2026-07-26 fix kp issue with lapse on some games
+c994681e393b849119c1b5c785f0f519ce2861fb 2026-07-25 typo
+00b3cb3ecef5d61538e5baa441a996aff186c5a1 2026-07-25 remove unused file
+6f3398616ac0e3a0a7b45bf33730529a75578db7 2026-07-25 Full chain exploit with lapse and netctrl
+33650b33984188cf76229251caea7d1f450c1455 2026-07-04 Update lapse.mjs
+7a0b599064c84ae78aef84913aee0082bfab5272 2026-07-02 Update offsets.mjs
+8e1cf4468b421139f5b4619b8396adcf487d9c0f 2026-07-01 Update lapse.mjs
+fe0451c35cba5ce29b13f6f7c5e224f31eb1310c 2026-07-01 Update offsets.mjs
+7fd70b4968a806adf9ec65be752ae2b9b7763abe 2026-06-30 Add files via upload
+397088a4c57f8ce9a952fc8cb2cee2c1c213a360 2026-06-24 code commit
+## wobkot relevant history
+98c33801b41d1ecff19c6e36c3bd0e90e62b4e8e 2026-07-27 typo
+5b0fc3eac8e5acfbe3651d1021856958354571cc 2026-07-27 cleanup
+2a254c665e9a3e46a6487bb2b32bb1ddd0a2a76d 2026-07-26 fix issue with lapse
+2f96abf1796bf05e913b298c9932284b6cac38d3 2026-07-26 full chain exploit added
+## ntfargo relevant history
+2f37734497881c57af336be5839b2ccd9373cb4e 2026-07-27 fix typo (from #21)
+0b65ea0e629a93ce3b9de1a0439a054feacff19a 2026-07-26 fix kp issue with lapse on some games
+78b24e2db458d889eb3b2e575677c25929b11dac 2026-07-25 cleanup
+c994681e393b849119c1b5c785f0f519ce2861fb 2026-07-25 typo
+6f3398616ac0e3a0a7b45bf33730529a75578db7 2026-07-25 Full chain exploit with lapse and netctrl
