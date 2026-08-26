@@ -31,9 +31,15 @@ La investigación pública también muestra varios bugs de FreeBSD con etiquetas
 
 La fuente primaria visible enlazada desde discusiones comunitarias es el gist de **TheOfficialFloW**, `ExploitNetControlImpl.java`. El código implementa una secuencia de triple-free de `ucred`, fuga de objetos `kqueue`, búsqueda de `allproc` y operaciones `kread/kwrite` sobre estructuras de credenciales. Eso sí es una primitive de kernel R/W en el contexto de una build compatible; no prueba por sí mismo que la misma build sea PS4 13.02.
 
-El repositorio `RiyonAbib07/ps-vue-jb-2.5` no es un fork de GitHub y declara en su descripción `7.00-13.00`, con mejoras de estabilidad para 12.50+ mediante Netctrl/Poopsploit. Su README separa claramente `vue-after-free` userland hasta 13.04 de Netctrl hasta 13.00 y dice que en 13.02 o superior sólo funciona el userland. Su `kernel.ts` contiene entradas de mmap 13.02, pero la tabla de offsets de la cadena Netctrl agrupa 12.50/12.52/13.00 y no añade una cadena funcional 13.02.
+El repositorio `RiyonAbib07/ps-vue-jb-2.5` no es un fork de GitHub y declara en su descripción `7.00-13.00`, con mejoras de estabilidad para 12.50+ mediante Netctrl/Poopsploit. Su README separa claramente `vue-after-free` userland hasta 13.04 de Netctrl hasta 13.00 y dice que en 13.02 o superior sólo funciona el userland. Su `kernel.ts` contiene entradas de mmap 13.02, pero la tabla de offsets de la cadena Netctrl agrupa 12.50/12.52/13.00 y no añade una cadena funcional 13.02. El historial específico de `kernel.ts` muestra una única incorporación principal (`a25b685`, 11 de marzo de 2026); no aparece un commit posterior que añada una tabla Netctrl 13.02.
 
 `owendswang/vue-after-free-lite` es un fork de `Vuemony/vue-after-free`; sus commits de estabilidad Netctrl no constituyen una segunda línea independiente. `Vuemony/vue-after-free` a su vez recibe merges de otros árboles de la misma escena. Por ello, README, offsets mmap o correcciones de estabilidad repetidos entre esos repositorios cuentan como una sola línea de procedencia, salvo que aporten bytes, método de derivación y una prueba independiente.
+
+## ¿Hay evidencia de parche entre 13.00 y 13.02?
+
+Hay una **afirmación pública secundaria** de que Sony parcheó en 13.02 la vulnerabilidad usada por el release de TheFlow: XDG Mods la presenta como “vulnerability patched” y una discusión de Reddit repite “Poopsploit patched”. Esto alcanza `SOURCE_ONLY` para la afirmación de parche y `CORROBORATED` para el hecho más débil de que el soporte publicado se detiene en 13.00.
+
+No se encontró un artefacto primario de Sony ni un análisis binario que identifique el cambio. Faltan un diff de la función o ruta vulnerable entre kernels 13.00 y 13.02, símbolos/bytes con hashes para ambos firmwares, una ejecución de la misma PoC en 13.02 que falle de forma diagnóstica y una prueba que descarte que el límite publicado sea simplemente ausencia de offsets o de integración. Por tanto, **no puede afirmarse técnicamente qué parche hizo Sony ni siquiera si el límite práctico se debe exclusivamente a un parche**.
 
 ## Otros candidatos
 
@@ -53,7 +59,7 @@ Para los CVE/bugs candidatos se necesita además comparar el código vulnerable 
 
 **1. Candidato más prometedor.** Netctrl/ucred triple-free, porque es el único candidato público revisado que combina una implementación de explotación PS4 cercana al objetivo —funcional publicada hasta 13.00— con una ruta explícita de leak y `kread/kwrite`. Aun así, su estado correcto para 13.02 es **`UNVERIFIED_13_02`**.
 
-**2. Evidencia concreta que falta.** Falta una ejecución reproducible de Netctrl en hardware PS4 13.02 que demuestre la triple-free/ucred, el leak, la primitive de kernel R/W y un write observable, junto con los artefactos y offsets de la misma build. También falta un diff o dump que explique qué cambia entre 13.00 y 13.02 y por qué la cadena sobrevive.
+**2. Evidencia concreta que falta.** Falta una ejecución reproducible de Netctrl en hardware PS4 13.02 que demuestre la triple-free/ucred, el leak, la primitive de kernel R/W y un write observable, junto con los artefactos y offsets de la misma build. También falta un diff o dump que explique qué cambia entre 13.00 y 13.02 y por qué la cadena sobrevive. Para probar un parche de Sony, el dato decisivo sería un diff binario o de símbolos de la ruta NetControl/ucred entre un kernel retail 13.00 y uno retail 13.02, acompañado de una PoC controlada que falle específicamente en 13.02.
 
 **3. Ruta reproducible actual.** **No existe actualmente una ruta pública reproducible `userland → kernel R/W` para PS4 13.02.** Lo que sí existe es userland/BD-J para 13.02, código Netctrl funcional publicado hasta 13.00, tablas y entradas de offsets de procedencia limitada, y varios bugs FreeBSD/PSDevWiki que siguen siendo hipótesis para PS4.
 

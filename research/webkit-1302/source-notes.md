@@ -131,3 +131,17 @@ El nombre del repositorio y su presencia en muchos forks no constituyen una fuen
 La tabla [ConsoleMods PS4 Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart) agrupa `13.02–13.04` y declara que no existe kernel exploit público para el firmware reciente/latest; la acción recomendada es conservar o vender la consola. La página es una tabla secundaria, no una PoC ni un log de hardware, por lo que se clasifica `CORROBORATED` sólo para el estado público, no como prueba de ausencia absoluta.
 
 La discusión de [Reddit r/ps4homebrew](https://www.reddit.com/r/ps4homebrew/comments/1omgsul/new_kernel_exploit_up_to_1300_for_ps4_and_1200/) enlaza un gist de TheOfficialFloW y repite que el nuevo kernel exploit llega a PS4 13.00, no 13.02. Los comentarios indican que requiere BD-JB/WebKit/Mast1c0re y que no era utilizable en 12.50 en el momento de la discusión; también aparece un comentario de un usuario con 13.02 “hoping to release it someday”, que es una expectativa comunitaria, no una demostración. Se clasifica `CORROBORATED` para la frontera pública 13.00 y `UNVERIFIED_13_02` para cualquier extrapolación.
+
+## Comparación directa de `riyon-kernel.ts` — 26 de agosto de 2026
+
+El archivo público `src/download0/kernel.ts` de `RiyonAbib07/ps-vue-jb-2.5` separa una tabla `offset_ps4_12_00` que agrupa 12.02 de otra `offset_ps4_12_50` que agrupa 12.52 y 13.00. La tabla 12.50/12.52/13.00 conserva `PRISON0`, `ROOTVNODE`, `SYSENT_661`, `JMP_RSI_GADGET` y `KL_LOCK`, pero deja `EVF_OFFSET` y `TARGET_ID_OFFSET` en cero y los comenta como faltantes/no necesarios en Netctrl. No existe una entrada `offset_ps4_13_02` para la cadena Netctrl.
+
+El mismo archivo contiene una tabla separada `kpatch_mmap_offsets` que sí incluye una entrada 13.02. El código posterior verifica bytes de parches mmap y prueba una asignación RWX, pero esas comprobaciones pertenecen a la fase de parcheo y no demuestran que Netctrl/ucred haya producido R/W en 13.02. Esta diferencia es evidencia directa de que 13.02 aparece en la tabla de mmap, pero no en la tabla de offsets de la primitive Netctrl completa.
+
+## Afirmaciones de parche 13.02 — comprobación adicional 26 de agosto de 2026
+
+El artículo de [XDG Mods sobre el release de TheFlow](https://xdgmods.com/news/theflow-kernel-exploit-ps4-ps5) afirma que el exploit afecta hasta PS4 13.00 y que Sony lo parcheó en 13.02. El artículo no adjunta diff de kernel, advisory de Sony, hashes de builds, PoC 13.02 fallida ni log de hardware; por ello la afirmación de parche se clasifica `SOURCE_ONLY`, no `VERIFIED`.
+
+La discusión de [Reddit sobre 13.00/13.02/13.04](https://www.reddit.com/r/ps4piracy/comments/1qv6ohi/clearing_up_ps4_jailbreak_confusion_current/) repite “Poopsploit patched” para 13.02 y “userland only”, pero es una discusión comunitaria sin prueba técnica primaria. Se clasifica `CORROBORATED` sólo como consenso público de la frontera 13.00/13.02 y `UNVERIFIED_13_02` para la causalidad exacta del parche.
+
+Conclusión de procedencia: existe evidencia pública repetida de que el soporte publicado termina en 13.00 y una afirmación secundaria de que Sony parcheó 13.02; no existe en el corpus revisado evidencia directa que demuestre qué función o condición de Netctrl cambió entre 13.00 y 13.02.

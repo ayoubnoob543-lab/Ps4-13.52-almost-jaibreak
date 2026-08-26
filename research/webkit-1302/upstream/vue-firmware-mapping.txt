@@ -1,0 +1,162 @@
+=== research/webkit-1302/upstream/Vuemony_vue-after-free-src_download0_kernel.ts ===
+159:const offset_ps4_5_03 = {
+167:const offset_ps4_5_05 = {             // AND 5.07
+175:const offset_ps4_5_50 = {
+183:const offset_ps4_5_53 = {
+191:const offset_ps4_5_55 = {
+199:const offset_ps4_5_56 = {
+207:const offset_ps4_6_00 = {             // AND 6.02
+215:const offset_ps4_6_20 = {
+223:const offset_ps4_6_50 = {
+231:const offset_ps4_6_51 = {
+239:const offset_ps4_6_70 = {             // AND 6.71, 6.72
+247:const offset_ps4_7_00 = {             // AND 7.01, 7.02
+255:const offset_ps4_7_50 = {
+263:const offset_ps4_7_51 = {             // AND 7.55
+271:const offset_ps4_8_00 = {             // AND 8.01, 8.02, 8.03
+279:const offset_ps4_8_50 = {             // AND 8.52
+287:const offset_ps4_9_00 = {
+298:const offset_ps4_9_03 = {
+308:const offset_ps4_9_50 = {
+318:const offset_ps4_10_00 = {
+328:const offset_ps4_10_50 = {
+338:const offset_ps4_11_00 = {
+348:const offset_ps4_11_02 = {
+358:const offset_ps4_11_50 = {
+368:const offset_ps4_12_00 = {            // AND 12.02
+378:const offset_ps4_12_50 = {        // AND 12.52, 13.00
+390:  '5.00': offset_ps4_5_00,
+391:  '5.01': offset_ps4_5_00,
+392:  '5.03': offset_ps4_5_03,
+393:  '5.05': offset_ps4_5_05,
+394:  '5.07': offset_ps4_5_05,
+395:  '5.50': offset_ps4_5_50,
+396:  '5.53': offset_ps4_5_53,
+397:  '5.55': offset_ps4_5_55,
+398:  '5.56': offset_ps4_5_56,
+399:  '6.00': offset_ps4_6_00,
+400:  '6.02': offset_ps4_6_00,
+401:  '6.20': offset_ps4_6_20,
+402:  '6.50': offset_ps4_6_50,
+403:  '6.51': offset_ps4_6_51,
+404:  '6.70': offset_ps4_6_70,
+405:  '6.71': offset_ps4_6_70,
+406:  '6.72': offset_ps4_6_70,
+407:  '7.00': offset_ps4_7_00,
+408:  '7.01': offset_ps4_7_00,
+409:  '7.02': offset_ps4_7_00,
+410:  '7.50': offset_ps4_7_50,
+411:  '7.51': offset_ps4_7_51,
+412:  '7.55': offset_ps4_7_51,
+413:  '8.00': offset_ps4_8_00,
+414:  '8.01': offset_ps4_8_00,
+415:  '8.02': offset_ps4_8_00,
+416:  '8.03': offset_ps4_8_00,
+417:  '8.50': offset_ps4_8_50,
+418:  '8.52': offset_ps4_8_50,
+419:  '9.00': offset_ps4_9_00,
+420:  '9.03': offset_ps4_9_03,
+421:  '9.04': offset_ps4_9_03,
+422:  '9.50': offset_ps4_9_50,
+423:  '9.51': offset_ps4_9_50,
+424:  '9.60': offset_ps4_9_50,
+425:  '10.00': offset_ps4_10_00,
+426:  '10.01': offset_ps4_10_00,
+427:  '10.50': offset_ps4_10_50,
+428:  '10.70': offset_ps4_10_50,
+429:  '10.71': offset_ps4_10_50,
+430:  '11.00': offset_ps4_11_00,
+431:  '11.02': offset_ps4_11_02,
+432:  '11.50': offset_ps4_11_50,
+433:  '11.52': offset_ps4_11_50,
+434:  '12.00': offset_ps4_12_00,
+435:  '12.02': offset_ps4_12_00,
+436:  '12.50': offset_ps4_12_50,
+437:  '12.52': offset_ps4_12_50,
+438:  '13.00': offset_ps4_12_50,
+806:    const mmap_offsets = get_mmap_patch_offsets(FW_VERSION)
+807:    if (mmap_offsets) {
+808:      const b1 = kernel.read_byte(kernel.addr.base.add(mmap_offsets[0]!))
+809:      const b2 = kernel.read_byte(kernel.addr.base.add(mmap_offsets[1]!))
+813:        debug('  [FAIL] mmap RWX: [' + hex(mmap_offsets[0]!) + ']=' + hex(b1 ?? 0) + ' [' + hex(mmap_offsets[1]!) + ']=' + hex(b2 ?? 0))
+=== research/webkit-1302/upstream/owendswang_vue-after-free-lite-src_download0_kernel.ts ===
+168:const offset_ps4_5_03 = {
+176:const offset_ps4_5_05 = {             // AND 5.07
+184:const offset_ps4_5_50 = {
+192:const offset_ps4_5_53 = {
+200:const offset_ps4_5_55 = {
+208:const offset_ps4_5_56 = {
+216:const offset_ps4_6_00 = {             // AND 6.02
+224:const offset_ps4_6_20 = {
+232:const offset_ps4_6_50 = {
+240:const offset_ps4_6_51 = {
+248:const offset_ps4_6_70 = {             // AND 6.71, 6.72
+256:const offset_ps4_7_00 = {             // AND 7.01, 7.02
+264:const offset_ps4_7_50 = {
+272:const offset_ps4_7_51 = {             // AND 7.55
+280:const offset_ps4_8_00 = {             // AND 8.01, 8.02, 8.03
+288:const offset_ps4_8_50 = {             // AND 8.52
+296:const offset_ps4_9_00 = {
+307:const offset_ps4_9_03 = {
+317:const offset_ps4_9_50 = {
+327:const offset_ps4_10_00 = {
+337:const offset_ps4_10_50 = {
+347:const offset_ps4_11_00 = {
+357:const offset_ps4_11_02 = {
+367:const offset_ps4_11_50 = {
+377:const offset_ps4_12_00 = {            // AND 12.02
+387:const offset_ps4_12_50 = {        // AND 12.52, 13.00
+399:  '5.00': offset_ps4_5_00,
+400:  '5.01': offset_ps4_5_00,
+401:  '5.03': offset_ps4_5_03,
+402:  '5.05': offset_ps4_5_05,
+403:  '5.07': offset_ps4_5_05,
+404:  '5.50': offset_ps4_5_50,
+405:  '5.53': offset_ps4_5_53,
+406:  '5.55': offset_ps4_5_55,
+407:  '5.56': offset_ps4_5_56,
+408:  '6.00': offset_ps4_6_00,
+409:  '6.02': offset_ps4_6_00,
+410:  '6.20': offset_ps4_6_20,
+411:  '6.50': offset_ps4_6_50,
+412:  '6.51': offset_ps4_6_51,
+413:  '6.70': offset_ps4_6_70,
+414:  '6.71': offset_ps4_6_70,
+415:  '6.72': offset_ps4_6_70,
+416:  '7.00': offset_ps4_7_00,
+417:  '7.01': offset_ps4_7_00,
+418:  '7.02': offset_ps4_7_00,
+419:  '7.50': offset_ps4_7_50,
+420:  '7.51': offset_ps4_7_51,
+421:  '7.55': offset_ps4_7_51,
+422:  '8.00': offset_ps4_8_00,
+423:  '8.01': offset_ps4_8_00,
+424:  '8.02': offset_ps4_8_00,
+425:  '8.03': offset_ps4_8_00,
+426:  '8.50': offset_ps4_8_50,
+427:  '8.52': offset_ps4_8_50,
+428:  '9.00': offset_ps4_9_00,
+429:  '9.03': offset_ps4_9_03,
+430:  '9.04': offset_ps4_9_03,
+431:  '9.50': offset_ps4_9_50,
+432:  '9.51': offset_ps4_9_50,
+433:  '9.60': offset_ps4_9_50,
+434:  '10.00': offset_ps4_10_00,
+435:  '10.01': offset_ps4_10_00,
+436:  '10.50': offset_ps4_10_50,
+437:  '10.70': offset_ps4_10_50,
+438:  '10.71': offset_ps4_10_50,
+439:  '11.00': offset_ps4_11_00,
+440:  '11.02': offset_ps4_11_02,
+441:  '11.50': offset_ps4_11_50,
+442:  '11.52': offset_ps4_11_50,
+443:  '12.00': offset_ps4_12_00,
+444:  '12.02': offset_ps4_12_00,
+445:  '12.50': offset_ps4_12_50,
+446:  '12.52': offset_ps4_12_50,
+447:  '13.00': offset_ps4_12_50,
+811:    const mmap_offsets = get_mmap_patch_offsets(FW_VERSION)
+812:    if (mmap_offsets) {
+813:      const b1 = kernel.read_byte(kernel.addr.base.add(mmap_offsets[0]!))
+814:      const b2 = kernel.read_byte(kernel.addr.base.add(mmap_offsets[1]!))
+818:        debug('  [FAIL] mmap RWX: [' + hex(mmap_offsets[0]!) + ']=' + hex(b1 ?? 0) + ' [' + hex(mmap_offsets[1]!) + ']=' + hex(b2 ?? 0))

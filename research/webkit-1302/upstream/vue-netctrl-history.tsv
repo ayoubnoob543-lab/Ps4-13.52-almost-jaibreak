@@ -1,0 +1,32 @@
+=== Vuemony/vue-after-free:src/download0/netctrl_c0w_twins.ts ===
+c4f319f558ad	2026-02-21T03:38:31Z	Use commit hash for build version, add tag display
+788b58ad2b7a	2026-02-15T16:07:54Z	Fix eslint errors in netctrl_c0w_twins
+3229b2c418e6	2026-02-15T13:46:47Z	Remove stats tracker, replace back buttons with region-aware hint
+50e5689cc605	2026-02-14T09:34:15Z	more debug and kwriteslow retries
+a8adb2533935	2026-02-12T05:59:05Z	chore: eslint auto-fix
+1d6e4fb250b8	2026-02-12T02:59:41Z	Fix autopoop to use loader.js and add success screen delay
+bda29790c992	2026-02-11T19:13:24Z	Update netctrl_c0w_twins.ts
+e00c92a55632	2026-02-11T04:59:37Z	Fix triplet management to use 3 triplets consistently
+a4202fd26b98	2026-02-11T02:00:44Z	Add memory exhaustion detection and cleanup guards to netctrl
+feae6d131002	2026-02-08T05:24:55Z	Fix firmware version check logic
+aa223344d9d3	2026-02-08T05:11:37Z	Fix firmware version check logic
+a5fa7786ec5f	2026-02-07T05:02:33Z	Fix cleanup: unblock workers with write before closing sockets
+220901676dde	2026-02-07T03:22:51Z	Disable cleanup closes - workers blocked on read cause hang
+50c4128a1baa	2026-02-06T23:58:23Z	Comment out uaf_socket close in cleanup (hangs)
+b3bf07a39ee1	2026-02-06T12:55:35Z	Update netctrl_c0w_twins.ts
+374771477406	2026-02-06T05:01:52Z	Add cleanup on success with worker kill, close all sockets
+e37e8d860818	2026-02-06T04:45:58Z	Run binloader after netctrl completes instead of immediately
+00b13af0e5fb	2026-02-06T02:51:37Z	Fix eslint any type errors
+17c23ef1f096	2026-02-06T02:33:20Z	Add JB behavior config, image-based text for Asian/Arabic locales
+278ba6d4320b	2026-02-05T05:51:20Z	fix reclaim loop threshold mismatch
+ad63912f074d	2026-02-05T05:34:30Z	add on-screen logging with render yields between phases
+eeb5b7ceada7	2026-02-05T05:04:16Z	fix cr_refcnt bug (missing 0)
+a652201fee51	2026-02-05T04:58:16Z	chore: eslint auto-fix
+1f39e56ccc1f	2026-02-05T04:56:16Z	reduce netctrl memory leaks
+480dd85297cb	2026-01-26T14:37:14Z	fix: thinking that kernel offset missing
+665cbc2223a6	2026-01-24T20:20:43Z	feat: ts port... again
+=== owendswang/vue-after-free-lite:src/download0/netctrl_c0w_twins.ts ===
+7aea74aae50d	2026-04-16T18:30:53Z	Improve NetCtrl stability and success rate a little bit by removing a lot of logging codes
+436b0f6a7f2d	2026-02-25T18:37:08Z	Catch up with v2.0 official release
+175ae713f747	2026-02-16T17:43:41Z	Fixed app crashing when auto-closing after trying to start elfldr which is already running
+e2a3c7749069	2026-02-14T07:50:29Z	initial commit
