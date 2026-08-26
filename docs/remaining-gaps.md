@@ -118,3 +118,42 @@ Fuente: repo `RiyonAbib07/ps-vue-jb-2.5` (creado 2026-03-11, TypeScript, 72KB)
 Si Netctrl funciona realmente en 13.52 (no solo 13.00), combinado con el userland
 WebKit (CVE-2017-7117 que funciona hasta 13.02), existiría una cadena completa
 userland→kernel R/W para 13.52. PERO esto requiere verificación en hardware.
+
+## 🆕 ANÁLISIS DEL CÓDIGO FUENTE NETCTRL (2026-08-25, ronda final)
+
+Fuente: `RiyonAbib07/ps-vue-jb-2.5/src/download0/kernel.ts`
+
+### Qué contiene el código público
+
+| Componente | 9.03–12.52 | 13.00 | **13.02** |
+|---|---|---|---|
+| Payload kernel completo (hex shellcode) | ✅ | ✅ | ❌ |
+| Offsets mmap RWX | ✅ | ✅ [0x1fa77a] | ✅ [0x1fa78a] |
+| Mapeo de versión a shellcode | ✅ | ✅ | ❌ |
+
+### Implicación crítica
+Alguien determinó los offsets de parche mmap para 13.02 específicamente,
+lo que implica que tuvo acceso al binario del kernel 13.02 (o lo derivó
+por diff con 13.00). Pero NO publicó el payload completo del exploit.
+
+### La pieza exacta que falta para 13.02
+El payload kernel completo para 13.02 = misma estructura que el payload de
+13.00 pero con los offsets correctos del kernel 13.02. Los offsets necesarios:
+- Direcciones base de las funciones a parchear (mmap RWX ya conocido)
+- Direcciones de los syscalls a habilitar
+- Dirección de las credenciales para setuid(0)
+
+Estos offsets SOLO pueden determinarse teniendo acceso al binario kernel
+13.02 (que está dentro del system_fs_image.img cifrado del PUP).
+
+### Cadena 13.02: inventario de piezas
+
+| Pieza | Estado | Fuente |
+|---|---|---|
+| WebKit userland (CVE-2017-7117) | ✅ funciona 5.05–13.02 | ps-vue-jb-2.5 README |
+| Kernel exploit Lapse | ✅ hasta 12.02 | ídem |
+| Kernel exploit Netctrl | ✅ hasta 13.00 / ❓ 13.02 | ídem |
+| Offsets mmap RWX 13.02 | ✅ documentados | kernel.ts |
+| Payload kernel completo 13.02 | ❌ NO EXISTE | — |
+| Kernel retail 13.52 bytes | ❌ NO EXISTE | — |
+| Confirmación HW 13.02 | ❌ nadie ha publicado | — |
