@@ -736,3 +736,7 @@ The clean GitHub commit API response shows that `702fcc3` adds exactly one file:
 ## zecoxao.github.io claim-history audit
 
 A fresh clone of `zecoxao/zecoxao.github.io` contains no current matches for `1304_libSceNKWebKit`, `ffs_mountfs`, `Celsius`, `midohar36`, `13.02` or `13.04` in the checked tree. Git pickaxe history likewise finds no additions for the exact SPRX filename, `ffs_mountfs` or `midohar36`; the `Celsius` matches belong to generic commits such as `slopdev`, `bagagwa`, devkit/tests and ELF tooling, not a PS4 13.04 kernel artifact. The repository therefore does not provide a primary copy or provenance link for the SPRX claim used by scanner commit `702fcc3`.
+
+## Independent web-search check for 702fcc3 / zecoxao claim
+
+Search variants for the exact commit, `1304_libSceNKWebKit.sprx.decrypted (68 MB)` and `ffs_mountfs 0x7d021f Celsius 13.04` returned the scanner context indirectly, zecoxao's public profile/site, a secondary YouTube result titled about a “potential” Celsius kernel exploit, and general PS4 13.04 discussion. No independent indexed result exposed the alleged SPRX, a SHA-256, kernel bytes, disassembly, a hardware log, or an original bollars publication. The search results are therefore `SOURCE_ONLY`/`SECONDARY`, not corroboration of the technical claim.
