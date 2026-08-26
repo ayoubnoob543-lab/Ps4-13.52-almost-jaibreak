@@ -408,3 +408,8 @@ Searches for exact identifiers `call_rop_internal`, `LUA_PIVOT_SCRATCH`, and `in
 ## Exact Celsius-claim search
 
 Searches for the exact strings `ffs_mountfs string at 0x7d021f`, `Celsius NOT patched`, and `20,080,104` + PS4 kernel 13.04 produced no additional public result. The claims remain confined to the repository’s `webkit_gadgets_1304.js` as far as the indexed sources checked. Classification: negative search result `CORROBORATED`; the underlying kernel comparison remains `SOURCE_ONLY`.
+
+
+## Pre-stage2 commit audit
+
+The commits before the stage2 chain show no hidden implementation file. Initial commit `9d0d8e1` added README, `scanner_1304.iso` and `src/org/bdj/SuidScanner.java`. `6cacb24` added only `1304.c` and `1304.h` with kernel offsets; `13d44f2` only added Pharaoh2k to README credits; and `615c637` added `1352_offsets.txt`, expanded README and `cve_analysis.md`. No commit adds a Jordy bootstrap, fcall implementation, UFS image, FFS disassembly, shellcode, or ROP pivot before `702fcc3`/`96a7948`/`1089382`.

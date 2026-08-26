@@ -1,0 +1,110 @@
+===== 9d0d8e1 =====
+[1;38m{[m
+[1;34m"files"[m[1;38m:[m [1;38m[[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 31[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 31[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"README.md"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 0[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"scanner_1304.iso"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 142[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 142[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"src/org/bdj/SuidScanner.java"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m
+[1;38m][m[1;38m,[m
+[1;34m"message"[m[1;38m:[m [32m"PS4 SUID Scanner for FW 13.04 - BD-JB based"[m[1;38m,[m
+[1;34m"parents"[m[1;38m:[m [1;38m[[m[1;38m][m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"9d0d8e1a509d358439891d1994f5e52e047fd7b0"[m
+[1;38m}[m
+===== 6cacb24 =====
+[1;38m{[m
+[1;34m"files"[m[1;38m:[m [1;38m[[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 144[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 144[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"1304.c"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 8[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 8[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"1304.h"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m
+[1;38m][m[1;38m,[m
+[1;34m"message"[m[1;38m:[m [32m"Add complete PS4 13.04 kernel offsets (verified via Pharaoh2k + 1302 base)"[m[1;38m,[m
+[1;34m"parents"[m[1;38m:[m [1;38m[[m
+[32m"9d0d8e1a509d358439891d1994f5e52e047fd7b0"[m
+[1;38m][m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"6cacb2432f9940a5710a8d13895d4c799342cca6"[m
+[1;38m}[m
+===== 13d44f2 =====
+[1;38m{[m
+[1;34m"files"[m[1;38m:[m [1;38m[[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 1[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 1[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"README.md"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"modified"[m
+[1;38m}[m
+[1;38m][m[1;38m,[m
+[1;34m"message"[m[1;38m:[m [32m"Add Pharaoh2k to credits"[m[1;38m,[m
+[1;34m"parents"[m[1;38m:[m [1;38m[[m
+[32m"6cacb2432f9940a5710a8d13895d4c799342cca6"[m
+[1;38m][m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"13d44f233b4f693287739b6bb49806b8af058e15"[m
+[1;38m}[m
+===== 615c637 =====
+[1;38m{[m
+[1;34m"files"[m[1;38m:[m [1;38m[[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 17[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 17[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"1352_offsets.txt"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 96[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 112[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 16[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"README.md"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"modified"[m
+[1;38m}[m[1;38m,[m
+[1;38m{[m
+[1;34m"additions"[m[1;38m:[m 99[1;38m,[m
+[1;34m"changes"[m[1;38m:[m 99[1;38m,[m
+[1;34m"deletions"[m[1;38m:[m 0[1;38m,[m
+[1;34m"filename"[m[1;38m:[m [32m"cve_analysis.md"[m[1;38m,[m
+[1;34m"previous_filename"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"status"[m[1;38m:[m [32m"added"[m
+[1;38m}[m
+[1;38m][m[1;38m,[m
+[1;34m"message"[m[1;38m:[m [32m"Update: MasterMaind BD-J escape 13.52, Celsius analysis, MP4 vuln, CVE research, 13.52 offsets"[m[1;38m,[m
+[1;34m"parents"[m[1;38m:[m [1;38m[[m
+[32m"13d44f233b4f693287739b6bb49806b8af058e15"[m
+[1;38m][m[1;38m,[m
+[1;34m"sha"[m[1;38m:[m [32m"615c637aaf2d75d6bbc3a935590dc1833a0e743f"[m
+[1;38m}[m
