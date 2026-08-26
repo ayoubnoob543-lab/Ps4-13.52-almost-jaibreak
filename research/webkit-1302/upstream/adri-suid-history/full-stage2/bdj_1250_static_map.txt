@@ -1,0 +1,350 @@
+## refs
+refs/heads/main 555370062f4ab6382ea1b907a0cb7ea57180ffd5
+refs/remotes/origin/HEAD 555370062f4ab6382ea1b907a0cb7ea57180ffd5
+refs/remotes/origin/main 555370062f4ab6382ea1b907a0cb7ea57180ffd5
+refs/remotes/upstream/main fe00d062a18583351e7b9349710b4b8ade365325
+refs/tags/Lapse-1.2 c48b9d99879c8193db06f6c88f60e8f30238dfb1
+refs/tags/Lapse_1.2_Mod 3d6bddf033dc8a036a65f9873d830531966d5527
+refs/tags/Poops dc5e78b3afb2dad002f38ea1848dae8d8807a824
+refs/tags/RemoteJarLoader-1.0 c7d35559c5c4a3bc6423e51b4918827229db9b64
+refs/tags/RemoteJarLoader-1.1 e6279a83d39eca18bddcc614a470fc7debfde247
+refs/tags/RemoteJarLoader-1.2 9cf9b598c5b63ba113b03a12f1d5721fe46e6063
+refs/tags/iso e43569d8522748b90b6a88c9329dbdd97bc9ffa9
+## relevant files
+./BDMV/BDJO/00000.bdjo
+./Makefile
+./README.md
+./USBpayload/Makefile
+./payloads/helloworld/Makefile
+./payloads/helloworld/src/org/bdj/external/HelloWorld.java
+./payloads/lapse/Makefile
+./payloads/lapse/src/org/bdj/external/BinLoader.java
+./payloads/lapse/src/org/bdj/external/Helper.java
+./payloads/lapse/src/org/bdj/external/Kernel.java
+./payloads/lapse/src/org/bdj/external/KernelOffset.java
+./payloads/lapse/src/org/bdj/external/Lapse.java
+./payloads/lapse/src/org/bdj/external/USBpayload.elf
+./payloads/poops/Makefile
+./payloads/poops/src/org/bdj/external/BinLoader.java
+./payloads/poops/src/org/bdj/external/Helper.java
+./payloads/poops/src/org/bdj/external/Kernel.java
+./payloads/poops/src/org/bdj/external/KernelOffset.java
+./payloads/poops/src/org/bdj/external/Poops.java
+./payloads/poops/src/org/bdj/external/USBpayload.elf
+./src/org/bdj/FileProxyDisabler.java
+./src/org/bdj/InitXlet.java
+./src/org/bdj/InternalJarLoader.java
+./src/org/bdj/RemoteJarLoader.java
+./src/org/bdj/RemoteLogger.java
+./src/org/bdj/Screen.java
+./src/org/bdj/Status.java
+./src/org/bdj/api/API.java
+./src/org/bdj/api/Buffer.java
+./src/org/bdj/api/Int16.java
+./src/org/bdj/api/Int16Array.java
+./src/org/bdj/api/Int32.java
+./src/org/bdj/api/Int32Array.java
+./src/org/bdj/api/Int64.java
+./src/org/bdj/api/Int64Array.java
+./src/org/bdj/api/Int8.java
+./src/org/bdj/api/Int8Array.java
+./src/org/bdj/api/NativeInvoke.java
+./src/org/bdj/api/Text.java
+./src/org/bdj/api/UnsafeInterface.java
+./src/org/bdj/api/UnsafeSunImpl.java
+./src/org/bdj/bluray.InitXlet.perm
+./src/org/bdj/sandbox/Payload.java
+./src/org/bdj/sandbox/XletManagerExploit.java
+## relevant symbols
+./Makefile:12:JAR          := $(JAVA8_HOME)/bin/jar
+./Makefile:30:             discdir/BDMV/JAR
+./Makefile:32:all: discdir copy_disc_files discdir/BDMV/JAR/00000.jar $(DISC_LABEL).iso
+./Makefile:41:# Compile main JAR
+./Makefile:43:discdir/BDMV/JAR/00000.jar: discdir $(SOURCES)
+./Makefile:45:	$(JAR) cf $@ -C src/ .
+./Makefile:50:		$(JAR) uf $@ -C tmpdir .; \
+./USBpayload/main.c:103:    src_fd = open(source_path, O_RDONLY);
+./USBpayload/main.c:109:    dest_fd = open(dest_path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+./USBpayload/main.c:164:    fd = open(file_path, O_RDONLY);
+./payloads/helloworld/Makefile:1:JAR_NAME := helloworld.jar
+./payloads/helloworld/Makefile:7:JAR          := $(JAVA8_HOME)/bin/jar
+./payloads/helloworld/Makefile:11:CLASSPATH     := $(BDJSDK_HOME)/target/lib/enhanced-stubs.zip:$(BDJSDK_HOME)/target/lib/bdjstack.jar:$(BDJSDK_HOME)/target/lib/rt.jar:../../discdir/BDMV/JAR/00000.jar
+./payloads/helloworld/Makefile:15:all: $(JAR_NAME)
+./payloads/helloworld/Makefile:17:# Create JAR with manifest
+./payloads/helloworld/Makefile:18:$(JAR_NAME): $(SOURCES) manifest.txt
+./payloads/helloworld/Makefile:20:	$(JAR) cfm $@ manifest.txt -C src/ .
+./payloads/helloworld/Makefile:23:	rm -f src/org/bdj/external/*.class $(JAR_NAME)
+./payloads/helloworld/src/org/bdj/external/HelloWorld.java:8:        Status.println("Hello from external JAR!");
+./payloads/lapse/Makefile:1:JAR_NAME := Lapse.jar
+./payloads/lapse/Makefile:7:JAR          := $(JAVA8_HOME)/bin/jar
+./payloads/lapse/Makefile:11:CLASSPATH     := $(BDJSDK_HOME)/target/lib/enhanced-stubs.zip:$(BDJSDK_HOME)/target/lib/bdjstack.jar:$(BDJSDK_HOME)/target/lib/rt.jar:../../discdir/BDMV/JAR/00000.jar
+./payloads/lapse/Makefile:15:all: $(JAR_NAME)
+./payloads/lapse/Makefile:17:# Create JAR with manifest
+./payloads/lapse/Makefile:18:$(JAR_NAME): $(SOURCES) manifest.txt
+./payloads/lapse/Makefile:20:	$(JAR) cfm $@ manifest.txt -C src/ .
+./payloads/lapse/Makefile:23:	rm -f src/org/bdj/external/*.class $(JAR_NAME)
+./payloads/lapse/src/org/bdj/external/BinLoader.java:137:        long ret = Helper.syscall(Helper.SYS_MMAP, 0L, mmapSizeCalc, (long)protFlags, (long)mapFlags, -1L, 0L);
+./payloads/lapse/src/org/bdj/external/BinLoader.java:188:            long munmapResult = Helper.syscall(Helper.SYS_MUNMAP, mmapBase, mmapSize);
+./payloads/lapse/src/org/bdj/external/BinLoader.java:201:        long tempBuf = Helper.syscall(Helper.SYS_MMAP, 0L, (long)data.length,
+./payloads/lapse/src/org/bdj/external/BinLoader.java:241:            Helper.syscall(Helper.SYS_MUNMAP, tempBuf, (long)data.length);
+./payloads/lapse/src/org/bdj/external/BinLoader.java:285:                long ret = Helper.syscall(Helper.SYS_MUNMAP, mmapBase, mmapSize);
+./payloads/lapse/src/org/bdj/external/Helper.java:96:    private static long[] syscallWrappers;
+./payloads/lapse/src/org/bdj/external/Helper.java:103:            syscallWrappers = new long[0x400];
+./payloads/lapse/src/org/bdj/external/Helper.java:135:            int syscall = requiredSyscalls[i];
+./payloads/lapse/src/org/bdj/external/Helper.java:136:            if (syscallWrappers[syscall] == 0) {
+./payloads/lapse/src/org/bdj/external/Helper.java:137:                Status.println("Warning: Syscall " + Integer.toHexString(syscall) + " not found");
+./payloads/lapse/src/org/bdj/external/Helper.java:143:            throw new RuntimeException("Required syscalls not found");
+./payloads/lapse/src/org/bdj/external/Helper.java:176:        long result = syscall(SYS_SYSCTL, translateNameMib.address(), 2L, 
+./payloads/lapse/src/org/bdj/external/Helper.java:185:        result = syscall(SYS_SYSCTL, mib.address(), 2L, 
+./payloads/lapse/src/org/bdj/external/Helper.java:204:            long setuidResult = syscall(SYS_SETUID, 0L);
+./payloads/lapse/src/org/bdj/external/Helper.java:217:        long sceKernelGetModuleInfoFromAddr = api.dlsym(API.LIBKERNEL_MODULE_HANDLE, "sceKernelGetModuleInfoFromAddr");
+./payloads/lapse/src/org/bdj/external/Helper.java:250:                int syscallNum = (libkernelText[i + 3] & 0xFF) |
+./payloads/lapse/src/org/bdj/external/Helper.java:255:                if (syscallNum >= 0 && syscallNum < syscallWrappers.length) {
+./payloads/lapse/src/org/bdj/external/Helper.java:256:                    syscallWrappers[syscallNum] = libkernelBase + i;
+./payloads/lapse/src/org/bdj/external/Helper.java:263:    public static long syscall(int number, long arg0, long arg1, long arg2, long arg3, long arg4, long arg5) {
+./payloads/lapse/src/org/bdj/external/Helper.java:264:        return api.call(syscallWrappers[number], arg0, arg1, arg2, arg3, arg4, arg5);
+./payloads/lapse/src/org/bdj/external/Helper.java:267:    public static long syscall(int number, long arg0, long arg1, long arg2, long arg3, long arg4) {
+./payloads/lapse/src/org/bdj/external/Helper.java:268:        return api.call(syscallWrappers[number], arg0, arg1, arg2, arg3, arg4);
+./payloads/lapse/src/org/bdj/external/Helper.java:271:    public static long syscall(int number, long arg0, long arg1, long arg2, long arg3) {
+./payloads/lapse/src/org/bdj/external/Helper.java:272:        return api.call(syscallWrappers[number], arg0, arg1, arg2, arg3);
+./payloads/lapse/src/org/bdj/external/Helper.java:275:    public static long syscall(int number, long arg0, long arg1, long arg2) {
+./payloads/lapse/src/org/bdj/external/Helper.java:276:        return api.call(syscallWrappers[number], arg0, arg1, arg2);
+./payloads/lapse/src/org/bdj/external/Helper.java:279:    public static long syscall(int number, long arg0, long arg1) {
+./payloads/lapse/src/org/bdj/external/Helper.java:280:        return api.call(syscallWrappers[number], arg0, arg1);
+./payloads/lapse/src/org/bdj/external/Helper.java:283:    public static long syscall(int number, long arg0) {
+./payloads/lapse/src/org/bdj/external/Helper.java:284:        return api.call(syscallWrappers[number], arg0);
+./payloads/lapse/src/org/bdj/external/Helper.java:287:    public static long syscall(int number) {
+./payloads/lapse/src/org/bdj/external/Helper.java:288:        return api.call(syscallWrappers[number]);
+./payloads/lapse/src/org/bdj/external/Helper.java:334:        long result = syscall(SYS_SOCKET, (long)AF_INET6, (long)SOCK_DGRAM, (long)IPPROTO_UDP);
+./payloads/lapse/src/org/bdj/external/Helper.java:342:        long result = syscall(SYS_SOCKET, (long)AF_INET, (long)SOCK_STREAM, 0L);
+./payloads/lapse/src/org/bdj/external/Helper.java:350:        long result = syscall(SYS_SETSOCKOPT, (long)sd, (long)level, (long)optname, optval.address(), (long)optlen);
+./payloads/lapse/src/org/bdj/external/Helper.java:359:        long result = syscall(SYS_GETSOCKOPT, (long)sd, (long)level, (long)optname, optval.address(), size.address());
+./payloads/lapse/src/org/bdj/external/Helper.java:371:            long result = syscall(SYS_CPUSET_GETAFFINITY, (long)CPU_LEVEL_WHICH, (long)CPU_WHICH_TID, -1L, 0x10L, mask.address());
+./payloads/lapse/src/org/bdj/external/Helper.java:399:            long result = syscall(SYS_CPUSET_SETAFFINITY, (long)CPU_LEVEL_WHICH, (long)CPU_WHICH_TID, -1L, 0x10L, mask.address());
+./payloads/lapse/src/org/bdj/external/Helper.java:412:            long result = syscall(SYS_RTPRIO_THREAD, (long)RTP_SET, 0L, rtprio.address());
+./payloads/lapse/src/org/bdj/external/Helper.java:429:        return syscall(SYS_AIO_SUBMIT_CMD, (long)cmd, reqs, (long)numReqs, (long)prio, ids);
+./payloads/lapse/src/org/bdj/external/Helper.java:433:        return syscall(SYS_AIO_MULTI_CANCEL, ids, (long)numIds, states);
+./payloads/lapse/src/org/bdj/external/Helper.java:437:        return syscall(SYS_AIO_MULTI_POLL, ids, (long)numIds, states);
+./payloads/lapse/src/org/bdj/external/Helper.java:441:        return syscall(SYS_AIO_MULTI_DELETE, ids, (long)numIds, states);
+./payloads/lapse/src/org/bdj/external/Helper.java:445:        return syscall(SYS_AIO_MULTI_WAIT, ids, (long)numIds, states, (long)mode, timeout);
+./payloads/lapse/src/org/bdj/external/Helper.java:522:        long result = syscall(SYS_EVF_CREATE, name, 0L, (long)flags);
+./payloads/lapse/src/org/bdj/external/Helper.java:530:        long clearResult = syscall(SYS_EVF_CLEAR, (long)id, 0L);
+./payloads/lapse/src/org/bdj/external/Helper.java:535:        long setResult = syscall(SYS_EVF_SET, (long)id, (long)flags);
+./payloads/lapse/src/org/bdj/external/Helper.java:542:        long result = syscall(SYS_EVF_DELETE, (long)id);
+./payloads/lapse/src/org/bdj/external/Kernel.java:114:            long result = Helper.syscall(Helper.SYS_PIPE, fildes.address());
+./payloads/lapse/src/org/bdj/external/Kernel.java:162:            Helper.syscall(Helper.SYS_READ, (long)pipeReadFd, uaddr, (long)len);
+./payloads/lapse/src/org/bdj/external/Kernel.java:176:            Helper.syscall(Helper.SYS_WRITE, (long)pipeWriteFd, uaddr, (long)len);
+./payloads/lapse/src/org/bdj/external/Kernel.java:451:        if (!escapeSandbox(addr.curproc)) {
+./payloads/lapse/src/org/bdj/external/Kernel.java:486:    private static boolean escapeSandbox(long curproc) {
+./payloads/lapse/src/org/bdj/external/Kernel.java:534:        Status.println("Sandbox escape complete ... root FS access and jail broken");
+./payloads/lapse/src/org/bdj/external/Kernel.java:571:        long execHandle = Helper.syscall(Helper.SYS_JITSHM_CREATE, 0L, (long)alignedMemsz, (long)PROT_RWX);
+./payloads/lapse/src/org/bdj/external/Kernel.java:574:        long writeHandle = Helper.syscall(Helper.SYS_JITSHM_ALIAS, execHandle, (long)PROT_RW);
+./payloads/lapse/src/org/bdj/external/Kernel.java:577:        Helper.syscall(Helper.SYS_MMAP, shadowMappingAddr, (long)alignedMemsz, (long)PROT_RW, 0x11L, writeHandle, 0L);
+./payloads/lapse/src/org/bdj/external/Kernel.java:584:        Helper.syscall(Helper.SYS_MMAP, mappingAddr, (long)alignedMemsz, (long)PROT_RWX, 0x11L, execHandle, 0L);
+./payloads/lapse/src/org/bdj/external/Kernel.java:587:        Helper.syscall(Helper.SYS_KEXEC, mappingAddr);
+./payloads/lapse/src/org/bdj/external/Kernel.java:595:        Helper.syscall(Helper.SYS_CLOSE, writeHandle);
+./payloads/lapse/src/org/bdj/external/Lapse.java:96:                Helper.syscall(Helper.SYS_READ, (long)pipeFd, pipeBuf.address(), 1L);
+./payloads/lapse/src/org/bdj/external/Lapse.java:218:            long result = Helper.syscall(Helper.SYS_SOCKETPAIR, (long)Helper.AF_UNIX, 
+./payloads/lapse/src/org/bdj/external/Lapse.java:283:            long bindResult = Helper.syscall(Helper.SYS_BIND, (long)listenSd, serverAddr.address(), 16L);
+./payloads/lapse/src/org/bdj/external/Lapse.java:286:                Helper.syscall(Helper.SYS_CLOSE, (long)listenSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:290:            long listenResult = Helper.syscall(Helper.SYS_LISTEN, (long)listenSd, 1L);
+./payloads/lapse/src/org/bdj/external/Lapse.java:293:                Helper.syscall(Helper.SYS_CLOSE, (long)listenSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:309:                long connectResult = Helper.syscall(Helper.SYS_CONNECT, (long)clientSd, 
+./payloads/lapse/src/org/bdj/external/Lapse.java:313:                    Helper.syscall(Helper.SYS_CLOSE, (long)clientSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:317:                long connSd = Helper.syscall(Helper.SYS_ACCEPT, (long)listenSd, 0L, 0L);
+./payloads/lapse/src/org/bdj/external/Lapse.java:320:                    Helper.syscall(Helper.SYS_CLOSE, (long)clientSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:343:                    Helper.syscall(Helper.SYS_CLOSE, (long)clientSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:344:                    Helper.syscall(Helper.SYS_CLOSE, connSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:353:                Helper.syscall(Helper.SYS_CLOSE, (long)clientSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:361:                Helper.syscall(Helper.SYS_CLOSE, connSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:366:                    Helper.syscall(Helper.SYS_CLOSE, (long)listenSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:379:            Helper.syscall(Helper.SYS_CLOSE, (long)listenSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:397:            long pipeResult = Helper.syscall(Helper.SYS_SOCKETPAIR, (long)Helper.AF_UNIX, 
+./payloads/lapse/src/org/bdj/external/Lapse.java:418:                Helper.syscall(Helper.SYS_CLOSE, (long)pipeReadFd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:419:                Helper.syscall(Helper.SYS_CLOSE, (long)pipeWriteFd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:425:            Helper.syscall(Helper.SYS_WRITE, (long)pipeWriteFd, pipeBuf.address(), 1L);
+./payloads/lapse/src/org/bdj/external/Lapse.java:472:                        Helper.syscall(Helper.SYS_CLOSE, (long)pipeReadFd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:473:                        Helper.syscall(Helper.SYS_CLOSE, (long)pipeWriteFd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:488:            Helper.syscall(Helper.SYS_CLOSE, (long)pipeReadFd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:489:            Helper.syscall(Helper.SYS_CLOSE, (long)pipeWriteFd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:699:            Helper.syscall(Helper.SYS_CLOSE, (long)aliasedPair[1]);
+./payloads/lapse/src/org/bdj/external/Lapse.java:982:        Helper.syscall(Helper.SYS_CLOSE, (long)aliasedSd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:1166:        Helper.syscall(Helper.SYS_CLOSE, (long)pktoptsSds[1]);
+./payloads/lapse/src/org/bdj/external/Lapse.java:1227:        long currentPid = Helper.syscall(Helper.SYS_GETPID);
+./payloads/lapse/src/org/bdj/external/Lapse.java:1313:                Helper.syscall(Helper.SYS_CLOSE, (long)blockFd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:1317:                Helper.syscall(Helper.SYS_CLOSE, (long)unblockFd);
+./payloads/lapse/src/org/bdj/external/Lapse.java:1355:                        Helper.syscall(Helper.SYS_CLOSE, (long)sockets[i]);
+./payloads/lapse/src/org/bdj/external/Lapse.java:1366:                        Helper.syscall(Helper.SYS_CLOSE, (long)socketsAlt[i]);
+./payloads/lapse/src/org/bdj/external/Lapse.java:1452:            Helper.syscall(Helper.SYS_CLOSE, (long)fakeReqs3Sd);
+./payloads/payload_sender.py:4:    with open(jar_path, 'rb') as f:
+./payloads/poops/Makefile:1:JAR_NAME := Poops.jar
+./payloads/poops/Makefile:7:JAR          := $(JAVA8_HOME)/bin/jar
+./payloads/poops/Makefile:11:CLASSPATH     := $(BDJSDK_HOME)/target/lib/enhanced-stubs.zip:$(BDJSDK_HOME)/target/lib/bdjstack.jar:$(BDJSDK_HOME)/target/lib/rt.jar:../../discdir/BDMV/JAR/00000.jar:../../src/
+./payloads/poops/Makefile:15:all: $(JAR_NAME)
+./payloads/poops/Makefile:17:# Create JAR with manifest
+./payloads/poops/Makefile:18:$(JAR_NAME): $(SOURCES) manifest.txt
+./payloads/poops/Makefile:20:	$(JAR) cfm $@ manifest.txt -C src/ .
+./payloads/poops/Makefile:23:	rm -f src/org/bdj/external/*.class $(JAR_NAME)
+./payloads/poops/src/org/bdj/external/BinLoader.java:137:        long ret = Helper.syscall(Helper.SYS_MMAP, 0L, mmapSizeCalc, (long)protFlags, (long)mapFlags, -1L, 0L);
+./payloads/poops/src/org/bdj/external/BinLoader.java:188:            long munmapResult = Helper.syscall(Helper.SYS_MUNMAP, mmapBase, mmapSize);
+./payloads/poops/src/org/bdj/external/BinLoader.java:201:        long tempBuf = Helper.syscall(Helper.SYS_MMAP, 0L, (long)data.length,
+./payloads/poops/src/org/bdj/external/BinLoader.java:241:            Helper.syscall(Helper.SYS_MUNMAP, tempBuf, (long)data.length);
+./payloads/poops/src/org/bdj/external/BinLoader.java:285:                long ret = Helper.syscall(Helper.SYS_MUNMAP, mmapBase, mmapSize);
+./payloads/poops/src/org/bdj/external/Helper.java:96:    private static long[] syscallWrappers;
+./payloads/poops/src/org/bdj/external/Helper.java:103:            syscallWrappers = new long[0x400];
+./payloads/poops/src/org/bdj/external/Helper.java:137:            int syscall = requiredSyscalls[i];
+./payloads/poops/src/org/bdj/external/Helper.java:138:            if (syscallWrappers[syscall] == 0) {
+./payloads/poops/src/org/bdj/external/Helper.java:139:                Status.println("Warning: Syscall " + Integer.toHexString(syscall) + " not found");
+./payloads/poops/src/org/bdj/external/Helper.java:145:            throw new RuntimeException("Required syscalls not found");
+./payloads/poops/src/org/bdj/external/Helper.java:178:        long result = syscall(SYS_SYSCTL, translateNameMib.address(), 2L, 
+./payloads/poops/src/org/bdj/external/Helper.java:187:        result = syscall(SYS_SYSCTL, mib.address(), 2L, 
+./payloads/poops/src/org/bdj/external/Helper.java:206:            long setuidResult = syscall(SYS_SETUID, 0L);
+./payloads/poops/src/org/bdj/external/Helper.java:219:        long sceKernelGetModuleInfoFromAddr = api.dlsym(API.LIBKERNEL_MODULE_HANDLE, "sceKernelGetModuleInfoFromAddr");
+./payloads/poops/src/org/bdj/external/Helper.java:252:                int syscallNum = (libkernelText[i + 3] & 0xFF) |
+./payloads/poops/src/org/bdj/external/Helper.java:257:                if (syscallNum >= 0 && syscallNum < syscallWrappers.length) {
+./payloads/poops/src/org/bdj/external/Helper.java:258:                    syscallWrappers[syscallNum] = libkernelBase + i;
+./payloads/poops/src/org/bdj/external/Helper.java:265:    public static long syscall(int number, long arg0, long arg1, long arg2, long arg3, long arg4, long arg5) {
+./payloads/poops/src/org/bdj/external/Helper.java:266:        return api.call(syscallWrappers[number], arg0, arg1, arg2, arg3, arg4, arg5);
+./payloads/poops/src/org/bdj/external/Helper.java:269:    public static long syscall(int number, long arg0, long arg1, long arg2, long arg3, long arg4) {
+./payloads/poops/src/org/bdj/external/Helper.java:270:        return api.call(syscallWrappers[number], arg0, arg1, arg2, arg3, arg4);
+./payloads/poops/src/org/bdj/external/Helper.java:273:    public static long syscall(int number, long arg0, long arg1, long arg2, long arg3) {
+./payloads/poops/src/org/bdj/external/Helper.java:274:        return api.call(syscallWrappers[number], arg0, arg1, arg2, arg3);
+./payloads/poops/src/org/bdj/external/Helper.java:277:    public static long syscall(int number, long arg0, long arg1, long arg2) {
+./payloads/poops/src/org/bdj/external/Helper.java:278:        return api.call(syscallWrappers[number], arg0, arg1, arg2);
+./payloads/poops/src/org/bdj/external/Helper.java:281:    public static long syscall(int number, long arg0, long arg1) {
+./payloads/poops/src/org/bdj/external/Helper.java:282:        return api.call(syscallWrappers[number], arg0, arg1);
+./payloads/poops/src/org/bdj/external/Helper.java:285:    public static long syscall(int number, long arg0) {
+./payloads/poops/src/org/bdj/external/Helper.java:286:        return api.call(syscallWrappers[number], arg0);
+./payloads/poops/src/org/bdj/external/Helper.java:289:    public static long syscall(int number) {
+./payloads/poops/src/org/bdj/external/Helper.java:290:        return api.call(syscallWrappers[number]);
+./payloads/poops/src/org/bdj/external/Helper.java:336:        long result = syscall(SYS_SOCKET, (long)AF_INET6, (long)SOCK_DGRAM, (long)IPPROTO_UDP);
+./payloads/poops/src/org/bdj/external/Helper.java:344:        long result = syscall(SYS_SOCKET, (long)AF_INET, (long)SOCK_STREAM, 0L);
+./payloads/poops/src/org/bdj/external/Helper.java:352:        long result = syscall(SYS_SETSOCKOPT, (long)sd, (long)level, (long)optname, optval.address(), (long)optlen);
+./payloads/poops/src/org/bdj/external/Helper.java:361:        long result = syscall(SYS_GETSOCKOPT, (long)sd, (long)level, (long)optname, optval.address(), size.address());
+./payloads/poops/src/org/bdj/external/Helper.java:373:            long result = syscall(SYS_CPUSET_GETAFFINITY, (long)CPU_LEVEL_WHICH, (long)CPU_WHICH_TID, -1L, 0x10L, mask.address());
+./payloads/poops/src/org/bdj/external/Helper.java:401:            long result = syscall(SYS_CPUSET_SETAFFINITY, (long)CPU_LEVEL_WHICH, (long)CPU_WHICH_TID, -1L, 0x10L, mask.address());
+./payloads/poops/src/org/bdj/external/Helper.java:414:            long result = syscall(SYS_RTPRIO_THREAD, (long)RTP_SET, 0L, rtprio.address());
+./payloads/poops/src/org/bdj/external/Helper.java:431:        return syscall(SYS_AIO_SUBMIT_CMD, (long)cmd, reqs, (long)numReqs, (long)prio, ids);
+./payloads/poops/src/org/bdj/external/Helper.java:435:        return syscall(SYS_AIO_MULTI_CANCEL, ids, (long)numIds, states);
+./payloads/poops/src/org/bdj/external/Helper.java:439:        return syscall(SYS_AIO_MULTI_POLL, ids, (long)numIds, states);
+./payloads/poops/src/org/bdj/external/Helper.java:443:        return syscall(SYS_AIO_MULTI_DELETE, ids, (long)numIds, states);
+./payloads/poops/src/org/bdj/external/Helper.java:447:        return syscall(SYS_AIO_MULTI_WAIT, ids, (long)numIds, states, (long)mode, timeout);
+./payloads/poops/src/org/bdj/external/Helper.java:524:        long result = syscall(SYS_EVF_CREATE, name, 0L, (long)flags);
+./payloads/poops/src/org/bdj/external/Helper.java:532:        long clearResult = syscall(SYS_EVF_CLEAR, (long)id, 0L);
+./payloads/poops/src/org/bdj/external/Helper.java:537:        long setResult = syscall(SYS_EVF_SET, (long)id, (long)flags);
+./payloads/poops/src/org/bdj/external/Helper.java:544:        long result = syscall(SYS_EVF_DELETE, (long)id);
+./payloads/poops/src/org/bdj/external/Kernel.java:114:            long result = Helper.syscall(Helper.SYS_PIPE, fildes.address());
+./payloads/poops/src/org/bdj/external/Kernel.java:162:            Helper.syscall(Helper.SYS_READ, (long)pipeReadFd, uaddr, (long)len);
+./payloads/poops/src/org/bdj/external/Kernel.java:176:            Helper.syscall(Helper.SYS_WRITE, (long)pipeWriteFd, uaddr, (long)len);
+./payloads/poops/src/org/bdj/external/Kernel.java:451:        if (!escapeSandbox(addr.curproc)) {
+./payloads/poops/src/org/bdj/external/Kernel.java:486:    private static boolean escapeSandbox(long curproc) {
+./payloads/poops/src/org/bdj/external/Kernel.java:534:        Status.println("Sandbox escape complete ... root FS access and jail broken");
+./payloads/poops/src/org/bdj/external/Kernel.java:571:        long execHandle = Helper.syscall(Helper.SYS_JITSHM_CREATE, 0L, (long)alignedMemsz, (long)PROT_RWX);
+./payloads/poops/src/org/bdj/external/Kernel.java:574:        long writeHandle = Helper.syscall(Helper.SYS_JITSHM_ALIAS, execHandle, (long)PROT_RW);
+./payloads/poops/src/org/bdj/external/Kernel.java:577:        Helper.syscall(Helper.SYS_MMAP, shadowMappingAddr, (long)alignedMemsz, (long)PROT_RW, 0x11L, writeHandle, 0L);
+./payloads/poops/src/org/bdj/external/Kernel.java:584:        Helper.syscall(Helper.SYS_MMAP, mappingAddr, (long)alignedMemsz, (long)PROT_RWX, 0x11L, execHandle, 0L);
+./payloads/poops/src/org/bdj/external/Kernel.java:587:        Helper.syscall(Helper.SYS_KEXEC, mappingAddr);
+./payloads/poops/src/org/bdj/external/Kernel.java:595:        Helper.syscall(Helper.SYS_CLOSE, writeHandle);
+./payloads/poops/src/org/bdj/external/Poops.java:406:            dup = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "dup");
+./payloads/poops/src/org/bdj/external/Poops.java:407:            close = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "close");
+./payloads/poops/src/org/bdj/external/Poops.java:408:            read = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "read");
+./payloads/poops/src/org/bdj/external/Poops.java:409:            readv = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "readv");
+./payloads/poops/src/org/bdj/external/Poops.java:410:            write = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "write");
+./payloads/poops/src/org/bdj/external/Poops.java:411:            writev = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "writev");
+./payloads/poops/src/org/bdj/external/Poops.java:412:            ioctl = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "ioctl");
+./payloads/poops/src/org/bdj/external/Poops.java:413:            fcntl = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "fcntl");
+./payloads/poops/src/org/bdj/external/Poops.java:414:            pipe = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "pipe");
+./payloads/poops/src/org/bdj/external/Poops.java:415:            kqueue = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "kqueue");
+./payloads/poops/src/org/bdj/external/Poops.java:416:            socket = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "socket");
+./payloads/poops/src/org/bdj/external/Poops.java:417:            socketpair = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "socketpair");
+./payloads/poops/src/org/bdj/external/Poops.java:418:            recvmsg = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "recvmsg");
+./payloads/poops/src/org/bdj/external/Poops.java:419:            getsockopt = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "getsockopt");
+./payloads/poops/src/org/bdj/external/Poops.java:420:            setsockopt = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "setsockopt");
+./payloads/poops/src/org/bdj/external/Poops.java:421:            setuid = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "setuid");
+./payloads/poops/src/org/bdj/external/Poops.java:422:            getpid = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "getpid");
+./payloads/poops/src/org/bdj/external/Poops.java:423:            sched_yield = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "sched_yield");
+./payloads/poops/src/org/bdj/external/Poops.java:424:            cpuset_setaffinity = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "cpuset_setaffinity");
+./payloads/poops/src/org/bdj/external/Poops.java:425:            __sys_netcontrol = Helper.api.dlsym(Helper.api.LIBKERNEL_MODULE_HANDLE, "__sys_netcontrol");
+./payloads/poops/src/org/bdj/external/Poops.java:734:    private static boolean escapeSandbox() {
+./payloads/poops/src/org/bdj/external/Poops.java:896:            long execHandle = Helper.syscall(Helper.SYS_JITSHM_CREATE, 0L, (long) alignedMemsz, (long) PROT_RWX);
+./payloads/poops/src/org/bdj/external/Poops.java:898:            long writeHandle = Helper.syscall(Helper.SYS_JITSHM_ALIAS, execHandle, (long) PROT_RW);
+./payloads/poops/src/org/bdj/external/Poops.java:900:            Helper.syscall(Helper.SYS_MMAP, shadowMappingAddr, (long) alignedMemsz, (long) PROT_RW, 0x11L, writeHandle,
+./payloads/poops/src/org/bdj/external/Poops.java:906:            Helper.syscall(Helper.SYS_MMAP, mappingAddr, (long) alignedMemsz, (long) PROT_RWX, 0x11L, execHandle, 0L);
+./payloads/poops/src/org/bdj/external/Poops.java:907:            Helper.syscall(Helper.SYS_KEXEC, mappingAddr);
+./payloads/poops/src/org/bdj/external/Poops.java:911:            Helper.syscall(Helper.SYS_CLOSE, writeHandle);
+./payloads/poops/src/org/bdj/external/Poops.java:949:        if (!escapeSandbox()) {
+./src/org/bdj/InitXlet.java:4:import javax.tv.xlet.Xlet;
+./src/org/bdj/InitXlet.java:5:import javax.tv.xlet.XletContext;
+./src/org/bdj/InitXlet.java:28:            Status.println("Triggering sandbox escape exploit...");
+./src/org/bdj/InitXlet.java:31:                Status.println("Exploit success - sandbox escape achieved");
+./src/org/bdj/InternalJarLoader.java:18:            // Extract the internal JAR to a temporary file and run it
+./src/org/bdj/InternalJarLoader.java:32:            throw new FileNotFoundException("JAR resource not found: " + resourcePath);
+./src/org/bdj/InternalJarLoader.java:58:            Status.println("Extracted JAR resource to: " + tempFile.getAbsolutePath());
+./src/org/bdj/InternalJarLoader.java:89:            throw new Exception("No manifest found in JAR");
+./src/org/bdj/InternalJarLoader.java:137:                    Status.println("Cleaned up " + cleanedCount + " old temp JAR files");
+./src/org/bdj/RemoteJarLoader.java:19:            Status.println("JAR Loader listening on port 9025...");
+./src/org/bdj/RemoteJarLoader.java:26:                    Status.printStackTrace("Error processing JAR", e);
+./src/org/bdj/RemoteJarLoader.java:30:                Status.println("Waiting for next JAR on port 9025...");
+./src/org/bdj/RemoteJarLoader.java:48:        Status.println("Receiving JAR...");
+./src/org/bdj/RemoteJarLoader.java:55:        Status.println("JAR received: " + totalBytes + " bytes total");
+./src/org/bdj/RemoteJarLoader.java:67:            throw new Exception("No manifest found in JAR");
+./src/org/bdj/RemoteJarLoader.java:115:                    Status.println("Cleaned up " + cleanedCount + " old temp JAR files");
+./src/org/bdj/api/API.java:16:/** API class to access native data and execute native code. */
+./src/org/bdj/api/API.java:25:      "Unsupported dlopen() operation";
+./src/org/bdj/api/API.java:54:  private Object nativeLibrary;
+./src/org/bdj/api/API.java:79:  private native long multiNewArray(long componentType, int[] dimensions);
+./src/org/bdj/api/API.java:98:    Class nativeLibraryClass = Class.forName(NATIVE_LIBRARY_CLASS_NAME);
+./src/org/bdj/api/API.java:102:          nativeLibraryClass.getDeclaredMethod(FIND_ENTRY_METHOD_NAME, new Class[] {String.class});
+./src/org/bdj/api/API.java:105:          nativeLibraryClass.getDeclaredMethod(FIND_METHOD_NAME, new Class[] {String.class});
+./src/org/bdj/api/API.java:108:    handleField = nativeLibraryClass.getDeclaredField(HANDLE_FIELD_NAME);
+./src/org/bdj/api/API.java:113:    Constructor nativeLibraryConstructor =
+./src/org/bdj/api/API.java:114:        nativeLibraryClass.getDeclaredConstructor(
+./src/org/bdj/api/API.java:116:    nativeLibraryConstructor.setAccessible(true);
+./src/org/bdj/api/API.java:118:    nativeLibrary =
+./src/org/bdj/api/API.java:119:        nativeLibraryConstructor.newInstance(new Object[] {getClass(), "api", new Boolean(true)});
+./src/org/bdj/api/API.java:123:    JVM_NativePath = dlsym(RTLD_DEFAULT, JVM_NATIVE_PATH_SYMBOL);
+./src/org/bdj/api/API.java:128:    __Ux86_64_setcontext = dlsym(LIBKERNEL_MODULE_HANDLE, UX86_64_SETCONTEXT_SYMBOL);
+./src/org/bdj/api/API.java:138:      __Ux86_64_setcontext = dlsym(LIBKERNEL_MODULE_HANDLE, UX86_64_SETCONTEXT_SYMBOL);
+./src/org/bdj/api/API.java:146:          dlsym(LIBJAVA_MODULE_HANDLE, JAVA_JAVA_LANG_REFLECT_ARRAY_MULTI_NEW_ARRAY_SYMBOL);
+./src/org/bdj/api/API.java:149:          dlsym(RTLD_DEFAULT, JAVA_JAVA_LANG_REFLECT_ARRAY_MULTI_NEW_ARRAY_SYMBOL);
+./src/org/bdj/api/API.java:155:    sigsetjmp = dlsym(LIBKERNEL_MODULE_HANDLE, SIGSETJMP_SYMBOL);
+./src/org/bdj/api/API.java:160:    __error = dlsym(LIBKERNEL_MODULE_HANDLE, ERROR_SYMBOL);
+./src/org/bdj/api/API.java:222:      throw new InternalError("installing native method failed");
+./src/org/bdj/api/API.java:374:  public long dlsym(long handle, String symbol) {
+./src/org/bdj/api/API.java:381:        handleField.setLong(nativeLibrary, RTLD_DEFAULT);
+./src/org/bdj/api/API.java:383:        handleField.setLong(nativeLibrary, handle);
+./src/org/bdj/api/API.java:385:      return ((Long) findMethod.invoke(nativeLibrary, new Object[] {symbol})).longValue();
+./src/org/bdj/api/NativeInvoke.java:14:            sceKernelSendNotificationRequestAddr = api.dlsym(API.LIBKERNEL_MODULE_HANDLE, "sceKernelSendNotificationRequest");
+./src/org/bdj/sandbox/XletManagerExploit.java:7:import com.sun.xlet.XletLifecycleHandler;
+./src/org/bdj/sandbox/XletManagerExploit.java:8:import com.sun.xlet.XletManager;
+## history
+[33m5553700[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update README.md
+[33mf05ff98[m Add files via upload
+[33mde9b704[m Delete src/org/bdj/sandbox/Dummy.java
+[33m66a97fb[m Add files via upload
+[33mbdaf14a[m Add files via upload
+[33m6470ebc[m Delete aiofix_USBpayload_no_aio_patch directory
+[33m3ec5082[m Add files via upload
+[33mbb405d4[m Delete payloads/poops directory
+[33m9e67d55[m Add files via upload
+[33m21508db[m Delete payloads/poops directory
+[33m1d02b45[m Update KernelOffset.java
+[33m6947c6a[m Update KernelOffset.java
+[33m9c337e4[m Rename aiofix_USBpayload.elf to USBpayload.elf
+[33mf2c9c12[m Update BinLoader.java
+[33m302570e[m Update Makefile
+[33m2ba54c4[m Add files via upload
+[33m10154d6[m Delete payloads/lapse/src/org/bdj/external/goldhen.bin
+[33md038733[m Delete payloads/lapse/src/org/bdj/external/aiofix_USBpayload.elf
+[33m4924e55[m Delete aiofix_USBpayload directory
+[33m7f84b19[m Update KernelOffset.java
+[33m7f33b85[m Add files via upload
+[33mb3fe811[m Add files via upload
+[33m303f8b1[m Delete payloads/lapse/src/org/bdj/external/aiofix_network.elf
+[33m97d2e85[m Delete payloads/lapse/src/org/bdj/external/aiofix_USBpayload.c
+[33mf3dc8bd[m Delete payloads/lapse/src/org/bdj/external/aiofix_network.c
+[33me612572[m Add files via upload
+[33mdc5e78b[m[33m ([m[1;33mtag: [m[1;33mPoops[m[33m)[m Update README.md
+[33m3d6bddf[m[33m ([m[1;33mtag: [m[1;33mLapse_1.2_Mod[m[33m)[m Delete payloads/lapse/src/org/bdj/external/BDJ.elf
+[33m24c91a6[m Update aiofix_USBpayload.c
+[33m34cb0a6[m Update Makefile

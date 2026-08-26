@@ -782,3 +782,7 @@ GameGaz article `https://gamegaz.com/2026071945823/` (2026-07-19) reproduces Dr.
 The current public scanner page `https://github.com/adri22235/ps4-suid-scanner` supplies the same requirements and adds no implementation: `SuidScanner.java` resolves basic libc functions through an external BD-J API and scans SUID/SGID files. It does not implement the UFS image, mount invocation, heap grooming or R/W conversion. Classification: repository/documentation `VERIFIED`; Celsius chain implementation `SOURCE_ONLY/INCOMPLETE`.
 
 ConsoleMods `https://consolemods.org/wiki/PS4:Exploit_Chart` lists no public kernel exploit for 13.02–13.04. This is evidence about public reproducibility status, not a refutation of the working baseline.
+
+## BD-JB-1250 static userland map
+
+The public `ps3120/BD-JB-1250` tree contains a native BD-J API with reflective native-library lookup, `dlsym`, native invocation helpers, `__Ux86_64_setcontext`, libkernel symbol resolution and a remote JAR loader. Its history also contains older payload directories for Lapse/Poops, but the current tree and visible history do not supply Celsius/FFS mount code, a malformed UFS image, `ffs_mountfs`, or a 13.02 kernel-R/W bridge. This makes BD-J a plausible entrypoint substrate and shows which native-call capabilities are available, but it does not close the kernel transition. Classification: BD-J API capabilities `VERIFIED`; Celsius integration `SOURCE_ONLY/INCOMPLETE`.
