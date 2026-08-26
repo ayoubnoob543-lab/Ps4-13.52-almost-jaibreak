@@ -81,3 +81,53 @@ Las búsquedas públicas sobre `Netctrl/ucred`, `Lapse/semctl` y kernel exploit 
 También apareció un repositorio de investigación [Feyzee61/psfree_lapse](https://github.com/Feyzee61/psfree_lapse), que debe auditarse por separado; el resultado de búsqueda no basta para atribuirle soporte 13.02. Los resultados de Reddit, YouTube y redes sociales se conservan como leads, no como evidencia técnica.
 
 Conclusión de esta ronda: no se localizó una fuente pública primaria nueva que demuestre Netctrl/ucred o Lapse/semctl funcionando en PS4 13.02. Se mantiene `UNVERIFIED_13_02`.
+
+## Netctrl/HENloader — comprobación pública directa 26 de agosto de 2026
+
+La página de [RiyonAbib07/ps-vue-jb-2.5](https://github.com/RiyonAbib07/ps-vue-jb-2.5) declara explícitamente un alcance de jailbreak 7.00–13.00. Su README separa `vue-after-free` userland 5.05–13.04, Lapse 1.01–12.02 y Netctrl 1.01–13.00; la FAQ indica que en 13.02 o superior sólo funciona userland. El repositorio tiene 226 commits, una rama, ningún tag y su commit visible `1e8e2ad` es una corrección de estabilidad fechada 11 de marzo de 2026. La metadata consultada indica que no es fork, tiene dos forks y fue actualizado en GitHub el 17 de agosto de 2026.
+
+El archivo público `src/download0/kernel.ts` contiene offsets mmap etiquetados para 13.02 (`0x1fa78a`, `0x1fa78d`) y una tabla que agrupa 12.50/12.52/13.00 para la parte Netctrl. Esto demuestra que el código contiene una entrada documental para 13.02, pero no demuestra una primitive kernel R/W en 13.02: la propia tabla de soporte funcional termina en 13.00.
+
+La página de [iaceene/HENloader_Source](https://github.com/iaceene/HENloader_Source), commit `a42fef8` del 25 de noviembre de 2025, declara soporte de HENloader LP de 9.00 a 12.52 dependiendo de Lapse/Poopsploit. No aporta soporte 13.02, PoC 13.02 ni evidencia de hardware 13.02. Se clasifica `HISTORICAL_ONLY` para 13.02 y `SOURCE_ONLY` respecto a su propio alcance.
+
+Conclusión: Netctrl sigue siendo el candidato público más cercano, con máximo funcional publicado 13.00; 13.02 sólo aparece como userland/offset mmap documental, no como kernel R/W probado.
+
+## PSDevWiki — comprobación directa 26 de agosto de 2026
+
+La página [PS4 Developer wiki — Vulnerabilities](https://www.psdevwiki.com/ps4/Vulnerabilities) separa explícitamente los exploits usermode de los kernel exploits. Enumera `BD-JB-13.00` como exploit de usermode para PS4 13.00–13.02 y también lista vectores BD-JB con estados `untested`; esa entrada no es un kernel exploit ni proporciona por sí sola R/W.
+
+La misma página identifica mast1c0re/Luac0re como vías de usermode/JIT y describe cadenas con exploits kernel sólo para rangos históricos o diferentes. La página no aporta una demostración pública de una primitive kernel R/W específica para 13.02.
+
+La página [PS4 Developer wiki — Bugs](https://www.psdevwiki.com/ps4/Bugs) también distingue usermode, BD-J y kernel. Sus entradas de BD-JB 13.00–13.02 describen escape de sandbox; no deben contarse como kernel exploit. La existencia de una vulnerabilidad de usermode o de un escape de sandbox no prueba lectura/escritura arbitraria del kernel.
+
+Clasificación: BD-JB 13.00–13.02 = `CORROBORATED` como usermode/entrada; kernel R/W 13.02 desde estas páginas = `UNVERIFIED_13_02`.
+
+## PSDevWiki kernel candidates — consulta directa 26 de agosto de 2026
+
+La sección Kernel de [PSDevWiki Bugs](https://www.psdevwiki.com/ps4/Bugs) se marca `Untested` y enumera los siguientes candidatos cercanos a 13.02:
+
+| Candidato | Alcance que muestra la página | PoC/estado PS4 | Primitive descrita | Clasificación 13.02 |
+|---|---|---|---|---|
+| CVE-2026-58087, carrera TOCTOU en `semctl(2)` | `?<=13.52?` | Sin implementación de exploit en la página; la entrada dice que PS4/PS5 pueden estar afectadas | OOB read/write de heap con posible elevación | `UNVERIFIED_13_02` |
+| CVE-2026-49412, UAF `IPV6_MSFILTER` | `?<=13.50?` | Sin implementación PS4; “maybe since PS4 13.52” | UAF por carrera en filtro multicast, potencial elevación | `UNVERIFIED_13_02` |
+| CVE-2026-45251, UAF por file descriptors | `?<=13.50?` | PoC citado sólo para FreeBSD 15; PS4/PS5 “maybe not affected” | Escritura arbitraria de puntero de kernel mediante reclaim SCM_RIGHTS | `UNVERIFIED_13_02` |
+| CVE-2026-45250, overflow de stack `setcred(2)` | `?<=13.50?` | Sin implementación PS4; la página indica que la vulnerabilidad upstream afecta FreeBSD 14.3–15, no necesariamente FreeBSD 9 | Overflow de stack con posible ejecución kernel | `UNVERIFIED_13_02` |
+| Overflow UFS/FFS al montar | `?<=13.04?` | Sin PoC; requiere partición FFS malformada y posiblemente otra vulnerabilidad para cifrarla | Overflow durante mount/reload; potencial impacto kernel | `UNVERIFIED_13_02` |
+| CVE-2026-3038, routing sockets | `?<=13.04?` | PoC citado para panic PS4 13.52; la página dice que probablemente PS4 basado en FreeBSD 9 no es vulnerable al bug upstream | Stack overflow con canario; sólo DoS demostrado, escalada hipotética | `UNVERIFIED_13_02` |
+| CVE-2026-5398, UAF `TIOCNOTTY` | `?<=13.02?` | PoC sólo para FreeBSD 15; PS4/PS5 “maybe not affected” | UAF de puntero de sesión, posible elevación | `UNVERIFIED_13_02` |
+| CVE-2025-14558, ND6/rtsold | `?<=13.02?` | PoCs de FreeBSD/Linux; la página advierte que PS4/PS5 pueden no estar afectados | RCE remoto en rtsold/resolvconf, no kernel R/W PS4 demostrado | `UNVERIFIED_13_02` |
+| `aio_multi_delete` | `5.00-?11.52?` | Sin PoC; parche observado en 12.00 según la página | Bug de locking en kernel, impacto no demostrado | `HISTORICAL_ONLY` |
+
+La página distingue explícitamente `Exploit Implementation` de la descripción del bug y deja vacíos varios campos. Por tanto, que una cabecera diga `?<=13.02?` o `?<=13.50?` no equivale a soporte PS4: en todos los casos anteriores falta una PoC PS4 13.02, log de hardware y demostración de R/W. La única excepción parcial es la entrada de routing sockets, que menciona un PoC de panic para PS4 13.52, pero no demuestra R/W ni aplicabilidad a 13.02.
+
+## PSFree/Lapse — comprobación directa 26 de agosto de 2026
+
+La fuente [Feyzee61/psfree_lapse](https://github.com/Feyzee61/psfree_lapse) se describe como PSFree WebKit + Lapse Kernel Exploit para PS4 **7.00–9.60**. La página visible indica que integra shellcodes de parche kernel y AIO patch sets para 7.00–9.60; muestra 47 commits, tres tags, 19 forks y commit visible `ba736c0` de actualización del README. No hay declaración ni PoC para 13.02. Se clasifica `HISTORICAL_ONLY` para 13.02.
+
+El nombre del repositorio y su presencia en muchos forks no constituyen una fuente independiente para 13.02; su propio README fija el límite en 9.60.
+
+## ConsoleMods y Reddit — estado comunitario 26 de agosto de 2026
+
+La tabla [ConsoleMods PS4 Exploit Chart](https://consolemods.org/wiki/PS4:Exploit_Chart) agrupa `13.02–13.04` y declara que no existe kernel exploit público para el firmware reciente/latest; la acción recomendada es conservar o vender la consola. La página es una tabla secundaria, no una PoC ni un log de hardware, por lo que se clasifica `CORROBORATED` sólo para el estado público, no como prueba de ausencia absoluta.
+
+La discusión de [Reddit r/ps4homebrew](https://www.reddit.com/r/ps4homebrew/comments/1omgsul/new_kernel_exploit_up_to_1300_for_ps4_and_1200/) enlaza un gist de TheOfficialFloW y repite que el nuevo kernel exploit llega a PS4 13.00, no 13.02. Los comentarios indican que requiere BD-JB/WebKit/Mast1c0re y que no era utilizable en 12.50 en el momento de la discusión; también aparece un comentario de un usuario con 13.02 “hoping to release it someday”, que es una expectativa comunitaria, no una demostración. Se clasifica `CORROBORATED` para la frontera pública 13.00 y `UNVERIFIED_13_02` para cualquier extrapolación.

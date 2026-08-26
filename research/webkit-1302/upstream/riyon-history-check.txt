@@ -1,0 +1,178 @@
+=== Riyon metadata ===
+[1;38m{[m
+[1;34m"created_at"[m[1;38m:[m [32m"2026-03-11T01:02:35Z"[m[1;38m,[m
+[1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"PS4 PlayStation Vue Jailbreak exploit for firmware 7.00-13.00, with enhanced stability improvements for 12.50+ (Netctrl/Poopsploit)"[m[1;38m,[m
+[1;34m"fork"[m[1;38m:[m [33mfalse[m[1;38m,[m
+[1;34m"forks_count"[m[1;38m:[m 2[1;38m,[m
+[1;34m"full_name"[m[1;38m:[m [32m"RiyonAbib07/ps-vue-jb-2.5"[m[1;38m,[m
+[1;34m"open_issues_count"[m[1;38m:[m 0[1;38m,[m
+[1;34m"pushed_at"[m[1;38m:[m [32m"2026-03-11T15:19:32Z"[m[1;38m,[m
+[1;34m"stargazers_count"[m[1;38m:[m 1[1;38m,[m
+[1;34m"updated_at"[m[1;38m:[m [32m"2026-08-17T02:51:54Z"[m
+[1;38m}[m
+=== Riyon recent commits ===
+1e8e2adedfb2	2026-03-11T15:19:32Z	Phase 3 Fixes: Revert FD leaks and SSD kqueue race condition
+695007313ab2	2026-03-11T09:02:31Z	Phase 2 Fixes: Revert race condition sleep and OOM triggers
+ee9b435e9517	2026-03-11T09:02:30Z	Phase 2 Fixes: Revert race condition sleep and OOM triggers
+634d7f22c1bf	2026-03-11T05:32:30Z	Add missing static assets for build
+2f9852359f86	2026-03-11T05:32:29Z	Add missing static assets for build
+c1d961b38444	2026-03-11T05:32:28Z	Add missing static assets for build
+2d0340652785	2026-03-11T05:32:27Z	Add missing static assets for build
+a7538eab6a09	2026-03-11T05:32:26Z	Add missing static assets for build
+cb9a186e82b3	2026-03-11T05:32:25Z	Add missing static assets for build
+a01dc7adf3c3	2026-03-11T05:32:19Z	Add missing static assets for build
+6c9c31b6e288	2026-03-11T05:32:03Z	Add missing static assets for build
+13b8b83d36f7	2026-03-11T05:32:02Z	Add missing static assets for build
+=== Riyon README markers ===
+17:CVE-2017-7117 is used for the userland, and has been chained with Lapse and Poopsploit(Netctrl) kernel exploits on respective firmwares marked below.
+20:KEX= Kernel Exploit
+21:| vue-after-free (Userland) | Lapse (KEX) | Netctrl (KEX) |
+23:| 5.05–13.04                | 1.01–12.02  | 1.01-13.00       |
+27:This table indicates firmware versions for which the _current version_ of this repository provides a functional tested jailbreak for.   
+29:| 7.00-13.00 |
+32:* By default Lapse is used from 7.00 to 12.02, and Poopsploit from 12.50-13.00. Although you can choose to run Poopsploit on as low as 9.00.
+33:* Userland exploit works 5.05 to 13.02 as is.
+37:**Q: Will this work on 13.02 or above?**
+38:Only the userland, you cannot jailbreak above 13.00 with the files in this repo.
+53:If a kernel panic occurred you may need to press the power button on your console twice, then retry running the exploit.
+58:**Q: Can I run the jailbreak offline?**
+65:> The Vue save file may occasionally reset. To avoid issues please copy the encrypted save to a USB, from the PS4 settings menu for the user that is used to run the jailbreak, for easy future recovery.   
+88:  1. Jailbreak your console.
+92:  5. Open Apollo Save Tool and fake activate your account by going to `User Tools`>`Activate PS4 Accounts` then press R2 then X and then keep pressing `O` till you are asked if you want to exit to the XMB accept with `X` then restart the console and jailbreak again.
+101:  14. Reboot your console then open PS Vue run the exploit by pressing on the jailbreak button or configure the autoloader.
+102:  15. Optionally after jailbreaking run the [np-fake-signin](https://github.com/Vuemony/vue-after-free/blob/main/README.md#np-fake-signin) payload to avoid the PSN pop-up.
+113:  * If you cannot access the savedata you do not have a Real PSN account or fake activated account, meaning that if you do not jailbreak first you cannot backup your saves.
+118:  10. Open PS Vue run the exploit by pressing on the jailbreak button or configure the autoloader.
+119:  11. Optionally after jailbreaking run the [np-fake-signin](https://github.com/Vuemony/vue-after-free/blob/main/README.md#np-fake-signin) payload to avoid the PSN pop-up.
+155:The `ftp-server.ts` payload gives you sandbox FTP to quickly swap exploit or cosmetic files without running a kernel exploit/jailbreaking.
+165:Vue comes with a few custom options. Firstly the jailbreak button auto detects firmware and the Lapse exploit from 7.00-12.02, as of 12.50-13.00 it then runs the Netctrl exploit. You can change the defaults in the config menu in the JB Behaviour section.   
+166:Another available option is to automatically launch a kernel exploit upon opening the Vue app. You can choose to either automatically launch Lapse or Netctrl on their respective compatible firmwares. Auto Lapse and Auto Poop.    
+167:After a successful jailbreak run you can choose to have the application automatically close, the Auto Close option.   
+171:In config.js you can add .bin or .elf files to be loaded automatically on kernel exploit completion. HEN or GoldHEN should not be added there as they are already loaded via USB or from the /data/ directory automatically.
+172:Example: `/mnt/sandbox/download/CUSA00960/payloads/kernel_dumper.bin`
+180:- [c0w-ar](https://github.com/c0w-ar/) — Lapse and NetCtrl porting  , Reverse Engineering
+181:- [earthonion](https://github.com/earthonion) — UI, initial JS injection, Payload host, Netctrl porting, binloader, Reverse engineering
+187:- [AlAzif](https://github.com/Al-Azif) — Reference for exploit table, retail application advice, Lapse AIO Fix kpatches and 12.50-13.00 kpatches.
+189:- [TheFlow](https://github.com/TheOfficialFloW) — NetCtrl
+=== Riyon kernel markers ===
+3:/** *** kernel_offset.js *****/
+5:// PS4 Kernel Offsets for Lapse exploit
+8:// Kernel patch shellcode (hex strings) - patches security checks in kernel
+37:// Mmap RWX patch offsets per firmware (for verification)
+38:// These are the offsets where 0x33 is patched to 0x37
+39:const kpatch_mmap_offsets: Record<string, [number, number]> = {
+62:  '13.02': [0x1fa78a, 0x1fa78d],
+116:export function get_mmap_patch_offsets (fw_version: string): [number, number] | null {
+126:  else if (fw_version === '13.04') lookup = '13.02'
+128:  return kpatch_mmap_offsets[lookup as keyof typeof kpatch_mmap_offsets] || null
+140:// Get kernel patch shellcode for firmware version
+149:// Firmware-specific offsets for PS4
+151:const offset_ps4_5_00 = {             // AND 5.01
+152:  EVF_OFFSET: 0X7B3ED4,
+159:const offset_ps4_5_03 = {
+160:  EVF_OFFSET: 0X7B42E4,
+167:const offset_ps4_5_05 = {             // AND 5.07
+168:  EVF_OFFSET: 0X7B42A4,
+175:const offset_ps4_5_50 = {
+176:  EVF_OFFSET: 0X80EF12,
+183:const offset_ps4_5_53 = {
+184:  EVF_OFFSET: 0X80EDE2,
+191:const offset_ps4_5_55 = {
+192:  EVF_OFFSET: 0X80F482,
+199:const offset_ps4_5_56 = {
+200:  EVF_OFFSET: 0X7C8971,
+207:const offset_ps4_6_00 = {             // AND 6.02
+208:  EVF_OFFSET: 0X7C8971,
+215:const offset_ps4_6_20 = {
+216:  EVF_OFFSET: 0X7C8E31,
+223:const offset_ps4_6_50 = {
+224:  EVF_OFFSET: 0X7C6019,
+231:const offset_ps4_6_51 = {
+232:  EVF_OFFSET: 0X7C6099,
+239:const offset_ps4_6_70 = {             // AND 6.71, 6.72
+240:  EVF_OFFSET: 0X7C7829,
+247:const offset_ps4_7_00 = {             // AND 7.01, 7.02
+248:  EVF_OFFSET: 0X7F92CB,
+255:const offset_ps4_7_50 = {
+256:  EVF_OFFSET: 0X79A92E,
+263:const offset_ps4_7_51 = {             // AND 7.55
+264:  EVF_OFFSET: 0X79A96E,
+271:const offset_ps4_8_00 = {             // AND 8.01, 8.02, 8.03
+272:  EVF_OFFSET: 0X7EDCFF,
+279:const offset_ps4_8_50 = {             // AND 8.52
+280:  EVF_OFFSET: 0X7DA91C,
+287:const offset_ps4_9_00 = {
+288:  EVF_OFFSET: 0x7F6F27,
+291:  TARGET_ID_OFFSET: 0x221688D,
+298:const offset_ps4_9_03 = {
+299:  EVF_OFFSET: 0x7F4CE7,
+302:  TARGET_ID_OFFSET: 0x221288D,
+308:const offset_ps4_9_50 = {
+309:  EVF_OFFSET: 0x769A88,
+312:  TARGET_ID_OFFSET: 0x221A40D,
+318:const offset_ps4_10_00 = {
+319:  EVF_OFFSET: 0x7B5133,
+322:  TARGET_ID_OFFSET: 0x1B9E08D,
+328:const offset_ps4_10_50 = {
+329:  EVF_OFFSET: 0x7A7B14,
+332:  TARGET_ID_OFFSET: 0x1BE460D,
+338:const offset_ps4_11_00 = {
+339:  EVF_OFFSET: 0x7FC26F,
+342:  TARGET_ID_OFFSET: 0x221C60D,
+348:const offset_ps4_11_02 = {
+349:  EVF_OFFSET: 0x7FC22F,
+352:  TARGET_ID_OFFSET: 0x221C60D,
+358:const offset_ps4_11_50 = {
+359:  EVF_OFFSET: 0x784318,
+362:  TARGET_ID_OFFSET: 0x21CC60D,
+368:const offset_ps4_12_00 = {            // AND 12.02
+369:  EVF_OFFSET: 0x784798,
+372:  TARGET_ID_OFFSET: 0x21CC60D,
+378:const offset_ps4_12_50 = {        // AND 12.52, 13.00
+379:  EVF_OFFSET: 0x0,        // Missing but not needed in netctrl
+382:  TARGET_ID_OFFSET: 0x0,  // Missing but not needed in netctrl
+388:// Map firmware versions to offset objects
+389:export const ps4_kernel_offset_list = {
+390:  '5.00': offset_ps4_5_00,
+391:  '5.01': offset_ps4_5_00,
+392:  '5.03': offset_ps4_5_03,
+393:  '5.05': offset_ps4_5_05,
+394:  '5.07': offset_ps4_5_05,
+395:  '5.50': offset_ps4_5_50,
+396:  '5.53': offset_ps4_5_53,
+397:  '5.55': offset_ps4_5_55,
+398:  '5.56': offset_ps4_5_56,
+399:  '6.00': offset_ps4_6_00,
+400:  '6.02': offset_ps4_6_00,
+401:  '6.20': offset_ps4_6_20,
+402:  '6.50': offset_ps4_6_50,
+403:  '6.51': offset_ps4_6_51,
+404:  '6.70': offset_ps4_6_70,
+405:  '6.71': offset_ps4_6_70,
+406:  '6.72': offset_ps4_6_70,
+407:  '7.00': offset_ps4_7_00,
+408:  '7.01': offset_ps4_7_00,
+409:  '7.02': offset_ps4_7_00,
+410:  '7.50': offset_ps4_7_50,
+411:  '7.51': offset_ps4_7_51,
+412:  '7.55': offset_ps4_7_51,
+413:  '8.00': offset_ps4_8_00,
+414:  '8.01': offset_ps4_8_00,
+415:  '8.02': offset_ps4_8_00,
+416:  '8.03': offset_ps4_8_00,
+417:  '8.50': offset_ps4_8_50,
+418:  '8.52': offset_ps4_8_50,
+419:  '9.00': offset_ps4_9_00,
+420:  '9.03': offset_ps4_9_03,
+421:  '9.04': offset_ps4_9_03,
+422:  '9.50': offset_ps4_9_50,
+423:  '9.51': offset_ps4_9_50,
+424:  '9.60': offset_ps4_9_50,
+425:  '10.00': offset_ps4_10_00,
+426:  '10.01': offset_ps4_10_00,
+427:  '10.50': offset_ps4_10_50,
+428:  '10.70': offset_ps4_10_50,
+429:  '10.71': offset_ps4_10_50,
+430:  '11.00': offset_ps4_11_00,
+431:  '11.02': offset_ps4_11_02,

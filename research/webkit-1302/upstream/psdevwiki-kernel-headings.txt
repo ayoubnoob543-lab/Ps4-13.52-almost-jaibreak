@@ -1,0 +1,39 @@
+1699:CVE-2025-24928[edit | edit source]
+1708:CVE-2013-0338 / CVE-2013-0339[edit | edit source]
+1713:CVE-2013-0338 - libxml2 internal entity expansion
+1714:CVE-2013-0339 - libxml2 external entities expansion
+1729:CVE-2024-8176[edit | edit source]
+1739:CVE-2022-25315[edit | edit source]
+1751:CVE-2022-25313[edit | edit source]
+1764:CVE-2022-25235 / CVE-2022-25236 - Expat XML insufficiently sanitizes tag and attribute names[edit | edit source]
+1766:CVE-2022-25235: xmltok_impl.c in libexpat before 2.4.5 lacks certain validation of encoding, such as checks for whether a UTF-8 character is valid in a certain context.
+1768:CVE-2022-25236: xmlparse.c in libexpat before 2.4.5 allows attackers to insert namespace-separator characters into namespace URIs.
+1774:CVE-2022-23852[edit | edit source]
+1786:CVE-2022-22822[edit | edit source]
+1797:CVE-2021-45960[edit | edit source]
+1808:CVE-2013-0340 / CVE-2013-0341[edit | edit source]
+1813:CVE-2013-0340 - expat internal entity expansion
+1814:CVE-2013-0341 - expat external entities expansion
+1828:CVE-2022-24384 - Heap overflow in Lua implementation of cJSON[edit | edit source]
+1838:CVE-2016-10749 - Buffer overflow in parse_string() when last input character is a backslash[edit | edit source]
+1850:CVE-2016-4303 - parse_string() mishandles UTF8/16 strings[edit | edit source]
+1868:CVE-2021-4048[edit | edit source]
+2085:CVE-2014-9656, CVE-2014-9657, CVE-2014-9658, CVE-2014-9660, CVE-2014-9661, CVE-2014-9662, CVE-2014-9663, CVE-2014-9664, CVE-2014-9666, CVE-2014-9667, CVE-2014-9669, CVE-2014-9670, CVE-2014-9671, CVE-2014-9672, CVE-2014-9673, CVE-2014-9674, CVE-2014-9675
+2259:Kernel[edit | edit source]
+2261:FW ?<=13.52? - Heap OOB access due to TOCTOU race in semctl(2) (CVE-2026-58087)[edit | edit source]
+2281:FW ?<=13.50? - UaF in IPV6_MSFILTER socket option handler (CVE-2026-49412)[edit | edit source]
+2302:FW ?<=13.50? - UaF via file descriptor syscalls (CVE-2026-45251)[edit | edit source]
+2322:FW ?<=13.50? - Stack buffer overflow via setcred(2) (CVE-2026-45250)[edit | edit source]
+2345:FW ?<=13.04? - Overflow during UFS/FFS filesystems mount (no CVE)[edit | edit source]
+2353:CVE-2006-5679
+2367:FW ?<=13.04? - Local DoS and possible privilege escalation via routing sockets (CVE-2026-3038)[edit | edit source]
+2393:FW ?<=13.02? - UaF in TIOCNOTTY handler (CVE-2026-5398)[edit | edit source]
+2411:FW ?<=13.02? - Remote code execution via ND6 Router Advertisements (CVE-2025-14558)[edit | edit source]
+2441:FW 5.00-?11.52? - Unknown bug in aio_multi_delete()[edit | edit source]
+2459:FW 5.00-?9.60? - UaF in aio_aqueue() due to credential reference count leak (CVE-2022-23090)[edit | edit source]
+2564:FW <=?9.xx? - IEEE 802.11 Wi-Fi heap buffer overflow (CVE-2022-23088)[edit | edit source]
+2579:FW <=?9.xx? - Wrong dst/netmask handling in routing socket code (no CVE)[edit | edit source]
+2601:FW <=?1.xx? - Kernel memory disclosure in sctp(4) (CVE-2013-5209)[edit | edit source]
+2616:FW <=?1.xx? - Integer overflow in IP_MSFILTER (CVE-2013-3077)[edit | edit source]
+2649:CVE-2022-23093[edit | edit source]
+2661:FW <= ?4.05? - amd64_set_ldt Heap Overflow (CVE-2016-1885)[edit | edit source]

@@ -49,6 +49,8 @@ La primera transición está cubierta de forma razonable. La investigación debe
 | `disk-artifacts.md` | Plan para BD-J/disco, PUP, system image y artefactos de WebKit. |
 | `source-notes.md` | Registro de fuentes públicas consultadas y sus límites. |
 | `public-source-notes.md` | Nota reproducible de la consulta directa a Vue After Free. |
+| `kernel-rw-1302-investigation.md` | Informe de candidatos de kernel R/W, alcance, procedencia y brechas específicas de 13.02. |
+| `upstream/` | Snapshots y extractos de fuentes públicas, commits y lineage; no son pruebas de hardware. |
 
 ## Fuentes internas principales
 
@@ -57,6 +59,10 @@ La primera transición está cubierta de forma razonable. La investigación debe
 - `kpayload/source/offsets/1302.c` y `kpayload/include/offsets/1302.h`, como integración local de offsets.
 - `webkit-kit/runtime/` y `webkit-kit/docs/`, como corpus de análisis WebKit/BD-J y documentación histórica.
 - `analysis/` y `research/`, como manifests, hashes, resultados y logs.
+
+## Informe de kernel R/W
+
+El análisis completo está en [`kernel-rw-1302-investigation.md`](kernel-rw-1302-investigation.md). La conclusión actual es que Netctrl/ucred sigue siendo el candidato más cercano, pero permanece `UNVERIFIED_13_02`; no existe una ruta pública reproducible userland → kernel R/W para 13.02 con la evidencia consultada.
 
 ## Próximo criterio de éxito
 

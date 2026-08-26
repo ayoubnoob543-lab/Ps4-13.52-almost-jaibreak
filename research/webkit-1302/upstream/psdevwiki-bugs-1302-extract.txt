@@ -1,0 +1,241 @@
+106-5.16 libwebp
+107-5.16.1 OOB write in ReadHuffmanCodes() (CVE-2023-4063, CVE-2023-41064)
+108-6 Kernel
+109-6.1 Untested
+110:6.1.1 FW ?<=13.52? - Heap OOB access due to TOCTOU race in semctl(2) (CVE-2026-58087)
+111-6.1.1.1 Credits
+112-6.1.1.2 Analysis
+113-6.1.1.3 Bug Description
+114-6.1.1.4 Exploit Implementation
+115-6.1.1.5 Patched
+116-6.1.2 FW ?<=13.50? - UaF in IPV6_MSFILTER socket option handler (CVE-2026-49412)
+117-6.1.2.1 Credits
+118-6.1.2.2 Analysis
+119-6.1.2.3 Bug Description
+120-6.1.2.4 Exploit Implementation
+121-6.1.2.5 Patched
+122-6.1.3 FW ?<=13.50? - UaF via file descriptor syscalls (CVE-2026-45251)
+--
+142-6.1.6.2 Analysis
+143-6.1.6.3 Bug Description
+144-6.1.6.4 Exploit Implementation
+145-6.1.6.5 Patched
+146:6.1.7 FW ?<=13.02? - UaF in TIOCNOTTY handler (CVE-2026-5398)
+147-6.1.7.1 Credits
+148-6.1.7.2 Analysis
+149-6.1.7.3 Bug Description
+150-6.1.7.4 Exploit Implementation
+151-6.1.7.5 Patched
+152:6.1.8 FW ?<=13.02? - Remote code execution via ND6 Router Advertisements (CVE-2025-14558)
+153-6.1.8.1 Credits
+154-6.1.8.2 Analysis
+155-6.1.8.3 Bug Description
+156-6.1.8.4 Exploit Implementation
+157-6.1.8.5 Patched
+158-6.1.9 FW 5.00-?11.52? - Unknown bug in aio_multi_delete()
+159-6.1.9.1 Credits
+160-6.1.9.2 Analysis
+161-6.1.9.3 Bug Description
+162-6.1.9.4 Exploit Implementation
+163-6.1.9.5 Patched
+164-6.1.10 FW 5.00-?9.60? - UaF in aio_aqueue() due to credential reference count leak (CVE-2022-23090)
+--
+1923-The JS code uses AJAX to send leaked information to the HTTP server.
+1924-The HTTP server creates a malformed .ttf font file that will trigger CVE-2025-27363 and contains a PS4 usermode ROP chain.
+1925-The JS loads the malformed .ttf font file, triggering the heap buffer overflow.
+1926-The heap buffer overflow overwrites a pointer in the heap, now directing to the ROP chain.
+1927:The ROP chain runs, fixes the heap and registers then passes to kernel exploitation.
+1928-git clone --branch VER-2-13-0 https://gitlab.freedesktop.org/freetype/freetype-demos.git
+1929-cd freetype-demos
+1930-# In subprojects/freetype2.wrap, set the revision corresponding to 2.13.0:
+1931-# revision = de8b92dd7ec634e9e2b25ef534c54a3537555c11 or VER-2-13-0
+1932-mkdir build
+1933-meson setup build
+1934-# In subprojects/freetype2/meson.build, in the "freetype_dep = declare_dependency(" instruction, add
+1935-# dependencies: [meson.get_compiler('c').find_library('asan')],
+1936-# In subprojects/freetype2/meson.build, set ft2_defines = ['-fsanitize=address']
+1937-meson compile -C build
+1938-# Ensure that the compiled version is good (2.13.0).
+1939-build/ftmulti -v 
+--
+2194-OpenType and/or TrueType may be used in some components of the PS4 and PS5, like in BD-J.
+2195-
+2196-Memory disclosure in Java via fonts (CVE-2015-2619)[edit | edit source]
+2197-
+2198:When successfully exploited, the security flaw would allow an attacker to leak uninitialized memory from the process heap or kernel pools, potentially leading to the disclosure of sensitive information or facilitating the exploitation of a more serious bug by helping defeat exploit mitigations. Both 32 and 64-bit builds of the affected software were prone to the vulnerability. Similarly to the “blend” issue, due to the cross-platform nature of the bug, it could be used in an exploit chain together with memory corruption bugs to e.g. provide a de-ASLR primitive for a user-mode application (in order to achieve RCE) and then the kernel itself (to escape the sandbox or otherwise elevate attacker’s privileges).
+2199-
+2200-As such, the bug would generally allow uninitialized memory to be reflected in the final glyph’s shape as rasterized on the display. Therefore, in order to actually take advantage of it, it is also necessary to have a way of reading the pixels back and recovering the original uninitialized bytes. No PoC for Java was written, considering its marginal attack vectors.
+2201-
+2202-https://googleprojectzero.blogspot.com/2015/09/enabling-qr-codes-in-internet-explorer.html
+2203-See also[edit | edit source]
+2204-https://j00ru.vexillium.org/slides/2015/44con.pdf
+2205-BrokenType by Google Project Zero: a TrueType and OpenType font fuzzing toolset
+2206-https://j00ru.vexillium.org/talks/44con-reverse-engineering-and-exploiting-font-rasterizers
+2207:https://j00ru.vexillium.org/2015/09/44con-slides-and-details-about-further-windows-kernel-font-vulnerabilities
+2208-https://j00ru.vexillium.org/2015/06/results-of-my-recent-postscript-charstring-security-research-unveiled
+2209-https://googleprojectzero.blogspot.com/2015/07/one-font-vulnerability-to-rule-them-all.html
+2210-https://github.com/google/honggfuzz
+2211-http://savannah.nongnu.org/search/?Search=Search&words=addresssanitizer+ftbench&type_of_search=bugs&only_group_id=7246&exact=1&max_rows=100#options
+2212-libpng[edit | edit source]
+2213-
+2214-libpng is present in the PS4 System Software in the file /system/common/lib/libpng16.sprx stored on the internal HDD and as internal sysmodule 0x800000AB.
+2215-
+2216-There are also libScePngParser (internal sysmodule 0x8000005D), libScePngDec (sysmodule 0x8C) and libScePngEnc (sysmodule 0x8D) libraries on the PS4.
+2217-
+2218-A malicious PNG file can be loaded via many vectors:
+2219-
+--
+2257-https://www.darknavy.org/blog/exploiting_the_libwebp_vulnerability_part_1
+2258-https://www.darknavy.org/blog/exploiting_the_libwebp_vulnerability_part_2
+2259-Kernel[edit | edit source]
+2260-Untested[edit | edit source]
+2261:FW ?<=13.52? - Heap OOB access due to TOCTOU race in semctl(2) (CVE-2026-58087)[edit | edit source]
+2262-Credits[edit | edit source]
+2263-2026-07-29 Maik Muench of Secfault Security for discovering the vulnerability and reporting it to FreeBSD
+2264-Analysis[edit | edit source]
+2265-FreeBSD advisory for CVE-2026-49412 (2026-07-29)
+2266-FreeBSD 15 patch (2026-07-29)
+2267-FreeBSD fix commit by Mark Johnston (2026-07-29)
+2268-FreeBSD reviewers comments and differential revision about the fix commit (2026-07-23)
+2269-Location of the potentially vulnerable source code in FreeBSD 9.1
+2270-Bug Description[edit | edit source]
+2271-
+2272:The semctl commands take a snapshot of the size of a semaphore set, then drop the lock and malloc an appropriately sized array before reacquiring the lock. A comment explained why this was (probably) safe. Unfortunately, it was wrong; it is indeed possible for a malicious userspace to create and destroy 2^{15} sets in the window where the lock is dropped. This race can lead to out-of-bounds reads and writes, and that can be exploited to elevate privileges.
+2273-
+2274-The bug fix replace the assertions with runtime checks.
+2275-
+2276-Exploit Implementation[edit | edit source]
+2277-Patched[edit | edit source]
+2278-
+2279-No as of PS4 13.52 and PS5 13.60. PS4 and PS5 may be affected.
+2280-
+2281-FW ?<=13.50? - UaF in IPV6_MSFILTER socket option handler (CVE-2026-49412)[edit | edit source]
+2282-Credits[edit | edit source]
+2283-2026-06-09 Andrew Griffiths at Calif.io for discovering the vulnerability and reporting it to FreeBSD
+2284-Analysis[edit | edit source]
+--
+2310-Bug Description[edit | edit source]
+2311-
+2312-procdesc_free() releases an embedded pd_selinfo without draining poll waiters. It can be turned into an arbitrary kernel-pointer write via SCM_RIGHTS reclaim.
+2313-
+2314:FreeBSD implements a number of file descriptor types. Traditionally file descriptors are used to perform file or network I/O, but other variants exist such as process descriptors, which enable operations on a particular process. The select(2) and poll(2) system calls allow applications to wait for events related to the object to which a file descriptor refers. These system calls are implemented for many different file descriptor types. For instance, a process descriptor may be used with either system call to wait for the target process to exit. A file descriptor can be closed while a thread is blocked in a poll(2) or select(2) call waiting for that descriptor. Because the blocked thread does not hold a reference to the underlying object, this closure may result in the object being freed while the thread remains blocked. In this situation, the kernel must remove the blocked thread from the per-object wait queue prior to freeing the object. In the case of some file descriptor types, the kernel failed to unlink blocked threads from the object before freeing it. When the blocked thread is subsequently woken, it accesses memory that has already been freed resulting in a use-after-free vulnerability. The use-after-free vulnerability may be triggered by an unprivileged local user and can be exploited to obtain superuser privileges.
+2315-
+2316-Exploit Implementation[edit | edit source]
+2317-PoC for CVE-2026-45251 on FreeBSD 15 by Calif.io (2026-05-28)
+2318-Patched[edit | edit source]
+2319-
+2320-No as of PS4 13.50 and PS5 13.20 but PS4 and PS5 are maybe not affected.
+2321-
+2322-FW ?<=13.50? - Stack buffer overflow via setcred(2) (CVE-2026-45250)[edit | edit source]
+2323-Credits[edit | edit source]
+2324-2026-05-20 Ryan of Calif.io for discovering the vulnerability and disclosing it to FreeBSD.
+2325-Analysis[edit | edit source]
+2326-FreeBSD advisory for CVE-2026-45250 (2026-05-20)
+--
+2356-FFS is one name given to the BSD Fast File System, also known as UFS1 or UFS2 (referring to different versions of the file system). Modern FFS implementations are used in many systems based on 4.2BSD, 4.3BSD and 4.4BSD, including FreeBSD, OpenBSD, and NetBSD. See also [49], [50].
+2357-
+2358-There is an overflow when calculating malloc size for auxiliary data structure sizes when mounting and reloading UFS/FFS filesystems.
+2359-
+2360:To exploit this vulnerability on the PS4, it is required to create a malformed FFS partition on the HDD (250 GB?). Since FFS is encrypted by PFS, another kernel exploit may be required to encrypt the malformed FFS partition with per-console keys.
+2361-
+2362-Exploit Implementation[edit | edit source]
+2363-Patched[edit | edit source]
+2364-
+2365-Yes since PS4 13.50. PS5 may be affected.
+2366-
+2367-FW ?<=13.04? - Local DoS and possible privilege escalation via routing sockets (CVE-2026-3038)[edit | edit source]
+2368-Credits[edit | edit source]
+2369-2026-02-24 Adam Crosser of the Praetorian Labs team for discovering the vulnerability and disclosing it to FreeBSD.
+2370-Analysis[edit | edit source]
+2371-FreeBSD advisory for CVE-2026-3038 (2026-02-24)
+2372-Fix commit for CVE-2026-3038 on FreeBSD 13.5 by Mark Johnston (2026-04-21)
+--
+2389-Patched[edit | edit source]
+2390-
+2391-No as of PS4 13.04 and PS5 12.70 but PS4 and PS5 are maybe not affected.
+2392-
+2393:FW ?<=13.02? - UaF in TIOCNOTTY handler (CVE-2026-5398)[edit | edit source]
+2394-Credits[edit | edit source]
+2395-2026-04-21 Nicholas Carlini for discovering the vulnerability and disclosing it to FreeBSD.
+2396-2026-05-28 Calif.io for making a write-up and PoC.
+2397-Analysis[edit | edit source]
+2398-FreeBSD advisory for CVE-2026-5398 (2026-04-21)
+2399-Patch files for CVE-2026-5398 on FreeBSD 13.5 (2026-04-21)
+2400-Write-up for CVE-2026-5398 on FreeBSD 15 by Calif.io (2026-05-28)
+2401-Bug Description[edit | edit source]
+2402-
+2403-TIOCNOTTY is an ioctl(2) operation which allows a process to detach itself from its controlling terminal. Unprivileged processes may use this ioctl. The implementation of TIOCNOTTY failed to clear a back-pointer from the structure representing the controlling terminal to the calling process' session. If the invoking process then exits, the terminal structure may end up containing a pointer to freed memory. A malicious process can abuse the dangling pointer to grant itself root privileges.
+2404-
+2405-Exploit Implementation[edit | edit source]
+2406-PoC for CVE-2026-5398 on FreeBSD 15 by Calif.io (2026-05-28)
+2407-Patched[edit | edit source]
+2408-
+2409:No as of PS4 13.02 and PS5 13.00 but PS4 and PS5 are maybe not affected.
+2410-
+2411:FW ?<=13.02? - Remote code execution via ND6 Router Advertisements (CVE-2025-14558)[edit | edit source]
+2412-Credits[edit | edit source]
+2413-2025-12-16 Kevin Day for discovering the vulnerability and disclosing it to FreeBSD.
+2414-Analysis[edit | edit source]
+2415-FreeBSD advisory for CVE-2025-14558 (2025-12-16)
+2416-Fix commit for CVE-2025-14558 on FreeBSD 13.5 by Mark Johnston (2025-12-16)
+2417-Bug introductory commit for CVE-2025-14558 on FreeBSD 9.0 by Hiroki Sato (2011-06-06).
+2418-Bug Description[edit | edit source]
+2419-
+2420-The following vulnerability affects FreeBSD 13.5 to 15.0 and also seems to affect FreeBSD 9.0-13.4 since the introductory commit. This vulnerability is related to the ones discovered in 2020 (CVE-2020-25577, CVE-2020-25583) [51] that also affected rtsold and to the 2014 one (CVE-2014-3954) [52].
+2421-
+2422-rtsold(8) and rtsol(8) are programs which process router advertisement packets as part of the IPv6 stateless address autoconfiguration (SLAAC) mechanism.
+2423-
+--
+2435-https://rodelllemit.medium.com/replicating-cve-2025-14558-20825dc67ffc
+2436-https://sploitus.com/exploit?id=MSF:EXPLOIT-FREEBSD-MISC-RTSOLD_DNSSL_CMDINJECT-
+2437-Patched[edit | edit source]
+2438-
+2439:No as of PS4 13.02 and PS5 13.00 but PS4 and PS5 are maybe not affected.
+2440-
+2441-FW 5.00-?11.52? - Unknown bug in aio_multi_delete()[edit | edit source]
+2442-Credits[edit | edit source]
+2443-2025-04-01 Anonymous for sharing 12.02 and 12.50 PS4 kernel dumps for diffing.
+2444-2025-04-01 D-Link Turtle for publicly disclosing the patched code of a bug in PS4 12.50 kernel.
+2445-Analysis[edit | edit source]
+2446-Patched code in PS4 kernel 12.50 commented by anonymous (2025-04-01)
+2447-Bug Description[edit | edit source]
+2448-
+2449-This bug is harder to exploit than the Double free due to aio_multi_delete() improper locking so there is almost no point in studying this one.
+2450-
+2451-Exploit Implementation[edit | edit source]
+--
+2570-
+2571-FreeBSD's net80211 kernel subsystem provides infrastructure and drivers for IEEE 802.11 wireless (Wi-Fi) communications. The 802.11 beacon handling routine failed to validate the length of an IEEE 802.11s Mesh ID before copying it to a heap-allocated buffer. While a FreeBSD Wi-Fi client is in scanning mode (i.e., not associated with a SSID) a malicious beacon frame may overwrite kernel memory, leading to remote code execution.
+2572-
+2573-Exploit Implementation[edit | edit source]
+2574:PoC for CVE-2022-23088 on FreeBSD 13.00 (2022-06-16)
+2575-Patched[edit | edit source]
+2576-
+2577-Maybe in PS4 9.xx and PS5 5.xx.
+2578-
+2579-FW <=?9.xx? - Wrong dst/netmask handling in routing socket code (no CVE)[edit | edit source]
+2580-Credits[edit | edit source]
+2581-melifaro (Alexander V. Chernikov) for discovering the bug in FreeBSD 13.0 and patching it ()
+2582-Analysis[edit | edit source]
+2583-FreeBSD Differential Revision by Alexander V. Chernikov (2021-02-14)
+2584-Fix commit for FreeBSD 13.0 by Alexander V. Chernikov (2021-03-11)
+2585-Bug Description[edit | edit source]
+2586-
+--
+2702-Reverse Engineering
+2703-
+2704-
+2705-Reverse Engineering	
+2706:Bootprocess  ·  BootLogo  ·  DataBases  ·  Disc Identification/Serialization Data  ·  Files on the PS4  ·  IOCTL  ·  Libraries  ·  Partitions  ·  Syscalls  ·  Kernel Patches  ·  sealedkey / pfsSKKey  ·  VTRM  ·  Bugs  ·  WebKit Bugs  ·  Vulnerabilities  ·  SBL  ·  Devices  ·  Registry  ·  Build Strings  ·  QA Flagging  ·  Strings  ·  Hardware Info  ·  Internal Function Names  ·  AMD System Management Unit  ·  AMD SAMU  ·  Secure Loader  ·  Secure Kernel  ·  Secure Modules  ·  Kernel  ·  Debugging
+2707-	
+2708-
+2709-
+2710-Dumps & Strings	
+2711-Dumps
+2712-	
+2713-Flash-Bridge  ·  Flash-Bridge/content  ·  Flash-Hub  ·  Flash-Main
+2714-
+2715-
+2716-
+2717-Strings
+2718-	

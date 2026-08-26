@@ -1,0 +1,108 @@
+=== RiyonAbib07/ps-vue-jb-2.5 ===
+[1;38m{[m
+[1;34m"created_at"[m[1;38m:[m [32m"2026-03-11T01:02:35Z"[m[1;38m,[m
+[1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"PS4 PlayStation Vue Jailbreak exploit for firmware 7.00-13.00, with enhanced stability improvements for 12.50+ (Netctrl/Poopsploit)"[m[1;38m,[m
+[1;34m"fork"[m[1;38m:[m [33mfalse[m[1;38m,[m
+[1;34m"forks_count"[m[1;38m:[m 2[1;38m,[m
+[1;34m"full_name"[m[1;38m:[m [32m"RiyonAbib07/ps-vue-jb-2.5"[m[1;38m,[m
+[1;34m"parent"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"pushed_at"[m[1;38m:[m [32m"2026-03-11T15:19:32Z"[m[1;38m,[m
+[1;34m"stargazers_count"[m[1;38m:[m 1[1;38m,[m
+[1;34m"updated_at"[m[1;38m:[m [32m"2026-08-17T02:51:54Z"[m
+[1;38m}[m
+1e8e2adedfb2	2026-03-11T15:19:32Z	Phase 3 Fixes: Revert FD leaks and SSD kqueue race condition
+695007313ab2	2026-03-11T09:02:31Z	Phase 2 Fixes: Revert race condition sleep and OOM triggers
+ee9b435e9517	2026-03-11T09:02:30Z	Phase 2 Fixes: Revert race condition sleep and OOM triggers
+634d7f22c1bf	2026-03-11T05:32:30Z	Add missing static assets for build
+2f9852359f86	2026-03-11T05:32:29Z	Add missing static assets for build
+=== Vuemony/vue-after-free ===
+[1;38m{[m
+[1;34m"created_at"[m[1;38m:[m [32m"2025-12-20T02:10:09Z"[m[1;38m,[m
+[1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"PlayStation Vue code execution exploit"[m[1;38m,[m
+[1;34m"fork"[m[1;38m:[m [33mfalse[m[1;38m,[m
+[1;34m"forks_count"[m[1;38m:[m 124[1;38m,[m
+[1;34m"full_name"[m[1;38m:[m [32m"Vuemony/vue-after-free"[m[1;38m,[m
+[1;34m"parent"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"pushed_at"[m[1;38m:[m [32m"2026-06-01T19:36:41Z"[m[1;38m,[m
+[1;34m"stargazers_count"[m[1;38m:[m 1029[1;38m,[m
+[1;34m"updated_at"[m[1;38m:[m [32m"2026-08-25T17:12:10Z"[m
+[1;38m}[m
+6e37d510c738	2026-06-01T19:36:41Z	Merge pull request #235 from m2k7m/main\n\nFix kernel panic on shutdown ported from webkit arabpixel by m2k7m
+4490632c9914	2026-06-01T19:21:22Z	chore: eslint auto-fix
+37c76184bf98	2026-06-01T19:20:47Z	Comment out reboot notification in lapse.ts\n\nCommented out the notification call for rebooting.
+3233506d043a	2026-06-01T14:51:45Z	Fix kernel panic on shutdown\n\nhttps://github.com/Vuemony/vue-after-free/issues/232
+e38b5e9a2d48	2026-04-30T03:10:30Z	Merge pull request #224 from ArabPixel/main\n\nReplace config.js with config.json everywhere
+=== owendswang/vue-after-free-lite ===
+[1;38m{[m
+[1;34m"created_at"[m[1;38m:[m [32m"2026-02-14T06:48:06Z"[m[1;38m,[m
+[1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"PlayStation Vue code execution exploit"[m[1;38m,[m
+[1;34m"fork"[m[1;38m:[m [33mtrue[m[1;38m,[m
+[1;34m"forks_count"[m[1;38m:[m 2[1;38m,[m
+[1;34m"full_name"[m[1;38m:[m [32m"owendswang/vue-after-free-lite"[m[1;38m,[m
+[1;34m"parent"[m[1;38m:[m [32m"Vuemony/vue-after-free"[m[1;38m,[m
+[1;34m"pushed_at"[m[1;38m:[m [32m"2026-04-16T18:43:31Z"[m[1;38m,[m
+[1;34m"stargazers_count"[m[1;38m:[m 30[1;38m,[m
+[1;34m"updated_at"[m[1;38m:[m [32m"2026-08-10T13:43:54Z"[m
+[1;38m}[m
+7aea74aae50d	2026-04-16T18:30:53Z	Improve NetCtrl stability and success rate a little bit by removing a lot of logging codes
+bbbc7737d435	2026-03-13T05:36:13Z	Update README.md
+25a73dd659a3	2026-03-04T06:23:48Z	Added a screenshot.
+fa7a3fd9bb6c	2026-03-04T05:44:38Z	Added BD-J. Changed payload loading method.\n\nUpdate README.md
+6bbe3ddddeb6	2026-03-03T03:08:12Z	Update README.md
+=== alferdoss/SLOPOS-offsets ===
+[1;38m{[m
+[1;34m"created_at"[m[1;38m:[m [32m"2024-08-12T08:51:20Z"[m[1;38m,[m
+[1;34m"default_branch"[m[1;38m:[m [32m"master"[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"ps4-offsets"[m[1;38m,[m
+[1;34m"fork"[m[1;38m:[m [33mfalse[m[1;38m,[m
+[1;34m"forks_count"[m[1;38m:[m 0[1;38m,[m
+[1;34m"full_name"[m[1;38m:[m [32m"alferdoss/SLOPOS-offsets"[m[1;38m,[m
+[1;34m"parent"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"pushed_at"[m[1;38m:[m [32m"2026-08-24T16:59:16Z"[m[1;38m,[m
+[1;34m"stargazers_count"[m[1;38m:[m 2[1;38m,[m
+[1;34m"updated_at"[m[1;38m:[m [32m"2026-08-24T17:15:40Z"[m
+[1;38m}[m
+70ed72abb739	2026-08-24T16:47:04Z	feat(ps4): fill 11.02 allproc/vmspace_acquire_ref/vmspace_free/proc_rwmem offsets\n\nDerived from a PS4 Pro 11.02 kernel dump supplied by MSI_Ins_Dir\n(sdk_version 0x11020001, build J02660907, Nov 27 2023).\n\nvmspace_free: panic-string xref; the same method reproduces the known\n12.00 offset 0x2F6D50 exactly. vmspace_acquire_ref: byte-identical to\n12.00 0x2F6F20, and its internal call lands on our vmspace_free.\nproc_rwmem: masked signature port from 12.00 0x365FA0, unique hit,\ncaller count matches 12.00 (6 and 6; vmspace_free 18 and 18).\nallproc: signature-ported from both 11.00 and 12.00, 14 referencing\nfunctions, all converging on 0x22D0A98 (unchanged from 11.00).
+7ab6d40ca584	2026-08-18T17:28:06Z	feat(ps4): fill 10.50 vmspace_acquire_ref/vmspace_free/proc_rwmem offsets
+f0ac42c04ab3	2026-08-15T15:23:26Z	feat(ps4): fill 12.00 allproc/vmspace_acquire_ref/vmspace_free/proc_rwmem offsets
+42273e2180ca	2026-08-07T20:28:42Z	restructure into ps4/ + ps5/, backfill 19 kexec-complete headers\n\n- move all per-fw headers under ps4/, add ps4/schema.h\n- backfill kexec offsets for 19 fw (magic.h) + kmem_alloc (fw_offsets.h)\n- add README coverage table + contribution guide, CREDITS.md\n- ps5/ placeholder
+43f365e7a672	2026-07-20T11:53:07Z	feat: consolidate kernel offsets from all scene repos (FW 3.15-13.52)\n\nMerge offsets from ps4-kexec, PS4Linux-Payloads, ps4-payload-sdk,\nand PPPwn into a single source of truth. Coverage expanded from\n5 firmware versions (9 symbols) to 68 versions (up to 51 symbols).\n\nSources: magic.h (kexec/pmap/sched/gpu/eap), fw_defines.h\n(prison0/rootvnode/npdrm/aslr/mmap), PPPwn stage2 (allproc).
+=== Feyzee61/psfree_lapse ===
+[1;38m{[m
+[1;34m"created_at"[m[1;38m:[m [32m"2025-11-12T20:13:02Z"[m[1;38m,[m
+[1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"PSFree WebKit Exploit & Lapse Kernel Exploit for PS4"[m[1;38m,[m
+[1;34m"fork"[m[1;38m:[m [33mfalse[m[1;38m,[m
+[1;34m"forks_count"[m[1;38m:[m 19[1;38m,[m
+[1;34m"full_name"[m[1;38m:[m [32m"Feyzee61/psfree_lapse"[m[1;38m,[m
+[1;34m"parent"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"pushed_at"[m[1;38m:[m [32m"2026-07-10T19:02:12Z"[m[1;38m,[m
+[1;34m"stargazers_count"[m[1;38m:[m 60[1;38m,[m
+[1;34m"updated_at"[m[1;38m:[m [32m"2026-07-27T18:55:28Z"[m
+[1;38m}[m
+ba736c011ea4	2026-07-10T18:55:47Z	Update README for PSFree Exploit version to 2.3
+35478f71f839	2026-06-29T23:53:02Z	Update fix of kp on restart after failure
+802132c64023	2026-06-29T23:48:59Z	Merge pull request #9 from ArabPixel/main\n\nFix kernel panic on shutdown /restart after an exploit failed attempt
+e300178d34f7	2026-05-19T17:52:49Z	Fix kernel panic on shutdown /restart after an exploit failed attempt
+59a4988465c1	2026-04-08T03:50:13Z	Add background-size property to style
+=== iaceene/HENloader_Source ===
+[1;38m{[m
+[1;34m"created_at"[m[1;38m:[m [32m"2025-11-25T10:51:22Z"[m[1;38m,[m
+[1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"HENloader LP is a PlayStation 4 Blu-ray–based exploit loader that combines Lapse and Poopsploit exploits with GoldHEN support. This tool enables homebrew loading on PS4 firmware versions 9.00 up to 12.52, depending on the exploit used."[m[1;38m,[m
+[1;34m"fork"[m[1;38m:[m [33mfalse[m[1;38m,[m
+[1;34m"forks_count"[m[1;38m:[m 1[1;38m,[m
+[1;34m"full_name"[m[1;38m:[m [32m"iaceene/HENloader_Source"[m[1;38m,[m
+[1;34m"parent"[m[1;38m:[m [36mnull[m[1;38m,[m
+[1;34m"pushed_at"[m[1;38m:[m [32m"2025-11-25T11:58:38Z"[m[1;38m,[m
+[1;34m"stargazers_count"[m[1;38m:[m 8[1;38m,[m
+[1;34m"updated_at"[m[1;38m:[m [32m"2026-06-09T13:01:46Z"[m
+[1;38m}[m
+a42fef8c980e	2025-11-25T11:58:38Z	Update README.md
+93bdac402c01	2025-11-25T11:21:58Z	Update README.md
+911427b7ad20	2025-11-25T11:19:32Z	Add PS4 jailbreak instructions and resources\n\nAdded instructions and links for jailbreaking PS4 on version 12.52 and under.
+c5b54a0036c3	2025-11-25T11:07:43Z	Clarify payload file placement instructions\n\nUpdated instructions for placing the payload file in the USB root.
+6d9f520f0fdb	2025-11-25T11:00:50Z	Add Java initialization code to README\n\nAdded Java code snippet for initialization and firmware checks.

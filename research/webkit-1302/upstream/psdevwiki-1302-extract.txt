@@ -1,0 +1,500 @@
+36-1.4.2 Analysis
+37-1.4.3 Bug Description
+38-1.4.4 Implementation
+39:1.4.5 Patched
+40-1.5 PS4/PS5 PS2emu JIT native execution - codename mast1c0re part 2
+41-1.5.1 Credits
+42-1.5.2 Analysis
+43-1.5.3 Bug Description
+44-1.5.4 Implementation
+45:1.5.5 Patched
+46-1.6 PS4/PS5 game savedata Lua exploit
+47-1.6.1 Credits
+48-1.6.2 Bug description
+49-1.6.3 Analysis
+50-1.6.4 Implementation
+51:1.6.5 Patched
+52-1.7 PS4/PS5 game savedata Ren'Py exploit - codename YARPE
+53-1.7.1 Credits
+54-1.7.2 Bug description
+55-1.7.3 Vulnerable games
+56-1.7.4 Analysis
+57-1.7.5 Implementation
+58-1.7.6 Related Resources
+59:1.7.7 Patched
+60-2 Usermode Exploits (Game Network)
+61-3 Usermode Exploits (BD-J)
+62:3.1 FW <= 13.00 - BD-JB-EX - Sandbox escape via injection in system_ex
+63-3.1.1 Credits
+64-3.1.2 Analysis
+65-3.1.3 Bug Description
+66-3.1.4 Implementation
+67:3.1.5 Patched
+68-3.2 FW <= ?11.00? - PSDescriptorFactory.handles() does not check userprefs path
+69-3.2.1 Credits
+70-3.2.2 Analysis
+71-3.2.3 Bug Description
+72-3.2.4 Implementation
+73:3.2.5 Patched
+74-3.3 FW <= ?9.00? - PSDescriptorFactory.canWriteFile() does not check userprefs path
+75-3.3.1 Credits
+76-3.3.2 Analysis
+77-3.3.3 Bug Description
+78-3.3.4 Implementation
+79:3.3.5 Patched
+80-3.4 FW <= 13.50 - Path traversal sandbox escape via sunjce JAR signature (untested)
+81-3.4.1 Credits
+82-3.4.2 Analysis
+83-3.4.3 Bug Description
+84:3.4.4 Patched
+85:3.5 FW <= 12.52 and 13.04 - BD-JB-13.04 - Path traversal sandbox escape via BDJO and /lib/ext/sunjce_provider.jar .jar infix
+86-3.5.1 Credits
+87-3.5.2 Analysis
+88-3.5.3 Bug Description
+89-3.5.4 Implementation
+90:3.5.5 Patched
+91:3.6 FW 13.00-13.02 - BD-JB-13.00 - Path traversal sandbox escape via /lib/ext .jar infix (CVE-2025-64390)
+92-3.6.1 Credits
+93-3.6.2 Analysis
+94-3.6.3 Bug Description
+95-3.6.4 Implementation
+96:3.6.5 Patched
+97-3.7 FW <=12.52 - BD-JB3.2 - Path traversal sandbox escape via BDJO and /bdjstack/lib/ext/ .jar infix
+98-3.7.1 Credits
+99-3.7.2 Analysis
+100-3.7.3 Bug Description
+101-3.7.4 Implementation
+102:3.7.5 Patched
+103-3.8 FW <= 12.50 - BD-JB3 - Sandbox escape via Inter-Xlet Communication (ixc)
+104-3.8.1 Credits
+105-3.8.2 Analysis
+106-3.8.3 Bug Description
+107-3.8.4 Implementation
+108:3.8.5 Patched
+109-3.9 FW <= 12.52 - BD-JB2 - Path traversal sandbox escape via BDJO and /cdc/lib/
+110-3.9.1 Credits
+111-3.9.2 Analysis
+112-3.9.3 Bug Description
+113-3.9.4 Implementation
+114:3.9.5 Patched
+115-3.10 FW <= 9.00 - BD-JB - Five vulnerabilities chained by TheFloW
+116-3.10.1 Credits
+117-3.10.2 Analysis
+118-3.10.3 Bug Description
+119-3.10.3.1 #1 - com.sony.gemstack.org.dvb.user.UserPreferenceManagerImpl userprefs hijack (?PS3?, PS4, PS5)
+--
+122-3.10.3.4 #4 - JVM JIT compiler hack (?PS3?, PS4, not PS5)
+123-3.10.3.5 #5 - UDF buffer overflow (?PS3?, PS4, PS5)
+124-3.10.4 Implementation
+125:3.10.5 Patched
+126-3.11 Old Java vulnerabilities and write-ups
+127-4 Usermode Exploits (WebKit)
+128-4.1 FW 6.00-11.50 - Use-after-free in CSSFontFace::setStatus and CSSFontFace::pump (no CVE yet)
+129-4.1.1 Credits
+130-4.1.2 Analysis
+131-4.1.3 Bug Description
+132-4.1.4 Implementation
+133:4.1.5 Patched
+134-4.1.6 Tested
+135-4.2 FW 6.00-9.60 - FrameLoader::loadInSameDocument() UaF (CVE-2022-22620) leading to arbitrary RW
+136-4.2.1 Credits
+137-4.2.2 Analysis
+138-4.2.3 Bug Description
+139-4.2.4 Implementation
+140:4.2.5 Patched
+141-4.2.6 Tested
+142-4.3 FW 9.00-9.04 - WebCore::CSSFontFaceSet vulnerabilities leading to arbitrary RW
+143-4.3.1 Credits
+144-4.3.2 Analysis
+145-4.3.3 Bug Description
+146-4.3.4 Implementation
+147:4.3.5 Patched
+148-4.3.6 Tested
+149-4.4 FW 6.00-7.55 - WebCore::ValidationMessage::buildBubbleTree() UaF leading to arbitrary RW
+150-4.4.1 Credits
+151-4.4.2 Analysis
+152-4.4.3 Bug Description
+153-4.4.4 Implementation
+154:4.4.5 Patched
+155-4.4.6 Tested
+156-4.5 FW 6.00-6.72 - bad_hoist Type Confusion exploit (CVE-2018-4386) leading to arbitrary RW
+157-4.5.1 Credits
+158-4.5.2 Analysis
+159-4.5.3 Bug Description
+160-4.5.4 Implementation
+161:4.5.5 Patched
+162-4.6 FW 4.50-6.72 - DOMWindow::open heap UaF (CVE-2021-30849) leading to crash
+163-4.6.1 Credits
+164-4.6.2 Analysis
+165-4.6.3 Bug Description
+166-4.6.4 Implementation
+167:4.6.5 Patched
+168-4.6.6 Tested
+169-4.7 FW 4.50-6.20 - JSArray::shiftCountWithArrayStorage() OOB RW (CVE-2018-4441) leading to arbitrary RW
+170-4.7.1 Credits
+171-4.7.2 Analysis
+172-4.7.3 Bug Description
+173-4.7.4 Implementation
+174:4.7.5 Patched
+175-4.7.6 Tested
+176-4.8 FW 6.00-6.20 - JSC::arrayProtoPrivateFuncConcatMemcpy() Information Leak (CVE-2018-4358) ?leading to ASLR defeat?
+177-4.8.1 Credits
+178-4.8.2 Analysis
+179-4.8.3 Bug Description
+180-4.8.4 Implementation
+181:4.8.5 Patched
+182-4.8.6 Tested
+183-4.9 FW 4.50-5.56 - JSGlobalObject::haveABadTime() Type Confusion (CVE-2017-7005) leading to arbitrary RW
+184-4.9.1 Credits
+185-4.9.2 Analysis
+186-4.9.3 Bug Description
+187-4.9.4 Implementation
+188:4.9.5 Patched
+189-4.10 FW ?.??-4.05-5.56 - Document::adoptNode() UaF (CVE-2017-2468) leading to crash
+190-4.10.1 Credits
+191-4.10.2 Analysis
+192-4.10.3 Bug Description
+193-4.10.4 Implementation
+194:4.10.5 Patched
+195-4.11 FW 4.50-5.56 - WebCore::HTMLFrameElementBase::marginHeight() Heap UaF (CVE-2016-1859) leading to arbitrary RW
+196-4.11.1 Credits
+197-4.11.2 Analysis
+198-4.11.3 Bug Description
+199-4.11.4 Implementation
+200:4.11.5 Patched
+201-4.12 FW 4.50-5.01 - Element::setAttributeNodeNS() UaF leading to arbitrary RW
+202-4.12.1 Credits
+203-4.12.2 Analysis
+204-4.12.3 Bug Description
+205-4.12.4 Implementation
+206:4.12.5 Patched
+207-4.13 FW 3.15-4.07 - Stack Uninitialized Read UaF leading to arbitrary RW
+208-4.13.1 Credits
+209-4.13.2 Analysis
+210-4.13.3 Bug Description
+211-4.13.4 Implementation
+212:4.13.5 Patched
+213-4.13.6 Tested
+214-4.14 FW <= ?4.05? - Type confusion in WebCore::HTMLInputElement::onSearch (CVE-2017-2354)
+215-4.14.1 Credits
+216-4.14.2 Analysis
+217-4.14.3 Bug Description
+218-4.14.4 Implementation
+219:4.14.5 Patched
+220-4.14.6 Tested
+221-4.15 FW 3.15-3.70 - JSArray::sortCompactedVector() Heap UaF leading to arbitrary RW
+222-4.15.1 Credits
+223-4.15.2 Analysis
+224-4.15.3 Bug Description
+225-4.15.4 Implementation
+226:4.15.5 Patched
+227-4.15.6 Tested
+228-4.16 FW <= 3.50 - WebCore::TimerBase::heapPopMin() Heap UaF leading to crash
+229-4.16.1 Credits
+230-4.16.2 Analysis
+231-4.16.3 Bug Description
+232-4.16.4 Implementation
+233:4.16.5 Patched
+234-4.16.6 Tested
+235-4.17 FW <= ?2.50? - JavaScript OnLoad Handler Remote Code Execution Vulnerability (CVE-2005-1790) leading to crash or lag
+236-4.17.1 Credits
+237-4.17.2 Analysis
+238-4.17.3 Bug Description
+239-4.17.4 Implementation
+240:4.17.5 Patched
+241-4.17.6 Tested
+242-4.18 FW <= 2.03 - WebCore::CSSSelector Heap Overflow (CVE-2014-1303) leading to arbitrary RW
+243-4.18.1 Credits
+244-4.18.2 Analysis
+245-4.18.3 Bug Description
+246-4.18.4 Implementation
+247:4.18.5 Patched
+248-4.18.6 Tested
+249-4.19 FW <= 2.03-? - WebCore::ImageInputType::attach Heap UaF (CVE-2013-2857) leading to ROP execution
+250-4.19.1 Credits
+251-4.19.2 Analysis
+252-4.19.3 Bug Description
+253-4.19.4 Implementation
+254:4.19.5 Patched
+255-4.19.6 Tested
+256-4.20 FW <= 1.76 - JSArray::sort() Heap Overflow (CVE-2012-3748, PSA 2013-0903-1) leading to arbitrary RW
+257-4.20.1 Credits
+258-4.20.2 Analysis
+259-4.20.3 Bug Description
+260-4.20.4 Implementation
+261:4.20.5 Patched
+262-4.20.6 Tested
+263-5 Usermode Exploits (JavaScript engine in applications)
+264:5.1 FW 1.75-13.04 - Multiple vulnerabilities in the PlayStation Vue application for PS4
+265-5.1.1 Credits
+266-5.1.2 Analysis
+267-5.1.3 Bug description
+268-5.1.4 Implementation
+269:5.1.5 Patched
+270:5.2 FW 5.05-13.04 - Type Confusion in JSC leading to ROP execution (CVE-2017-7117)
+271-5.2.1 Credits
+272-5.2.2 Analysis
+273-5.2.3 Bug description
+274-5.2.4 Implementation
+275:5.2.5 Patched
+276-6 Usermode securities
+277-6.1 Usermode ASLR
+278-6.2 Module imports table cleaned before execution
+279-6.3 DEP / NX
+280-6.4 JIT removed from PS4 Internet Browser
+--
+293-7.1.2 Analysis
+294-7.1.3 Bug Description
+295-7.1.4 Implementation
+296:7.1.5 Patched
+297:7.2 FW <= 13.00 - Double fdrop on a socket through sys_netcontrol
+298-7.2.1 Credits
+299-7.2.2 Analysis
+300-7.2.3 Bug Description
+301-7.2.4 Implementation
+302:7.2.5 Patched
+303:7.3 FW <= ?13.00? - udf_readlink should check fentry->inf_len
+304-7.3.1 Credits
+305-7.3.2 Analysis
+306-7.3.3 Bug Description
+307-7.3.4 Implementation
+308:7.3.5 Patched
+309-7.4 FW <= 12.52 - Filename buffer overflow in pfs_readdir
+310-7.4.1 Credits
+311-7.4.2 Analysis
+312-7.4.3 Bug Description
+313-7.4.4 Implementation
+314:7.4.5 Patched
+315-7.5 FW 5.00-12.02 - Double free due to aio_multi_delete() improper locking
+316-7.5.1 Credits
+317-7.5.2 Analysis
+318-7.5.3 Bug Description
+319-7.5.4 Implementation
+320:7.5.5 Patched
+321-7.6 FW <= 11.52 - Double file descriptor drop in bnet_netevent_set_queue
+322-7.6.1 Credits
+323-7.6.2 Analysis
+324-7.6.3 Bug Description
+325-7.6.4 Implementation
+326:7.6.5 Patched
+327:7.7 FW <= 11.00 - Remote vulnerabilities in spp (yielding arbitrary kernel R/W) (CVE-2006-4304 and no-CVE)
+328-7.7.1 Credits
+329-7.7.2 Analysis
+330-7.7.3 Bug Description
+331-7.7.4 Implementation
+332:7.7.5 Patched
+333-7.8 FW <= 9.00 - PPPoE driver remote buffer overflow (CVE-2022-29867)
+334-7.8.1 Credits
+335-7.8.2 Analysis
+336-7.8.3 Bug Description
+337-7.8.4 Implementation
+338:7.8.5 Patched
+339-7.9 FW <= 9.00 - exFAT driver heap-based buffer overflow (exFAThax, CVE-2022-3349)
+340-7.9.1 Credits
+341-7.9.2 Analysis
+342-7.9.3 Bug Description
+343-7.9.4 Implementation
+344:7.9.5 Patched
+345-7.10 FW <= 7.55 - IP6_EXTHDR_CHECK Double Free (CVE-2020-9892)
+346-7.10.1 Credits
+347-7.10.2 Analysis
+348-7.10.3 Bug Description
+349-7.10.4 Implementation
+350:7.10.5 Patched
+351:7.11 FW <= 7.02 - IPV6_2292PKTOPTIONS UaF (yielding arbitrary kernel R/W) (CVE-2020-7457)
+352-7.11.1 Credits
+353-7.11.2 Analysis
+354-7.11.3 Bug Description
+355-7.11.4 Implementation
+356:7.11.5 Patched
+357-7.12 FW <= 5.07 - BPF Race Condition (Yielding Double Free())
+358-7.12.1 Analysis
+359-7.12.2 Bug Description
+360-7.12.3 Implementation
+361:7.12.4 Patched
+362-7.13 FW <= 4.55 - BPF Race Condition (Yielding UaF)
+363-7.13.1 Analysis
+364-7.13.2 Bug Description
+365-7.13.3 Implementation
+366:7.13.4 Patched
+367-7.14 FW <= 6.00 ?6.02? - sys_getcontext Information Leak (kASLR defeat) (CVE-2018-17155)
+368-7.14.1 Analysis
+369-7.14.2 Bug Description
+370-7.14.3 Implementation
+371:7.14.4 Patched
+372-7.15 FW <= 4.07 - sys_thr_get_ucontext Information Leak (kASLR defeat)
+373-7.15.1 Analysis
+374-7.15.2 Bug Description
+375-7.15.3 Implementation
+376:7.15.4 Patched
+377-7.16 FW <= 4.05 - NamedObj Type Confusion (Yielding UaF)
+378-7.16.1 Credits
+379-7.16.2 Analysis
+380-7.16.3 Bug Description
+381-7.16.4 Implementation
+382:7.16.5 Patched
+383-7.16.6 Tested
+384-7.17 FW <= 3.15 - .symtab kernel table of symbols kept on low FWs
+385-7.17.1 Credits
+386-7.17.2 Bug description
+387:7.17.3 Patched
+388-7.18 FW <= 2.04 - .dynstr/.dynsym kernel table of symbols kept on low FWs
+389-7.18.1 Bug description
+390:7.18.2 Patched
+391-7.19 FW <= 1.76 - dlclose Kernel Heap Overflow
+392-7.19.1 Credits
+393-7.19.2 Analysis
+394-7.19.3 Bug Description
+395-7.19.4 Implementation
+396:7.19.5 Patched
+397-7.20 FW <= 1.76 - BadIRET (CVE-2014-9322, CVE-2015-5675)
+398-7.20.1 Credits
+399-7.20.2 Analysis
+400-7.20.3 Bug Description
+401-7.20.4 Implementation
+402:7.20.5 Patched
+403-7.21 FW ??? - setlogin Information Leak (CVE-2014-8476)
+404-7.21.1 Credits
+405-7.21.2 Analysis
+406-7.21.3 Bug Description
+407-7.21.4 Implementation
+408:7.21.5 Patched
+409-7.22 FW <= 1.02 - .strtab/.symtab kernel table of symbols kept on very low FWs
+410-7.22.1 Bug description
+411:7.22.2 Patched
+412-8 Kernel securities
+413-8.1 Kernel ASLR
+414-8.2 Kernel SMAP
+415-8.2.1 SMAP bypass method: JOP
+416-8.2.2 SMAP bypass method: cli/sti
+--
+422-9.1.2 Bug description
+423-9.1.3 Analysis
+424-9.1.4 Implementation
+425:9.1.5 Patched
+426-9.2 FW <= 4.07 - Crashdumps encryption using symmetrical key and same key across software revisions
+427-9.2.1 Credits
+428-9.2.2 Bug description
+429-9.2.3 Analysis
+430:9.2.4 Patched
+431-9.3 FW <= 3.70 - Reused keys lead to decryption of any PS4 1.00- 3.70 usermode SELF
+432-9.3.1 Bug description
+433:9.3.2 Patched
+434-9.4 FW <= 2.50 - IDPS leak in sceSblAuthMgrDriveData on low retail FWs
+435-9.4.1 Credits
+436-9.4.2 Bug description
+437-9.4.3 Analysis
+438-9.4.4 Implementation
+439:9.4.5 Patched
+440-9.5 FW <= ?1.62? - Missing version checks allow decryption of any GEN3 PUP
+441-9.5.1 Credits
+442-9.5.2 Bug description
+443-9.5.3 Implementation
+444:9.5.4 Patched
+445-10 Secure Kernel
+446-10.1 FW <=?3.70? - Kernel ASLR collision leads to decrypted kernel partial leak - Matroska vulnerability
+447-10.1.1 Credits
+448-10.1.2 Bug description
+449-10.1.3 Analysis
+450:10.1.4 Patched
+451-11 Hardware
+452-11.1 PCIe man-in-the-middle attack
+453-11.2 Syscon glitching
+454-11.3 Aeolia and Belize (Southbridge) SCA/DPA
+455-11.4 Arbitrary code execution in AMD SMU by incomplete hashing and bounds checking
+456-11.4.1 Credits
+457-11.4.2 Bug description
+458-11.4.3 Analysis
+459:11.4.4 Patched
+460-11.5 Untested - Arbitrary code execution in AMD SMU by custom firmware
+461-11.5.1 Credits
+462-11.5.2 Bug description
+463-11.5.3 Analysis
+464:11.5.4 Patched
+465-11.6 Untested - Arbitrary DRAM RW via kernel execution by spaghettifying DRAM on AMD Family 16h CPUs
+466-11.6.1 Credits
+467-11.6.2 Bug description
+468-11.6.3 Analysis
+469-11.6.4 Implementation
+470:11.6.5 Patched
+471-12 PlayStation Store
+472-12.1 PS Store leaks PS4 base package URLs
+473-Usermode Exploits (Game Savedata)[edit | edit source]
+474-PS1 games savedata exploits[edit | edit source]
+475-
+--
+517-Writeup part 3 by McCaulay (2023-02-17)
+518-Bug Description[edit | edit source]
+519-
+520:After getting code execution in a PS2onPS4 game using a savedata exploit, it is possible to exploit the PS2 emulator to get x86-64 usermode ROP execution. It is then possible, without a kernel exploit, to load another PS2 game in the emulator with a compatibility rate based on the PS2 emulator configuration.
+521-
+522-One can use the PS2emu sandbox escape to leverage the Lua 5.3 interpreter embedded in the main PS2emu executable. This Lua interpreter is originally intended for the PS2 Classics Configuration Files (Official). Lua scripting simplifies code writing and execution when reusing PS4/PS5 usermode ROP chains written in Lua scripts developed originally for PS4/PS5 game savedata Lua exploit. PS4/PS5 ROP execution via interpreted Lua script is maybe less efficient than compiled PS2 binaries.
+523-
+524-Implementation[edit | edit source]
+525-mast1c0re implementation by McCaulay (2023-02-18)
+526-mast1c0re chained with Luac0re by Gezine (2026-01-13)
+527:Patched[edit | edit source]
+528-
+529-No as of PS4 FW 13.50 and PS5 FW 13.20. Using the PS2onPS4 game Okage Shadow King, the exploit should work starting from PS4 FW 3.15 and PS5 FW 2.00.
+530-
+531-PS4/PS5 PS2emu JIT native execution - codename mast1c0re part 2[edit | edit source]
+532-Credits[edit | edit source]
+--
+544-
+545-Implementation[edit | edit source]
+546-mast1c0re chained with Luac0re and JIT exploit by Gezine (2026-03-14)
+547:Patched[edit | edit source]
+548-
+549-No as of PS4 FW 13.50 and PS5 FW 13.20. Using the PS2onPS4 game Star Wars: Racer Revenge, the exploit should work starting from PS4 FW 4.05 and PS5 FW 2.00.
+550-
+551-PS4/PS5 game savedata Lua exploit[edit | edit source]
+552-Credits[edit | edit source]
+553-Used by Flatz on 2023-07-27 in his Hypervisor exploit.
+554:Used by Flatz on 2024-09-14 in his implementation of the umtx UaF kernel exploit.
+555-Lua sandbox escape researchers notably Peter Cawley (corsix), erezto, Morgan Jones (numinit), Maxim Ivanov (ulidtko)
+556-Gezine, shahrilnet and null_ptr (n0llptr) for implementations of the Artemis engine PS4 games savedata Lua 5.1 exploit
+557-shuffle2 from fail0verflow for the Don't Starve PS4 savedata Lua 5.1.4 exploit released on 2026-03-15
+558-earthonion for improvements to the Don't Starve PS4/PS5 version 1.12 savedata Lua 5.1.4 exploit disclosed by fail0verflow
+559-Bug description[edit | edit source]
+--
+627-Lua 5.1.4 sandbox escape in Don't Starve PS4 by fail0verflow (2026-03-16)
+628-Lua 5.1.4 sandbox escape in Don't Starve PS4/PS5 version 1.12 by earthonion (2026-04-13)
+629-PS4 usermode ROP chain manager in Lua by flatz (2024-11-02)
+630:Patched[edit | edit source]
+631-
+632:No as of PS4 FW 13.04 and PS5 FW 12.70.
+633-
+634-PS4/PS5 game savedata Ren'Py exploit - codename YARPE[edit | edit source]
+635-Credits[edit | edit source]
+636-People who disclosed Ren'Py vulnerabilities on other platforms than PS4 and PS5, notably on PC
+637-Helloyunho, helped by DrYenyen and Gezine for implementing the first RenPy game savedata exploit for PS4 and PS5, named YARPE (Yet another Ren'Py PlayStation exploit) and disclosing it publicly (2025-11-02)
+--
+670-unrpa by Lattyware: a RPA archive unpacker
+671-rpatool by Shizmob: a RPA archive editor
+672-DokiDoki-RenPy by SecondThundeR: decompiled and formatted code of Doki-Doki Litterature Club
+673:Patched[edit | edit source]
+674-
+675-No as of PS4 FW 13.52 and PS5 FW 13.60.
+676-
+677-Usermode Exploits (Game Network)[edit | edit source]
+678-
+--
+685-Bigger kernel attack surface (more usermode privileges) versus WebKit being very restricted and becoming more and more with firmware revisions. For example, the BD-J process uses libkernel_sys, which supports nmount to mount system partitions, whilst neither libkernel_web nor regular libkernel do.
+686-100% reliable versus WebKit exploits becoming less and less stable with firmware revisions
+687-Firmware agnostic (ROP-less code execution) versus almost one WebKit revision every three firmware update
+688:JIT enabled in PS4 Java Virtual Machine (JVM) allowing to write a kernel exploit in C versus writing in assembly and JavaScript because JIT was disabled in the PS4 internet browser since around FW 2.00. However, JIT is not enabled in PS5 JVM whilst the PS2emu of some PS2onPS4 games can be exploited to get JIT native execution on PS4 and PS5.
+689:FW <= 13.00 - BD-JB-EX - Sandbox escape via injection in system_ex[edit | edit source]
+690-Credits[edit | edit source]
+691-CelesteBlue for proposing exploitation vector #3 (2025-11-23)
+692-15432 for proposing and implementing exploitation vector #1 (2026-02-20)
+693-Gezine for proposing and implementing exploitation vector #2 (2026-03-21)
+694-Analysis[edit | edit source]
+--
+704-
+705-There are many vectors to exploit these vulnerabilities:
+706-
+707:Inject a malicious 00000.jar to /system_ex/app/NPXS20113/bdjstack/lib/ext/. Thanks to this path, this .jar has AllGranted permissions. This vector, proposed by 15432 on 2026-02-20, has been tested on PS4 <=13.00 and is untested on PS5.
+708-Inject a vulnerable class into /system_ex/app/NPXS20113/bdjstack/bdjstack.jar for PS4 or /system_ex/app/NPXS40140/cdc/bdjstack.jar for PS5. This vector, proposed by Gezine on 2026-03-21, is implemented in BD-UN-JB for PS5 <=12.00 and untested on PS4.
+709-Replace /system_ex/app/NPXS20113/bdjstack/lib/security/java.security or other unsigned BD-J engine files to (re-)enable exploitable classes. This vector, proposed by CelesteBlue on 2025-11-23, is untested on both PS4 and PS5.
+710-
+711-The main difficulty in exploiting this vulnerability is that it requires filesystem access to a protected partition of the PS4 internal HDD. The decrypted system_ex partition is mounted as read-only whilst the encrypted system_ex partition is decryptable only with an inaccessible Key handled by AMD SAMU.
