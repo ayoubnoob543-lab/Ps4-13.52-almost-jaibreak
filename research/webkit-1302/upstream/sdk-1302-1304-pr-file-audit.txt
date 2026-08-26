@@ -1,0 +1,10 @@
+=== PR 6 commits ===
+47073d98c859ebd285525e0c2bc84b655da6bb50	2025-09-22T23:35:36Z	Add 12.52 and 13.00 support
+66d5a096e1c301c17b826f0759e6b843b881bcd2	2025-10-05T03:17:32Z	Add 13.02 support
+=== PR 6 files ===
+crt/kernel.c	modified	16	1	17	https://github.com/ps4-payload-dev/sdk/blob/66d5a096e1c301c17b826f0759e6b843b881bcd2/crt%2Fkernel.c	https://github.com/ps4-payload-dev/sdk/raw/66d5a096e1c301c17b826f0759e6b843b881bcd2/crt%2Fkernel.c
+=== PR 13 files ===
+crt/kernel.c	modified	2	1	3	https://github.com/ps4-payload-dev/sdk/blob/416f4f538f1a26fdea73034682c910a7b5adaf68/crt%2Fkernel.c	https://github.com/ps4-payload-dev/sdk/raw/416f4f538f1a26fdea73034682c910a7b5adaf68/crt%2Fkernel.c
+=== PR 15 files ===
+crt/kernel.c	modified	8	1	9	https://github.com/ps4-payload-dev/sdk/blob/e1da5eb6728cc63f3b9b5a743f494238bc58fe32/crt%2Fkernel.c	https://github.com/ps4-payload-dev/sdk/raw/e1da5eb6728cc63f3b9b5a743f494238bc58fe32/crt%2Fkernel.c
+crt/patch.c	modified	5	0	5	https://github.com/ps4-payload-dev/sdk/blob/e1da5eb6728cc63f3b9b5a743f494238bc58fe32/crt%2Fpatch.c	https://github.com/ps4-payload-dev/sdk/raw/e1da5eb6728cc63f3b9b5a743f494238bc58fe32/crt%2Fpatch.c

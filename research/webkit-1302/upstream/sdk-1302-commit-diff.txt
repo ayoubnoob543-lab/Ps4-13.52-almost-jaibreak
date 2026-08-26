@@ -1,0 +1,4 @@
+=== commit 66d5a09 diff ===
+crt/kernel.c	@@ -819,8 +819,15 @@ __kernel_init(void) {\n     KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5E0;\n     break;\n \n+  case 0x13020000:\n+    KERNEL_ADDRESS_IMAGE_BASE = lstar - 0x000001C0;\n+    KERNEL_ADDRESS_TARGETID   = KERNEL_ADDRESS_IMAGE_BASE + 0x021CC60D;\n+    KERNEL_ADDRESS_COPYIN     = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD6E0;\n+    KERNEL_ADDRESS_COPYOUT    = KERNEL_ADDRESS_IMAGE_BASE + 0x002BD5F0;\n+    break;\n+\n   default:\n-    if(fw < 0x13000000) {\n+    if(fw < 0x13020000) {\n       return -ENOSYS;\n     }\n
+=== commit metadata ===
+66d5a096e1c301c17b826f0759e6b843b881bcd2	2025-10-05T03:17:32Z	Add 13.02 support	https://github.com/ps4-payload-dev/sdk/commit/66d5a096e1c301c17b826f0759e6b843b881bcd2

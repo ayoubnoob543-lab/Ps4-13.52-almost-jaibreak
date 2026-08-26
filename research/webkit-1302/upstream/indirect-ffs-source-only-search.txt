@@ -1,0 +1,57 @@
+=== source/document matches (excluding audit outputs) ===
+[35manalysis/webkit_modules_1352_audit.txt[m[36m:[m[32m116[m[36m:[m/home/ubuntu/firmware-lab/README.md:31:- La auditoría completa de [`ntfargo/CSSFontFace-Exploit`][26] y [`ArabPixel/WebKitty`][27] aporta procedencia pública reproducible para ufm42/ntfargo/[1;31mDr.Yenyen[m/ArabPixel. Ambos repositorios distinguen el alcance declarado de la vulnerabilidad WebKit PS4 hasta 13.52 de la cadena pública realmente implementada y testeada, que permanece en 6.00–11.02 o 9.00–11.02. Los commits de WebKitty de agosto modifican cache, UI, navegación y rutas de payload, pero no contienen WebKit/libkernel_web/libc/kernel retail 13.52 ni una revisión de offsets 13.52. La afirmación pública de un workaround 13.52 queda `DOCUMENTATION/UNVERIFIED`, no `DIRECT_BYTES`.
+[35manalysis/webkit_modules_1352_audit.txt[m[36m:[m[32m1484[m[36m:[m/home/ubuntu/firmware-lab/analysis/webkit_modules_1352_audit.txt:116:/home/ubuntu/firmware-lab/README.md:31:- La auditoría completa de [`ntfargo/CSSFontFace-Exploit`][26] y [`ArabPixel/WebKitty`][27] aporta procedencia pública reproducible para ufm42/ntfargo/[1;31mDr.Yenyen[m/ArabPixel. Ambos repositorios distinguen el alcance declarado de la vulnerabilidad WebKit PS4 hasta 13.52 de la cadena pública realmente implementada y testeada, que permanece en 6.00–11.02 o 9.00–11.02. Los commits de WebKitty de agosto modifican cache, UI, navegación y rutas de payload, pero no contienen WebKit/libkernel_web/libc/kernel retail 13.52 ni una revisión de offsets 13.52. La afirmación pública de un workaround 13.52 queda `DOCUMENTATION/UNVERIFIED`, no `DIRECT_BYTES`.
+[35manalysis/webkit_modules_1352_audit.txt[m[36m:[m[32m2852[m[36m:[m/home/ubuntu/firmware-lab/analysis/webkit_modules_1352_audit.txt:1484:/home/ubuntu/firmware-lab/analysis/webkit_modules_1352_audit.txt:116:/home/ubuntu/firmware-lab/README.md:31:- La auditoría completa de [`ntfargo/CSSFontFace-Exploit`][26] y [`ArabPixel/WebKitty`][27] aporta procedencia pública reproducible para ufm42/ntfargo/[1;31mDr.Yenyen[m/ArabPixel. Ambos repositorios distinguen el alcance declarado de la vulnerabilidad WebKit PS4 hasta 13.52 de la cadena pública realmente implementada y testeada, que permanece en 6.00–11.02 o 9.00–11.02. Los commits de WebKitty de agosto modifican cache, UI, navegación y rutas de payload, pero no contienen WebKit/libkernel_web/libc/kernel retail 13.52 ni una revisión de offsets 13.52. La afirmación pública de un workaround 13.52 queda `DOCUMENTATION/UNVERIFIED`, no `DIRECT_BYTES`.
+[35manalysis/webkit_modules_1352_audit.txt[m[36m:[m[32m4220[m[36m:[m/home/ubuntu/firmware-lab/analysis/webkit_modules_1352_audit.txt:2852:/home/ubuntu/firmware-lab/analysis/webkit_modules_1352_audit.txt:1484:/home/ubuntu/firmware-lab/analysis/webkit_modules_1352_audit.txt:116:/home/ubuntu/firmware-lab/README.md:31:- La auditoría completa de [`ntfargo/CSSFontFace-Exploit`][26] y [`ArabPixel/WebKitty`][27] aporta procedencia pública reproducible para ufm42/ntfargo/[1;31mDr.Yenyen[m/ArabPixel. Ambos repositorios distinguen el alcance declarado de la vulnerabilidad WebKit PS4 hasta 13.52 de la cadena pública realmente implementada y testeada, que permanece en 6.00–11.02 o 9.00–11.02. Los commits de WebKitty de agosto modifican cache, UI, navegación y rutas de payload, pero no contienen WebKit/libkernel_web/libc/kernel retail 13.52 ni una revisión de offsets 13.52. La afirmación pública de un workaround 13.52 queda `DOCUMENTATION/UNVERIFIED`, no `DIRECT_BYTES`.
+[35mcve_analysis.md[m[36m:[m[32m150[m[36m:[m## [1;31mCelsius[m / ffs_mount — Integer Overflow 🔥 CONFIRMED
+[35mcve_analysis.md[m[36m:[m[32m153[m[36m:[m- **Component:** [1;31mffs_mountfs[m() in sys/ufs/ffs/ffs_vfsops.c
+[35mcve_analysis.md[m[36m:[m[32m154[m[36m:[m- **Discovered by:** [1;31mbollars[m (via kernel diffing)
+[35mcve_analysis.md[m[36m:[m[32m162[m[36m:[msize = fs->[1;31mfs_cssize[m;                          // from superblock (attacker controlled)
+[35mcve_analysis.md[m[36m:[m[32m163[m[36m:[mblks = howmany(size, fs->[1;31mfs_fsize[m);
+[35mcve_analysis.md[m[36m:[m[32m164[m[36m:[mif (fs->[1;31mfs_contigsumsize[m > 0)
+[35mcve_analysis.md[m[36m:[m[32m165[m[36m:[m    size += fs->[1;31mfs_ncg[m * sizeof(int32_t);      // INTEGER OVERFLOW HERE
+[35mcve_analysis.md[m[36m:[m[32m166[m[36m:[msize += fs->[1;31mfs_ncg[m * sizeof(u_int8_t);
+[35mcve_analysis.md[m[36m:[m[32m170[m[36m:[mif (fs->[1;31mfs_contigsumsize[m > 0) {
+[35mcve_analysis.md[m[36m:[m[32m172[m[36m:[m    for (i = 0; i < fs->[1;31mfs_ncg[m; i++)           // iterates [1;31mfs_ncg[m times
+[35mcve_analysis.md[m[36m:[m[32m173[m[36m:[m        *lp++ = fs->[1;31mfs_contigsumsize[m;           // HEAP OVERFLOW
+[35mcve_analysis.md[m[36m:[m[32m179[m[36m:[m1. Craft UFS image with malicious superblock ([1;31mfs_ncg[m = 0x40000001)
+[35mcve_analysis.md[m[36m:[m[32m194[m[36m:[m  [1;31mfs_ncg[m           (u_int32_t) — controls the overflow
+[35mcve_analysis.md[m[36m:[m[32m195[m[36m:[m  [1;31mfs_bsize[m         (int32_t)   — must pass validation checks
+[35mcve_analysis.md[m[36m:[m[32m196[m[36m:[m  [1;31mfs_fsize[m         (int32_t)   — must pass validation checks
+[35mcve_analysis.md[m[36m:[m[32m197[m[36m:[m  [1;31mfs_cssize[m        (int32_t)   — initial size value
+[35mcve_analysis.md[m[36m:[m[32m198[m[36m:[m  [1;31mfs_contigsumsize[m (int32_t)   — must be > 0 to trigger vulnerable path
+[35mgoldhen/README.md[m[36m:[m[32m111[m[36m:[m- [[1;31mPharaoh2k[m](https://github.com/[1;31mPharaoh2k[m)
+[35mjordy_stage2.js[m[36m:[m[32m235[m[36m:[m    // call mount → triggers [1;31mffs_mountfs[m → [1;31mCelsius[m
+[35mjordy_stage2.js[m[36m:[m[32m237[m[36m:[m    // === After kernel r/w via [1;31mCelsius[m: ===
+[35mwebkit-kit/runtime/UFM42_FONTFACE_DEEP_RESEARCH_SESSION59.md[m[36m:[m[32m5[m[36m:[mLos posts públicos de [1;31mDr.Yenyen[m dicen que ufm42 encontró un workaround para que el exploit FontFace funcionase en PS4 13.52 y mencionan ayuda de arabpixell con pruebas y offsets. Sin embargo, los enlaces asociados no conducen a un repositorio, commit, testcase o módulo legible de 13.52.
+[35mwebkit-kit/runtime/X_WORKAROUND_REPOSITORY_TRACE_SESSION58.md[m[36m:[m[32m7[m[36m:[mPost principal: https://x.com/i/status/2084636491628663088. [1;31mDr.Yenyen[m afirma el 4 de agosto de 2026 que el userland WebKit PS4 llega a 13.52 y que ufm42 encontró un workaround para que funcionase el exploit FontFace. También menciona ayuda de arabpixell con pruebas y offsets.
+[35mwebkit_gadgets_1304.js[m[36m:[m[32m27[m[36m:[m// [1;31mffs_mountfs[m string at 0x7d021f in BOTH ([1;31mCelsius[m NOT patched)
+[35mwebkit_gadgets_1304.js[m[36m:[m[32m31[m[36m:[m// CONFIRMED: [1;31mCelsius[m (ffs_mount) is present in 13.04 kernel
+=== all repository source paths with FFS/UFS terms ===
+[35mcve_analysis.md[m
+[35mjordy_stage2.js[m
+[35mresearch/webkit-1302/celsius-provenance-deep-dive.md[m
+[35mresearch/webkit-1302/celsius-vs-netctrl-1302.md[m
+[35mresearch/webkit-1302/kernel-candidates-1302-exhaustive.md[m
+[35mresearch/webkit-1302/kernel-rw-1302-investigation.md[m
+[35mresearch/webkit-1302/orbis-1302-artifacts-and-equivalence.md[m
+[35mresearch/webkit-1302/orbis-1302-kernel-artifact-search.md[m
+[35mresearch/webkit-1302/orbis-ffs-1302-evidence-audit.md[m
+[35mresearch/webkit-1302/source-notes.md[m
+[35mresearch/webkit-1302/upstream/adri-cve_analysis.md[m
+[35mresearch/webkit-1302/upstream/adri-source-1304-direct.txt[m
+[35mresearch/webkit-1302/upstream/ffs-orbis-reference-scan.txt[m
+[35mresearch/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt[m
+[35mresearch/webkit-1302/upstream/freebsd-9.1-ffs-relevant-lines.txt[m
+[35mresearch/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c[m
+[35mresearch/webkit-1302/upstream/github-commit-exact-search.txt[m
+[35mresearch/webkit-1302/upstream/github-exact-kernel-search.txt[m
+[35mresearch/webkit-1302/upstream/orbis-13xx-artifact-inventory-v2.txt[m
+[35mresearch/webkit-1302/upstream/orbis-ffs-claim-audit.txt[m
+[35mresearch/webkit-1302/upstream/pharaoh2k-lineage-search.txt[m
+[35mresearch/webkit-1302/upstream/psdevwiki-bugs-1302-extract.txt[m
+[35mresearch/webkit-1302/upstream/psdevwiki-candidate-headings-all.txt[m
+[35mresearch/webkit-1302/upstream/psdevwiki-celsius-fix-refs.txt[m
+[35mresearch/webkit-1302/upstream/psdevwiki-kernel-headings.txt[m
+[35mresearch/webkit-1302/upstream/psdevwiki-kernel-section-2259-2690.txt[m
+[35mwebkit_gadgets_1304.js[m
