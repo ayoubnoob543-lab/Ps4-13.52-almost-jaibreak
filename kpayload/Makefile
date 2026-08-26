@@ -10,9 +10,28 @@ TARGET  := $(shell basename $(CURDIR)).bin
 # Compiler flags
 OPTIMIZATION := -Os
 STANDARDS    := -std=gnu11 -fno-builtin -nostartfiles -nostdlib
-WARNINGS     := -Wall # -Wextra # -Werror
-ARCH_FLAGS   := -masm=intel -march=btver2 -mtune=btver2 -m64 -mabi=sysv -mcmodel=small -fpie
-CFLAGS       := -I$(IDIR) $(OPTIMIZATION) $(STANDARDS) $(WARNINGS) $(ARCH_FLAGS)
+WARNINGS     := -Wall -Wno-error=implicit-int -Wno-error=int-conversion -Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration # -Wextra # -Werror
+
+# PS4 payloads are x86_64 (BTVER2). Detect how to invoke the compiler:
+# 1) native x86_64 toolchain, or 2) clang-style driver with an explicit target.
+PROBE_SRC := int main(void){return 0;}
+X86_NATIVE := $(shell printf '$(PROBE_SRC)' | $(CC) -m64 -march=btver2 -mabi=sysv -mcmodel=small -x c -fsyntax-only - >/dev/null 2>&1 && echo yes)
+X86_CLANG  := $(shell printf '$(PROBE_SRC)' | $(CC) --target=x86_64-unknown-freebsd13.0 -fuse-ld=lld -m64 -march=btver2 -mabi=sysv -mcmodel=small -x c -fsyntax-only - >/dev/null 2>&1 && echo yes)
+ifneq ($(X86_NATIVE),yes)
+  ifneq ($(X86_CLANG),yes)
+    $(error no x86_64-capable compiler found for BTVER2 payload build)
+  endif
+  XARCH   := --target=x86_64-unknown-freebsd13.0 -fuse-ld=lld
+  # clang's integrated assembler rejects AT&T snippets under -masm=intel,
+  # and every inline asm site here is AT&T anyway; drop the flag in this mode.
+  MASMINTEL :=
+  OBJCOPY := $(if $(shell command -v llvm-objcopy >/dev/null 2>&1 && echo yes),llvm-objcopy,objcopy)
+else
+  XARCH :=
+  MASMINTEL := -masm=intel
+endif
+
+CFLAGS       := -I$(IDIR) $(OPTIMIZATION) $(STANDARDS) $(WARNINGS) $(MASMINTEL) -march=btver2 -mtune=btver2 -m64 -mabi=sysv -mcmodel=small -fpie $(XARCH)
 
 # Linker flags
 LFLAGS	:= -Xlinker -T ./linker.x -Xlinker -Map=$(MAPFILE) -Wl,--build-id=none
