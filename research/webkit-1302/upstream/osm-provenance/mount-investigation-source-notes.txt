@@ -125,3 +125,9 @@ ConsoleMods Scene History records historical kernel ELF loading and dumps but do
 ## LUA-Lapse source inspection
 
 The source tree of `egycnq/LUA-Lapse` includes kernel base discovery, `kernel.read_*`/`kernel.write_*`, `dump_kernel_elf`, process/ucred and root vnode manipulation, and a `FW_VERSION` path for 12.02. Its README claims tested support for 12.02, 11.00 and 9.00. The inspected source contains no `patch_mount`, `ffs_mountfs`, `ffs_reload`, `struct fs`, UFS strings, or Celsius code. It is a post-exploitation/dumping tool and can potentially produce a kernel ELF on supported systems, but no public 13.02 output is included. Classification: `VERIFIED` as a 12.02 dumper/tool; `UNVERIFIED` for 13.02; `INVALID` as indirect FFS/Celsius evidence.
+
+## Frame4 and exploit-chart cross-check
+
+DeathRGH/frame4: https://github.com/DeathRGH/frame4. README lists read/write kernel memory, kernel ELF loading, a patch called `Mount "/user" On Any Process`, and support for 5.05, 6.72, 7.02, 9.00, 11.00; 12.02 is explicitly marked `Not tested`. Credits mention OSM for a core-dump patch and RS Glitching for updating most 11.00 kernel addresses. The public source does not provide a 13.02 kernel artifact or identify its mount patch as FFS. Classification: `VERIFIED` for Frame4 features/12.02 not-tested status; `UNVERIFIED` for 13.02; `INVALID` as Celsius evidence.
+
+ConsoleMods Exploit Chart: https://consolemods.org/wiki/PS4:Exploit_Chart. The chart lists no public kernel exploit for 13.02–13.04 and does not provide a dump or FFS artifact. Classification: `SOURCE_ONLY` for scene-status summary; `INVALID` as direct 13.02 evidence.
