@@ -190,3 +190,7 @@ El tag sí incluye `scanner_1304.iso` y `hen.bin`; la caracterización de sus bl
 ## Inspección estática de `scanner_1304.iso`
 
 La imagen incluida en `v2.0` se identifica como filesystem UDF 1.5 con etiqueta `scanner_1304`. La búsqueda de strings no encuentra `stage2`, `jordy`, `ffs`, `ufs`, `Celsius`, `mount`, `kernel`, `sprx`, `dlsym`, `rop`, `1302` ni `1304` como material de código o documentación; el contenido visible está dominado por datos de fuentes/recursos. No hay indicios de SPRX, kernel dump, imagen UFS malformada, bootstrap Jordy o payload Celsius. Clasificación: tipo/contenido de imagen `VERIFIED`; relación con Celsius `INVALID/UNVERIFIED`.
+
+## Inspección estática de `hen.bin`
+
+`hen.bin` del tag `v2.0` mide 500736 bytes y tiene SHA-256 `f29bd1f0ac5cc1edef6ebccb735ef6c4dff702711cc3b9f465e66fd03dd707ce`. `file` lo identifica como DOS/COM y `readelf` confirma que no es ELF; los primeros bytes son código x86-64. Sus strings muestran componentes genéricos de HEN/kpayload (`kpayload_patches`, `kpayload_install_payload`, `libkernel_sys.sprx`, `sceKernelDlsym`, opciones de jailbreak, FTP y bloqueo de actualizaciones), pero no una implementación identificable de `ffs_mountfs`, UFS, Celsius, `jordy_stage2` o una primitive PS4 13.02/13.04. Es un payload/binario HEN, no un dump de kernel ni una prueba de Celsius. Clasificación: tipo/hash/contenido básico `VERIFIED`; relación con stage 2/Celsius `INVALID/UNVERIFIED`.

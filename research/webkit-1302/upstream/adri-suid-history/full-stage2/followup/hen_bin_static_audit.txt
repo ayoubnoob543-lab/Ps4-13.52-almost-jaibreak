@@ -1,0 +1,126 @@
+## metadata
+size=500736 bytes
+f29bd1f0ac5cc1edef6ebccb735ef6c4dff702711cc3b9f465e66fd03dd707ce  /tmp/hen_v20.bin
+/tmp/hen_v20.bin: DOS executable (COM), start instruction 0xe99e4900 00415741
+## ELF probe
+readelf: Error: Not an ELF file - it has the wrong magic bytes at the start
+## selected strings
+; stability after jailbreaking by ensuring the kernel is consistently patched
+; allow the system to properly handle encrypted executables and libraries.
+; Block console firmware updates by unmounting the `/update` partition.
+;   0x85 = Europe
+source/kpayloads.c
+kpayload_exploit_fixes
+kpayload_install_payload
+kpayload_patches
+libkernel_sys.sprx
+Hello from KPayload: %i
+Europe
+found data at 0x%lx 0x%lx chunk loc 0x%lx offset 0x%lx
+sceKernelUsleep
+sceKernelLoadStartModule
+sceKernelDlsym
+sceKernelGetModuleInfo
+sceKernelSendNotificationRequest
+libkernel.so
+offset: %lx
+found data at 0x%lx 0x%lx chunk loc 0x%lx offset 0x%lx
+sceKernelGetModuleInfoEx 0x%08x
+libkernel.prx
+libkernel
+sceKernelGetFsSandboxRandomWord
+sceKernelDlsym
+sceKernelGetModuleInfo
+sceKernelUsleep
+sceKernelLoadStartModule
+mono_class_get_property_from_name
+mono_property_get_get_method
+mono_property_get_set_method
+sceKernelStopUnloadModule
+sceKernelSendNotificationRequest
+libkernel.so
+InitProperty
+offset: %lx
+sceKernelLoadStartModuleInternalForMono
+found data at 0x%lx 0x%lx chunk loc 0x%lx offset 0x%lx
+(%s:%d) Property "%s" not found
+sceKernelLoadStartModuleInternalForMono_Hook
+(%s:%d) Property "%s" not found
+sceKernelGetModuleInfoEx 0x%08x
+Failed to find Instance property
+sceKernelGetHwSerialNumber
+sceKernelGetDebugMenuModeForRcmgr
+(%s:%d) Null class or property name
+sceKernelGetUtokenStoreModeForRcmgr
+    <setting_list id="payload_options" title="
+ Payload Options (Restart Required)" initial_focus_to="settings_exploit_fixes">
+      <toggle_switch id="mmap_patches" title="Enable memory mapping patches" description="Enable memory mapping patches for decrypting binary files.&#xa;These patches allow the system to properly handle encrypted executables and libraries." value="0"/>
+      <toggle_switch id="block_updates" title="Block firmware updates" description="Block console firmware updates by unmounting the `/update` partition.&#xa;This prevents accidental firmware updates that could patch the exploits." value="0" confirm="Are you sure you want to disable this setting? Disabling might lead to accidental updates." confirm_phrase="Yes,No" />
+      <list_item id="target_id_0x85" title="Europe" value="0x85"/>
+ HEN Settings Menu&#xa;FTP Server&#xa;Kernel Log Server&#xa;Plugins load for apps" confirm_phrase="Yes,No" value="0"/>
+libkernel.prx
+libkernel
+sceKernelSendNotificationRequest
+libkernel.so
+501 Usage: REST <OFFSET>
+libkernel.prx
+libkernel
+sceKernelSendNotificationRequest
+sceKernelLoadStartModule
+sceKernelDlsym
+sceKernelStopUnloadModule
+libkernel.so
+libkernel.prx
+libkernel
+sceKernelLoadStartModule
+sceKernelDlsym
+sceKernelStopUnloadModule
+sceKernelSendNotificationRequest
+libkernel.so
+libkernel.prx
+libkernel
+libkernel.sprx
+libkernel_web.sprx
+libkernel_sys.sprx
+sceKernelError
+sceKernelLoadStartModule
+sceKernelAllocateDirectMemory
+sceKernelMapDirectMemory
+sceKernelGetDirectMemorySize
+sceKernelStat
+sceKernelOpen
+sceKernelRead
+sceKernelLseek
+sceKernelClose
+sceKernelLwfsAllocateBlock
+sceKernelLwfsSetAttribute
+sceKernelLwfsTrimBlock
+sceKernelLwfsLseek
+sceKernelLwfsWrite
+sceKernelSleep
+sceKernelUsleep
+sceKernelGettimeofday
+sceKernelGetProcessTime
+sceKernelGetCurrentCpu
+sceKernelCreateEqueue
+sceKernelDeleteEqueue
+sceKernelAddUserEvent
+sceKernelAddReadEvent
+sceKernelSendNotificationRequest
+sceKernelGetFsSandboxRandomWord
+sceKernelGetSystemSwVersion
+sceKernelGetCpuTemperature
+sceKernelGetIdPs
+sceKernelGetOpenPsId
+sceKernelGetOpenPsIdForSystem
+source/payload_utils.c
+kpayload_no_bd
+kpayload_target_id
+kpayload_aslr
+kpayload_mmap
+kpayload_jailbreak
+## magic
+00000000: e99e 4900 0041 5741 5641 5541 5455 5348  ..I..AWAVAUATUSH
+00000010: 81ec 480e 0000 4885 f60f 94c0 4885 d249  ..H...H.....H..I
+00000020: 89d4 0f94 c208 d048 8d84 2410 0200 0048  .......H..$....H
+00000030: 8904 2475 0c48 85ff 4889 fb0f 8546 0100  ..$u.H..H....F..
