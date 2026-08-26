@@ -671,3 +671,8 @@ The `hejran7` audit identifies `pl_KernelClock.bin` as a DOS/COM-style payload (
 ## Kernel-dumper binary characterization
 
 Static characterization of the preserved `hejran7` payloads gives sizes of 13,184 bytes (`pl_KernelClock.bin`) and 17,832 bytes (`pl_KernelDumper.bin`). Both begin with x86-64 code-like prologues rather than a kernel-image/container header. Printable strings include `Kernel time changed!`, `PS4 Firmware %s`, `libkernel.sprx`, `libkernel_web.sprx`, `libkernel_sys.sprx`, `sysctl`, `sysctlbyname`, `sysarch`, `execve`, `sceKernelOpen`, `sceKernelRead`, `sceKernelLseek`, `sceKernelLoadStartModule`, memory APIs and libc symbols. Their size, code prologue and API strings are consistent with userland payloads/tools, not a raw Orbis kernel dump. No UFS/FFS/Celsius or 13.02 marker was found in the characterization.
+
+
+## Kernel patch consumer boundary in hejran7
+
+The reviewed `hejran7/host/src/ps4/kernel.js` explicitly comments `// intended for use only after kernel arw` immediately before `kernel_patches(shellcode)`. The function consumes an existing `kview` primitive to modify `sysent[661]`, map RWX JIT shared memory, copy shellcode and call `kexec`; the adjacent `jailbreak()` consumes kernel reads/writes to patch ucred, prison and root vnode. This proves the fork’s kernel.js is post-primitive infrastructure, not the vulnerability or stage that obtains kernel R/W. It has no Celsius/FFS path and does not bridge to PS4 13.02.
