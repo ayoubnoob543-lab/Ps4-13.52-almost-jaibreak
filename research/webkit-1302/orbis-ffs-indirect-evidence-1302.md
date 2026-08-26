@@ -276,3 +276,12 @@ El payload `ArabPixel/old-PSFree-Enhanced/payloads/Bins/Dumper/kerneldumper.bin`
 [34]: https://github.com/Scene-Collective/ps4-kernel-dumper "Scene-Collective PS4 Kernel Dumper"
 [35]: https://github.com/Scene-Collective/ps4-payload-repo "Scene-Collective payload repository"
 [36]: https://github.com/ArabPixel/old-PSFree-Enhanced "ArabPixel PSFree Enhanced"
+
+## 20. Identidad pública de `bollars`
+
+La búsqueda de GitHub identifica una cuenta pública `bollars` creada en 2013, con un único repositorio visible, `bollars/ddoslib`, creado en 2013 y actualizado por última vez en 2017. No contiene material PS4, kernel, FFS, UFS, offsets, Celsius ni herramientas de reverse engineering. No se localizaron gists públicos en esa cuenta ni eventos públicos actuales.
+
+La búsqueda web de `bollars` combinada con PS4/Celsius/`ffs_mountfs` sólo devuelve publicaciones secundarias de julio de 2026 que atribuyen Celsius a ese alias. No aparece una cuenta técnica primaria, repositorio, commit, dump, disassembly, captura de IDA/Ghidra o publicación del propio bollars. Esta ausencia no prueba que el alias de escena y la cuenta GitHub sean la misma persona, ni que no exista material privado; sólo limita la procedencia pública observable. Clasificación: identidad GitHub `VERIFIED`; conexión con Celsius `UNVERIFIED`; publicaciones secundarias `SOURCE_ONLY`.
+
+[37]: https://github.com/bollars "Public GitHub profile for bollars"
+[38]: https://github.com/bollars/ddoslib "Only visible repository under bollars"
