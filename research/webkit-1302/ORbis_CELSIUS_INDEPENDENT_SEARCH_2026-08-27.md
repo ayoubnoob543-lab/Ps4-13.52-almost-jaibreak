@@ -63,3 +63,7 @@ La revisión directa de `https://x.com/calmboy2019/status/2078549759460094065` c
 Imágenes referenciadas por X: `https://pbs.twimg.com/media/HNh9-w8WgAAmTFd?format=webp&name=medium`, `https://pbs.twimg.com/media/HNh9_EUWEAA3fwf?format=webp&name=medium` y `https://pbs.twimg.com/media/HNh9_YGWgAANBEm?format=webp&name=medium`. No se descargaron como artefactos ejecutables ni se trató su contenido como prueba binaria.
 
 Referencia: [Dr.Yenyen, post primario de Celsius, 18-07-2026](https://x.com/calmboy2019/status/2078549759460094065).
+
+## Búsqueda de aliases del autor técnico
+
+Las consultas públicas para `bollars PS4 exploit`, `bollars ffs_mount GitHub` y variantes ortográficas como `bollards Celsius PS4` no localizaron un perfil técnico, repositorio, gist, paste, dump o PoC atribuible directamente a bollars. Los resultados relevantes se reducen al repositorio del scanner —excluido de esta fase por estar agotado—, material histórico general de PS4 y resultados no relacionados. Clasificación: **búsqueda negativa**, sin artefacto independiente recuperado.

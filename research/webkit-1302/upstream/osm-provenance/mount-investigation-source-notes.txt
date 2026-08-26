@@ -867,3 +867,7 @@ The public provenance chain now has a clearer primary announcement: Dr.Yenyen's 
 ## Direct X primary-post visual audit
 
 The direct X page for Dr.Yenyen's July 18, 2026 Celsius announcement contains three attached images. The visible text asserts the name and range “Up to 13.04 PS4 and 12.70 PS5”; the attached images are declarative discussion screenshots and contain no source code, hash, download URL, UFS image, mount arguments, or kernel-R/W sequence. X replies inspected on the page likewise add no technical artifact. Classification: primary announcement **SOURCE_ONLY** for an unpublished PoC; no new reconstructive artifact.
+
+## Alias search for bollars
+
+Searches for `bollars`, `bollars ffs_mount`, and spelling variants did not locate a direct technical profile, repository, gist, paste, dump, or PoC. Relevant indexed hits were either the already-exhausted scanner or unrelated PS4 history. No independent artifact was added.
