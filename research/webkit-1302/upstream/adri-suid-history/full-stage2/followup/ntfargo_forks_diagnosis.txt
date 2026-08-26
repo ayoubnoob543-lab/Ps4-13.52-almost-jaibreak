@@ -1,0 +1,46 @@
+30885 research/webkit-1302/upstream/adri-suid-history/full-stage2/followup/ntfargo_forks.json
+[1;38m{[m
+[1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
+[1;34m"forks_count"[m[1;38m:[m 82[1;38m,[m
+[1;34m"full_name"[m[1;38m:[m [32m"ntfargo/CSSFontFace-Exploit"[m
+[1;38m}[m
+HTTP/2.0 200 OK
+[1;34mAccess-Control-Allow-Origin[m: *
+[1;34mAccess-Control-Expose-Headers[m: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset, Warning
+[1;34mCache-Control[m: private, max-age=60, s-maxage=60
+[1;34mContent-Security-Policy[m: default-src 'none'
+[1;34mContent-Type[m: application/json; charset=utf-8
+[1;34mDate[m: Wed, 26 Aug 2026 22:02:03 GMT
+[1;34mEtag[m: W/"c5ad067a73f538776db79f8486fcdfa05b7ec9b3d351f775c4e20960afefe23f"
+[1;34mGithub-Authentication-Token-Expiration[m: 2026-08-26 23:48:17 UTC
+[1;34mReferrer-Policy[m: origin-when-cross-origin, strict-origin-when-cross-origin
+[1;34mServer[m: github.com
+[1;34mStrict-Transport-Security[m: max-age=31536000; includeSubdomains; preload
+[1;34mVary[m: Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With
+[1;34mX-Accepted-Github-Permissions[m: metadata=read
+[1;34mX-Accepted-Oauth-Scopes[m: 
+[1;34mX-Content-Type-Options[m: nosniff
+[1;34mX-Frame-Options[m: deny
+[1;34mX-Github-Api-Version-Selected[m: 2022-11-28
+[1;34mX-Github-Edge-Region[m: iad
+[1;34mX-Github-Media-Type[m: github.v3; format=json
+[1;34mX-Github-Request-Id[m: AE3A:1DECF6:AB0940:237302D:6A8F625A
+[1;34mX-Oauth-Client-Id[m: Iv23liihDZ4fXkesFRWG
+[1;34mX-Oauth-Scopes[m: 
+[1;34mX-Ratelimit-Limit[m: 5000
+[1;34mX-Ratelimit-Remaining[m: 4996
+[1;34mX-Ratelimit-Reset[m: 1787782884
+[1;34mX-Ratelimit-Resource[m: core
+[1;34mX-Ratelimit-Used[m: 4
+[1;34mX-Xss-Protection[m: 0
+
+[1;37m[[m
+  [1;37m{[m
+    [1;34m"id"[m[1;37m:[m 1347831746[1;37m,[m
+    [1;34m"node_id"[m[1;37m:[m [32m"R_kgDOUFZHwg"[m[1;37m,[m
+    [1;34m"name"[m[1;37m:[m [32m"CSSFontFace-Exploit"[m[1;37m,[m
+    [1;34m"full_name"[m[1;37m:[m [32m"ayoubnoob543-lab/CSSFontFace-Exploit"[m[1;37m,[m
+    [1;34m"private"[m[1;37m:[m [33mfalse[m[1;37m,[m
+    [1;34m"owner"[m[1;37m:[m [1;37m{[m
+      [1;34m"login"[m[1;37m:[m [32m"ayoubnoob543-lab"[m[1;37m,[m
+      [1;34m"id"[m[1;37m:[m 242949387[1;37m,[m

@@ -1,0 +1,241 @@
+fork_count=80
+
+## ayoubnoob543-lab/CSSFontFace-Exploit branch=main updated=2026-08-26T22:01:55Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## Ahghahakahaj/CSSFontFace-Exploit branch=main updated=2026-08-23T19:21:29Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## freakycheesy/CSSFontFace-Exploit branch=main updated=2026-08-17T11:29:37Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## sammeyrea-byte/CSSFontFace-Exploit branch=main updated=2026-08-16T02:12:31Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## edai-git/CSSFontFace-Exploit branch=main updated=2026-08-15T08:28:38Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## max-solo23/CSSFontFace-Exploit branch=main updated=2026-08-12T19:41:55Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## Ahmedaelfatah/CSSFontFace-Exploit branch=main updated=2026-08-12T12:26:51Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## Adpocalyptic/CSSFontFace-Exploit branch=main updated=2026-08-09T22:44:05Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## thichditai/CSSFontFace-Exploit branch=main updated=2026-08-08T04:56:55Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## RutonC/CSSFontFace-Exploit branch=main updated=2026-08-08T01:59:32Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## drd4-q/CSSFontFace-Exploit branch=main updated=2026-08-05T17:17:15Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## tores-kun/CSSFontFace-Exploit branch=main updated=2026-08-05T16:51:43Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## rifkican/CSSFontFace-Exploit branch=main updated=2026-08-05T13:31:18Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## PhilKNV/CSSFontFace-Exploit branch=main updated=2026-08-05T09:35:30Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## hejran7/CSSFontFace-Exploit branch=main updated=2026-08-04T03:14:56Z
+paths=host/files/pl_KernelClock.bin; host/files/pl_KernelDumper.bin; host/src/lapse.js; host/src/netctrl.js; host/src/ps4/kernel.js
+
+## Deladrians/CSSExploit branch=main updated=2026-08-03T11:22:09Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## thevoid9x/CSSFontFace-Exploit branch=main updated=2026-08-02T19:51:56Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## lumenpearson/CSSFontFace-Exploit branch=main updated=2026-08-01T14:29:55Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## bosszlatan/CSSFontFace-Exploit branch=main updated=2026-07-31T20:05:22Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## novaxverse/CSSExploit branch=main updated=2026-08-10T23:46:12Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## neo305/css branch=main updated=2026-08-06T05:52:09Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## sc0ch/CSSFontFace-Exploit branch=main updated=2026-07-30T06:05:24Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## ddelvil/CSSFontFace-Exploit branch=main updated=2026-07-29T11:03:09Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## mxrc3l/CSSFontFace-Exploit branch=main updated=2026-07-29T05:50:16Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## Demondead/CSSFontFace-Exploit branch=main updated=2026-07-28T21:33:57Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## Zeoka/PS4 branch=main updated=2026-07-28T17:36:09Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## bucifal13/PS4WK branch=main updated=2026-07-28T12:54:38Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## zubans/CSSFontFace-Exploit branch=main updated=2026-07-28T12:47:53Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## temandroid/CSSFontFace-Exploit branch=main updated=2026-07-28T10:47:03Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## JoyRepair/Louai branch=main updated=2026-07-28T10:26:01Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## xB0unty911/CSSFontFace-Exploit branch=main updated=2026-07-28T09:52:25Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## tanosxx/CSSFontFace-Exploit branch=main updated=2026-07-28T09:48:51Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## angelzetaz/CSSFontFace-Exploit branch=main updated=2026-07-28T09:15:59Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## danrodev445/ps4 branch=main updated=2026-07-27T18:46:37Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## chatoo62025/CSSFontFace-Exploit branch=main updated=2026-07-29T04:59:01Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## NanospeedGamerYT/CSSExploit branch=main updated=2026-07-27T12:05:40Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## kamaeff/ps4-jb-webkit branch=main updated=2026-08-10T10:00:42Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## DestoryG/CSSFontFace-Exploit branch=main updated=2026-07-28T14:24:49Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## ayassins/CSSFontFace-Exploit-ntfargo branch=main updated=2026-07-27T07:04:51Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## pepemebe/cssfontface-exploit branch=main updated=2026-07-27T05:32:41Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## marwanpaplo/marwan branch=main updated=2026-07-27T03:40:54Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## mk990/CSSFontFace-Exploit branch=main updated=2026-08-03T06:33:22Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## diogoacavalcante/CSSFontFace-Exploit branch=main updated=2026-07-27T03:23:49Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## cnsllg/psx branch=main updated=2026-07-28T05:22:08Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## Kenanz46/Gold-Ken branch=main updated=2026-08-12T19:53:23Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## 0xdevamg/CSSFontFace-Exploit branch=main updated=2026-07-26T16:34:00Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## darvinrivera/CSSFontFace-Exploit branch=main updated=2026-07-26T16:11:20Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## FBobDev/CSSFontFace-Exploit branch=main updated=2026-07-26T15:33:49Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## dickymuliafiqri/CSSFontFace-Exploit branch=main updated=2026-08-03T15:12:35Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## ifixs/1102 branch=main updated=2026-07-26T14:49:53Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## alexdsgmoura/CSSFontFace-Exploit branch=main updated=2026-07-27T17:40:12Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## vratska/CSSFontFace-Exploit branch=teste updated=2026-07-27T22:22:17Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## GoldHen00/CSSFontFace-Exploit branch=main updated=2026-07-26T11:16:36Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## ngompoweredbypoi/fontfacevul branch=main updated=2026-07-28T03:24:27Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## teaparty-id/psx branch=main updated=2026-07-26T14:49:42Z
+tree_parse_error=Expecting value: line 1 column 1 (char 0)
+
+## sammdalal/CSSFontFace-Exploit branch=main updated=2026-07-26T06:56:17Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## anupamme/CSSFontFace-Exploit branch=main updated=2026-07-26T06:42:44Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## ignacio28/CSSFontFace-Exploit branch=main updated=2026-07-27T13:43:10Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## gmh5225/CSSFontFace-Exploit branch=main updated=2026-07-25T19:05:55Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## m2k7m/11 branch=main updated=2026-08-11T16:50:56Z
+paths=src/lapse.js; src/netctrl.js; src/ps4/kernel.js
+
+## djokcho/CSSFontFace-Exploit branch=main updated=2026-07-25T15:08:01Z
+paths=src/lapse.js; src/netctrl.js; src/ps4/kernel.js
+
+## ArabPixel/CSSFontFace-Exploit branch=main updated=2026-08-08T09:33:01Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## sndbemdbejs/CSSFontFace-Exploit branch=main updated=2026-07-13T18:22:43Z
+paths=public/src/ps4/offsets.mjs
+
+## nikhilash6/CSSFontFace-Exploit branch=main updated=2026-07-05T13:36:47Z
+paths=public/src/ps4/offsets.mjs
+
+## ps3120/CSSFontFace-Exploit branch=main updated=2026-07-26T22:13:00Z
+paths=public/src/ps4/lapse.mjs; public/src/ps4/lapse; public/src/ps4/lapse/ps4; public/src/ps4/lapse/ps4/1000.mjs; public/src/ps4/lapse/ps4/1050.mjs; public/src/ps4/lapse/ps4/1100.mjs; public/src/ps4/lapse/ps4/1102.mjs; public/src/ps4/lapse/ps4/700.mjs; public/src/ps4/lapse/ps4/750.mjs; public/src/ps4/lapse/ps4/751.mjs; public/src/ps4/lapse/ps4/800.mjs; public/src/ps4/lapse/ps4/850.mjs; public/src/ps4/lapse/ps4/852.mjs; public/src/ps4/lapse/ps4/900.mjs; public/src/ps4/lapse/ps4/903.mjs; public/src/ps4/lapse/ps4/950.mjs; public/src/ps4/module/offset.mjs; public/src/ps4/offsets.mjs
+
+## fcplaystation13-sys/CSSFontFace-Exploit branch=main updated=2026-06-28T08:23:13Z
+paths=public/src/ps4/offsets.mjs
+
+## kmeps4/CSSFontFace-Exploit branch=main updated=2026-07-26T15:53:09Z
+paths=public/src/ps4/offsets.mjs
+
+## mydg17/test branch=main updated=2026-06-27T11:46:11Z
+paths=public/src/ps4/offsets.mjs
+
+## chasewyrick/CSSFontFace-Exploit branch=main updated=2026-06-26T15:06:27Z
+paths=public/src/ps4/offsets.mjs
+
+## 0x1iii1ii/CSSFontFace-Exploit branch=main updated=2026-06-26T03:10:08Z
+paths=public/src/ps4/offsets.mjs
+
+## smamsoft/CSSFontFace-Exploit branch=main updated=2026-06-25T14:16:29Z
+paths=public/src/ps4/offsets.mjs
+
+## FrankTheTank908/cssfontface-exploit branch=main updated=2026-06-25T13:31:44Z
+paths=public/src/ps4/offsets.mjs
+
+## almhtar/CSSFontFace-Exploit branch=main updated=2026-06-25T12:56:40Z
+paths=public/src/ps4/offsets.mjs
+
+## jeremyaltom3-cloud/CSSFontFace-Exploit branch=main updated=2026-06-25T12:43:35Z
+paths=public/src/ps4/offsets.mjs
+
+## ali0ali0ali000/CSSFontFace-Exploit branch=main updated=2026-06-25T11:22:56Z
+paths=public/src/ps4/offsets.mjs
+
+## h5d7r/CSSFontFace-Exploit branch=main updated=2026-06-25T06:50:29Z
+paths=public/src/ps4/offsets.mjs
+
+## aydencharles/CSSFontFace-Exploit branch=main updated=2026-06-25T05:09:50Z
+paths=public/src/ps4/offsets.mjs
+
+## ayasns/CSSFontFace-Exploit branch=main updated=2026-07-27T07:06:22Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## Phoenixx1202/CSSFontFace-Exploit branch=main updated=2026-07-25T19:43:41Z
+paths=public/src/lapse.js; public/src/netctrl.js; public/src/ps4/kernel.js
+
+## Darkatek7/cssfontface-exploit branch=main updated=2026-06-24T20:03:27Z
+paths=public/src/ps4/offsets.mjs

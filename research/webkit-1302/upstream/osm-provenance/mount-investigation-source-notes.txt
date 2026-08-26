@@ -641,3 +641,13 @@ A fresh public search for `jordy_stage2.js`, `KernelView` + `ffs_mountfs` and `C
 The recovered file’s own control flow confirms its incompleteness. `stage2_init()` stores the candidate/view state and calls `stage2_run()`. The `setVector`/`read*`/`write*` helpers assume an already-controlled `m_vector`; they do not establish the underlying corruption primitive. `findWebkitBase()` reads `targetAddress` and then returns `0 // placeholder` because the JSUint8Array vtable offset is explicitly unknown. `findLibkernelBase()` similarly returns `0 // placeholder` and labels the GOT offset approximate. `buildRopChain()` writes gadget placeholders, leaves the dlsym string/address unresolved, and only comments the intended `mount → ffs_mountfs → Celsius` sequence. `executeRop()` logs the chain length and explicitly says `TODO: Implement execution pivot`. `stage2_run()` aborts and restores state when `webkit_base` is zero, which is the default behavior of the current file.
 
 Therefore the file is a design/specification scaffold around an assumed userland arbitrary R/W, not a completed full stage. Its mentions of Celsius/FFS are comments, not evidence that the route is implemented or tested.
+
+
+## Fork enumeration diagnosis
+
+The first `gh api --paginate ... -f per_page=100` invocation produced a non-JSON/empty capture for the parser, so its `JSON_ERROR` was a tooling issue, not evidence of zero forks. A direct API check returned HTTP 200, identifies `ntfargo/CSSFontFace-Exploit` with default branch `main`, and reports `forks_count: 82`. The response also shows this user’s `ayoubnoob543-lab/CSSFontFace-Exploit` fork among the results. Fork enumeration must therefore be rerun from the direct JSON response with explicit parsing; no conclusions about hidden stage2 copies should be drawn from the failed first parse.
+
+
+## ntfargo fork audit
+
+Using clean JSON from the GitHub REST API, 80 public forks of `ntfargo/CSSFontFace-Exploit` were enumerated and their default-branch trees inspected. Relevant forks expose the same historical paths (`public/src/lapse.js`, `public/src/netctrl.js`, `public/src/ps4/kernel.js`, or historical `public/src/ps4/lapse/...` and `offsets.mjs`). No fork tree revealed `jordy_stage2.js`, `stage2`, `Celsius`, `ffs_mountfs` or a dedicated UFS/FFS artifact. The fork network therefore confirms broad propagation of the historical PS4 chain, not a missing 13.02 extension. The raw earlier `ntfargo_forks.json` remains color-contaminated; `ntfargo_forks_clean.json` and `ntfargo_forks_tree_audit.txt` are the authoritative captures.
