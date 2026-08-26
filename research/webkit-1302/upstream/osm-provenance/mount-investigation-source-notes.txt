@@ -871,3 +871,7 @@ The direct X page for Dr.Yenyen's July 18, 2026 Celsius announcement contains th
 ## Alias search for bollars
 
 Searches for `bollars`, `bollars ffs_mount`, and spelling variants did not locate a direct technical profile, repository, gist, paste, dump, or PoC. Relevant indexed hits were either the already-exhausted scanner or unrelated PS4 history. No independent artifact was added.
+
+## Global commit search
+
+Global commit search for `ffs_mountfs` returned FreeBSD upstream history and numerous repository copies of those historical commits, not Orbis/Celsius code. Searches for `Celsius PS4` and `Jordy PS4 WebKit` produced no independent relevant commits. These results reinforce the need for a target-firmware kernel artifact but do not add one.

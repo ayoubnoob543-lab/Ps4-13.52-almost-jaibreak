@@ -67,3 +67,7 @@ Referencia: [Dr.Yenyen, post primario de Celsius, 18-07-2026](https://x.com/calm
 ## Búsqueda de aliases del autor técnico
 
 Las consultas públicas para `bollars PS4 exploit`, `bollars ffs_mount GitHub` y variantes ortográficas como `bollards Celsius PS4` no localizaron un perfil técnico, repositorio, gist, paste, dump o PoC atribuible directamente a bollars. Los resultados relevantes se reducen al repositorio del scanner —excluido de esta fase por estar agotado—, material histórico general de PS4 y resultados no relacionados. Clasificación: **búsqueda negativa**, sin artefacto independiente recuperado.
+
+## Búsqueda global de commits
+
+La búsqueda de commits para `ffs_mountfs` devuelve principalmente el historial de FreeBSD y repositorios que copian esos commits, por ejemplo cambios antiguos de locking o firmas de funciones. No aparece una implementación de Orbis, Celsius o una adaptación PS4. Las consultas `Celsius PS4` y `Jordy PS4 WebKit` no produjeron commits externos relevantes; las coincidencias útiles se limitaron al material ya conocido. No se consideraron los commits FreeBSD como evidencia de que Orbis conserve la misma ruta. Resultado: **sin artefacto nuevo**.

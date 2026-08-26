@@ -1,0 +1,106 @@
+
+===== ffs_mountfs =====
+heakyo/io-tracing	847c0703e0f7d1c0a32b29b7709fdaa3c5b6340b	MNT: add ffs_mountfs Signed-off-by: Marvin Ma <marvin.ma@dell.com>		2025-12-25T11:46:39Z
+bitrig/bitrig	58e670b37abba87eaa5a53c240bf881c1c963b4e	Adjust ffs_wapbl_start() call in ffs_mountfs() Move the call to ffs_wapbl_start() a bit further down in ffs_mountfs(), after um_savedmaxfilesize has been initialised. This is necessary because ffs_wapbl_start() triggers an update of the superblock through ffs_sbupdate() and if um_savedmaxfilesize isn't set at that point, the maxfilesize field in the superblock will be set to zero. OK marco@	martelletto	2013-10-02T09:20:00+02:00
+xjhsxjh/freebsd-rpi4-boot	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+vwdy/FreeBSD-base	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+reversed-R/freebsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+aminbaik88/FreeBSD-src	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+jamesmintram/fbsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+freebsd/wireless	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+rifkadroid/src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+pfsense/FreeBSD-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+nohajc/freebsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+emgullufsen/freebsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+strejda/drmlib	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+verisign/freebsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+iposupinternb1/FreeBSD-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+softshield01/src-new	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+kongkonga/freebsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+rwatson/mbufs	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+leaf-dev/leaf-core	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+linnemannr/dpc	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+yizishun/freebsd-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+bu7cher/FreeBSD	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+MPTCP-FreeBSD/FB13.1-ML-MPTCP-SRC	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+evadot/freebsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+h5law/FreeBSD-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+rcslab/freebsd-skq	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+rcslab/freebsd-skq	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+bzfbd/vendor-import	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+DynFi/FreeBSD-base	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+dankamongmen/freebsd-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+HardenedBSD/hbsdfw-src-mirror	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+yash22091/FreeBSD-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+obiwac/freebsd-s0ix	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+NexBSD/NextBSD	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+yoshipaulbrophy/FreeBSD-src	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+johankj/ShillBSD	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+xohjg/Bmg	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+spockemon/shadow	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+vidllzilla/Unuxbsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+verita-fw/src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+crystax/android-vendor-freebsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+blindedcapabilities/blinded-cheribsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+blindedcapabilities/blinded-cheribsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+ghostbsd/ghostbsd-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+ghostbsd/ghostbsd-src	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+hidenwalker/opnsense	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+pcbsd/NextBSD	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+trueos/trueos	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+jcharbon/freebsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+zabcom/vps_zabcom	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+FreeBSDDesktop/DEPRECATED-freebsd-base-graphics	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+christian-moerz/freebsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+grimreaper/dragonflybsd	2aa32050e970a47e9e64c3dca4b9b81279460964	Remove the thread argument from ffs_flushfiles(), ffs_mountfs(), softdep_flushfiles(), ffs_reload(), ufs_quotaon(), and ufs_quotaoff().		2006-05-06T16:20:19Z
+hwasly/src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+LoongBSD/freebsd-src-la	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+verifw-11-09/src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+Sneferu/AtumOS-BSD	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+manta-os/freebsd-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+reticant/src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+iposup-a3/SOURCE	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+LClouds516/FreeBSD-src	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+Henryshsieh/freebsd-src-test	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+bzfbd/fbdz	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+mihaicarabas/dragonfly	2aa32050e970a47e9e64c3dca4b9b81279460964	Remove the thread argument from ffs_flushfiles(), ffs_mountfs(), softdep_flushfiles(), ffs_reload(), ufs_quotaon(), and ufs_quotaoff().		2006-05-06T16:20:19Z
+HarvardPL/ShillBSD	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+Cambridge-AdvancedOS/l41-freebsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+DeepCoreDK/FreeBSD	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+zatkh/cheribsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+iposupinternb3/FreebsdsrcJACOSShield	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+SalviaBSD/salviabsd-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+Krush206/freebsd-src	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+wheelcomplex/freebsd-arm64	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+iposupinternb2/FreeBSD-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+veliaD/NVMr	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+jeremie1112/Veezowall-FreeBSD-src	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+yourkarma6788/freebsd	44e9526836bf998379a25db62be9521d31a3e2a1	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+markjdb/freebsd-shared	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+sevki/ufs2	f622fff296b83cf6547ab8370a8aec389adb79cc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+Gebiax/Unuix	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+totosafa/FreeBSD-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+totosafa/FreeBSD-src	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+bnovkov/freebsd-kproc	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+hselasky/usb4	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+ravidarbha/virtfs_client	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+himanshuchoudhary/freebsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+thesjg/dflygsocdrm	2aa32050e970a47e9e64c3dca4b9b81279460964	Remove the thread argument from ffs_flushfiles(), ffs_mountfs(), softdep_flushfiles(), ffs_reload(), ufs_quotaon(), and ufs_quotaoff().		2006-05-06T16:20:19Z
+inobulles/aquabsd-core	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+bhimanshu1997/freebsd12	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+wipbsd/wipbsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+iposup-intern-a1/FreeBSD-src-JACOSShield	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+qinwang/freebsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+RoundofThree/cheribsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+RoundofThree/cheribsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+rems-project/freebsd-src	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+FreeBSDonHyper-V/freebsd-snapshot_obsolete	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+RoundofThree/freebsd	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+yoshipaulbrophy/cheribsd	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+markjdb/freebsd-dev	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+opntr/opBSD-ng	5bf363454e7e3df02636b0ab1023fafd9fb38236	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+SFXMM/Xidllrwin	16337c2efb980cca04ad1df1a95750a5961a95fc	Fixed missing simple_lock() in ffs_mountfs().		1998-03-07T14:59:44Z
+
+===== Celsius PS4 =====
+
+===== Jordy PS4 WebKit =====
