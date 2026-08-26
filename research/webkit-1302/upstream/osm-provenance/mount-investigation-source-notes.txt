@@ -971,3 +971,7 @@ The `release` branch contains extensive AIO/Netctrl code with kernel address lea
 ## Search of announcement phrases and 250GB requirement
 
 Searches found no new Celsius artifact. The only specific 250GB result was Sony's official PS4 external-storage documentation stating a general 250GB minimum for the device. This does not prove a 250GB Celsius image or link the requirement to `ffs_mountfs`; other results were generic/irrelevant.
+
+## vue-after-free `ts-new` branch
+
+`ts-new` retains `netctrl_c0w_twins.ts` and explicitly checks PS4 firmware range 9.00–13.00, aborting above 13.00. After acquiring slow R/W it calls `jailbreak_shared`, derives the kernel base via KL_LOCK, and exports `kernel.read_buffer`/`kernel.write_buffer`. Verified historical Netctrl scope/code; invalid as Celsius 13.02 closure.

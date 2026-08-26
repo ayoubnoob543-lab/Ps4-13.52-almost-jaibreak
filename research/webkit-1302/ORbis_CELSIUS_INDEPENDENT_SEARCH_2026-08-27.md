@@ -195,3 +195,7 @@ La rama `release` contiene una implementación extensa de AIO/Netctrl con funcio
 ## Búsqueda de frases del anuncio y requisito de 250 GB
 
 Las búsquedas de `PS4 Celsius 13.04 extended storage UFS`, `PS4 ffs_mountfs 13.04 bollars` y `PS4 Jordy UFS image 250GB` no localizaron un artefacto técnico adicional. El único resultado específico de 250 GB fue la documentación oficial de Sony sobre almacenamiento externo de PS4, donde 250 GB es el mínimo general del dispositivo. Esto no demuestra que Celsius use una imagen de 250 GB ni conecta el requisito con `ffs_mountfs`. Los demás resultados fueron páginas generales o irrelevantes. Clasificación: **sin nueva fuente Celsius**; requisito de 250 GB sólo **contexto oficial general de PS4**.
+
+## Rama `ts-new` de `vue-after-free`
+
+La rama `ts-new` conserva `netctrl_c0w_twins.ts` y una implementación explícita de Netctrl que comprueba `FW_VERSION` en el rango 9.00–13.00 y aborta por encima de 13.00. Tras la adquisición de la primitive lenta, llama a `jailbreak_shared`, calcula la base mediante `KL_LOCK` y exporta `kernel.read_buffer`/`kernel.write_buffer`. Esto demuestra una cadena histórica de Netctrl con límite declarado 13.00; no aporta Celsius, UFS, FFS, `ffs_mountfs`, Jordy ni un bootstrap 13.02/13.04. Clasificación: **VERIFIED** como límite y código histórico Netctrl; **INVALID** como cierre Celsius 13.02.
