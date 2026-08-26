@@ -249,3 +249,7 @@ Las consultas exactas `"ffs_mountfs" "Orbis" PS4`, `"0x001512A7" PS4` y `"Orbis"
 ## Estado de fase: búsqueda exacta sin artefacto nuevo
 
 Tras auditar los loaders de kernel, sus forks, GhidraOrbis y sus forks, las ramas históricas de `vue-after-free`, el derivado `claimore22` y las consultas exactas de `ffs_mountfs`/`0x001512A7`, no se ha localizado un dump o proyecto RE Orbis 13.02/13.04. El inventario negativo sólo cubre artefactos públicos indexados y refs accesibles; no permite concluir que una copia privada, no indexada o retirada no exista. La mejor evidencia pública nueva sigue siendo indirecta: `mkufs2` para modelado UFS y las cadenas NetCtrl para el patrón de R/W posterior a una corrupción distinta.
+
+## Consulta combinada Celsius/Jordy/FFS
+
+La consulta exacta combinando `Celsius`, `Jordy` y `ffs_mountfs` sólo devolvió referencias secundarias de foros/redes sociales y las páginas del scanner ya excluido. No apareció un repositorio original, dump, imagen UFS, bootstrap o proyecto RE independiente. El resultado se conserva como negativo de indexación pública; no se usa para negar la existencia de material privado o retirado.
