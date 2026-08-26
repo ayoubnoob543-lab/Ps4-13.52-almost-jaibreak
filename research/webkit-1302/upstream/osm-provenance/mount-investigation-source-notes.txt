@@ -947,3 +947,7 @@ Historical refs retain `kernel.ts`, `lapse.ts`, `loader.ts`, `netctrl_c0w_twins.
 ## Historical `netctrl_c0w` artifact
 
 The public `netctrl_c0w` branch contains `src/netctrl_c0w.js` and `src/netctrl_c0w_twins.js`. Static analysis shows a ucred triple-free/IPv6 socket chain that obtains filedesc/filedescent/pipe/pipebuf addresses, derives the kernel base through KL_LOCK, and exports `kernel.read_buffer`/`kernel.write_buffer`, with explicit `kread64`/`kwrite64`, `allproc`, `ucred`, `rootvnode`, and `sysent` use. This is verified historical Netctrl/IPv6 kernel R/W code, not Celsius or FFS. It is an architectural reference for the missing post-corruption bridge and remains unverified for 13.02 as a substitute.
+
+## netctrl_c0w temporal provenance
+
+The mirror API dates `netctrl_c0w` construction to January 3-5, 2026, with commits named `lapse kext complete`, `fix fw 12.xx error`, `found twins!`, `add missing mmap patches offsets`, `fix lapse with new BigInt class`, and `add binloader_lapse.js`. Its history contains no Celsius, `ffs_mountfs`, UFS or mount references. The R/W code is an independent historical Netctrl/Lapse line, useful architecturally but not a hidden Celsius PoC.
