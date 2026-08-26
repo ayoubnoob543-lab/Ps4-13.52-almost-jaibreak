@@ -83,3 +83,11 @@ Scene-Collective/ps4-payload-repo: https://github.com/Scene-Collective/ps4-paylo
 Reddit discussion https://www.reddit.com/r/PS4Mods/comments/1tvjftl/is_there_a_kernel_dumper_for_1300/ contains ArabPixel's statement that Scene-Collective's dumper can be compiled and PSFree Enhanced has updated payloads. It contains no dump or technical output. Classification: `SOURCE_ONLY`.
 Searches for GitHub repository variants of PS4 kernel dumper 13.02/13.04 and `kernel.bin` found no additional Orbis 13.02 artifact. Old dumper pages (TeamFAPS, PSXHAX, etc.) concern earlier firmwares.
 Upstream SDK tag v0.4 (`ps4-payload-dev/sdk`, commit b1c7cbfc926a7e051507194445c3c07fcd5c343e) includes the ArabPixel-authored `546bb1c` 13.02 support in its history and the generic kdump/pattern-scan tooling, but no complete 13.02 offset table or FFS/Celsius artifact. This establishes later upstream adoption of initialization/tooling, not the material origin of Fusion's 13.02 table.
+
+## Additional scene references
+
+PS4Linux forum thread https://ps4linux.com/forums/d/206-offsets-for-kernels-above-900 (May 2024) discusses how to obtain offsets above 9.00. The only links supplied are Nazky offsets through 9.00 and TheOfficialFloW PPPwn offsets/source. No 13.02 dump, FFS symbol, `patch_mount`, or Celsius artifact appears. Classification: `SOURCE_ONLY` for community context; `INVALID` as 13.02 evidence.
+
+ConsoleMods OpenOrbis SDK page https://consolemods.org/wiki/PS4:OpenOrbis_SDK (last edited Jan 2025) describes Mira's experimental system-level FUSE, mounting/decrypting gamesaves, and the open-source toolchain. It documents project capabilities but no 13.02 offsets, Orbis kernel bytes, or Celsius/FFS analysis. Classification: `VERIFIED` for project description; `INVALID` as 13.02 FFS evidence.
+
+The direct OpenOrbis README similarly describes experimental FUSE and mounting/decrypting gamesaves. This is context consistent with Fusion's generic mount patch, not proof of `ffs_mountfs`.
