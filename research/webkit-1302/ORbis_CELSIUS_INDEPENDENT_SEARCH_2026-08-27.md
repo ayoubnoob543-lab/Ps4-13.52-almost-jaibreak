@@ -113,3 +113,13 @@ El archivo `src/download0/kernel.ts` se identifica como **“PS4 Kernel Offsets 
 El archivo `src/download0/lapse.ts` contiene implementaciones de Lapse, filtrado de direcciones mediante AIO y una primitive IPv6 auxiliar. La auxiliar `ipv6_kernel_rw` exige como entradas `ofiles`, `kread8` y `kwrite8` ya existentes; por tanto, no origina por sí misma la primitive y no conecta con Celsius. El código contiene nombres `ucred`, `rootvnode`, `sysent`, `SO_PCB` e `INPCB_PKTOPTS`, pero todos pertenecen a cadenas históricas Lapse/Netctrl/IPv6, no al montaje UFS.
 
 Clasificación: **VERIFIED** como artefacto público del mirror y como evidencia de que Vue 13.02/13.04 no equivale a kernel R/W; **INVALID** como implementación Celsius. SHA-256 de los WebP del anuncio primario se conserva por separado; no se descargaron blobs binarios del repositorio completo debido al timeout del clone, y la inspección se realizó mediante API/raw files públicos.
+
+## Artefacto candidato de imagen: `earthonion/mkufs2`
+
+El mirror `https://git.etawen.dev/earthonion/mkufs2` contiene sólo `mkufs2.sh` y `README.md`, con 8 commits, 2 ramas y ningún tag visible. El README describe explícitamente el procedimiento para crear una imagen UFS2 “mountable by PS5/PS4” desde un directorio mediante FreeBSD. El script crea un archivo disperso/zero-filled, usa `mdconfig`, ejecuta `newfs -O 2 -b 32768 -f 4096`, monta el dispositivo, copia el contenido y desmonta la imagen.
+
+Hashes del estado auditado: `mkufs2.sh` SHA-256 `ba00e63f7f286925641070b5cd214dd05a48262951499c824b87ccb418399d64`; `README.md` SHA-256 `880c874bfdaa6db4d33bd0993bf047c696959029e966d012ad35f32db41d8242`. Primer commit del script: `ae8cd6b293c27d0cfa8e357547fdf657f5f0f26a` (2026-02-02 23:15:31 -05:00). Último commit auditado: `b3b5637c8f36c8076aef3dba7a7f3610d88df040` (2026-02-06 23:59:22 -05:00).
+
+El script calcula `OVERHEAD=20%`, pero el valor no se suma a `TOTAL`; por tanto, la receta es una herramienta simple de construcción y no una prueba de que reproduzca la imagen usada por Celsius. No incluye nombre Celsius, `ffs_mountfs`, campos de superbloque manipulados, dispositivo original, tamaño de 250/320/500 GB, hash de imagen ni parámetros de corrupción. Aporta una **pieza parcial**: permite modelar una imagen UFS2 candidata offline. Clasificación: **VERIFIED** como receta pública de UFS2 PS4/PS5; **SOURCE_ONLY / HYPOTHESIS** como posible relación con Celsius; **NO EVIDENCIA** de que sea la imagen original.
+
+Fuente: [earthonion/mkufs2](https://git.etawen.dev/earthonion/mkufs2).

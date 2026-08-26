@@ -1,0 +1,73 @@
+## files
+./README.md
+./mkufs2.sh
+## script
+#!/bin/sh
+# Create a PS4/PS5-compatible UFS2 image from a directory
+# Usage: mkufs2.sh <input_dir> [output_file]
+
+set -e
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <input_dir> [output_file]"
+    exit 1
+fi
+
+INPUT_DIR="$1"
+OUTPUT="${2:-download0.dat}"
+
+# Calculate required size (dir size + 20% overhead + 10MB slack)
+BYTES=$(du -s -k "$INPUT_DIR" | awk '{print $1 * 1024}')
+OVERHEAD=$((BYTES / 5))                 # 20%
+SLACK=$((10 * 1024 * 1024))             # 10MB
+TOTAL=$((BYTES + SLACK))
+
+# Round up to nearest MB
+MB=$(( (TOTAL + 1024*1024 - 1) / (1024*1024) ))
+
+echo "Input size: $BYTES bytes"
+echo "Image size: ${MB}MB"
+
+dd if=/dev/zero of="$OUTPUT" bs=1M count=$MB status=progress
+
+MD=$(mdconfig -a -t vnode -f "$(realpath "$OUTPUT")")
+newfs -O 2 -b 32768 -f 4096 /dev/${MD}
+
+mkdir -p /mnt
+mount /dev/${MD} /mnt
+
+# Copy contents safely (includes hidden files)
+tar -C "$INPUT_DIR" -cf - . | tar -C /mnt -xpf -
+
+chmod -R 777 /mnt/*
+
+umount /mnt
+mdconfig -d -u ${MD}
+
+echo "Created $OUTPUT"
+## matches
+mkufs2.sh:2:# Create a PS4/PS5-compatible UFS2 image from a directory
+mkufs2.sh:3:# Usage: mkufs2.sh <input_dir> [output_file]
+mkufs2.sh:15:# Calculate required size (dir size + 20% overhead + 10MB slack)
+mkufs2.sh:24:echo "Input size: $BYTES bytes"
+mkufs2.sh:25:echo "Image size: ${MB}MB"
+mkufs2.sh:30:newfs -O 2 -b 32768 -f 4096 /dev/${MD}
+mkufs2.sh:33:mount /dev/${MD} /mnt
+mkufs2.sh:40:umount /mnt
+README.md:1:# make ufs image
+README.md:3:This is how you can set up the environment to make a ufs image mountable by PS5/PS4 . There may be other methods but this is how ive done it.
+README.md:11:- `git clone https://github.com/earthonion/mkufs2/`
+README.md:12:- `chmod +x mkufs2.sh`
+README.md:13:- `./mkufs2.sh <input_dir> [output_file]` 
+## hashes
+ba00e63f7f286925641070b5cd214dd05a48262951499c824b87ccb418399d64  mkufs2.sh
+880c874bfdaa6db4d33bd0993bf047c696959029e966d012ad35f32db41d8242  README.md
+## history
+b3b5637c8f36c8076aef3dba7a7f3610d88df040 2026-02-06T23:59:22-05:00 Uncomment overhead calculation for size estimation
+8442b2a8c8d582f8153a67fec6f7d90399ced21e 2026-02-06T23:39:18-05:00 Remove overhead from size calculation
+87c6a9c02d082afa103f5d9f45bf5d0c92b2bdb9 2026-02-03T09:49:40-05:00 Merge pull request #1 from earthonion/copilot/add-test-workflow-for-mkufs2
+8358e8cd036bb327bab0cd6a86d8bbaa4fc3d037 2026-02-03T14:49:08+00:00 Initial plan
+e23e24895daf914a682e7b3b14ce3c1a9e400091 2026-02-03T09:24:26-05:00 Update mkufs2.sh
+a11d484d3fd8295a1c1cae9b734a168d0a105fd0 2026-02-02T23:23:25-05:00 Update README to clarify ufs image setup for PS5/PS4
+8e84114e26082597512f5c23c8b26b724e0dd3d9 2026-02-02T23:22:47-05:00 Add setup instructions for UFS image creation
+ae8cd6b293c27d0cfa8e357547fdf657f5f0f26a 2026-02-02T23:15:31-05:00 Add mkufs2.sh for creating UFS2 images

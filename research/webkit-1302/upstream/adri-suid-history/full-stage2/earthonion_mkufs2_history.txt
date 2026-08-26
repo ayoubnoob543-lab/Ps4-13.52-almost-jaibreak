@@ -1,0 +1,8 @@
+b3b5637c8f36c8076aef3dba7a7f3610d88df040 2026-02-06T23:59:22-05:00 Uncomment overhead calculation for size estimation
+8442b2a8c8d582f8153a67fec6f7d90399ced21e 2026-02-06T23:39:18-05:00 Remove overhead from size calculation
+87c6a9c02d082afa103f5d9f45bf5d0c92b2bdb9 2026-02-03T09:49:40-05:00 Merge pull request #1 from earthonion/copilot/add-test-workflow-for-mkufs2
+8358e8cd036bb327bab0cd6a86d8bbaa4fc3d037 2026-02-03T14:49:08+00:00 Initial plan
+e23e24895daf914a682e7b3b14ce3c1a9e400091 2026-02-03T09:24:26-05:00 Update mkufs2.sh
+a11d484d3fd8295a1c1cae9b734a168d0a105fd0 2026-02-02T23:23:25-05:00 Update README to clarify ufs image setup for PS5/PS4
+8e84114e26082597512f5c23c8b26b724e0dd3d9 2026-02-02T23:22:47-05:00 Add setup instructions for UFS image creation
+ae8cd6b293c27d0cfa8e357547fdf657f5f0f26a 2026-02-02T23:15:31-05:00 Add mkufs2.sh for creating UFS2 images
