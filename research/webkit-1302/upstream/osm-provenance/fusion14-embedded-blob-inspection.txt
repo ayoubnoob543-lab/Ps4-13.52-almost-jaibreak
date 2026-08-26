@@ -1,0 +1,8 @@
+file_size 214672
+sha256 aff12b6cddc352e598ea263e1f901cdc525da5e9c0b53467bf5768ec58032af4
+zlib_stream 0x5c70 compressed_available 191008 decompressed_size 34672 decompressed_sha256 a87a778065820f9dd5c7f480ffa38df4365b845784c011d59f38bdc663e01906 prefix 7f454c46020101000000000000000000
+classification decompressed output begins ELF
+string Kernel.elf 0xa225
+string Installing Kernel ELF 0x974a
+string Failed to decompress Kernel.elf 0xa210
+string ELFBase 0xa1ef
