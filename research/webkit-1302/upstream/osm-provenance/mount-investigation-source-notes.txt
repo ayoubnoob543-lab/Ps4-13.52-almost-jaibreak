@@ -676,3 +676,8 @@ Static characterization of the preserved `hejran7` payloads gives sizes of 13,18
 ## Kernel patch consumer boundary in hejran7
 
 The reviewed `hejran7/host/src/ps4/kernel.js` explicitly comments `// intended for use only after kernel arw` immediately before `kernel_patches(shellcode)`. The function consumes an existing `kview` primitive to modify `sysent[661]`, map RWX JIT shared memory, copy shellcode and call `kexec`; the adjacent `jailbreak()` consumes kernel reads/writes to patch ucred, prison and root vnode. This proves the fork’s kernel.js is post-primitive infrastructure, not the vulnerability or stage that obtains kernel R/W. It has no Celsius/FFS path and does not bridge to PS4 13.02.
+
+
+## hejran7 payload menu references
+
+`host/files/js/menu.js` labels `pl_KernelDumper.bin` as `Kernel Dumper`, `pl_ModuleDumper.bin` as `Kernel Madule Dumper` and `pl_KernelClock.bin` as a separate kernel-clock payload. The files are selected as payload entries in a menu alongside game/app dumper binaries. This confirms their role as payload/tool artifacts; no code path ties them to Jordy, Celsius, UFS/FFS or acquisition of the initial kernel R/W primitive.
