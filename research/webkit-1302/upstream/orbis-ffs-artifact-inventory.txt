@@ -1,0 +1,502 @@
+=== tracked candidates ===
+1352_offsets.txt
+PS4_1352_PUP_MODULE_ACCESS_STATUS_2026-08-20.md
+PS4_1352_PUP_STATIC_ANALYSIS_2026-08-20.md
+PS4_1352_PUP_STATIC_METADATA_2026-08-20.json
+analysis/libkernel_1352_corroboration.json
+analysis/mast1c0re_1352_offset_corroboration_2026-08-24.json
+analysis/offset_evidence_map.md
+analysis/ps4_kern_dump_source_summary.txt
+analysis/pup_13.52_manifest.json
+analysis/pup_reconstruction_verification_2026-08-24.json
+analysis/scanner_offsets_output.txt
+analysis/sources/psdevwiki/PUP_format_snapshot.md
+analysis/sources/psdevwiki/pup_object_prosperity.cpp
+analysis/sources/unpup4.log1
+analysis/verify_offsets.json
+docs/1352-offset-audit.md
+docs/pup-crypto-chain-1352.md
+docs/pup-decrypt-analysis.md
+docs/pup-key-investigation.md
+docs/pup_ioctl_protocol.md
+docs/research-plan-1352-kernel.md
+docs/webkit-libkernel-repro.md
+goldhen/MANIFEST.json
+installer/include/offsets.h
+kpayload/include/offsets.h
+kpayload/include/offsets/1000.h
+kpayload/include/offsets/1001.h
+kpayload/include/offsets/1050.h
+kpayload/include/offsets/1070.h
+kpayload/include/offsets/1071.h
+kpayload/include/offsets/1100.h
+kpayload/include/offsets/1102.h
+kpayload/include/offsets/1150.h
+kpayload/include/offsets/1152.h
+kpayload/include/offsets/1200.h
+kpayload/include/offsets/1202.h
+kpayload/include/offsets/1250.h
+kpayload/include/offsets/1252.h
+kpayload/include/offsets/1300.h
+kpayload/include/offsets/1302.h
+kpayload/include/offsets/1304.h
+kpayload/include/offsets/1350.h
+kpayload/include/offsets/1352.h
+kpayload/include/offsets/474.h
+kpayload/include/offsets/500.h
+kpayload/include/offsets/501.h
+kpayload/include/offsets/503.h
+kpayload/include/offsets/505.h
+kpayload/include/offsets/507.h
+kpayload/include/offsets/550.h
+kpayload/include/offsets/553.h
+kpayload/include/offsets/555.h
+kpayload/include/offsets/556.h
+kpayload/include/offsets/600.h
+kpayload/include/offsets/602.h
+kpayload/include/offsets/620.h
+kpayload/include/offsets/650.h
+kpayload/include/offsets/651.h
+kpayload/include/offsets/670.h
+kpayload/include/offsets/671.h
+kpayload/include/offsets/672.h
+kpayload/include/offsets/700.h
+kpayload/include/offsets/701.h
+kpayload/include/offsets/702.h
+kpayload/include/offsets/750.h
+kpayload/include/offsets/751.h
+kpayload/include/offsets/755.h
+kpayload/include/offsets/800.h
+kpayload/include/offsets/801.h
+kpayload/include/offsets/803.h
+kpayload/include/offsets/850.h
+kpayload/include/offsets/852.h
+kpayload/include/offsets/900.h
+kpayload/include/offsets/903.h
+kpayload/include/offsets/904.h
+kpayload/include/offsets/950.h
+kpayload/include/offsets/951.h
+kpayload/include/offsets/960.h
+kpayload/source/offsets/1000.c
+kpayload/source/offsets/1001.c
+kpayload/source/offsets/1050.c
+kpayload/source/offsets/1070.c
+kpayload/source/offsets/1071.c
+kpayload/source/offsets/1100.c
+kpayload/source/offsets/1102.c
+kpayload/source/offsets/1150.c
+kpayload/source/offsets/1152.c
+kpayload/source/offsets/1200.c
+kpayload/source/offsets/1202.c
+kpayload/source/offsets/1250.c
+kpayload/source/offsets/1252.c
+kpayload/source/offsets/1300.c
+kpayload/source/offsets/1302.c
+kpayload/source/offsets/1304.c
+kpayload/source/offsets/1350.c
+kpayload/source/offsets/1352.c
+kpayload/source/offsets/474.c
+kpayload/source/offsets/500.c
+kpayload/source/offsets/501.c
+kpayload/source/offsets/503.c
+kpayload/source/offsets/505.c
+kpayload/source/offsets/507.c
+kpayload/source/offsets/550.c
+kpayload/source/offsets/553.c
+kpayload/source/offsets/555.c
+kpayload/source/offsets/556.c
+kpayload/source/offsets/600.c
+kpayload/source/offsets/602.c
+kpayload/source/offsets/620.c
+kpayload/source/offsets/650.c
+kpayload/source/offsets/651.c
+kpayload/source/offsets/670.c
+kpayload/source/offsets/671.c
+kpayload/source/offsets/672.c
+kpayload/source/offsets/700.c
+kpayload/source/offsets/701.c
+kpayload/source/offsets/702.c
+kpayload/source/offsets/750.c
+kpayload/source/offsets/751.c
+kpayload/source/offsets/755.c
+kpayload/source/offsets/800.c
+kpayload/source/offsets/801.c
+kpayload/source/offsets/803.c
+kpayload/source/offsets/850.c
+kpayload/source/offsets/852.c
+kpayload/source/offsets/900.c
+kpayload/source/offsets/903.c
+kpayload/source/offsets/904.c
+kpayload/source/offsets/950.c
+kpayload/source/offsets/951.c
+kpayload/source/offsets/960.c
+kpayload/source/offsets_file.c
+libkernel_sys_13.52.bin
+lk_dump1.bin
+lk_dump2.bin
+lk_dump3.bin
+research/experiments/exp30_ioctl_mock/host/mnt_usb0/PS4UPDATE.PUP
+research/experiments/exp30_ioctl_mock/host/pup.c
+research/experiments/exp30_ioctl_mock/host/pup.h
+research/experiments/exp30_ioctl_mock/host/pup_decrypt_mock
+research/experiments/exp30_ioctl_mock/host/pupup.c
+research/experiments/exp30_ioctl_mock/host/pupup.h
+research/experiments/exp30_ioctl_mock/mock/pup_mock_server.py
+research/experiments/exp30_ioctl_mock/pup_mock_server.py
+research/experiments/exp32_pupops/dis_cases.py
+research/experiments/exp32_pupops/dis_common.py
+research/experiments/exp32_pupops/extract_jumptable.py
+research/experiments/exp32_pupops/extract_ops.py
+research/experiments/exp32_pupops/find_ioctl_const.py
+research/libkernel/libkernel_sys_13.52.bin
+research/libkernel/lk_11_02.elf
+research/libkernel/lk_12_00.elf
+research/libkernel/lk_12_52.elf
+research/libkernel/lk_9_00.elf
+research/results/entropy_map_inner_pups.json
+research/results/pup_orchestrator.result.json
+research/results/pup_ps5.h
+research/webkit-1302/kernel-candidates-1302-exhaustive.md
+research/webkit-1302/kernel-rw-1302-investigation.md
+research/webkit-1302/upstream/Vuemony_vue-after-free-src_download0_kernel.ts
+research/webkit-1302/upstream/adri-1352_offsets.txt
+research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt
+research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c
+research/webkit-1302/upstream/owendswang_vue-after-free-lite-src_download0_kernel.ts
+research/webkit-1302/upstream/psdevwiki-kernel-headings.txt
+research/webkit-1302/upstream/psdevwiki-kernel-section-2259-2690.txt
+research/webkit-1302/upstream/riyon-kernel-comparison.txt
+research/webkit-1302/upstream/riyon-kernel-history.tsv
+research/webkit-1302/upstream/riyon-kernel.ts
+research/webkit-1302/upstream/vue-1302-offset-comparison.txt
+tests/test_pup_slb2_static.py
+tools/kernel_payload_generator.py
+tools/libkernel_1352_manifest.json
+tools/pup_dec_full_unpacker.py
+tools/pup_orchestrator.py
+tools/pupdec_unpack.py
+tools/pupdec_validate_log.py
+tools/scan_kernel_structures.py
+tools/validate_libkernel_1352.py
+tools/verify_offsets.py
+webkit-kit/WPE_OFFSCREEN_BACKEND_PLAN.md
+webkit-kit/cssfontface_reference_manifest.tsv
+webkit-kit/homebrew/fixtures/fixture-manifest.json
+webkit-kit/homebrew/include/wpe_host_offscreen.h
+webkit-kit/homebrew/src/wpe_host_offscreen.c
+webkit-kit/homebrew/src/wpe_host_offscreen_test.c
+webkit-kit/libkernel_sys_13.52.signatures.json
+webkit-kit/psfree_reference_960_manifest.tsv
+webkit-kit/runtime/GITHUB_PUP_TOOLS_AUDIT_SESSION54.md
+webkit-kit/runtime/PS4_PUP_EXTRACTOR_STATIC_AUDIT_SESSION52.md
+webkit-kit/runtime/PUP_1350_1352_STATIC_DIFF_SESSION51.md
+webkit-kit/runtime/PUP_METADATA_TRANSFORM_SESSION64.json
+webkit-kit/runtime/PUP_METADATA_TRANSFORM_SESSION64.md
+webkit-kit/runtime/PUP_SECOND_LEVEL_STRUCTURE_SESSION63.md
+webkit-kit/tools/analyze_pup_metadata_transform.py
+webkit-kit/tools/make_manifest.py
+webkit-kit/tools/make_triple_manifest.py
+webkit-kit/tools/scan_pup_signatures.py
+webkit-kit/tools/scan_pup_static_names.py
+webkit-kit/triple-module-manifest.example.json
+=== local references ===
+research/webkit-1302/local/1302-local-inventory.txt:12:[33mf0031f1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mpre-release-main-270[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HALLAZGO DEFINITIVO: base de datos offsets kernel completa (todas FWs incl. 13.02 y 13.52); sysent=0x1102B70 constante; cadena 13.02 construible
+research/webkit-1302/local/1302-local-inventory.txt:27:./cve_analysis.md:89:| Stack overflow via setcred(2) | CVE-2026-45250 | No as of 13.02; "maybe not affected" |
+research/webkit-1302/local/1302-local-inventory.txt:28:./docs/PS4-1352-COMPLETE-STATUS.md:6:para 13.52 existe como diseño; le falta UN archivo (payload kernel 13.02/13.52)
+research/webkit-1302/local/1302-local-inventory.txt:29:./docs/PS4-1352-COMPLETE-STATUS.md:29:| CVE-2026-58087 semctl TOCTOU | kernel 11.02 confirma SysV; 13.02 = HIPÓTESIS | CONFIRMADO_OTRA_VERSION |
+research/webkit-1302/local/1302-local-inventory.txt:30:./docs/PS4-1352-COMPLETE-STATUS.md:68:   Generar payload kernel 13.02/13.52 con offsets reales
+research/webkit-1302/local/1302-local-inventory.txt:31:./docs/offline-research-1352.md:55:| Luac0re JIT nativo: PS4 hasta 13.02 (v1.1, mar-2026); README v2.x dice "latest firmwares"; Suchi96 afirma 13.52 retail | nydus 2026-03-10; repo; docx | AUTOR_REPORTADO (dos fuentes independientes) |
+research/webkit-1302/local/1302-local-inventory.txt:32:./docs/pmap-protect-audit.md:62:El historial de Scene muestra que `0x59DF0` fue añadido para 13.52 junto con la tabla de macros, pero el mismo valor ya estaba repetido para 11.50, 11.52, 12.00, 12.02, 12.50, 12.52, 13.00, 13.02, 13.04 y 13.50. La fuente no aporta una medición específica de 13.52 para ese valor.
+research/webkit-1302/local/1302-local-inventory.txt:33:./docs/pup_ioctl_protocol.md:366:Descubierto: repositorio con offsets kexec para **CADA firmware PS4 desde 3.15 hasta 13.52**, incluyendo 13.02 y 13.52 específicamente.
+research/webkit-1302/local/1302-local-inventory.txt:34:./docs/pup_ioctl_protocol.md:368:### Offsets críticos confirmados para 13.02:
+research/webkit-1302/local/1302-local-inventory.txt:35:./docs/pup_ioctl_protocol.md:381:`sysent` NO se movió entre 13.00→13.02→13.52 (0x1102B70 constante).
+research/webkit-1302/local/1302-local-inventory.txt:36:./docs/pup_ioctl_protocol.md:382:Los demás offsets tienen deltas de +0x10 (13.00→13.02) y +0xB0 (13.02→13.52).
+research/webkit-1302/local/1302-local-inventory.txt:37:./docs/pup_ioctl_protocol.md:385:Con estos offsets, la cadena 13.02 es CONSTRUIBLE usando la técnica kexec clásica:
+research/webkit-1302/local/1302-local-inventory.txt:38:./docs/remaining-gaps.md:100:| WebKit userland | CVE-2017-7117 | 5.05–13.02 |
+research/webkit-1302/local/1302-local-inventory.txt:39:./docs/remaining-gaps.md:119:WebKit (CVE-2017-7117 que funciona hasta 13.02), existiría una cadena completa
+research/webkit-1302/local/1302-local-inventory.txt:40:./docs/remaining-gaps.md:128:| Componente | 9.03–12.52 | 13.00 | **13.02** |
+research/webkit-1302/local/1302-local-inventory.txt:41:./docs/remaining-gaps.md:135:Alguien determinó los offsets de parche mmap para 13.02 específicamente,
+research/webkit-1302/local/1302-local-inventory.txt:42:./docs/remaining-gaps.md:136:lo que implica que tuvo acceso al binario del kernel 13.02 (o lo derivó
+research/webkit-1302/local/1302-local-inventory.txt:43:./docs/remaining-gaps.md:139:### La pieza exacta que falta para 13.02
+research/webkit-1302/local/1302-local-inventory.txt:44:./docs/remaining-gaps.md:140:El payload kernel completo para 13.02 = misma estructura que el payload de
+research/webkit-1302/local/1302-local-inventory.txt:45:./docs/remaining-gaps.md:141:13.00 pero con los offsets correctos del kernel 13.02. Los offsets necesarios:
+research/webkit-1302/local/1302-local-inventory.txt:46:./docs/remaining-gaps.md:147:13.02 (que está dentro del system_fs_image.img cifrado del PUP).
+research/webkit-1302/local/1302-local-inventory.txt:47:./docs/remaining-gaps.md:149:### Cadena 13.02: inventario de piezas
+research/webkit-1302/local/1302-local-inventory.txt:48:./docs/remaining-gaps.md:153:| WebKit userland (CVE-2017-7117) | ✅ funciona 5.05–13.02 | ps-vue-jb-2.5 README |
+research/webkit-1302/local/1302-local-inventory.txt:49:./docs/remaining-gaps.md:155:| Kernel exploit Netctrl | ✅ hasta 13.00 / ❓ 13.02 | ídem |
+research/webkit-1302/local/1302-local-inventory.txt:50:./docs/remaining-gaps.md:156:| Offsets mmap RWX 13.02 | ✅ documentados | kernel.ts |
+research/webkit-1302/local/1302-local-inventory.txt:51:./docs/remaining-gaps.md:157:| Payload kernel completo 13.02 | ❌ NO EXISTE | — |
+research/webkit-1302/local/1302-local-inventory.txt:52:./docs/remaining-gaps.md:159:| Confirmación HW 13.02 | ❌ nadie ha publicado | — |
+research/webkit-1302/local/1302-local-inventory.txt:53:./docs/remaining-gaps.md:181:Para 13.02: SOLO se conocen los parches #11 y #12 (`[0x1fa78a, 0x1fa78d]`).
+research/webkit-1302/local/1302-local-inventory.txt:54:./docs/remaining-gaps.md:182:Los otros 10 offsets son DESCONOCIDOS sin el binario kernel 13.52/13.02.
+research/webkit-1302/local/1302-local-inventory.txt:55:./docs/remaining-gaps.md:183:Delta observado entre 13.00→13.02 en mmap: +0x10 bytes. NO extrapolable a
+research/webkit-1302/local/1302-local-inventory.txt:56:./docs/remaining-gaps.md:186:Fuentes que confirman offsets mmap 13.02: Vuemony/vue-after-free,
+research/webkit-1302/local/1302-local-inventory.txt:57:./docs/remaining-gaps.md:190:## BÚSQUEDA EXHAUSTIVA DE LOS 10 OFFSETS FALTANTES PARA 13.02 (2026-08-25)
+research/webkit-1302/local/1302-local-inventory.txt:58:./docs/remaining-gaps.md:203:| +0x002BD42D | ✓ GitHub code search → solo kexploit.js 9.00 (FW distinto) | N/A para 13.02 |
+research/webkit-1302/local/1302-local-inventory.txt:59:./docs/remaining-gaps.md:213:### Verificación de procedencia de los offsets mmap 13.02
+research/webkit-1302/local/1302-local-inventory.txt:60:./docs/remaining-gaps.md:216:de análisis del binario kernel 13.02. Clasificación elevada a UNVERIFIED
+research/webkit-1302/local/1302-local-inventory.txt:61:./docs/remaining-gaps.md:220:La cadena 13.02 NO puede reconstruirse con material público porque
+research/webkit-1302/local/1302-local-inventory.txt:62:./docs/remaining-gaps.md:225:## BARRIDO FINAL DE ARTEFACTOS PÚBLICOS 13.02 (2026-08-25)
+research/webkit-1302/local/1302-local-inventory.txt:63:./docs/remaining-gaps.md:253:| Userland hasta | PS4: últimas FW (incluye 13.02+, probablemente 13.52) |
+research/webkit-1302/local/1302-local-inventory.txt:64:./docs/remaining-gaps.md:260:| onejailbreak.com | "Luac0re Exploit Works on PS4 Up to 13.02" | REPORTADO |
+research/webkit-1302/local/1302-local-inventory.txt:65:./docs/remaining-gaps.md:261:| Subhan-Haider/Ps4-jelbreak-13.02 | "7.00-13.50 (PS4)" userland | AUTHOR_REPORTED |
+research/webkit-1302/local/1302-local-inventory.txt:66:./docs/remaining-gaps.md:262:| YouTube (Modded Warfare et al.) | "PS4 13.02 LUACORE Fully Working Online" | VIDEO_EVIDENCE |
+research/webkit-1302/local/1302-local-inventory.txt:67:./docs/remaining-gaps.md:272:- **13.02–13.50 = USERLAND ONLY** (sin kernel R/W público)
+research/webkit-1302/local/1302-local-inventory.txt:95:./research/results/slopos/1302.h:2:/* PS4 13.02 — kexec offsets: ArabPixel */
+research/webkit-1302/local/1302-local-inventory.txt:114:./tools/kernel_payload_generator.py:5:Cuando alguien determine los offsets del kernel 13.02/13.52, basta con
+research/webkit-1302/local/1302-local-inventory.txt:115:./tools/kernel_payload_generator.py:10:  kernel_payload_generator.py --fw 13.02 --offsets 10        # genera con offsets estimados
+research/webkit-1302/local/1302-local-inventory.txt:116:./tools/kernel_payload_generator.py:63:    ap.add_argument("--fw", required=True, help="Versión firmware (ej: 13.02)")
+research/webkit-1302/local/1302-local-inventory.txt:118:./webkit-kit/runtime/BDJ_CURRENT_RUNTIME_1352_EVIDENCE_SESSION16.md:15:La misma página describe 13.50 como una actualización de mensajes/usabilidad, y 13.02/13.04 como correcciones de seguridad, pero no identifica componentes Java, BD-J ni cambios de clases o métodos. Por tanto, la nota oficial confirma que hubo correcciones de seguridad, pero no permite atribuir ninguna a la JVM o al runtime BD-J.
+research/webkit-1302/local/1302-local-inventory.txt:119:./webkit-kit/runtime/BDJ_CURRENT_RUNTIME_1352_EVIDENCE_SESSION16.md:41:| 13.02 | Correcciones de seguridad | No identifica componentes |
+research/webkit-1302/local/1302-local-inventory.txt:120:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:23:| 4 | ClassLoader/canonicalización/JAR anidado | `BdjPolicyImpl` canoniza, mientras `JarZipFile` interpreta literalmente la entrada anidada | **DIRECT para 13.00–13.02; REFUTED para ese rango concreto posterior; UNVERIFIED para variantes 13.52** |
+research/webkit-1302/local/1302-local-inventory.txt:121:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:85:La fuente pública asigna explícitamente el reporte a PS4 13.00–13.02. El advisory CVE-2025-64390/GHSA-87pc-67c4-x49w también limita la descripción a 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:122:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:99:**Prioridad: 4.** El bug histórico está documentado de forma directa para 13.00–13.02, pero no es evidencia de 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:123:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:132:4. tratar la canonicalización/JAR anidado como un bug histórico limitado a 13.00–13.02, no como una explicación automática para 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:124:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:20:| `XletClassLoader` / JAR firmado | El loader y la política podían interpretar de forma divergente la procedencia de un JAR | Verificación de firma, `RootCertManager`, rango de `applicationId` y cambios de normalización podrían cerrar la discrepancia | #3452696 limita explícitamente el bug de JAR anidado a PS4 13.00–13.02 | Divergencia distinta entre URL, canonicalización, entrada ZIP, URL encoding o JAR anidado; no hay evidencia de que sobreviva | #3452696 no prueba 13.52; su rango anterior contradice una extrapolación automática | **HISTORICAL_ONLY; variante HYPOTHESIS** |
+research/webkit-1302/local/1302-local-inventory.txt:125:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:21:| `BdjPolicyImpl` / canonicalización | La política canonicalizaba con `File.getCanonicalPath`, mientras `JarZipFile` trataba `..` como caracteres de una entrada anidada, concediendo `AllPermission` a contenido no confiable | Corrección de la discrepancia de resolución/validación o cambios en loader, firma y policy; el diff exacto no está publicado en la fuente consultada | PS4 13.00–13.02 según #3452696 | Otra divergencia entre la ruta usada por `CodeSource` y la ruta real del loader, pero requiere una nueva inconsistencia demostrable | Ninguna | **HISTORICAL_ONLY; variante HYPOTHESIS** |
+research/webkit-1302/local/1302-local-inventory.txt:126:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:22:| Parsing ZIP/JAR y rutas | `JarZipFile` separaba un JAR exterior y una entrada literal, creando un contexto de carga distinto al de la policy | Normalización común de rutas, rechazo de entradas ascendentes, validación de firmas y coincidencia entre `CodeSource` y origen físico | Rango 13.00–13.02 documentado; parche exacto desconocido | ZIP con nombres codificados, separadores alternativos o múltiples capas de JAR; sólo una categoría de prueba estática futura | Ninguna | **HISTORICAL_ONLY; variante HYPOTHESIS** |
+research/webkit-1302/local/1302-local-inventory.txt:127:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:41:El reporte #3452696 es importante porque limita el bug de canonicalización y JAR anidado a PS4 13.00–13.02. La evidencia no autoriza a extenderlo a 13.52. Sólo deja como hipótesis metodológica que futuras variantes deberían buscar otra divergencia entre la identidad usada por la policy y el origen real del loader.
+research/webkit-1302/local/1302-local-inventory.txt:128:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:29:En el caso nested-JAR documentado por HackerOne, `BdjPolicyImpl` extiende `Policy`, comprueba `paramCodeSource != null`, obtiene `URL url = paramCodeSource.getLocation()`, exige protocolo `file`, aplica `new File(url.getFile()).getCanonicalPath()` y concede `AllPermission` cuando la ruta canónica empieza por `javaHome + "lib" + File.separator + "ext"`. El reporte identifica PS4 13.00–13.02, no 13.50 ni 13.52.[1]
+research/webkit-1302/local/1302-local-inventory.txt:129:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:47:| HackerOne #3452696 | Firma y cuerpo de un `BdjPolicyImpl.getPermissions(CodeSource)`; `CodeSource`, `URL`, canonicalización y `AllPermission` | PS4 13.00–13.02 según el reporte | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:130:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:70:La firma relevante es, por tanto, `getPermissions(CodeSource): PermissionCollection`. La clase base es `java.security.Policy`, y el argumento es un `java.security.CodeSource`. Esta evidencia es código incluido en un reporte público, pero corresponde al caso nested-JAR de PS4 13.00–13.02; no es bytecode de 13.52.[1]
+research/webkit-1302/local/1302-local-inventory.txt:131:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:100:Mientras tanto, el loader conserva la representación no canónica y la interpreta como una entrada literal de JAR anidado. Esa divergencia es el caso CVE-2025-64390/GHSA-87pc-67c4-x49 documentado para 13.00–13.02, no una prueba de que exista igual en 13.52.[1]
+research/webkit-1302/local/1302-local-inventory.txt:132:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:205:| `BdjPolicyImpl` con prefijo canónico `javaHome/lib/ext` | Código completo de HackerOne nested-JAR | PS4 13.00–13.02 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:133:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:289:El cuerpo de `BdjPolicyImpl` del caso nested-JAR demuestra cómo una discrepancia de representación de rutas podía producir `AllPermission` en PS4 13.00–13.02. El fragmento SUNJCE demuestra documentalmente una validación adicional, pero no su implementación. Ninguna fuente pública localizada demuestra que el mismo método, algoritmo, objeto hasheado o rama de fallo estén presentes en PS4 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:134:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:55:El advisory público GHSA-87pc-67c4-x49w / CVE-2025-64390 limita esta vulnerabilidad a PS4 13.00–13.02. Por tanto, es evidencia de una superficie de policy/classloading, pero **no** una candidata viable para atribuir a 13.52 sin un nuevo diff o bytes.
+research/webkit-1302/local/1302-local-inventory.txt:135:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:57:**Confianza:** `DIRECT_HISTORICAL` para 13.00–13.02; `DISCARDED` como explicación directa de 13.52 salvo evidencia nueva.
+research/webkit-1302/local/1302-local-inventory.txt:136:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:74:| 6 | Nested JAR `BdjPolicyImpl`/`JarZipFile` | #3452696 y CVE-2025-64390 | Afectación pública limitada a 13.00–13.02 | Útil como patrón de discrepancia policy/loader, no como candidato 13.52 | Rango CVE y parche temprano | `DIRECT_HISTORICAL` / `DISCARDED_13.52` |
+research/webkit-1302/local/1302-local-inventory.txt:137:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:86:El contrato JIT/compiler-agent sigue siendo la ruta con mayor probabilidad histórica hacia native usermode, pero depende de una interfaz nativa y de validaciones no disponibles sin runtime. El nested-JAR queda descartado como explicación directa de 13.52 por su rango público 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:138:./webkit-kit/runtime/BDJ_PS4_1350_1352_DIFFERENTIAL_SESSION17.md:41:La página oficial de PlayStation identifica la versión 13.52 y declara que se realizaron correcciones de seguridad. También enumera 13.50 como una actualización de mensajes/usabilidad, y 13.04 y 13.02 como actualizaciones con correcciones de seguridad.[1]
+research/webkit-1302/local/1302-local-inventory.txt:139:./webkit-kit/runtime/BDJ_RUNTIME_ARTIFACT_AUDIT_SESSION9_SOURCES.md:5:La página pública `https://twitter-thread.com/t/2081061116025692373` reproduce un hilo de @ASaudidos del 25-07-2026 titulado “update on ps4 bd-j exploit progress (firmware 12.02)”. El texto afirma que la cadena userland funciona en 12.02, 13.02, 13.50 y 13.52; también afirma que Sony eliminó el grant original de `sunjce_provider.jar` en una actualización reciente, pero que la vulnerabilidad usada por esa cadena es distinta y permanece sin parchear. Describe resultados como control de registros, pivot de stack, invocación de syscalls y ejecución nativa dentro del proceso BD-J.
+research/webkit-1302/local/1302-local-inventory.txt:140:./webkit-kit/runtime/BDJ_RUNTIME_ARTIFACT_SOURCE_CLOSURE_SESSION9.md:9:La fuente pública atribuida a ASaudidos, reproducida por [Thread Reader][1], afirma que una cadena userland BD-J funciona en 12.02, 13.02, 13.50 y 13.52, y que Sony eliminó el grant original de `sunjce_provider.jar` en una actualización reciente, mientras la vulnerabilidad utilizada por esa cadena sería distinta. La misma publicación afirma ejecución nativa dentro del proceso BD-J, pero no proporciona archivos, hashes, clases, métodos, símbolos, diffs ni un repositorio del runtime.
+research/webkit-1302/local/1302-local-inventory.txt:141:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:15:3. HackerOne #3452696 publica una implementación detallada de `BdjPolicyImpl`, `JarZipFile`, `XletClassLoader`, `BDJFactory` y `CoreAppId.isSigned()`, pero declara afectación 13.00–13.02, no 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:142:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:33:| HackerOne #3452696 [3] | Summary, “Affected PS4 system software: version 13.00 to latest (13.02)” | Código/flujo histórico de `BdjPolicyImpl`, `JarZipFile`, `XletClassLoader`, `BDJFactory` y `CoreAppId.isSigned()` para 13.00–13.02 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:143:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:60:HackerOne #3452696 sí publica código y flujo de `BdjPolicyImpl`, `JarZipFile`, `XletClassLoader`, `BDJFactory` y `CoreAppId.isSigned()`, pero el propio informe fija el rango en 13.00–13.02. La entrada de `PSDescriptorFactory` en PSDevWiki es editorial e histórica, sin implementación retail 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:144:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:74:| ¿HackerOne #3452696 representa 13.52? | No; declara 13.00–13.02 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:145:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:104:[3]: https://hackerone.com/reports/3452696 — HackerOne #3452696, nested-JAR; declara PS4 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:146:./webkit-kit/runtime/BDJ_SECURITY_CHANGE_1352_HYPOTHESIS_MATRIX.md:22:| **Policy/CodeSource/JAR** | `BdjPolicyImpl` canoniza URL mientras `JarZipFile` interpreta literalmente la entrada nested-JAR. | HackerOne #3452696 declara 13.00–13.02; CVE-2025-64390. | Ninguna fuente fija un cambio en 13.52; el caso conocido ya está acotado antes. | La nota de seguridad podría cubrir una variante posterior de policy/loader. | La vulnerabilidad concreta publicada está parcheada/limitada antes de 13.52; no hay variante posterior demostrada. | Diff 13.50→13.52 de `BdjPolicyImpl`, `JarZipFile`, `BDJFactory` o `XletClassLoader`. | `HISTORICAL_ONLY / UNVERIFIED` |
+research/webkit-1302/local/1302-local-inventory.txt:147:./webkit-kit/runtime/BDJ_SECURITY_CHANGE_1352_HYPOTHESIS_MATRIX.md:64:| Policy/CodeSource/JAR variante no nested | Baja | Media para 13.00–13.02 | Alta | 4 |
+research/webkit-1302/local/1302-local-inventory.txt:148:./webkit-kit/runtime/BDJ_SECURITY_CHANGE_1352_HYPOTHESIS_MATRIX.md:100:[5]: https://hackerone.com/reports/3452696 — HackerOne #3452696, nested-JAR; PS4 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:149:./webkit-kit/runtime/BDJ_SUNJCE_1350_TO_1352_EVIDENCE.md:73:- La sección nested-JAR/CVE-2025-64390 declara PS4 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:150:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:19:La línea policy/loader/JAR está históricamente acotada a PS4 13.00–13.02 por #3452696. Es útil como patrón de divergencia de representación, pero la variante nested-JAR no debe trasladarse a 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:151:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:136:#3452696 atribuye a PS4 13.00–13.02 una divergencia entre:
+research/webkit-1302/local/1302-local-inventory.txt:152:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:167:Todas son **HYPOTHESIS**, no vulnerabilidades existentes. La variante nested-JAR original no debe tratarse como presente en 13.52 porque el reporte limita su alcance a 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:153:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:173:| Divergencia canonical path vs entrada literal en 13.00–13.02 | **HISTORICAL_ONLY** |
+research/webkit-1302/local/1302-local-inventory.txt:154:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:195:3. La policy/loader sí sufrió una divergencia de representación en 13.00–13.02, pero esa vulnerabilidad concreta no debe extrapolarse a 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:155:./webkit-kit/runtime/BDJ_THREE_SURFACES_DEEP_RESEARCH.md:4:**Alcance:** análisis estático de fuentes públicas. No se ejecutaron exploits, payloads, JAR/ELF/BIN ni código contra hardware. El nested-JAR 13.00–13.02 se trata sólo como caso excluido, no como variante nueva.
+research/webkit-1302/local/1302-local-inventory.txt:156:./webkit-kit/runtime/BDJ_THREE_SURFACES_DEEP_RESEARCH.md:88:El nested-JAR 13.00–13.02 queda excluido. La hipótesis aquí sólo sería válida si se demuestra una discrepancia de representación que no dependa de la inserción `.jar` ya documentada.
+research/webkit-1302/local/1302-local-inventory.txt:157:./webkit-kit/runtime/BDJ_THREE_SURFACES_DEEP_RESEARCH.md:114:| Nested-JAR | CVE/PSDevWiki 13.00–13.02. | Ya documentada y excluida. | No es variante nueva. | `DISCARDED` |
+research/webkit-1302/local/1302-local-inventory.txt:158:./webkit-kit/runtime/PS4_1352_PUBLIC_CHAIN_STATUS.md:197:| ICU `String.normalize` | Rango `?13.02?` | No llega documentalmente a 13.52 |
+research/webkit-1302/local/1302-local-inventory.txt:159:./webkit-kit/runtime/SUNJCE_PUBLIC_ARTIFACT_FINAL_SESSION31.md:23:| [`ajaysenr/HackerOne-Disclosed-Reports`][3] | `reports/3452696.md` | Documento público | No aplica | Mirror de reporte histórico BD-J 13.00–13.02; ya conocido y no evidencia 13.52 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:160:./webkit-kit/runtime/SUNJCE_PUBLIC_ARTIFACT_FINAL_SESSION31.md:43:El mirror `ajaysenr/HackerOne-Disclosed-Reports/reports/3452696.md` reproduce el reporte histórico de BD-J nested-JAR y el flujo `BdjPolicyImpl → AllPermission`, pero no es un snapshot nuevo: no contiene JARs ni `.class` de 13.52 y su firmware declarado es 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:161:./webkit-kit/runtime/WEBKIT_CANDIDATE_CORPUS_SESSION60.md:14:| CVE-2025-43429 | Heap buffer overflow en ICU vía `JSC String.prototype.normalize` | `FW <=?13.02?` | No llega públicamente a 13.52 |
+research/webkit-1302/local/1302-local-inventory.txt:162:./webkit-kit/runtime/WEBKIT_CANDIDATE_CORPUS_SESSION60.md:32:4. CVE-2025-43429/String.prototype.normalize: diff potencialmente pequeño, pero rango público sólo hasta 13.02?.
+research/webkit-1302/local/1302-local-inventory.txt:163:./webkit-kit/runtime/WEBKIT_JSC_CANDIDATE_DEEP_RESEARCH_SESSION60.md:27:| String.normalize ICU (CVE-2025-43429) | heap overflow en normalización NFKC | testcase público; PSDevWiki probado hasta 12.00 y no parcheado 13.02 según fechas | rango `<=?13.02?` | no llega públicamente a 13.52 |
+research/webkit-1302/local/1302-local-inventory.txt:172:./1302-local-inventory.txt:12:[33mf0031f1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mpre-release-main-270[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HALLAZGO DEFINITIVO: base de datos offsets kernel completa (todas FWs incl. 13.02 y 13.52); sysent=0x1102B70 constante; cadena 13.02 construible
+research/webkit-1302/local/1302-local-inventory.txt:184:./1302-local-inventory.txt:27:./cve_analysis.md:89:| Stack overflow via setcred(2) | CVE-2026-45250 | No as of 13.02; "maybe not affected" |
+research/webkit-1302/local/1302-local-inventory.txt:185:./1302-local-inventory.txt:28:./docs/PS4-1352-COMPLETE-STATUS.md:6:para 13.52 existe como diseño; le falta UN archivo (payload kernel 13.02/13.52)
+research/webkit-1302/local/1302-local-inventory.txt:186:./1302-local-inventory.txt:29:./docs/PS4-1352-COMPLETE-STATUS.md:29:| CVE-2026-58087 semctl TOCTOU | kernel 11.02 confirma SysV; 13.02 = HIPÓTESIS | CONFIRMADO_OTRA_VERSION |
+research/webkit-1302/local/1302-local-inventory.txt:187:./1302-local-inventory.txt:30:./docs/PS4-1352-COMPLETE-STATUS.md:68:   Generar payload kernel 13.02/13.52 con offsets reales
+research/webkit-1302/local/1302-local-inventory.txt:188:./1302-local-inventory.txt:31:./docs/offline-research-1352.md:55:| Luac0re JIT nativo: PS4 hasta 13.02 (v1.1, mar-2026); README v2.x dice "latest firmwares"; Suchi96 afirma 13.52 retail | nydus 2026-03-10; repo; docx | AUTOR_REPORTADO (dos fuentes independientes) |
+research/webkit-1302/local/1302-local-inventory.txt:189:./1302-local-inventory.txt:32:./docs/pmap-protect-audit.md:62:El historial de Scene muestra que `0x59DF0` fue añadido para 13.52 junto con la tabla de macros, pero el mismo valor ya estaba repetido para 11.50, 11.52, 12.00, 12.02, 12.50, 12.52, 13.00, 13.02, 13.04 y 13.50. La fuente no aporta una medición específica de 13.52 para ese valor.
+research/webkit-1302/local/1302-local-inventory.txt:190:./1302-local-inventory.txt:33:./docs/pup_ioctl_protocol.md:366:Descubierto: repositorio con offsets kexec para **CADA firmware PS4 desde 3.15 hasta 13.52**, incluyendo 13.02 y 13.52 específicamente.
+research/webkit-1302/local/1302-local-inventory.txt:191:./1302-local-inventory.txt:34:./docs/pup_ioctl_protocol.md:368:### Offsets críticos confirmados para 13.02:
+research/webkit-1302/local/1302-local-inventory.txt:192:./1302-local-inventory.txt:35:./docs/pup_ioctl_protocol.md:381:`sysent` NO se movió entre 13.00→13.02→13.52 (0x1102B70 constante).
+research/webkit-1302/local/1302-local-inventory.txt:193:./1302-local-inventory.txt:36:./docs/pup_ioctl_protocol.md:382:Los demás offsets tienen deltas de +0x10 (13.00→13.02) y +0xB0 (13.02→13.52).
+research/webkit-1302/local/1302-local-inventory.txt:194:./1302-local-inventory.txt:37:./docs/pup_ioctl_protocol.md:385:Con estos offsets, la cadena 13.02 es CONSTRUIBLE usando la técnica kexec clásica:
+research/webkit-1302/local/1302-local-inventory.txt:195:./1302-local-inventory.txt:38:./docs/remaining-gaps.md:100:| WebKit userland | CVE-2017-7117 | 5.05–13.02 |
+research/webkit-1302/local/1302-local-inventory.txt:196:./1302-local-inventory.txt:39:./docs/remaining-gaps.md:119:WebKit (CVE-2017-7117 que funciona hasta 13.02), existiría una cadena completa
+research/webkit-1302/local/1302-local-inventory.txt:197:./1302-local-inventory.txt:40:./docs/remaining-gaps.md:128:| Componente | 9.03–12.52 | 13.00 | **13.02** |
+research/webkit-1302/local/1302-local-inventory.txt:198:./1302-local-inventory.txt:41:./docs/remaining-gaps.md:135:Alguien determinó los offsets de parche mmap para 13.02 específicamente,
+research/webkit-1302/local/1302-local-inventory.txt:199:./1302-local-inventory.txt:42:./docs/remaining-gaps.md:136:lo que implica que tuvo acceso al binario del kernel 13.02 (o lo derivó
+research/webkit-1302/local/1302-local-inventory.txt:200:./1302-local-inventory.txt:43:./docs/remaining-gaps.md:139:### La pieza exacta que falta para 13.02
+research/webkit-1302/local/1302-local-inventory.txt:201:./1302-local-inventory.txt:44:./docs/remaining-gaps.md:140:El payload kernel completo para 13.02 = misma estructura que el payload de
+research/webkit-1302/local/1302-local-inventory.txt:202:./1302-local-inventory.txt:45:./docs/remaining-gaps.md:141:13.00 pero con los offsets correctos del kernel 13.02. Los offsets necesarios:
+research/webkit-1302/local/1302-local-inventory.txt:203:./1302-local-inventory.txt:46:./docs/remaining-gaps.md:147:13.02 (que está dentro del system_fs_image.img cifrado del PUP).
+research/webkit-1302/local/1302-local-inventory.txt:204:./1302-local-inventory.txt:47:./docs/remaining-gaps.md:149:### Cadena 13.02: inventario de piezas
+research/webkit-1302/local/1302-local-inventory.txt:205:./1302-local-inventory.txt:48:./docs/remaining-gaps.md:153:| WebKit userland (CVE-2017-7117) | ✅ funciona 5.05–13.02 | ps-vue-jb-2.5 README |
+research/webkit-1302/local/1302-local-inventory.txt:206:./1302-local-inventory.txt:49:./docs/remaining-gaps.md:155:| Kernel exploit Netctrl | ✅ hasta 13.00 / ❓ 13.02 | ídem |
+research/webkit-1302/local/1302-local-inventory.txt:207:./1302-local-inventory.txt:50:./docs/remaining-gaps.md:156:| Offsets mmap RWX 13.02 | ✅ documentados | kernel.ts |
+research/webkit-1302/local/1302-local-inventory.txt:208:./1302-local-inventory.txt:51:./docs/remaining-gaps.md:157:| Payload kernel completo 13.02 | ❌ NO EXISTE | — |
+research/webkit-1302/local/1302-local-inventory.txt:209:./1302-local-inventory.txt:52:./docs/remaining-gaps.md:159:| Confirmación HW 13.02 | ❌ nadie ha publicado | — |
+research/webkit-1302/local/1302-local-inventory.txt:210:./1302-local-inventory.txt:53:./docs/remaining-gaps.md:181:Para 13.02: SOLO se conocen los parches #11 y #12 (`[0x1fa78a, 0x1fa78d]`).
+research/webkit-1302/local/1302-local-inventory.txt:211:./1302-local-inventory.txt:54:./docs/remaining-gaps.md:182:Los otros 10 offsets son DESCONOCIDOS sin el binario kernel 13.52/13.02.
+research/webkit-1302/local/1302-local-inventory.txt:212:./1302-local-inventory.txt:55:./docs/remaining-gaps.md:183:Delta observado entre 13.00→13.02 en mmap: +0x10 bytes. NO extrapolable a
+research/webkit-1302/local/1302-local-inventory.txt:213:./1302-local-inventory.txt:56:./docs/remaining-gaps.md:186:Fuentes que confirman offsets mmap 13.02: Vuemony/vue-after-free,
+research/webkit-1302/local/1302-local-inventory.txt:214:./1302-local-inventory.txt:57:./docs/remaining-gaps.md:190:## BÚSQUEDA EXHAUSTIVA DE LOS 10 OFFSETS FALTANTES PARA 13.02 (2026-08-25)
+research/webkit-1302/local/1302-local-inventory.txt:215:./1302-local-inventory.txt:58:./docs/remaining-gaps.md:203:| +0x002BD42D | ✓ GitHub code search → solo kexploit.js 9.00 (FW distinto) | N/A para 13.02 |
+research/webkit-1302/local/1302-local-inventory.txt:216:./1302-local-inventory.txt:59:./docs/remaining-gaps.md:213:### Verificación de procedencia de los offsets mmap 13.02
+research/webkit-1302/local/1302-local-inventory.txt:217:./1302-local-inventory.txt:60:./docs/remaining-gaps.md:216:de análisis del binario kernel 13.02. Clasificación elevada a UNVERIFIED
+research/webkit-1302/local/1302-local-inventory.txt:218:./1302-local-inventory.txt:61:./docs/remaining-gaps.md:220:La cadena 13.02 NO puede reconstruirse con material público porque
+research/webkit-1302/local/1302-local-inventory.txt:219:./1302-local-inventory.txt:62:./docs/remaining-gaps.md:225:## BARRIDO FINAL DE ARTEFACTOS PÚBLICOS 13.02 (2026-08-25)
+research/webkit-1302/local/1302-local-inventory.txt:220:./1302-local-inventory.txt:63:./docs/remaining-gaps.md:253:| Userland hasta | PS4: últimas FW (incluye 13.02+, probablemente 13.52) |
+research/webkit-1302/local/1302-local-inventory.txt:221:./1302-local-inventory.txt:64:./docs/remaining-gaps.md:260:| onejailbreak.com | "Luac0re Exploit Works on PS4 Up to 13.02" | REPORTADO |
+research/webkit-1302/local/1302-local-inventory.txt:222:./1302-local-inventory.txt:65:./docs/remaining-gaps.md:261:| Subhan-Haider/Ps4-jelbreak-13.02 | "7.00-13.50 (PS4)" userland | AUTHOR_REPORTED |
+research/webkit-1302/local/1302-local-inventory.txt:223:./1302-local-inventory.txt:66:./docs/remaining-gaps.md:262:| YouTube (Modded Warfare et al.) | "PS4 13.02 LUACORE Fully Working Online" | VIDEO_EVIDENCE |
+research/webkit-1302/local/1302-local-inventory.txt:224:./1302-local-inventory.txt:67:./docs/remaining-gaps.md:272:- **13.02–13.50 = USERLAND ONLY** (sin kernel R/W público)
+research/webkit-1302/local/1302-local-inventory.txt:252:./1302-local-inventory.txt:95:./research/results/slopos/1302.h:2:/* PS4 13.02 — kexec offsets: ArabPixel */
+research/webkit-1302/local/1302-local-inventory.txt:271:./1302-local-inventory.txt:114:./tools/kernel_payload_generator.py:5:Cuando alguien determine los offsets del kernel 13.02/13.52, basta con
+research/webkit-1302/local/1302-local-inventory.txt:272:./1302-local-inventory.txt:115:./tools/kernel_payload_generator.py:10:  kernel_payload_generator.py --fw 13.02 --offsets 10        # genera con offsets estimados
+research/webkit-1302/local/1302-local-inventory.txt:273:./1302-local-inventory.txt:116:./tools/kernel_payload_generator.py:63:    ap.add_argument("--fw", required=True, help="Versión firmware (ej: 13.02)")
+research/webkit-1302/local/1302-local-inventory.txt:275:./1302-local-inventory.txt:118:./webkit-kit/runtime/BDJ_CURRENT_RUNTIME_1352_EVIDENCE_SESSION16.md:15:La misma página describe 13.50 como una actualización de mensajes/usabilidad, y 13.02/13.04 como correcciones de seguridad, pero no identifica componentes Java, BD-J ni cambios de clases o métodos. Por tanto, la nota oficial confirma que hubo correcciones de seguridad, pero no permite atribuir ninguna a la JVM o al runtime BD-J.
+research/webkit-1302/local/1302-local-inventory.txt:276:./1302-local-inventory.txt:119:./webkit-kit/runtime/BDJ_CURRENT_RUNTIME_1352_EVIDENCE_SESSION16.md:41:| 13.02 | Correcciones de seguridad | No identifica componentes |
+research/webkit-1302/local/1302-local-inventory.txt:277:./1302-local-inventory.txt:120:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:23:| 4 | ClassLoader/canonicalización/JAR anidado | `BdjPolicyImpl` canoniza, mientras `JarZipFile` interpreta literalmente la entrada anidada | **DIRECT para 13.00–13.02; REFUTED para ese rango concreto posterior; UNVERIFIED para variantes 13.52** |
+research/webkit-1302/local/1302-local-inventory.txt:278:./1302-local-inventory.txt:121:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:85:La fuente pública asigna explícitamente el reporte a PS4 13.00–13.02. El advisory CVE-2025-64390/GHSA-87pc-67c4-x49w también limita la descripción a 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:279:./1302-local-inventory.txt:122:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:99:**Prioridad: 4.** El bug histórico está documentado de forma directa para 13.00–13.02, pero no es evidencia de 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:280:./1302-local-inventory.txt:123:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:132:4. tratar la canonicalización/JAR anidado como un bug histórico limitado a 13.00–13.02, no como una explicación automática para 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:281:./1302-local-inventory.txt:124:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:20:| `XletClassLoader` / JAR firmado | El loader y la política podían interpretar de forma divergente la procedencia de un JAR | Verificación de firma, `RootCertManager`, rango de `applicationId` y cambios de normalización podrían cerrar la discrepancia | #3452696 limita explícitamente el bug de JAR anidado a PS4 13.00–13.02 | Divergencia distinta entre URL, canonicalización, entrada ZIP, URL encoding o JAR anidado; no hay evidencia de que sobreviva | #3452696 no prueba 13.52; su rango anterior contradice una extrapolación automática | **HISTORICAL_ONLY; variante HYPOTHESIS** |
+research/webkit-1302/local/1302-local-inventory.txt:282:./1302-local-inventory.txt:125:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:21:| `BdjPolicyImpl` / canonicalización | La política canonicalizaba con `File.getCanonicalPath`, mientras `JarZipFile` trataba `..` como caracteres de una entrada anidada, concediendo `AllPermission` a contenido no confiable | Corrección de la discrepancia de resolución/validación o cambios en loader, firma y policy; el diff exacto no está publicado en la fuente consultada | PS4 13.00–13.02 según #3452696 | Otra divergencia entre la ruta usada por `CodeSource` y la ruta real del loader, pero requiere una nueva inconsistencia demostrable | Ninguna | **HISTORICAL_ONLY; variante HYPOTHESIS** |
+research/webkit-1302/local/1302-local-inventory.txt:283:./1302-local-inventory.txt:126:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:22:| Parsing ZIP/JAR y rutas | `JarZipFile` separaba un JAR exterior y una entrada literal, creando un contexto de carga distinto al de la policy | Normalización común de rutas, rechazo de entradas ascendentes, validación de firmas y coincidencia entre `CodeSource` y origen físico | Rango 13.00–13.02 documentado; parche exacto desconocido | ZIP con nombres codificados, separadores alternativos o múltiples capas de JAR; sólo una categoría de prueba estática futura | Ninguna | **HISTORICAL_ONLY; variante HYPOTHESIS** |
+research/webkit-1302/local/1302-local-inventory.txt:284:./1302-local-inventory.txt:127:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:41:El reporte #3452696 es importante porque limita el bug de canonicalización y JAR anidado a PS4 13.00–13.02. La evidencia no autoriza a extenderlo a 13.52. Sólo deja como hipótesis metodológica que futuras variantes deberían buscar otra divergencia entre la identidad usada por la policy y el origen real del loader.
+research/webkit-1302/local/1302-local-inventory.txt:285:./1302-local-inventory.txt:128:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:29:En el caso nested-JAR documentado por HackerOne, `BdjPolicyImpl` extiende `Policy`, comprueba `paramCodeSource != null`, obtiene `URL url = paramCodeSource.getLocation()`, exige protocolo `file`, aplica `new File(url.getFile()).getCanonicalPath()` y concede `AllPermission` cuando la ruta canónica empieza por `javaHome + "lib" + File.separator + "ext"`. El reporte identifica PS4 13.00–13.02, no 13.50 ni 13.52.[1]
+research/webkit-1302/local/1302-local-inventory.txt:286:./1302-local-inventory.txt:129:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:47:| HackerOne #3452696 | Firma y cuerpo de un `BdjPolicyImpl.getPermissions(CodeSource)`; `CodeSource`, `URL`, canonicalización y `AllPermission` | PS4 13.00–13.02 según el reporte | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:287:./1302-local-inventory.txt:130:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:70:La firma relevante es, por tanto, `getPermissions(CodeSource): PermissionCollection`. La clase base es `java.security.Policy`, y el argumento es un `java.security.CodeSource`. Esta evidencia es código incluido en un reporte público, pero corresponde al caso nested-JAR de PS4 13.00–13.02; no es bytecode de 13.52.[1]
+research/webkit-1302/local/1302-local-inventory.txt:288:./1302-local-inventory.txt:131:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:100:Mientras tanto, el loader conserva la representación no canónica y la interpreta como una entrada literal de JAR anidado. Esa divergencia es el caso CVE-2025-64390/GHSA-87pc-67c4-x49 documentado para 13.00–13.02, no una prueba de que exista igual en 13.52.[1]
+research/webkit-1302/local/1302-local-inventory.txt:289:./1302-local-inventory.txt:132:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:205:| `BdjPolicyImpl` con prefijo canónico `javaHome/lib/ext` | Código completo de HackerOne nested-JAR | PS4 13.00–13.02 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:290:./1302-local-inventory.txt:133:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:289:El cuerpo de `BdjPolicyImpl` del caso nested-JAR demuestra cómo una discrepancia de representación de rutas podía producir `AllPermission` en PS4 13.00–13.02. El fragmento SUNJCE demuestra documentalmente una validación adicional, pero no su implementación. Ninguna fuente pública localizada demuestra que el mismo método, algoritmo, objeto hasheado o rama de fallo estén presentes en PS4 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:291:./1302-local-inventory.txt:134:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:55:El advisory público GHSA-87pc-67c4-x49w / CVE-2025-64390 limita esta vulnerabilidad a PS4 13.00–13.02. Por tanto, es evidencia de una superficie de policy/classloading, pero **no** una candidata viable para atribuir a 13.52 sin un nuevo diff o bytes.
+research/webkit-1302/local/1302-local-inventory.txt:292:./1302-local-inventory.txt:135:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:57:**Confianza:** `DIRECT_HISTORICAL` para 13.00–13.02; `DISCARDED` como explicación directa de 13.52 salvo evidencia nueva.
+research/webkit-1302/local/1302-local-inventory.txt:293:./1302-local-inventory.txt:136:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:74:| 6 | Nested JAR `BdjPolicyImpl`/`JarZipFile` | #3452696 y CVE-2025-64390 | Afectación pública limitada a 13.00–13.02 | Útil como patrón de discrepancia policy/loader, no como candidato 13.52 | Rango CVE y parche temprano | `DIRECT_HISTORICAL` / `DISCARDED_13.52` |
+research/webkit-1302/local/1302-local-inventory.txt:294:./1302-local-inventory.txt:137:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:86:El contrato JIT/compiler-agent sigue siendo la ruta con mayor probabilidad histórica hacia native usermode, pero depende de una interfaz nativa y de validaciones no disponibles sin runtime. El nested-JAR queda descartado como explicación directa de 13.52 por su rango público 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:295:./1302-local-inventory.txt:138:./webkit-kit/runtime/BDJ_PS4_1350_1352_DIFFERENTIAL_SESSION17.md:41:La página oficial de PlayStation identifica la versión 13.52 y declara que se realizaron correcciones de seguridad. También enumera 13.50 como una actualización de mensajes/usabilidad, y 13.04 y 13.02 como actualizaciones con correcciones de seguridad.[1]
+research/webkit-1302/local/1302-local-inventory.txt:296:./1302-local-inventory.txt:139:./webkit-kit/runtime/BDJ_RUNTIME_ARTIFACT_AUDIT_SESSION9_SOURCES.md:5:La página pública `https://twitter-thread.com/t/2081061116025692373` reproduce un hilo de @ASaudidos del 25-07-2026 titulado “update on ps4 bd-j exploit progress (firmware 12.02)”. El texto afirma que la cadena userland funciona en 12.02, 13.02, 13.50 y 13.52; también afirma que Sony eliminó el grant original de `sunjce_provider.jar` en una actualización reciente, pero que la vulnerabilidad usada por esa cadena es distinta y permanece sin parchear. Describe resultados como control de registros, pivot de stack, invocación de syscalls y ejecución nativa dentro del proceso BD-J.
+research/webkit-1302/local/1302-local-inventory.txt:297:./1302-local-inventory.txt:140:./webkit-kit/runtime/BDJ_RUNTIME_ARTIFACT_SOURCE_CLOSURE_SESSION9.md:9:La fuente pública atribuida a ASaudidos, reproducida por [Thread Reader][1], afirma que una cadena userland BD-J funciona en 12.02, 13.02, 13.50 y 13.52, y que Sony eliminó el grant original de `sunjce_provider.jar` en una actualización reciente, mientras la vulnerabilidad utilizada por esa cadena sería distinta. La misma publicación afirma ejecución nativa dentro del proceso BD-J, pero no proporciona archivos, hashes, clases, métodos, símbolos, diffs ni un repositorio del runtime.
+research/webkit-1302/local/1302-local-inventory.txt:298:./1302-local-inventory.txt:141:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:15:3. HackerOne #3452696 publica una implementación detallada de `BdjPolicyImpl`, `JarZipFile`, `XletClassLoader`, `BDJFactory` y `CoreAppId.isSigned()`, pero declara afectación 13.00–13.02, no 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:299:./1302-local-inventory.txt:142:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:33:| HackerOne #3452696 [3] | Summary, “Affected PS4 system software: version 13.00 to latest (13.02)” | Código/flujo histórico de `BdjPolicyImpl`, `JarZipFile`, `XletClassLoader`, `BDJFactory` y `CoreAppId.isSigned()` para 13.00–13.02 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:300:./1302-local-inventory.txt:143:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:60:HackerOne #3452696 sí publica código y flujo de `BdjPolicyImpl`, `JarZipFile`, `XletClassLoader`, `BDJFactory` y `CoreAppId.isSigned()`, pero el propio informe fija el rango en 13.00–13.02. La entrada de `PSDescriptorFactory` en PSDevWiki es editorial e histórica, sin implementación retail 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:301:./1302-local-inventory.txt:144:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:74:| ¿HackerOne #3452696 representa 13.52? | No; declara 13.00–13.02 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:302:./1302-local-inventory.txt:145:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:104:[3]: https://hackerone.com/reports/3452696 — HackerOne #3452696, nested-JAR; declara PS4 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:303:./1302-local-inventory.txt:146:./webkit-kit/runtime/BDJ_SECURITY_CHANGE_1352_HYPOTHESIS_MATRIX.md:22:| **Policy/CodeSource/JAR** | `BdjPolicyImpl` canoniza URL mientras `JarZipFile` interpreta literalmente la entrada nested-JAR. | HackerOne #3452696 declara 13.00–13.02; CVE-2025-64390. | Ninguna fuente fija un cambio en 13.52; el caso conocido ya está acotado antes. | La nota de seguridad podría cubrir una variante posterior de policy/loader. | La vulnerabilidad concreta publicada está parcheada/limitada antes de 13.52; no hay variante posterior demostrada. | Diff 13.50→13.52 de `BdjPolicyImpl`, `JarZipFile`, `BDJFactory` o `XletClassLoader`. | `HISTORICAL_ONLY / UNVERIFIED` |
+research/webkit-1302/local/1302-local-inventory.txt:304:./1302-local-inventory.txt:147:./webkit-kit/runtime/BDJ_SECURITY_CHANGE_1352_HYPOTHESIS_MATRIX.md:64:| Policy/CodeSource/JAR variante no nested | Baja | Media para 13.00–13.02 | Alta | 4 |
+research/webkit-1302/local/1302-local-inventory.txt:305:./1302-local-inventory.txt:148:./webkit-kit/runtime/BDJ_SECURITY_CHANGE_1352_HYPOTHESIS_MATRIX.md:100:[5]: https://hackerone.com/reports/3452696 — HackerOne #3452696, nested-JAR; PS4 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:306:./1302-local-inventory.txt:149:./webkit-kit/runtime/BDJ_SUNJCE_1350_TO_1352_EVIDENCE.md:73:- La sección nested-JAR/CVE-2025-64390 declara PS4 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:307:./1302-local-inventory.txt:150:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:19:La línea policy/loader/JAR está históricamente acotada a PS4 13.00–13.02 por #3452696. Es útil como patrón de divergencia de representación, pero la variante nested-JAR no debe trasladarse a 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:308:./1302-local-inventory.txt:151:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:136:#3452696 atribuye a PS4 13.00–13.02 una divergencia entre:
+research/webkit-1302/local/1302-local-inventory.txt:309:./1302-local-inventory.txt:152:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:167:Todas son **HYPOTHESIS**, no vulnerabilidades existentes. La variante nested-JAR original no debe tratarse como presente en 13.52 porque el reporte limita su alcance a 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:310:./1302-local-inventory.txt:153:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:173:| Divergencia canonical path vs entrada literal en 13.00–13.02 | **HISTORICAL_ONLY** |
+research/webkit-1302/local/1302-local-inventory.txt:311:./1302-local-inventory.txt:154:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:195:3. La policy/loader sí sufrió una divergencia de representación en 13.00–13.02, pero esa vulnerabilidad concreta no debe extrapolarse a 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:312:./1302-local-inventory.txt:155:./webkit-kit/runtime/BDJ_THREE_SURFACES_DEEP_RESEARCH.md:4:**Alcance:** análisis estático de fuentes públicas. No se ejecutaron exploits, payloads, JAR/ELF/BIN ni código contra hardware. El nested-JAR 13.00–13.02 se trata sólo como caso excluido, no como variante nueva.
+research/webkit-1302/local/1302-local-inventory.txt:313:./1302-local-inventory.txt:156:./webkit-kit/runtime/BDJ_THREE_SURFACES_DEEP_RESEARCH.md:88:El nested-JAR 13.00–13.02 queda excluido. La hipótesis aquí sólo sería válida si se demuestra una discrepancia de representación que no dependa de la inserción `.jar` ya documentada.
+research/webkit-1302/local/1302-local-inventory.txt:314:./1302-local-inventory.txt:157:./webkit-kit/runtime/BDJ_THREE_SURFACES_DEEP_RESEARCH.md:114:| Nested-JAR | CVE/PSDevWiki 13.00–13.02. | Ya documentada y excluida. | No es variante nueva. | `DISCARDED` |
+research/webkit-1302/local/1302-local-inventory.txt:315:./1302-local-inventory.txt:158:./webkit-kit/runtime/PS4_1352_PUBLIC_CHAIN_STATUS.md:197:| ICU `String.normalize` | Rango `?13.02?` | No llega documentalmente a 13.52 |
+research/webkit-1302/local/1302-local-inventory.txt:316:./1302-local-inventory.txt:159:./webkit-kit/runtime/SUNJCE_PUBLIC_ARTIFACT_FINAL_SESSION31.md:23:| [`ajaysenr/HackerOne-Disclosed-Reports`][3] | `reports/3452696.md` | Documento público | No aplica | Mirror de reporte histórico BD-J 13.00–13.02; ya conocido y no evidencia 13.52 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:317:./1302-local-inventory.txt:160:./webkit-kit/runtime/SUNJCE_PUBLIC_ARTIFACT_FINAL_SESSION31.md:43:El mirror `ajaysenr/HackerOne-Disclosed-Reports/reports/3452696.md` reproduce el reporte histórico de BD-J nested-JAR y el flujo `BdjPolicyImpl → AllPermission`, pero no es un snapshot nuevo: no contiene JARs ni `.class` de 13.52 y su firmware declarado es 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:318:./1302-local-inventory.txt:161:./webkit-kit/runtime/WEBKIT_CANDIDATE_CORPUS_SESSION60.md:14:| CVE-2025-43429 | Heap buffer overflow en ICU vía `JSC String.prototype.normalize` | `FW <=?13.02?` | No llega públicamente a 13.52 |
+research/webkit-1302/local/1302-local-inventory.txt:319:./1302-local-inventory.txt:162:./webkit-kit/runtime/WEBKIT_CANDIDATE_CORPUS_SESSION60.md:32:4. CVE-2025-43429/String.prototype.normalize: diff potencialmente pequeño, pero rango público sólo hasta 13.02?.
+research/webkit-1302/local/1302-local-inventory.txt:320:./1302-local-inventory.txt:163:./webkit-kit/runtime/WEBKIT_JSC_CANDIDATE_DEEP_RESEARCH_SESSION60.md:27:| String.normalize ICU (CVE-2025-43429) | heap overflow en normalización NFKC | testcase público; PSDevWiki probado hasta 12.00 y no parcheado 13.02 según fechas | rango `<=?13.02?` | no llega públicamente a 13.52 |
+research/webkit-1302/local/1302-local-inventory.txt:329:./1302-local-inventory.txt:172:./1302-local-inventory.txt:12:[33mf0031f1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mpre-release-main-270[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HALLAZGO DEFINITIVO: base de datos offsets kernel completa (todas FWs incl. 13.02 y 13.52); sysent=0x1102B70 constante; cadena 13.02 construible
+research/webkit-1302/local/1302-local-inventory.txt:341:./1302-local-inventory.txt:184:./1302-local-inventory.txt:27:./cve_analysis.md:89:| Stack overflow via setcred(2) | CVE-2026-45250 | No as of 13.02; "maybe not affected" |
+research/webkit-1302/local/1302-local-inventory.txt:342:./1302-local-inventory.txt:185:./1302-local-inventory.txt:28:./docs/PS4-1352-COMPLETE-STATUS.md:6:para 13.52 existe como diseño; le falta UN archivo (payload kernel 13.02/13.52)
+research/webkit-1302/local/1302-local-inventory.txt:343:./1302-local-inventory.txt:186:./1302-local-inventory.txt:29:./docs/PS4-1352-COMPLETE-STATUS.md:29:| CVE-2026-58087 semctl TOCTOU | kernel 11.02 confirma SysV; 13.02 = HIPÓTESIS | CONFIRMADO_OTRA_VERSION |
+research/webkit-1302/local/1302-local-inventory.txt:344:./1302-local-inventory.txt:187:./1302-local-inventory.txt:30:./docs/PS4-1352-COMPLETE-STATUS.md:68:   Generar payload kernel 13.02/13.52 con offsets reales
+research/webkit-1302/local/1302-local-inventory.txt:345:./1302-local-inventory.txt:188:./1302-local-inventory.txt:31:./docs/offline-research-1352.md:55:| Luac0re JIT nativo: PS4 hasta 13.02 (v1.1, mar-2026); README v2.x dice "latest firmwares"; Suchi96 afirma 13.52 retail | nydus 2026-03-10; repo; docx | AUTOR_REPORTADO (dos fuentes independientes) |
+research/webkit-1302/local/1302-local-inventory.txt:346:./1302-local-inventory.txt:189:./1302-local-inventory.txt:32:./docs/pmap-protect-audit.md:62:El historial de Scene muestra que `0x59DF0` fue añadido para 13.52 junto con la tabla de macros, pero el mismo valor ya estaba repetido para 11.50, 11.52, 12.00, 12.02, 12.50, 12.52, 13.00, 13.02, 13.04 y 13.50. La fuente no aporta una medición específica de 13.52 para ese valor.
+research/webkit-1302/local/1302-local-inventory.txt:347:./1302-local-inventory.txt:190:./1302-local-inventory.txt:33:./docs/pup_ioctl_protocol.md:366:Descubierto: repositorio con offsets kexec para **CADA firmware PS4 desde 3.15 hasta 13.52**, incluyendo 13.02 y 13.52 específicamente.
+research/webkit-1302/local/1302-local-inventory.txt:348:./1302-local-inventory.txt:191:./1302-local-inventory.txt:34:./docs/pup_ioctl_protocol.md:368:### Offsets críticos confirmados para 13.02:
+research/webkit-1302/local/1302-local-inventory.txt:349:./1302-local-inventory.txt:192:./1302-local-inventory.txt:35:./docs/pup_ioctl_protocol.md:381:`sysent` NO se movió entre 13.00→13.02→13.52 (0x1102B70 constante).
+research/webkit-1302/local/1302-local-inventory.txt:350:./1302-local-inventory.txt:193:./1302-local-inventory.txt:36:./docs/pup_ioctl_protocol.md:382:Los demás offsets tienen deltas de +0x10 (13.00→13.02) y +0xB0 (13.02→13.52).
+research/webkit-1302/local/1302-local-inventory.txt:351:./1302-local-inventory.txt:194:./1302-local-inventory.txt:37:./docs/pup_ioctl_protocol.md:385:Con estos offsets, la cadena 13.02 es CONSTRUIBLE usando la técnica kexec clásica:
+research/webkit-1302/local/1302-local-inventory.txt:352:./1302-local-inventory.txt:195:./1302-local-inventory.txt:38:./docs/remaining-gaps.md:100:| WebKit userland | CVE-2017-7117 | 5.05–13.02 |
+research/webkit-1302/local/1302-local-inventory.txt:353:./1302-local-inventory.txt:196:./1302-local-inventory.txt:39:./docs/remaining-gaps.md:119:WebKit (CVE-2017-7117 que funciona hasta 13.02), existiría una cadena completa
+research/webkit-1302/local/1302-local-inventory.txt:354:./1302-local-inventory.txt:197:./1302-local-inventory.txt:40:./docs/remaining-gaps.md:128:| Componente | 9.03–12.52 | 13.00 | **13.02** |
+research/webkit-1302/local/1302-local-inventory.txt:355:./1302-local-inventory.txt:198:./1302-local-inventory.txt:41:./docs/remaining-gaps.md:135:Alguien determinó los offsets de parche mmap para 13.02 específicamente,
+research/webkit-1302/local/1302-local-inventory.txt:356:./1302-local-inventory.txt:199:./1302-local-inventory.txt:42:./docs/remaining-gaps.md:136:lo que implica que tuvo acceso al binario del kernel 13.02 (o lo derivó
+research/webkit-1302/local/1302-local-inventory.txt:357:./1302-local-inventory.txt:200:./1302-local-inventory.txt:43:./docs/remaining-gaps.md:139:### La pieza exacta que falta para 13.02
+research/webkit-1302/local/1302-local-inventory.txt:358:./1302-local-inventory.txt:201:./1302-local-inventory.txt:44:./docs/remaining-gaps.md:140:El payload kernel completo para 13.02 = misma estructura que el payload de
+research/webkit-1302/local/1302-local-inventory.txt:359:./1302-local-inventory.txt:202:./1302-local-inventory.txt:45:./docs/remaining-gaps.md:141:13.00 pero con los offsets correctos del kernel 13.02. Los offsets necesarios:
+research/webkit-1302/local/1302-local-inventory.txt:360:./1302-local-inventory.txt:203:./1302-local-inventory.txt:46:./docs/remaining-gaps.md:147:13.02 (que está dentro del system_fs_image.img cifrado del PUP).
+research/webkit-1302/local/1302-local-inventory.txt:361:./1302-local-inventory.txt:204:./1302-local-inventory.txt:47:./docs/remaining-gaps.md:149:### Cadena 13.02: inventario de piezas
+research/webkit-1302/local/1302-local-inventory.txt:362:./1302-local-inventory.txt:205:./1302-local-inventory.txt:48:./docs/remaining-gaps.md:153:| WebKit userland (CVE-2017-7117) | ✅ funciona 5.05–13.02 | ps-vue-jb-2.5 README |
+research/webkit-1302/local/1302-local-inventory.txt:363:./1302-local-inventory.txt:206:./1302-local-inventory.txt:49:./docs/remaining-gaps.md:155:| Kernel exploit Netctrl | ✅ hasta 13.00 / ❓ 13.02 | ídem |
+research/webkit-1302/local/1302-local-inventory.txt:364:./1302-local-inventory.txt:207:./1302-local-inventory.txt:50:./docs/remaining-gaps.md:156:| Offsets mmap RWX 13.02 | ✅ documentados | kernel.ts |
+research/webkit-1302/local/1302-local-inventory.txt:365:./1302-local-inventory.txt:208:./1302-local-inventory.txt:51:./docs/remaining-gaps.md:157:| Payload kernel completo 13.02 | ❌ NO EXISTE | — |
+research/webkit-1302/local/1302-local-inventory.txt:366:./1302-local-inventory.txt:209:./1302-local-inventory.txt:52:./docs/remaining-gaps.md:159:| Confirmación HW 13.02 | ❌ nadie ha publicado | — |
+research/webkit-1302/local/1302-local-inventory.txt:367:./1302-local-inventory.txt:210:./1302-local-inventory.txt:53:./docs/remaining-gaps.md:181:Para 13.02: SOLO se conocen los parches #11 y #12 (`[0x1fa78a, 0x1fa78d]`).
+research/webkit-1302/local/1302-local-inventory.txt:368:./1302-local-inventory.txt:211:./1302-local-inventory.txt:54:./docs/remaining-gaps.md:182:Los otros 10 offsets son DESCONOCIDOS sin el binario kernel 13.52/13.02.
+research/webkit-1302/local/1302-local-inventory.txt:369:./1302-local-inventory.txt:212:./1302-local-inventory.txt:55:./docs/remaining-gaps.md:183:Delta observado entre 13.00→13.02 en mmap: +0x10 bytes. NO extrapolable a
+research/webkit-1302/local/1302-local-inventory.txt:370:./1302-local-inventory.txt:213:./1302-local-inventory.txt:56:./docs/remaining-gaps.md:186:Fuentes que confirman offsets mmap 13.02: Vuemony/vue-after-free,
+research/webkit-1302/local/1302-local-inventory.txt:371:./1302-local-inventory.txt:214:./1302-local-inventory.txt:57:./docs/remaining-gaps.md:190:## BÚSQUEDA EXHAUSTIVA DE LOS 10 OFFSETS FALTANTES PARA 13.02 (2026-08-25)
+research/webkit-1302/local/1302-local-inventory.txt:372:./1302-local-inventory.txt:215:./1302-local-inventory.txt:58:./docs/remaining-gaps.md:203:| +0x002BD42D | ✓ GitHub code search → solo kexploit.js 9.00 (FW distinto) | N/A para 13.02 |
+research/webkit-1302/local/1302-local-inventory.txt:373:./1302-local-inventory.txt:216:./1302-local-inventory.txt:59:./docs/remaining-gaps.md:213:### Verificación de procedencia de los offsets mmap 13.02
+research/webkit-1302/local/1302-local-inventory.txt:374:./1302-local-inventory.txt:217:./1302-local-inventory.txt:60:./docs/remaining-gaps.md:216:de análisis del binario kernel 13.02. Clasificación elevada a UNVERIFIED
+research/webkit-1302/local/1302-local-inventory.txt:375:./1302-local-inventory.txt:218:./1302-local-inventory.txt:61:./docs/remaining-gaps.md:220:La cadena 13.02 NO puede reconstruirse con material público porque
+research/webkit-1302/local/1302-local-inventory.txt:376:./1302-local-inventory.txt:219:./1302-local-inventory.txt:62:./docs/remaining-gaps.md:225:## BARRIDO FINAL DE ARTEFACTOS PÚBLICOS 13.02 (2026-08-25)
+research/webkit-1302/local/1302-local-inventory.txt:377:./1302-local-inventory.txt:220:./1302-local-inventory.txt:63:./docs/remaining-gaps.md:253:| Userland hasta | PS4: últimas FW (incluye 13.02+, probablemente 13.52) |
+research/webkit-1302/local/1302-local-inventory.txt:378:./1302-local-inventory.txt:221:./1302-local-inventory.txt:64:./docs/remaining-gaps.md:260:| onejailbreak.com | "Luac0re Exploit Works on PS4 Up to 13.02" | REPORTADO |
+research/webkit-1302/local/1302-local-inventory.txt:379:./1302-local-inventory.txt:222:./1302-local-inventory.txt:65:./docs/remaining-gaps.md:261:| Subhan-Haider/Ps4-jelbreak-13.02 | "7.00-13.50 (PS4)" userland | AUTHOR_REPORTED |
+research/webkit-1302/local/1302-local-inventory.txt:380:./1302-local-inventory.txt:223:./1302-local-inventory.txt:66:./docs/remaining-gaps.md:262:| YouTube (Modded Warfare et al.) | "PS4 13.02 LUACORE Fully Working Online" | VIDEO_EVIDENCE |
+research/webkit-1302/local/1302-local-inventory.txt:381:./1302-local-inventory.txt:224:./1302-local-inventory.txt:67:./docs/remaining-gaps.md:272:- **13.02–13.50 = USERLAND ONLY** (sin kernel R/W público)
+research/webkit-1302/local/1302-local-inventory.txt:409:./1302-local-inventory.txt:252:./1302-local-inventory.txt:95:./research/results/slopos/1302.h:2:/* PS4 13.02 — kexec offsets: ArabPixel */
+research/webkit-1302/local/1302-local-inventory.txt:428:./1302-local-inventory.txt:271:./1302-local-inventory.txt:114:./tools/kernel_payload_generator.py:5:Cuando alguien determine los offsets del kernel 13.02/13.52, basta con
+research/webkit-1302/local/1302-local-inventory.txt:429:./1302-local-inventory.txt:272:./1302-local-inventory.txt:115:./tools/kernel_payload_generator.py:10:  kernel_payload_generator.py --fw 13.02 --offsets 10        # genera con offsets estimados
+research/webkit-1302/local/1302-local-inventory.txt:430:./1302-local-inventory.txt:273:./1302-local-inventory.txt:116:./tools/kernel_payload_generator.py:63:    ap.add_argument("--fw", required=True, help="Versión firmware (ej: 13.02)")
+research/webkit-1302/local/1302-local-inventory.txt:432:./1302-local-inventory.txt:275:./1302-local-inventory.txt:118:./webkit-kit/runtime/BDJ_CURRENT_RUNTIME_1352_EVIDENCE_SESSION16.md:15:La misma página describe 13.50 como una actualización de mensajes/usabilidad, y 13.02/13.04 como correcciones de seguridad, pero no identifica componentes Java, BD-J ni cambios de clases o métodos. Por tanto, la nota oficial confirma que hubo correcciones de seguridad, pero no permite atribuir ninguna a la JVM o al runtime BD-J.
+research/webkit-1302/local/1302-local-inventory.txt:433:./1302-local-inventory.txt:276:./1302-local-inventory.txt:119:./webkit-kit/runtime/BDJ_CURRENT_RUNTIME_1352_EVIDENCE_SESSION16.md:41:| 13.02 | Correcciones de seguridad | No identifica componentes |
+research/webkit-1302/local/1302-local-inventory.txt:434:./1302-local-inventory.txt:277:./1302-local-inventory.txt:120:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:23:| 4 | ClassLoader/canonicalización/JAR anidado | `BdjPolicyImpl` canoniza, mientras `JarZipFile` interpreta literalmente la entrada anidada | **DIRECT para 13.00–13.02; REFUTED para ese rango concreto posterior; UNVERIFIED para variantes 13.52** |
+research/webkit-1302/local/1302-local-inventory.txt:435:./1302-local-inventory.txt:278:./1302-local-inventory.txt:121:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:85:La fuente pública asigna explícitamente el reporte a PS4 13.00–13.02. El advisory CVE-2025-64390/GHSA-87pc-67c4-x49w también limita la descripción a 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:436:./1302-local-inventory.txt:279:./1302-local-inventory.txt:122:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:99:**Prioridad: 4.** El bug histórico está documentado de forma directa para 13.00–13.02, pero no es evidencia de 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:437:./1302-local-inventory.txt:280:./1302-local-inventory.txt:123:./webkit-kit/runtime/BDJ_FOUR_LINES_STATIC_RESEARCH.md:132:4. tratar la canonicalización/JAR anidado como un bug histórico limitado a 13.00–13.02, no como una explicación automática para 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:438:./1302-local-inventory.txt:281:./1302-local-inventory.txt:124:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:20:| `XletClassLoader` / JAR firmado | El loader y la política podían interpretar de forma divergente la procedencia de un JAR | Verificación de firma, `RootCertManager`, rango de `applicationId` y cambios de normalización podrían cerrar la discrepancia | #3452696 limita explícitamente el bug de JAR anidado a PS4 13.00–13.02 | Divergencia distinta entre URL, canonicalización, entrada ZIP, URL encoding o JAR anidado; no hay evidencia de que sobreviva | #3452696 no prueba 13.52; su rango anterior contradice una extrapolación automática | **HISTORICAL_ONLY; variante HYPOTHESIS** |
+research/webkit-1302/local/1302-local-inventory.txt:439:./1302-local-inventory.txt:282:./1302-local-inventory.txt:125:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:21:| `BdjPolicyImpl` / canonicalización | La política canonicalizaba con `File.getCanonicalPath`, mientras `JarZipFile` trataba `..` como caracteres de una entrada anidada, concediendo `AllPermission` a contenido no confiable | Corrección de la discrepancia de resolución/validación o cambios en loader, firma y policy; el diff exacto no está publicado en la fuente consultada | PS4 13.00–13.02 según #3452696 | Otra divergencia entre la ruta usada por `CodeSource` y la ruta real del loader, pero requiere una nueva inconsistencia demostrable | Ninguna | **HISTORICAL_ONLY; variante HYPOTHESIS** |
+research/webkit-1302/local/1302-local-inventory.txt:440:./1302-local-inventory.txt:283:./1302-local-inventory.txt:126:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:22:| Parsing ZIP/JAR y rutas | `JarZipFile` separaba un JAR exterior y una entrada literal, creando un contexto de carga distinto al de la policy | Normalización común de rutas, rechazo de entradas ascendentes, validación de firmas y coincidencia entre `CodeSource` y origen físico | Rango 13.00–13.02 documentado; parche exacto desconocido | ZIP con nombres codificados, separadores alternativos o múltiples capas de JAR; sólo una categoría de prueba estática futura | Ninguna | **HISTORICAL_ONLY; variante HYPOTHESIS** |
+research/webkit-1302/local/1302-local-inventory.txt:441:./1302-local-inventory.txt:284:./1302-local-inventory.txt:127:./webkit-kit/runtime/BDJ_HISTORICAL_MITIGATIONS_VARIANTS_SESSION10.md:41:El reporte #3452696 es importante porque limita el bug de canonicalización y JAR anidado a PS4 13.00–13.02. La evidencia no autoriza a extenderlo a 13.52. Sólo deja como hipótesis metodológica que futuras variantes deberían buscar otra divergencia entre la identidad usada por la policy y el origen real del loader.
+research/webkit-1302/local/1302-local-inventory.txt:442:./1302-local-inventory.txt:285:./1302-local-inventory.txt:128:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:29:En el caso nested-JAR documentado por HackerOne, `BdjPolicyImpl` extiende `Policy`, comprueba `paramCodeSource != null`, obtiene `URL url = paramCodeSource.getLocation()`, exige protocolo `file`, aplica `new File(url.getFile()).getCanonicalPath()` y concede `AllPermission` cuando la ruta canónica empieza por `javaHome + "lib" + File.separator + "ext"`. El reporte identifica PS4 13.00–13.02, no 13.50 ni 13.52.[1]
+research/webkit-1302/local/1302-local-inventory.txt:443:./1302-local-inventory.txt:286:./1302-local-inventory.txt:129:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:47:| HackerOne #3452696 | Firma y cuerpo de un `BdjPolicyImpl.getPermissions(CodeSource)`; `CodeSource`, `URL`, canonicalización y `AllPermission` | PS4 13.00–13.02 según el reporte | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:444:./1302-local-inventory.txt:287:./1302-local-inventory.txt:130:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:70:La firma relevante es, por tanto, `getPermissions(CodeSource): PermissionCollection`. La clase base es `java.security.Policy`, y el argumento es un `java.security.CodeSource`. Esta evidencia es código incluido en un reporte público, pero corresponde al caso nested-JAR de PS4 13.00–13.02; no es bytecode de 13.52.[1]
+research/webkit-1302/local/1302-local-inventory.txt:445:./1302-local-inventory.txt:288:./1302-local-inventory.txt:131:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:100:Mientras tanto, el loader conserva la representación no canónica y la interpreta como una entrada literal de JAR anidado. Esa divergencia es el caso CVE-2025-64390/GHSA-87pc-67c4-x49 documentado para 13.00–13.02, no una prueba de que exista igual en 13.52.[1]
+research/webkit-1302/local/1302-local-inventory.txt:446:./1302-local-inventory.txt:289:./1302-local-inventory.txt:132:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:205:| `BdjPolicyImpl` con prefijo canónico `javaHome/lib/ext` | Código completo de HackerOne nested-JAR | PS4 13.00–13.02 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:447:./1302-local-inventory.txt:290:./1302-local-inventory.txt:133:./webkit-kit/runtime/BDJ_POLICY_ROOTCERT_SUNJCE_CHAIN_RECONSTRUCTION.md:289:El cuerpo de `BdjPolicyImpl` del caso nested-JAR demuestra cómo una discrepancia de representación de rutas podía producir `AllPermission` en PS4 13.00–13.02. El fragmento SUNJCE demuestra documentalmente una validación adicional, pero no su implementación. Ninguna fuente pública localizada demuestra que el mismo método, algoritmo, objeto hasheado o rama de fallo estén presentes en PS4 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:448:./1302-local-inventory.txt:291:./1302-local-inventory.txt:134:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:55:El advisory público GHSA-87pc-67c4-x49w / CVE-2025-64390 limita esta vulnerabilidad a PS4 13.00–13.02. Por tanto, es evidencia de una superficie de policy/classloading, pero **no** una candidata viable para atribuir a 13.52 sin un nuevo diff o bytes.
+research/webkit-1302/local/1302-local-inventory.txt:449:./1302-local-inventory.txt:292:./1302-local-inventory.txt:135:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:57:**Confianza:** `DIRECT_HISTORICAL` para 13.00–13.02; `DISCARDED` como explicación directa de 13.52 salvo evidencia nueva.
+research/webkit-1302/local/1302-local-inventory.txt:450:./1302-local-inventory.txt:293:./1302-local-inventory.txt:136:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:74:| 6 | Nested JAR `BdjPolicyImpl`/`JarZipFile` | #3452696 y CVE-2025-64390 | Afectación pública limitada a 13.00–13.02 | Útil como patrón de discrepancia policy/loader, no como candidato 13.52 | Rango CVE y parche temprano | `DIRECT_HISTORICAL` / `DISCARDED_13.52` |
+research/webkit-1302/local/1302-local-inventory.txt:451:./1302-local-inventory.txt:294:./1302-local-inventory.txt:137:./webkit-kit/runtime/BDJ_POST_ESCAPE_ROUTES_PROMPT2.md:86:El contrato JIT/compiler-agent sigue siendo la ruta con mayor probabilidad histórica hacia native usermode, pero depende de una interfaz nativa y de validaciones no disponibles sin runtime. El nested-JAR queda descartado como explicación directa de 13.52 por su rango público 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:452:./1302-local-inventory.txt:295:./1302-local-inventory.txt:138:./webkit-kit/runtime/BDJ_PS4_1350_1352_DIFFERENTIAL_SESSION17.md:41:La página oficial de PlayStation identifica la versión 13.52 y declara que se realizaron correcciones de seguridad. También enumera 13.50 como una actualización de mensajes/usabilidad, y 13.04 y 13.02 como actualizaciones con correcciones de seguridad.[1]
+research/webkit-1302/local/1302-local-inventory.txt:453:./1302-local-inventory.txt:296:./1302-local-inventory.txt:139:./webkit-kit/runtime/BDJ_RUNTIME_ARTIFACT_AUDIT_SESSION9_SOURCES.md:5:La página pública `https://twitter-thread.com/t/2081061116025692373` reproduce un hilo de @ASaudidos del 25-07-2026 titulado “update on ps4 bd-j exploit progress (firmware 12.02)”. El texto afirma que la cadena userland funciona en 12.02, 13.02, 13.50 y 13.52; también afirma que Sony eliminó el grant original de `sunjce_provider.jar` en una actualización reciente, pero que la vulnerabilidad usada por esa cadena es distinta y permanece sin parchear. Describe resultados como control de registros, pivot de stack, invocación de syscalls y ejecución nativa dentro del proceso BD-J.
+research/webkit-1302/local/1302-local-inventory.txt:454:./1302-local-inventory.txt:297:./1302-local-inventory.txt:140:./webkit-kit/runtime/BDJ_RUNTIME_ARTIFACT_SOURCE_CLOSURE_SESSION9.md:9:La fuente pública atribuida a ASaudidos, reproducida por [Thread Reader][1], afirma que una cadena userland BD-J funciona en 12.02, 13.02, 13.50 y 13.52, y que Sony eliminó el grant original de `sunjce_provider.jar` en una actualización reciente, mientras la vulnerabilidad utilizada por esa cadena sería distinta. La misma publicación afirma ejecución nativa dentro del proceso BD-J, pero no proporciona archivos, hashes, clases, métodos, símbolos, diffs ni un repositorio del runtime.
+research/webkit-1302/local/1302-local-inventory.txt:455:./1302-local-inventory.txt:298:./1302-local-inventory.txt:141:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:15:3. HackerOne #3452696 publica una implementación detallada de `BdjPolicyImpl`, `JarZipFile`, `XletClassLoader`, `BDJFactory` y `CoreAppId.isSigned()`, pero declara afectación 13.00–13.02, no 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:456:./1302-local-inventory.txt:299:./1302-local-inventory.txt:142:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:33:| HackerOne #3452696 [3] | Summary, “Affected PS4 system software: version 13.00 to latest (13.02)” | Código/flujo histórico de `BdjPolicyImpl`, `JarZipFile`, `XletClassLoader`, `BDJFactory` y `CoreAppId.isSigned()` para 13.00–13.02 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:457:./1302-local-inventory.txt:300:./1302-local-inventory.txt:143:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:60:HackerOne #3452696 sí publica código y flujo de `BdjPolicyImpl`, `JarZipFile`, `XletClassLoader`, `BDJFactory` y `CoreAppId.isSigned()`, pero el propio informe fija el rango en 13.00–13.02. La entrada de `PSDescriptorFactory` en PSDevWiki es editorial e histórica, sin implementación retail 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:458:./1302-local-inventory.txt:301:./1302-local-inventory.txt:144:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:74:| ¿HackerOne #3452696 representa 13.52? | No; declara 13.00–13.02 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:459:./1302-local-inventory.txt:302:./1302-local-inventory.txt:145:./webkit-kit/runtime/BDJ_RUNTIME_PUBLIC_EVIDENCE_1352.md:104:[3]: https://hackerone.com/reports/3452696 — HackerOne #3452696, nested-JAR; declara PS4 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:460:./1302-local-inventory.txt:303:./1302-local-inventory.txt:146:./webkit-kit/runtime/BDJ_SECURITY_CHANGE_1352_HYPOTHESIS_MATRIX.md:22:| **Policy/CodeSource/JAR** | `BdjPolicyImpl` canoniza URL mientras `JarZipFile` interpreta literalmente la entrada nested-JAR. | HackerOne #3452696 declara 13.00–13.02; CVE-2025-64390. | Ninguna fuente fija un cambio en 13.52; el caso conocido ya está acotado antes. | La nota de seguridad podría cubrir una variante posterior de policy/loader. | La vulnerabilidad concreta publicada está parcheada/limitada antes de 13.52; no hay variante posterior demostrada. | Diff 13.50→13.52 de `BdjPolicyImpl`, `JarZipFile`, `BDJFactory` o `XletClassLoader`. | `HISTORICAL_ONLY / UNVERIFIED` |
+research/webkit-1302/local/1302-local-inventory.txt:461:./1302-local-inventory.txt:304:./1302-local-inventory.txt:147:./webkit-kit/runtime/BDJ_SECURITY_CHANGE_1352_HYPOTHESIS_MATRIX.md:64:| Policy/CodeSource/JAR variante no nested | Baja | Media para 13.00–13.02 | Alta | 4 |
+research/webkit-1302/local/1302-local-inventory.txt:462:./1302-local-inventory.txt:305:./1302-local-inventory.txt:148:./webkit-kit/runtime/BDJ_SECURITY_CHANGE_1352_HYPOTHESIS_MATRIX.md:100:[5]: https://hackerone.com/reports/3452696 — HackerOne #3452696, nested-JAR; PS4 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:463:./1302-local-inventory.txt:306:./1302-local-inventory.txt:149:./webkit-kit/runtime/BDJ_SUNJCE_1350_TO_1352_EVIDENCE.md:73:- La sección nested-JAR/CVE-2025-64390 declara PS4 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:464:./1302-local-inventory.txt:307:./1302-local-inventory.txt:150:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:19:La línea policy/loader/JAR está históricamente acotada a PS4 13.00–13.02 por #3452696. Es útil como patrón de divergencia de representación, pero la variante nested-JAR no debe trasladarse a 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:465:./1302-local-inventory.txt:308:./1302-local-inventory.txt:151:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:136:#3452696 atribuye a PS4 13.00–13.02 una divergencia entre:
+research/webkit-1302/local/1302-local-inventory.txt:466:./1302-local-inventory.txt:309:./1302-local-inventory.txt:152:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:167:Todas son **HYPOTHESIS**, no vulnerabilidades existentes. La variante nested-JAR original no debe tratarse como presente en 13.52 porque el reporte limita su alcance a 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:467:./1302-local-inventory.txt:310:./1302-local-inventory.txt:153:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:173:| Divergencia canonical path vs entrada literal en 13.00–13.02 | **HISTORICAL_ONLY** |
+research/webkit-1302/local/1302-local-inventory.txt:468:./1302-local-inventory.txt:311:./1302-local-inventory.txt:154:./webkit-kit/runtime/BDJ_THREE_PRIORITY_DIFFERENTIAL_SESSION11.md:195:3. La policy/loader sí sufrió una divergencia de representación en 13.00–13.02, pero esa vulnerabilidad concreta no debe extrapolarse a 13.52.
+research/webkit-1302/local/1302-local-inventory.txt:469:./1302-local-inventory.txt:312:./1302-local-inventory.txt:155:./webkit-kit/runtime/BDJ_THREE_SURFACES_DEEP_RESEARCH.md:4:**Alcance:** análisis estático de fuentes públicas. No se ejecutaron exploits, payloads, JAR/ELF/BIN ni código contra hardware. El nested-JAR 13.00–13.02 se trata sólo como caso excluido, no como variante nueva.
+research/webkit-1302/local/1302-local-inventory.txt:470:./1302-local-inventory.txt:313:./1302-local-inventory.txt:156:./webkit-kit/runtime/BDJ_THREE_SURFACES_DEEP_RESEARCH.md:88:El nested-JAR 13.00–13.02 queda excluido. La hipótesis aquí sólo sería válida si se demuestra una discrepancia de representación que no dependa de la inserción `.jar` ya documentada.
+research/webkit-1302/local/1302-local-inventory.txt:471:./1302-local-inventory.txt:314:./1302-local-inventory.txt:157:./webkit-kit/runtime/BDJ_THREE_SURFACES_DEEP_RESEARCH.md:114:| Nested-JAR | CVE/PSDevWiki 13.00–13.02. | Ya documentada y excluida. | No es variante nueva. | `DISCARDED` |
+research/webkit-1302/local/1302-local-inventory.txt:472:./1302-local-inventory.txt:315:./1302-local-inventory.txt:158:./webkit-kit/runtime/PS4_1352_PUBLIC_CHAIN_STATUS.md:197:| ICU `String.normalize` | Rango `?13.02?` | No llega documentalmente a 13.52 |
+research/webkit-1302/local/1302-local-inventory.txt:473:./1302-local-inventory.txt:316:./1302-local-inventory.txt:159:./webkit-kit/runtime/SUNJCE_PUBLIC_ARTIFACT_FINAL_SESSION31.md:23:| [`ajaysenr/HackerOne-Disclosed-Reports`][3] | `reports/3452696.md` | Documento público | No aplica | Mirror de reporte histórico BD-J 13.00–13.02; ya conocido y no evidencia 13.52 | `HISTORICAL_ONLY` |
+research/webkit-1302/local/1302-local-inventory.txt:474:./1302-local-inventory.txt:317:./1302-local-inventory.txt:160:./webkit-kit/runtime/SUNJCE_PUBLIC_ARTIFACT_FINAL_SESSION31.md:43:El mirror `ajaysenr/HackerOne-Disclosed-Reports/reports/3452696.md` reproduce el reporte histórico de BD-J nested-JAR y el flujo `BdjPolicyImpl → AllPermission`, pero no es un snapshot nuevo: no contiene JARs ni `.class` de 13.52 y su firmware declarado es 13.00–13.02.
+research/webkit-1302/local/1302-local-inventory.txt:475:./1302-local-inventory.txt:318:./1302-local-inventory.txt:161:./webkit-kit/runtime/WEBKIT_CANDIDATE_CORPUS_SESSION60.md:14:| CVE-2025-43429 | Heap buffer overflow en ICU vía `JSC String.prototype.normalize` | `FW <=?13.02?` | No llega públicamente a 13.52 |
+research/webkit-1302/local/1302-local-inventory.txt:476:./1302-local-inventory.txt:319:./1302-local-inventory.txt:162:./webkit-kit/runtime/WEBKIT_CANDIDATE_CORPUS_SESSION60.md:32:4. CVE-2025-43429/String.prototype.normalize: diff potencialmente pequeño, pero rango público sólo hasta 13.02?.
+research/webkit-1302/local/1302-local-inventory.txt:477:./1302-local-inventory.txt:320:./1302-local-inventory.txt:163:./webkit-kit/runtime/WEBKIT_JSC_CANDIDATE_DEEP_RESEARCH_SESSION60.md:27:| String.normalize ICU (CVE-2025-43429) | heap overflow en normalización NFKC | testcase público; PSDevWiki probado hasta 12.00 y no parcheado 13.02 según fechas | rango `<=?13.02?` | no llega públicamente a 13.52 |
+research/webkit-1302/local/1302-local-inventory.txt:486:./1302-local-inventory.txt:329:./1302-local-inventory.txt:172:./1302-local-inventory.txt:12:[33mf0031f1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mpre-release-main-270[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HALLAZGO DEFINITIVO: base de datos offsets kernel completa (todas FWs incl. 13.02 y 13.52); sysent=0x1102B70 constante; cadena 13.02 construible
+research/webkit-1302/local/1302-local-inventory.txt:498:./1302-local-inventory.txt:341:./1302-local-inventory.txt:184:./1302-local-inventory.txt:27:./cve_analysis.md:89:| Stack overflow via setcred(2) | CVE-2026-45250 | No as of 13.02; "maybe not affected" |
+research/webkit-1302/local/1302-local-inventory.txt:499:./1302-local-inventory.txt:342:./1302-local-inventory.txt:185:./1302-local-inventory.txt:28:./docs/PS4-1352-COMPLETE-STATUS.md:6:para 13.52 existe como diseño; le falta UN archivo (payload kernel 13.02/13.52)
+research/webkit-1302/local/1302-local-inventory.txt:500:./1302-local-inventory.txt:343:./1302-local-inventory.txt:186:./1302-local-inventory.txt:29:./docs/PS4-1352-COMPLETE-STATUS.md:29:| CVE-2026-58087 semctl TOCTOU | kernel 11.02 confirma SysV; 13.02 = HIPÓTESIS | CONFIRMADO_OTRA_VERSION |
+research/webkit-1302/local/1302-local-inventory.txt:501:./1302-local-inventory.txt:344:./1302-local-inventory.txt:187:./1302-local-inventory.txt:30:./docs/PS4-1352-COMPLETE-STATUS.md:68:   Generar payload kernel 13.02/13.52 con offsets reales
+research/webkit-1302/local/1302-local-inventory.txt:502:./1302-local-inventory.txt:345:./1302-local-inventory.txt:188:./1302-local-inventory.txt:31:./docs/offline-research-1352.md:55:| Luac0re JIT nativo: PS4 hasta 13.02 (v1.1, mar-2026); README v2.x dice "latest firmwares"; Suchi96 afirma 13.52 retail | nydus 2026-03-10; repo; docx | AUTOR_REPORTADO (dos fuentes independientes) |
+research/webkit-1302/local/1302-local-inventory.txt:503:./1302-local-inventory.txt:346:./1302-local-inventory.txt:189:./1302-local-inventory.txt:32:./docs/pmap-protect-audit.md:62:El historial de Scene muestra que `0x59DF0` fue añadido para 13.52 junto con la tabla de macros, pero el mismo valor ya estaba repetido para 11.50, 11.52, 12.00, 12.02, 12.50, 12.52, 13.00, 13.02, 13.04 y 13.50. La fuente no aporta una medición específica de 13.52 para ese valor.
+research/webkit-1302/local/1302-local-inventory.txt:504:./1302-local-inventory.txt:347:./1302-local-inventory.txt:190:./1302-local-inventory.txt:33:./docs/pup_ioctl_protocol.md:366:Descubierto: repositorio con offsets kexec para **CADA firmware PS4 desde 3.15 hasta 13.52**, incluyendo 13.02 y 13.52 específicamente.
+research/webkit-1302/local/1302-local-inventory.txt:505:./1302-local-inventory.txt:348:./1302-local-inventory.txt:191:./1302-local-inventory.txt:34:./docs/pup_ioctl_protocol.md:368:### Offsets críticos confirmados para 13.02:
+research/webkit-1302/local/1302-local-inventory.txt:506:./1302-local-inventory.txt:349:./1302-local-inventory.txt:192:./1302-local-inventory.txt:35:./docs/pup_ioctl_protocol.md:381:`sysent` NO se movió entre 13.00→13.02→13.52 (0x1102B70 constante).
+research/webkit-1302/local/1302-local-inventory.txt:507:./1302-local-inventory.txt:350:./1302-local-inventory.txt:193:./1302-local-inventory.txt:36:./docs/pup_ioctl_protocol.md:382:Los demás offsets tienen deltas de +0x10 (13.00→13.02) y +0xB0 (13.02→13.52).
+research/webkit-1302/local/1302-local-inventory.txt:508:./1302-local-inventory.txt:351:./1302-local-inventory.txt:194:./1302-local-inventory.txt:37:./docs/pup_ioctl_protocol.md:385:Con estos offsets, la cadena 13.02 es CONSTRUIBLE usando la técnica kexec clásica:
+research/webkit-1302/local/1302-local-inventory.txt:509:./1302-local-inventory.txt:352:./1302-local-inventory.txt:195:./1302-local-inventory.txt:38:./docs/remaining-gaps.md:100:| WebKit userland | CVE-2017-7117 | 5.05–13.02 |
+research/webkit-1302/local/1302-local-inventory.txt:510:./1302-local-inventory.txt:353:./1302-local-inventory.txt:196:./1302-local-inventory.txt:39:./docs/remaining-gaps.md:119:WebKit (CVE-2017-7117 que funciona hasta 13.02), existiría una cadena completa
+research/webkit-1302/local/1302-local-inventory.txt:511:./1302-local-inventory.txt:354:./1302-local-inventory.txt:197:./1302-local-inventory.txt:40:./docs/remaining-gaps.md:128:| Componente | 9.03–12.52 | 13.00 | **13.02** |
+research/webkit-1302/local/1302-local-inventory.txt:512:./1302-local-inventory.txt:355:./1302-local-inventory.txt:198:./1302-local-inventory.txt:41:./docs/remaining-gaps.md:135:Alguien determinó los offsets de parche mmap para 13.02 específicamente,
+research/webkit-1302/local/1302-local-inventory.txt:513:./1302-local-inventory.txt:356:./1302-local-inventory.txt:199:./1302-local-inventory.txt:42:./docs/remaining-gaps.md:136:lo que implica que tuvo acceso al binario del kernel 13.02 (o lo derivó
+research/webkit-1302/local/1302-local-inventory.txt:514:./1302-local-inventory.txt:357:./1302-local-inventory.txt:200:./1302-local-inventory.txt:43:./docs/remaining-gaps.md:139:### La pieza exacta que falta para 13.02
+research/webkit-1302/local/1302-local-inventory.txt:515:./1302-local-inventory.txt:358:./1302-local-inventory.txt:201:./1302-local-inventory.txt:44:./docs/remaining-gaps.md:140:El payload kernel completo para 13.02 = misma estructura que el payload de
+research/webkit-1302/local/1302-local-inventory.txt:516:./1302-local-inventory.txt:359:./1302-local-inventory.txt:202:./1302-local-inventory.txt:45:./docs/remaining-gaps.md:141:13.00 pero con los offsets correctos del kernel 13.02. Los offsets necesarios:
+research/webkit-1302/local/1302-local-inventory.txt:517:./1302-local-inventory.txt:360:./1302-local-inventory.txt:203:./1302-local-inventory.txt:46:./docs/remaining-gaps.md:147:13.02 (que está dentro del system_fs_image.img cifrado del PUP).
+research/webkit-1302/local/1302-local-inventory.txt:518:./1302-local-inventory.txt:361:./1302-local-inventory.txt:204:./1302-local-inventory.txt:47:./docs/remaining-gaps.md:149:### Cadena 13.02: inventario de piezas
+research/webkit-1302/local/1302-local-inventory.txt:519:./1302-local-inventory.txt:362:./1302-local-inventory.txt:205:./1302-local-inventory.txt:48:./docs/remaining-gaps.md:153:| WebKit userland (CVE-2017-7117) | ✅ funciona 5.05–13.02 | ps-vue-jb-2.5 README |
+research/webkit-1302/local/1302-local-inventory.txt:520:./1302-local-inventory.txt:363:./1302-local-inventory.txt:206:./1302-local-inventory.txt:49:./docs/remaining-gaps.md:155:| Kernel exploit Netctrl | ✅ hasta 13.00 / ❓ 13.02 | ídem |

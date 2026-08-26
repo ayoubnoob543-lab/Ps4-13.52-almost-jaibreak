@@ -1,0 +1,113 @@
+=== referenced artifacts ===
+./1304.c	4 KB
+./1304.h	4 KB
+./PS4_1304_ISO_STATIC_LIST_2026-08-20.json	8 KB
+./research/webkit-1302/upstream/psdevwiki-kernel-headings.txt	4 KB
+./research/webkit-1302/upstream/riyon-kernel.ts	52 KB
+./research/webkit-1302/upstream/riyon-kernel-comparison.txt	24 KB
+./research/webkit-1302/upstream/riyon-kernel-history.tsv	4 KB
+./research/webkit-1302/upstream/Vuemony_vue-after-free-src_download0_kernel.ts	52 KB
+./research/webkit-1302/upstream/owendswang_vue-after-free-lite-src_download0_kernel.ts	60 KB
+./research/webkit-1302/upstream/psdevwiki-kernel-section-2259-2690.txt	32 KB
+./research/webkit-1302/kernel-rw-1302-investigation.md	16 KB
+./research/webkit-1302/kernel-candidates-1302-exhaustive.md	20 KB
+./analysis/libkernel_1352_corroboration.json	4 KB
+./docs/webkit-libkernel-repro.md	8 KB
+./docs/research-plan-1352-kernel.md	4 KB
+./installer/build/sdk-libps4/include/kernel.h	4 KB
+./installer/build/sdk-libps4/source/kernel.c	8 KB
+./installer/build/sdk-libps4/build/kernel.o	16 KB
+./kpayload/include/offsets/1304.h	4 KB
+./kpayload/source/offsets/1304.c	8 KB
+./kpayload/build/offsets/1304.d	4 KB
+./kpayload/build/offsets/1304.o	4 KB
+./libkernel_sys_13.52.bin	404 KB
+./scanner_1304.iso	5080 KB
+./third_party/henloader_lp/HenLoader/src/org/bdj/external/Kernel.java	20 KB
+./third_party/henloader_lp/HenLoader/src/org/bdj/external/KernelOffset.java	16 KB
+./third_party/ps4-payload-sdk/libPS4/include/kernel.h	4 KB
+./third_party/ps4-payload-sdk/libPS4/source/kernel.c	8 KB
+./tools/libkernel_1352_manifest.json	4 KB
+./tools/kernel_payload_generator.py	4 KB
+./tools/scan_kernel_structures.py	4 KB
+./tools/validate_libkernel_1352.py	8 KB
+./webkit-kit/libkernel_sys_13.52.signatures.json	24 KB
+./webkit_gadgets_1304.js	4 KB
+=== claim references ===
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:154:./webkit_gadgets_1304.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)
+./webkit_gadgets_1304.js:26:// Same size: 20,080,104 bytes
+./webkit_gadgets_1304.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)
+./webkit_gadgets_1304.js:28:// 27.79% bytes different (216,403 regions)
+./webkit_gadgets_1304.js:31:// CONFIRMED: Celsius (ffs_mount) is present in 13.04 kernel
+=== scripts around claim ===
+    
+    // INCOMPLETE: the exact GOT slot and libkernel symbol/NID are not
+    // established for this build. Returning a sentinel prevents false success.
+    log("[S2] libkernel base unresolved: versioned GOT/NID evidence is required");
+    return 0n;
+}
+
+// ============================================================
+// STEP 4: Build ROP chain
+// ============================================================
+function buildRopChain() {
+    var wk = g_webkit_base;
+    var chain = [];
+    var i = 0;
+    
+    function p(gadget_offset) {
+        chain[i++] = toAddress(wk) + BigInt(gadget_offset);
+    }
+    function v(value) {
+        chain[i++] = value;
+    }
+    
+    // === Resolve dlsym ===
+    // pop rdi, ret; LIBKERNEL_HANDLE
+    p(G.POP_RDI_RET); v(0x2001);
+    // pop rsi, ret; "sceKernelDlsym" string addr
+    p(G.POP_RSI_RET); v(0); // TODO: string address
+    // call dlsym
+    // TODO: dlsym address
+    
+    // === After dlsym resolves mount: ===
+    // pop rdi, ret; "ufs" string
+    // pop rsi, ret; mount point
+    // pop rdx, ret; flags
+    // pop rcx, ret; data (malformed UFS image)
+    // call mount → triggers ffs_mountfs → Celsius
+    
+    // === After kernel r/w via Celsius: ===
+    // Patch PRISON0
+    // Patch ROOTVNODE  
+    // Enable debug settings
+    // Open BinLoader port 9021
+    // Load GoldHEN
+    
+    return chain;
+}
+
+// ============================================================
+// STEP 5: Execute ROP via JIT or vtable hijack
+// ============================================================
+function executeRop(chain) {
+    // Write ROP chain to a known writable address
+    // Then redirect execution to it
+    
+    // Strategy: Find a JIT page in the WebKit process
+    // Write the chain there
+    // Overwrite a callback to point to chain start
+    
+    if (!Array.isArray(chain)) throw new TypeError("ROP chain must be an array");
+    log("[S2] ROP chain constructed with " + chain.length + " entries");
+    log("[S2] INCOMPLETE: execution pivot is intentionally not implemented");
+    return false;
+}
+
+// ============================================================
+// Main
+// ============================================================
+function stage2_run() {
+    log("[S2] ====== STAGE 2 START ======");
+    
+    g_webkit_base = findWebkitBase();

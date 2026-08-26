@@ -1,0 +1,154 @@
+./research/webkit-1302/upstream/adri-cve_analysis.md:32:- **Component:** ffs_mountfs() in sys/ufs/ffs/ffs_vfsops.c
+./research/webkit-1302/upstream/adri-cve_analysis.md:41:size = fs->fs_cssize;                          // from superblock (attacker controlled)
+./research/webkit-1302/upstream/adri-cve_analysis.md:42:blks = howmany(size, fs->fs_fsize);
+./research/webkit-1302/upstream/adri-cve_analysis.md:43:if (fs->fs_contigsumsize > 0)
+./research/webkit-1302/upstream/adri-cve_analysis.md:44:    size += fs->fs_ncg * sizeof(int32_t);      // INTEGER OVERFLOW HERE
+./research/webkit-1302/upstream/adri-cve_analysis.md:45:size += fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/adri-cve_analysis.md:49:if (fs->fs_contigsumsize > 0) {
+./research/webkit-1302/upstream/adri-cve_analysis.md:51:    for (i = 0; i < fs->fs_ncg; i++)           // iterates fs_ncg times
+./research/webkit-1302/upstream/adri-cve_analysis.md:52:        *lp++ = fs->fs_contigsumsize;           // HEAP OVERFLOW
+./research/webkit-1302/upstream/adri-cve_analysis.md:58:1. Craft UFS image with malicious superblock (fs_ncg = 0x40000001)
+./research/webkit-1302/upstream/adri-cve_analysis.md:73:  fs_ncg           (u_int32_t) — controls the overflow
+./research/webkit-1302/upstream/adri-cve_analysis.md:74:  fs_bsize         (int32_t)   — must pass validation checks
+./research/webkit-1302/upstream/adri-cve_analysis.md:75:  fs_fsize         (int32_t)   — must pass validation checks
+./research/webkit-1302/upstream/adri-cve_analysis.md:76:  fs_cssize        (int32_t)   — initial size value
+./research/webkit-1302/upstream/adri-cve_analysis.md:77:  fs_contigsumsize (int32_t)   — must be > 0 to trigger vulnerable path
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:13:78-static int	ffs_reload(struct mount *, struct thread *);
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:14:79:static int	ffs_mountfs(struct vnode *, struct mount *, struct thread *);
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:63:537:		if ((error = ffs_mountfs(devvp, mp, td)) != 0) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:104:644-	    newfs->fs_bsize > MAXBSIZE ||
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:105:645-	    newfs->fs_bsize < sizeof(struct fs)) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:112:652:	 * Note that important parameters (eg fs_ncg) are unchanged.
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:138:678:	size = fs->fs_cssize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:139:679-	blks = howmany(size, fs->fs_fsize);
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:140:680:	if (fs->fs_contigsumsize > 0)
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:141:681:		size += fs->fs_ncg * sizeof(int32_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:142:682:	size += fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:147:687-		size = fs->fs_bsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:149:689-			size = (blks - i) * fs->fs_fsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:161:701:	if (fs->fs_contigsumsize > 0) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:163:703:		for (i = 0; i < fs->fs_ncg; i++)
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:164:704:			*lp++ = fs->fs_contigsumsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:167:707:	size = fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:181:721-			panic("ffs_reload: dirty2");
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:78:static int	ffs_reload(struct mount *, struct thread *);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:79:static int	ffs_mountfs(struct vnode *, struct mount *, struct thread *);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:336:		    (error = ffs_reload(mp, td)) != 0)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:537:		if ((error = ffs_mountfs(devvp, mp, td)) != 0) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:610:ffs_reload(struct mount *mp, struct thread *td)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:631:		panic("ffs_reload: dirty1");
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:644:	    newfs->fs_bsize > MAXBSIZE ||
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:645:	    newfs->fs_bsize < sizeof(struct fs)) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:652:	 * Note that important parameters (eg fs_ncg) are unchanged.
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:678:	size = fs->fs_cssize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:679:	blks = howmany(size, fs->fs_fsize);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:680:	if (fs->fs_contigsumsize > 0)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:681:		size += fs->fs_ncg * sizeof(int32_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:682:	size += fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:687:		size = fs->fs_bsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:689:			size = (blks - i) * fs->fs_fsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:701:	if (fs->fs_contigsumsize > 0) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:703:		for (i = 0; i < fs->fs_ncg; i++)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:704:			*lp++ = fs->fs_contigsumsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:707:	size = fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:721:			panic("ffs_reload: dirty2");
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:728:		    (int)fs->fs_bsize, NOCRED, &bp);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:753:ffs_mountfs(devvp, mp, td)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:814:		    fs->fs_bsize <= MAXBSIZE &&
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:815:		    fs->fs_bsize >= sizeof(struct fs))
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:914:	size = fs->fs_cssize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:915:	blks = howmany(size, fs->fs_fsize);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:916:	if (fs->fs_contigsumsize > 0)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:917:		size += fs->fs_ncg * sizeof(int32_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:918:	size += fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:922:		size = fs->fs_bsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:924:			size = (blks - i) * fs->fs_fsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:935:	if (fs->fs_contigsumsize > 0) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:937:		for (i = 0; i < fs->fs_ncg; i++)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:938:			*lp++ = fs->fs_contigsumsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:941:	size = fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1035:	mp->mnt_stat.f_iosize = fs->fs_bsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1139:	if (fs->fs_magic == FS_UFS1_MAGIC && fs->fs_maxbsize != fs->fs_bsize) {
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1140:		fs->fs_maxbsize = fs->fs_bsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1158:		maxfilesize = (uint64_t)0x80000000 * fs->fs_bsize - 1;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1169:		fs->fs_cgsize = fs->fs_bsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1405:	sbp->f_bsize = fs->fs_fsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1406:	sbp->f_iosize = fs->fs_bsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1413:	sbp->f_files =  fs->fs_ncg * fs->fs_ipg - ROOTINO;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1693:	vp->v_bufobj.bo_bsize = fs->fs_bsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1723:	    (int)fs->fs_bsize, NOCRED, &bp);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1824:	    ufhp->ufid_ino >= fs->fs_ncg * fs->fs_ipg)
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1883:	blks = howmany(fs->fs_cssize, fs->fs_fsize);
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1886:		size = fs->fs_bsize;
+./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:1888:			size = (blks - i) * fs->fs_fsize;
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:1:./research/webkit-1302/upstream/adri-cve_analysis.md:32:- **Component:** ffs_mountfs() in sys/ufs/ffs/ffs_vfsops.c
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:2:./research/webkit-1302/upstream/adri-cve_analysis.md:41:size = fs->fs_cssize;                          // from superblock (attacker controlled)
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:3:./research/webkit-1302/upstream/adri-cve_analysis.md:42:blks = howmany(size, fs->fs_fsize);
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:4:./research/webkit-1302/upstream/adri-cve_analysis.md:43:if (fs->fs_contigsumsize > 0)
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:5:./research/webkit-1302/upstream/adri-cve_analysis.md:44:    size += fs->fs_ncg * sizeof(int32_t);      // INTEGER OVERFLOW HERE
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:6:./research/webkit-1302/upstream/adri-cve_analysis.md:45:size += fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:7:./research/webkit-1302/upstream/adri-cve_analysis.md:49:if (fs->fs_contigsumsize > 0) {
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:8:./research/webkit-1302/upstream/adri-cve_analysis.md:51:    for (i = 0; i < fs->fs_ncg; i++)           // iterates fs_ncg times
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:9:./research/webkit-1302/upstream/adri-cve_analysis.md:52:        *lp++ = fs->fs_contigsumsize;           // HEAP OVERFLOW
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:10:./research/webkit-1302/upstream/adri-cve_analysis.md:58:1. Craft UFS image with malicious superblock (fs_ncg = 0x40000001)
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:11:./research/webkit-1302/upstream/adri-cve_analysis.md:73:  fs_ncg           (u_int32_t) — controls the overflow
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:12:./research/webkit-1302/upstream/adri-cve_analysis.md:74:  fs_bsize         (int32_t)   — must pass validation checks
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:13:./research/webkit-1302/upstream/adri-cve_analysis.md:75:  fs_fsize         (int32_t)   — must pass validation checks
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:14:./research/webkit-1302/upstream/adri-cve_analysis.md:76:  fs_cssize        (int32_t)   — initial size value
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:15:./research/webkit-1302/upstream/adri-cve_analysis.md:77:  fs_contigsumsize (int32_t)   — must be > 0 to trigger vulnerable path
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:16:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:13:78-static int	ffs_reload(struct mount *, struct thread *);
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:17:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:14:79:static int	ffs_mountfs(struct vnode *, struct mount *, struct thread *);
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:18:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:63:537:		if ((error = ffs_mountfs(devvp, mp, td)) != 0) {
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:19:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:104:644-	    newfs->fs_bsize > MAXBSIZE ||
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:20:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:105:645-	    newfs->fs_bsize < sizeof(struct fs)) {
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:21:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:112:652:	 * Note that important parameters (eg fs_ncg) are unchanged.
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:22:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:138:678:	size = fs->fs_cssize;
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:23:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:139:679-	blks = howmany(size, fs->fs_fsize);
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:24:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:140:680:	if (fs->fs_contigsumsize > 0)
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:25:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:141:681:		size += fs->fs_ncg * sizeof(int32_t);
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:26:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:142:682:	size += fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:27:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:147:687-		size = fs->fs_bsize;
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:28:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:149:689-			size = (blks - i) * fs->fs_fsize;
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:29:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:161:701:	if (fs->fs_contigsumsize > 0) {
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:30:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:163:703:		for (i = 0; i < fs->fs_ncg; i++)
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:31:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:164:704:			*lp++ = fs->fs_contigsumsize;
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:32:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:167:707:	size = fs->fs_ncg * sizeof(u_int8_t);
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:33:./research/webkit-1302/upstream/freebsd-9.1-ffs-comparison.txt:181:721-			panic("ffs_reload: dirty2");
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:34:./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:78:static int	ffs_reload(struct mount *, struct thread *);
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:35:./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:79:static int	ffs_mountfs(struct vnode *, struct mount *, struct thread *);
+./research/webkit-1302/upstream/ffs-orbis-reference-scan.txt:36:./research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c:336:		    (error = ffs_reload(mp, td)) != 0)
+./research/webkit-1302/kernel-candidates-1302-exhaustive.md:26:Celsius merece conservarse como candidato abierto, no como exploit confirmado. El análisis público atribuye el problema a `ffs_mountfs()`, donde valores del superbloque controlan cálculos de tamaño antes de una escritura sobre una región asignada. El mismo material exige una imagen FFS/UFS malformada, acceso de montaje y condiciones de almacenamiento que no están demostradas para el entorno de PS4 13.02. Además, convertir un overflow en kernel R/W exige una estrategia de heap grooming y un target overwrite; esa segunda parte no está demostrada públicamente en 13.02.
+./research/webkit-1302/kernel-candidates-1302-exhaustive.md:84:Para subir Netctrl a `CORROBORATED` se necesita una segunda fuente independiente que muestre la misma ruta funcionando en 13.02, o un artefacto de kernel 13.02 que permita confirmar que las condiciones de triple-free/reclaim no fueron alteradas. Para subir Celsius se necesita una imagen FFS/UFS reproducible, un análisis de la ruta Orbis `ffs_mountfs()` y una demostración estática o documentada de que el overflow puede convertirse en una primitive controlable.
+./research/webkit-1302/kernel-candidates-1302-exhaustive.md:106:La investigación amplía sustancialmente el corpus, pero no cambia el bloqueo principal: **no existe evidencia pública suficiente de kernel R/W reproducible en PS4 FW 13.02**. La prioridad estática razonable es comparar implementaciones Orbis o dumps legítimos de 13.00/13.02 para NetControl/ucred y `ffs_mountfs()`, verificar la presencia de los campos y rutas vulnerables y rastrear los commits de corrección. Hasta que exista ese artefacto, toda compatibilidad 13.02 debe conservarse como hipótesis o `UNVERIFIED_13_02`.
+./research/webkit-1302/celsius-vs-netctrl-1302.md:15:El nombre Celsius se atribuye a **bollars**. La búsqueda del perfil público de GitHub `bollars` encontró un único repositorio, `ddoslib`, sin código de Celsius, sin PoC FFS y sin historial del supuesto descubrimiento. La fuente pública más concreta es `adri22235/ps4-suid-scanner`, cuyos documentos atribuyen Celsius a bollars y describen `ffs_mountfs()`; sus commits se concentran entre el 18 de julio y el 9 de agosto de 2026. Esto verifica que la atribución fue publicada, pero no verifica que el repositorio sea la fuente original del descubrimiento.
+./research/webkit-1302/celsius-vs-netctrl-1302.md:35:Las fuentes atribuyen el bug a `ffs_mountfs()` en `sys/ufs/ffs/ffs_vfsops.c`, durante el montaje o reload de un filesystem UFS/FFS. El patrón técnico descrito utiliza valores derivados del superbloque, entre ellos `fs_cssize`, `fs_ncg`, `fs_contigsumsize`, `fs_bsize` y `fs_fsize`, para calcular el tamaño de estructuras auxiliares antes de `malloc`. Si el cálculo entero envuelve, la asignación puede ser menor que la cantidad que después se escribe al recorrer `fs_ncg` grupos de cilindros.
+./research/webkit-1302/celsius-vs-netctrl-1302.md:37:El cambio histórico de FreeBSD r309172, de Kirk McKusick, confirma que existía una familia real de errores de cálculo de tamaños en montaje/reload UFS/FFS: cambió `size` de `int` a `u_long` y eliminó conversiones que podían ocultar el tamaño calculado. El correo de commit de FreeBSD de 26 de noviembre de 2016 muestra cambios en `ffs_reload()` y `ffs_mountfs()`.
+./research/webkit-1302/celsius-vs-netctrl-1302.md:47:Quedan sin demostrar los puntos críticos: si el usuario sandbox puede provocar el montaje de una imagen arbitraria; si el dispositivo debe estar preparado con claves o formato específico; si el kernel Orbis expone la ruta FFS relevante; si `fs_ncg` y los demás campos llegan sin normalización; qué objeto de heap queda adyacente; y cómo se transforma el overflow en una primitive de lectura/escritura.
+./research/webkit-1302/celsius-vs-netctrl-1302.md:102:1. **Comparación Orbis FFS:** identificar la implementación de `ffs_mountfs()` en un artefacto legítimo de Orbis y contrastarla con FreeBSD 9.1 y el fix de FreeBSD r309172, sin extrapolar automáticamente el commit de FreeBSD 11.
+./research/webkit-1302/celsius-provenance-deep-dive.md:18:| 4 | `adri22235/ps4-suid-scanner` | 18 jul.–9 ago. 2026 | Añade análisis, atribución a bollars, estructura de `ffs_mountfs()` y afirmación “works up to 13.04” | Artefacto técnico secundario; no origen de bollars | `SOURCE_ONLY` para Celsius en PS4 |
+./research/webkit-1302/celsius-provenance-deep-dive.md:35:CVE-2006-5679 documenta un integer overflow histórico en `ffs_mountfs()` de FreeBSD 6.1, relacionado con parámetros grandes o inválidos de tamaño al montar un filesystem UFS. NVD también conserva la nota de que el problema no necesariamente cruza privilegios en FreeBSD porque montar un filesystem normalmente requiere root.
+./research/webkit-1302/celsius-provenance-deep-dive.md:37:El commit oficial de FreeBSD `r309172`, de Kirk McKusick, fue enviado el 26 de noviembre de 2016 a stable/11. Su mensaje dice: “Avoid possible overflow when calculating malloc size for auxiliary data structure sizes when mounting and reloading UFS/FFS filesystems”. El diff cambia tamaños de `int` a `u_long` y elimina conversiones que podían truncar cálculos en `ffs_reload()` y `ffs_mountfs()`.
+./research/webkit-1302/celsius-provenance-deep-dive.md:41:El análisis local de `adri22235/ps4-suid-scanner` describe un patrón donde `fs_ncg`, `fs_cssize`, `fs_contigsumsize`, `fs_bsize` y `fs_fsize` controlan el tamaño de estructuras auxiliares; una envoltura entera podría causar una reserva menor seguida de una escritura iterativa sobre grupos de cilindros. El documento es una descripción secundaria, no un diff de Orbis ni una PoC.
+./research/webkit-1302/celsius-provenance-deep-dive.md:107:Falta un paquete de evidencia con: (a) fuente o PoC original; (b) imagen FFS/UFS exacta; (c) artefacto de kernel Orbis 13.02 con procedencia y hash; (d) explicación estática de la función equivalente a `ffs_mountfs()`; (e) log o video de PS4 13.02 que muestre la trigger; (f) prueba de que la corrupción es controlable y no sólo un panic; y (g) demostración de kernel R/W y de una operación post-exploitation observable.
+./cve_analysis.md:153:- **Component:** ffs_mountfs() in sys/ufs/ffs/ffs_vfsops.c
+./cve_analysis.md:162:size = fs->fs_cssize;                          // from superblock (attacker controlled)
+./cve_analysis.md:163:blks = howmany(size, fs->fs_fsize);
+./cve_analysis.md:164:if (fs->fs_contigsumsize > 0)
+./cve_analysis.md:165:    size += fs->fs_ncg * sizeof(int32_t);      // INTEGER OVERFLOW HERE
+./cve_analysis.md:166:size += fs->fs_ncg * sizeof(u_int8_t);
+./cve_analysis.md:170:if (fs->fs_contigsumsize > 0) {
+./cve_analysis.md:172:    for (i = 0; i < fs->fs_ncg; i++)           // iterates fs_ncg times
+./cve_analysis.md:173:        *lp++ = fs->fs_contigsumsize;           // HEAP OVERFLOW
+./cve_analysis.md:179:1. Craft UFS image with malicious superblock (fs_ncg = 0x40000001)
+./cve_analysis.md:194:  fs_ncg           (u_int32_t) — controls the overflow
+./cve_analysis.md:195:  fs_bsize         (int32_t)   — must pass validation checks
+./cve_analysis.md:196:  fs_fsize         (int32_t)   — must pass validation checks
+./cve_analysis.md:197:  fs_cssize        (int32_t)   — initial size value
+./cve_analysis.md:198:  fs_contigsumsize (int32_t)   — must be > 0 to trigger vulnerable path
+./jordy_stage2.js:235:    // call mount → triggers ffs_mountfs → Celsius
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:1080:	buf = emalloc(fs->fs_bsize);
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:1108:		memset(buf, 0, fs->fs_bsize);
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:1117:		    fs->fs_bsize, buf, fsopts);
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:1128:	ffs_rdfs(d, fs->fs_bsize, buf, fsopts);
+./third_party/henloader_lp/HenLoader/thirdparty/makefs/ffs.c:1142:	ffs_wtfs(d, fs->fs_bsize, buf, fsopts);
+./webkit_gadgets_1304.js:27:// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)

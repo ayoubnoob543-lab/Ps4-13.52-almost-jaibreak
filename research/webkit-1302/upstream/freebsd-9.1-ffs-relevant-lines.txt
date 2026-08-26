@@ -1,0 +1,305 @@
+81:		    ufs2_daddr_t);
+146:	struct fs *fs;
+148:	int error, flags;
+159:		    sizeof(struct inode), NULL, NULL, NULL, NULL,
+162:		    sizeof(struct ufs1_dinode), NULL, NULL, NULL, NULL,
+165:		    sizeof(struct ufs2_dinode), NULL, NULL, NULL, NULL,
+580:	int error;
+610:ffs_reload(struct mount *mp, struct thread *td)
+614:	void *space;
+616:	struct fs *fs, *newfs;
+618:	ufs2_daddr_t sblockloc;
+619:	int i, blks, size, error;
+620:	int32_t *lp;
+678:	size = fs->fs_cssize;
+679:	blks = howmany(size, fs->fs_fsize);
+681:		size += fs->fs_ncg * sizeof(int32_t);
+682:	size += fs->fs_ncg * sizeof(u_int8_t);
+687:		size = fs->fs_bsize;
+689:			size = (blks - i) * fs->fs_fsize;
+707:	size = fs->fs_ncg * sizeof(u_int8_t);
+753:ffs_mountfs(devvp, mp, td)
+760:	struct fs *fs;
+762:	void *space;
+763:	ufs2_daddr_t sblockloc;
+764:	int error, i, blks, size, ronly;
+765:	int32_t *lp;
+863:		size = 1024;
+914:	size = fs->fs_cssize;
+915:	blks = howmany(size, fs->fs_fsize);
+917:		size += fs->fs_ncg * sizeof(int32_t);
+918:	size += fs->fs_ncg * sizeof(u_int8_t);
+922:		size = fs->fs_bsize;
+924:			size = (blks - i) * fs->fs_fsize;
+941:	size = fs->fs_ncg * sizeof(u_int8_t);
+1004:		size = sizeof(int);
+1122:	struct fs *fs;
+1124:	ufs2_daddr_t sblockloc;
+1182:	struct fs *fs;
+1209:	int mntflags;
+1213:	struct fs *fs;
+1214:	int error, flags, susp;
+1216:	int e_restart;
+1339:int
+1342:	int flags;
+1346:	int error;
+1351:		int i;
+1398:	struct fs *fs;
+1433:	int allerror, error;
+1489:	int waitfor;
+1495:	struct fs *fs;
+1496:	int error, count, wait, lockreq, allerror = 0;
+1497:	int suspend;
+1498:	int suspended;
+1499:	int secondary_writes;
+1500:	int secondary_accwrites;
+1501:	int softdep_deps;
+1502:	int softdep_accdeps;
+1618:int
+1622:	int flags;
+1628:int
+1632:	int flags;
+1634:	int ffs_flags;
+1636:	struct fs *fs;
+1642:	int error;
+1702:		int i;
+1815:	int flags;
+1819:	struct fs *fs;
+1848:	int ret;
+1858:int
+1861:	int waitfor;
+1862:	int suspended;
+1864:	struct fs *fs = ump->um_fs;
+1867:	int blks;
+1868:	void *space;
+1869:	int i, size, error, allerror = 0;
+1883:	blks = howmany(fs->fs_cssize, fs->fs_fsize);
+1886:		size = fs->fs_bsize;
+1888:			size = (blks - i) * fs->fs_fsize;
+1890:		    size, 0, 0, 0);
+1939:	int attrnamespace, const char *attrname)
+2033:	int oldflags, s;
+2144:	int error;
+2146:	int nocopy;
+=== relevant arithmetic ===
+		if (vinvalbuf(vp, 0, 0, 0))
+			panic("ffs_reload: dirty2");
+		/*
+		 * Step 5: re-read inode data for all active vnodes.
+		 */
+		ip = VTOI(vp);
+		error =
+		    bread(devvp, fsbtodb(fs, ino_to_fsba(fs, ip->i_number)),
+		    (int)fs->fs_bsize, NOCRED, &bp);
+		if (error) {
+			VOP_UNLOCK(vp, 0);
+			vrele(vp);
+			MNT_VNODE_FOREACH_ALL_ABORT(mp, mvp);
+			return (error);
+		}
+		ffs_load_inode(bp, ip, fs, ip->i_number);
+		ip->i_effnlink = ip->i_nlink;
+		brelse(bp);
+		VOP_UNLOCK(vp, 0);
+		vrele(vp);
+	}
+	return (0);
+}
+
+/*
+ * Possible superblock locations ordered from most to least likely.
+ */
+static int sblock_try[] = SBLOCKSEARCH;
+
+/*
+ * Common code for mount and mountroot
+ */
+static int
+ffs_mountfs(devvp, mp, td)
+	struct vnode *devvp;
+	struct mount *mp;
+	struct thread *td;
+{
+	struct ufsmount *ump;
+	struct buf *bp;
+	struct fs *fs;
+	struct cdev *dev;
+	void *space;
+	ufs2_daddr_t sblockloc;
+	int error, i, blks, size, ronly;
+	int32_t *lp;
+	struct ucred *cred;
+	struct g_consumer *cp;
+	struct mount *nmp;
+
+	bp = NULL;
+	ump = NULL;
+	cred = td ? td->td_ucred : NOCRED;
+	ronly = (mp->mnt_flag & MNT_RDONLY) != 0;
+
+	dev = devvp->v_rdev;
+	dev_ref(dev);
+	DROP_GIANT();
+	g_topology_lock();
+	error = g_vfs_open(devvp, &cp, "ffs", ronly ? 0 : 1);
+	g_topology_unlock();
+	PICKUP_GIANT();
+	VOP_UNLOCK(devvp, 0);
+	if (error)
+		goto out;
+	if (devvp->v_rdev->si_iosize_max != 0)
+		mp->mnt_iosize_max = devvp->v_rdev->si_iosize_max;
+	if (mp->mnt_iosize_max > MAXPHYS)
+		mp->mnt_iosize_max = MAXPHYS;
+
+	devvp->v_bufobj.bo_ops = &ffs_ops;
+
+	fs = NULL;
+	sblockloc = 0;
+	/*
+	 * Try reading the superblock in each of its possible locations.
+	 */
+	for (i = 0; sblock_try[i] != -1; i++) {
+		if ((SBLOCKSIZE % cp->provider->sectorsize) != 0) {
+			error = EINVAL;
+			vfs_mount_error(mp,
+			    "Invalid sectorsize %d for superblock size %d",
+			    cp->provider->sectorsize, SBLOCKSIZE);
+			goto out;
+		}
+		if ((error = bread(devvp, btodb(sblock_try[i]), SBLOCKSIZE,
+		    cred, &bp)) != 0)
+			goto out;
+		fs = (struct fs *)bp->b_data;
+		sblockloc = sblock_try[i];
+		if ((fs->fs_magic == FS_UFS1_MAGIC ||
+		     (fs->fs_magic == FS_UFS2_MAGIC &&
+		      (fs->fs_sblockloc == sblockloc ||
+		       (fs->fs_old_flags & FS_FLAGS_UPDATED) == 0))) &&
+		    fs->fs_bsize <= MAXBSIZE &&
+		    fs->fs_bsize >= sizeof(struct fs))
+			break;
+		brelse(bp);
+		bp = NULL;
+	}
+	if (sblock_try[i] == -1) {
+		error = EINVAL;		/* XXX needs translation */
+		goto out;
+	}
+	fs->fs_fmod = 0;
+	fs->fs_flags &= ~FS_INDEXDIRS;	/* no support for directory indicies */
+	fs->fs_flags &= ~FS_UNCLEAN;
+	if (fs->fs_clean == 0) {
+		fs->fs_flags |= FS_UNCLEAN;
+		if (ronly || (mp->mnt_flag & MNT_FORCE) ||
+		    ((fs->fs_flags & (FS_SUJ | FS_NEEDSFSCK)) == 0 &&
+		     (fs->fs_flags & FS_DOSOFTDEP))) {
+			printf("WARNING: %s was not properly dismounted\n",
+			    fs->fs_fsmnt);
+		} else {
+			vfs_mount_error(mp, "R/W mount of %s denied. %s%s",
+			    fs->fs_fsmnt, "Filesystem is not clean - run fsck.",
+			    (fs->fs_flags & FS_SUJ) == 0 ? "" :
+			    " Forced mount will invalidate journal contents");
+			error = EPERM;
+			goto out;
+		}
+		if ((fs->fs_pendingblocks != 0 || fs->fs_pendinginodes != 0) &&
+		    (mp->mnt_flag & MNT_FORCE)) {
+			printf("WARNING: %s: lost blocks %jd files %d\n",
+			    fs->fs_fsmnt, (intmax_t)fs->fs_pendingblocks,
+			    fs->fs_pendinginodes);
+			fs->fs_pendingblocks = 0;
+			fs->fs_pendinginodes = 0;
+		}
+	}
+	if (fs->fs_pendingblocks != 0 || fs->fs_pendinginodes != 0) {
+		printf("WARNING: %s: mount pending error: blocks %jd "
+		    "files %d\n", fs->fs_fsmnt, (intmax_t)fs->fs_pendingblocks,
+		    fs->fs_pendinginodes);
+		fs->fs_pendingblocks = 0;
+		fs->fs_pendinginodes = 0;
+	}
+	if ((fs->fs_flags & FS_GJOURNAL) != 0) {
+#ifdef UFS_GJOURNAL
+		/*
+		 * Get journal provider name.
+		 */
+		size = 1024;
+		mp->mnt_gjprovider = malloc(size, M_UFSMNT, M_WAITOK);
+		if (g_io_getattr("GJOURNAL::provider", cp, &size,
+		    mp->mnt_gjprovider) == 0) {
+			mp->mnt_gjprovider = realloc(mp->mnt_gjprovider, size,
+			    M_UFSMNT, M_WAITOK);
+			MNT_ILOCK(mp);
+			mp->mnt_flag |= MNT_GJOURNAL;
+			MNT_IUNLOCK(mp);
+		} else {
+			printf("WARNING: %s: GJOURNAL flag on fs "
+			    "but no gjournal provider below\n",
+			    mp->mnt_stat.f_mntonname);
+			free(mp->mnt_gjprovider, M_UFSMNT);
+			mp->mnt_gjprovider = NULL;
+		}
+#else
+		printf("WARNING: %s: GJOURNAL flag on fs but no "
+		    "UFS_GJOURNAL support\n", mp->mnt_stat.f_mntonname);
+#endif
+	} else {
+		mp->mnt_gjprovider = NULL;
+	}
+	ump = malloc(sizeof *ump, M_UFSMNT, M_WAITOK | M_ZERO);
+	ump->um_cp = cp;
+	ump->um_bo = &devvp->v_bufobj;
+	ump->um_fs = malloc((u_long)fs->fs_sbsize, M_UFSMNT, M_WAITOK);
+	if (fs->fs_magic == FS_UFS1_MAGIC) {
+		ump->um_fstype = UFS1;
+		ump->um_balloc = ffs_balloc_ufs1;
+	} else {
+		ump->um_fstype = UFS2;
+		ump->um_balloc = ffs_balloc_ufs2;
+	}
+	ump->um_blkatoff = ffs_blkatoff;
+	ump->um_truncate = ffs_truncate;
+	ump->um_update = ffs_update;
+	ump->um_valloc = ffs_valloc;
+	ump->um_vfree = ffs_vfree;
+	ump->um_ifree = ffs_ifree;
+	ump->um_rdonly = ffs_rdonly;
+	ump->um_snapgone = ffs_snapgone;
+	mtx_init(UFS_MTX(ump), "FFS", "FFS Lock", MTX_DEF);
+	bcopy(bp->b_data, ump->um_fs, (u_int)fs->fs_sbsize);
+	if (fs->fs_sbsize < SBLOCKSIZE)
+		bp->b_flags |= B_INVAL | B_NOCACHE;
+	brelse(bp);
+	bp = NULL;
+	fs = ump->um_fs;
+	ffs_oldfscompat_read(fs, ump, sblockloc);
+	fs->fs_ronly = ronly;
+	size = fs->fs_cssize;
+	blks = howmany(size, fs->fs_fsize);
+	if (fs->fs_contigsumsize > 0)
+		size += fs->fs_ncg * sizeof(int32_t);
+	size += fs->fs_ncg * sizeof(u_int8_t);
+	space = malloc((u_long)size, M_UFSMNT, M_WAITOK);
+	fs->fs_csp = space;
+	for (i = 0; i < blks; i += fs->fs_frag) {
+		size = fs->fs_bsize;
+		if (i + fs->fs_frag > blks)
+			size = (blks - i) * fs->fs_fsize;
+		if ((error = bread(devvp, fsbtodb(fs, fs->fs_csaddr + i), size,
+		    cred, &bp)) != 0) {
+			free(fs->fs_csp, M_UFSMNT);
+			goto out;
+		}
+		bcopy(bp->b_data, space, (u_int)size);
+		space = (char *)space + size;
+		brelse(bp);
+		bp = NULL;
+	}
+	if (fs->fs_contigsumsize > 0) {
+		fs->fs_maxcluster = lp = space;
+		for (i = 0; i < fs->fs_ncg; i++)
+			*lp++ = fs->fs_contigsumsize;
+		space = lp;
+	}

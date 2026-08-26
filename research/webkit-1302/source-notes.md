@@ -214,3 +214,9 @@ Fuente: https://x.com/calmboy2019/status/2078549759460094065. Fecha visible: 18 
 Texto: “Here you go. You'll still have to be patient but this is what you might get. It's named ‘Celsius’ Posting it as of now so that you guys don't go crazy. Just wait and see how usable it is if at all. Up to 13.04 PS4 and 12.70 PS5.”
 
 La publicación contiene tres imágenes y no contiene código, PoC, commit, hash, log de hardware ni explicación técnica del alcance. En la imagen se atribuye el descubrimiento a bollars y se menciona `ffs_mount`, integer overflow y heap overflow; la respuesta de Dr.Yenyen vuelve a decir “13.04 PS4” “in theory”. Clasificación: `SOURCE_ONLY` para la atribución y el rango; no es prueba de funcionamiento.
+
+## ConsoleMods Exploit Chart — revisión 26 de agosto de 2026
+
+Fuente: https://consolemods.org/wiki/PS4:Exploit_Chart
+
+La tabla muestra para firmware 13.02–13.04: “No public kernel exploit exists for the recent/latest firmware” y explica que no hay exploits públicos posteriores a 13.00. No menciona Celsius como exploit funcional. Clasificación: `CORROBORATED` para el estado público de ausencia de kernel exploit reproducible; no prueba que Celsius no exista ni que esté parcheado.
