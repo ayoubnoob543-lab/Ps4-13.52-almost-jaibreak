@@ -200,3 +200,17 @@ La búsqueda pública de GitHub tampoco localizó un repositorio o commit bajo l
 [Wikova, artículo PlayStation 4 Jailbreak](https://wikova.com/wiki/DQm4J1HU) resume Celsius como descubierto en julio de 2026 por bollars, hasta PS4 13.04/PS5 12.70, con requisito de HDD USB 3.0 de 250 GB o más y parcheado en 13.50/13.00. Es una fuente terciaria conectada a GameGaz y no una corroboración independiente. También mantiene que Poopsploit/Netctrl llega a PS4 13.00, por lo que no sustituye la evidencia primaria de Netctrl.
 
 La búsqueda del perfil público de bollars en GitHub encontró sólo `bollars/ddoslib`, sin Celsius, PoC ni código FFS. Esto deja la atribución original sin artefacto primario público localizable; `adri22235/ps4-suid-scanner` y las noticias citadas son fuentes secundarias o derivadas.
+
+## X / Silent_Logic sobre Celsius — revisión 26 de agosto de 2026
+
+Fuente: https://x.com/Slient_Logic/status/2082855345844797681, publicada el 30 de julio de 2026.
+
+La publicación dice “Big Rumor” y atribuye a fuentes internas que el jailbreak Celsius de PS4 13.02 podría ser inservible, con tasa de éxito muy baja y requisitos difíciles; el 31 de julio añade que el rumor estaría “confirmado” y que sería inútil. La página no aporta código, PoC, log, hash, identidad verificable de las fuentes internas ni enlace a evidencia técnica. Clasificación: `SOURCE_ONLY` como rumor comunitario; no es evidencia de que el bug esté parcheado ni de que sobreviva.
+
+## Primera difusión pública localizada: Dr.Yenyen/X
+
+Fuente: https://x.com/calmboy2019/status/2078549759460094065. Fecha visible: 18 de julio de 2026, 18:37.
+
+Texto: “Here you go. You'll still have to be patient but this is what you might get. It's named ‘Celsius’ Posting it as of now so that you guys don't go crazy. Just wait and see how usable it is if at all. Up to 13.04 PS4 and 12.70 PS5.”
+
+La publicación contiene tres imágenes y no contiene código, PoC, commit, hash, log de hardware ni explicación técnica del alcance. En la imagen se atribuye el descubrimiento a bollars y se menciona `ffs_mount`, integer overflow y heap overflow; la respuesta de Dr.Yenyen vuelve a decir “13.04 PS4” “in theory”. Clasificación: `SOURCE_ONLY` para la atribución y el rango; no es prueba de funcionamiento.

@@ -1,0 +1,4 @@
+11e62712088ea3d2b9eb77f3650d70cedc1459d5a07cac9a0c6496c2ea99aaa1  research/webkit-1302/celsius-provenance-deep-dive.md
+7c178605c74722b16ae3bb127e968d2fe088d57729e98518a3aed673b516076b  research/webkit-1302/source-notes.md
+f86cbf137761646850f159c1dc909c32315a3cee92ad15a7e0d899db1364f4ce  research/webkit-1302/upstream/freebsd-9.1-ffs_vfsops.c
+97959b32d6681625cd3a1cb1347e133dcb36d2e7dfa8e4603ad63f6345b64298  research/webkit-1302/upstream/psdevwiki-celsius-fix-refs.txt
