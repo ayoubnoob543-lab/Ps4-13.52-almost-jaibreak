@@ -1,0 +1,101 @@
+{
+  "sha": "702fcc397d45546baab5311bc0a264870ae90042",
+  "node_id": "C_kwDOTcaT19oAKDcwMmZjYzM5N2Q0NTU0NmJhYWI1MzExYmMwYTI2NDg3MGFlOTAwNDI",
+  "commit": {
+    "author": {
+      "name": "Adrián García Casado",
+      "email": "adriangarciacasado42@gmail.com",
+      "date": "2026-07-30T17:34:44Z"
+    },
+    "committer": {
+      "name": "Adrián García Casado",
+      "email": "adriangarciacasado42@gmail.com",
+      "date": "2026-07-30T17:34:44Z"
+    },
+    "message": "Add WebKit 13.04 ROP gadgets (16/16) from zecoxao dump",
+    "tree": {
+      "sha": "4467561ec9f4d46909786111725672ac78d31c2d",
+      "url": "https://api.github.com/repos/adri22235/ps4-suid-scanner/git/trees/4467561ec9f4d46909786111725672ac78d31c2d"
+    },
+    "url": "https://api.github.com/repos/adri22235/ps4-suid-scanner/git/commits/702fcc397d45546baab5311bc0a264870ae90042",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/702fcc397d45546baab5311bc0a264870ae90042",
+  "html_url": "https://github.com/adri22235/ps4-suid-scanner/commit/702fcc397d45546baab5311bc0a264870ae90042",
+  "comments_url": "https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/702fcc397d45546baab5311bc0a264870ae90042/comments",
+  "author": {
+    "login": "adri22235",
+    "id": 161650994,
+    "node_id": "U_kgDOCaKZMg",
+    "avatar_url": "https://avatars.githubusercontent.com/u/161650994?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/adri22235",
+    "html_url": "https://github.com/adri22235",
+    "followers_url": "https://api.github.com/users/adri22235/followers",
+    "following_url": "https://api.github.com/users/adri22235/following{/other_user}",
+    "gists_url": "https://api.github.com/users/adri22235/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/adri22235/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/adri22235/subscriptions",
+    "organizations_url": "https://api.github.com/users/adri22235/orgs",
+    "repos_url": "https://api.github.com/users/adri22235/repos",
+    "events_url": "https://api.github.com/users/adri22235/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/adri22235/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "adri22235",
+    "id": 161650994,
+    "node_id": "U_kgDOCaKZMg",
+    "avatar_url": "https://avatars.githubusercontent.com/u/161650994?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/adri22235",
+    "html_url": "https://github.com/adri22235",
+    "followers_url": "https://api.github.com/users/adri22235/followers",
+    "following_url": "https://api.github.com/users/adri22235/following{/other_user}",
+    "gists_url": "https://api.github.com/users/adri22235/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/adri22235/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/adri22235/subscriptions",
+    "organizations_url": "https://api.github.com/users/adri22235/orgs",
+    "repos_url": "https://api.github.com/users/adri22235/repos",
+    "events_url": "https://api.github.com/users/adri22235/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/adri22235/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "3fd35a4e475698b59dae40794901a56126a38c52",
+      "url": "https://api.github.com/repos/adri22235/ps4-suid-scanner/commits/3fd35a4e475698b59dae40794901a56126a38c52",
+      "html_url": "https://github.com/adri22235/ps4-suid-scanner/commit/3fd35a4e475698b59dae40794901a56126a38c52"
+    }
+  ],
+  "stats": {
+    "total": 33,
+    "additions": 33,
+    "deletions": 0
+  },
+  "files": [
+    {
+      "sha": "db3d0d625e01d7f30ca01c0a4ba43d1db9b0ab8f",
+      "filename": "webkit_gadgets_1304.js",
+      "status": "added",
+      "additions": 33,
+      "deletions": 0,
+      "changes": 33,
+      "blob_url": "https://github.com/adri22235/ps4-suid-scanner/blob/702fcc397d45546baab5311bc0a264870ae90042/webkit_gadgets_1304.js",
+      "raw_url": "https://github.com/adri22235/ps4-suid-scanner/raw/702fcc397d45546baab5311bc0a264870ae90042/webkit_gadgets_1304.js",
+      "contents_url": "https://api.github.com/repos/adri22235/ps4-suid-scanner/contents/webkit_gadgets_1304.js?ref=702fcc397d45546baab5311bc0a264870ae90042",
+      "patch": "@@ -0,0 +1,33 @@\n+// WebKit ROP Gadgets — PS4 Firmware 13.04\n+// Source: 1304_libSceNKWebKit.sprx.decrypted (68 MB) from zecoxao\n+// Found using Python byte pattern search\n+// For use with CSSFontFace exploit (ntfargo) porting\n+\n+const webkit_gadgets_1304 = {\n+  wk_RET:               0x004032,\n+  wk_LEAVE_RET:         0x01c2f7,\n+  wk_POP_RAX_RET:       0x014504,\n+  wk_POP_RBX_RET:       0x00b9e8,\n+  wk_POP_RCX_RET:       0x01fade,\n+  wk_POP_RDI_RET:       0x060480,\n+  wk_POP_RDX_RET:       0x1305ba,\n+  wk_POP_RSI_RET:       0x07245e,\n+  wk_POP_RBP_RET:       0x0040b6,\n+  wk_POP_RSP_RET:       0x073017,\n+  wk_POP_R8_RET:        0x230cbe1,\n+  wk_POP_R9_RET:        0x9df883,\n+  wk_POP_R12_RET:       0x242ab15,\n+  wk_POP_R13_R14_R15_RET: 0x06047b,\n+  wk_POP_R14_RET:       0x0a9e91,\n+  wk_POP_R15_RET:       0x06047f,\n+};\n+\n+// Kernel comparison: 13.00 vs 13.04\n+// Same size: 20,080,104 bytes\n+// ffs_mountfs string at 0x7d021f in BOTH (Celsius NOT patched)\n+// 27.79% bytes different (216,403 regions)\n+// Most changes are small 1-2 byte patches\n+\n+// CONFIRMED: Celsius (ffs_mount) is present in 13.04 kernel\n+// The vulnerable function exists at the same offset as 13.00\n+"
+    }
+  ]
+}
