@@ -441,3 +441,7 @@ The header of `jit_shellcode/p2jb/p2jb.c` explicitly defines the P2JB socket/kqu
 ## Final reuse search around missing Jordy components
 
 GitHub code searches for the approximate GOT offset `0x3ce1000`, `stage2_init` + `m_vector`, and `webkit_base` + `ffs_mountfs` returned no independent implementation. Results were limited to the original `ps4-suid-scanner` file and the local `firmware-lab` derivative, plus unrelated repositories for the generic token search. No public external file supplies the missing 13.04 WebKit/libkernel base logic, dlsym call, UFS/FFS mount, ROP pivot or kernel-RW transition.
+
+## zecoxao 13.04 SPRX artifact search
+
+Exact searches for `1304_libSceNKWebKit.sprx.decrypted`, `libSceNKWebKit.sprx.decrypted` + zecoxao, and `1304_libSceNKWebKit` + PS4 produced no additional indexed public source. The alleged 68 MB SPRX remains absent from the audited repository and is still `SOURCE_ONLY`; no hash, download, or independent mirror was found.
