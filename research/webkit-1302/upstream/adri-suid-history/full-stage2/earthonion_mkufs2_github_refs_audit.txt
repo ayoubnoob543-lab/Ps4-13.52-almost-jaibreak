@@ -1,0 +1,28 @@
+## refs
+b3b5637c8f36c8076aef3dba7a7f3610d88df040 refs/heads/main
+38f22e25e25789ce8119353dc79914c5c8096c6d refs/remotes/github/copilot/add-test-workflow-for-mkufs2
+4d29e9fc2c6d18f8bb825dea0efb3e9bbc5887d3 refs/remotes/github/main
+38f22e25e25789ce8119353dc79914c5c8096c6d refs/remotes/github/pr/1
+9d4a8322d4eb355c2ecd13c1d1300ad7997d6d7b refs/remotes/github/pr/2
+9ebb28a50a7bb7f5d1607cbcdb50798c9da354f2 refs/remotes/github/pr/3
+b3b5637c8f36c8076aef3dba7a7f3610d88df040 refs/remotes/origin/HEAD
+b3b5637c8f36c8076aef3dba7a7f3610d88df040 refs/remotes/origin/main
+## diff mirror to github/main
+## files github refs
+===== github/main =====
+README.md
+mkufs2.sh
+===== github/copilot/add-test-workflow-for-mkufs2 =====
+README.md
+mkufs2.sh
+===== github/pr/1 =====
+README.md
+mkufs2.sh
+===== github/pr/2 =====
+README.md
+mkufs2.sh
+===== github/pr/3 =====
+README.md
+mkufs2.sh
+mkufs2_linux.sh
+## matches all github refs

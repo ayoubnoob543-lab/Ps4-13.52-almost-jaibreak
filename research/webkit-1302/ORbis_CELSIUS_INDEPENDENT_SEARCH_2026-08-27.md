@@ -147,3 +147,7 @@ Las búsquedas externas de `mkufs2 Celsius PS4`, `mkufs2 bollars UFS` y `mkufs2 
 ### Comparación mirror ↔ GitHub de `mkufs2`
 
 La comparación de refs muestra que el mirror `git.etawen.dev/earthonion/mkufs2` tiene HEAD `b3b5637c8f36c8076aef3dba7a7f3610d88df040`, mientras que `https://github.com/earthonion/mkufs2` publica HEAD `4d29e9fc2c6d18f8bb825dea0efb3e9bbc5887d3`. GitHub también expone la rama `copilot/add-test-workflow-for-mkufs2` y refs de PR que no aparecen en el clone del mirror. Esto convierte al mirror en un snapshot diferenciado que merece conservarse, pero no demuestra relación con Celsius. El primer commit del script coincide en el historial local; el estado final diverge. Clasificación: **VERIFIED** como divergencia de snapshots; **SOURCE_ONLY** para cualquier posible relación con Celsius, sin evidencia encontrada.
+
+### Revisión de todas las refs GitHub de `mkufs2`
+
+La comparación completa muestra que GitHub mantiene `main` (`4d29e9fc...`), la rama Copilot/PR #1 (`38f22e25...`) y PR #2/#3 (`9d4a8322...`, `9ebb28a5...`). Todas las refs principales contienen `README.md` y `mkufs2.sh`; PR #3 añade `mkufs2_linux.sh`. La diferencia entre el mirror y GitHub no oculta una PoC Celsius: el grep de todas las refs no encuentra `Celsius`, `ffs_mountfs`, `13.02`, `13.04`, `250GB`, `extended storage` ni `Jordy`. PR #3 sólo amplía la herramienta a Linux. Esto confirma que el mirror es un snapshot histórico diferenciado, pero no una fuente de la imagen Celsius.
