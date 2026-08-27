@@ -187,3 +187,23 @@ La página pública `Vulnerabilities` separa explícitamente los rangos: BD-JB-1
 La misma página incluye otras entradas WebKit con rangos hipotéticos o de investigación, pero no añade un SPRX/SELF/ELF ni hashes de módulos 13.02/13.52. Esto refuerza que el claim de userland FontFace hasta 13.52 debe mantenerse como **SOURCE_ONLY / UNVERIFIED_13_52**, mientras que la separación BD-J 13.02 es una categoría independiente.
 
 [25]: https://www.psdevwiki.com/ps4/Vulnerabilities "PS4 Developer wiki — Vulnerabilities"
+
+## Comentarios de ArabPixel y Reddit sobre 13.52
+
+En el perfil público de ArabPixel aparecen comentarios que dicen que WebKit tiene el privilegio `dup` y que podría funcionar, pero que ajustar Netctrl para obtener una buena tasa de éxito es difícil. También remite a `ArabPixel/WebKitty`, descrito como host/UI y no como un dump WebKit. La discusión de Reddit conserva el claim de que ufm42 encontró un workaround CSSFontFace hasta 13.50/13.52 y que se estaba probando con el desarrollador, pero no presenta ningún archivo técnico.
+
+Estos datos aumentan la confianza en que el trabajo privado o no publicado existió como actividad de investigación, pero no aportan un artefacto reproducible. Clasificación: **CORROBORATED como actividad/claim público**; **UNVERIFIED_13_52** como implementación.
+
+## `ArabPixel/WebKitty`
+
+El repositorio público `ArabPixel/WebKitty` es un host de exploits con 175 commits. Su README describe cadenas funcionales actuales: CSSFontFace + Lapse/NetCtrl en PS4 9.00–11.02, PSFree + Lapse en 7.00–9.60 y Bad Hoist en 6.70–6.72. Aunque los créditos mencionan a `ntfargo`, `ufm42` y pruebas de Dr.Yenyen, la tabla de soporte del propio proyecto no incluye una cadena funcional 13.02 o 13.52.
+
+El repo puede contener infraestructura de host, manifests y payload loading, pero no debe confundirse con un dump WebKit 13.02/13.52. Clasificación: **VERIFIED como host y documentación de cadenas antiguas**; **UNVERIFIED_13_02 / UNVERIFIED_13_52** para WebKit FontFace.
+
+[26]: https://github.com/ArabPixel/WebKitty "ArabPixel WebKitty"
+
+## Auditoría de archivos de `ArabPixel/WebKitty`
+
+Snapshot público auditado: commit `10846c6cf201d62f71d8374edc08d489331a6368`, fechado 2026-08-21. El README declara CSSFontFace + Lapse/NetCtrl sólo para PS4 9.00–11.02. La tabla `src/cssfontface/ps4/constants.js` tiene entradas por 6.00, 6.20, 6.50, 6.70, 7.00, 7.50, 8.00, 8.50, 9.00, 9.03, 9.50, 10.00, 10.50, 11.00 y 11.02; no tiene 13.02, 13.04, 13.50 ni 13.52.
+
+Archivos relevantes reales: `src/cssfontface/userland.js` (37526 bytes), `src/cssfontface/ps4/constants.js` (24540 bytes), `src/cssfontface/ps4/kernel.js` (17818 bytes), `src/cssfontface/netctrl.js` y `src/cssfontface/lapse.js`, además de parches binarios históricos. Los Bins del host incluyen dumpers y payloads, pero no WebKit 13.02/13.52. Clasificación: **VERIFIED como host/código antiguo**; **INVALID como artefacto WebKit 13.02/13.52**.
