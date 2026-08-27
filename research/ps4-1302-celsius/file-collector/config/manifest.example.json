@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "firmware": "13.52",
+  "mode": "consent-only-read",
+  "files": [
+    {
+      "id": "usb0-example",
+      "source": "/mnt/usb0/RESEARCH/example.bin",
+      "destination": "files/usb0/RESEARCH/example.bin",
+      "size": 0,
+      "sha256": "",
+      "note": "Replace only with a file you own or are authorized to collect."
+    }
+  ]
+}
