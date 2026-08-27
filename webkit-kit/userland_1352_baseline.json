@@ -1,0 +1,56 @@
+{
+  "target_firmware": "13.52",
+  "status": "EXPERIMENTAL_BASE_ONLY",
+  "scope": "static_analysis_and_host_safe_harness",
+  "components": {
+    "jordy_stage2": {
+      "path": "jordy_stage2.js",
+      "status": "SKELETON",
+      "reusable": true,
+      "validated_on_1352": false,
+      "missing": ["webkit_base_anchor", "dlsym_address", "string_address", "firmware_specific_gadgets"]
+    },
+    "webkit_gadgets_1350": {
+      "path": "webkit_gadgets_1350.js",
+      "status": "REFERENCE_ONLY",
+      "reusable": false,
+      "validated_on_1352": false
+    },
+    "psfree_port": {
+      "path": "analysis/psfree_porting.json",
+      "status": "ABSENT",
+      "reusable": false,
+      "validated_on_1352": false
+    },
+    "webkit_scanner": {
+      "path": "webkit-kit/tools/scan_webkit_patterns.py",
+      "status": "PORTABLE_STATIC_TOOL",
+      "reusable": true,
+      "validated_on_1352": false
+    },
+    "libkernel_sys_anchor": {
+      "path": "webkit-kit/libkernel_sys_13.52.signatures.json",
+      "status": "PARTIAL_REFERENCE",
+      "reusable": "static_only",
+      "validated_on_1352": false
+    },
+    "host_safe_stub": {
+      "path": "webkit-kit/homebrew/src/orbis_webkit_stub.c",
+      "status": "HOST_SAFE",
+      "reusable": true,
+      "runtime_target": "portable-host"
+    }
+  },
+  "prohibited_claims": [
+    "working WebKit exploit on PS4 13.52",
+    "validated native userland on retail 13.52",
+    "sandbox escape on 13.52",
+    "kernel R/W or HEN chain"
+  ],
+  "required_evidence_to_upgrade": [
+    "retail WebKit module or equivalent with firmware provenance",
+    "size and SHA-256",
+    "verified WebKit/JSC anchor or reproducible public test",
+    "firmware-specific userland offsets and ABI evidence"
+  ]
+}
