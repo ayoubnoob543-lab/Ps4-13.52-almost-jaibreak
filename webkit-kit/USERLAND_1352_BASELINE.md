@@ -28,3 +28,7 @@ Se ha preparado la **base de userland 13.52**, entendida como organización, con
 ## Verificación local
 
 Se comprobó la sintaxis del manifiesto JSON y el diff no presenta errores de whitespace. Las pruebas host-safe existentes no pudieron ejecutarse porque `pytest` no está instalado en el entorno actual; no se interpreta como fallo del código ni como validación de compatibilidad 13.52.
+
+## Probe añadido
+
+Se añadió `harness/userland_1352_capability_probe.js`. El probe sólo consulta capacidades estándar del runtime —BigInt, ArrayBuffer, WebAssembly, Promise, Proxy, Atomics, TextEncoder y URL— y emite un JSON con `safe_only: true`, `exploit_attempted: false` y `native_calls_attempted: false`. Se ejecutó correctamente con Node en el host. Este resultado valida el harness JavaScript, no el runtime retail de PS4 13.52.
