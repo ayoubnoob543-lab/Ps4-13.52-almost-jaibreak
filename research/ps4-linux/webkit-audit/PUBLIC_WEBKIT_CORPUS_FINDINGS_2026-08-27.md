@@ -137,3 +137,39 @@ Esto estrecha la procedencia: la afirmación pública de que `ufm42` halló un w
 [21]: https://github.com/ufm42/kexp "ufm42 kexp"
 [22]: https://github.com/ufm42/vue-after-free "ufm42 vue-after-free"
 [23]: https://github.com/ufm42/ps5-linux-loader "ufm42 ps5-linux-loader"
+
+## Pista adicional: Gezine/BD-JB5
+
+La búsqueda pública muestra actividad de `Gezine/BD-JB5` con referencias a `Add PS4 13.52 offsets`, mejoras de Poops y una integración de shellcode de `ufm42/kexp`. La página de actividad extraída no expone el diff ni un blob WebKit; el contexto del proyecto es BD-JB5/Poops y soporte de payload, no un módulo `libSceNKWebKit` o un proyecto de reversing del WebKit.
+
+Clasificación: **CORROBORATED como infraestructura BD-J/payload 13.52**; **INVALID como evidencia directa de WebKit 13.52** hasta revisar un commit/archivo específico que contenga bytes o código WebKit.
+
+[24]: https://github.com/Gezine/BD-JB5/activity "Gezine BD-JB5 activity"
+
+## Inspección estática de Gezine/BD-JB5
+
+El árbol público `Gezine/BD-JB5` contiene infraestructura BD-J/Poops para PS4/PS5, APIs Java de buffer y kernel, `PS4_KernelOffset.java`, un loader de BIN y una referencia a `ufm42/kexp`. No se localizaron archivos `libSceNKWebKit`, `sprx`, `self`, dumps WebKit, firmas de WebKit ni código CSSFontFace. Las coincidencias `13.52`/`1352` de la actividad pública son soporte de BD-J/offsets, no un artefacto WebKit.
+
+Clasificación: **VERIFIED como infraestructura BD-J/Poops**; **INVALID como evidencia directa de WebKit 13.02/13.52**. La presencia de APIs de buffer o de offsets de kernel no demuestra una primitive WebKit ni una relación con `ffs_mountfs`.
+
+## BD-JB5: entradas concretas 13.52
+
+En el commit `4c28ff2d36cf9cade6763f2a8b801c2219e951f5` de `Gezine/BD-JB5`, `payloads/poops/src/org/bdj/external/PS4_KernelOffset.java` contiene una entrada `addFirmwareOffsets("13.52", ...)` y una cadena larga de shellcode asociada a la clave `"13.52"`. El archivo es código Java de Poops/BD-J y kernel offsets/shellcode; no es WebKit ni un dump del módulo WebKit. La procedencia es pública y el commit está fechado 2026-08-05.
+
+Esto sí aporta un artefacto específico 13.52 para BD-J/Poops, pero no permite localizar `libSceNKWebKit`, `CSSFontFace`, una vtable WebKit ni una primitive WebKit. Clasificación: **VERIFIED como soporte BD-J/Poops 13.52**; **INVALID como artefacto WebKit 13.52**.
+
+## Historial completo de `ufm42/wobkot`
+
+El historial público contiene, entre otros, `2f96abf1796bf05e913b298c9932284b6cac38d3` (2026-07-26, `full chain exploit added`), `bba4e8fdc5b59b781e0d26eea49bdbf8f748fe34` (2026-07-03, actualización de ROP/gadgets), `f0ab54dd8a8d1e8393ab1f7d6f2f3e010f1bec81` (2026-07-01, soporte 10.xx) y `6108c0507cda099ae03cfa3329129ecb16da4017` (2026-06-24, commit inicial). La rama pública sólo expone `main`.
+
+La revisión de los archivos actuales no encontró tokens `13.52`, `13.50` o `13.02` en los ficheros WebKit consultados; los commits de `full chain` y ROP son de la línea antigua del exploit. No apareció un commit público que describa el workaround 13.52 ni un blob WebKit objetivo.
+
+Clasificación: **VERIFIED como historial público**; **SOURCE_ONLY / UNVERIFIED_13_52** para el claim del workaround.
+
+## `ufm42/wobkot`: límites del snapshot público
+
+En el snapshot actual de `ufm42/wobkot`, `public/src/ps4/userland.js` contiene ramas de implementación para versiones históricas (condiciones para major 6, 9 y >=10) y usa campos CSSFontFace como `m_featureSettings`, `m_clients`, `m_wrapper`, `m_status` y `m_thread`. `public/src/ps4/constants.js` contiene tablas históricas de vtables/gadgets; no aparece una clave explícita `13.52`, `13.50` o `13.02` en los archivos consultados.
+
+SHA-256 del snapshot auditado: `userland.js` `0d5fc478a1114a0a1514934ddd97b126d879a691fc872fbd921302a156a4dee8`; `constants.js` `52c6af4a7f75c87238345ad6f6e0761a04e3c54a052ed68a5363461a5a92ef72`. La estructura demuestra código de exploit userland real para versiones antiguas, pero no aporta el workaround 13.52.
+
+Clasificación: **VERIFIED como código histórico**; **UNVERIFIED_13_52** para el claim atribuido a `ufm42`.
