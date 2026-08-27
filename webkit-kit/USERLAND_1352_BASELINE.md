@@ -24,3 +24,7 @@ Por ello, este documento no inventa direcciones ni convierte offsets de 13.50, 1
 ## Resultado
 
 Se ha preparado la **base de userland 13.52**, entendida como organización, contratos, inventario y pipeline de análisis. Todavía no se ha producido un WebKit exploit, un escape de sandbox ni una cadena nativa reproducible para 13.52.
+
+## Verificación local
+
+Se comprobó la sintaxis del manifiesto JSON y el diff no presenta errores de whitespace. Las pruebas host-safe existentes no pudieron ejecutarse porque `pytest` no está instalado en el entorno actual; no se interpreta como fallo del código ni como validación de compatibilidad 13.52.
