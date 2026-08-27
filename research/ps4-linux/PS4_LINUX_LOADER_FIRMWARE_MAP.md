@@ -54,3 +54,17 @@ Estos payloads presuponen que la consola ya dispone de un mecanismo autorizado p
 [1]: https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v21.5 "PS4 Linux Loader v21.5"
 [2]: https://github.com/ps4-linux/ps4-linux-loader/releases/tag/v25 "PS4 Linux Loader v25"
 [3]: https://github.com/ps4-linux/ps4-linux-loader/commit/9acef9fbf79097a2bb39d6c9c17228198bc445cc "PS4 Linux Loader v25 commit"
+
+## Confirmación desde el código fuente
+
+En `linux/fw_offsets.h` del tag v25 aparecen entradas distintas para `1302`, `1350` y `1352`. La propia cabecera indica que las versiones con entrada distinta no son aliases y tienen layouts de kernel mediblemente diferentes. Estas entradas contienen `xfast_syscall`, `printf`, `kmem_alloc`, `kernel_map`, `patch1`, `patch2` y `pstate` para el loader Linux. No son offsets de WebKit, no identifican `ffs_mountfs` y no demuestran una primitive WebKit.
+
+La tabla fuente observada es:
+
+```text
+1302 -> xfast 0x1c0, printf 0x2E0450, kmem_alloc 0x465A50, kernel_map 0x22D1D50, patch1 0x465B1C, patch2 0x465B24, pstate 0x3A23D0
+1350 -> xfast 0x1c0, printf 0x2E0460, kmem_alloc 0x465E90, kernel_map 0x22D1D50, patch1 0x465F5C, patch2 0x465F64, pstate 0x3A2780
+1352 -> xfast 0x1c0, printf 0x2E0510, kmem_alloc 0x466290, kernel_map 0x22D1D50, patch1 0x46635C, patch2 0x466364, pstate 0x3A2B90
+```
+
+La presencia de la entrada 1352 eleva el soporte del loader a `DIRECT_SOURCE_SUPPORT` para la tabla de offsets del loader, pero no a compatibilidad de la cadena de entrada ni a soporte de WebKit/Celsius.
