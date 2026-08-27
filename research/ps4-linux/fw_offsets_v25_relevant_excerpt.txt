@@ -1,0 +1,18 @@
+Source: https://github.com/ps4-linux/ps4-linux-loader/tree/v25
+Path: linux/fw_offsets.h
+Tag: v25
+
+Relevant source excerpt:
+
+/* Versions marked with a distinct entry (e.g. 1102, 1302) have
+ * measurably different kernel layouts and are NOT aliases. */
+
+{ 1300, 0x1c0, 0x2E0440, 0x465A40, 0x22D1D50, 0x465B0C, 0x465B14, 0x3A23C0 },
+{ 1302, 0x1c0, 0x2E0450, 0x465A50, 0x22D1D50, 0x465B1C, 0x465B24, 0x3A23D0 },
+{ 1350, 0x1c0, 0x2E0460, 0x465E90, 0x22D1D50, 0x465F5C, 0x465F64, 0x3A2780 },
+{ 1352, 0x1c0, 0x2E0510, 0x466290, 0x22D1D50, 0x46635C, 0x466364, 0x3A2B90 },
+
+Field order in fw_offsets_t:
+ver, xfast_syscall, printf, kmem_alloc, kernel_map, patch1, patch2, pstate.
+
+Interpretation: these are loader/Linux kernel offsets, not WebKit/JSC offsets. Their presence does not prove the entry exploit, WebKit primitive, Celsius, or kernel R/W chain works on the listed firmware.

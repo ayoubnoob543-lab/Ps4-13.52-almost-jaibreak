@@ -1,0 +1,6 @@
+=== 13.02 ===
+v21.5_fw1302/fw1302/payload-1302-1gb.elf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=189e09161e2ff15fa5b0deece6ad484d1c9fc8e1, not stripped
+size=27840 mode=-rwxr-xr-x
+=== 13.52 v25 ===
+v25_extracted/elf/linux-128mb.elf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=c2a7879245b582daa2ff6e90ae0698817c2f5c18, not stripped
+size=320936 mode=-rwxr-xr-x
