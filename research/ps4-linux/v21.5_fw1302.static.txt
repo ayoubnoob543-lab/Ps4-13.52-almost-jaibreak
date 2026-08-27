@@ -1,0 +1,33 @@
+v21.5_fw1302/fw1302/.keepgithub:                     ASCII text
+v21.5_fw1302/fw1302/payload-1302-1gb.elf:            ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=189e09161e2ff15fa5b0deece6ad484d1c9fc8e1, not stripped
+v21.5_fw1302/fw1302/payload-1302-1gb.bin:            DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-1gb-pro.elf:        ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=189e09161e2ff15fa5b0deece6ad484d1c9fc8e1, not stripped
+v21.5_fw1302/fw1302/payload-1302-1gb-pro.bin:        DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-1gb-baikal.elf:     ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=f788157639473754769c63fb657fef0685a44a31, not stripped
+v21.5_fw1302/fw1302/payload-1302-1gb-baikal.bin:     DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-1gb-pro-baikal.elf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=f788157639473754769c63fb657fef0685a44a31, not stripped
+v21.5_fw1302/fw1302/payload-1302-1gb-pro-baikal.bin: DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-2gb.elf:            ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=585a091cc4249c659dba4537f2da9a2cbace0e26, not stripped
+v21.5_fw1302/fw1302/payload-1302-2gb.bin:            DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-2gb-pro.elf:        ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=585a091cc4249c659dba4537f2da9a2cbace0e26, not stripped
+v21.5_fw1302/fw1302/payload-1302-2gb-pro.bin:        DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-2gb-baikal.elf:     ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=b5cbec47896661dd7a18ed56aa65af5d2b5fbb41, not stripped
+v21.5_fw1302/fw1302/payload-1302-2gb-baikal.bin:     DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-2gb-pro-baikal.elf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=b5cbec47896661dd7a18ed56aa65af5d2b5fbb41, not stripped
+v21.5_fw1302/fw1302/payload-1302-2gb-pro-baikal.bin: DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-3gb.elf:            ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=c285819c77d06e699ce5e772bfb1d61c0ce806fc, not stripped
+v21.5_fw1302/fw1302/payload-1302-3gb.bin:            DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-3gb-pro.elf:        ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=c285819c77d06e699ce5e772bfb1d61c0ce806fc, not stripped
+v21.5_fw1302/fw1302/payload-1302-3gb-pro.bin:        DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-3gb-baikal.elf:     ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=f02f2b52db0ea69122c4d8acaec95c3b2f02ee1b, not stripped
+v21.5_fw1302/fw1302/payload-1302-3gb-baikal.bin:     DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-3gb-pro-baikal.elf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=f02f2b52db0ea69122c4d8acaec95c3b2f02ee1b, not stripped
+v21.5_fw1302/fw1302/payload-1302-3gb-pro-baikal.bin: DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-4gb.elf:            ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=1bb38ff400f0c36df094cf4a2aa7db9fef962a4c, not stripped
+v21.5_fw1302/fw1302/payload-1302-4gb.bin:            DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-4gb-pro.elf:        ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=1bb38ff400f0c36df094cf4a2aa7db9fef962a4c, not stripped
+v21.5_fw1302/fw1302/payload-1302-4gb-pro.bin:        DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-4gb-baikal.elf:     ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=22166f82831bd8e4606bbcadc94627a2dab3c0ed, not stripped
+v21.5_fw1302/fw1302/payload-1302-4gb-baikal.bin:     DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-4gb-pro-baikal.elf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=22166f82831bd8e4606bbcadc94627a2dab3c0ed, not stripped
+v21.5_fw1302/fw1302/payload-1302-4gb-pro-baikal.bin: DOS executable (COM), start instruction 0xe9fe3c00 00662e0f

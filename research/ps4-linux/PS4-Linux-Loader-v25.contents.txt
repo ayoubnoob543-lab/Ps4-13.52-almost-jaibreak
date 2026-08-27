@@ -1,0 +1,25 @@
+Archive:  PS4-Linux-Loader-v25.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2026-07-25 17:31   bin/
+   312640  2026-07-25 17:30   bin/linux-1024mb.bin
+   312640  2026-07-25 17:30   bin/linux-128mb.bin
+   312640  2026-07-25 17:30   bin/linux-2048mb.bin
+   312640  2026-07-25 17:30   bin/linux-256mb.bin
+   312640  2026-07-25 17:30   bin/linux-3072mb.bin
+   312640  2026-07-25 17:30   bin/linux-32mb.bin
+   312640  2026-07-25 17:30   bin/linux-4096mb.bin
+   312640  2026-07-25 17:30   bin/linux-512mb.bin
+   312640  2026-07-25 17:30   bin/linux-64mb.bin
+        0  2026-07-25 17:31   elf/
+   320936  2026-07-25 17:30   elf/linux-1024mb.elf
+   320936  2026-07-25 17:30   elf/linux-128mb.elf
+   320936  2026-07-25 17:30   elf/linux-2048mb.elf
+   320936  2026-07-25 17:30   elf/linux-256mb.elf
+   320936  2026-07-25 17:30   elf/linux-3072mb.elf
+   320936  2026-07-25 17:30   elf/linux-32mb.elf
+   320936  2026-07-25 17:30   elf/linux-4096mb.elf
+   320936  2026-07-25 17:30   elf/linux-512mb.elf
+   320936  2026-07-25 17:30   elf/linux-64mb.elf
+---------                     -------
+  5702184                     20 files
