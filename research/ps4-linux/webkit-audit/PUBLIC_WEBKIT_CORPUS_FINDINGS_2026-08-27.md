@@ -84,3 +84,56 @@ Clasificación: **DERIVED / SOURCE_ONLY** para el código antiguo; **INVALID** c
 Las búsquedas adicionales devuelven vídeos y publicaciones que afirman un userland PS4 13.52, pero no identifican un repositorio, commit, SPRX, SELF, ELF, dump o hash descargable. Los resultados GitHub vuelven a apuntar a `ntfargo/CSSFontFace-Exploit` y forks, cuyo soporte implementado termina en 11.02; los resultados de YouTube/Shorts no son fuentes primarias de bytes.
 
 Clasificación provisional de esos claims: **SOURCE_ONLY / UNVERIFIED_13_52**. No se incorporan como artefactos.
+
+## Línea Synacktiv: artefacto histórico real
+
+`synacktiv/PS4-webkit-exploit-6.XX` es un repositorio público de un solo commit con `index.html`, `int64.js`, `ps4.js` y `utils.js`. Su write-up de 2020 describe un exploit WebKit PS4 6.xx que convierte un UAF en una primitive de lectura/escritura y ejecución en ese contexto. No contiene SPRX/SELF/ELF ni blobs de WebKit 13.02/13.52.
+
+El repositorio y el artículo son fuentes primarias para una línea histórica de WebKit 6.xx, y varios forks posteriores los citan como ascendencia. No constituyen evidencia de que la misma primitive funcione en 13.02 o 13.52.
+
+Clasificación: **VERIFIED como artefacto WebKit histórico 6.xx**; **INVALID/UNVERIFIED_13_02/UNVERIFIED_13_52** para los firmwares objetivo.
+
+[12]: https://github.com/synacktiv/PS4-webkit-exploit-6.XX "Synacktiv PS4 WebKit exploit 6.XX"
+[13]: https://www.synacktiv.com/en/publications/this-is-for-the-pwners-exploiting-a-webkit-0-day-in-playstation-4 "Synacktiv WebKit 0-day write-up"
+
+## Vídeos que afirman userland 13.52
+
+Se revisaron tres publicaciones públicas. Un Short de @mbcrump titulado `PS4 13.52 CSSFontFace WebKit Userland Demo` afirma una demo y enlaza a una publicación de X, pero el vídeo aparece como no disponible y la descripción no proporciona código, hash, módulo ni proyecto. Otro vídeo titulado `PS4 13.52 BD-J USERLAND BUG FULLY ACHIEVED!` afirma un bug userland en 13.52, pero su descripción sólo habla de una demo y reconoce que todavía falta un kernel bug estable. Un tercer vídeo titulado `PS4/PS5 13.52/13.60 WEBKIT USERLAND BUG WORKING` no expone artefactos en la extracción pública.
+
+Estas fuentes prueban que existen afirmaciones públicas y material audiovisual, no que exista un artefacto WebKit descargable ni que la primitive haya sido reproducida. Clasificación: **SOURCE_ONLY / UNVERIFIED_13_52**.
+
+[14]: https://www.youtube.com/shorts/O70FxdT12f4 "PS4 13.52 CSSFontFace WebKit Userland Demo"
+[15]: https://www.youtube.com/watch?v=ZG-SGV4c-kQ "PS4 13.52 BD-J USERLAND BUG FULLY ACHIEVED"
+[16]: https://www.youtube.com/watch?v=jMwu0uJ5SY4 "PS4/PS5 13.52/13.60 WEBKIT USERLAND BUG WORKING"
+
+## Publicación primaria de X: claim de workaround 13.52
+
+La publicación de Dr.Yenyen/@calmboy2019 del 4 de agosto de 2026 afirma literalmente que existe userland WebKit PS4 hasta 13.52 y que `ufm42` encontró un workaround para que el exploit FontFace funcionara; una respuesta agradece a ArabPixel por pruebas y offsets. La publicación no adjunta en la extracción pública un repositorio, commit, blob, SPRX, hash, tabla de offsets ni proyecto de reversing.
+
+Esto es una pista de procedencia más fuerte que un vídeo secundario, porque atribuye autores concretos (`ufm42`, `ArabPixel`) y una fecha, pero sigue siendo **SOURCE_ONLY / UNVERIFIED_13_52** hasta que aparezca el workaround en código o un artefacto verificable. No se debe confundir con la implementación pública de `ntfargo`, cuyo límite documentado es 11.02.
+
+[17]: https://x.com/calmboy2019/status/2084636491628663088 "Dr.Yenyen — PS4 WebKit userland up to 13.52"
+
+## Corroboración secundaria de la pista `ufm42`
+
+La discusión de `r/ps4homebrew` repite que `ufm42` encontró un workaround para los cambios que impedían usar FontFace por encima de 11.02 y afirma userland hasta 13.52. El mismo post aclara que el jailbreak continúa limitado a 13.00. No enlaza un repositorio, commit, blob, SPRX, hash ni instrucciones técnicas del workaround.
+
+La página de respuestas de ArabPixel en X sólo expone el perfil y un enlace a GitHub; no añade un artefacto técnico. La publicación original de Dr.Yenyen es la fuente más concreta de la afirmación, pero sigue siendo un claim de autoría y fecha, no una entrega de código.
+
+Clasificación: **CORROBORATED como existencia de una afirmación pública repetida**; **SOURCE_ONLY / UNVERIFIED_13_52** como soporte técnico.
+
+[18]: https://www.reddit.com/r/ps4homebrew/comments/1vfbae9/ps4_and_ps5_webkit_userland_till_latest_firmwares/ "Reddit discussion repeating the ufm42 claim"
+[19]: https://x.com/arabpixell/with_replies "ArabPixel X profile"
+
+## Repositorios públicos actuales de ufm42
+
+La lista pública de repositorios de `ufm42` contiene `wobkot`, `kexp`, `vue-after-free`, `Netflix-N-Hack`, `cobolt`, `ps5-linux-loader`, `shsrv` y `Playstation-5-Save-Mounter`. No aparece un repositorio con nombre que identifique el workaround FontFace 13.52.
+
+`ufm42/kexp` es un payload post-jailbreak y su README describe una ruta que presupone que el proceso userland ya está jailbroken; por tanto no es el workaround WebKit. `ufm42/vue-after-free` es un fork experimental del proyecto Vue y no se presenta como soporte 13.52. `ufm42/ps5-linux-loader` es exclusivamente PS5 y sus firmwares son 3.00–7.61.
+
+Esto estrecha la procedencia: la afirmación pública de que `ufm42` halló un workaround 13.52 no está acompañada, en sus repositorios públicos actuales, por un proyecto identificable o un artefacto binario. Clasificación: **SOURCE_ONLY / UNVERIFIED_13_52**.
+
+[20]: https://github.com/ufm42 "Repositorios públicos de ufm42"
+[21]: https://github.com/ufm42/kexp "ufm42 kexp"
+[22]: https://github.com/ufm42/vue-after-free "ufm42 vue-after-free"
+[23]: https://github.com/ufm42/ps5-linux-loader "ufm42 ps5-linux-loader"
