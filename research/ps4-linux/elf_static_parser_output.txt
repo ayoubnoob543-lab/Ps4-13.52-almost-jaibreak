@@ -1,0 +1,176 @@
+v21.5_fw1302/fw1302/payload-1302-1gb.elf: size=27840 type=2 machine=62 entry=0x401000 sections=10 shoff=0x6a40
+  section[0]  type=0 off=0x0 size=0x0 entsize=0x0
+  section[1] .note.gnu.build-id type=7 off=0x190 size=0x24 entsize=0x0
+  section[2] .text type=1 off=0x1000 size=0x4085 entsize=0x0
+  section[3] .rodata type=1 off=0x6000 size=0x343 entsize=0x0
+  section[4] .eh_frame type=1 off=0x6348 size=0x158 entsize=0x0
+  section[5] .bss type=8 off=0x7000 size=0x10 entsize=0x0
+  section[6] .comment type=1 off=0x64a0 size=0x1b entsize=0x1
+  section[7] .symtab type=2 off=0x64c0 size=0x3d8 entsize=0x18
+  section[8] .strtab type=3 off=0x6898 size=0x150 entsize=0x0
+  section[9] .shstrtab type=3 off=0x69e8 size=0x54 entsize=0x0
+  symbols from .symtab:
+    syscalls.asm value=0x0 size=0x0 bind=0 type=4
+    main.c value=0x0 size=0x0 bind=0 type=4
+    ps4kexec value=0x40126d size=0x0 bind=0 type=0
+    ps4kexec_end value=0x40494d size=0x0 bind=0 type=0
+    kexec_load value=0x404a7b size=0x0 bind=0 type=0
+    get_syscall value=0x40494d size=0x2a bind=1 type=2
+    kexec value=0x401169 size=0x0 bind=1 type=0
+    kernel_main value=0x404977 size=0x104 bind=1 type=2
+    main value=0x404ce3 size=0x3a2 bind=1 type=2
+v21.5_fw1302/fw1302/payload-1302-1gb-baikal.elf: size=27848 type=2 machine=62 entry=0x401000 sections=10 shoff=0x6a48
+  section[0]  type=0 off=0x0 size=0x0 entsize=0x0
+  section[1] .note.gnu.build-id type=7 off=0x190 size=0x24 entsize=0x0
+  section[2] .text type=1 off=0x1000 size=0x40a5 entsize=0x0
+  section[3] .rodata type=1 off=0x6000 size=0x343 entsize=0x0
+  section[4] .eh_frame type=1 off=0x6348 size=0x158 entsize=0x0
+  section[5] .bss type=8 off=0x7000 size=0x10 entsize=0x0
+  section[6] .comment type=1 off=0x64a0 size=0x1b entsize=0x1
+  section[7] .symtab type=2 off=0x64c0 size=0x3d8 entsize=0x18
+  section[8] .strtab type=3 off=0x6898 size=0x157 entsize=0x0
+  section[9] .shstrtab type=3 off=0x69ef size=0x54 entsize=0x0
+  symbols from .symtab:
+    syscalls.asm value=0x0 size=0x0 bind=0 type=4
+    main-baikal.c value=0x0 size=0x0 bind=0 type=4
+    ps4kexec value=0x40126d size=0x0 bind=0 type=0
+    ps4kexec_end value=0x40496d size=0x0 bind=0 type=0
+    kexec_load value=0x404a9b size=0x0 bind=0 type=0
+    get_syscall value=0x40496d size=0x2a bind=1 type=2
+    kexec value=0x401169 size=0x0 bind=1 type=0
+    kernel_main value=0x404997 size=0x104 bind=1 type=2
+    main value=0x404d03 size=0x3a2 bind=1 type=2
+v25_extracted/elf/linux-128mb.elf: size=320936 type=2 machine=62 entry=0x401000 sections=11 shoff=0x4e2e8
+  section[0]  type=0 off=0x0 size=0x0 entsize=0x0
+  section[1] .note.gnu.build-id type=7 off=0x190 size=0x24 entsize=0x0
+  section[2] .text type=1 off=0x1000 size=0x4a665 entsize=0x0
+  section[3] .rodata type=1 off=0x4c000 size=0x56b entsize=0x0
+  section[4] .eh_frame type=1 off=0x4c570 size=0x278 entsize=0x0
+  section[5] .data type=1 off=0x4d000 size=0x540 entsize=0x0
+  section[6] .bss type=8 off=0x4d540 size=0x38 entsize=0x0
+  section[7] .comment type=1 off=0x4d540 size=0x1b entsize=0x1
+  section[8] .symtab type=2 off=0x4d560 size=0x918 entsize=0x18
+  section[9] .strtab type=3 off=0x4de78 size=0x410 entsize=0x0
+  section[10] .shstrtab type=3 off=0x4e288 size=0x5a entsize=0x0
+  symbols from .symtab:
+    syscalls.asm value=0x0 size=0x0 bind=0 type=4
+    main-aio.c value=0x0 size=0x0 bind=0 type=4
+    kexec_505 value=0x40133a size=0x0 bind=0 type=0
+    kexec_505_end value=0x404da2 size=0x0 bind=0 type=0
+    kexec_672 value=0x404da2 size=0x0 bind=0 type=0
+    kexec_672_end value=0x40880a size=0x0 bind=0 type=0
+    kexec_700 value=0x40880a size=0x0 bind=0 type=0
+    kexec_700_end value=0x40c272 size=0x0 bind=0 type=0
+    kexec_750 value=0x40c272 size=0x0 bind=0 type=0
+    kexec_750_end value=0x40fcda size=0x0 bind=0 type=0
+    kexec_800 value=0x40fcda size=0x0 bind=0 type=0
+    kexec_800_end value=0x413742 size=0x0 bind=0 type=0
+    kexec_850 value=0x413742 size=0x0 bind=0 type=0
+    kexec_850_end value=0x4171aa size=0x0 bind=0 type=0
+    kexec_900 value=0x4171aa size=0x0 bind=0 type=0
+    kexec_900_end value=0x41ac12 size=0x0 bind=0 type=0
+    kexec_903 value=0x41ac12 size=0x0 bind=0 type=0
+    kexec_903_end value=0x41e67a size=0x0 bind=0 type=0
+    kexec_960 value=0x41e67a size=0x0 bind=0 type=0
+    kexec_960_end value=0x4220e2 size=0x0 bind=0 type=0
+    kexec_1000 value=0x4220e2 size=0x0 bind=0 type=0
+    kexec_1000_end value=0x425b4a size=0x0 bind=0 type=0
+    kexec_1050 value=0x425b4a size=0x0 bind=0 type=0
+    kexec_1050_end value=0x4295b2 size=0x0 bind=0 type=0
+    kexec_1100 value=0x4295b2 size=0x0 bind=0 type=0
+    kexec_1100_end value=0x42d01a size=0x0 bind=0 type=0
+    kexec_1102 value=0x42d01a size=0x0 bind=0 type=0
+    kexec_1102_end value=0x430a82 size=0x0 bind=0 type=0
+    kexec_1150 value=0x430a82 size=0x0 bind=0 type=0
+    kexec_1150_end value=0x4344ea size=0x0 bind=0 type=0
+    kexec_1200 value=0x4344ea size=0x0 bind=0 type=0
+    kexec_1200_end value=0x437f52 size=0x0 bind=0 type=0
+    kexec_1250 value=0x437f52 size=0x0 bind=0 type=0
+    kexec_1250_end value=0x43b9ba size=0x0 bind=0 type=0
+    kexec_1300 value=0x43b9ba size=0x0 bind=0 type=0
+    kexec_1300_end value=0x43f422 size=0x0 bind=0 type=0
+    kexec_1302 value=0x43f422 size=0x0 bind=0 type=0
+    kexec_1302_end value=0x442e8a size=0x0 bind=0 type=0
+    kexec_1350 value=0x442e8a size=0x0 bind=0 type=0
+    kexec_1350_end value=0x4468f2 size=0x0 bind=0 type=0
+    kexec_1352 value=0x4468f2 size=0x0 bind=0 type=0
+    kexec_1352_end value=0x44a35a size=0x0 bind=0 type=0
+    g_kexec_s value=0x44d550 size=0x8 bind=0 type=1
+    g_kexec_e value=0x44d558 size=0x8 bind=0 type=1
+    find_offsets_by_fw value=0x44a35a size=0x80 bind=0 type=2
+    get_kexec_blob value=0x44a3da size=0x451 bind=0 type=2
+    kexec_load value=0x44a82b size=0x0 bind=0 type=0
+    pack_kexec_args value=0x44aace size=0x35 bind=0 type=2
+    get_syscall value=0x44ab03 size=0x2a bind=0 type=2
+    g_firmware value=0x44d570 size=0x2 bind=0 type=1
+    get_firmware value=0x44b30e size=0x1e8 bind=1 type=2
+    kexec value=0x40117c size=0x0 bind=1 type=0
+    kernel_main value=0x44ab2d size=0x141 bind=1 type=2
+    main value=0x44ae1f size=0x4ef bind=1 type=2
+v25_extracted/elf/linux-128mb.elf: size=320936 type=2 machine=62 entry=0x401000 sections=11 shoff=0x4e2e8
+  section[0]  type=0 off=0x0 size=0x0 entsize=0x0
+  section[1] .note.gnu.build-id type=7 off=0x190 size=0x24 entsize=0x0
+  section[2] .text type=1 off=0x1000 size=0x4a665 entsize=0x0
+  section[3] .rodata type=1 off=0x4c000 size=0x56b entsize=0x0
+  section[4] .eh_frame type=1 off=0x4c570 size=0x278 entsize=0x0
+  section[5] .data type=1 off=0x4d000 size=0x540 entsize=0x0
+  section[6] .bss type=8 off=0x4d540 size=0x38 entsize=0x0
+  section[7] .comment type=1 off=0x4d540 size=0x1b entsize=0x1
+  section[8] .symtab type=2 off=0x4d560 size=0x918 entsize=0x18
+  section[9] .strtab type=3 off=0x4de78 size=0x410 entsize=0x0
+  section[10] .shstrtab type=3 off=0x4e288 size=0x5a entsize=0x0
+  symbols from .symtab:
+    syscalls.asm value=0x0 size=0x0 bind=0 type=4
+    main-aio.c value=0x0 size=0x0 bind=0 type=4
+    kexec_505 value=0x40133a size=0x0 bind=0 type=0
+    kexec_505_end value=0x404da2 size=0x0 bind=0 type=0
+    kexec_672 value=0x404da2 size=0x0 bind=0 type=0
+    kexec_672_end value=0x40880a size=0x0 bind=0 type=0
+    kexec_700 value=0x40880a size=0x0 bind=0 type=0
+    kexec_700_end value=0x40c272 size=0x0 bind=0 type=0
+    kexec_750 value=0x40c272 size=0x0 bind=0 type=0
+    kexec_750_end value=0x40fcda size=0x0 bind=0 type=0
+    kexec_800 value=0x40fcda size=0x0 bind=0 type=0
+    kexec_800_end value=0x413742 size=0x0 bind=0 type=0
+    kexec_850 value=0x413742 size=0x0 bind=0 type=0
+    kexec_850_end value=0x4171aa size=0x0 bind=0 type=0
+    kexec_900 value=0x4171aa size=0x0 bind=0 type=0
+    kexec_900_end value=0x41ac12 size=0x0 bind=0 type=0
+    kexec_903 value=0x41ac12 size=0x0 bind=0 type=0
+    kexec_903_end value=0x41e67a size=0x0 bind=0 type=0
+    kexec_960 value=0x41e67a size=0x0 bind=0 type=0
+    kexec_960_end value=0x4220e2 size=0x0 bind=0 type=0
+    kexec_1000 value=0x4220e2 size=0x0 bind=0 type=0
+    kexec_1000_end value=0x425b4a size=0x0 bind=0 type=0
+    kexec_1050 value=0x425b4a size=0x0 bind=0 type=0
+    kexec_1050_end value=0x4295b2 size=0x0 bind=0 type=0
+    kexec_1100 value=0x4295b2 size=0x0 bind=0 type=0
+    kexec_1100_end value=0x42d01a size=0x0 bind=0 type=0
+    kexec_1102 value=0x42d01a size=0x0 bind=0 type=0
+    kexec_1102_end value=0x430a82 size=0x0 bind=0 type=0
+    kexec_1150 value=0x430a82 size=0x0 bind=0 type=0
+    kexec_1150_end value=0x4344ea size=0x0 bind=0 type=0
+    kexec_1200 value=0x4344ea size=0x0 bind=0 type=0
+    kexec_1200_end value=0x437f52 size=0x0 bind=0 type=0
+    kexec_1250 value=0x437f52 size=0x0 bind=0 type=0
+    kexec_1250_end value=0x43b9ba size=0x0 bind=0 type=0
+    kexec_1300 value=0x43b9ba size=0x0 bind=0 type=0
+    kexec_1300_end value=0x43f422 size=0x0 bind=0 type=0
+    kexec_1302 value=0x43f422 size=0x0 bind=0 type=0
+    kexec_1302_end value=0x442e8a size=0x0 bind=0 type=0
+    kexec_1350 value=0x442e8a size=0x0 bind=0 type=0
+    kexec_1350_end value=0x4468f2 size=0x0 bind=0 type=0
+    kexec_1352 value=0x4468f2 size=0x0 bind=0 type=0
+    kexec_1352_end value=0x44a35a size=0x0 bind=0 type=0
+    g_kexec_s value=0x44d550 size=0x8 bind=0 type=1
+    g_kexec_e value=0x44d558 size=0x8 bind=0 type=1
+    find_offsets_by_fw value=0x44a35a size=0x80 bind=0 type=2
+    get_kexec_blob value=0x44a3da size=0x451 bind=0 type=2
+    kexec_load value=0x44a82b size=0x0 bind=0 type=0
+    pack_kexec_args value=0x44aace size=0x35 bind=0 type=2
+    get_syscall value=0x44ab03 size=0x2a bind=0 type=2
+    g_firmware value=0x44d570 size=0x2 bind=0 type=1
+    get_firmware value=0x44b30e size=0x1e8 bind=1 type=2
+    kexec value=0x40117c size=0x0 bind=1 type=0
+    kernel_main value=0x44ab2d size=0x141 bind=1 type=2
+    main value=0x44ae1f size=0x4ef bind=1 type=2

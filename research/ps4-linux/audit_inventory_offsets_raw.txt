@@ -1,0 +1,159 @@
+=== 13.02 ===
+v21.5_fw1302/fw1302/payload-1302-1gb-baikal.bin	21315
+v21.5_fw1302/fw1302/payload-1302-1gb-baikal.elf	27848
+v21.5_fw1302/fw1302/payload-1302-1gb-pro-baikal.bin	21315
+v21.5_fw1302/fw1302/payload-1302-1gb-pro-baikal.elf	27848
+v21.5_fw1302/fw1302/payload-1302-1gb-pro.bin	21315
+v21.5_fw1302/fw1302/payload-1302-1gb-pro.elf	27840
+v21.5_fw1302/fw1302/payload-1302-1gb.bin	21315
+v21.5_fw1302/fw1302/payload-1302-1gb.elf	27840
+v21.5_fw1302/fw1302/payload-1302-2gb-baikal.bin	21315
+v21.5_fw1302/fw1302/payload-1302-2gb-baikal.elf	27848
+v21.5_fw1302/fw1302/payload-1302-2gb-pro-baikal.bin	21315
+v21.5_fw1302/fw1302/payload-1302-2gb-pro-baikal.elf	27848
+v21.5_fw1302/fw1302/payload-1302-2gb-pro.bin	21315
+v21.5_fw1302/fw1302/payload-1302-2gb-pro.elf	27840
+v21.5_fw1302/fw1302/payload-1302-2gb.bin	21315
+v21.5_fw1302/fw1302/payload-1302-2gb.elf	27840
+v21.5_fw1302/fw1302/payload-1302-3gb-baikal.bin	21315
+v21.5_fw1302/fw1302/payload-1302-3gb-baikal.elf	27848
+v21.5_fw1302/fw1302/payload-1302-3gb-pro-baikal.bin	21315
+v21.5_fw1302/fw1302/payload-1302-3gb-pro-baikal.elf	27848
+v21.5_fw1302/fw1302/payload-1302-3gb-pro.bin	21315
+v21.5_fw1302/fw1302/payload-1302-3gb-pro.elf	27840
+v21.5_fw1302/fw1302/payload-1302-3gb.bin	21315
+v21.5_fw1302/fw1302/payload-1302-3gb.elf	27840
+v21.5_fw1302/fw1302/payload-1302-4gb-baikal.bin	21315
+v21.5_fw1302/fw1302/payload-1302-4gb-baikal.elf	27848
+v21.5_fw1302/fw1302/payload-1302-4gb-pro-baikal.bin	21315
+v21.5_fw1302/fw1302/payload-1302-4gb-pro-baikal.elf	27848
+v21.5_fw1302/fw1302/payload-1302-4gb-pro.bin	21315
+v21.5_fw1302/fw1302/payload-1302-4gb-pro.elf	27840
+v21.5_fw1302/fw1302/payload-1302-4gb.bin	21315
+v21.5_fw1302/fw1302/payload-1302-4gb.elf	27840
+50a2c7325bf33614919fa6cbccdc19e3938f250eb643f651a1d53e7346c25ce2  v21.5_fw1302/fw1302/payload-1302-1gb.elf
+44de87a2dd49721ee53d670d1fc7692ab962d1e0ae1eb929cf5568eb64f006b1  v21.5_fw1302/fw1302/payload-1302-1gb.bin
+50a2c7325bf33614919fa6cbccdc19e3938f250eb643f651a1d53e7346c25ce2  v21.5_fw1302/fw1302/payload-1302-1gb-pro.elf
+44de87a2dd49721ee53d670d1fc7692ab962d1e0ae1eb929cf5568eb64f006b1  v21.5_fw1302/fw1302/payload-1302-1gb-pro.bin
+96ed017ecb1feeb6c483f12804bbee14a52d1f1fe5edf067f5577f6d70c224ee  v21.5_fw1302/fw1302/payload-1302-1gb-baikal.elf
+7d277be4ab09cd5759d219eed22444fa58dfb2b1a731672285d8e5f617ebf6aa  v21.5_fw1302/fw1302/payload-1302-1gb-baikal.bin
+96ed017ecb1feeb6c483f12804bbee14a52d1f1fe5edf067f5577f6d70c224ee  v21.5_fw1302/fw1302/payload-1302-1gb-pro-baikal.elf
+7d277be4ab09cd5759d219eed22444fa58dfb2b1a731672285d8e5f617ebf6aa  v21.5_fw1302/fw1302/payload-1302-1gb-pro-baikal.bin
+a546066985a74d30f3e7b07fa1337588a11f4ce45079aeb3a0082de312449033  v21.5_fw1302/fw1302/payload-1302-2gb.elf
+9066e430bf99f9d33445c41f8dab59523f8ba7e6f24c638aa1810ebd66354c1e  v21.5_fw1302/fw1302/payload-1302-2gb.bin
+a546066985a74d30f3e7b07fa1337588a11f4ce45079aeb3a0082de312449033  v21.5_fw1302/fw1302/payload-1302-2gb-pro.elf
+9066e430bf99f9d33445c41f8dab59523f8ba7e6f24c638aa1810ebd66354c1e  v21.5_fw1302/fw1302/payload-1302-2gb-pro.bin
+15a1e05df7fb7df767aef0734019cb22cfa0dc8301d6027ee10b1270cea7e153  v21.5_fw1302/fw1302/payload-1302-2gb-baikal.elf
+a42def079adc4d56b1103464e4e3ec4956c558f487d7b62ab91892c6772f80ac  v21.5_fw1302/fw1302/payload-1302-2gb-baikal.bin
+15a1e05df7fb7df767aef0734019cb22cfa0dc8301d6027ee10b1270cea7e153  v21.5_fw1302/fw1302/payload-1302-2gb-pro-baikal.elf
+a42def079adc4d56b1103464e4e3ec4956c558f487d7b62ab91892c6772f80ac  v21.5_fw1302/fw1302/payload-1302-2gb-pro-baikal.bin
+8f04284561376a2443e31a0e16e2118fa850d8775dd1f000b48e65407ee9772f  v21.5_fw1302/fw1302/payload-1302-3gb.elf
+79ef7d6940b4fb2434e93dba448423cb442fa6617509c851adb27763aae02412  v21.5_fw1302/fw1302/payload-1302-3gb.bin
+8f04284561376a2443e31a0e16e2118fa850d8775dd1f000b48e65407ee9772f  v21.5_fw1302/fw1302/payload-1302-3gb-pro.elf
+79ef7d6940b4fb2434e93dba448423cb442fa6617509c851adb27763aae02412  v21.5_fw1302/fw1302/payload-1302-3gb-pro.bin
+9f6d533b88cc2e9f853136aae43d86508c45e868f7df2bb2dd95d907f7bc2a3c  v21.5_fw1302/fw1302/payload-1302-3gb-baikal.elf
+2d3206356a6eb214677fb59fde3cb9d660ff0397bb510c30d994588390c08c14  v21.5_fw1302/fw1302/payload-1302-3gb-baikal.bin
+9f6d533b88cc2e9f853136aae43d86508c45e868f7df2bb2dd95d907f7bc2a3c  v21.5_fw1302/fw1302/payload-1302-3gb-pro-baikal.elf
+2d3206356a6eb214677fb59fde3cb9d660ff0397bb510c30d994588390c08c14  v21.5_fw1302/fw1302/payload-1302-3gb-pro-baikal.bin
+ebb5e8d7f0df3157fa252c3d78bf9fcb947728ca79c2c7430e78ee6dfa0eaa00  v21.5_fw1302/fw1302/payload-1302-4gb.elf
+0e64ad8d3cc17cb531291dd1746e9d84a0ee62328150a3b18a1506cca545c50e  v21.5_fw1302/fw1302/payload-1302-4gb.bin
+ebb5e8d7f0df3157fa252c3d78bf9fcb947728ca79c2c7430e78ee6dfa0eaa00  v21.5_fw1302/fw1302/payload-1302-4gb-pro.elf
+0e64ad8d3cc17cb531291dd1746e9d84a0ee62328150a3b18a1506cca545c50e  v21.5_fw1302/fw1302/payload-1302-4gb-pro.bin
+829f45d6b07752a021b302f331399f6c5c6874bf92142d0c5b3406583ffd4415  v21.5_fw1302/fw1302/payload-1302-4gb-baikal.elf
+b083762e608c8c6f816d8de4fbf1fa1342ef9ccc814366ec55851241df1aa041  v21.5_fw1302/fw1302/payload-1302-4gb-baikal.bin
+829f45d6b07752a021b302f331399f6c5c6874bf92142d0c5b3406583ffd4415  v21.5_fw1302/fw1302/payload-1302-4gb-pro-baikal.elf
+b083762e608c8c6f816d8de4fbf1fa1342ef9ccc814366ec55851241df1aa041  v21.5_fw1302/fw1302/payload-1302-4gb-pro-baikal.bin
+=== 13.52 ===
+v25_extracted/bin/linux-1024mb.bin	312640
+v25_extracted/bin/linux-128mb.bin	312640
+v25_extracted/bin/linux-2048mb.bin	312640
+v25_extracted/bin/linux-256mb.bin	312640
+v25_extracted/bin/linux-3072mb.bin	312640
+v25_extracted/bin/linux-32mb.bin	312640
+v25_extracted/bin/linux-4096mb.bin	312640
+v25_extracted/bin/linux-512mb.bin	312640
+v25_extracted/bin/linux-64mb.bin	312640
+v25_extracted/elf/linux-1024mb.elf	320936
+v25_extracted/elf/linux-128mb.elf	320936
+v25_extracted/elf/linux-2048mb.elf	320936
+v25_extracted/elf/linux-256mb.elf	320936
+v25_extracted/elf/linux-3072mb.elf	320936
+v25_extracted/elf/linux-32mb.elf	320936
+v25_extracted/elf/linux-4096mb.elf	320936
+v25_extracted/elf/linux-512mb.elf	320936
+v25_extracted/elf/linux-64mb.elf	320936
+be53f1335f99b17a718987b4aaa59849e0af965ca7591945abc55426b93be334  v25_extracted/bin/linux-1024mb.bin
+d8647887277a90c9ec526331aae556d034a0feaf1896790728c7f159bf576781  v25_extracted/bin/linux-128mb.bin
+1029c90127fe7fd0ffb083db645cdd6ce9847b91493685085eeb6e4811fdcfc1  v25_extracted/bin/linux-2048mb.bin
+5a6430242af5c83b31ee4cf12c79ac204e9480a829c8003dde121c12c94acdf8  v25_extracted/bin/linux-256mb.bin
+dbc0027e186137688eb5ff01616b559c7d3cb80da8390871c781e52038210b00  v25_extracted/bin/linux-3072mb.bin
+b816a374560a2f3d7f6e357649435c49a462eca4968ba025f38526e898cc0ca3  v25_extracted/bin/linux-32mb.bin
+aa25565896db6dd0d96e47dcd89b622acdad9f1620a9e53fafa6e2a302468ea4  v25_extracted/bin/linux-4096mb.bin
+72e5612a4952d07ec268ee2a958568967bd0cd4d68b1f35f29b1c1ea8f4a7d58  v25_extracted/bin/linux-512mb.bin
+7661ab578d2d260cb341b44b317682be42dbef40c0e653de1bf2bd746840bc86  v25_extracted/bin/linux-64mb.bin
+c813d169ef37e4bee574a5058bc6c0b92564e74ab445ef0846d67fa9d1e5ce65  v25_extracted/elf/linux-1024mb.elf
+35ef406c88727690091517ea9c220017d81688fdbb4a90259d1ba64b565e06db  v25_extracted/elf/linux-128mb.elf
+246775ce4e6d4cfb1161769e9c218c0092b0f31011757390d75db0ef69b72c22  v25_extracted/elf/linux-2048mb.elf
+931e3672c543cab177294117756e10e4a7392db1673a2a5268a715f969b077d3  v25_extracted/elf/linux-256mb.elf
+5853f444b3073c52bba52b7883f56323ea80e17f67ca652b06cdc9450e4b19c0  v25_extracted/elf/linux-3072mb.elf
+53f1c1ddb9dfd9f7c5a453a3aae557a9f0bf7f2cd3109bdabf47b46bba0296a7  v25_extracted/elf/linux-32mb.elf
+1cc54c433b1d67b818f3fa4d88613aeda0837cc5c018336ee453d3db28639702  v25_extracted/elf/linux-4096mb.elf
+6bd7140ec3b6caf0a51865fb76fe2ec35a57c86a62426adfaee8700ee2f0f033  v25_extracted/elf/linux-512mb.elf
+dc5529fb93d7b618af697e3517e6f28af07d188fad118aad22bd6007e65b2bd8  v25_extracted/elf/linux-64mb.elf
+=== formats ===
+v21.5_fw1302/fw1302/payload-1302-1gb.elf:            ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=189e09161e2ff15fa5b0deece6ad484d1c9fc8e1, not stripped
+v21.5_fw1302/fw1302/payload-1302-1gb.bin:            DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-1gb-pro.elf:        ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=189e09161e2ff15fa5b0deece6ad484d1c9fc8e1, not stripped
+v21.5_fw1302/fw1302/payload-1302-1gb-pro.bin:        DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-1gb-baikal.elf:     ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=f788157639473754769c63fb657fef0685a44a31, not stripped
+v21.5_fw1302/fw1302/payload-1302-1gb-baikal.bin:     DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-1gb-pro-baikal.elf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=f788157639473754769c63fb657fef0685a44a31, not stripped
+v21.5_fw1302/fw1302/payload-1302-1gb-pro-baikal.bin: DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-2gb.elf:            ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=585a091cc4249c659dba4537f2da9a2cbace0e26, not stripped
+v21.5_fw1302/fw1302/payload-1302-2gb.bin:            DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-2gb-pro.elf:        ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=585a091cc4249c659dba4537f2da9a2cbace0e26, not stripped
+v21.5_fw1302/fw1302/payload-1302-2gb-pro.bin:        DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-2gb-baikal.elf:     ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=b5cbec47896661dd7a18ed56aa65af5d2b5fbb41, not stripped
+v21.5_fw1302/fw1302/payload-1302-2gb-baikal.bin:     DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-2gb-pro-baikal.elf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=b5cbec47896661dd7a18ed56aa65af5d2b5fbb41, not stripped
+v21.5_fw1302/fw1302/payload-1302-2gb-pro-baikal.bin: DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-3gb.elf:            ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=c285819c77d06e699ce5e772bfb1d61c0ce806fc, not stripped
+v21.5_fw1302/fw1302/payload-1302-3gb.bin:            DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-3gb-pro.elf:        ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=c285819c77d06e699ce5e772bfb1d61c0ce806fc, not stripped
+v21.5_fw1302/fw1302/payload-1302-3gb-pro.bin:        DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-3gb-baikal.elf:     ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=f02f2b52db0ea69122c4d8acaec95c3b2f02ee1b, not stripped
+v21.5_fw1302/fw1302/payload-1302-3gb-baikal.bin:     DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-3gb-pro-baikal.elf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=f02f2b52db0ea69122c4d8acaec95c3b2f02ee1b, not stripped
+v21.5_fw1302/fw1302/payload-1302-3gb-pro-baikal.bin: DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-4gb.elf:            ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=1bb38ff400f0c36df094cf4a2aa7db9fef962a4c, not stripped
+v21.5_fw1302/fw1302/payload-1302-4gb.bin:            DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-4gb-pro.elf:        ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=1bb38ff400f0c36df094cf4a2aa7db9fef962a4c, not stripped
+v21.5_fw1302/fw1302/payload-1302-4gb-pro.bin:        DOS executable (COM), start instruction 0xe9de3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-4gb-baikal.elf:     ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=22166f82831bd8e4606bbcadc94627a2dab3c0ed, not stripped
+v21.5_fw1302/fw1302/payload-1302-4gb-baikal.bin:     DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v21.5_fw1302/fw1302/payload-1302-4gb-pro-baikal.elf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=22166f82831bd8e4606bbcadc94627a2dab3c0ed, not stripped
+v21.5_fw1302/fw1302/payload-1302-4gb-pro-baikal.bin: DOS executable (COM), start instruction 0xe9fe3c00 00662e0f
+v25_extracted/bin/linux-1024mb.bin:                  DOS executable (COM), start instruction 0xe91a9e04 00662e0f
+v25_extracted/bin/linux-128mb.bin:                   DOS executable (COM), start instruction 0xe91a9e04 00662e0f
+v25_extracted/bin/linux-2048mb.bin:                  DOS executable (COM), start instruction 0xe91a9e04 00662e0f
+v25_extracted/bin/linux-256mb.bin:                   DOS executable (COM), start instruction 0xe91a9e04 00662e0f
+v25_extracted/bin/linux-3072mb.bin:                  DOS executable (COM), start instruction 0xe91a9e04 00662e0f
+v25_extracted/bin/linux-32mb.bin:                    DOS executable (COM), start instruction 0xe91a9e04 00662e0f
+v25_extracted/bin/linux-4096mb.bin:                  DOS executable (COM), start instruction 0xe91a9e04 00662e0f
+v25_extracted/bin/linux-512mb.bin:                   DOS executable (COM), start instruction 0xe91a9e04 00662e0f
+v25_extracted/bin/linux-64mb.bin:                    DOS executable (COM), start instruction 0xe91a9e04 00662e0f
+v25_extracted/elf/linux-1024mb.elf:                  ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=b55d76f5c2bf5d43418734eacbe93433d177eee6, not stripped
+v25_extracted/elf/linux-128mb.elf:                   ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=c2a7879245b582daa2ff6e90ae0698817c2f5c18, not stripped
+v25_extracted/elf/linux-2048mb.elf:                  ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=6886c7285e14b770c86df32900b299625b367e7b, not stripped
+v25_extracted/elf/linux-256mb.elf:                   ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=53ad62ca39861cc80ea7c63349a4be6f9ba666ca, not stripped
+v25_extracted/elf/linux-3072mb.elf:                  ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=279510b57f445246a1c12ed0103594292953e7e1, not stripped
+v25_extracted/elf/linux-32mb.elf:                    ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=55fc53ca876d579c798b0d846c6a6197a5d1479e, not stripped
+v25_extracted/elf/linux-4096mb.elf:                  ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=201f8acadfcb9936203d53fcbf418fa014c3a441, not stripped
+v25_extracted/elf/linux-512mb.elf:                   ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=9186171322f68e0b2bee609383cdd8b6b000ac33, not stripped
+v25_extracted/elf/linux-64mb.elf:                    ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=39efd0768ec08f0934db11dcf7128e8cfecba52a, not stripped
+=== printable symbol strings in payloads ===
+   1176 firmware_extract
+      9 fw_detect
+   7472 kexec
+      9 normalize_fw_ver
+     50 syscall
