@@ -173,3 +173,17 @@ En el snapshot actual de `ufm42/wobkot`, `public/src/ps4/userland.js` contiene r
 SHA-256 del snapshot auditado: `userland.js` `0d5fc478a1114a0a1514934ddd97b126d879a691fc872fbd921302a156a4dee8`; `constants.js` `52c6af4a7f75c87238345ad6f6e0761a04e3c54a052ed68a5363461a5a92ef72`. La estructura demuestra código de exploit userland real para versiones antiguas, pero no aporta el workaround 13.52.
 
 Clasificación: **VERIFIED como código histórico**; **UNVERIFIED_13_52** para el claim atribuido a `ufm42`.
+
+## Búsqueda directa en GitHub API
+
+Las búsquedas públicas de repositorios con `CSSFontFace 13.52`, `PS4 WebKit 13.52` y `fontface 1352 PS4` no devolvieron repositorios adicionales mediante la API pública. Los candidatos identificados siguen siendo `ntfargo/CSSFontFace-Exploit`, sus forks, `ufm42/wobkot`, `ps3120/FontFace-Lapse` y `Gezine/BD-JB5`; ninguno aporta un módulo WebKit 13.02/13.52 verificable.
+
+Clasificación: resultado negativo; no se eleva ningún claim a evidencia primaria.
+
+## PSDevWiki — separación entre BD-J 13.02 y WebKit 13.52
+
+La página pública `Vulnerabilities` separa explícitamente los rangos: BD-JB-13.00 aparece como `FW 13.00–13.02`; el workaround de path traversal BD-J aparece con rangos distintos; y el apartado WebKit lista CSSFontFace como `FW 6.00–11.50`. Por tanto, la tabla pública no presenta CSSFontFace como implementación verificada para PS4 13.02/13.52.
+
+La misma página incluye otras entradas WebKit con rangos hipotéticos o de investigación, pero no añade un SPRX/SELF/ELF ni hashes de módulos 13.02/13.52. Esto refuerza que el claim de userland FontFace hasta 13.52 debe mantenerse como **SOURCE_ONLY / UNVERIFIED_13_52**, mientras que la separación BD-J 13.02 es una categoría independiente.
+
+[25]: https://www.psdevwiki.com/ps4/Vulnerabilities "PS4 Developer wiki — Vulnerabilities"
