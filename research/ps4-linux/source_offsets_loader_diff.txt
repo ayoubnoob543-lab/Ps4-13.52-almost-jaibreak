@@ -1,0 +1,1374 @@
+=== fw_offsets diff ===
+[1mdiff --git a/linux/fw_offsets.h b/linux/fw_offsets.h[m
+[1mnew file mode 100644[m
+[1mindex 0000000..72c8097[m
+[1m--- /dev/null[m
+[1m+++ b/linux/fw_offsets.h[m
+[36m@@ -0,0 +1,55 @@[m
+[32m+[m[32m/*[m
+[32m+[m[32mThose are the offsets needed for the linux payload, all other offsets are for the ps4-kexec[m
+[32m+[m[32m*/[m
+[32m+[m
+[32m+[m[32m#ifndef FW_OFFSETS_H[m
+[32m+[m[32m#define FW_OFFSETS_H[m
+[32m+[m
+[32m+[m[32m#include "aio_types.h"[m
+[32m+[m
+[32m+[m[32mtypedef struct {[m
+[32m+[m[32m    u16 fw_ver;           /* Normalised version (key)              */[m
+[32m+[m[32m    u64 xfast_syscall;    /* kernel_offset_xfast_syscall           */[m
+[32m+[m[32m    u64 printf_off;       /* kern_off_printf                       */[m
+[32m+[m[32m    u64 kmem_alloc;       /* kern_off_kmem_free (alloc entry)      */[m
+[32m+[m[32m    u64 kernel_map;       /* kern_off_kernel_map                   */[m
+[32m+[m[32m    u64 patch1;           /* kmem_alloc branch patch — byte 1      */[m
+[32m+[m[32m    u64 patch2;           /* kmem_alloc branch patch — byte 2      */[m
+[32m+[m[32m    u64 pstate;           /* kern_off_pstate_before_shutdown        */[m
+[32m+[m[32m} fw_offsets_t;[m
+[32m+[m
+[32m+[m[32m/*[m
+[32m+[m[32m * fw_table[] — one entry per supported canonical firmware version.[m
+[32m+[m[32m *[m
+[32m+[m[32m * Alias versions (e.g. 7.01, 7.02 → 700) are resolved by[m
+[32m+[m[32m * normalize_fw_ver() in fw_detect.c before this table is consulted.[m
+[32m+[m[32m * Versions marked with a distinct entry (e.g. 1102, 1302) have[m
+[32m+[m[32m * measurably different kernel layouts and are NOT aliases.[m
+[32m+[m[32m *[m
+[32m+[m[32m */[m
+[32m+[m[32mstatic fw_offsets_t fw_table[] = {[m
+[32m+[m[32m    // ver   xfast  printf      kmem_alloc  kernel_map  patch1      patch2      pstate[m
+[32m+[m[32m    {  505, 0x1c0,  0x436040,   0x0FCC80,   0x1AC60E0,  0x0FCD48,   0x0FCD56,   0x10D97E  },[m
+[32m+[m[32m    {  672, 0x1c0,  0x123280,   0x250730,   0x220DFC0,  0x2507F5,   0x250803,   0x20734E  },[m
+[32m+[m[32m    {  700, 0x1c0,  0x0BC730,   0x1170F0,   0x21C8EE0,  0x1171BE,   0x1171C6,   0x2CDD6E  },[m
+[32m+[m[32m    {  750, 0x1c0,  0x26F740,   0x1753E0,   0x21405B8,  0x1754AC,   0x1754B4,   0x0D2ED0  },[m
+[32m+[m[32m    {  800, 0x1c0,  0x430AE0,   0x01B3F0,   0x1B243E0,  0x01B4BC,   0x01B4C4,   0x155B50  },[m
+[32m+[m[32m    {  850, 0x1c0,  0x15D570,   0x2199A0,   0x1C64228,  0x219A6C,   0x219A74,   0x40BA10  },[m
+[32m+[m[32m    {  900, 0x1c0,  0x0B7A30,   0x37BE70,   0x2268D48,  0x37BF3C,   0x37BF44,   0x29A970  },[m
+[32m+[m[32m    {  903, 0x1c0,  0x0B79E0,   0x37A070,   0x2264D48,  0x37A13C,   0x37A144,   0x29A5F0  },[m
+[32m+[m[32m    {  960, 0x1c0,  0x205470,   0x1889D0,   0x2147830,  0x188A9C,   0x188AA4,   0x3323E0  },[m
+[32m+[m[32m    { 1000, 0x1c0,  0x0C50F0,   0x33B040,   0x227BEF8,  0x33B10C,   0x33B114,   0x4812D0  },[m
+[32m+[m[32m    { 1050, 0x1c0,  0x450E80,   0x428960,   0x22A9250,  0x428A2C,   0x428A34,   0x45DCC0  },[m
+[32m+[m[32m    { 1100, 0x1c0,  0x2FCBD0,   0x245E10,   0x21FF130,  0x245EDC,   0x245EE4,   0x198650  },[m
+[32m+[m[32m    { 1102, 0x1c0,  0x2FCBF0,   0x245E30,   0x21FF130,  0x245EFC,   0x245F04,   0x198670  },[m
+[32m+[m[32m    { 1150, 0x1c0,  0x2E01A0,   0x4657A0,   0x22D1D50,  0x46586C,   0x465874,   0x3A2120  },[m
+[32m+[m[32m    { 1200, 0x1c0,  0x2E03E0,   0x4659E0,   0x22D1D50,  0x465AAC,   0x465AB4,   0x3A2360  },[m
+[32m+[m[32m    { 1250, 0x1c0,  0x2E0420,   0x465A20,   0x22D1D50,  0x465AEC,   0x465AF4,   0x3A23A0  },[m
+[32m+[m[32m    { 1300, 0x1c0,  0x2E0440,   0x465A40,   0x22D1D50,  0x465B0C,   0x465B14,   0x3A23C0  },[m
+[32m+[m[32m    { 1302, 0x1c0,  0x2E0450,   0x465A50,   0x22D1D50,  0x465B1C,   0x465B24,   0x3A23D0  },[m
+[32m+[m[32m    { 1350, 0x1c0,  0x2E0460,   0x465E90,   0x22D1D50,  0x465F5C,   0x465F64,   0x3A2780  },[m
+[32m+[m[32m    { 1352, 0x1c0,  0x2E0510,   0x466290,   0x22D1D50,  0x46635C,   0x466364,   0x3A2B90  },[m
+[32m+[m[32m    { 0 }   /* sentinel */[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32m#endif[m
+=== source diff stat ===
+ linux/aio_types.h                                  |  22 [32m+[m
+ linux/fw_detect.c                                  | 193 [32m+++++++++[m
+ linux/fw_detect.h                                  |  38 [32m++[m
+ linux/fw_offsets.h                                 |  55 [32m+++[m
+ linux/magic.h                                      | 358 [32m++++++++++[m[31m-----[m
+ linux/main-aio.c                                   | 432 [32m+++++++++++++++++++[m
+ linux/main-baikal.c                                | 257 [31m-----------[m
+ linux/main.c                                       | 257 [31m-----------[m
+ linux/ps4-kexec-1000-baikal/acpi.c                 | 320 [31m--------------[m
+ linux/ps4-kexec-1000-baikal/acpi.h                 |  22 [31m-[m
+ linux/ps4-kexec-1000-baikal/firmware.c             | 479 [31m---------------------[m
+ linux/ps4-kexec-1000-baikal/kernel.h               | 126 [31m------[m
+ linux/ps4-kexec-1000-baikal/kexec.c                | 229 [31m----------[m
+ linux/ps4-kexec-1000-baikal/linux_boot.c           | 453 [31m-------------------[m
+ linux/ps4-kexec-1000-baikal/uart.c                 |  64 [31m---[m
+ linux/ps4-kexec-1000-pro-baikal/acpi.c             | 320 [31m--------------[m
+ linux/ps4-kexec-1000-pro-baikal/acpi_caps.h        |  30 [31m--[m
+ linux/ps4-kexec-1000-pro-baikal/crc32.c            | 102 [31m-----[m
+ linux/ps4-kexec-1000-pro-baikal/crc32.h            |   7 [31m-[m
+ linux/ps4-kexec-1000-pro-baikal/elf.h              |  71 [31m---[m
+ linux/ps4-kexec-1000-pro-baikal/firmware.c         | 479 [31m---------------------[m
+ linux/ps4-kexec-1000-pro-baikal/firmware.h         |  64 [31m---[m
+ linux/ps4-kexec-1000-pro-baikal/kernel.c           | 383 [31m----------------[m
+ linux/ps4-kexec-1000-pro-baikal/kernel.h           | 126 [31m------[m
+ linux/ps4-kexec-1000-pro-baikal/kexec.c            | 229 [31m----------[m
+ linux/ps4-kexec-1000-pro-baikal/kexec.h            |  38 [31m--[m
+ linux/ps4-kexec-1000-pro-baikal/linux_boot.c       | 453 [31m-------------------[m
+ linux/ps4-kexec-1000-pro-baikal/linux_boot.h       |  88 [31m----[m
+ linux/ps4-kexec-1000-pro-baikal/reboot.h           |  71 [31m---[m
+ linux/ps4-kexec-1000-pro-baikal/string.h           |  96 [31m-----[m
+ linux/ps4-kexec-1000-pro-baikal/types.h            |  51 [31m---[m
+ linux/ps4-kexec-1000-pro-baikal/uart.h             |  20 [31m-[m
+ linux/ps4-kexec-1000-pro-baikal/x86.h              | 195 [31m---------[m
+ linux/ps4-kexec-1000-pro/acpi.c                    | 296 [31m-------------[m
+ linux/ps4-kexec-1000-pro/acpi.h                    |  18 [31m-[m
+ linux/ps4-kexec-1000-pro/crc32.c                   | 102 [31m-----[m
+ linux/ps4-kexec-1000-pro/crc32.h                   |   7 [31m-[m
+ linux/ps4-kexec-1000-pro/elf.h                     |  71 [31m---[m
+ linux/ps4-kexec-1000-pro/firmware.h                |  64 [31m---[m
+ linux/ps4-kexec-1000-pro/kernel.c                  | 383 [31m----------------[m
+ linux/ps4-kexec-1000-pro/kernel.h                  | 126 [31m------[m
+ linux/ps4-kexec-1000-pro/kexec.h                   |  38 [31m--[m
+ linux/ps4-kexec-1000-pro/linux_boot.c              | 441 [31m-------------------[m
+ linux/ps4-kexec-1000-pro/linux_boot.h              |  88 [31m----[m
+ linux/ps4-kexec-1000-pro/reboot.h                  |  71 [31m---[m
+ linux/ps4-kexec-1000-pro/string.h                  |  96 [31m-----[m
+ linux/ps4-kexec-1000-pro/types.h                   |  51 [31m---[m
+ linux/ps4-kexec-1000-pro/uart.c                    |  64 [31m---[m
+ linux/ps4-kexec-1000-pro/uart.h                    |  20 [31m-[m
+ linux/ps4-kexec-1000-pro/x86.h                     | 149 [31m-------[m
+ linux/ps4-kexec-1000/acpi.c                        | 296 [31m-------------[m
+ linux/ps4-kexec-1000/acpi.h                        |  18 [31m-[m
+ linux/ps4-kexec-1000/crc32.c                       | 102 [31m-----[m
+ linux/ps4-kexec-1000/crc32.h                       |   7 [31m-[m
+ linux/ps4-kexec-1000/elf.h                         |  71 [31m---[m
+ linux/ps4-kexec-1000/firmware.c                    | 479 [31m---------------------[m
+ linux/ps4-kexec-1000/firmware.h                    |  64 [31m---[m
+ linux/ps4-kexec-1000/kernel.c                      | 383 [31m----------------[m
+ linux/ps4-kexec-1000/kernel.h                      | 126 [31m------[m
+ linux/ps4-kexec-1000/kexec.c                       | 229 [31m----------[m
+ linux/ps4-kexec-1000/kexec.h                       |  38 [31m--[m
+ linux/ps4-kexec-1000/linux_boot.c                  | 441 [31m-------------------[m
+ linux/ps4-kexec-1000/linux_boot.h                  |  88 [31m----[m
+ linux/ps4-kexec-1000/reboot.h                      |  71 [31m---[m
+ linux/ps4-kexec-1000/string.h                      |  96 [31m-----[m
+ linux/ps4-kexec-1000/types.h                       |  51 [31m---[m
+ linux/ps4-kexec-1000/uart.c                        |  64 [31m---[m
+ linux/ps4-kexec-1000/uart.h                        |  20 [31m-[m
+ linux/ps4-kexec-1000/x86.h                         | 149 [31m-------[m
+ linux/ps4-kexec-1050-baikal/acpi.h                 |  22 [31m-[m
+ linux/ps4-kexec-1050-baikal/acpi_caps.h            |  30 [31m--[m
+ linux/ps4-kexec-1050-baikal/crc32.c                | 102 [31m-----[m
+ linux/ps4-kexec-1050-baikal/crc32.h                |   7 [31m-[m
+ linux/ps4-kexec-1050-baikal/elf.h                  |  71 [31m---[m
+ linux/ps4-kexec-1050-baikal/firmware.c             | 479 [31m---------------------[m
+ linux/ps4-kexec-1050-baikal/firmware.h             |  64 [31m---[m
+ linux/ps4-kexec-1050-baikal/kernel.c               | 383 [31m----------------[m
+ linux/ps4-kexec-1050-baikal/kernel.h               | 126 [31m------[m
+ linux/ps4-kexec-1050-baikal/kexec.c                | 229 [31m----------[m
+ linux/ps4-kexec-1050-baikal/kexec.h                |  38 [31m--[m
+ linux/ps4-kexec-1050-baikal/linux_boot.h           |  88 [31m----[m
+ linux/ps4-kexec-1050-baikal/reboot.h               |  71 [31m---[m
+ linux/ps4-kexec-1050-baikal/string.h               |  96 [31m-----[m
+ linux/ps4-kexec-1050-baikal/types.h                |  51 [31m---[m
+ linux/ps4-kexec-1050-baikal/uart.c                 |  64 [31m---[m
+ linux/ps4-kexec-1050-baikal/uart.h                 |  20 [31m-[m
+ linux/ps4-kexec-1050-baikal/x86.h                  | 195 [31m---------[m
+ linux/ps4-kexec-1050-pro-baikal/acpi.c             | 320 [31m--------------[m
+ linux/ps4-kexec-1050-pro-baikal/acpi.h             |  22 [31m-[m
+ linux/ps4-kexec-1050-pro-baikal/acpi_caps.h        |  30 [31m--[m
+ linux/ps4-kexec-1050-pro-baikal/crc32.c            | 102 [31m-----[m
+ linux/ps4-kexec-1050-pro-baikal/crc32.h            |   7 [31m-[m
+ linux/ps4-kexec-1050-pro-baikal/elf.h              |  71 [31m---[m
+ linux/ps4-kexec-1050-pro-baikal/firmware.c         | 479 [31m---------------------[m
+ linux/ps4-kexec-1050-pro-baikal/firmware.h         |  64 [31m---[m
+ linux/ps4-kexec-1050-pro-baikal/kernel.c           | 383 [31m----------------[m
+ linux/ps4-kexec-1050-pro-baikal/kernel.h           | 126 [31m------[m
+ linux/ps4-kexec-1050-pro-baikal/kexec.c            | 229 [31m----------[m
+ linux/ps4-kexec-1050-pro-baikal/kexec.h            |  38 [31m--[m
+ linux/ps4-kexec-1050-pro-baikal/linux_boot.c       | 453 [31m-------------------[m
+ linux/ps4-kexec-1050-pro-baikal/linux_boot.h       |  88 [31m----[m
+ linux/ps4-kexec-1050-pro-baikal/reboot.h           |  71 [31m---[m
+ linux/ps4-kexec-1050-pro-baikal/string.h           |  96 [31m-----[m
+ linux/ps4-kexec-1050-pro-baikal/types.h            |  51 [31m---[m
+ linux/ps4-kexec-1050-pro-baikal/uart.c             |  64 [31m---[m
+ linux/ps4-kexec-1050-pro-baikal/uart.h             |  20 [31m-[m
+ linux/ps4-kexec-1050-pro-baikal/x86.h              | 195 [31m---------[m
+ linux/ps4-kexec-1050-pro/acpi.c                    | 296 [31m-------------[m
+ linux/ps4-kexec-1050-pro/acpi.h                    |  18 [31m-[m
+ linux/ps4-kexec-1050-pro/crc32.c                   | 102 [31m-----[m
+ linux/ps4-kexec-1050-pro/crc32.h                   |   7 [31m-[m
+ linux/ps4-kexec-1050-pro/elf.h                     |  71 [31m---[m
+ linux/ps4-kexec-1050-pro/firmware.c                | 479 [31m---------------------[m
+ linux/ps4-kexec-1050-pro/firmware.h                |  64 [31m---[m
+ linux/ps4-kexec-1050-pro/kernel.c                  | 383 [31m----------------[m
+ linux/ps4-kexec-1050-pro/kernel.h                  | 126 [31m------[m
+ linux/ps4-kexec-1050-pro/kexec.c                   | 229 [31m----------[m
+ linux/ps4-kexec-1050-pro/kexec.h                   |  38 [31m--[m
+ linux/ps4-kexec-1050-pro/linux_boot.c              | 441 [31m-------------------[m
+ linux/ps4-kexec-1050-pro/linux_boot.h              |  88 [31m----[m
+ linux/ps4-kexec-1050-pro/reboot.h                  |  71 [31m---[m
+ linux/ps4-kexec-1050-pro/string.h                  |  96 [31m-----[m
+ linux/ps4-kexec-1050-pro/types.h                   |  51 [31m---[m
+ linux/ps4-kexec-1050-pro/uart.c                    |  64 [31m---[m
+ linux/ps4-kexec-1050-pro/uart.h                    |  20 [31m-[m
+ linux/ps4-kexec-1050-pro/x86.h                     | 149 [31m-------[m
+ linux/ps4-kexec-1050/acpi.c                        | 296 [31m-------------[m
+ linux/ps4-kexec-1050/acpi.h                        |  18 [31m-[m
+ linux/ps4-kexec-1050/crc32.c                       | 102 [31m-----[m
+ linux/ps4-kexec-1050/crc32.h                       |   7 [31m-[m
+ linux/ps4-kexec-1050/elf.h                         |  71 [31m---[m
+ linux/ps4-kexec-1050/firmware.c                    | 479 [31m---------------------[m
+ linux/ps4-kexec-1050/firmware.h                    |  64 [31m---[m
+ linux/ps4-kexec-1050/kernel.c                      | 383 [31m----------------[m
+ linux/ps4-kexec-1050/kernel.h                      | 126 [31m------[m
+ linux/ps4-kexec-1050/kexec.c                       | 229 [31m----------[m
+ linux/ps4-kexec-1050/kexec.h                       |  38 [31m--[m
+ linux/ps4-kexec-1050/linux_boot.c                  | 441 [31m-------------------[m
+ linux/ps4-kexec-1050/linux_boot.h                  |  88 [31m----[m
+ linux/ps4-kexec-1050/reboot.h                      |  71 [31m---[m
+ linux/ps4-kexec-1050/string.h                      |  96 [31m-----[m
+ linux/ps4-kexec-1050/types.h                       |  51 [31m---[m
+ linux/ps4-kexec-1050/uart.c                        |  64 [31m---[m
+ linux/ps4-kexec-1050/uart.h                        |  20 [31m-[m
+ linux/ps4-kexec-1050/x86.h                         | 149 [31m-------[m
+ linux/ps4-kexec-1100-baikal/acpi.c                 | 320 [31m--------------[m
+ linux/ps4-kexec-1100-baikal/acpi.h                 |  22 [31m-[m
+ linux/ps4-kexec-1100-baikal/acpi_caps.h            |  30 [31m--[m
+ linux/ps4-kexec-1100-baikal/crc32.c                | 102 [31m-----[m
+ linux/ps4-kexec-1100-baikal/crc32.h                |   7 [31m-[m
+ linux/ps4-kexec-1100-baikal/elf.h                  |  71 [31m---[m
+ linux/ps4-kexec-1100-baikal/firmware.c             | 479 [31m---------------------[m
+ linux/ps4-kexec-1100-baikal/firmware.h             |  64 [31m---[m
+ linux/ps4-kexec-1100-baikal/kernel.c               | 384 [31m-----------------[m
+ linux/ps4-kexec-1100-baikal/kexec.c                | 230 [31m----------[m
+ linux/ps4-kexec-1100-baikal/kexec.h                |  38 [31m--[m
+ linux/ps4-kexec-1100-baikal/linux_boot.c           | 453 [31m-------------------[m
+ linux/ps4-kexec-1100-baikal/linux_boot.h           |  88 [31m----[m
+ linux/ps4-kexec-1100-baikal/reboot.h               |  71 [31m---[m
+ linux/ps4-kexec-1100-baikal/string.h               |  96 [31m-----[m
+ linux/ps4-kexec-1100-baikal/types.h                |  51 [31m---[m
+ linux/ps4-kexec-1100-baikal/uart.c                 |  64 [31m---[m
+ linux/ps4-kexec-1100-baikal/uart.h                 |  20 [31m-[m
+ linux/ps4-kexec-1100-baikal/x86.h                  | 195 [31m---------[m
+ linux/ps4-kexec-1100-pro-baikal/acpi.c             | 320 [31m--------------[m
+ linux/ps4-kexec-1100-pro-baikal/acpi.h             |  22 [31m-[m
+ linux/ps4-kexec-1100-pro-baikal/acpi_caps.h        |  30 [31m--[m
+ linux/ps4-kexec-1100-pro-baikal/crc32.c            | 102 [31m-----[m
+ linux/ps4-kexec-1100-pro-baikal/crc32.h            |   7 [31m-[m
+ linux/ps4-kexec-1100-pro-baikal/elf.h              |  71 [31m---[m
+ linux/ps4-kexec-1100-pro-baikal/firmware.c         | 479 [31m---------------------[m
+ linux/ps4-kexec-1100-pro-baikal/firmware.h         |  64 [31m---[m
+ linux/ps4-kexec-1100-pro-baikal/kernel.c           | 384 [31m-----------------[m
+ linux/ps4-kexec-1100-pro-baikal/kernel.h           | 127 [31m------[m
+ linux/ps4-kexec-1100-pro-baikal/kexec.c            | 230 [31m----------[m
+ linux/ps4-kexec-1100-pro-baikal/kexec.h            |  38 [31m--[m
+ linux/ps4-kexec-1100-pro-baikal/linux_boot.c       | 453 [31m-------------------[m
+ linux/ps4-kexec-1100-pro-baikal/linux_boot.h       |  88 [31m----[m
+ linux/ps4-kexec-1100-pro-baikal/reboot.h           |  71 [31m---[m
+ linux/ps4-kexec-1100-pro-baikal/string.h           |  96 [31m-----[m
+ linux/ps4-kexec-1100-pro-baikal/types.h            |  51 [31m---[m
+ linux/ps4-kexec-1100-pro-baikal/uart.c             |  64 [31m---[m
+ linux/ps4-kexec-1100-pro-baikal/uart.h             |  20 [31m-[m
+ linux/ps4-kexec-1100-pro-baikal/x86.h              | 195 [31m---------[m
+ linux/ps4-kexec-1100-pro/acpi.c                    | 296 [31m-------------[m
+ linux/ps4-kexec-1100-pro/acpi.h                    |  18 [31m-[m
+ linux/ps4-kexec-1100-pro/crc32.c                   | 102 [31m-----[m
+ linux/ps4-kexec-1100-pro/crc32.h                   |   7 [31m-[m
+ linux/ps4-kexec-1100-pro/elf.h                     |  71 [31m---[m
+ linux/ps4-kexec-1100-pro/firmware.c                | 479 [31m---------------------[m
+ linux/ps4-kexec-1100-pro/firmware.h                |  64 [31m---[m
+ linux/ps4-kexec-1100-pro/kernel.c                  | 384 [31m-----------------[m
+ linux/ps4-kexec-1100-pro/kernel.h                  | 127 [31m------[m
+ linux/ps4-kexec-1100-pro/kexec.c                   | 230 [31m----------[m
+ linux/ps4-kexec-1100-pro/kexec.h                   |  38 [31m--[m
+ linux/ps4-kexec-1100-pro/linux_boot.c              | 441 [31m-------------------[m
+ linux/ps4-kexec-1100-pro/linux_boot.h              |  88 [31m----[m
+ linux/ps4-kexec-1100-pro/reboot.h                  |  71 [31m---[m
+ linux/ps4-kexec-1100-pro/string.h                  |  96 [31m-----[m
+ linux/ps4-kexec-1100-pro/types.h                   |  51 [31m---[m
+ linux/ps4-kexec-1100-pro/uart.c                    |  64 [31m---[m
+ linux/ps4-kexec-1100-pro/uart.h                    |  20 [31m-[m
+ linux/ps4-kexec-1100-pro/x86.h                     | 149 [31m-------[m
+ linux/ps4-kexec-1100/acpi.c                        | 296 [31m-------------[m
+ linux/ps4-kexec-1100/acpi.h                        |  18 [31m-[m
+ linux/ps4-kexec-1100/crc32.c                       | 102 [31m-----[m
+ linux/ps4-kexec-1100/crc32.h                       |   7 [31m-[m
+ linux/ps4-kexec-1100/elf.h                         |  71 [31m---[m
+ linux/ps4-kexec-1100/firmware.c                    | 479 [31m---------------------[m
+ linux/ps4-kexec-1100/firmware.h                    |  64 [31m---[m
+ linux/ps4-kexec-1100/kernel.c                      | 384 [31m-----------------[m
+ linux/ps4-kexec-1100/kernel.h                      | 127 [31m------[m
+ linux/ps4-kexec-1100/kexec.c                       | 230 [31m----------[m
+ linux/ps4-kexec-1100/kexec.h                       |  38 [31m--[m
+ linux/ps4-kexec-1100/linux_boot.c                  | 441 [31m-------------------[m
+ linux/ps4-kexec-1100/linux_boot.h                  |  88 [31m----[m
+ linux/ps4-kexec-1100/reboot.h                      |  71 [31m---[m
+ linux/ps4-kexec-1100/string.h                      |  96 [31m-----[m
+ linux/ps4-kexec-1100/types.h                       |  51 [31m---[m
+ linux/ps4-kexec-1100/uart.c                        |  64 [31m---[m
+ linux/ps4-kexec-1100/uart.h                        |  20 [31m-[m
+ linux/ps4-kexec-1100/x86.h                         | 149 [31m-------[m
+ linux/ps4-kexec-1102-baikal/acpi.c                 | 320 [31m--------------[m
+ linux/ps4-kexec-1102-baikal/acpi.h                 |  22 [31m-[m
+ linux/ps4-kexec-1102-baikal/acpi_caps.h            |  30 [31m--[m
+ linux/ps4-kexec-1102-baikal/crc32.c                | 102 [31m-----[m
+ linux/ps4-kexec-1102-baikal/crc32.h                |   7 [31m-[m
+ linux/ps4-kexec-1102-baikal/elf.h                  |  71 [31m---[m
+ linux/ps4-kexec-1102-baikal/firmware.c             | 479 [31m---------------------[m
+ linux/ps4-kexec-1102-baikal/firmware.h             |  64 [31m---[m
+ linux/ps4-kexec-1102-baikal/kernel.c               | 384 [31m-----------------[m
+ linux/ps4-kexec-1102-baikal/kernel.h               | 127 [31m------[m
+ linux/ps4-kexec-1102-baikal/kexec.c                | 230 [31m----------[m
+ linux/ps4-kexec-1102-baikal/kexec.h                |  38 [31m--[m
+ linux/ps4-kexec-1102-baikal/linux_boot.c           | 453 [31m-------------------[m
+ linux/ps4-kexec-1102-baikal/linux_boot.h           |  88 [31m----[m
+ linux/ps4-kexec-1102-baikal/reboot.h               |  71 [31m---[m
+ linux/ps4-kexec-1102-baikal/string.h               |  96 [31m-----[m
+ linux/ps4-kexec-1102-baikal/types.h                |  51 [31m---[m
+ linux/ps4-kexec-1102-baikal/uart.c                 |  64 [31m---[m
+ linux/ps4-kexec-1102-baikal/uart.h                 |  20 [31m-[m
+ linux/ps4-kexec-1102-baikal/x86.h                  | 195 [31m---------[m
+ linux/ps4-kexec-1102-pro-baikal/acpi.c             | 320 [31m--------------[m
+ linux/ps4-kexec-1102-pro-baikal/acpi.h             |  22 [31m-[m
+ linux/ps4-kexec-1102-pro-baikal/acpi_caps.h        |  30 [31m--[m
+ linux/ps4-kexec-1102-pro-baikal/crc32.c            | 102 [31m-----[m
+ linux/ps4-kexec-1102-pro-baikal/crc32.h            |   7 [31m-[m
+ linux/ps4-kexec-1102-pro-baikal/elf.h              |  71 [31m---[m
+ linux/ps4-kexec-1102-pro-baikal/firmware.c         | 479 [31m---------------------[m
+ linux/ps4-kexec-1102-pro-baikal/firmware.h         |  64 [31m---[m
+ linux/ps4-kexec-1102-pro-baikal/kernel.c           | 384 [31m-----------------[m
+ linux/ps4-kexec-1102-pro-baikal/kernel.h           | 127 [31m------[m
+ linux/ps4-kexec-1102-pro-baikal/kexec.c            | 230 [31m----------[m
+ linux/ps4-kexec-1102-pro-baikal/kexec.h            |  38 [31m--[m
+ linux/ps4-kexec-1102-pro-baikal/linux_boot.c       | 453 [31m-------------------[m
+ linux/ps4-kexec-1102-pro-baikal/linux_boot.h       |  88 [31m----[m
+ linux/ps4-kexec-1102-pro-baikal/reboot.h           |  71 [31m---[m
+ linux/ps4-kexec-1102-pro-baikal/string.h           |  96 [31m-----[m
+ linux/ps4-kexec-1102-pro-baikal/types.h            |  51 [31m---[m
+ linux/ps4-kexec-1102-pro-baikal/uart.c             |  64 [31m---[m
+ linux/ps4-kexec-1102-pro-baikal/uart.h             |  20 [31m-[m
+ linux/ps4-kexec-1102-pro-baikal/x86.h              | 195 [31m---------[m
+ linux/ps4-kexec-1102-pro/acpi.c                    | 296 [31m-------------[m
+ linux/ps4-kexec-1102-pro/acpi.h                    |  18 [31m-[m
+ linux/ps4-kexec-1102-pro/crc32.c                   | 102 [31m-----[m
+ linux/ps4-kexec-1102-pro/crc32.h                   |   7 [31m-[m
+ linux/ps4-kexec-1102-pro/elf.h                     |  71 [31m---[m
+ linux/ps4-kexec-1102-pro/firmware.c                | 479 [31m---------------------[m
+ linux/ps4-kexec-1102-pro/firmware.h                |  64 [31m---[m
+ linux/ps4-kexec-1102-pro/kernel.c                  | 384 [31m-----------------[m
+ linux/ps4-kexec-1102-pro/kernel.h                  | 127 [31m------[m
+ linux/ps4-kexec-1102-pro/kexec.c                   | 230 [31m----------[m
+ linux/ps4-kexec-1102-pro/kexec.h                   |  38 [31m--[m
+ linux/ps4-kexec-1102-pro/linux_boot.c              | 441 [31m-------------------[m
+ linux/ps4-kexec-1102-pro/linux_boot.h              |  88 [31m----[m
+ linux/ps4-kexec-1102-pro/reboot.h                  |  71 [31m---[m
+ linux/ps4-kexec-1102-pro/string.h                  |  96 [31m-----[m
+ linux/ps4-kexec-1102-pro/types.h                   |  51 [31m---[m
+ linux/ps4-kexec-1102-pro/uart.c                    |  64 [31m---[m
+ linux/ps4-kexec-1102-pro/uart.h                    |  20 [31m-[m
+ linux/ps4-kexec-1102-pro/x86.h                     | 149 [31m-------[m
+ linux/ps4-kexec-1102/acpi.c                        | 296 [31m-------------[m
+ linux/ps4-kexec-1102/acpi.h                        |  18 [31m-[m
+ linux/ps4-kexec-1102/crc32.c                       | 102 [31m-----[m
+ linux/ps4-kexec-1102/crc32.h                       |   7 [31m-[m
+ linux/ps4-kexec-1102/elf.h                         |  71 [31m---[m
+ linux/ps4-kexec-1102/firmware.c                    | 479 [31m---------------------[m
+ linux/ps4-kexec-1102/firmware.h                    |  64 [31m---[m
+ linux/ps4-kexec-1102/kernel.c                      | 384 [31m-----------------[m
+ linux/ps4-kexec-1102/kernel.h                      | 127 [31m------[m
+ linux/ps4-kexec-1102/kexec.c                       | 230 [31m----------[m
+ linux/ps4-kexec-1102/kexec.h                       |  38 [31m--[m
+ linux/ps4-kexec-1102/linux_boot.c                  | 441 [31m-------------------[m
+ linux/ps4-kexec-1102/linux_boot.h                  |  88 [31m----[m
+ linux/ps4-kexec-1102/reboot.h                      |  71 [31m---[m
+ linux/ps4-kexec-1102/string.h                      |  96 [31m-----[m
+ linux/ps4-kexec-1102/types.h                       |  51 [31m---[m
+ linux/ps4-kexec-1102/uart.c                        |  64 [31m---[m
+ linux/ps4-kexec-1102/uart.h                        |  20 [31m-[m
+ linux/ps4-kexec-1102/x86.h                         | 149 [31m-------[m
+ linux/ps4-kexec-1150-baikal/acpi.c                 | 320 [31m--------------[m
+ linux/ps4-kexec-1150-baikal/acpi.h                 |  22 [31m-[m
+ linux/ps4-kexec-1150-baikal/acpi_caps.h            |  30 [31m--[m
+ linux/ps4-kexec-1150-baikal/crc32.c                | 102 [31m-----[m
+ linux/ps4-kexec-1150-baikal/crc32.h                |   7 [31m-[m
+ linux/ps4-kexec-1150-baikal/elf.h                  |  71 [31m---[m
+ linux/ps4-kexec-1150-baikal/firmware.c             | 479 [31m---------------------[m
+ linux/ps4-kexec-1150-baikal/firmware.h             |  64 [31m---[m
+ linux/ps4-kexec-1150-baikal/kernel.c               | 383 [31m----------------[m
+ linux/ps4-kexec-1150-baikal/kernel.h               | 126 [31m------[m
+ linux/ps4-kexec-1150-baikal/kexec.c                | 229 [31m----------[m
+ linux/ps4-kexec-1150-baikal/kexec.h                |  38 [31m--[m
+ linux/ps4-kexec-1150-baikal/linux_boot.c           | 453 [31m-------------------[m
+ linux/ps4-kexec-1150-baikal/linux_boot.h           |  88 [31m----[m
+ linux/ps4-kexec-1150-baikal/reboot.h               |  71 [31m---[m
+ linux/ps4-kexec-1150-baikal/string.h               |  96 [31m-----[m
+ linux/ps4-kexec-1150-baikal/types.h                |  51 [31m---[m
+ linux/ps4-kexec-1150-baikal/uart.c                 |  64 [31m---[m
+ linux/ps4-kexec-1150-baikal/uart.h                 |  20 [31m-[m
+ linux/ps4-kexec-1150-baikal/x86.h                  | 195 [31m---------[m
+ linux/ps4-kexec-1150-pro-baikal/acpi.c             | 320 [31m--------------[m
+ linux/ps4-kexec-1150-pro-baikal/acpi.h             |  22 [31m-[m
+ linux/ps4-kexec-1150-pro-baikal/acpi_caps.h        |  30 [31m--[m
+ linux/ps4-kexec-1150-pro-baikal/crc32.c            | 102 [31m-----[m
+ linux/ps4-kexec-1150-pro-baikal/crc32.h            |   7 [31m-[m
+ linux/ps4-kexec-1150-pro-baikal/elf.h              |  71 [31m---[m
+ linux/ps4-kexec-1150-pro-baikal/firmware.c         | 479 [31m---------------------[m
+ linux/ps4-kexec-1150-pro-baikal/firmware.h         |  64 [31m---[m
+ linux/ps4-kexec-1150-pro-baikal/kernel.c           | 383 [31m----------------[m
+ linux/ps4-kexec-1150-pro-baikal/kernel.h           | 126 [31m------[m
+ linux/ps4-kexec-1150-pro-baikal/kexec.c            | 229 [31m----------[m
+ linux/ps4-kexec-1150-pro-baikal/kexec.h            |  38 [31m--[m
+ linux/ps4-kexec-1150-pro-baikal/linux_boot.c       | 453 [31m-------------------[m
+ linux/ps4-kexec-1150-pro-baikal/linux_boot.h       |  88 [31m----[m
+ linux/ps4-kexec-1150-pro-baikal/reboot.h           |  71 [31m---[m
+ linux/ps4-kexec-1150-pro-baikal/string.h           |  96 [31m-----[m
+ linux/ps4-kexec-1150-pro-baikal/types.h            |  51 [31m---[m
+ linux/ps4-kexec-1150-pro-baikal/uart.c             |  64 [31m---[m
+ linux/ps4-kexec-1150-pro-baikal/uart.h             |  20 [31m-[m
+ linux/ps4-kexec-1150-pro-baikal/x86.h              | 195 [31m---------[m
+ linux/ps4-kexec-1150-pro/acpi.c                    | 296 [31m-------------[m
+ linux/ps4-kexec-1150-pro/acpi.h                    |  18 [31m-[m
+ linux/ps4-kexec-1150-pro/crc32.c                   | 102 [31m-----[m
+ linux/ps4-kexec-1150-pro/crc32.h                   |   7 [31m-[m
+ linux/ps4-kexec-1150-pro/elf.h                     |  71 [31m---[m
+ linux/ps4-kexec-1150-pro/firmware.c                | 479 [31m---------------------[m
+ linux/ps4-kexec-1150-pro/firmware.h                |  64 [31m---[m
+ linux/ps4-kexec-1150-pro/kernel.c                  | 383 [31m----------------[m
+ linux/ps4-kexec-1150-pro/kernel.h                  | 126 [31m------[m
+ linux/ps4-kexec-1150-pro/kexec.c                   | 229 [31m----------[m
+ linux/ps4-kexec-1150-pro/kexec.h                   |  38 [31m--[m
+ linux/ps4-kexec-1150-pro/linux_boot.c              | 441 [31m-------------------[m
+ linux/ps4-kexec-1150-pro/linux_boot.h              |  88 [31m----[m
+ linux/ps4-kexec-1150-pro/reboot.h                  |  71 [31m---[m
+ linux/ps4-kexec-1150-pro/string.h                  |  96 [31m-----[m
+ linux/ps4-kexec-1150-pro/types.h                   |  51 [31m---[m
+ linux/ps4-kexec-1150-pro/uart.c                    |  64 [31m---[m
+ linux/ps4-kexec-1150-pro/uart.h                    |  20 [31m-[m
+ linux/ps4-kexec-1150-pro/x86.h                     | 149 [31m-------[m
+ linux/ps4-kexec-1150/acpi.c                        | 296 [31m-------------[m
+ linux/ps4-kexec-1150/acpi.h                        |  18 [31m-[m
+ linux/ps4-kexec-1150/crc32.c                       | 102 [31m-----[m
+ linux/ps4-kexec-1150/crc32.h                       |   7 [31m-[m
+ linux/ps4-kexec-1150/elf.h                         |  71 [31m---[m
+ linux/ps4-kexec-1150/firmware.c                    | 479 [31m---------------------[m
+ linux/ps4-kexec-1150/firmware.h                    |  64 [31m---[m
+ linux/ps4-kexec-1150/kernel.c                      | 383 [31m----------------[m
+ linux/ps4-kexec-1150/kernel.h                      | 126 [31m------[m
+ linux/ps4-kexec-1150/kexec.c                       | 229 [31m----------[m
+ linux/ps4-kexec-1150/kexec.h                       |  38 [31m--[m
+ linux/ps4-kexec-1150/linux_boot.c                  | 441 [31m-------------------[m
+ linux/ps4-kexec-1150/linux_boot.h                  |  88 [31m----[m
+ linux/ps4-kexec-1150/reboot.h                      |  71 [31m---[m
+ linux/ps4-kexec-1150/string.h                      |  96 [31m-----[m
+ linux/ps4-kexec-1150/types.h                       |  51 [31m---[m
+ linux/ps4-kexec-1150/uart.c                        |  64 [31m---[m
+ linux/ps4-kexec-1150/uart.h                        |  20 [31m-[m
+ linux/ps4-kexec-1150/x86.h                         | 149 [31m-------[m
+ linux/ps4-kexec-1200-baikal/acpi.c                 | 320 [31m--------------[m
+ linux/ps4-kexec-1200-baikal/acpi.h                 |  22 [31m-[m
+ linux/ps4-kexec-1200-baikal/acpi_caps.h            |  30 [31m--[m
+ linux/ps4-kexec-1200-baikal/crc32.c                | 102 [31m-----[m
+ linux/ps4-kexec-1200-baikal/crc32.h                |   7 [31m-[m
+ linux/ps4-kexec-1200-baikal/elf.h                  |  71 [31m---[m
+ linux/ps4-kexec-1200-baikal/firmware.c             | 479 [31m---------------------[m
+ linux/ps4-kexec-1200-baikal/firmware.h             |  64 [31m---[m
+ linux/ps4-kexec-1200-baikal/kernel.c               | 383 [31m----------------[m
+ linux/ps4-kexec-1200-baikal/kernel.h               | 126 [31m------[m
+ linux/ps4-kexec-1200-baikal/kexec.c                | 229 [31m----------[m
+ linux/ps4-kexec-1200-baikal/kexec.h                |  38 [31m--[m
+ linux/ps4-kexec-1200-baikal/linux_boot.c           | 453 [31m-------------------[m
+ linux/ps4-kexec-1200-baikal/linux_boot.h           |  88 [31m----[m
+ linux/ps4-kexec-1200-baikal/reboot.h               |  71 [31m---[m
+ linux/ps4-kexec-1200-baikal/string.h               |  96 [31m-----[m
+ linux/ps4-kexec-1200-baikal/types.h                |  51 [31m---[m
+ linux/ps4-kexec-1200-baikal/uart.c                 |  64 [31m---[m
+ linux/ps4-kexec-1200-baikal/uart.h                 |  20 [31m-[m
+ linux/ps4-kexec-1200-baikal/x86.h                  | 195 [31m---------[m
+ linux/ps4-kexec-1200-pro-baikal/acpi.c             | 320 [31m--------------[m
+ linux/ps4-kexec-1200-pro-baikal/acpi.h             |  22 [31m-[m
+ linux/ps4-kexec-1200-pro-baikal/acpi_caps.h        |  30 [31m--[m
+ linux/ps4-kexec-1200-pro-baikal/crc32.c            | 102 [31m-----[m
+ linux/ps4-kexec-1200-pro-baikal/crc32.h            |   7 [31m-[m
+ linux/ps4-kexec-1200-pro-baikal/elf.h              |  71 [31m---[m
+ linux/ps4-kexec-1200-pro-baikal/firmware.c         | 479 [31m---------------------[m
+ linux/ps4-kexec-1200-pro-baikal/firmware.h         |  64 [31m---[m
+ linux/ps4-kexec-1200-pro-baikal/kernel.c           | 383 [31m----------------[m
+ linux/ps4-kexec-1200-pro-baikal/kernel.h           | 126 [31m------[m
+ linux/ps4-kexec-1200-pro-baikal/kexec.c            | 229 [31m----------[m
+ linux/ps4-kexec-1200-pro-baikal/kexec.h            |  38 [31m--[m
+ linux/ps4-kexec-1200-pro-baikal/linux_boot.c       | 453 [31m-------------------[m
+ linux/ps4-kexec-1200-pro-baikal/linux_boot.h       |  88 [31m----[m
+ linux/ps4-kexec-1200-pro-baikal/reboot.h           |  71 [31m---[m
+ linux/ps4-kexec-1200-pro-baikal/string.h           |  96 [31m-----[m
+ linux/ps4-kexec-1200-pro-baikal/types.h            |  51 [31m---[m
+ linux/ps4-kexec-1200-pro-baikal/uart.c             |  64 [31m---[m
+ linux/ps4-kexec-1200-pro-baikal/uart.h             |  20 [31m-[m
+ linux/ps4-kexec-1200-pro-baikal/x86.h              | 195 [31m---------[m
+ linux/ps4-kexec-1200-pro/acpi.c                    | 296 [31m-------------[m
+ linux/ps4-kexec-1200-pro/acpi.h                    |  18 [31m-[m
+ linux/ps4-kexec-1200-pro/crc32.c                   | 102 [31m-----[m
+ linux/ps4-kexec-1200-pro/crc32.h                   |   7 [31m-[m
+ linux/ps4-kexec-1200-pro/elf.h                     |  71 [31m---[m
+ linux/ps4-kexec-1200-pro/firmware.c                | 479 [31m---------------------[m
+ linux/ps4-kexec-1200-pro/firmware.h                |  64 [31m---[m
+ linux/ps4-kexec-1200-pro/kernel.c                  | 383 [31m----------------[m
+ linux/ps4-kexec-1200-pro/kernel.h                  | 126 [31m------[m
+ linux/ps4-kexec-1200-pro/kexec.c                   | 229 [31m----------[m
+ linux/ps4-kexec-1200-pro/kexec.h                   |  38 [31m--[m
+ linux/ps4-kexec-1200-pro/linux_boot.c              | 441 [31m-------------------[m
+ linux/ps4-kexec-1200-pro/linux_boot.h              |  88 [31m----[m
+ linux/ps4-kexec-1200-pro/reboot.h                  |  71 [31m---[m
+ linux/ps4-kexec-1200-pro/string.h                  |  96 [31m-----[m
+ linux/ps4-kexec-1200-pro/types.h                   |  51 [31m---[m
+ linux/ps4-kexec-1200-pro/uart.c                    |  64 [31m---[m
+ linux/ps4-kexec-1200-pro/uart.h                    |  20 [31m-[m
+ linux/ps4-kexec-1200-pro/x86.h                     | 149 [31m-------[m
+ linux/ps4-kexec-1200/acpi.c                        | 296 [31m-------------[m
+ linux/ps4-kexec-1200/acpi.h                        |  18 [31m-[m
+ linux/ps4-kexec-1200/crc32.c                       | 102 [31m-----[m
+ linux/ps4-kexec-1200/crc32.h                       |   7 [31m-[m
+ linux/ps4-kexec-1200/elf.h                         |  71 [31m---[m
+ linux/ps4-kexec-1200/firmware.c                    | 479 [31m---------------------[m
+ linux/ps4-kexec-1200/firmware.h                    |  64 [31m---[m
+ linux/ps4-kexec-1200/kernel.c                      | 383 [31m----------------[m
+ linux/ps4-kexec-1200/kernel.h                      | 126 [31m------[m
+ linux/ps4-kexec-1200/kexec.c                       | 229 [31m----------[m
+ linux/ps4-kexec-1200/kexec.h                       |  38 [31m--[m
+ linux/ps4-kexec-1200/linux_boot.c                  | 441 [31m-------------------[m
+ linux/ps4-kexec-1200/linux_boot.h                  |  88 [31m----[m
+ linux/ps4-kexec-1200/reboot.h                      |  71 [31m---[m
+ linux/ps4-kexec-1200/string.h                      |  96 [31m-----[m
+ linux/ps4-kexec-1200/types.h                       |  51 [31m---[m
+ linux/ps4-kexec-1200/uart.c                        |  64 [31m---[m
+ linux/ps4-kexec-1200/uart.h                        |  20 [31m-[m
+ linux/ps4-kexec-1200/x86.h                         | 149 [31m-------[m
+ linux/ps4-kexec-1250-baikal/acpi.c                 | 320 [31m--------------[m
+ linux/ps4-kexec-1250-baikal/acpi.h                 |  22 [31m-[m
+ linux/ps4-kexec-1250-baikal/acpi_caps.h            |  30 [31m--[m
+ linux/ps4-kexec-1250-baikal/crc32.c                | 102 [31m-----[m
+ linux/ps4-kexec-1250-baikal/crc32.h                |   7 [31m-[m
+ linux/ps4-kexec-1250-baikal/elf.h                  |  71 [31m---[m
+ linux/ps4-kexec-1250-baikal/firmware.c             | 479 [31m---------------------[m
+ linux/ps4-kexec-1250-baikal/firmware.h             |  64 [31m---[m
+ linux/ps4-kexec-1250-baikal/kernel.c               | 383 [31m----------------[m
+ linux/ps4-kexec-1250-baikal/kernel.h               | 126 [31m------[m
+ linux/ps4-kexec-1250-baikal/kexec.c                | 229 [31m----------[m
+ linux/ps4-kexec-1250-baikal/kexec.h                |  38 [31m--[m
+ linux/ps4-kexec-1250-baikal/linux_boot.c           | 453 [31m-------------------[m
+ linux/ps4-kexec-1250-baikal/linux_boot.h           |  88 [31m----[m
+ linux/ps4-kexec-1250-baikal/reboot.h               |  71 [31m---[m
+ linux/ps4-kexec-1250-baikal/string.h               |  96 [31m-----[m
+ linux/ps4-kexec-1250-baikal/types.h                |  51 [31m---[m
+ linux/ps4-kexec-1250-baikal/uart.c                 |  64 [31m---[m
+ linux/ps4-kexec-1250-baikal/uart.h                 |  20 [31m-[m
+ linux/ps4-kexec-1250-baikal/x86.h                  | 195 [31m---------[m
+ linux/ps4-kexec-1250-pro-baikal/acpi.c             | 320 [31m--------------[m
+ linux/ps4-kexec-1250-pro-baikal/acpi.h             |  22 [31m-[m
+ linux/ps4-kexec-1250-pro-baikal/acpi_caps.h        |  30 [31m--[m
+ linux/ps4-kexec-1250-pro-baikal/crc32.c            | 102 [31m-----[m
+ linux/ps4-kexec-1250-pro-baikal/crc32.h            |   7 [31m-[m
+ linux/ps4-kexec-1250-pro-baikal/elf.h              |  71 [31m---[m
+ linux/ps4-kexec-1250-pro-baikal/firmware.c         | 479 [31m---------------------[m
+ linux/ps4-kexec-1250-pro-baikal/firmware.h         |  64 [31m---[m
+ linux/ps4-kexec-1250-pro-baikal/kernel.c           | 383 [31m----------------[m
+ linux/ps4-kexec-1250-pro-baikal/kernel.h           | 126 [31m------[m
+ linux/ps4-kexec-1250-pro-baikal/kexec.c            | 229 [31m----------[m
+ linux/ps4-kexec-1250-pro-baikal/kexec.h            |  38 [31m--[m
+ linux/ps4-kexec-1250-pro-baikal/linux_boot.c       | 453 [31m-------------------[m
+ linux/ps4-kexec-1250-pro-baikal/linux_boot.h       |  88 [31m----[m
+ linux/ps4-kexec-1250-pro-baikal/reboot.h           |  71 [31m---[m
+ linux/ps4-kexec-1250-pro-baikal/string.h           |  96 [31m-----[m
+ linux/ps4-kexec-1250-pro-baikal/types.h            |  51 [31m---[m
+ linux/ps4-kexec-1250-pro-baikal/uart.c             |  64 [31m---[m
+ linux/ps4-kexec-1250-pro-baikal/uart.h             |  20 [31m-[m
+ linux/ps4-kexec-1250-pro-baikal/x86.h              | 195 [31m---------[m
+ linux/ps4-kexec-1250-pro/acpi.c                    | 296 [31m-------------[m
+ linux/ps4-kexec-1250-pro/acpi.h                    |  18 [31m-[m
+ linux/ps4-kexec-1250-pro/crc32.c                   | 102 [31m-----[m
+ linux/ps4-kexec-1250-pro/crc32.h                   |   7 [31m-[m
+ linux/ps4-kexec-1250-pro/elf.h                     |  71 [31m---[m
+ linux/ps4-kexec-1250-pro/firmware.c                | 479 [31m---------------------[m
+ linux/ps4-kexec-1250-pro/firmware.h                |  64 [31m---[m
+ linux/ps4-kexec-1250-pro/kernel.c                  | 383 [31m----------------[m
+ linux/ps4-kexec-1250-pro/kernel.h                  | 126 [31m------[m
+ linux/ps4-kexec-1250-pro/kexec.c                   | 229 [31m----------[m
+ linux/ps4-kexec-1250-pro/kexec.h                   |  38 [31m--[m
+ linux/ps4-kexec-1250-pro/linux_boot.c              | 441 [31m-------------------[m
+ linux/ps4-kexec-1250-pro/linux_boot.h              |  88 [31m----[m
+ linux/ps4-kexec-1250-pro/reboot.h                  |  71 [31m---[m
+ linux/ps4-kexec-1250-pro/string.h                  |  96 [31m-----[m
+ linux/ps4-kexec-1250-pro/types.h                   |  51 [31m---[m
+ linux/ps4-kexec-1250-pro/uart.c                    |  64 [31m---[m
+ linux/ps4-kexec-1250-pro/uart.h                    |  20 [31m-[m
+ linux/ps4-kexec-1250-pro/x86.h                     | 149 [31m-------[m
+ linux/ps4-kexec-1250/acpi.c                        | 296 [31m-------------[m
+ linux/ps4-kexec-1250/acpi.h                        |  18 [31m-[m
+ linux/ps4-kexec-1250/crc32.c                       | 102 [31m-----[m
+ linux/ps4-kexec-1250/crc32.h                       |   7 [31m-[m
+ linux/ps4-kexec-1250/elf.h                         |  71 [31m---[m
+ linux/ps4-kexec-1250/firmware.c                    | 479 [31m---------------------[m
+ linux/ps4-kexec-1250/firmware.h                    |  64 [31m---[m
+ linux/ps4-kexec-1250/kernel.c                      | 383 [31m----------------[m
+ linux/ps4-kexec-1250/kernel.h                      | 126 [31m------[m
+ linux/ps4-kexec-1250/kexec.c                       | 229 [31m----------[m
+ linux/ps4-kexec-1250/kexec.h                       |  38 [31m--[m
+ linux/ps4-kexec-1250/linux_boot.c                  | 441 [31m-------------------[m
+ linux/ps4-kexec-1250/linux_boot.h                  |  88 [31m----[m
+ linux/ps4-kexec-1250/reboot.h                      |  71 [31m---[m
+ linux/ps4-kexec-1250/string.h                      |  96 [31m-----[m
+ linux/ps4-kexec-1250/types.h                       |  51 [31m---[m
+ linux/ps4-kexec-1250/uart.c                        |  64 [31m---[m
+ linux/ps4-kexec-1250/uart.h                        |  20 [31m-[m
+ linux/ps4-kexec-1250/x86.h                         | 149 [31m-------[m
+ linux/ps4-kexec-1300-baikal/acpi.c                 | 320 [31m--------------[m
+ linux/ps4-kexec-1300-baikal/acpi.h                 |  22 [31m-[m
+ linux/ps4-kexec-1300-baikal/acpi_caps.h            |  30 [31m--[m
+ linux/ps4-kexec-1300-baikal/crc32.c                | 102 [31m-----[m
+ linux/ps4-kexec-1300-baikal/crc32.h                |   7 [31m-[m
+ linux/ps4-kexec-1300-baikal/elf.h                  |  71 [31m---[m
+ linux/ps4-kexec-1300-baikal/firmware.c             | 479 [31m---------------------[m
+ linux/ps4-kexec-1300-baikal/firmware.h             |  64 [31m---[m
+ linux/ps4-kexec-1300-baikal/kernel.c               | 383 [31m----------------[m
+ linux/ps4-kexec-1300-baikal/kernel.h               | 126 [31m------[m
+ linux/ps4-kexec-1300-baikal/kexec.c                | 229 [31m----------[m
+ linux/ps4-kexec-1300-baikal/kexec.h                |  38 [31m--[m
+ linux/ps4-kexec-1300-baikal/linux_boot.c           | 453 [31m-------------------[m
+ linux/ps4-kexec-1300-baikal/linux_boot.h           |  88 [31m----[m
+ linux/ps4-kexec-1300-baikal/reboot.h               |  71 [31m---[m
+ linux/ps4-kexec-1300-baikal/string.h               |  96 [31m-----[m
+ linux/ps4-kexec-1300-baikal/types.h                |  51 [31m---[m
+ linux/ps4-kexec-1300-baikal/uart.c                 |  64 [31m---[m
+ linux/ps4-kexec-1300-baikal/uart.h                 |  20 [31m-[m
+ linux/ps4-kexec-1300-baikal/x86.h                  | 195 [31m---------[m
+ linux/ps4-kexec-1300-pro-baikal/acpi.c             | 320 [31m--------------[m
+ linux/ps4-kexec-1300-pro-baikal/acpi.h             |  22 [31m-[m
+ linux/ps4-kexec-1300-pro-baikal/acpi_caps.h        |  30 [31m--[m
+ linux/ps4-kexec-1300-pro-baikal/crc32.c            | 102 [31m-----[m
+ linux/ps4-kexec-1300-pro-baikal/crc32.h            |   7 [31m-[m
+ linux/ps4-kexec-1300-pro-baikal/elf.h              |  71 [31m---[m
+ linux/ps4-kexec-1300-pro-baikal/firmware.c         | 479 [31m---------------------[m
+ linux/ps4-kexec-1300-pro-baikal/firmware.h         |  64 [31m---[m
+ linux/ps4-kexec-1300-pro-baikal/kernel.c           | 383 [31m----------------[m
+ linux/ps4-kexec-1300-pro-baikal/kernel.h           | 126 [31m------[m
+ linux/ps4-kexec-1300-pro-baikal/kexec.c            | 229 [31m----------[m
+ linux/ps4-kexec-1300-pro-baikal/kexec.h            |  38 [31m--[m
+ linux/ps4-kexec-1300-pro-baikal/linux_boot.c       | 453 [31m-------------------[m
+ linux/ps4-kexec-1300-pro-baikal/linux_boot.h       |  88 [31m----[m
+ linux/ps4-kexec-1300-pro-baikal/reboot.h           |  71 [31m---[m
+ linux/ps4-kexec-1300-pro-baikal/string.h           |  96 [31m-----[m
+ linux/ps4-kexec-1300-pro-baikal/types.h            |  51 [31m---[m
+ linux/ps4-kexec-1300-pro-baikal/uart.c             |  64 [31m---[m
+ linux/ps4-kexec-1300-pro-baikal/uart.h             |  20 [31m-[m
+ linux/ps4-kexec-1300-pro-baikal/x86.h              | 195 [31m---------[m
+ linux/ps4-kexec-1300-pro/acpi.c                    | 296 [31m-------------[m
+ linux/ps4-kexec-1300-pro/acpi.h                    |  18 [31m-[m
+ linux/ps4-kexec-1300-pro/crc32.c                   | 102 [31m-----[m
+ linux/ps4-kexec-1300-pro/crc32.h                   |   7 [31m-[m
+ linux/ps4-kexec-1300-pro/elf.h                     |  71 [31m---[m
+ linux/ps4-kexec-1300-pro/firmware.c                | 479 [31m---------------------[m
+ linux/ps4-kexec-1300-pro/firmware.h                |  64 [31m---[m
+ linux/ps4-kexec-1300-pro/kernel.c                  | 383 [31m----------------[m
+ linux/ps4-kexec-1300-pro/kernel.h                  | 126 [31m------[m
+ linux/ps4-kexec-1300-pro/kexec.c                   | 229 [31m----------[m
+ linux/ps4-kexec-1300-pro/kexec.h                   |  38 [31m--[m
+ linux/ps4-kexec-1300-pro/linux_boot.c              | 441 [31m-------------------[m
+ linux/ps4-kexec-1300-pro/linux_boot.h              |  88 [31m----[m
+ linux/ps4-kexec-1300-pro/reboot.h                  |  71 [31m---[m
+ linux/ps4-kexec-1300-pro/string.h                  |  96 [31m-----[m
+ linux/ps4-kexec-1300-pro/types.h                   |  51 [31m---[m
+ linux/ps4-kexec-1300-pro/uart.c                    |  64 [31m---[m
+ linux/ps4-kexec-1300-pro/uart.h                    |  20 [31m-[m
+ linux/ps4-kexec-1300-pro/x86.h                     | 149 [31m-------[m
+ linux/ps4-kexec-1300/acpi.c                        | 296 [31m-------------[m
+ linux/ps4-kexec-1300/acpi.h                        |  18 [31m-[m
+ linux/ps4-kexec-1300/crc32.c                       | 102 [31m-----[m
+ linux/ps4-kexec-1300/crc32.h                       |   7 [31m-[m
+ linux/ps4-kexec-1300/elf.h                         |  71 [31m---[m
+ linux/ps4-kexec-1300/firmware.c                    | 479 [31m---------------------[m
+ linux/ps4-kexec-1300/firmware.h                    |  64 [31m---[m
+ linux/ps4-kexec-1300/kernel.c                      | 383 [31m----------------[m
+ linux/ps4-kexec-1300/kernel.h                      | 126 [31m------[m
+ linux/ps4-kexec-1300/kexec.c                       | 229 [31m----------[m
+ linux/ps4-kexec-1300/kexec.h                       |  38 [31m--[m
+ linux/ps4-kexec-1300/linux_boot.c                  | 441 [31m-------------------[m
+ linux/ps4-kexec-1300/linux_boot.h                  |  88 [31m----[m
+ linux/ps4-kexec-1300/reboot.h                      |  71 [31m---[m
+ linux/ps4-kexec-1300/string.h                      |  96 [31m-----[m
+ linux/ps4-kexec-1300/types.h                       |  51 [31m---[m
+ linux/ps4-kexec-1300/uart.c                        |  64 [31m---[m
+ linux/ps4-kexec-1300/uart.h                        |  20 [31m-[m
+ linux/ps4-kexec-1300/x86.h                         | 149 [31m-------[m
+ linux/ps4-kexec-1302-baikal/acpi.c                 | 320 [31m--------------[m
+ linux/ps4-kexec-1302-baikal/acpi.h                 |  22 [31m-[m
+ linux/ps4-kexec-1302-baikal/acpi_caps.h            |  30 [31m--[m
+ linux/ps4-kexec-1302-baikal/crc32.c                | 102 [31m-----[m
+ linux/ps4-kexec-1302-baikal/crc32.h                |   7 [31m-[m
+ linux/ps4-kexec-1302-baikal/elf.h                  |  71 [31m---[m
+ linux/ps4-kexec-1302-baikal/firmware.c             | 479 [31m---------------------[m
+ linux/ps4-kexec-1302-baikal/firmware.h             |  64 [31m---[m
+ linux/ps4-kexec-1302-baikal/kernel.c               | 383 [31m----------------[m
+ linux/ps4-kexec-1302-baikal/kernel.h               | 126 [31m------[m
+ linux/ps4-kexec-1302-baikal/kexec.c                | 229 [31m----------[m
+ linux/ps4-kexec-1302-baikal/kexec.h                |  38 [31m--[m
+ linux/ps4-kexec-1302-baikal/linux_boot.c           | 453 [31m-------------------[m
+ linux/ps4-kexec-1302-baikal/linux_boot.h           |  88 [31m----[m
+ linux/ps4-kexec-1302-baikal/reboot.h               |  71 [31m---[m
+ linux/ps4-kexec-1302-baikal/string.h               |  96 [31m-----[m
+ linux/ps4-kexec-1302-baikal/types.h                |  51 [31m---[m
+ linux/ps4-kexec-1302-baikal/uart.c                 |  64 [31m---[m
+ linux/ps4-kexec-1302-baikal/uart.h                 |  20 [31m-[m
+ linux/ps4-kexec-1302-baikal/x86.h                  | 195 [31m---------[m
+ linux/ps4-kexec-1302-pro-baikal/acpi.c             | 320 [31m--------------[m
+ linux/ps4-kexec-1302-pro-baikal/acpi.h             |  22 [31m-[m
+ linux/ps4-kexec-1302-pro-baikal/acpi_caps.h        |  30 [31m--[m
+ linux/ps4-kexec-1302-pro-baikal/crc32.c            | 102 [31m-----[m
+ linux/ps4-kexec-1302-pro-baikal/crc32.h            |   7 [31m-[m
+ linux/ps4-kexec-1302-pro-baikal/elf.h              |  71 [31m---[m
+ linux/ps4-kexec-1302-pro-baikal/firmware.c         | 479 [31m---------------------[m
+ linux/ps4-kexec-1302-pro-baikal/firmware.h         |  64 [31m---[m
+ linux/ps4-kexec-1302-pro-baikal/kernel.c           | 383 [31m----------------[m
+ linux/ps4-kexec-1302-pro-baikal/kernel.h           | 126 [31m------[m
+ linux/ps4-kexec-1302-pro-baikal/kexec.c            | 229 [31m----------[m
+ linux/ps4-kexec-1302-pro-baikal/kexec.h            |  38 [31m--[m
+ linux/ps4-kexec-1302-pro-baikal/linux_boot.c       | 453 [31m-------------------[m
+ linux/ps4-kexec-1302-pro-baikal/linux_boot.h       |  88 [31m----[m
+ linux/ps4-kexec-1302-pro-baikal/reboot.h           |  71 [31m---[m
+ linux/ps4-kexec-1302-pro-baikal/string.h           |  96 [31m-----[m
+ linux/ps4-kexec-1302-pro-baikal/types.h            |  51 [31m---[m
+ linux/ps4-kexec-1302-pro-baikal/uart.c             |  64 [31m---[m
+ linux/ps4-kexec-1302-pro-baikal/uart.h             |  20 [31m-[m
+ linux/ps4-kexec-1302-pro-baikal/x86.h              | 195 [31m---------[m
+ linux/ps4-kexec-1302-pro/acpi.c                    | 296 [31m-------------[m
+ linux/ps4-kexec-1302-pro/acpi.h                    |  18 [31m-[m
+ linux/ps4-kexec-1302-pro/crc32.c                   | 102 [31m-----[m
+ linux/ps4-kexec-1302-pro/crc32.h                   |   7 [31m-[m
+ linux/ps4-kexec-1302-pro/elf.h                     |  71 [31m---[m
+ linux/ps4-kexec-1302-pro/firmware.c                | 479 [31m---------------------[m
+ linux/ps4-kexec-1302-pro/firmware.h                |  64 [31m---[m
+ linux/ps4-kexec-1302-pro/kernel.c                  | 383 [31m----------------[m
+ linux/ps4-kexec-1302-pro/kernel.h                  | 126 [31m------[m
+ linux/ps4-kexec-1302-pro/kexec.c                   | 229 [31m----------[m
+ linux/ps4-kexec-1302-pro/kexec.h                   |  38 [31m--[m
+ linux/ps4-kexec-1302-pro/linux_boot.c              | 441 [31m-------------------[m
+ linux/ps4-kexec-1302-pro/linux_boot.h              |  88 [31m----[m
+ linux/ps4-kexec-1302-pro/reboot.h                  |  71 [31m---[m
+ linux/ps4-kexec-1302-pro/string.h                  |  96 [31m-----[m
+ linux/ps4-kexec-1302-pro/types.h                   |  51 [31m---[m
+ linux/ps4-kexec-1302-pro/uart.c                    |  64 [31m---[m
+ linux/ps4-kexec-1302-pro/uart.h                    |  20 [31m-[m
+ linux/ps4-kexec-1302-pro/x86.h                     | 149 [31m-------[m
+ linux/ps4-kexec-1302/acpi.c                        | 296 [31m-------------[m
+ linux/ps4-kexec-1302/acpi.h                        |  18 [31m-[m
+ linux/ps4-kexec-1302/crc32.c                       | 102 [31m-----[m
+ linux/ps4-kexec-1302/crc32.h                       |   7 [31m-[m
+ linux/ps4-kexec-1302/elf.h                         |  71 [31m---[m
+ linux/ps4-kexec-1302/firmware.c                    | 479 [31m---------------------[m
+ linux/ps4-kexec-1302/firmware.h                    |  64 [31m---[m
+ linux/ps4-kexec-1302/kernel.c                      | 383 [31m----------------[m
+ linux/ps4-kexec-1302/kernel.h                      | 126 [31m------[m
+ linux/ps4-kexec-1302/kexec.c                       | 229 [31m----------[m
+ linux/ps4-kexec-1302/kexec.h                       |  38 [31m--[m
+ linux/ps4-kexec-1302/linux_boot.c                  | 441 [31m-------------------[m
+ linux/ps4-kexec-1302/linux_boot.h                  |  88 [31m----[m
+ linux/ps4-kexec-1302/reboot.h                      |  71 [31m---[m
+ linux/ps4-kexec-1302/string.h                      |  96 [31m-----[m
+ linux/ps4-kexec-1302/types.h                       |  51 [31m---[m
+ linux/ps4-kexec-1302/uart.c                        |  64 [31m---[m
+ linux/ps4-kexec-1302/uart.h                        |  20 [31m-[m
+ linux/ps4-kexec-1302/x86.h                         | 149 [31m-------[m
+ linux/ps4-kexec-505-baikal/acpi.c                  | 320 [31m--------------[m
+ linux/ps4-kexec-505-baikal/acpi.h                  |  22 [31m-[m
+ linux/ps4-kexec-505-baikal/acpi_caps.h             |  30 [31m--[m
+ linux/ps4-kexec-505-baikal/crc32.c                 | 102 [31m-----[m
+ linux/ps4-kexec-505-baikal/crc32.h                 |   7 [31m-[m
+ linux/ps4-kexec-505-baikal/elf.h                   |  71 [31m---[m
+ linux/ps4-kexec-505-baikal/firmware.c              | 479 [31m---------------------[m
+ linux/ps4-kexec-505-baikal/firmware.h              |  64 [31m---[m
+ linux/ps4-kexec-505-baikal/kernel.c                | 383 [31m----------------[m
+ linux/ps4-kexec-505-baikal/kernel.h                | 126 [31m------[m
+ linux/ps4-kexec-505-baikal/kexec.c                 | 229 [31m----------[m
+ linux/ps4-kexec-505-baikal/kexec.h                 |  38 [31m--[m
+ linux/ps4-kexec-505-baikal/linux_boot.c            | 453 [31m-------------------[m
+ linux/ps4-kexec-505-baikal/linux_boot.h            |  88 [31m----[m
+ linux/ps4-kexec-505-baikal/reboot.h                |  71 [31m---[m
+ linux/ps4-kexec-505-baikal/string.h                |  96 [31m-----[m
+ linux/ps4-kexec-505-baikal/types.h                 |  51 [31m---[m
+ linux/ps4-kexec-505-baikal/uart.c                  |  64 [31m---[m
+ linux/ps4-kexec-505-baikal/uart.h                  |  20 [31m-[m
+ linux/ps4-kexec-505-baikal/x86.h                   | 195 [31m---------[m
+ linux/ps4-kexec-505-pro-baikal/acpi.c              | 320 [31m--------------[m
+ linux/ps4-kexec-505-pro-baikal/acpi.h              |  22 [31m-[m
+ linux/ps4-kexec-505-pro-baikal/acpi_caps.h         |  30 [31m--[m
+ linux/ps4-kexec-505-pro-baikal/crc32.c             | 102 [31m-----[m
+ linux/ps4-kexec-505-pro-baikal/crc32.h             |   7 [31m-[m
+ linux/ps4-kexec-505-pro-baikal/elf.h               |  71 [31m---[m
+ linux/ps4-kexec-505-pro-baikal/firmware.c          | 479 [31m---------------------[m
+ linux/ps4-kexec-505-pro-baikal/firmware.h          |  64 [31m---[m
+ linux/ps4-kexec-505-pro-baikal/kernel.c            | 383 [31m----------------[m
+ linux/ps4-kexec-505-pro-baikal/kernel.h            | 126 [31m------[m
+ linux/ps4-kexec-505-pro-baikal/kexec.c             | 229 [31m----------[m
+ linux/ps4-kexec-505-pro-baikal/kexec.h             |  38 [31m--[m
+ linux/ps4-kexec-505-pro-baikal/linux_boot.c        | 453 [31m-------------------[m
+ linux/ps4-kexec-505-pro-baikal/linux_boot.h        |  88 [31m----[m
+ linux/ps4-kexec-505-pro-baikal/reboot.h            |  71 [31m---[m
+ linux/ps4-kexec-505-pro-baikal/string.h            |  96 [31m-----[m
+ linux/ps4-kexec-505-pro-baikal/types.h             |  51 [31m---[m
+ linux/ps4-kexec-505-pro-baikal/uart.c              |  64 [31m---[m
+ linux/ps4-kexec-505-pro-baikal/uart.h              |  20 [31m-[m
+ linux/ps4-kexec-505-pro-baikal/x86.h               | 195 [31m---------[m
+ linux/ps4-kexec-505-pro/acpi.c                     | 296 [31m-------------[m
+ linux/ps4-kexec-505-pro/acpi.h                     |  18 [31m-[m
+ linux/ps4-kexec-505-pro/crc32.c                    | 102 [31m-----[m
+ linux/ps4-kexec-505-pro/crc32.h                    |   7 [31m-[m
+ linux/ps4-kexec-505-pro/elf.h                      |  71 [31m---[m
+ linux/ps4-kexec-505-pro/firmware.c                 | 479 [31m---------------------[m
+ linux/ps4-kexec-505-pro/firmware.h                 |  64 [31m---[m
+ linux/ps4-kexec-505-pro/kernel.c                   | 383 [31m----------------[m
+ linux/ps4-kexec-505-pro/kernel.h                   | 126 [31m------[m
+ linux/ps4-kexec-505-pro/kexec.c                    | 229 [31m----------[m
+ linux/ps4-kexec-505-pro/kexec.h                    |  38 [31m--[m
+ linux/ps4-kexec-505-pro/linux_boot.c               | 441 [31m-------------------[m
+ linux/ps4-kexec-505-pro/linux_boot.h               |  88 [31m----[m
+ linux/ps4-kexec-505-pro/reboot.h                   |  71 [31m---[m
+ linux/ps4-kexec-505-pro/string.h                   |  96 [31m-----[m
+ linux/ps4-kexec-505-pro/types.h                    |  51 [31m---[m
+ linux/ps4-kexec-505-pro/uart.c                     |  64 [31m---[m
+ linux/ps4-kexec-505-pro/uart.h                     |  20 [31m-[m
+ linux/ps4-kexec-505-pro/x86.h                      | 149 [31m-------[m
+ linux/ps4-kexec-505/acpi.c                         | 296 [31m-------------[m
+ linux/ps4-kexec-505/acpi.h                         |  18 [31m-[m
+ linux/ps4-kexec-505/crc32.c                        | 102 [31m-----[m
+ linux/ps4-kexec-505/crc32.h                        |   7 [31m-[m
+ linux/ps4-kexec-505/elf.h                          |  71 [31m---[m
+ linux/ps4-kexec-505/firmware.c                     | 479 [31m---------------------[m
+ linux/ps4-kexec-505/firmware.h                     |  64 [31m---[m
+ linux/ps4-kexec-505/kernel.c                       | 383 [31m----------------[m
+ linux/ps4-kexec-505/kernel.h                       | 126 [31m------[m
+ linux/ps4-kexec-505/kexec.c                        | 229 [31m----------[m
+ linux/ps4-kexec-505/kexec.h                        |  38 [31m--[m
+ linux/ps4-kexec-505/linux_boot.c                   | 441 [31m-------------------[m
+ linux/ps4-kexec-505/linux_boot.h                   |  88 [31m----[m
+ linux/ps4-kexec-505/reboot.h                       |  71 [31m---[m
+ linux/ps4-kexec-505/string.h                       |  96 [31m-----[m
+ linux/ps4-kexec-505/types.h                        |  51 [31m---[m
+ linux/ps4-kexec-505/uart.c                         |  64 [31m---[m
+ linux/ps4-kexec-505/uart.h                         |  20 [31m-[m
+ linux/ps4-kexec-505/x86.h                          | 149 [31m-------[m
+ linux/ps4-kexec-672-baikal/acpi.c                  | 320 [31m--------------[m
+ linux/ps4-kexec-672-baikal/acpi.h                  |  22 [31m-[m
+ linux/ps4-kexec-672-baikal/acpi_caps.h             |  30 [31m--[m
+ linux/ps4-kexec-672-baikal/crc32.c                 | 102 [31m-----[m
+ linux/ps4-kexec-672-baikal/crc32.h                 |   7 [31m-[m
+ linux/ps4-kexec-672-baikal/elf.h                   |  71 [31m---[m
+ linux/ps4-kexec-672-baikal/firmware.c              | 479 [31m---------------------[m
+ linux/ps4-kexec-672-baikal/firmware.h              |  64 [31m---[m
+ linux/ps4-kexec-672-baikal/kernel.c                | 383 [31m----------------[m
+ linux/ps4-kexec-672-baikal/kernel.h                | 126 [31m------[m
+ linux/ps4-kexec-672-baikal/kexec.c                 | 229 [31m----------[m
+ linux/ps4-kexec-672-baikal/kexec.h                 |  38 [31m--[m
+ linux/ps4-kexec-672-baikal/linux_boot.c            | 453 [31m-------------------[m
+ linux/ps4-kexec-672-baikal/linux_boot.h            |  88 [31m----[m
+ linux/ps4-kexec-672-baikal/reboot.h                |  71 [31m---[m
+ linux/ps4-kexec-672-baikal/string.h                |  96 [31m-----[m
+ linux/ps4-kexec-672-baikal/types.h                 |  51 [31m---[m
+ linux/ps4-kexec-672-baikal/uart.c                  |  64 [31m---[m
+ linux/ps4-kexec-672-baikal/uart.h                  |  20 [31m-[m
+ linux/ps4-kexec-672-baikal/x86.h                   | 195 [31m---------[m
+ linux/ps4-kexec-672-pro-baikal/acpi.c              | 320 [31m--------------[m
+ linux/ps4-kexec-672-pro-baikal/acpi.h              |  22 [31m-[m
+ linux/ps4-kexec-672-pro-baikal/acpi_caps.h         |  30 [31m--[m
+ linux/ps4-kexec-672-pro-baikal/crc32.c             | 102 [31m-----[m
+ linux/ps4-kexec-672-pro-baikal/crc32.h             |   7 [31m-[m
+ linux/ps4-kexec-672-pro-baikal/elf.h               |  71 [31m---[m
+ linux/ps4-kexec-672-pro-baikal/firmware.c          | 479 [31m---------------------[m
+ linux/ps4-kexec-672-pro-baikal/firmware.h          |  64 [31m---[m
+ linux/ps4-kexec-672-pro-baikal/kernel.c            | 383 [31m----------------[m
+ linux/ps4-kexec-672-pro-baikal/kernel.h            | 126 [31m------[m
+ linux/ps4-kexec-672-pro-baikal/kexec.c             | 229 [31m----------[m
+ linux/ps4-kexec-672-pro-baikal/kexec.h             |  38 [31m--[m
+ linux/ps4-kexec-672-pro-baikal/linux_boot.c        | 453 [31m-------------------[m
+ linux/ps4-kexec-672-pro-baikal/linux_boot.h        |  88 [31m----[m
+ linux/ps4-kexec-672-pro-baikal/reboot.h            |  71 [31m---[m
+ linux/ps4-kexec-672-pro-baikal/string.h            |  96 [31m-----[m
+ linux/ps4-kexec-672-pro-baikal/types.h             |  51 [31m---[m
+ linux/ps4-kexec-672-pro-baikal/uart.c              |  64 [31m---[m
+ linux/ps4-kexec-672-pro-baikal/uart.h              |  20 [31m-[m
+ linux/ps4-kexec-672-pro-baikal/x86.h               | 195 [31m---------[m
+ linux/ps4-kexec-672-pro/acpi.c                     | 296 [31m-------------[m
+ linux/ps4-kexec-672-pro/acpi.h                     |  18 [31m-[m
+ linux/ps4-kexec-672-pro/crc32.c                    | 102 [31m-----[m
+ linux/ps4-kexec-672-pro/crc32.h                    |   7 [31m-[m
+ linux/ps4-kexec-672-pro/elf.h                      |  71 [31m---[m
+ linux/ps4-kexec-672-pro/firmware.c                 | 479 [31m---------------------[m
+ linux/ps4-kexec-672-pro/firmware.h                 |  64 [31m---[m
+ linux/ps4-kexec-672-pro/kernel.c                   | 383 [31m----------------[m
+ linux/ps4-kexec-672-pro/kernel.h                   | 126 [31m------[m
+ linux/ps4-kexec-672-pro/kexec.c                    | 229 [31m----------[m
+ linux/ps4-kexec-672-pro/kexec.h                    |  38 [31m--[m
+ linux/ps4-kexec-672-pro/linux_boot.c               | 441 [31m-------------------[m
+ linux/ps4-kexec-672-pro/linux_boot.h               |  88 [31m----[m
+ linux/ps4-kexec-672-pro/reboot.h                   |  71 [31m---[m
+ linux/ps4-kexec-672-pro/string.h                   |  96 [31m-----[m
+ linux/ps4-kexec-672-pro/types.h                    |  51 [31m---[m
+ linux/ps4-kexec-672-pro/uart.c                     |  64 [31m---[m
+ linux/ps4-kexec-672-pro/uart.h                     |  20 [31m-[m
+ linux/ps4-kexec-672-pro/x86.h                      | 149 [31m-------[m
+ linux/ps4-kexec-672/acpi.c                         | 296 [31m-------------[m
+ linux/ps4-kexec-672/acpi.h                         |  18 [31m-[m
+ linux/ps4-kexec-672/crc32.c                        | 102 [31m-----[m
+ linux/ps4-kexec-672/crc32.h                        |   7 [31m-[m
+ linux/ps4-kexec-672/elf.h                          |  71 [31m---[m
+ linux/ps4-kexec-672/firmware.c                     | 479 [31m---------------------[m
+ linux/ps4-kexec-672/firmware.h                     |  64 [31m---[m
+ linux/ps4-kexec-672/kernel.c                       | 383 [31m----------------[m
+ linux/ps4-kexec-672/kernel.h                       | 126 [31m------[m
+ linux/ps4-kexec-672/kexec.c                        | 229 [31m----------[m
+ linux/ps4-kexec-672/kexec.h                        |  38 [31m--[m
+ linux/ps4-kexec-672/linux_boot.c                   | 441 [31m-------------------[m
+ linux/ps4-kexec-672/linux_boot.h                   |  88 [31m----[m
+ linux/ps4-kexec-672/reboot.h                       |  71 [31m---[m
+ linux/ps4-kexec-672/string.h                       |  96 [31m-----[m
+ linux/ps4-kexec-672/types.h                        |  51 [31m---[m
+ linux/ps4-kexec-672/uart.c                         |  64 [31m---[m
+ linux/ps4-kexec-672/uart.h                         |  20 [31m-[m
+ linux/ps4-kexec-672/x86.h                          | 149 [31m-------[m
+ linux/ps4-kexec-700-baikal/acpi.c                  | 320 [31m--------------[m
+ linux/ps4-kexec-700-baikal/acpi.h                  |  22 [31m-[m
+ linux/ps4-kexec-700-baikal/acpi_caps.h             |  30 [31m--[m
+ linux/ps4-kexec-700-baikal/crc32.c                 | 102 [31m-----[m
+ linux/ps4-kexec-700-baikal/crc32.h                 |   7 [31m-[m
+ linux/ps4-kexec-700-baikal/elf.h                   |  71 [31m---[m
+ linux/ps4-kexec-700-baikal/firmware.c              | 479 [31m---------------------[m
+ linux/ps4-kexec-700-baikal/firmware.h              |  64 [31m---[m
+ linux/ps4-kexec-700-baikal/kernel.c                | 383 [31m----------------[m
+ linux/ps4-kexec-700-baikal/kernel.h                | 126 [31m------[m
+ linux/ps4-kexec-700-baikal/kexec.c                 | 229 [31m----------[m
+ linux/ps4-kexec-700-baikal/kexec.h                 |  38 [31m--[m
+ linux/ps4-kexec-700-baikal/linux_boot.c            | 453 [31m-------------------[m
+ linux/ps4-kexec-700-baikal/linux_boot.h            |  88 [31m----[m
+ linux/ps4-kexec-700-baikal/reboot.h                |  71 [31m---[m
+ linux/ps4-kexec-700-baikal/string.h                |  96 [31m-----[m
+ linux/ps4-kexec-700-baikal/types.h                 |  51 [31m---[m
+ linux/ps4-kexec-700-baikal/uart.c                  |  64 [31m---[m
+ linux/ps4-kexec-700-baikal/uart.h                  |  20 [31m-[m
+ linux/ps4-kexec-700-baikal/x86.h                   | 195 [31m---------[m
+ linux/ps4-kexec-700-pro-baikal/acpi.c              | 320 [31m--------------[m
+ linux/ps4-kexec-700-pro-baikal/acpi.h              |  22 [31m-[m
+ linux/ps4-kexec-700-pro-baikal/acpi_caps.h         |  30 [31m--[m
+ linux/ps4-kexec-700-pro-baikal/crc32.c             | 102 [31m-----[m
+ linux/ps4-kexec-700-pro-baikal/crc32.h             |   7 [31m-[m
+ linux/ps4-kexec-700-pro-baikal/elf.h               |  71 [31m---[m
+ linux/ps4-kexec-700-pro-baikal/firmware.c          | 479 [31m---------------------[m
+ linux/ps4-kexec-700-pro-baikal/firmware.h          |  64 [31m---[m
+ linux/ps4-kexec-700-pro-baikal/kernel.c            | 383 [31m----------------[m
+ linux/ps4-kexec-700-pro-baikal/kernel.h            | 126 [31m------[m
+ linux/ps4-kexec-700-pro-baikal/kexec.c             | 229 [31m----------[m
+ linux/ps4-kexec-700-pro-baikal/kexec.h             |  38 [31m--[m
+ linux/ps4-kexec-700-pro-baikal/linux_boot.c        | 453 [31m-------------------[m
+ linux/ps4-kexec-700-pro-baikal/linux_boot.h        |  88 [31m----[m
+ linux/ps4-kexec-700-pro-baikal/reboot.h            |  71 [31m---[m
+ linux/ps4-kexec-700-pro-baikal/string.h            |  96 [31m-----[m
+ linux/ps4-kexec-700-pro-baikal/types.h             |  51 [31m---[m
+ linux/ps4-kexec-700-pro-baikal/uart.c              |  64 [31m---[m
+ linux/ps4-kexec-700-pro-baikal/uart.h              |  20 [31m-[m
+ linux/ps4-kexec-700-pro-baikal/x86.h               | 195 [31m---------[m
+ linux/ps4-kexec-700-pro/acpi.c                     | 296 [31m-------------[m
+ linux/ps4-kexec-700-pro/acpi.h                     |  18 [31m-[m
+ linux/ps4-kexec-700-pro/crc32.c                    | 102 [31m-----[m
+ linux/ps4-kexec-700-pro/crc32.h                    |   7 [31m-[m
+ linux/ps4-kexec-700-pro/elf.h                      |  71 [31m---[m
+ linux/ps4-kexec-700-pro/firmware.c                 | 479 [31m---------------------[m
+ linux/ps4-kexec-700-pro/firmware.h                 |  64 [31m---[m
+ linux/ps4-kexec-700-pro/kernel.c                   | 383 [31m----------------[m
+ linux/ps4-kexec-700-pro/kernel.h                   | 126 [31m------[m
+ linux/ps4-kexec-700-pro/kexec.c                    | 229 [31m----------[m
+ linux/ps4-kexec-700-pro/kexec.h                    |  38 [31m--[m
+ linux/ps4-kexec-700-pro/linux_boot.c               | 441 [31m-------------------[m
+ linux/ps4-kexec-700-pro/linux_boot.h               |  88 [31m----[m
+ linux/ps4-kexec-700-pro/reboot.h                   |  71 [31m---[m
+ linux/ps4-kexec-700-pro/string.h                   |  96 [31m-----[m
+ linux/ps4-kexec-700-pro/types.h                    |  51 [31m---[m
+ linux/ps4-kexec-700-pro/uart.c                     |  64 [31m---[m
+ linux/ps4-kexec-700-pro/uart.h                     |  20 [31m-[m
+ linux/ps4-kexec-700-pro/x86.h                      | 149 [31m-------[m
+ linux/ps4-kexec-700/acpi.c                         | 296 [31m-------------[m
+ linux/ps4-kexec-700/acpi.h                         |  18 [31m-[m
+ linux/ps4-kexec-700/crc32.c                        | 102 [31m-----[m
+ linux/ps4-kexec-700/crc32.h                        |   7 [31m-[m
+ linux/ps4-kexec-700/elf.h                          |  71 [31m---[m
+ linux/ps4-kexec-700/firmware.c                     | 479 [31m---------------------[m
+ linux/ps4-kexec-700/firmware.h                     |  64 [31m---[m
+ linux/ps4-kexec-700/kernel.c                       | 383 [31m----------------[m
+ linux/ps4-kexec-700/kernel.h                       | 126 [31m------[m
+ linux/ps4-kexec-700/kexec.c                        | 229 [31m----------[m
+ linux/ps4-kexec-700/kexec.h                        |  38 [31m--[m
+ linux/ps4-kexec-700/linux_boot.c                   | 441 [31m-------------------[m
+ linux/ps4-kexec-700/linux_boot.h                   |  88 [31m----[m
+ linux/ps4-kexec-700/reboot.h                       |  71 [31m---[m
+ linux/ps4-kexec-700/string.h                       |  96 [31m-----[m
+ linux/ps4-kexec-700/types.h                        |  51 [31m---[m
+ linux/ps4-kexec-700/uart.c                         |  64 [31m---[m
+ linux/ps4-kexec-700/uart.h                         |  20 [31m-[m
+ linux/ps4-kexec-700/x86.h                          | 149 [31m-------[m
+ linux/ps4-kexec-900-baikal/acpi.c                  | 320 [31m--------------[m
+ linux/ps4-kexec-900-baikal/acpi.h                  |  22 [31m-[m
+ linux/ps4-kexec-900-baikal/acpi_caps.h             |  30 [31m--[m
+ linux/ps4-kexec-900-baikal/crc32.c                 | 102 [31m-----[m
+ linux/ps4-kexec-900-baikal/crc32.h                 |   7 [31m-[m
+ linux/ps4-kexec-900-baikal/elf.h                   |  71 [31m---[m
+ linux/ps4-kexec-900-baikal/firmware.c              | 479 [31m---------------------[m
+ linux/ps4-kexec-900-baikal/firmware.h              |  64 [31m---[m
+ linux/ps4-kexec-900-baikal/kernel.c                | 383 [31m----------------[m
+ linux/ps4-kexec-900-baikal/kernel.h                | 126 [31m------[m
+ linux/ps4-kexec-900-baikal/kexec.c                 | 229 [31m----------[m
+ linux/ps4-kexec-900-baikal/kexec.h                 |  38 [31m--[m
+ linux/ps4-kexec-900-baikal/linux_boot.c            | 453 [31m-------------------[m
+ linux/ps4-kexec-900-baikal/linux_boot.h            |  88 [31m----[m
+ linux/ps4-kexec-900-baikal/reboot.h                |  71 [31m---[m
+ linux/ps4-kexec-900-baikal/string.h                |  96 [31m-----[m
+ linux/ps4-kexec-900-baikal/types.h                 |  51 [31m---[m
+ linux/ps4-kexec-900-baikal/uart.c                  |  64 [31m---[m
+ linux/ps4-kexec-900-baikal/uart.h                  |  20 [31m-[m
+ linux/ps4-kexec-900-baikal/x86.h                   | 195 [31m---------[m
+ linux/ps4-kexec-900-pro-baikal/acpi.c              | 320 [31m--------------[m
+ linux/ps4-kexec-900-pro-baikal/acpi.h              |  22 [31m-[m
+ linux/ps4-kexec-900-pro-baikal/acpi_caps.h         |  30 [31m--[m
+ linux/ps4-kexec-900-pro-baikal/crc32.c             | 102 [31m-----[m
+ linux/ps4-kexec-900-pro-baikal/crc32.h             |   7 [31m-[m
+ linux/ps4-kexec-900-pro-baikal/elf.h               |  71 [31m---[m
+ linux/ps4-kexec-900-pro-baikal/firmware.c          | 479 [31m---------------------[m
+ linux/ps4-kexec-900-pro-baikal/firmware.h          |  64 [31m---[m
+ linux/ps4-kexec-900-pro-baikal/kernel.c            | 383 [31m----------------[m
+ linux/ps4-kexec-900-pro-baikal/kernel.h            | 126 [31m------[m
+ linux/ps4-kexec-900-pro-baikal/kexec.c             | 229 [31m----------[m
+ linux/ps4-kexec-900-pro-baikal/kexec.h             |  38 [31m--[m
+ linux/ps4-kexec-900-pro-baikal/linux_boot.c        | 453 [31m-------------------[m
+ linux/ps4-kexec-900-pro-baikal/linux_boot.h        |  88 [31m----[m
+ linux/ps4-kexec-900-pro-baikal/reboot.h            |  71 [31m---[m
+ linux/ps4-kexec-900-pro-baikal/string.h            |  96 [31m-----[m
+ linux/ps4-kexec-900-pro-baikal/types.h             |  51 [31m---[m
+ linux/ps4-kexec-900-pro-baikal/uart.c              |  64 [31m---[m
+ linux/ps4-kexec-900-pro-baikal/uart.h              |  20 [31m-[m
+ linux/ps4-kexec-900-pro-baikal/x86.h               | 195 [31m---------[m
+ linux/ps4-kexec-900-pro/acpi.c                     | 296 [31m-------------[m
+ linux/ps4-kexec-900-pro/acpi.h                     |  18 [31m-[m
+ linux/ps4-kexec-900-pro/crc32.c                    | 102 [31m-----[m
+ linux/ps4-kexec-900-pro/crc32.h                    |   7 [31m-[m
+ linux/ps4-kexec-900-pro/elf.h                      |  71 [31m---[m
+ linux/ps4-kexec-900-pro/firmware.c                 | 479 [31m---------------------[m
+ linux/ps4-kexec-900-pro/firmware.h                 |  64 [31m---[m
+ linux/ps4-kexec-900-pro/kernel.c                   | 383 [31m----------------[m
+ linux/ps4-kexec-900-pro/kernel.h                   | 126 [31m------[m
+ linux/ps4-kexec-900-pro/kexec.c                    | 229 [31m----------[m
+ linux/ps4-kexec-900-pro/kexec.h                    |  38 [31m--[m
+ linux/ps4-kexec-900-pro/linux_boot.c               | 441 [31m-------------------[m
+ linux/ps4-kexec-900-pro/linux_boot.h               |  88 [31m----[m
+ linux/ps4-kexec-900-pro/reboot.h                   |  71 [31m---[m
+ linux/ps4-kexec-900-pro/string.h                   |  96 [31m-----[m
+ linux/ps4-kexec-900-pro/types.h                    |  51 [31m---[m
+ linux/ps4-kexec-900-pro/uart.c                     |  64 [31m---[m
+ linux/ps4-kexec-900-pro/uart.h                     |  20 [31m-[m
+ linux/ps4-kexec-900-pro/x86.h                      | 149 [31m-------[m
+ linux/ps4-kexec-900/acpi.c                         | 296 [31m-------------[m
+ linux/ps4-kexec-900/acpi.h                         |  18 [31m-[m
+ linux/ps4-kexec-900/crc32.c                        | 102 [31m-----[m
+ linux/ps4-kexec-900/crc32.h                        |   7 [31m-[m
+ linux/ps4-kexec-900/elf.h                          |  71 [31m---[m
+ linux/ps4-kexec-900/firmware.c                     | 479 [31m---------------------[m
+ linux/ps4-kexec-900/firmware.h                     |  64 [31m---[m
+ linux/ps4-kexec-900/kernel.c                       | 383 [31m----------------[m
+ linux/ps4-kexec-900/kernel.h                       | 126 [31m------[m
+ linux/ps4-kexec-900/kexec.c                        | 229 [31m----------[m
+ linux/ps4-kexec-900/kexec.h                        |  38 [31m--[m
+ linux/ps4-kexec-900/linux_boot.c                   | 441 [31m-------------------[m
+ linux/ps4-kexec-900/linux_boot.h                   |  88 [31m----[m
+ linux/ps4-kexec-900/reboot.h                       |  71 [31m---[m
+ linux/ps4-kexec-900/string.h                       |  96 [31m-----[m
+ linux/ps4-kexec-900/types.h                        |  51 [31m---[m
+ linux/ps4-kexec-900/uart.c                         |  64 [31m---[m
+ linux/ps4-kexec-900/uart.h                         |  20 [31m-[m
+ linux/ps4-kexec-900/x86.h                          | 149 [31m-------[m
+ linux/ps4-kexec-903-baikal/acpi.c                  | 320 [31m--------------[m
+ linux/ps4-kexec-903-baikal/acpi.h                  |  22 [31m-[m
+ linux/ps4-kexec-903-baikal/acpi_caps.h             |  30 [31m--[m
+ linux/ps4-kexec-903-baikal/crc32.c                 | 102 [31m-----[m
+ linux/ps4-kexec-903-baikal/crc32.h                 |   7 [31m-[m
+ linux/ps4-kexec-903-baikal/elf.h                   |  71 [31m---[m
+ linux/ps4-kexec-903-baikal/firmware.c              | 479 [31m---------------------[m
+ linux/ps4-kexec-903-baikal/firmware.h              |  64 [31m---[m
+ linux/ps4-kexec-903-baikal/kernel.c                | 383 [31m----------------[m
+ linux/ps4-kexec-903-baikal/kernel.h                | 126 [31m------[m
+ linux/ps4-kexec-903-baikal/kexec.c                 | 229 [31m----------[m
+ linux/ps4-kexec-903-baikal/kexec.h                 |  38 [31m--[m
+ linux/ps4-kexec-903-baikal/linux_boot.c            | 453 [31m-------------------[m
+ linux/ps4-kexec-903-baikal/linux_boot.h            |  88 [31m----[m
+ linux/ps4-kexec-903-baikal/reboot.h                |  71 [31m---[m
+ linux/ps4-kexec-903-baikal/string.h                |  96 [31m-----[m
+ linux/ps4-kexec-903-baikal/types.h                 |  51 [31m---[m
+ linux/ps4-kexec-903-baikal/uart.c                  |  64 [31m---[m
+ linux/ps4-kexec-903-baikal/uart.h                  |  20 [31m-[m
+ linux/ps4-kexec-903-baikal/x86.h                   | 195 [31m---------[m
+ linux/ps4-kexec-903-pro-baikal/acpi.c              | 320 [31m--------------[m
+ linux/ps4-kexec-903-pro-baikal/acpi.h              |  22 [31m-[m
+ linux/ps4-kexec-903-pro-baikal/acpi_caps.h         |  30 [31m--[m
+ linux/ps4-kexec-903-pro-baikal/crc32.c             | 102 [31m-----[m
+ linux/ps4-kexec-903-pro-baikal/crc32.h             |   7 [31m-[m
+ linux/ps4-kexec-903-pro-baikal/elf.h               |  71 [31m---[m
+ linux/ps4-kexec-903-pro-baikal/firmware.c          | 479 [31m---------------------[m
+ linux/ps4-kexec-903-pro-baikal/firmware.h          |  64 [31m---[m
+ linux/ps4-kexec-903-pro-baikal/kernel.c            | 383 [31m----------------[m
+ linux/ps4-kexec-903-pro-baikal/kernel.h            | 126 [31m------[m
+ linux/ps4-kexec-903-pro-baikal/kexec.c             | 229 [31m----------[m
+ linux/ps4-kexec-903-pro-baikal/kexec.h             |  38 [31m--[m
+ linux/ps4-kexec-903-pro-baikal/linux_boot.c        | 453 [31m-------------------[m
+ linux/ps4-kexec-903-pro-baikal/linux_boot.h        |  88 [31m----[m
+ linux/ps4-kexec-903-pro-baikal/reboot.h            |  71 [31m---[m
+ linux/ps4-kexec-903-pro-baikal/string.h            |  96 [31m-----[m
+ linux/ps4-kexec-903-pro-baikal/types.h             |  51 [31m---[m
+ linux/ps4-kexec-903-pro-baikal/uart.c              |  64 [31m---[m
+ linux/ps4-kexec-903-pro-baikal/uart.h              |  20 [31m-[m
+ linux/ps4-kexec-903-pro-baikal/x86.h               | 195 [31m---------[m
+ linux/ps4-kexec-903-pro/acpi.c                     | 296 [31m-------------[m
+ linux/ps4-kexec-903-pro/acpi.h                     |  18 [31m-[m
+ linux/ps4-kexec-903-pro/crc32.c                    | 102 [31m-----[m
+ linux/ps4-kexec-903-pro/crc32.h                    |   7 [31m-[m
+ linux/ps4-kexec-903-pro/elf.h                      |  71 [31m---[m
+ linux/ps4-kexec-903-pro/firmware.c                 | 479 [31m---------------------[m
+ linux/ps4-kexec-903-pro/firmware.h                 |  64 [31m---[m
+ linux/ps4-kexec-903-pro/kernel.c                   | 383 [31m----------------[m
+ linux/ps4-kexec-903-pro/kernel.h                   | 126 [31m------[m
+ linux/ps4-kexec-903-pro/kexec.c                    | 229 [31m----------[m
+ linux/ps4-kexec-903-pro/kexec.h                    |  38 [31m--[m
+ linux/ps4-kexec-903-pro/linux_boot.c               | 441 [31m-------------------[m
+ linux/ps4-kexec-903-pro/linux_boot.h               |  88 [31m----[m
+ linux/ps4-kexec-903-pro/reboot.h                   |  71 [31m---[m
+ linux/ps4-kexec-903-pro/string.h                   |  96 [31m-----[m
+ linux/ps4-kexec-903-pro/types.h                    |  51 [31m---[m
+ linux/ps4-kexec-903-pro/uart.c                     |  64 [31m---[m
+ linux/ps4-kexec-903-pro/uart.h                     |  20 [31m-[m
+ linux/ps4-kexec-903-pro/x86.h                      | 149 [31m-------[m
+ linux/ps4-kexec-903/acpi.c                         | 296 [31m-------------[m
+ linux/ps4-kexec-903/acpi.h                         |  18 [31m-[m
+ linux/ps4-kexec-903/crc32.c                        | 102 [31m-----[m
+ linux/ps4-kexec-903/crc32.h                        |   7 [31m-[m
+ linux/ps4-kexec-903/elf.h                          |  71 [31m---[m
+ linux/ps4-kexec-903/firmware.c                     | 479 [31m---------------------[m
+ linux/ps4-kexec-903/firmware.h                     |  64 [31m---[m
+ linux/ps4-kexec-903/kernel.c                       | 383 [31m----------------[m
+ linux/ps4-kexec-903/kernel.h                       | 126 [31m------[m
+ linux/ps4-kexec-903/kexec.c                        | 229 [31m----------[m
+ linux/ps4-kexec-903/kexec.h                        |  38 [31m--[m
+ linux/ps4-kexec-903/linux_boot.c                   | 441 [31m-------------------[m
+ linux/ps4-kexec-903/linux_boot.h                   |  88 [31m----[m
+ linux/ps4-kexec-903/reboot.h                       |  71 [31m---[m
+ linux/ps4-kexec-903/string.h                       |  96 [31m-----[m
+ linux/ps4-kexec-903/types.h                        |  51 [31m---[m
+ linux/ps4-kexec-903/uart.c                         |  64 [31m---[m
+ linux/ps4-kexec-903/uart.h                         |  20 [31m-[m
+ linux/ps4-kexec-903/x86.h                          | 149 [31m-------[m
+ linux/ps4-kexec-960-baikal/acpi.c                  | 320 [31m--------------[m
+ linux/ps4-kexec-960-baikal/acpi.h                  |  22 [31m-[m
+ linux/ps4-kexec-960-baikal/acpi_caps.h             |  30 [31m--[m
+ linux/ps4-kexec-960-baikal/crc32.c                 | 102 [31m-----[m
+ linux/ps4-kexec-960-baikal/crc32.h                 |   7 [31m-[m
+ linux/ps4-kexec-960-baikal/elf.h                   |  71 [31m---[m
+ linux/ps4-kexec-960-baikal/firmware.c              | 479 [31m---------------------[m
+ linux/ps4-kexec-960-baikal/firmware.h              |  64 [31m---[m
+ linux/ps4-kexec-960-baikal/kernel.c                | 383 [31m----------------[m
+ linux/ps4-kexec-960-baikal/kernel.h                | 126 [31m------[m
+ linux/ps4-kexec-960-baikal/kexec.c                 | 229 [31m----------[m
+ linux/ps4-kexec-960-baikal/kexec.h                 |  38 [31m--[m
+ linux/ps4-kexec-960-baikal/linux_boot.c            | 453 [31m-------------------[m
+ linux/ps4-kexec-960-baikal/linux_boot.h            |  88 [31m----[m
+ linux/ps4-kexec-960-baikal/reboot.h                |  71 [31m---[m
+ linux/ps4-kexec-960-baikal/string.h                |  96 [31m-----[m
+ linux/ps4-kexec-960-baikal/types.h                 |  51 [31m---[m
+ linux/ps4-kexec-960-baikal/uart.c                  |  64 [31m---[m
+ linux/ps4-kexec-960-baikal/uart.h                  |  20 [31m-[m
+ linux/ps4-kexec-960-baikal/x86.h                   | 195 [31m---------[m
+ linux/ps4-kexec-960-pro-baikal/acpi.c              | 320 [31m--------------[m
+ linux/ps4-kexec-960-pro-baikal/acpi.h              |  22 [31m-[m
+ linux/ps4-kexec-960-pro-baikal/acpi_caps.h         |  30 [31m--[m
+ linux/ps4-kexec-960-pro-baikal/crc32.c             | 102 [31m-----[m
+ linux/ps4-kexec-960-pro-baikal/crc32.h             |   7 [31m-[m
+ linux/ps4-kexec-960-pro-baikal/elf.h               |  71 [31m---[m
+ linux/ps4-kexec-960-pro-baikal/firmware.c          | 479 [31m---------------------[m
+ linux/ps4-kexec-960-pro-baikal/firmware.h          |  64 [31m---[m
+ linux/ps4-kexec-960-pro-baikal/kernel.c            | 383 [31m----------------[m
+ linux/ps4-kexec-960-pro-baikal/kernel.h            | 126 [31m------[m
+ linux/ps4-kexec-960-pro-baikal/kexec.c             | 229 [31m----------[m
+ linux/ps4-kexec-960-pro-baikal/kexec.h             |  38 [31m--[m
+ linux/ps4-kexec-960-pro-baikal/linux_boot.c        | 453 [31m-------------------[m
+ linux/ps4-kexec-960-pro-baikal/linux_boot.h        |  88 [31m----[m
+ linux/ps4-kexec-960-pro-baikal/reboot.h            |  71 [31m---[m
+ linux/ps4-kexec-960-pro-baikal/string.h            |  96 [31m-----[m
+ linux/ps4-kexec-960-pro-baikal/types.h             |  51 [31m---[m
+ linux/ps4-kexec-960-pro-baikal/uart.c              |  64 [31m---[m
+ linux/ps4-kexec-960-pro-baikal/uart.h              |  20 [31m-[m
+ linux/ps4-kexec-960-pro-baikal/x86.h               | 195 [31m---------[m
+ linux/ps4-kexec-960-pro/acpi.c                     | 296 [31m-------------[m
+ linux/ps4-kexec-960-pro/acpi.h                     |  18 [31m-[m
+ linux/ps4-kexec-960-pro/crc32.c                    | 102 [31m-----[m
+ linux/ps4-kexec-960-pro/crc32.h                    |   7 [31m-[m
+ linux/ps4-kexec-960-pro/elf.h                      |  71 [31m---[m
+ linux/ps4-kexec-960-pro/firmware.c                 | 479 [31m---------------------[m
+ linux/ps4-kexec-960-pro/firmware.h                 |  64 [31m---[m
+ linux/ps4-kexec-960-pro/kernel.c                   | 383 [31m----------------[m
+ linux/ps4-kexec-960-pro/kernel.h                   | 126 [31m------[m
+ linux/ps4-kexec-960-pro/kexec.c                    | 229 [31m----------[m
+ linux/ps4-kexec-960-pro/kexec.h                    |  38 [31m--[m
+ linux/ps4-kexec-960-pro/linux_boot.c               | 441 [31m-------------------[m
+ linux/ps4-kexec-960-pro/linux_boot.h               |  88 [31m----[m
+ linux/ps4-kexec-960-pro/reboot.h                   |  71 [31m---[m
+ linux/ps4-kexec-960-pro/string.h                   |  96 [31m-----[m
+ linux/ps4-kexec-960-pro/types.h                    |  51 [31m---[m
+ linux/ps4-kexec-960-pro/uart.c                     |  64 [31m---[m
+ linux/ps4-kexec-960-pro/uart.h                     |  20 [31m-[m
+ linux/ps4-kexec-960-pro/x86.h                      | 149 [31m-------[m
+ linux/ps4-kexec-960/acpi.c                         | 296 [31m-------------[m
+ linux/ps4-kexec-960/acpi.h                         |  18 [31m-[m
+ linux/ps4-kexec-960/crc32.c                        | 102 [31m-----[m
+ linux/ps4-kexec-960/crc32.h                        |   7 [31m-[m
+ linux/ps4-kexec-960/elf.h                          |  71 [31m---[m
+ linux/ps4-kexec-960/firmware.c                     | 479 [31m---------------------[m
+ linux/ps4-kexec-960/firmware.h                     |  64 [31m---[m
+ linux/ps4-kexec-960/kernel.c                       | 383 [31m----------------[m
+ linux/ps4-kexec-960/kernel.h                       | 126 [31m------[m
+ linux/ps4-kexec-960/kexec.c                        | 229 [31m----------[m
+ linux/ps4-kexec-960/kexec.h                        |  38 [31m--[m
+ linux/ps4-kexec-960/linux_boot.c                   | 441 [31m-------------------[m
+ linux/ps4-kexec-960/linux_boot.h                   |  88 [31m----[m
+ linux/ps4-kexec-960/reboot.h                       |  71 [31m---[m
+ linux/ps4-kexec-960/string.h                       |  96 [31m-----[m
+ linux/ps4-kexec-960/types.h                        |  51 [31m---[m
+ linux/ps4-kexec-960/uart.c                         |  64 [31m---[m
+ linux/ps4-kexec-960/uart.h                         |  20 [31m-[m
+ linux/ps4-kexec-960/x86.h                          | 149 [31m-------[m
+ linux/ps4-kexec-common/LICENSE                     |  24 [32m++[m
+ linux/ps4-kexec-common/Makefile                    |  47 [32m++[m
+ linux/ps4-kexec-common/README.md                   | 121 [32m++++++[m
+ .../acpi.c                                         |  28 [32m+[m[31m-[m
+ .../acpi.h                                         |   5 [32m+[m[31m-[m
+ .../acpi_caps.h                                    |   0
+ .../crc32.c                                        |   0
+ .../crc32.h                                        |   0
+ .../elf.h                                          |   0
+ .../firmware.c                                     |   8 [32m+[m[31m-[m
+ .../firmware.h                                     |   4 [32m+[m[31m-[m
+ .../kernel.c                                       |   1 [32m+[m
+ .../kernel.h                                       |   0
+ .../kexec.c                                        |  88 [32m+++[m[31m-[m
+ .../kexec.h                                        |   0
+ linux/ps4-kexec-common/kexec.ld                    |  25 [32m++[m
+ .../linux_boot.c                                   |  93 [32m++[m[31m--[m
+ .../linux_boot.h                                   |   0
+ linux/ps4-kexec-common/linux_thunk.S               |  90 [32m++++[m
+ .../reboot.h                                       |   0
+ .../string.h                                       |   0
+ .../types.h                                        |   0
+ .../uart.c                                         |   6 [32m+[m[31m-[m
+ .../uart.h                                         |   0
+ .../x86.h                                          |   0
+ linux/sb_detect.h                                  |  15 [32m+[m
+ 1184 files changed, 1481 insertions(+), 168860 deletions(-)
+=== 13.02 source paths ===
+linux/ps4-kexec-1302-baikal/LICENSE
+linux/ps4-kexec-1302-baikal/Makefile
+linux/ps4-kexec-1302-baikal/README.md
+linux/ps4-kexec-1302-baikal/acpi.c
+linux/ps4-kexec-1302-baikal/acpi.h
+linux/ps4-kexec-1302-baikal/acpi_caps.h
+linux/ps4-kexec-1302-baikal/crc32.c
+linux/ps4-kexec-1302-baikal/crc32.h
+linux/ps4-kexec-1302-baikal/elf.h
+linux/ps4-kexec-1302-baikal/firmware.c
+linux/ps4-kexec-1302-baikal/firmware.h
+linux/ps4-kexec-1302-baikal/kernel.c
+linux/ps4-kexec-1302-baikal/kernel.h
+linux/ps4-kexec-1302-baikal/kexec.c
+linux/ps4-kexec-1302-baikal/kexec.h
+linux/ps4-kexec-1302-baikal/kexec.ld
+linux/ps4-kexec-1302-baikal/linux_boot.c
+linux/ps4-kexec-1302-baikal/linux_boot.h
+linux/ps4-kexec-1302-baikal/linux_thunk.S
+linux/ps4-kexec-1302-baikal/reboot.h
+linux/ps4-kexec-1302-baikal/string.h
+linux/ps4-kexec-1302-baikal/types.h
+linux/ps4-kexec-1302-baikal/uart.c
+linux/ps4-kexec-1302-baikal/uart.h
+linux/ps4-kexec-1302-baikal/x86.h
+linux/ps4-kexec-1302-pro-baikal/LICENSE
+linux/ps4-kexec-1302-pro-baikal/Makefile
+linux/ps4-kexec-1302-pro-baikal/README.md
+linux/ps4-kexec-1302-pro-baikal/acpi.c
+linux/ps4-kexec-1302-pro-baikal/acpi.h
+linux/ps4-kexec-1302-pro-baikal/acpi_caps.h
+linux/ps4-kexec-1302-pro-baikal/crc32.c
+linux/ps4-kexec-1302-pro-baikal/crc32.h
+linux/ps4-kexec-1302-pro-baikal/elf.h
+linux/ps4-kexec-1302-pro-baikal/firmware.c
+linux/ps4-kexec-1302-pro-baikal/firmware.h
+linux/ps4-kexec-1302-pro-baikal/kernel.c
+linux/ps4-kexec-1302-pro-baikal/kernel.h
+linux/ps4-kexec-1302-pro-baikal/kexec.c
+linux/ps4-kexec-1302-pro-baikal/kexec.h
+linux/ps4-kexec-1302-pro-baikal/kexec.ld
+linux/ps4-kexec-1302-pro-baikal/linux_boot.c
+linux/ps4-kexec-1302-pro-baikal/linux_boot.h
+linux/ps4-kexec-1302-pro-baikal/linux_thunk.S
+linux/ps4-kexec-1302-pro-baikal/reboot.h
+linux/ps4-kexec-1302-pro-baikal/string.h
+linux/ps4-kexec-1302-pro-baikal/types.h
+linux/ps4-kexec-1302-pro-baikal/uart.c
+linux/ps4-kexec-1302-pro-baikal/uart.h
+linux/ps4-kexec-1302-pro-baikal/x86.h
+linux/ps4-kexec-1302-pro/LICENSE
+linux/ps4-kexec-1302-pro/Makefile
+linux/ps4-kexec-1302-pro/README.md
+linux/ps4-kexec-1302-pro/acpi.c
+linux/ps4-kexec-1302-pro/acpi.h
+linux/ps4-kexec-1302-pro/crc32.c
+linux/ps4-kexec-1302-pro/crc32.h
+linux/ps4-kexec-1302-pro/elf.h
+linux/ps4-kexec-1302-pro/firmware.c
+linux/ps4-kexec-1302-pro/firmware.h
+linux/ps4-kexec-1302-pro/kernel.c
+linux/ps4-kexec-1302-pro/kernel.h
+linux/ps4-kexec-1302-pro/kexec.c
+linux/ps4-kexec-1302-pro/kexec.h
+linux/ps4-kexec-1302-pro/kexec.ld
+linux/ps4-kexec-1302-pro/linux_boot.c
+linux/ps4-kexec-1302-pro/linux_boot.h
+linux/ps4-kexec-1302-pro/linux_thunk.S
+linux/ps4-kexec-1302-pro/reboot.h
+linux/ps4-kexec-1302-pro/string.h
+linux/ps4-kexec-1302-pro/types.h
+linux/ps4-kexec-1302-pro/uart.c
+linux/ps4-kexec-1302-pro/uart.h
+linux/ps4-kexec-1302-pro/x86.h
+linux/ps4-kexec-1302/LICENSE
+linux/ps4-kexec-1302/Makefile
+linux/ps4-kexec-1302/README.md
+linux/ps4-kexec-1302/acpi.c
+linux/ps4-kexec-1302/acpi.h
+linux/ps4-kexec-1302/crc32.c
+linux/ps4-kexec-1302/crc32.h
+linux/ps4-kexec-1302/elf.h
+linux/ps4-kexec-1302/firmware.c
+linux/ps4-kexec-1302/firmware.h
+linux/ps4-kexec-1302/kernel.c
+linux/ps4-kexec-1302/kernel.h
+linux/ps4-kexec-1302/kexec.c
+linux/ps4-kexec-1302/kexec.h
+linux/ps4-kexec-1302/kexec.ld
+linux/ps4-kexec-1302/linux_boot.c
+linux/ps4-kexec-1302/linux_boot.h
+linux/ps4-kexec-1302/linux_thunk.S
+linux/ps4-kexec-1302/reboot.h
+linux/ps4-kexec-1302/string.h
+linux/ps4-kexec-1302/types.h
+linux/ps4-kexec-1302/uart.c
+linux/ps4-kexec-1302/uart.h
+linux/ps4-kexec-1302/x86.h
+=== v25 common paths ===
+linux/fw_offsets.h
+linux/ps4-kexec-common/LICENSE
+linux/ps4-kexec-common/Makefile
+linux/ps4-kexec-common/README.md
+linux/ps4-kexec-common/acpi.c
+linux/ps4-kexec-common/acpi.h
+linux/ps4-kexec-common/acpi_caps.h
+linux/ps4-kexec-common/crc32.c
+linux/ps4-kexec-common/crc32.h
+linux/ps4-kexec-common/elf.h
+linux/ps4-kexec-common/firmware.c
+linux/ps4-kexec-common/firmware.h
+linux/ps4-kexec-common/kernel.c
+linux/ps4-kexec-common/kernel.h
+linux/ps4-kexec-common/kexec.c
+linux/ps4-kexec-common/kexec.h
+linux/ps4-kexec-common/kexec.ld
+linux/ps4-kexec-common/linux_boot.c
+linux/ps4-kexec-common/linux_boot.h
+linux/ps4-kexec-common/linux_thunk.S
+linux/ps4-kexec-common/reboot.h
+linux/ps4-kexec-common/string.h
+linux/ps4-kexec-common/types.h
+linux/ps4-kexec-common/uart.c
+linux/ps4-kexec-common/uart.h
+linux/ps4-kexec-common/x86.h
