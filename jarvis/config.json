@@ -1,0 +1,37 @@
+{
+  "assistant_name": "JARVIS",
+  "user_name": "",
+  "ollama": {
+    "base_url": "http://127.0.0.1:11434",
+    "model": "llama3.2:3b",
+    "vision_model": "llava:7b",
+    "timeout_seconds": 120,
+    "temperature": 0.2
+  },
+  "agent": {
+    "max_steps": 12,
+    "history_limit": 80,
+    "autonomous_mode": false,
+    "capture_screen_before_action": true,
+    "verify_actions": true,
+    "workspace_root": ""
+  },
+  "security": {
+    "confirm_file_delete": true,
+    "confirm_dangerous_commands": true,
+    "confirm_sensitive_actions": true,
+    "blocked_commands": ["format", "diskpart", "reg delete", "shutdown", "restart-computer", "stop-computer", "remove-item -recurse", "del /s", "rmdir /s"]
+  },
+  "voice": {
+    "enabled": false,
+    "stt_engine": "faster-whisper",
+    "stt_model": "base",
+    "tts_enabled": false,
+    "tts_rate": 175
+  },
+  "ui": {
+    "theme": "dark",
+    "start_maximized": true
+  }
+}
+
