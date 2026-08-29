@@ -72,7 +72,10 @@ class AgentEngine:
                 self._emit("ACT", tool_name, args, ToolResult(False, last_observation))
                 continue
             description = self.tools.confirmation_message(tool_name, args)
-            if description and not self.config["agent"].get("autonomous_mode", False):
+            command = str(args.get("command", ""))
+            blocked = self.config.get("security", {}).get("blocked_commands", [])
+            forced_confirmation = tool_name in {"run_powershell", "git"} and any(token.lower() in command.lower() for token in blocked)
+            if description and (not self.config["agent"].get("autonomous_mode", False) or forced_confirmation):
                 approved = self.on_confirmation(description) if self.on_confirmation else False
                 if not approved:
                     return "Acción cancelada: no se concedió confirmación."
