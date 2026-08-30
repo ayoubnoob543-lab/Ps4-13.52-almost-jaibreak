@@ -1,7 +1,7 @@
 # Estado de investigación — firmware-lab
 
-**Última revisión documental:** 26 de agosto de 2026
-**Estado global:** en investigación; no es un jailbreak terminado.
+**Última revisión documental:** 30 de agosto de 2026
+**Estado global:** investigación abierta; no es un jailbreak terminado ni una herramienta lista para usuarios finales.
 **Método por defecto:** análisis estático, hashes, manifests, tests host-side y correlación de fuentes. La ejecución en hardware se marca por separado.
 
 ## Estado por firmware
